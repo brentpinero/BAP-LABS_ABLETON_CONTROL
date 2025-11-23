@@ -1,0 +1,147 @@
+{
+  "format_version": "1.0",
+  "description": "Structured JSON format for LLM responses controlling Serum 2 parameters",
+  "output_structure": {
+    "preset_name": {
+      "type": "string",
+      "description": "Human-readable name for the generated preset",
+      "example": "Dark Wobble Bass"
+    },
+    "description": {
+      "type": "string",
+      "description": "Brief description of the sound character and intended use",
+      "example": "Deep, aggressive wobble bass with filter modulation perfect for dubstep drops"
+    },
+    "parameter_changes": {
+      "type": "object",
+      "description": "Parameter indices and their normalized values (0.0-1.0)",
+      "structure": {
+        "parameter_index": {
+          "type": "number",
+          "range": "0.0-1.0",
+          "description": "Normalized parameter value"
+        }
+      },
+      "example": {
+        "1": 0.8,
+        "22": 0.75,
+        "206": 0.3,
+        "207": 0.6
+      }
+    },
+    "critical_changes": {
+      "type": "object",
+      "description": "Key parameters with human-readable names for clarity",
+      "example": {
+        "master_volume": 0.8,
+        "osc_a_level": 0.75,
+        "filter_1_freq": 0.3,
+        "filter_1_res": 0.6
+      }
+    },
+    "categories_affected": {
+      "type": "array",
+      "description": "List of parameter categories being modified",
+      "valid_categories": [
+        "global", "oscillator_a", "oscillator_b", "oscillator_c",
+        "noise", "sub", "filter_1", "filter_2",
+        "env_1", "env_2", "env_3", "env_4",
+        "lfo_1", "lfo_2", "lfo_3", "lfo_4",
+        "macros", "modulation"
+      ],
+      "example": ["global", "oscillator_a", "filter_1"]
+    },
+    "automation_targets": {
+      "type": "array",
+      "description": "Parameters suggested for real-time automation/modulation",
+      "structure": {
+        "parameter": "string",
+        "index": "number",
+        "reason": "string"
+      },
+      "example": [
+        {
+          "parameter": "filter_1_freq",
+          "index": 206,
+          "reason": "Primary wobble control for bass movement"
+        }
+      ]
+    },
+    "genre_tags": {
+      "type": "array",
+      "description": "Musical genres this preset works well with",
+      "example": ["dubstep", "bass music", "electronic"]
+    },
+    "max_patch_commands": {
+      "type": "array",
+      "description": "Direct Max for Live commands to execute the preset",
+      "example": [
+        "1 0.8",
+        "22 0.75",
+        "206 0.3",
+        "207 0.6"
+      ]
+    }
+  },
+  "usage_guidelines": {
+    "parameter_values": "All parameter values must be normalized between 0.0 and 1.0",
+    "parameter_indices": "Use 1-based indexing (1, 2, 3...) matching Serum 2's internal structure",
+    "critical_parameters": "Always include critical_changes for transparency and debugging",
+    "automation_focus": "Identify 1-3 key parameters for real-time control/modulation",
+    "preset_naming": "Use descriptive names that convey sound character and musical context"
+  },
+  "example_preset": {
+    "preset_name": "Acid TB-303 Lead",
+    "description": "Classic acid house lead with resonant filter sweep and envelope control",
+    "parameter_changes": {
+      "1": 0.7,
+      "22": 0.8,
+      "60": 0.25,
+      "206": 0.4,
+      "207": 0.8,
+      "208": 0.3,
+      "225": 0.1,
+      "227": 0.3,
+      "228": 0.2,
+      "229": 0.4
+    },
+    "critical_changes": {
+      "master_volume": 0.7,
+      "osc_a_level": 0.8,
+      "osc_a_wt_pos": 0.25,
+      "filter_1_freq": 0.4,
+      "filter_1_res": 0.8,
+      "filter_1_drive": 0.3,
+      "env_1_attack": 0.1,
+      "env_1_decay": 0.3,
+      "env_1_sustain": 0.2,
+      "env_1_release": 0.4
+    },
+    "categories_affected": ["global", "oscillator_a", "filter_1", "env_1"],
+    "automation_targets": [
+      {
+        "parameter": "filter_1_freq",
+        "index": 206,
+        "reason": "Primary cutoff sweep for acid character"
+      },
+      {
+        "parameter": "filter_1_res",
+        "index": 207,
+        "reason": "Resonance control for intensity variation"
+      }
+    ],
+    "genre_tags": ["acid house", "techno", "electronic", "dance"],
+    "max_patch_commands": [
+      "1 0.7",
+      "22 0.8",
+      "60 0.25",
+      "206 0.4",
+      "207 0.8",
+      "208 0.3",
+      "225 0.1",
+      "227 0.3",
+      "228 0.2",
+      "229 0.4"
+    ]
+  }
+}

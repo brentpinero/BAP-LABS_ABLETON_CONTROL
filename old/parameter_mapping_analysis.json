@@ -1,0 +1,250 @@
+{
+  "parameter_usage": {},
+  "test_sequences": {
+    "bass_test": {
+      "description": "Test sequence for bass sounds",
+      "parameters": []
+    },
+    "lead_test": {
+      "description": "Test sequence for lead sounds",
+      "parameters": []
+    },
+    "pad_test": {
+      "description": "Test sequence for pad sounds",
+      "parameters": []
+    },
+    "pluck_test": {
+      "description": "Test sequence for pluck sounds",
+      "parameters": []
+    }
+  },
+  "serum_mapping": {
+    "OSC_A_LEVEL": {
+      "indices": [
+        0,
+        1
+      ],
+      "description": "Oscillator A Level/Volume"
+    },
+    "OSC_A_PITCH": {
+      "indices": [
+        2,
+        3
+      ],
+      "description": "Oscillator A Pitch/Tune"
+    },
+    "OSC_A_WAVETABLE": {
+      "indices": [
+        4,
+        5,
+        6
+      ],
+      "description": "Oscillator A Wavetable Position"
+    },
+    "OSC_A_DETUNE": {
+      "indices": [
+        7,
+        8
+      ],
+      "description": "Oscillator A Fine Tune/Detune"
+    },
+    "OSC_B_LEVEL": {
+      "indices": [
+        20,
+        21
+      ],
+      "description": "Oscillator B Level/Volume"
+    },
+    "OSC_B_PITCH": {
+      "indices": [
+        22,
+        23
+      ],
+      "description": "Oscillator B Pitch/Tune"
+    },
+    "OSC_B_WAVETABLE": {
+      "indices": [
+        24,
+        25,
+        26
+      ],
+      "description": "Oscillator B Wavetable Position"
+    },
+    "OSC_B_DETUNE": {
+      "indices": [
+        27,
+        28
+      ],
+      "description": "Oscillator B Fine Tune/Detune"
+    },
+    "FILTER_CUTOFF": {
+      "indices": [
+        40,
+        41
+      ],
+      "description": "Filter Cutoff Frequency"
+    },
+    "FILTER_RESONANCE": {
+      "indices": [
+        42,
+        43
+      ],
+      "description": "Filter Resonance"
+    },
+    "FILTER_TYPE": {
+      "indices": [
+        44,
+        45
+      ],
+      "description": "Filter Type Selection"
+    },
+    "FILTER_DRIVE": {
+      "indices": [
+        46,
+        47
+      ],
+      "description": "Filter Drive/Saturation"
+    },
+    "ENV_ATTACK": {
+      "indices": [
+        60,
+        61,
+        62
+      ],
+      "description": "Envelope Attack Times"
+    },
+    "ENV_DECAY": {
+      "indices": [
+        63,
+        64,
+        65
+      ],
+      "description": "Envelope Decay Times"
+    },
+    "ENV_SUSTAIN": {
+      "indices": [
+        66,
+        67,
+        68
+      ],
+      "description": "Envelope Sustain Levels"
+    },
+    "ENV_RELEASE": {
+      "indices": [
+        69,
+        70,
+        71
+      ],
+      "description": "Envelope Release Times"
+    },
+    "LFO_RATE": {
+      "indices": [
+        80,
+        81,
+        82,
+        83
+      ],
+      "description": "LFO Rate/Speed"
+    },
+    "LFO_AMOUNT": {
+      "indices": [
+        84,
+        85,
+        86,
+        87
+      ],
+      "description": "LFO Modulation Amount"
+    },
+    "LFO_SHAPE": {
+      "indices": [
+        88,
+        89,
+        90,
+        91
+      ],
+      "description": "LFO Waveform Shape"
+    },
+    "REVERB_SIZE": {
+      "indices": [
+        100,
+        101
+      ],
+      "description": "Reverb Room Size"
+    },
+    "REVERB_MIX": {
+      "indices": [
+        102,
+        103
+      ],
+      "description": "Reverb Wet/Dry Mix"
+    },
+    "DELAY_TIME": {
+      "indices": [
+        104,
+        105
+      ],
+      "description": "Delay Time"
+    },
+    "DELAY_FEEDBACK": {
+      "indices": [
+        106,
+        107
+      ],
+      "description": "Delay Feedback"
+    },
+    "DISTORTION_AMOUNT": {
+      "indices": [
+        108,
+        109
+      ],
+      "description": "Distortion/Saturation"
+    },
+    "MASTER_VOLUME": {
+      "indices": [
+        120
+      ],
+      "description": "Master Output Level"
+    },
+    "MASTER_TUNE": {
+      "indices": [
+        121
+      ],
+      "description": "Master Pitch Tune"
+    },
+    "PORTAMENTO": {
+      "indices": [
+        122
+      ],
+      "description": "Portamento/Glide"
+    }
+  },
+  "dataset_mapping": {
+    "osc_a_level": "OSC_A_LEVEL",
+    "osc_a_pitch": "OSC_A_PITCH",
+    "osc_a_wave_pos": "OSC_A_WAVETABLE",
+    "osc_a_detune": "OSC_A_DETUNE",
+    "osc_b_level": "OSC_B_LEVEL",
+    "osc_b_pitch": "OSC_B_PITCH",
+    "osc_b_wave_pos": "OSC_B_WAVETABLE",
+    "osc_b_detune": "OSC_B_DETUNE",
+    "filter_cutoff": "FILTER_CUTOFF",
+    "filter_resonance": "FILTER_RESONANCE",
+    "filter_type": "FILTER_TYPE",
+    "filter_drive": "FILTER_DRIVE",
+    "env_attack": "ENV_ATTACK",
+    "env_decay": "ENV_DECAY",
+    "env_sustain": "ENV_SUSTAIN",
+    "env_release": "ENV_RELEASE",
+    "lfo_rate": "LFO_RATE",
+    "lfo_amount": "LFO_AMOUNT",
+    "lfo_shape": "LFO_SHAPE",
+    "reverb_size": "REVERB_SIZE",
+    "reverb_mix": "REVERB_MIX",
+    "delay_time": "DELAY_TIME",
+    "delay_feedback": "DELAY_FEEDBACK",
+    "distortion": "DISTORTION_AMOUNT",
+    "master_vol": "MASTER_VOLUME",
+    "master_tune": "MASTER_TUNE",
+    "portamento": "PORTAMENTO"
+  }
+}

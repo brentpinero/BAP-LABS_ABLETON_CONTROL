@@ -59,6 +59,7 @@ data/
 
 # Serum presets (can be large)
 Serum_Presets/
+Bass_Presets/
 
 # Temporary files
 *.tmp

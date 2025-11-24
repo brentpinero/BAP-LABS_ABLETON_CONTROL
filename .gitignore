@@ -46,6 +46,7 @@ serum_lora_adapters/
 
 # Data files (can be large)
 data/
+old/enriched_serum_training_dataset.json
 
 # IDE
 .vscode/

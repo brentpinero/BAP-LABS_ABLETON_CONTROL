@@ -1,0 +1,4 @@
+# Eval harness requirements
+mlx>=0.21.0
+mlx-lm>=0.19.0
+huggingface_hub>=0.19.0

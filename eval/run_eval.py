@@ -80,10 +80,11 @@ MODELS = {
 class MusicProductionEvaluator:
     """Evaluates LLM music production knowledge."""
 
-    def __init__(self, eval_file: str, output_dir: str):
+    def __init__(self, eval_file: str, output_dir: str, dry_run: bool = False):
         self.eval_file = eval_file
         self.output_dir = Path(output_dir)
         self.output_dir.mkdir(parents=True, exist_ok=True)
+        self.dry_run = dry_run
 
         # Load evaluation questions
         with open(eval_file, 'r') as f:
@@ -93,15 +94,25 @@ class MusicProductionEvaluator:
         self.tokenizer = None
         self.current_model_name = None
 
+        if self.dry_run:
+            logger.info("🧪 DRY RUN MODE - Using mock responses to test pipeline")
+
     def load_model(self, model_key: str) -> bool:
         """Load a model from MLX community."""
-        if not MLX_AVAILABLE:
-            logger.error("MLX not available")
-            return False
-
         model_config = MODELS.get(model_key)
         if not model_config:
             logger.error(f"Unknown model: {model_key}")
+            return False
+
+        if self.dry_run:
+            logger.info(f"[DRY RUN] Would load model: {model_config['name']}")
+            logger.info(f"  Repository: {model_config['repo']}")
+            logger.info(f"  Expected size: ~{model_config['size_gb']}GB")
+            self.current_model_name = model_key
+            return True
+
+        if not MLX_AVAILABLE:
+            logger.error("MLX not available. Install with: pip install mlx-lm")
             return False
 
         logger.info(f"Loading model: {model_config['name']}")
@@ -124,6 +135,11 @@ class MusicProductionEvaluator:
 
     def unload_model(self):
         """Unload current model to free memory."""
+        if self.dry_run:
+            logger.info(f"[DRY RUN] Would unload model: {self.current_model_name}")
+            self.current_model_name = None
+            return
+
         if self.model is not None:
             logger.info(f"Unloading model: {self.current_model_name}")
             del self.model
@@ -136,8 +152,31 @@ class MusicProductionEvaluator:
             if MLX_AVAILABLE:
                 mx.metal.clear_cache()
 
+    def _generate_mock_response(self, prompt: str) -> str:
+        """Generate a mock response for dry-run testing."""
+        import random
+
+        # For MCQ, randomly pick an answer (simulates ~25% baseline)
+        if "Answer with just the letter" in prompt:
+            return random.choice(["A", "B", "C", "D"])
+
+        # For open-ended, return a plausible-ish response with some keywords
+        mock_responses = [
+            "To achieve this, you would use an LFO routed to the filter cutoff. Start with a sawtooth oscillator and apply a low-pass filter with moderate resonance. The modulation creates movement in the sound.",
+            "This involves balancing the frequency content between elements. Use sidechain compression to create space, and consider EQ cuts in the low-mid range around 200-400Hz to reduce muddiness.",
+            "The key is understanding the relationship between transients and sustain. A fast attack on the compressor will catch the transient, while adjusting the release affects the tail of the sound.",
+            "Consider using parallel compression to maintain dynamics while adding density. You can also layer sounds at different octaves and use saturation to add harmonics.",
+            "I would recommend starting by analyzing the frequency spectrum to identify problem areas. Then use surgical EQ to address specific issues while preserving the overall character.",
+        ]
+        return random.choice(mock_responses)
+
     def generate_response(self, prompt: str, max_tokens: int = 512) -> str:
         """Generate a response from the current model."""
+        if self.dry_run:
+            # Small delay to simulate inference
+            time.sleep(0.05)
+            return self._generate_mock_response(prompt)
+
         if self.model is None:
             return "[ERROR: No model loaded]"
 
@@ -633,6 +672,11 @@ def main():
         action="store_true",
         help="List available models and exit"
     )
+    parser.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Test pipeline with mock responses (no model download)"
+    )
 
     args = parser.parse_args()
 
@@ -659,7 +703,7 @@ def main():
         return
 
     # Initialize evaluator
-    evaluator = MusicProductionEvaluator(eval_file, args.output_dir)
+    evaluator = MusicProductionEvaluator(eval_file, args.output_dir, dry_run=args.dry_run)
 
     if args.single:
         # Run single model

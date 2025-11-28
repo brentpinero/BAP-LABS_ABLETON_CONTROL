@@ -62,3 +62,69 @@
 - When hitting persistent issues with Max objects, use the Task tool to research official documentation
 - Max has canonical patterns for common tasks - learn them instead of fighting against them
 - Example: `route text` pattern saved hours of debugging
+
+---
+
+## ML Learning & Architecture Project
+
+This project is expanding to include ML architecture design and training for building a **lightweight reasoning LLM-based music production AI assistant** that:
+- Analyzes audio using CNN feature extraction
+- Reasons and communicates using a small LLM (<200ms inference)
+- Takes iterative action on VST parameters
+- Runs entirely locally on M4 Max with MLX optimization
+
+### Context Documents
+For ML-specific context, architecture decisions, and learning roadmap, see:
+
+- **`.claude/PROJECT_CONTEXT_FOR_CLAUDE_CODE.md`** - Complete ML system architecture, current project state, success criteria
+- **`.claude/ARCHITECTURE_DECISIONS.md`** - Design choices with rationale (CNN vs Transformer, LLM selection, etc.)
+- **`.claude/RESEARCH_QUICK_REFERENCE.md`** - Papers, GitHub repos, benchmarks, and research templates
+- **`.claude/CONVERSATION_SUMMARY.md`** - Key insights from architecture discussions and the big pivot
+- **`.claude/STARTING_PROMPT.md`** - Complete ML teaching methodology and project handoff
+
+### ML Research Methodology (CRITICAL)
+
+**When working on ML architecture, model selection, or optimization tasks:**
+
+**BEFORE answering any sophisticated question or making technical recommendations, you MUST:**
+
+1. **Research and validate claims online** - Don't rely solely on training data
+2. **Pull content from referenced papers/repos** - Actually read the sources
+3. **Verify current best practices** - ML moves fast, check what's current in late 2024/early 2025
+4. **Compare multiple approaches** - Show benchmarks, not just opinions
+5. **Cite sources for claims** - Link to papers, GitHub repos, documentation
+
+**Example of what's expected:**
+- ❌ BAD: "Use Qwen2.5-3B because it's fast"
+- ✅ GOOD: "Let me research current benchmarks... [uses web_search] Based on MLX benchmarks from November 2024, Qwen2.5-3B achieves 45 tokens/sec on M3 Max vs Phi-3.5-mini at 38 tokens/sec. However, Phi shows better reasoning on GSM8K (89.2% vs 86.1%). For our music production use case..."
+
+**When research is MANDATORY:**
+- Comparing model architectures or performance claims
+- Discussing optimization techniques (quantization, inference speed, MLX vs PyTorch)
+- Recommending specific libraries, frameworks, or tools
+- Making claims about "best practices"
+- Any time the user asks "Why?" or "Why not X?"
+- When discussing papers/repos mentioned in ML_Training.md (in `/mnt/project/`)
+
+**Special focus areas requiring research:**
+- MLX optimization techniques and benchmarks (Apple Silicon-specific)
+- Small LLM performance comparisons (3B-7B parameter range)
+- Audio ML model architectures (CLAP, RAVE, MusicGen, DDSP)
+- Knowledge distillation methods (CNN → LLM transfer learning)
+- Real-time inference optimization strategies
+
+### User's Learning Style
+- **Binge learner**: Prefers 2-3+ hour deep dive sessions
+- **Build while learning**: Prototypes alongside theory
+- **Deep justifications required**: For EVERY design decision
+- **Actively challenges assumptions**: "Why not X?" is a learning tool - engage with it
+
+### Current Project Phase
+- ✅ 7,583 Serum presets parsed (all 2,397 parameters extracted)
+- ✅ MLX LoRA training pipeline (text → parameters)
+- ✅ Max for Live integration (partial)
+- ❌ No rendered audio yet (Phase 1 priority)
+- ❌ No CNN audio feature extractor yet (Phase 2)
+- ❌ No small reasoning LLM yet (Phase 3-4)
+
+**See `.claude/PROJECT_CONTEXT_FOR_CLAUDE_CODE.md` for full phase breakdown and architecture details.**

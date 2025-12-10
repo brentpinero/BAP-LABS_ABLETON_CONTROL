@@ -62,10 +62,22 @@ old/enriched_serum_training_dataset.json
 Serum_Presets/
 Bass_Presets/
 
+# MIDI files
+MIDI/
+
 # Temporary files
 *.tmp
 *.bak
 *.backup
+
+# Large PDFs
+*.pdf
+
+# Model checkpoints
+checkpoints/
+
+# Test renders
+test_renders/
 
 # Eval results (regenerable)
 eval/results/

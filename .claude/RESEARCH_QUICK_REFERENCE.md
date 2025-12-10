@@ -4,6 +4,37 @@ This document provides a quick reference to the most important resources, papers
 
 ---
 
+## 📊 CLAUDE API PRICING REFERENCE (2025)
+
+### Model Pricing (per 1M tokens)
+| Model | Input | Output | Batch Input (50% off) | Batch Output (50% off) |
+|-------|-------|--------|----------------------|------------------------|
+| **Haiku 3.5** | $0.80 | $4.00 | $0.40 | $2.00 |
+| **Haiku 4.5** | $1.00 | $5.00 | $0.50 | $2.50 |
+| **Sonnet 4.5** | $3.00 | $15.00 | $1.50 | $7.50 |
+| **Opus 4.5** | $15.00 | $75.00 | $7.50 | $37.50 |
+
+### Batch API Details
+- **Discount**: 50% on ALL models (including Opus)
+- **Processing Time**: Usually <1 hour, up to 24 hours max
+- **Limits**: 100K requests or 256MB per batch
+- **Results**: Valid for 29 days
+- **Tradeoff**: No real-time responses, no streaming
+
+**Documentation**: [Batch Processing - Claude Docs](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
+
+### Our Tiered Q&A Generation Strategy
+| Tier | Model | Task Complexity | Est. 10K Q&A Cost |
+|------|-------|-----------------|-------------------|
+| 1 | Haiku 3.5 | Simple (40%) | ~$3.60 |
+| 2 | Sonnet 4.5 | Medium (45%) | ~$20.25 |
+| 3 | Opus 4.5 | Complex (15%) | ~$20.25 |
+| **Total** | **Tiered** | **Optimized** | **~$44.10** |
+
+See: [ARCHITECTURE_DECISIONS.md](./ARCHITECTURE_DECISIONS.md#decision-7-tiered-llm-qa-generation-strategy)
+
+---
+
 ## 🎯 CRITICAL GITHUB REPOSITORIES
 
 ### Audio ML Models (Study These First)
@@ -116,19 +147,22 @@ This document provides a quick reference to the most important resources, papers
 - DDSP GitHub (spectral loss functions)
 - Audio spectrogram literature (mel-spec best practices)
 
-### Phase 3: Small LLM Selection
-**Questions to research:**
-- Qwen2.5-3B vs Phi-3.5-mini vs Llama-3.2-3B on M4 Max with MLX
-- Inference speed benchmarks (tokens/sec)
-- Reasoning capability (GSM8K, MMLU scores)
-- Context length support (4K? 8K? 16K?)
-- Quantization options (4-bit, 8-bit) and quality loss
+### ✅ RESOLVED: Small LLM Selection
+**Decision**: Qwen3-4B (4-bit MLX)
+**Date**: 2025-11-28
 
-**Where to look:**
-- MLX community benchmarks (Apple Silicon-specific)
-- Hugging Face model cards
-- LLM leaderboards (Open LLM Leaderboard)
-- MLX GitHub issues/discussions
+**Evaluation Results**:
+- Tested 6 models with custom MLX eval harness + Claude Sonnet 4.5 as judge
+- Qwen3-4B: 100/240 (41.7%) music production, 35/70 (50%) Serum-specific
+- 2x better than second place (Phi-4-mini-reasoning at 21.7%)
+
+**Key Findings**:
+- Strong conceptual knowledge (80% on parameter ID MCQ)
+- Weak on practical application (30% on parameter adjustment) ← Fine-tuning target
+- Native thinking token support enables reasoning traces
+- 4-bit quantized version available in MLX community
+
+**Next Phase**: Dataset curation for fine-tuning
 
 ### Phase 3: CNN → LLM Distillation
 **Questions to research:**

@@ -123,8 +123,39 @@ For ML-specific context, architecture decisions, and learning roadmap, see:
 - ✅ 7,583 Serum presets parsed (all 2,397 parameters extracted)
 - ✅ MLX LoRA training pipeline (text → parameters)
 - ✅ Max for Live integration (partial)
+- ✅ **Ableton MCP Integration** - Local Qwen3-4B → MCP → Ableton control working!
+  - `mlx_mcp_bridge.py` - Main bridge connecting MLX inference to MCP
+  - `test_mcp_connection.py` - Connection tester
+  - Uses `ahujasid/ableton-mcp` Remote Script
+  - Session View operations working (create tracks, clips, add notes, control playback, set tempo)
+  - Arrangement View requires manual drag or recording workflow (MCP limitation)
 - ❌ No rendered audio yet (Phase 1 priority)
 - ❌ No CNN audio feature extractor yet (Phase 2)
-- ❌ No small reasoning LLM yet (Phase 3-4)
+- ❌ CLAP audio input not yet integrated with MCP bridge
+
+### MCP Integration Details
+**Architecture:**
+```
+User Input → Qwen3-4B (MLX local) → Parse Tool Calls → MCP Client → ableton-mcp → Ableton Live
+```
+
+**Working Commands:**
+- `set_tempo` - Change BPM
+- `create_midi_track` - Add new MIDI tracks
+- `create_clip` - Create MIDI clips in Session View
+- `add_notes_to_clip` - Add MIDI notes (Qwen correctly converts note names to MIDI pitch)
+- `fire_clip` / `stop_clip` - Trigger clips
+- `start_playback` / `stop_playback` - Transport control
+- `get_session_info` / `get_track_info` - Query session state
+
+**Usage:**
+```bash
+# Interactive mode
+python mlx_mcp_bridge.py
+
+# Single command mode
+python mlx_mcp_bridge.py -c "Set tempo to 128"
+python mlx_mcp_bridge.py -c "Create a new MIDI track"
+```
 
 **See `.claude/PROJECT_CONTEXT_FOR_CLAUDE_CODE.md` for full phase breakdown and architecture details.**

@@ -4,8 +4,9 @@ This document summarizes the critical insights from our chat session that led to
 
 ---
 
-## 🎯 THE BIG PIVOT
+## 🎯 THE BIG PIVOT (x2)
 
+### Pivot 1: CNN → LLM
 **Initial Plan**: Train CNN to predict Serum parameters from audio (direct regression)
 
 **User's Insight**: "Training a CNN could be very useful, but we should be doing this only to use the outputs to create a transfer learning dataset used to finetune a lightweight reasoning LLM that can take iterative action and communicate with the user."
@@ -15,6 +16,18 @@ This document summarizes the critical insights from our chat session that led to
 2. **Iteration is essential** (adjust → listen → refine)
 3. **CNNs are feature extractors**, not the final system
 4. **Small reasoning LLM** enables natural language interaction + action
+
+### Pivot 2: Assistant → COLLABORATOR
+**Previous Vision**: AI assistant that responds to questions about sound design
+
+**User's Insight (2025-11-29)**: "The real magic will be if the model takes actions - otherwise the user might as well use a foundation model in ChatGPT. To truly be a production assistant - to be more specific it should be a collaborator/assistant."
+
+**New Capabilities Required**:
+1. **Reasoning traces** - Show thinking in `<think>` blocks (for supervision)
+2. **Tool use** - Output structured actions (set_serum_param, write_midi, etc.)
+3. **Composition knowledge** - How to write drums, bass, keys, melodies
+4. **Multi-track context** - Reason about ALL channels, not just one
+5. **MIDI generation** - Write and modify MIDI patterns, not just adjust params
 
 ---
 
@@ -53,6 +66,30 @@ This document summarizes the critical insights from our chat session that led to
 │  Max for Live ↔ VST Control ↔ Serum               │
 └─────────────────────────────────────────────────────┘
 ```
+
+### Collaborator Enhancement (2025-11-29)
+
+The LLM outputs are now structured as **Reasoning + Actions + Explanation**:
+
+```json
+{
+  "reasoning": "<think>User wants aggression. CNN shows soft attack (45ms), low resonance...</think>",
+  "actions": [
+    {"tool": "set_serum_param", "params": {"param": "ENV1_ATK", "value": 0.05}},
+    {"tool": "write_midi", "params": {"track": "Drums", "notes": [...]}}
+  ],
+  "explanation": "I've shortened the attack for a harder transient..."
+}
+```
+
+**New Tool Categories** (based on Live Object Model):
+| Tool | LOM Method | Purpose |
+|------|------------|---------|
+| `set_serum_param` | `DeviceParameter.value` | Adjust synth params |
+| `write_midi` | `Clip.add_new_notes` | Write MIDI patterns |
+| `set_volume/pan` | `MixerDevice.*` | Mix adjustments |
+
+**Integration**: WebSocket bridge (M4L ↔ Python) on localhost:9999
 
 ---
 
@@ -118,21 +155,43 @@ domain-specific reasoning, here's my analysis..."
 
 ---
 
-## 📊 CURRENT PROJECT STATE
+## 📊 CURRENT PROJECT STATE (Updated 2025-11-29)
 
-### ✅ What Exists
+### ✅ What's Complete
 - 7,583 Serum presets (all parameters extracted)
-- MLX LoRA training pipeline (text → parameters)
+- MLX LoRA training pipeline (`train_llm_lora.py`)
 - Max for Live integration (partial)
 - Preset parsing system (100% success rate)
+- ✅ **CNN Audio Encoder** (`cnn_audio_encoder.py`) - 30 CNN params
+- ✅ **MLP Audio Projector** (`audio_llm_projector.py`) - CNN→LLM bridge
+- ✅ **Training Pipeline** (`train_cnn.py`, `serum_dataset.py`)
+- ✅ **Mel-spectrogram Generation** (`mel_spectrogram_pipeline.py`)
+- ✅ **Sample Pack Scanner** (`scan_sample_packs.py`) - 9,922 presets, 267 MIDI, 66 pairs found
+- ✅ **LLM Q&A Generator** (`generate_qa_with_llm.py`) - Tiered model support
+- ✅ **Collaborator Architecture** - Reasoning + Actions + Explanation format defined
+- ✅ **WebSocket Integration Design** - M4L ↔ Python protocol spec
+- ✅ **Tool Schema** - Based on Live Object Model (LOM) capabilities
+- ✅ **Expanded Task Taxonomy** - 21 categories including composition (T14-T21)
 
-### ❌ What Needs Building
-1. **Audio rendering system** (7,583 .wav files from presets)
-2. **CNN feature extractor** (mel-spec → embeddings)
-3. **Small LLM selection & benchmarking** (which model?)
-4. **Transfer learning pipeline** (CNN → LLM distillation)
-5. **Iterative reasoning system** (ReAct pattern)
-6. **Full DAW integration** (seamless workflow)
+### ⏳ In Progress
+1. **External Hard Drive Scan** ← RUNNING
+   - More MIDI-preset pairs
+   - More project files (.als)
+   - Run: `python scan_sample_packs.py --scan-external`
+
+2. **Tiered Batch Q&A Generation** ← After drive scan
+   - Haiku 3.5: Simple tasks (40%)
+   - Sonnet 4.5: Medium tasks (45%)
+   - Opus 4.5: Complex tasks (15%)
+   - Est. cost: ~$44.10 for 10K Q&A via Batch API
+
+### ❌ Still Needs Building
+1. **Batch API Implementation** in `generate_qa_with_llm.py`
+2. **Project File Extractor** (.als → stems + MIDI + state)
+3. **MIDI Analyzer** for 5,719 MIDI files
+4. **Fine-tune Qwen3-4B** on generated dataset (with tool use format)
+5. **M4L WebSocket Bridge** (`controller.js`)
+6. **Python Inference Server** (`inference_server.py`)
 
 ---
 

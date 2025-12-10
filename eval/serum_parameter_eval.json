@@ -1,0 +1,361 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "created": "2025-11-28",
+    "description": "Serum-specific parameter manipulation evaluation",
+    "total_questions": 30,
+    "sections": {
+      "E1": {"name": "Parameter Identification", "type": "mcq", "count": 10},
+      "E2": {"name": "Parameter Adjustment", "type": "open_ended", "count": 10},
+      "E3": {"name": "Preset Analysis", "type": "scenario", "count": 10}
+    }
+  },
+  "section_e1": {
+    "name": "Parameter Identification (MCQ)",
+    "instructions": "Select the best Serum parameter(s) to adjust for the given sound design goal.",
+    "questions": [
+      {
+        "id": "E1-01",
+        "question": "To make a bass sound 'fatter' with more width in Serum, which parameters should you primarily adjust?",
+        "options": {
+          "A": "Oscillator A unison voices and detune amount",
+          "B": "Filter cutoff and resonance",
+          "C": "Envelope attack and release times",
+          "D": "Master volume and pan"
+        },
+        "correct": "A",
+        "rationale": "Unison stacks multiple detuned copies of the oscillator, creating a fatter, wider sound. More voices and detune = thicker bass."
+      },
+      {
+        "id": "E1-02",
+        "question": "To create a 'plucky' sound with a quick transient in Serum, which envelope settings are most critical?",
+        "options": {
+          "A": "Long attack, long decay, high sustain",
+          "B": "Zero attack, short decay, low sustain",
+          "C": "Medium attack, no decay, maximum sustain",
+          "D": "Long attack, no decay, zero sustain"
+        },
+        "correct": "B",
+        "rationale": "Plucky sounds need instant onset (zero attack), quick fade (short decay), and minimal held volume (low sustain). This creates the sharp transient characteristic of plucks."
+      },
+      {
+        "id": "E1-03",
+        "question": "In Serum, what does the 'WT Pos' (wavetable position) parameter control?",
+        "options": {
+          "A": "The volume level of the wavetable oscillator",
+          "B": "Which frame of the wavetable is currently playing",
+          "C": "The stereo position of the wavetable in the mix",
+          "D": "The pitch offset of the wavetable in semitones"
+        },
+        "correct": "B",
+        "rationale": "WT Pos scrolls through different frames/shapes in the wavetable. Modulating it creates evolving timbres as different waveforms are scanned."
+      },
+      {
+        "id": "E1-04",
+        "question": "To add movement and wobble to a dubstep bass in Serum, you would typically modulate the filter cutoff with:",
+        "options": {
+          "A": "An envelope with long attack",
+          "B": "An LFO synced to the tempo",
+          "C": "The velocity of incoming MIDI notes",
+          "D": "The pitch wheel"
+        },
+        "correct": "B",
+        "rationale": "Dubstep wobble comes from rhythmic filter movement. A tempo-synced LFO on filter cutoff creates the classic wobble effect at musically relevant rates."
+      },
+      {
+        "id": "E1-05",
+        "question": "To make a lead sound 'scream' or self-oscillate in Serum, which parameter should be cranked up?",
+        "options": {
+          "A": "Filter drive",
+          "B": "Filter resonance",
+          "C": "Oscillator phase",
+          "D": "Envelope sustain"
+        },
+        "correct": "B",
+        "rationale": "High resonance creates a peak at the cutoff frequency. At extreme values, the filter self-oscillates, producing a screaming or whistling tone."
+      },
+      {
+        "id": "E1-06",
+        "question": "In Serum, the 'Warp' modes (Sync, Bend, Mirror, etc.) affect:",
+        "options": {
+          "A": "The filter response curve",
+          "B": "How the wavetable waveform is distorted/transformed",
+          "C": "The panning automation",
+          "D": "The reverb decay time"
+        },
+        "correct": "B",
+        "rationale": "Warp modes transform the oscillator waveform in various ways - Sync adds harmonics, Bend reshapes the wave, Mirror creates symmetric distortion, etc."
+      },
+      {
+        "id": "E1-07",
+        "question": "To create a sub bass that sits well in a mix without mud, which Serum oscillator would you primarily use?",
+        "options": {
+          "A": "Oscillator A with complex wavetable",
+          "B": "Noise oscillator with low-pass filter",
+          "C": "Sub oscillator (sine or simple wave)",
+          "D": "Oscillator B with high unison"
+        },
+        "correct": "C",
+        "rationale": "The Sub oscillator generates clean, simple waveforms (sine, triangle) perfect for sub bass. Complex wavetables add harmonics that can muddy the low end."
+      },
+      {
+        "id": "E1-08",
+        "question": "To create a 'supersaw' lead sound in Serum, which combination of settings is most effective?",
+        "options": {
+          "A": "Sawtooth wavetable + high unison voices + moderate detune",
+          "B": "Sine wavetable + no unison + heavy distortion",
+          "C": "Noise oscillator + band-pass filter",
+          "D": "Square wavetable + single voice + chorus effect"
+        },
+        "correct": "A",
+        "rationale": "Classic supersaw uses sawtooth waveforms with multiple unison voices slightly detuned. This creates the thick, wide, iconic trance/EDM lead sound."
+      },
+      {
+        "id": "E1-09",
+        "question": "The 'Semi' and 'Fine' parameters in Serum's oscillator section control:",
+        "options": {
+          "A": "Filter cutoff frequency",
+          "B": "Oscillator pitch in semitones and cents",
+          "C": "Envelope curve shapes",
+          "D": "LFO rate and depth"
+        },
+        "correct": "B",
+        "rationale": "Semi adjusts pitch by semitones (half steps), Fine adjusts by cents (1/100th of a semitone). Used for detuning oscillators against each other or transposing."
+      },
+      {
+        "id": "E1-10",
+        "question": "In Serum, to route Envelope 2 to modulate the filter cutoff, you would:",
+        "options": {
+          "A": "Click the Env2 source and drag to the filter cutoff knob",
+          "B": "Set the filter type to 'Envelope'",
+          "C": "Enable the 'Auto-Mod' button on the filter",
+          "D": "Adjust the filter drive parameter"
+        },
+        "correct": "A",
+        "rationale": "Serum's modulation matrix uses drag-and-drop. Click the modulation source (Env2) and drag to any destination parameter to create a modulation routing."
+      }
+    ]
+  },
+  "section_e2": {
+    "name": "Parameter Adjustment (Open-Ended)",
+    "instructions": "Describe the specific Serum parameters you would adjust and explain why.",
+    "questions": [
+      {
+        "id": "E2-01",
+        "question": "A producer wants to turn a static pad sound into an evolving, atmospheric texture in Serum. What parameters would you suggest modulating, and how?",
+        "expected_concepts": ["wavetable position", "LFO", "filter cutoff", "modulation", "slow rate"],
+        "scoring_criteria": {
+          "3": "Mentions WT position modulation with slow LFO, filter movement, possibly reverb/delay tails",
+          "2": "Mentions at least two relevant modulation targets (WT pos, filter, etc.) with LFO",
+          "1": "Mentions modulation but vague on specifics"
+        }
+      },
+      {
+        "id": "E2-02",
+        "question": "How would you create a punchy 808-style kick bass in Serum? Describe the oscillator, envelope, and any other relevant settings.",
+        "expected_concepts": ["sine wave", "sub oscillator", "pitch envelope", "short decay", "low frequencies"],
+        "scoring_criteria": {
+          "3": "Describes sine/sub osc, pitch envelope dropping quickly, short amp decay, possibly noise for click",
+          "2": "Mentions sine wave and envelope shaping for punch",
+          "1": "General understanding of needing low frequencies but lacks specific technique"
+        }
+      },
+      {
+        "id": "E2-03",
+        "question": "Explain how you would set up a tempo-synced filter wobble for a dubstep bass in Serum.",
+        "expected_concepts": ["LFO", "tempo sync", "filter cutoff", "rate", "modulation depth"],
+        "scoring_criteria": {
+          "3": "Details LFO synced to BPM (1/4, 1/8 etc), routed to filter cutoff with appropriate depth",
+          "2": "Mentions LFO to filter cutoff with tempo sync",
+          "1": "Mentions LFO or filter but missing sync concept"
+        }
+      },
+      {
+        "id": "E2-04",
+        "question": "A sound is too harsh and digital. What Serum parameters would you adjust to warm it up and make it more analog-sounding?",
+        "expected_concepts": ["filter", "low-pass", "saturation", "reduce highs", "unison detune", "sub harmonics"],
+        "scoring_criteria": {
+          "3": "Suggests lowpass filter to cut highs, subtle saturation/drive, possibly adding sub, reducing harsh wavetable frames",
+          "2": "Mentions filtering highs and/or adding warmth through saturation",
+          "1": "General concept of reducing harshness but no specific parameters"
+        }
+      },
+      {
+        "id": "E2-05",
+        "question": "How would you create stereo width on a mono lead sound in Serum without using external plugins?",
+        "expected_concepts": ["unison", "detune", "pan spread", "dimension expander", "stereo filter"],
+        "scoring_criteria": {
+          "3": "Mentions unison with detune spread to stereo, possibly Hyper/Dimension effect, or stereo filter modes",
+          "2": "Mentions unison spread or built-in stereo effects",
+          "1": "Understands width needed but vague on Serum-specific solutions"
+        }
+      },
+      {
+        "id": "E2-06",
+        "question": "Describe how to create a 'growl' or 'talking bass' effect in Serum using FM modulation.",
+        "expected_concepts": ["FM from B", "modulation", "wavetable", "formant", "filter movement"],
+        "scoring_criteria": {
+          "3": "Explains FM routing (Osc B to A), using vocal/formant wavetables, filter/WT movement for vowel sounds",
+          "2": "Mentions FM between oscillators for growl texture",
+          "1": "Knows FM creates complex tones but lacks growl-specific technique"
+        }
+      },
+      {
+        "id": "E2-07",
+        "question": "What parameters would you adjust to make a sound's attack more aggressive and 'snappy' in Serum?",
+        "expected_concepts": ["attack time", "envelope", "transient", "zero attack", "click", "noise layer"],
+        "scoring_criteria": {
+          "3": "Zero attack on amp envelope, possibly adding noise/click layer, fast filter envelope for brightness on hit",
+          "2": "Mentions fast/zero attack and possibly transient shaping",
+          "1": "Understands attack affects snappiness but lacks detail"
+        }
+      },
+      {
+        "id": "E2-08",
+        "question": "How would you set up velocity sensitivity in Serum so harder key presses result in brighter sounds?",
+        "expected_concepts": ["velocity", "modulation", "filter cutoff", "mod matrix", "Vel source"],
+        "scoring_criteria": {
+          "3": "Route Velocity source to filter cutoff (positive amount) in mod matrix, possibly also to volume or WT pos",
+          "2": "Mentions velocity modulating filter or brightness",
+          "1": "Knows velocity affects dynamics but not brightness routing"
+        }
+      },
+      {
+        "id": "E2-09",
+        "question": "Explain how to use Serum's noise oscillator to add 'air' or breathiness to a pad sound.",
+        "expected_concepts": ["noise oscillator", "high-pass", "filter", "low level", "blend", "character"],
+        "scoring_criteria": {
+          "3": "Enable noise osc at low level, high-pass filter it to keep only airy highs, blend subtly with main oscillators",
+          "2": "Mentions noise oscillator filtered for air/texture",
+          "1": "Knows noise adds texture but lacks filtering concept"
+        }
+      },
+      {
+        "id": "E2-10",
+        "question": "How would you recreate a classic Reese bass sound in Serum?",
+        "expected_concepts": ["two oscillators", "sawtooth", "detune", "slight pitch difference", "phasing", "movement"],
+        "scoring_criteria": {
+          "3": "Two saw oscillators slightly detuned (few cents), creating phasing movement, possibly unison, low-passed",
+          "2": "Mentions detuned saws for phasing effect",
+          "1": "Knows it involves bass oscillators but misses detuning technique"
+        }
+      }
+    ]
+  },
+  "section_e3": {
+    "name": "Preset Analysis (Scenario)",
+    "instructions": "Analyze the given Serum preset parameters and explain the sound design choices.",
+    "questions": [
+      {
+        "id": "E3-01",
+        "scenario": "You're given a bass preset with these key parameters:\n- Oscillator A: Volume 0.78, WT Position 0.35, Warp Mode: FM (from B)\n- Oscillator B: Volume 0.0, Semi: -12 (one octave down)\n- Filter: Low-pass, Cutoff 0.4, Resonance 0.3\n- Unison: 4 voices, Detune 0.25\n\nWhat type of bass sound does this create, and why are these settings chosen?",
+        "question": "Analyze this preset configuration and explain what type of bass sound it produces.",
+        "expected_concepts": ["FM synthesis", "sub harmonics", "modulator oscillator", "filtered", "fat bass"],
+        "scoring_criteria": {
+          "3": "Identifies FM bass where Osc B modulates A, B being silent but adding harmonics, filtered for control, unison for fatness",
+          "2": "Recognizes FM interaction between oscillators and general bass character",
+          "1": "Identifies as bass sound but misses FM relationship"
+        }
+      },
+      {
+        "id": "E3-02",
+        "scenario": "A lead preset has these settings:\n- Oscillator A: Saw wavetable, WT Pos 1.0, Unison 7 voices, Detune 0.15\n- Filter: Cutoff 0.85, Resonance 0.6\n- Envelope 1 (Amp): Attack 0ms, Decay 200ms, Sustain 0.7\n- LFO1 to Filter Cutoff: Rate 1/4, Amount 0.3\n\nWhat sound does this create?",
+        "question": "What type of lead sound do these settings produce? Explain the role of each major parameter group.",
+        "expected_concepts": ["supersaw", "unison", "bright", "filter movement", "rhythmic", "trance lead"],
+        "scoring_criteria": {
+          "3": "Identifies supersaw lead, explains unison for thickness, high cutoff for brightness, LFO adds rhythmic filter movement",
+          "2": "Recognizes supersaw character and filter modulation",
+          "1": "Identifies as lead but misses supersaw or modulation details"
+        }
+      },
+      {
+        "id": "E3-03",
+        "scenario": "A pad preset configuration:\n- Oscillator A: WT Position modulated by LFO1 (slow, 0.1 Hz)\n- Oscillator B: -7 semitones, WT Position modulated by LFO2 (different rate)\n- Filter: Low-pass, Cutoff 0.5, modulated by Env2 (slow attack)\n- FX: Reverb 60%, Delay 30%\n- Unison: 3 voices each osc, Detune 0.1\n\nAnalyze this pad sound.",
+        "question": "What makes this an effective pad sound? Explain how the modulation creates the evolving texture.",
+        "expected_concepts": ["evolving", "slow modulation", "fifth interval", "movement", "ambient", "texture"],
+        "scoring_criteria": {
+          "3": "Explains slow WT modulation creates evolution, -7 semi adds fifth harmony, different LFO rates prevent static sound, FX add space",
+          "2": "Identifies evolving pad with modulation and effects",
+          "1": "Recognizes as pad but doesn't explain modulation purpose"
+        }
+      },
+      {
+        "id": "E3-04",
+        "scenario": "An 808-style bass preset:\n- Sub Oscillator: Sine, Level 0.9\n- Oscillator A: Sine at WT Pos 0, Level 0.4\n- Pitch Envelope: -24 semitones range, Decay 150ms\n- Amp Envelope: Attack 0ms, Decay 1.5s, Sustain 0.0\n- No filter active\n\nWhy these specific settings for an 808?",
+        "question": "Explain the sound design reasoning behind this 808 kick/bass configuration.",
+        "expected_concepts": ["pitch drop", "sine purity", "sub focus", "transient", "decay tail", "808 character"],
+        "scoring_criteria": {
+          "3": "Explains pitch envelope creates the 'boom' pitch drop, sine waves keep it clean/pure, long decay for sustained sub, no filter to preserve lows",
+          "2": "Identifies pitch envelope for 808 character and sine for clean sub",
+          "1": "Recognizes 808 sound but misses pitch envelope importance"
+        }
+      },
+      {
+        "id": "E3-05",
+        "scenario": "A dubstep 'growl' bass preset:\n- Oscillator A: Vocal formant wavetable, WT Pos modulated by LFO (1/8 rate)\n- Oscillator B: FM Carrier, modulating Osc A\n- Filter: Band-pass, Cutoff modulated by same LFO\n- Distortion: Tube mode, Drive 40%\n\nHow do these elements create the growl character?",
+        "question": "Break down how this preset achieves the 'growl' or 'talking bass' effect.",
+        "expected_concepts": ["formant", "FM", "bandpass", "modulation", "vowel sounds", "movement", "distortion warmth"],
+        "scoring_criteria": {
+          "3": "Explains formant wavetable provides vowel shapes, FM adds complexity, bandpass emphasizes formants, LFO creates rhythmic 'talking', distortion adds grit",
+          "2": "Identifies formant/FM interaction creating growl with modulation",
+          "1": "Recognizes growl sound but doesn't explain mechanism"
+        }
+      },
+      {
+        "id": "E3-06",
+        "scenario": "A pluck/key preset:\n- Oscillator A: Basic Shapes wavetable (position 0.3)\n- Filter: Low-pass 24dB, Cutoff 0.2, Env2 amount +0.7\n- Envelope 2: Attack 0ms, Decay 180ms, Sustain 0.0\n- Amp Envelope: Attack 0ms, Decay 300ms, Sustain 0.0\n- FX: Small room reverb 20%\n\nWhat creates the 'plucky' character here?",
+        "question": "Explain what makes this preset sound plucky and how the envelopes work together.",
+        "expected_concepts": ["filter envelope", "brightness decay", "transient", "short decay", "envelope interaction"],
+        "scoring_criteria": {
+          "3": "Explains Env2 opens filter quickly then closes (brightness on attack), amp envelope slightly longer for body, zero sustain for pluck character",
+          "2": "Identifies filter envelope creating brightness decay for pluck",
+          "1": "Knows envelopes affect pluckiness but doesn't explain interaction"
+        }
+      },
+      {
+        "id": "E3-07",
+        "scenario": "A 'hyper' lead preset:\n- Oscillator A: Basic Saw, 16 unison voices, Detune 0.4\n- Hyper/Dimension effect enabled at 50%\n- Filter: High-pass at 200Hz, then Low-pass at 8kHz\n- No modulation on wavetable position\n\nWhat does this create and why so many unison voices?",
+        "question": "Analyze this 'hyper' lead configuration. What's the purpose of the extreme unison and dual filtering?",
+        "expected_concepts": ["massive width", "supersaw on steroids", "unison spread", "frequency focus", "EDM lead", "band limiting"],
+        "scoring_criteria": {
+          "3": "Explains 16 unison creates massive width/thickness, HP removes mud, LP controls harshness, Hyper adds dimension, static WT keeps it stable",
+          "2": "Identifies massive unison for width with filtering for control",
+          "1": "Knows it's a wide lead but doesn't explain filtering purpose"
+        }
+      },
+      {
+        "id": "E3-08",
+        "scenario": "A sub bass preset:\n- Sub Oscillator: Sine, Level 1.0\n- Oscillator A: Disabled\n- Oscillator B: Disabled\n- Filter: Disabled (bypass)\n- No unison, no effects\n\nWhy would a producer use such a minimal preset?",
+        "question": "Explain the design philosophy behind this extremely minimal sub bass configuration.",
+        "expected_concepts": ["pure sub", "no harmonics", "mix clarity", "dedicated sub layer", "clean low end", "no interference"],
+        "scoring_criteria": {
+          "3": "Explains pure sine = no harmonics to muddy mix, used as dedicated sub layer under other elements, no processing to maintain phase/clarity",
+          "2": "Identifies pure sub purpose for clean low end",
+          "1": "Recognizes it's simple but doesn't explain layering strategy"
+        }
+      },
+      {
+        "id": "E3-09",
+        "scenario": "A 'screaming' lead preset:\n- Oscillator A: Saw + Resonance wavetable\n- Filter: Low-pass, Cutoff 0.6, Resonance 0.95 (near max)\n- LFO1 to Cutoff: Slow rate (2 bars), Amount 0.3\n- Distortion: Soft clip, Drive 60%\n\nWhat creates the 'scream' in this sound?",
+        "question": "How does this preset achieve the 'screaming' lead character?",
+        "expected_concepts": ["high resonance", "self-oscillation", "filter peak", "distortion saturation", "harmonic emphasis"],
+        "scoring_criteria": {
+          "3": "Explains near-max resonance creates sharp peak/near self-oscillation at cutoff, slow LFO sweeps this 'scream' point, distortion adds harmonics and aggression",
+          "2": "Identifies high resonance as source of scream with modulation",
+          "1": "Knows it sounds aggressive but misses resonance role"
+        }
+      },
+      {
+        "id": "E3-10",
+        "scenario": "A trap hi-hat style preset:\n- Noise Oscillator: White noise, Level 0.8\n- Oscillator A/B: Disabled\n- Filter: High-pass at 6kHz, Resonance 0.2\n- Amp Envelope: Attack 0ms, Decay 80ms, Sustain 0.0\n- No effects\n\nHow does this create a hi-hat sound from Serum?",
+        "question": "Explain the sound design approach for creating hi-hats in a synth like Serum.",
+        "expected_concepts": ["noise-based", "high-pass", "short decay", "pitched percussion", "transient focused"],
+        "scoring_criteria": {
+          "3": "Explains white noise = all frequencies, HP filter isolates high frequencies like metal, short decay creates closed hi-hat character",
+          "2": "Identifies noise + filtering + short envelope for hi-hat",
+          "1": "Knows it uses noise but doesn't explain filtering purpose"
+        }
+      }
+    ]
+  }
+}

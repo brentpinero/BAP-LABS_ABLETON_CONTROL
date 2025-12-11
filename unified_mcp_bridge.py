@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 UNIFIED MCP BRIDGE
-Controls both Ableton (via socket MCP) and Serum (via OSC)
+Controls Ableton (via socket MCP) and ANY VST plugin (via Universal OSC Controller)
 
 Usage:
     python unified_mcp_bridge.py                    # Interactive mode
@@ -15,14 +15,17 @@ Ableton commands (via socket to port 9877):
     - set_device_parameter <track> <device> <param> <value>
     - ... (all existing MCP commands)
 
-Serum commands (via OSC to port 9878):
+Universal VST commands (via OSC to port 9878):
+    - vst register <slot> <plugin_path>    # Load plugin into slot 1-8
+    - vst unregister <slot>                # Unload plugin from slot
+    - vst <slot> param <index> <value>     # Set parameter
+    - vst <slot> open                      # Open plugin GUI
+    - vst list                             # List registered plugins
+
+Legacy Serum shortcuts (uses slot 1 by default):
     - serum_param <index> <value>
-    - serum_filter_cutoff <value>
-    - serum_filter_res <value>
-    - serum_osc_a_level <value>
-    - serum_wt_pos <value>
-    - serum_attack <value>
-    - serum_release <value>
+    - serum cutoff <value>
+    - serum attack <value>
     - ... (named param shortcuts)
 """
 
@@ -34,8 +37,11 @@ from pythonosc import udp_client
 # Connection settings
 ABLETON_HOST = "localhost"
 ABLETON_PORT = 9877
-SERUM_HOST = "localhost"
-SERUM_PORT = 9878
+VST_HOST = "localhost"
+VST_PORT = 9878
+
+# Default slot for legacy Serum commands
+DEFAULT_SERUM_SLOT = 1
 
 # Serum critical parameter indices (from serum2_parameter_mapping_complete.json)
 SERUM_PARAMS = {
@@ -82,18 +88,24 @@ SERUM_PARAMS = {
 
 class UnifiedMCPBridge:
     def __init__(self):
-        self.serum_client = None
+        self.vst_client = None
         self.ableton_socket = None
+        # Track registered plugins locally
+        self.registered_plugins = {}
 
-    def connect_serum(self):
-        """Connect to Serum OSC"""
+    def connect_vst(self):
+        """Connect to Universal VST Controller OSC"""
         try:
-            self.serum_client = udp_client.SimpleUDPClient(SERUM_HOST, SERUM_PORT)
-            print(f"✓ Serum OSC ready on port {SERUM_PORT}")
+            self.vst_client = udp_client.SimpleUDPClient(VST_HOST, VST_PORT)
+            print(f"✓ Universal VST Controller ready on port {VST_PORT}")
             return True
         except Exception as e:
-            print(f"✗ Serum OSC error: {e}")
+            print(f"✗ VST Controller error: {e}")
             return False
+
+    # Legacy alias
+    def connect_serum(self):
+        return self.connect_vst()
 
     def connect_ableton(self):
         """Connect to Ableton MCP"""
@@ -117,20 +129,81 @@ class UnifiedMCPBridge:
                 pass
 
     # =========================================================================
-    # SERUM COMMANDS
+    # UNIVERSAL VST COMMANDS
+    # =========================================================================
+
+    def vst_register(self, slot: int, plugin_path: str):
+        """Register/load a plugin into a slot (1-8)"""
+        if not self.vst_client:
+            self.connect_vst()
+
+        if slot < 1 or slot > 8:
+            return {"status": "error", "message": "Slot must be 1-8"}
+
+        self.vst_client.send_message("/register", [slot, plugin_path])
+        # Extract plugin name for tracking
+        plugin_name = plugin_path.split("/")[-1].replace(".vst3", "").replace(".vst", "").replace(".component", "")
+        self.registered_plugins[slot] = {"path": plugin_path, "name": plugin_name}
+        return {"status": "success", "slot": slot, "plugin": plugin_name}
+
+    def vst_unregister(self, slot: int):
+        """Unload a plugin from a slot"""
+        if not self.vst_client:
+            self.connect_vst()
+
+        if slot < 1 or slot > 8:
+            return {"status": "error", "message": "Slot must be 1-8"}
+
+        self.vst_client.send_message("/unregister", [slot])
+        if slot in self.registered_plugins:
+            del self.registered_plugins[slot]
+        return {"status": "success", "slot": slot, "message": "unregistered"}
+
+    def vst_set_param(self, slot: int, index: int, value: float):
+        """Set a parameter on a plugin in a slot"""
+        if not self.vst_client:
+            self.connect_vst()
+
+        if slot < 1 or slot > 8:
+            return {"status": "error", "message": "Slot must be 1-8"}
+
+        value = max(0.0, min(1.0, value))
+        self.vst_client.send_message(f"/{slot}/param", [int(index), float(value)])
+        return {"status": "success", "slot": slot, "param": index, "value": value}
+
+    def vst_open(self, slot: int):
+        """Open the plugin GUI for a slot"""
+        if not self.vst_client:
+            self.connect_vst()
+
+        self.vst_client.send_message(f"/{slot}/open", [])
+        return {"status": "success", "slot": slot, "message": "opening GUI"}
+
+    def vst_list(self):
+        """List registered plugins"""
+        if not self.vst_client:
+            self.connect_vst()
+
+        self.vst_client.send_message("/list", [])
+        return {"status": "success", "registered": self.registered_plugins}
+
+    def vst_ping(self):
+        """Ping the VST controller"""
+        if not self.vst_client:
+            self.connect_vst()
+        self.vst_client.send_message("/ping", [1])
+        return {"status": "success", "message": "ping sent"}
+
+    # =========================================================================
+    # LEGACY SERUM COMMANDS (use slot 1 by default)
     # =========================================================================
 
     def serum_set_param(self, index: int, value: float):
-        """Set a Serum parameter by index (0-1 range)"""
-        if not self.serum_client:
-            self.connect_serum()
-
-        value = max(0.0, min(1.0, value))
-        self.serum_client.send_message("/set_param", [int(index), float(value)])
-        return {"status": "success", "param": index, "value": value}
+        """Set a Serum parameter by index (legacy - uses slot 1)"""
+        return self.vst_set_param(DEFAULT_SERUM_SLOT, index, value)
 
     def serum_set_param_name(self, name: str, value: float):
-        """Set a Serum parameter by name"""
+        """Set a Serum parameter by name (legacy - uses slot 1)"""
         if name not in SERUM_PARAMS:
             return {"status": "error", "message": f"Unknown param: {name}"}
 
@@ -138,11 +211,8 @@ class UnifiedMCPBridge:
         return self.serum_set_param(index, value)
 
     def serum_ping(self):
-        """Ping Serum"""
-        if not self.serum_client:
-            self.connect_serum()
-        self.serum_client.send_message("/ping", [1])
-        return {"status": "success", "message": "ping sent"}
+        """Ping (legacy alias)"""
+        return self.vst_ping()
 
     def serum_list_params(self):
         """List available Serum parameter names"""
@@ -215,24 +285,85 @@ class UnifiedMCPBridge:
 
     def process_command(self, text: str):
         """Process a natural language command"""
-        text = text.lower().strip()
+        text = text.strip()
         parts = text.split()
 
         if not parts:
             return {"status": "error", "message": "Empty command"}
 
-        # SERUM COMMANDS
-        if parts[0] == "serum":
+        cmd = parts[0].lower()
+
+        # =====================================================================
+        # VST COMMANDS (new universal approach)
+        # =====================================================================
+        if cmd == "vst":
+            if len(parts) < 2:
+                return {"status": "error", "message": "VST command incomplete"}
+
+            subcmd = parts[1].lower()
+
+            # vst register <slot> <path>
+            if subcmd == "register" and len(parts) >= 4:
+                try:
+                    slot = int(parts[2])
+                    # Path might have spaces, rejoin everything after slot
+                    plugin_path = " ".join(parts[3:])
+                    return self.vst_register(slot, plugin_path)
+                except ValueError:
+                    return {"status": "error", "message": "Invalid slot number"}
+
+            # vst unregister <slot>
+            if subcmd == "unregister" and len(parts) >= 3:
+                try:
+                    slot = int(parts[2])
+                    return self.vst_unregister(slot)
+                except ValueError:
+                    return {"status": "error", "message": "Invalid slot number"}
+
+            # vst list
+            if subcmd == "list":
+                return self.vst_list()
+
+            # vst ping
+            if subcmd == "ping":
+                return self.vst_ping()
+
+            # vst <slot> param <index> <value>
+            # vst <slot> open
+            try:
+                slot = int(subcmd)
+                if len(parts) >= 3:
+                    action = parts[2].lower()
+
+                    if action == "param" and len(parts) >= 5:
+                        index = int(parts[3])
+                        value = float(parts[4])
+                        return self.vst_set_param(slot, index, value)
+
+                    if action == "open":
+                        return self.vst_open(slot)
+
+            except ValueError:
+                pass
+
+            return {"status": "error", "message": f"Unknown VST command: {text}"}
+
+        # =====================================================================
+        # LEGACY SERUM COMMANDS (uses slot 1)
+        # =====================================================================
+        if cmd == "serum":
             if len(parts) < 2:
                 return {"status": "error", "message": "Serum command incomplete"}
 
-            if parts[1] == "ping":
+            subcmd = parts[1].lower()
+
+            if subcmd == "ping":
                 return self.serum_ping()
 
-            if parts[1] == "list":
+            if subcmd == "list":
                 return self.serum_list_params()
 
-            if parts[1] == "param" and len(parts) >= 4:
+            if subcmd == "param" and len(parts) >= 4:
                 try:
                     index = int(parts[2])
                     value = float(parts[3])
@@ -240,8 +371,8 @@ class UnifiedMCPBridge:
                 except ValueError:
                     return {"status": "error", "message": "Invalid param index or value"}
 
-            if parts[1] == "set" and len(parts) >= 4:
-                name = parts[2]
+            if subcmd == "set" and len(parts) >= 4:
+                name = parts[2].lower()
                 try:
                     value = float(parts[3])
                     return self.serum_set_param_name(name, value)
@@ -263,39 +394,43 @@ class UnifiedMCPBridge:
                 "level": "osc_a_level",
             }
 
-            if parts[1] in shortcuts and len(parts) >= 3:
+            if subcmd in shortcuts and len(parts) >= 3:
                 try:
                     value = float(parts[2])
-                    return self.serum_set_param_name(shortcuts[parts[1]], value)
+                    return self.serum_set_param_name(shortcuts[subcmd], value)
                 except ValueError:
                     return {"status": "error", "message": "Invalid value"}
 
+            return {"status": "error", "message": f"Unknown Serum command: {text}"}
+
+        # =====================================================================
         # ABLETON COMMANDS
-        if parts[0] == "tempo" and len(parts) >= 2:
+        # =====================================================================
+        if cmd == "tempo" and len(parts) >= 2:
             try:
                 tempo = float(parts[1])
                 return self.set_tempo(tempo)
             except ValueError:
                 return {"status": "error", "message": "Invalid tempo"}
 
-        if parts[0] == "session" or (parts[0] == "get" and len(parts) > 1 and parts[1] == "session"):
+        if cmd == "session" or (cmd == "get" and len(parts) > 1 and parts[1].lower() == "session"):
             return self.get_session_info()
 
-        if parts[0] == "create" and len(parts) > 1 and parts[1] == "track":
+        if cmd == "create" and len(parts) > 1 and parts[1].lower() == "track":
             return self.create_midi_track()
 
         return {"status": "error", "message": f"Unknown command: {text}"}
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Unified MCP Bridge for Ableton & Serum")
+    parser = argparse.ArgumentParser(description="Unified MCP Bridge for Ableton & VST Plugins")
     parser.add_argument("-c", "--command", help="Single command to execute")
     args = parser.parse_args()
 
     bridge = UnifiedMCPBridge()
 
     # Connect to both
-    bridge.connect_serum()
+    bridge.connect_vst()
     bridge.connect_ableton()
 
     if args.command:
@@ -305,20 +440,30 @@ def main():
     else:
         # Interactive mode
         print()
-        print("=" * 50)
+        print("=" * 60)
         print("  UNIFIED MCP BRIDGE")
-        print("  Ableton + Serum Control")
-        print("=" * 50)
+        print("  Ableton + Universal VST Control (8 slots)")
+        print("=" * 60)
         print()
-        print("Commands:")
-        print("  serum ping              - Test Serum connection")
-        print("  serum list              - List Serum params")
-        print("  serum param <idx> <val> - Set param by index")
-        print("  serum set <name> <val>  - Set param by name")
-        print("  serum cutoff <val>      - Filter cutoff shortcut")
-        print("  tempo <bpm>             - Set Ableton tempo")
-        print("  session                 - Get session info")
-        print("  quit                    - Exit")
+        print("VST Commands:")
+        print("  vst register <slot> <path>      - Load plugin into slot 1-8")
+        print("  vst unregister <slot>           - Unload plugin from slot")
+        print("  vst <slot> param <idx> <val>    - Set parameter")
+        print("  vst <slot> open                 - Open plugin GUI")
+        print("  vst list                        - List registered plugins")
+        print("  vst ping                        - Test connection")
+        print()
+        print("Legacy Serum (slot 1):")
+        print("  serum cutoff <val>              - Filter cutoff shortcut")
+        print("  serum set <name> <val>          - Set param by name")
+        print("  serum list                      - List Serum param names")
+        print()
+        print("Ableton Commands:")
+        print("  tempo <bpm>                     - Set tempo")
+        print("  session                         - Get session info")
+        print("  create track                    - Create MIDI track")
+        print()
+        print("  quit                            - Exit")
         print()
 
         while True:

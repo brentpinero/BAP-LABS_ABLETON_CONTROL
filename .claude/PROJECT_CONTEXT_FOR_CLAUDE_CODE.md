@@ -240,6 +240,21 @@ The user wants to learn **architecture design from first principles**, not just 
 
 ## 🎯 IMMEDIATE NEXT STEPS (Priority Order)
 
+### ✅ Phase 0: Universal VST Control System (COMPLETE - 2024-12-10)
+1. ✅ Built Universal VST Controller (`universal_vst_controller.js`, `universal_vst_control.maxpat`)
+2. ✅ 8 pre-allocated vst~ slots controllable via OSC on port 9878
+3. ✅ Tested 8/8 plugins working: Serum2, SSL X-Saturator v6, FabFilter Pro-Q 3, ValhallaRoom, Black Box HG-2, FabFilter Saturn 2, soothe2, SSL Drumstrip v6
+4. ✅ Documented edge cases: Container plugins (EffectRack, WaveShell) and Cradle God Particle don't respond to param automation
+5. ✅ Updated `unified_mcp_bridge.py` with universal VST commands
+
+**OSC Commands Available:**
+- `/register <slot> <path>` - Load plugin into slot 1-8
+- `/unregister <slot>` - Unload plugin
+- `/<slot>/param <idx> <val>` - Set parameter (1-based index, 0-1 value)
+- `/<slot>/open`, `/<slot>/close` - Open/close plugin GUI
+- `/<slot>/params` - Query parameter names
+- `/list`, `/ping` - Utility commands
+
 ### ✅ Phase 1: Audio Data Generation (COMPLETE)
 1. ✅ Built automated preset rendering system (111,732 files)
 2. ✅ Generated mel-spectrograms for all audio
@@ -304,6 +319,119 @@ The user wants to learn **architecture design from first principles**, not just 
 2. Use eval harness metrics as reward signals
 3. Scale to cloud if local PoC works
 4. Full self-play with learned reward model
+
+---
+
+## 🔜 NEXT STEPS: MCP + M4L Integration (Phase 0.5)
+
+### ⏳ Task 1: Convert maxpat to Deployable M4L Device
+The current `universal_vst_control.maxpat` is a standalone Max patch. It needs to be converted to an actual Max for Live device (`.amxd`) that can be loaded in Ableton as a MIDI/Audio Effect.
+
+**Requirements:**
+- Add `live.thisdevice` object for M4L integration
+- Use `plugout~` instead of `dac~` for audio routing within Ableton
+- Add `live.dial`, `live.text`, `live.toggle` for presentation view
+- Configure device width/height for Ableton's device view
+- Package as `.amxd` file
+
+**Reference:** Existing `BAP Labs Serum Control.amxd` shows the pattern with `plugout~ 1` and `plugout~ 2`
+
+### ⏳ Task 2: Extend MCP with Dynamic VST Loading & Param Discovery
+Extend the MCP bridge to support:
+
+1. **Dynamic VST Loading via MCP:**
+   ```python
+   # New MCP commands
+   def load_vst_to_slot(slot: int, plugin_path: str) -> dict:
+       """Load a VST into a slot and return its param list"""
+
+   def get_slot_params(slot: int) -> list[dict]:
+       """Query all parameters from a loaded plugin"""
+       # Returns: [{"index": 1, "name": "Filter Cutoff", "value": 0.5}, ...]
+   ```
+
+2. **Auto-discovery of Plugin Parameters:**
+   - When a plugin loads, automatically query its params via `/<slot>/params`
+   - Parse the param names returned from vst~ outlet 2
+   - Store param mappings per slot for LLM context injection
+
+3. **LLM Context Injection:**
+   ```python
+   def get_llm_context_for_slot(slot: int) -> str:
+       """Generate LLM-friendly context about loaded plugin"""
+       # Returns something like:
+       # "Slot 3 has FabFilter Pro-Q 3 loaded with parameters:
+       #  1. Output Gain (current: 0.5)
+       #  2. Band 1 Frequency (current: 0.3)
+       #  ..."
+   ```
+
+4. **Bidirectional Param Sync:**
+   - M4L device sends param changes to MCP when user tweaks knobs in plugin GUI
+   - MCP can query current param values (not just set them)
+   - Enables LLM to "see" what the user is doing in real-time
+
+### ⏳ Task 3: MCP Tool Schema for LLM
+Define structured tool schemas so the LLM can control VSTs:
+
+```json
+{
+  "name": "set_vst_parameter",
+  "description": "Set a parameter on a loaded VST plugin",
+  "parameters": {
+    "slot": {"type": "integer", "description": "Plugin slot 1-8"},
+    "param_index": {"type": "integer", "description": "Parameter index (1-based)"},
+    "value": {"type": "number", "description": "Normalized value 0.0-1.0"}
+  }
+}
+```
+
+```json
+{
+  "name": "load_vst_plugin",
+  "description": "Load a VST plugin into a slot",
+  "parameters": {
+    "slot": {"type": "integer", "description": "Plugin slot 1-8"},
+    "plugin_name": {"type": "string", "description": "Plugin name (e.g., 'Serum2', 'Pro-Q 3')"}
+  }
+}
+```
+
+```json
+{
+  "name": "get_plugin_parameters",
+  "description": "Get all parameters and current values for a loaded plugin",
+  "parameters": {
+    "slot": {"type": "integer", "description": "Plugin slot 1-8"}
+  }
+}
+```
+
+### Architecture Vision:
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    USER / LLM REQUEST                       │
+│  "Load Pro-Q 3 and cut 2kHz by 3dB"                        │
+└────────────────────┬────────────────────────────────────────┘
+                     ↓
+┌─────────────────────────────────────────────────────────────┐
+│              MCP BRIDGE (unified_mcp_bridge.py)             │
+│                                                              │
+│  1. load_vst_plugin(slot=2, plugin_name="Pro-Q 3")         │
+│  2. get_plugin_parameters(slot=2) → [param list for LLM]   │
+│  3. set_vst_parameter(slot=2, param_index=5, value=0.3)    │
+└────────────────────┬────────────────────────────────────────┘
+                     ↓ OSC (port 9878)
+┌─────────────────────────────────────────────────────────────┐
+│         M4L DEVICE (Universal VST Controller.amxd)          │
+│                                                              │
+│  [udpreceive 9878] → [js controller.js] → [vst~ slots 1-8] │
+│                                                              │
+│  - Routes OSC to correct vst~ slot                          │
+│  - Returns param names on query                             │
+│  - Sends param changes back to MCP (bidirectional)          │
+└─────────────────────────────────────────────────────────────┘
+```
 
 ---
 

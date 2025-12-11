@@ -197,16 +197,34 @@ class AbletonMCPExtended(ControlSurface):
                 track_index = params.get("track_index", 0)
                 response["result"] = self._get_arrangement_clips(track_index)
 
+            # Browser commands (read-only, don't need main thread)
+            elif command_type == "get_browser_tree":
+                category_type = params.get("category_type", "all")
+                response["result"] = self._get_browser_tree(category_type)
+            elif command_type == "get_browser_items_at_path":
+                path = params.get("path", "")
+                response["result"] = self._get_browser_items_at_path(path)
+
+            # Device parameter commands (read-only)
+            elif command_type == "get_device_parameters":
+                track_index = params.get("track_index", 0)
+                device_index = params.get("device_index", 0)
+                response["result"] = self._get_device_parameters(track_index, device_index)
+
             # Commands that modify Live's state (scheduled on main thread)
             elif command_type in [
                 "create_midi_track", "set_track_name",
                 "create_clip", "add_notes_to_clip", "set_clip_name",
                 "set_tempo", "fire_clip", "stop_clip",
                 "start_playback", "stop_playback",
-                # NEW: Arrangement view commands
+                # Browser loading
+                "load_browser_item",
+                # Arrangement view commands
                 "duplicate_clip_to_arrangement",
                 "create_arrangement_clip",
-                "add_notes_to_arrangement_clip"
+                "add_notes_to_arrangement_clip",
+                # Device parameter control
+                "set_device_parameter"
             ]:
                 response_queue = queue.Queue()
 
@@ -253,7 +271,13 @@ class AbletonMCPExtended(ControlSurface):
                         elif command_type == "stop_playback":
                             result = self._stop_playback()
 
-                        # NEW: Arrangement view commands
+                        # Browser loading
+                        elif command_type == "load_browser_item":
+                            track_index = params.get("track_index", 0)
+                            item_uri = params.get("item_uri", "")
+                            result = self._load_browser_item(track_index, item_uri)
+
+                        # Arrangement view commands
                         elif command_type == "duplicate_clip_to_arrangement":
                             track_index = params.get("track_index", 0)
                             clip_index = params.get("clip_index", 0)
@@ -269,6 +293,14 @@ class AbletonMCPExtended(ControlSurface):
                             clip_index = params.get("clip_index", 0)
                             notes = params.get("notes", [])
                             result = self._add_notes_to_arrangement_clip(track_index, clip_index, notes)
+
+                        # Device parameter control
+                        elif command_type == "set_device_parameter":
+                            track_index = params.get("track_index", 0)
+                            device_index = params.get("device_index", 0)
+                            parameter_index = params.get("parameter_index", 0)
+                            value = params.get("value", 0.0)
+                            result = self._set_device_parameter(track_index, device_index, parameter_index, value)
 
                         response_queue.put({"status": "success", "result": result})
                     except Exception as e:
@@ -791,4 +823,285 @@ class AbletonMCPExtended(ControlSurface):
         except Exception as e:
             self.log_message("Error adding notes to arrangement clip: " + str(e))
             self.log_message(traceback.format_exc())
+            raise
+
+    # =========================================================================
+    # Browser commands
+    # =========================================================================
+
+    def _get_browser_tree(self, category_type="all"):
+        """Get a simplified tree of browser categories."""
+        try:
+            app = self.application()
+            if not app:
+                raise RuntimeError("Could not access Live application")
+
+            if not hasattr(app, 'browser') or app.browser is None:
+                raise RuntimeError("Browser is not available")
+
+            result = {
+                "type": category_type,
+                "categories": []
+            }
+
+            def process_item(item):
+                if not item:
+                    return None
+                return {
+                    "name": item.name if hasattr(item, 'name') else "Unknown",
+                    "is_folder": hasattr(item, 'children') and bool(item.children),
+                    "is_loadable": hasattr(item, 'is_loadable') and item.is_loadable,
+                    "uri": item.uri if hasattr(item, 'uri') else None
+                }
+
+            # Process standard categories
+            categories_map = {
+                "instruments": ("Instruments", "instruments"),
+                "sounds": ("Sounds", "sounds"),
+                "drums": ("Drums", "drums"),
+                "audio_effects": ("Audio Effects", "audio_effects"),
+                "midi_effects": ("MIDI Effects", "midi_effects"),
+            }
+
+            for key, (display_name, attr_name) in categories_map.items():
+                if (category_type == "all" or category_type == key) and hasattr(app.browser, attr_name):
+                    try:
+                        cat_item = getattr(app.browser, attr_name)
+                        cat = process_item(cat_item)
+                        if cat:
+                            cat["name"] = display_name
+                            # Get first level children
+                            if hasattr(cat_item, 'children'):
+                                cat["children"] = []
+                                for child in cat_item.children[:20]:  # Limit
+                                    child_info = process_item(child)
+                                    if child_info:
+                                        cat["children"].append(child_info)
+                            result["categories"].append(cat)
+                    except Exception as e:
+                        self.log_message("Error processing {}: {}".format(key, str(e)))
+
+            return result
+        except Exception as e:
+            self.log_message("Error getting browser tree: " + str(e))
+            raise
+
+    def _get_browser_items_at_path(self, path):
+        """Get browser items at a specific path."""
+        try:
+            app = self.application()
+            if not app or not hasattr(app, 'browser'):
+                raise RuntimeError("Browser not available")
+
+            path_parts = path.split("/")
+            if not path_parts:
+                raise ValueError("Invalid path")
+
+            root_category = path_parts[0].lower()
+            current_item = None
+
+            # Map to browser attributes
+            category_map = {
+                "instruments": "instruments",
+                "sounds": "sounds",
+                "drums": "drums",
+                "audio_effects": "audio_effects",
+                "midi_effects": "midi_effects",
+            }
+
+            if root_category in category_map and hasattr(app.browser, category_map[root_category]):
+                current_item = getattr(app.browser, category_map[root_category])
+            else:
+                raise ValueError("Unknown category: " + root_category)
+
+            # Navigate through path
+            for i in range(1, len(path_parts)):
+                part = path_parts[i]
+                if not part:
+                    continue
+
+                if not hasattr(current_item, 'children'):
+                    raise ValueError("Item has no children")
+
+                found = False
+                for child in current_item.children:
+                    if hasattr(child, 'name') and child.name.lower() == part.lower():
+                        current_item = child
+                        found = True
+                        break
+
+                if not found:
+                    raise ValueError("Path part '{}' not found".format(part))
+
+            # Get items at current path
+            items = []
+            if hasattr(current_item, 'children'):
+                for child in current_item.children:
+                    items.append({
+                        "name": child.name if hasattr(child, 'name') else "Unknown",
+                        "is_folder": hasattr(child, 'children') and bool(child.children),
+                        "is_loadable": hasattr(child, 'is_loadable') and child.is_loadable,
+                        "uri": child.uri if hasattr(child, 'uri') else None
+                    })
+
+            return {
+                "path": path,
+                "name": current_item.name if hasattr(current_item, 'name') else "Unknown",
+                "uri": current_item.uri if hasattr(current_item, 'uri') else None,
+                "items": items
+            }
+        except Exception as e:
+            self.log_message("Error getting browser items: " + str(e))
+            raise
+
+    def _load_browser_item(self, track_index, item_uri):
+        """Load a browser item onto a track by its URI."""
+        try:
+            if track_index < 0 or track_index >= len(self._song.tracks):
+                raise IndexError("Track index out of range")
+
+            track = self._song.tracks[track_index]
+            app = self.application()
+
+            # Find the browser item by URI
+            item = self._find_browser_item_by_uri(app.browser, item_uri)
+
+            if not item:
+                raise ValueError("Browser item with URI '{}' not found".format(item_uri))
+
+            # Select the track and load the item
+            self._song.view.selected_track = track
+            app.browser.load_item(item)
+
+            # Get devices after loading
+            devices_after = [d.name for d in track.devices]
+
+            return {
+                "loaded": True,
+                "item_name": item.name,
+                "track_name": track.name,
+                "uri": item_uri,
+                "devices_after": devices_after
+            }
+        except Exception as e:
+            self.log_message("Error loading browser item: " + str(e))
+            raise
+
+    def _find_browser_item_by_uri(self, browser_or_item, uri, max_depth=10, current_depth=0):
+        """Find a browser item by its URI recursively."""
+        try:
+            if hasattr(browser_or_item, 'uri') and browser_or_item.uri == uri:
+                return browser_or_item
+
+            if current_depth >= max_depth:
+                return None
+
+            # Check root categories if this is the browser
+            if hasattr(browser_or_item, 'instruments'):
+                for category in [browser_or_item.instruments, browser_or_item.sounds,
+                                browser_or_item.drums, browser_or_item.audio_effects,
+                                browser_or_item.midi_effects]:
+                    item = self._find_browser_item_by_uri(category, uri, max_depth, current_depth + 1)
+                    if item:
+                        return item
+                return None
+
+            # Check children
+            if hasattr(browser_or_item, 'children') and browser_or_item.children:
+                for child in browser_or_item.children:
+                    item = self._find_browser_item_by_uri(child, uri, max_depth, current_depth + 1)
+                    if item:
+                        return item
+
+            return None
+        except Exception as e:
+            self.log_message("Error finding browser item: " + str(e))
+            return None
+
+    # =========================================================================
+    # Device parameter commands
+    # =========================================================================
+
+    def _get_device_parameters(self, track_index, device_index):
+        """Get all parameters for a device on a track."""
+        try:
+            if track_index < 0 or track_index >= len(self._song.tracks):
+                raise IndexError("Track index out of range")
+
+            track = self._song.tracks[track_index]
+
+            if device_index < 0 or device_index >= len(track.devices):
+                raise IndexError("Device index out of range. Track has {} devices.".format(len(track.devices)))
+
+            device = track.devices[device_index]
+
+            parameters = []
+            for i, param in enumerate(device.parameters):
+                param_info = {
+                    "index": i,
+                    "name": param.name,
+                    "value": param.value,
+                    "min": param.min,
+                    "max": param.max,
+                    "is_enabled": param.is_enabled,
+                    "is_quantized": param.is_quantized
+                }
+                # Add default value if available (safely)
+                try:
+                    if hasattr(param, 'default_value'):
+                        param_info["default_value"] = param.default_value
+                except:
+                    pass  # Some parameter types don't support default_value
+                parameters.append(param_info)
+
+            return {
+                "track_index": track_index,
+                "track_name": track.name,
+                "device_index": device_index,
+                "device_name": device.name,
+                "device_class": device.class_name if hasattr(device, 'class_name') else "Unknown",
+                "parameter_count": len(parameters),
+                "parameters": parameters
+            }
+        except Exception as e:
+            self.log_message("Error getting device parameters: " + str(e))
+            raise
+
+    def _set_device_parameter(self, track_index, device_index, parameter_index, value):
+        """Set a parameter value on a device."""
+        try:
+            if track_index < 0 or track_index >= len(self._song.tracks):
+                raise IndexError("Track index out of range")
+
+            track = self._song.tracks[track_index]
+
+            if device_index < 0 or device_index >= len(track.devices):
+                raise IndexError("Device index out of range. Track has {} devices.".format(len(track.devices)))
+
+            device = track.devices[device_index]
+
+            if parameter_index < 0 or parameter_index >= len(device.parameters):
+                raise IndexError("Parameter index out of range. Device has {} parameters.".format(len(device.parameters)))
+
+            param = device.parameters[parameter_index]
+
+            # Clamp value to valid range
+            clamped_value = max(param.min, min(param.max, value))
+
+            # Set the value
+            param.value = clamped_value
+
+            return {
+                "track_index": track_index,
+                "device_index": device_index,
+                "device_name": device.name,
+                "parameter_index": parameter_index,
+                "parameter_name": param.name,
+                "old_value": value,  # What was requested
+                "new_value": param.value,  # What was actually set
+                "min": param.min,
+                "max": param.max
+            }
+        except Exception as e:
+            self.log_message("Error setting device parameter: " + str(e))
             raise

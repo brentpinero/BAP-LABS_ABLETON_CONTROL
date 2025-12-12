@@ -1,0 +1,87 @@
+{
+  "plugin": "SSL Native X-Saturator v6",
+  "format": "VST3",
+  "parameter_count": 9,
+  "notes": "Parameters are 1-based for vst~ in Max/MSP",
+
+  "parameters": {
+    "input_gain": {
+      "index": 1,
+      "name": "Input Gain",
+      "range": "0.0 - 1.0",
+      "description": "Input level before saturation"
+    },
+    "output_gain": {
+      "index": 2,
+      "name": "Output Gain",
+      "range": "0.0 - 1.0",
+      "description": "Output level after saturation"
+    },
+    "drive": {
+      "index": 3,
+      "name": "Drive",
+      "range": "0.0 - 1.0",
+      "description": "Amount of saturation/distortion"
+    },
+    "depth": {
+      "index": 4,
+      "name": "Depth",
+      "range": "0.0 - 1.0",
+      "description": "Saturation character depth"
+    },
+    "harmonics": {
+      "index": 5,
+      "name": "Harmonics",
+      "range": "0.0 - 1.0",
+      "description": "Harmonic content/color"
+    },
+    "shape": {
+      "index": 6,
+      "name": "Shape",
+      "range": "0.0 - 1.0",
+      "description": "Saturation curve shape"
+    },
+    "dry_wet_mix": {
+      "index": 7,
+      "name": "Dry/Wet Mix",
+      "range": "0.0 - 1.0 (0=dry, 1=wet)",
+      "description": "Blend between dry and saturated signal"
+    },
+    "headroom_6db": {
+      "index": 8,
+      "name": "+6dB Headroom",
+      "range": "0.0 or 1.0 (off/on)",
+      "description": "Adds 6dB headroom for hotter signals"
+    },
+    "bypass": {
+      "index": 9,
+      "name": "Bypass",
+      "range": "0.0 or 1.0 (off/on)",
+      "description": "Bypass the plugin"
+    }
+  },
+
+  "quick_reference": {
+    "1": "Input Gain",
+    "2": "Output Gain",
+    "3": "Drive",
+    "4": "Depth",
+    "5": "Harmonics",
+    "6": "Shape",
+    "7": "Dry/Wet Mix",
+    "8": "+6dB Headroom",
+    "9": "Bypass"
+  },
+
+  "example_usage": {
+    "subtle_warmth": [
+      {"param": 3, "value": 0.3, "description": "Drive = 30%"},
+      {"param": 7, "value": 0.5, "description": "Mix = 50%"}
+    ],
+    "heavy_saturation": [
+      {"param": 3, "value": 0.8, "description": "Drive = 80%"},
+      {"param": 5, "value": 0.7, "description": "Harmonics = 70%"},
+      {"param": 7, "value": 1.0, "description": "Mix = 100%"}
+    ]
+  }
+}

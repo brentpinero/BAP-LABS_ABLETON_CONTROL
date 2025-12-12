@@ -45,6 +45,9 @@ function anything() {
         outlet(8, "pong");
         post("PONG\n");
     }
+    else if (cmd === "/select" && args.length >= 2) {
+        selectSlot(parseInt(args[1]));
+    }
     else if (cmd.indexOf("/") === 0) {
         // Check for slot commands like /1/param, /2/open, etc.
         var parts = cmd.split("/");
@@ -173,6 +176,24 @@ function getParams(slot) {
     if (slot < 1 || slot > 8) return;
     outlet(slot - 1, "params");
     post("Requesting params for slot " + slot + "\n");
+}
+
+// Track currently selected output slot (for VST Hub)
+var selectedSlot = 1;
+
+/**
+ * Select which slot outputs audio (for VST Hub instrument)
+ * Sends the slot number to outlet 8 with "select" prefix
+ * The Max patch routes this to the selector~ objects
+ */
+function selectSlot(slot) {
+    if (slot < 1 || slot > 8) {
+        post("Error: Slot must be 1-8\n");
+        return;
+    }
+    selectedSlot = slot;
+    outlet(8, "select", slot);
+    post("Selected output slot: " + slot + "\n");
 }
 
 /**

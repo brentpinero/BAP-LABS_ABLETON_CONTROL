@@ -1,0 +1,89 @@
+{
+  "plugin": "FabFilter Pro-Q 3",
+  "version": "VST3",
+  "notes": "Parameters are 1-based. Each band has 15 parameters. 24 bands total.",
+
+  "band_parameter_offsets": {
+    "description": "For Band N, add (N-1) * 15 to these base indices",
+    "used": 1,
+    "enabled": 2,
+    "frequency": 3,
+    "gain": 4,
+    "dynamic_range": 5,
+    "dynamics_enabled": 6,
+    "threshold": 7,
+    "q": 8,
+    "shape": 9,
+    "slope": 10,
+    "stereo_placement": 11,
+    "speakers": 12,
+    "solo": 13,
+    "external_side_chain": 14,
+    "ex_speakers": 15
+  },
+
+  "band_1_indices": {
+    "Band 1 Used": 1,
+    "Band 1 Enabled": 2,
+    "Band 1 Frequency": 3,
+    "Band 1 Gain": 4,
+    "Band 1 Dynamic Range": 5,
+    "Band 1 Dynamics Enabled": 6,
+    "Band 1 Threshold": 7,
+    "Band 1 Q": 8,
+    "Band 1 Shape": 9,
+    "Band 1 Slope": 10,
+    "Band 1 Stereo Placement": 11,
+    "Band 1 Speakers": 12,
+    "Band 1 Solo": 13,
+    "Band 1 External Side Chain": 14,
+    "Ex Band 1 Speakers": 15
+  },
+
+  "shape_values": {
+    "description": "Normalized 0-1 values for filter shapes (TESTED)",
+    "bell": 0.0,
+    "low_shelf": 0.125,
+    "low_cut_highpass": 0.25,
+    "high_shelf": 0.375,
+    "high_cut_lowpass": 0.5,
+    "notch": 0.625,
+    "band_pass": 0.75,
+    "tilt_shelf": 0.875
+  },
+
+  "slope_values": {
+    "description": "Approximate normalized values for filter slopes",
+    "6dB_oct": 0.0,
+    "12dB_oct": 0.17,
+    "18dB_oct": 0.33,
+    "24dB_oct": 0.5,
+    "36dB_oct": 0.67,
+    "48dB_oct": 0.83,
+    "96dB_oct": 1.0
+  },
+
+  "global_parameters": {
+    "description": "Parameters after all 24 bands (index 361+)",
+    "processing_mode": 361,
+    "processing_resolution": 362,
+    "gain_scale": 363,
+    "output_level": 364,
+    "output_pan": 365,
+    "output_pan_mode": 366,
+    "bypass": 367,
+    "output_invert_phase": 368,
+    "auto_gain": 369
+  },
+
+  "example_lowpass_filter": {
+    "description": "Create a lowpass filter on Band 1",
+    "steps": [
+      {"param": 1, "value": 1.0, "description": "Band 1 Used = ON"},
+      {"param": 2, "value": 1.0, "description": "Band 1 Enabled = ON"},
+      {"param": 9, "value": 0.571, "description": "Band 1 Shape = High Cut (lowpass)"},
+      {"param": 3, "value": 0.4, "description": "Band 1 Frequency = ~1kHz"},
+      {"param": 10, "value": 0.67, "description": "Band 1 Slope = 36dB/oct"}
+    ]
+  }
+}

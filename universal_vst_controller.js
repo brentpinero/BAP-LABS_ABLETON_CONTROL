@@ -9,10 +9,68 @@
  *   /<slot>/open                    - Open plugin GUI
  *   /list                           - List registered plugins
  *   /ping                           - Health check
+ *   /clearlog                       - Clear the log file
  */
 
 inlets = 1;
 outlets = 9;  // 8 vst~ outlets + 1 status outlet
+
+// Log file path for external reading (Claude can read this)
+var LOG_FILE_PATH = "/Users/brentpinero/Documents/serum_llm_2/max_console.log";
+var MAX_LOG_LINES = 500;  // Keep log file manageable
+
+/**
+ * Log to both Max console and file
+ */
+function log(msg) {
+    post(msg);
+    logToFile(msg.replace(/\n$/, ""));  // Strip trailing newline for file
+}
+
+/**
+ * Write a message to the log file (append mode)
+ */
+function logToFile(msg) {
+    try {
+        var f = new File(LOG_FILE_PATH, "write");
+        if (f.isopen) {
+            f.eof = f.eof;  // seek to end for append
+            var timestamp = new Date().toISOString();
+            f.writeline(timestamp + " | " + msg);
+            f.close();
+        } else {
+            // Try creating the file
+            f = new File(LOG_FILE_PATH, "write", "TEXT");
+            if (f.isopen) {
+                var timestamp = new Date().toISOString();
+                f.writeline(timestamp + " | " + msg);
+                f.close();
+            }
+        }
+    } catch (e) {
+        post("Log file error: " + e + "\n");
+    }
+}
+
+/**
+ * Clear the log file
+ */
+function clearLog() {
+    try {
+        var f = new File(LOG_FILE_PATH, "write", "TEXT");
+        if (f.isopen) {
+            f.writeline("=== MAX VST CONTROLLER LOG ===");
+            f.writeline("Cleared at: " + new Date().toISOString());
+            f.writeline("==============================");
+            f.close();
+            post("Log file cleared\n");
+        } else {
+            post("Could not open log file for writing\n");
+        }
+    } catch (e) {
+        post("Clear log error: " + e + "\n");
+    }
+}
 
 // Track which plugins are loaded in which slots
 var slots = {};
@@ -29,7 +87,7 @@ function anything() {
     var cmd = args[0];
 
     // Log incoming command
-    post("VST Controller received: " + args.join(" ") + "\n");
+    log("VST Controller received: " + args.join(" ") + "\n");
 
     // Parse the command
     if (cmd === "/register" && args.length >= 3) {
@@ -43,7 +101,10 @@ function anything() {
     }
     else if (cmd === "/ping") {
         outlet(8, "pong");
-        post("PONG\n");
+        log("PONG\n");
+    }
+    else if (cmd === "/clearlog") {
+        clearLog();
     }
     else if (cmd === "/select" && args.length >= 2) {
         selectSlot(parseInt(args[1]));
@@ -74,6 +135,19 @@ function anything() {
                 else if (action === "paramname" && args.length >= 2) {
                     getParamName(slotNum, parseInt(args[1]));
                 }
+                // Preset/Program commands
+                else if (action === "program" && args.length >= 2) {
+                    setProgram(slotNum, parseInt(args[1]));
+                }
+                else if (action === "pgmnames") {
+                    getProgramNames(slotNum);
+                }
+                else if (action === "pgmcount") {
+                    getProgramCount(slotNum);
+                }
+                else if (action === "getprogram") {
+                    getCurrentProgram(slotNum);
+                }
             }
         }
     }
@@ -84,7 +158,7 @@ function anything() {
  */
 function registerPlugin(slot, pluginPath) {
     if (slot < 1 || slot > 8) {
-        post("Error: Slot must be 1-8, got " + slot + "\n");
+        log("Error: Slot must be 1-8, got " + slot + "\n");
         return;
     }
 
@@ -103,7 +177,7 @@ function registerPlugin(slot, pluginPath) {
         name: pluginName
     };
 
-    post("Registered slot " + slot + ": " + pluginName + "\n");
+    log("Registered slot " + slot + ": " + pluginName + "\n");
     outlet(8, "registered", slot, pluginName);
 }
 
@@ -112,7 +186,7 @@ function registerPlugin(slot, pluginPath) {
  */
 function unregisterPlugin(slot) {
     if (slot < 1 || slot > 8) {
-        post("Error: Slot must be 1-8\n");
+        log("Error: Slot must be 1-8\n");
         return;
     }
 
@@ -121,7 +195,7 @@ function unregisterPlugin(slot) {
     var oldName = slots[slot].name;
     slots[slot] = { loaded: false, path: "", name: "" };
 
-    post("Unregistered slot " + slot + " (" + oldName + ")\n");
+    log("Unregistered slot " + slot + " (" + oldName + ")\n");
     outlet(8, "unregistered", slot);
 }
 
@@ -131,12 +205,12 @@ function unregisterPlugin(slot) {
  */
 function setParam(slot, paramIndex, value) {
     if (slot < 1 || slot > 8) {
-        post("Error: Slot must be 1-8\n");
+        log("Error: Slot must be 1-8\n");
         return;
     }
 
     if (!slots[slot].loaded) {
-        post("Warning: Slot " + slot + " has no plugin loaded\n");
+        log("Warning: Slot " + slot + " has no plugin loaded\n");
         // Still send it - the plugin might be loaded but we lost track
     }
 
@@ -148,7 +222,7 @@ function setParam(slot, paramIndex, value) {
     // But let's try explicit list format to be safe
     outlet(slot - 1, [paramIndex, value]);
 
-    // post("Slot " + slot + " param " + paramIndex + " = " + value + "\n");
+    log("Slot " + slot + " param " + paramIndex + " = " + value + "\n");
 }
 
 /**
@@ -157,7 +231,7 @@ function setParam(slot, paramIndex, value) {
 function openEditor(slot) {
     if (slot < 1 || slot > 8) return;
     outlet(slot - 1, "open");
-    post("Opening editor for slot " + slot + "\n");
+    log("Opening editor for slot " + slot + "\n");
 }
 
 /**
@@ -166,7 +240,7 @@ function openEditor(slot) {
 function closeEditor(slot) {
     if (slot < 1 || slot > 8) return;
     outlet(slot - 1, "close");
-    post("Closing editor for slot " + slot + "\n");
+    log("Closing editor for slot " + slot + "\n");
 }
 
 /**
@@ -175,7 +249,7 @@ function closeEditor(slot) {
 function getParams(slot) {
     if (slot < 1 || slot > 8) return;
     outlet(slot - 1, "params");
-    post("Requesting params for slot " + slot + "\n");
+    log("Requesting params for slot " + slot + "\n");
 }
 
 // Track currently selected output slot (for VST Hub)
@@ -188,12 +262,12 @@ var selectedSlot = 1;
  */
 function selectSlot(slot) {
     if (slot < 1 || slot > 8) {
-        post("Error: Slot must be 1-8\n");
+        log("Error: Slot must be 1-8\n");
         return;
     }
     selectedSlot = slot;
     outlet(8, "select", slot);
-    post("Selected output slot: " + slot + "\n");
+    log("Selected output slot: " + slot + "\n");
 }
 
 /**
@@ -202,7 +276,7 @@ function selectSlot(slot) {
 function getParamCount(slot) {
     if (slot < 1 || slot > 8) return;
     outlet(slot - 1, "getparamcount");
-    post("Requesting param count for slot " + slot + "\n");
+    log("Requesting param count for slot " + slot + "\n");
 }
 
 /**
@@ -211,25 +285,61 @@ function getParamCount(slot) {
 function getParamName(slot, index) {
     if (slot < 1 || slot > 8) return;
     outlet(slot - 1, "getparamname", index);
-    post("Requesting param name " + index + " for slot " + slot + "\n");
+    log("Requesting param name " + index + " for slot " + slot + "\n");
+}
+
+/**
+ * Set program/preset by index
+ */
+function setProgram(slot, programNum) {
+    if (slot < 1 || slot > 8) return;
+    outlet(slot - 1, "pgm", programNum);
+    log("Setting program " + programNum + " for slot " + slot + "\n");
+}
+
+/**
+ * Get all program/preset names
+ */
+function getProgramNames(slot) {
+    if (slot < 1 || slot > 8) return;
+    outlet(slot - 1, "pgmnames");
+    log("Requesting program names for slot " + slot + "\n");
+}
+
+/**
+ * Get program count
+ */
+function getProgramCount(slot) {
+    if (slot < 1 || slot > 8) return;
+    outlet(slot - 1, "pgmcount");
+    log("Requesting program count for slot " + slot + "\n");
+}
+
+/**
+ * Get current program number
+ */
+function getCurrentProgram(slot) {
+    if (slot < 1 || slot > 8) return;
+    outlet(slot - 1, "getpgm");
+    log("Requesting current program for slot " + slot + "\n");
 }
 
 /**
  * List all registered plugins
  */
 function listPlugins() {
-    post("\n=== REGISTERED PLUGINS ===\n");
+    log("\n=== REGISTERED PLUGINS ===\n");
     var count = 0;
     for (var i = 1; i <= 8; i++) {
         if (slots[i].loaded) {
-            post("  Slot " + i + ": " + slots[i].name + "\n");
+            log("  Slot " + i + ": " + slots[i].name + "\n");
             count++;
         }
     }
     if (count === 0) {
-        post("  (no plugins registered)\n");
+        log("  (no plugins registered)\n");
     }
-    post("==========================\n\n");
+    log("==========================\n\n");
 
     // Output slot info to status outlet
     outlet(8, "slots", JSON.stringify(slots));
@@ -248,10 +358,14 @@ function list() {
 
 // Initialization
 function loadbang() {
-    post("\n");
-    post("=====================================\n");
-    post("  UNIVERSAL VST CONTROLLER READY\n");
-    post("  8 slots available\n");
-    post("=====================================\n");
-    post("\n");
+    // Clear log on startup
+    clearLog();
+
+    log("\n");
+    log("=====================================\n");
+    log("  UNIVERSAL VST CONTROLLER READY\n");
+    log("  8 slots available\n");
+    log("  Log file: " + LOG_FILE_PATH + "\n");
+    log("=====================================\n");
+    log("\n");
 }

@@ -1,0 +1,18 @@
+{
+  "plugin": "SSL Fusion Stereo Image",
+  "vendor": "SSL",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/SSL Fusion Stereo Image.vst3",
+  "parameter_count": 7,
+  "params": {
+    "1": "Bypass",
+    "2": "Input Trim",
+    "3": "Output Trim",
+    "4": "Shuffle",
+    "5": "Space",
+    "6": "Width",
+    "7": "Solo Side"
+  },
+  "notes": "Stereo width and imaging tool from SSL Fusion hardware.",
+  "edge_cases": []
+}

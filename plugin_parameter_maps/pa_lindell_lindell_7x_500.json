@@ -1,0 +1,12 @@
+{
+  "plugin": "Lindell 7X-500",
+  "vendor": "Plugin Alliance (Lindell Audio)",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/Lindell 7X-500.vst3",
+  "parameter_count": "unknown - see notes",
+  "params": {},
+  "notes": "Plugin Alliance plugin. Parameter dump failed - M4L device returning 0 params for this plugin.",
+  "edge_cases": [
+    "Parameter dump not working - requires M4L investigation"
+  ]
+}

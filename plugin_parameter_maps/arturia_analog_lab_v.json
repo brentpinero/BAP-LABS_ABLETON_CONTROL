@@ -1,0 +1,10 @@
+{
+  "plugin": "Analog Lab V",
+  "vendor": "Arturia",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/Analog Lab V.vst3",
+  "parameter_count": "unknown - see notes",
+  "params": {},
+  "notes": "Multi-instrument preset browser/player. VST Hub param dump not working during mapping session. May require M4L device check. Analog Lab V provides access to all Arturia V Collection synths through a unified interface with macro controls.",
+  "edge_cases": ["VST Hub param dump not writing to file - M4L device issue", "Large multi-synth plugin - likely has many parameters"]
+}

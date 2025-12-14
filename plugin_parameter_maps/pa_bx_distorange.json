@@ -1,0 +1,16 @@
+{
+  "plugin": "bx_distorange",
+  "vendor": "Plugin Alliance",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/bx_distorange.vst3",
+  "parameter_count": 6,
+  "params": {
+    "1": "Bypass",
+    "2": "Dist",
+    "3": "Tone",
+    "4": "Level",
+    "5": "Setting",
+    "6": "Bypass"
+  },
+  "edge_cases": []
+}

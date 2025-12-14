@@ -1,0 +1,19 @@
+{
+  "plugin": "Lindell 80 Bus",
+  "vendor": "Plugin Alliance",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/Lindell 80 Bus.vst3",
+  "parameter_count": 9,
+  "params": {
+    "1": "THD",
+    "2": "Trim",
+    "3": "Level",
+    "4": "TMT Channel",
+    "5": "TMT Link",
+    "6": "Input Level",
+    "7": "Output Level",
+    "8": "Bypass",
+    "9": "Program"
+  },
+  "edge_cases": []
+}

@@ -1,0 +1,24 @@
+{
+  "plugin": "NEOLD U2A",
+  "vendor": "Plugin Alliance",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/NEOLD U2A.vst3",
+  "parameter_count": 14,
+  "params": {
+    "1": "Master Bypass",
+    "2": "Bank",
+    "3": "Power",
+    "4": "R37",
+    "5": "Mode",
+    "6": "Recovery",
+    "7": "Aging",
+    "8": "Gain",
+    "9": "Peak Reduction",
+    "10": "Drive",
+    "11": "Mix",
+    "12": "Meter Mode",
+    "13": "GR Meter",
+    "14": "VU Meter"
+  },
+  "edge_cases": []
+}

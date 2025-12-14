@@ -1,0 +1,18 @@
+{
+  "plugin": "SSL Fusion Transformer",
+  "vendor": "SSL",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/SSL Fusion Transformer.vst3",
+  "parameter_count": 7,
+  "params": {
+    "1": "Bypass",
+    "2": "Input Trim",
+    "3": "Output Trim",
+    "4": "Mix",
+    "5": "Amount",
+    "6": "Shine",
+    "7": "LF Extend"
+  },
+  "notes": "Transformer coloration/saturation from SSL Fusion hardware.",
+  "edge_cases": []
+}

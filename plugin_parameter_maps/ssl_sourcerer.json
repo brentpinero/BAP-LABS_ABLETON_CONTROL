@@ -1,0 +1,26 @@
+{
+  "plugin": "SSL Sourcerer",
+  "vendor": "SSL",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/SSL Sourcerer.vst3",
+  "parameter_count": 15,
+  "params": {
+    "1": "Bypass",
+    "2": "Threshold",
+    "3": "Time",
+    "4": "Depth",
+    "5": "Detector",
+    "6": "HPF",
+    "7": "HPF In",
+    "8": "LPF",
+    "9": "LPF In",
+    "10": "Ext Key Delay",
+    "11": "External Sidechain",
+    "12": "Sidechain Listen",
+    "13": "Ducking",
+    "14": "Ducking Delay Unit",
+    "15": "Ducking Gain"
+  },
+  "notes": "Expander/source separation tool for isolating or ducking specific sources.",
+  "edge_cases": []
+}

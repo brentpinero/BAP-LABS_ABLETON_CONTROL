@@ -1,0 +1,23 @@
+{
+  "plugin": "SSL Native Bus Compressor 2",
+  "vendor": "SSL",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/SSL Native Bus Compressor 2.vst3",
+  "parameter_count": 12,
+  "params": {
+    "1": "External S/C",
+    "2": "Oversampling",
+    "3": "Threshold",
+    "4": "Makeup Gain",
+    "5": "Attack",
+    "6": "Release",
+    "7": "Ratio",
+    "8": "Sidechain HPF",
+    "9": "Dry/Wet Mix",
+    "10": "Mix Lock",
+    "11": "Comp Bypass",
+    "12": "GroupSense"
+  },
+  "notes": "Classic SSL bus compressor. The legendary glue compressor for mix bus.",
+  "edge_cases": []
+}

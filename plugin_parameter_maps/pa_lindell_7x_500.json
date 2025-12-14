@@ -1,0 +1,26 @@
+{
+  "plugin": "Lindell 7X-500",
+  "vendor": "Plugin Alliance",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/Lindell 7X-500.vst3",
+  "parameter_count": 16,
+  "params": {
+    "1": "Input",
+    "2": "Output",
+    "3": "Attack",
+    "4": "Release",
+    "5": "Mix",
+    "6": "Ratio",
+    "7": "SC High Pass Filter",
+    "8": "Continuous Attack",
+    "9": "Continuous Release",
+    "10": "Stereo Link",
+    "11": "Bypass",
+    "12": "Continuous ON",
+    "13": "Link ON",
+    "14": "Analog ON",
+    "15": "Bypass",
+    "16": "Program"
+  },
+  "edge_cases": []
+}

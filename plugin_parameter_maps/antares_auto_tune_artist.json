@@ -1,0 +1,9 @@
+{
+  "plugin": "Auto-Tune Artist",
+  "vendor": "Antares",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/Auto-Tune Artist.vst3",
+  "parameter_count": 0,
+  "params": {},
+  "edge_cases": []
+}

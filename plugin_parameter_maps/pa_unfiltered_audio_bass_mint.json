@@ -1,0 +1,23 @@
+{
+  "plugin": "Unfiltered Audio Bass Mint",
+  "vendor": "Plugin Alliance",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/Unfiltered Audio Bass Mint.vst3",
+  "parameter_count": 13,
+  "params": {
+    "1": "Cutoff",
+    "2": "Strength",
+    "3": "Soften",
+    "4": "Shelf",
+    "5": "Clarity",
+    "6": "Mode",
+    "7": "Anti Rumble",
+    "8": "Mid Only",
+    "9": "Solo Bass",
+    "10": "Mono Bass",
+    "11": "Soft Clip",
+    "12": "Bypass",
+    "13": "Out Gain"
+  },
+  "edge_cases": []
+}

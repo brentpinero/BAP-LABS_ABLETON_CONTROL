@@ -1,0 +1,12 @@
+{
+  "plugin": "Mic Mod",
+  "vendor": "Antares",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/Mic Mod.vst3",
+  "parameter_count": "unknown - see notes",
+  "params": {},
+  "notes": "Microphone modeling/emulation. Parameter dump failed - M4L device caching issue or plugin doesn't expose params via standard VST3 interface.",
+  "edge_cases": [
+    "Parameter dump not working - requires M4L investigation"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "plugin": "SSL X-Limit",
+  "vendor": "SSL",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/SSL X-Limit.vst3",
+  "parameter_count": 13,
+  "params": {
+    "1": "Bypass",
+    "2": "Gain",
+    "3": "Mix",
+    "4": "Ceiling",
+    "5": "Threshold",
+    "6": "Gain Match",
+    "7": "Release",
+    "8": "Auto Release",
+    "9": "Lookahead",
+    "10": "Listen",
+    "11": "Channel Link",
+    "12": "Style",
+    "13": "True Peak Mode"
+  },
+  "notes": "SSL True peak limiter with gain matching, auto release, and multiple limiting styles.",
+  "edge_cases": []
+}

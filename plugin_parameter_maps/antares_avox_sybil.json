@@ -1,0 +1,16 @@
+{
+  "plugin": "AVOX SYBIL",
+  "vendor": "Antares",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/AVOX SYBIL.vst3",
+  "parameter_count": 6,
+  "params": {
+    "1": "Threshold",
+    "2": "High Pass Frequency",
+    "3": "Compression",
+    "4": "Attack",
+    "5": "Release",
+    "6": "Master Bypass"
+  },
+  "edge_cases": []
+}

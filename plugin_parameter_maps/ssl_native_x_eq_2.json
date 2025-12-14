@@ -1,0 +1,24 @@
+{
+  "plugin": "SSL Native X-EQ 2",
+  "vendor": "SSL",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/SSL Native X-EQ 2.vst3",
+  "parameter_count": 245,
+  "params": {
+    "1": "Input Gain",
+    "2": "Parallel",
+    "3": "MS Mode",
+    "244": "Output Gain",
+    "245": "Bypass"
+  },
+  "band_structure": {
+    "description": "24-band parametric EQ with 10 params per band",
+    "total_bands": 24,
+    "params_per_band": 10,
+    "band_param_names": ["On/Off", "Bypass", "Type", "Freq", "Q", "Bell Shape", "Gain", "Rolloff", "Filter Type", "Stereo Pos"],
+    "band_1_start": 4,
+    "band_formula": "Band N params = 4 + (N-1)*10"
+  },
+  "notes": "24-band parametric EQ with M/S mode, parallel processing, and extensive filter options per band.",
+  "edge_cases": []
+}

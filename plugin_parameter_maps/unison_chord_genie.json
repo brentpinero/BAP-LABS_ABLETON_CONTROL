@@ -1,0 +1,17 @@
+{
+  "plugin": "Unison Chord Genie",
+  "vendor": "Unison",
+  "format": "AU",
+  "path": "/Library/Audio/Plug-Ins/Components/Unison Chord Genie.component",
+  "parameter_count": 1,
+  "params": {
+    "1": "Audio On"
+  },
+  "edge_cases": [
+    "MIDI generator plugin - most controls not exposed as automatable parameters",
+    "Designed for drag-and-drop workflow, not real-time automation",
+    "Only exposes 'Audio On' bypass - key/chord/voicing controls are GUI-only",
+    "Not a viable target for LLM control without vendor support",
+    "Potential workaround: Check if plugin supports MIDI CC Learn"
+  ]
+}

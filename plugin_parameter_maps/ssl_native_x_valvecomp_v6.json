@@ -1,0 +1,29 @@
+{
+  "plugin": "SSL Native X-ValveComp v6",
+  "vendor": "SSL",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/SSL Native X-ValveComp v6.vst3",
+  "parameter_count": 18,
+  "params": {
+    "1": "Input Gain",
+    "2": "Output Gain",
+    "3": "Threshold",
+    "4": "Ratio",
+    "5": "Knee",
+    "6": "Valve In",
+    "7": "Attack",
+    "8": "Release",
+    "9": "Hold",
+    "10": "Peak",
+    "11": "Auto Gain",
+    "12": "Makeup Gain",
+    "13": "Sidechain In",
+    "14": "Low Cut",
+    "15": "High Cut",
+    "16": "S/Chain Listen",
+    "17": "Mix",
+    "18": "Bypass"
+  },
+  "notes": "Valve-style compressor with tube saturation option and sidechain filtering.",
+  "edge_cases": []
+}

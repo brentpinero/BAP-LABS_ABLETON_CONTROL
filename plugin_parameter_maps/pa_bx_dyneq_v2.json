@@ -1,0 +1,11 @@
+{
+  "plugin": "bx_dynEQ V2",
+  "vendor": "Plugin Alliance",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/bx_dynEQ V2.vst3",
+  "parameter_count": 0,
+  "params": {},
+  "edge_cases": [
+    "CRASHES_ABLETON - skip this plugin"
+  ]
+}

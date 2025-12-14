@@ -245,6 +245,46 @@ class UnifiedMCPBridge:
         client.send_message(f"/{slot}/params", [])
         return {"status": "success", "target": target, "slot": slot, "message": "params requested (check Max console)"}
 
+    def vst_dump_params(self, slot: int, target: str = "hub"):
+        """Dump all parameters to file (iterates through each param)"""
+        client, _ = self._get_client(target)
+
+        if slot < 1 or slot > 8:
+            return {"status": "error", "message": "Slot must be 1-8"}
+
+        client.send_message(f"/{slot}/dumpparams", [])
+        return {"status": "success", "target": target, "slot": slot, "message": "param dump started (check vst_param_dump.txt)"}
+
+    def vst_param_count(self, slot: int, target: str = "hub"):
+        """Get parameter count from a plugin"""
+        client, _ = self._get_client(target)
+
+        if slot < 1 or slot > 8:
+            return {"status": "error", "message": "Slot must be 1-8"}
+
+        client.send_message(f"/{slot}/paramcount", [])
+        return {"status": "success", "target": target, "slot": slot, "message": "paramcount requested (check Max console)"}
+
+    def vst_param_name(self, slot: int, index: int, target: str = "hub"):
+        """Get a specific parameter name by index"""
+        client, _ = self._get_client(target)
+
+        if slot < 1 or slot > 8:
+            return {"status": "error", "message": "Slot must be 1-8"}
+
+        client.send_message(f"/{slot}/paramname", [int(index)])
+        return {"status": "success", "target": target, "slot": slot, "index": index, "message": "paramname requested (check Max console)"}
+
+    def vst_dump_params_iterative(self, slot: int, target: str = "hub"):
+        """Dump params using iterative method (getparamcount + getparamname loop)"""
+        client, _ = self._get_client(target)
+
+        if slot < 1 or slot > 8:
+            return {"status": "error", "message": "Slot must be 1-8"}
+
+        client.send_message(f"/{slot}/dumpparams2", [])
+        return {"status": "success", "target": target, "slot": slot, "message": "iterative param dump started (check vst_param_dump.txt)"}
+
     # =========================================================================
     # LEGACY SERUM COMMANDS (use slot 1 by default)
     # =========================================================================
@@ -410,6 +450,19 @@ class UnifiedMCPBridge:
                     if action == "params":
                         return self.vst_get_params(slot)
 
+                    if action == "dumpparams":
+                        return self.vst_dump_params(slot)
+
+                    if action == "dumpparams2":
+                        return self.vst_dump_params_iterative(slot)
+
+                    if action == "paramcount":
+                        return self.vst_param_count(slot)
+
+                    if action == "paramname" and len(parts) >= 4:
+                        index = int(parts[3])
+                        return self.vst_param_name(slot, index)
+
             except ValueError:
                 pass
 
@@ -469,6 +522,19 @@ class UnifiedMCPBridge:
 
                     if action == "params":
                         return self.vst_get_params(slot, target="fx")
+
+                    if action == "dumpparams":
+                        return self.vst_dump_params(slot, target="fx")
+
+                    if action == "dumpparams2":
+                        return self.vst_dump_params_iterative(slot, target="fx")
+
+                    if action == "paramcount":
+                        return self.vst_param_count(slot, target="fx")
+
+                    if action == "paramname" and len(parts) >= 4:
+                        index = int(parts[3])
+                        return self.vst_param_name(slot, index, target="fx")
 
             except ValueError:
                 pass

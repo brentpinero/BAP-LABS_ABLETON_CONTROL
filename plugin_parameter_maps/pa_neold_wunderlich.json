@@ -1,0 +1,27 @@
+{
+  "plugin": "NEOLD WUNDERLICH",
+  "vendor": "Plugin Alliance",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/NEOLD WUNDERLICH.vst3",
+  "parameter_count": 17,
+  "params": {
+    "1": "Master Bypass",
+    "2": "Bank",
+    "3": "Power",
+    "4": "Drive",
+    "5": "Low Shelf",
+    "6": "High Shelf",
+    "7": "Comp. Status",
+    "8": "AC Threshold",
+    "9": "DC Threshold",
+    "10": "Timing",
+    "11": "Makeup Gain",
+    "12": "Travel",
+    "13": "Level",
+    "14": "Mix",
+    "15": "Meter Mode",
+    "16": "VU Meter",
+    "17": "GR Meter"
+  },
+  "edge_cases": []
+}

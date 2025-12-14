@@ -1,0 +1,21 @@
+{
+  "plugin": "Cradle The God Particle",
+  "vendor": "Cradle",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/Cradle The God Particle.vst3",
+  "parameter_count": 11,
+  "params": {
+    "1": "Input Gain",
+    "2": "Output Gain",
+    "3": "EQ Low Gain",
+    "4": "EQ Mid Gain",
+    "5": "EQ High Gain",
+    "6": "EQ Bypass",
+    "7": "Character",
+    "8": "Character Bypass",
+    "9": "Limiter Input Gain",
+    "10": "Limiter Bypass",
+    "11": "Bypass"
+  },
+  "edge_cases": []
+}

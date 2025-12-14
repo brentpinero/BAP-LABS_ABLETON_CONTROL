@@ -1,0 +1,24 @@
+{
+  "plugin": "SSL LMC+",
+  "vendor": "SSL",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/SSL LMC+.vst3",
+  "parameter_count": 13,
+  "params": {
+    "1": "Bypass",
+    "2": "Input Gain",
+    "3": "EQ In",
+    "4": "Low-pass Filter",
+    "5": "High-pass Filter",
+    "6": "Sidechain Listen",
+    "7": "EXT Sidechain",
+    "8": "Scoop",
+    "9": "Amount",
+    "10": "Dry/Wet Mix",
+    "11": "Split",
+    "12": "Auto Make-up Gain",
+    "13": "Output Gain"
+  },
+  "notes": "Listen Mic Compressor - classic SSL compressor for parallel compression and vocal processing.",
+  "edge_cases": []
+}

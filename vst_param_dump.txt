@@ -1,0 +1,7 @@
+=== PARAM DUMP FOR SLOT 1 ===
+Plugin: Unison Chord Genie
+Path: /Library/Audio/Plug-Ins/Components/Unison Chord Genie.component
+---
+1: Audio On
+---
+=== END DUMP ===

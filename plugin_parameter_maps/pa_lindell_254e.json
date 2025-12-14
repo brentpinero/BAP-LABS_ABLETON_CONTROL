@@ -1,0 +1,25 @@
+{
+  "plugin": "Lindell 254E",
+  "vendor": "Plugin Alliance",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/Lindell 254E.vst3",
+  "parameter_count": 15,
+  "params": {
+    "1": "Mix",
+    "2": "HPF",
+    "3": "Limit",
+    "4": "Compress",
+    "5": "Meter",
+    "6": "Gain",
+    "7": "Ratio",
+    "8": "Threshold",
+    "9": "Compress Recovery",
+    "10": "Limit Level",
+    "11": "Limit Recovery",
+    "12": "Bypass",
+    "13": "Ext SideChain",
+    "14": "Bypass",
+    "15": "Program"
+  },
+  "edge_cases": []
+}

@@ -1,0 +1,16 @@
+{
+  "plugin": "WaveShell1-VST3 14.12",
+  "vendor": "Waves",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/WaveShell1-VST3 14.12.vst3",
+  "parameter_count": 4,
+  "params": {
+    "1": "Bypass",
+    "2": "Out",
+    "3": "Drive",
+    "4": "Sensitivity"
+  },
+  "edge_cases": [
+    "Shell plugin - loads individual Waves plugins internally"
+  ]
+}

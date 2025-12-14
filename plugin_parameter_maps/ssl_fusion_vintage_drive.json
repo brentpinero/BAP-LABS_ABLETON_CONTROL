@@ -1,0 +1,19 @@
+{
+  "plugin": "SSL Fusion Vintage Drive",
+  "vendor": "SSL",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/SSL Fusion Vintage Drive.vst3",
+  "parameter_count": 8,
+  "params": {
+    "1": "Bypass",
+    "2": "Input Trim",
+    "3": "Output Trim",
+    "4": "Drive",
+    "5": "Density",
+    "6": "Dry/Wet Mix",
+    "7": "Auto Gain",
+    "8": "ECO"
+  },
+  "notes": "Vintage-style harmonic saturation from SSL Fusion hardware.",
+  "edge_cases": []
+}

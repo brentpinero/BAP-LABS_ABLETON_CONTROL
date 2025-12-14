@@ -1,0 +1,14 @@
+{
+  "plugin": "AVOX PUNCH",
+  "vendor": "Antares",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/AVOX PUNCH.vst3",
+  "parameter_count": 4,
+  "params": {
+    "1": "Gain",
+    "2": "Impact",
+    "3": "Ceiling",
+    "4": "Master Bypass"
+  },
+  "edge_cases": []
+}

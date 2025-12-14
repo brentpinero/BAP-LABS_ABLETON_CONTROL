@@ -112,9 +112,11 @@ function anything() {
     else if (cmd.indexOf("/") === 0) {
         // Check for slot commands like /1/param, /2/open, etc.
         var parts = cmd.split("/");
+        log("DEBUG: parts=" + parts.join("|") + " length=" + parts.length + "\n");
         if (parts.length >= 3) {
             var slotNum = parseInt(parts[1]);
             var action = parts[2];
+            log("DEBUG: slotNum=" + slotNum + " action=[" + action + "]\n");
 
             if (slotNum >= 1 && slotNum <= 8) {
                 if (action === "param" && args.length >= 3) {
@@ -129,11 +131,28 @@ function anything() {
                 else if (action === "params") {
                     getParams(slotNum);
                 }
+                else if (action === "dumpparams") {
+                    startParamDump(slotNum);
+                }
+                else if (action === "dumpparams2") {
+                    log("DEBUG: dumpparams2 action matched for slot " + slotNum + "\n");
+                    startParamDumpIterative(slotNum);
+                }
                 else if (action === "paramcount") {
                     getParamCount(slotNum);
                 }
                 else if (action === "paramname" && args.length >= 2) {
                     getParamName(slotNum, parseInt(args[1]));
+                }
+                // Shell plugin commands (for WaveShell, etc.)
+                else if (action === "getsubnames") {
+                    getSubNames(slotNum);
+                }
+                else if (action === "printids") {
+                    printIds(slotNum);
+                }
+                else if (action === "subname" && args.length >= 2) {
+                    loadSubPlugin(slotNum, args[1]);
                 }
                 // Preset/Program commands
                 else if (action === "program" && args.length >= 2) {
@@ -244,12 +263,211 @@ function closeEditor(slot) {
 }
 
 /**
- * Get parameter list from plugin
+ * Get parameter list from plugin (dumps to Max console)
  */
 function getParams(slot) {
     if (slot < 1 || slot > 8) return;
     outlet(slot - 1, "params");
     log("Requesting params for slot " + slot + "\n");
+}
+
+// Track param dump state
+var paramDumpState = {
+    active: false,
+    slot: 0,
+    currentIndex: 1,
+    totalParams: 0,
+    params: [],
+    lines: []  // Accumulate all lines here
+};
+
+/**
+ * Start a param dump - use "params" message which streams param names to outlet 2
+ */
+function startParamDump(slot) {
+    if (slot < 1 || slot > 8) return;
+
+    paramDumpState.active = true;
+    paramDumpState.slot = slot;
+    paramDumpState.currentIndex = 0;
+    paramDumpState.totalParams = 0;
+    paramDumpState.params = [];
+    paramDumpState.lines = [];
+
+    // Add header to lines buffer
+    paramDumpState.lines.push("=== PARAM DUMP FOR SLOT " + slot + " ===");
+    paramDumpState.lines.push("Plugin: " + (slots[slot].name || "Unknown"));
+    paramDumpState.lines.push("Path: " + (slots[slot].path || "Unknown"));
+    paramDumpState.lines.push("---");
+
+    log("Starting param dump for slot " + slot + "...\n");
+
+    // Send "params" - streams parameter names through outlet 2 (6th from right)
+    // Each param name arrives as a symbol, we'll count them as they come
+    outlet(slot - 1, "params");
+
+    // Set a timeout to finish the dump after params stop streaming
+    // Use Task to delay the finish
+    var finishTask = new Task(function() {
+        if (paramDumpState.active && paramDumpState.slot === slot) {
+            finishParamDump();
+        }
+    });
+    finishTask.schedule(2000);  // 2 second timeout
+}
+
+/**
+ * Finish the param dump - write all accumulated lines to file
+ */
+function finishParamDump() {
+    paramDumpState.lines.push("---");
+    paramDumpState.lines.push("=== END DUMP ===");
+
+    // Write all lines at once
+    var PARAM_LOG = "/Users/brentpinero/Documents/serum_llm_2/vst_param_dump.txt";
+    try {
+        var f = new File(PARAM_LOG, "write", "TEXT");
+        if (f.isopen) {
+            for (var i = 0; i < paramDumpState.lines.length; i++) {
+                f.writeline(paramDumpState.lines[i]);
+            }
+            f.close();
+            log("Param dump complete! " + (paramDumpState.totalParams) + " params written to vst_param_dump.txt\n");
+        } else {
+            log("ERROR: Could not open param dump file for writing\n");
+        }
+    } catch (e) {
+        log("ERROR writing param dump: " + e + "\n");
+    }
+
+    paramDumpState.active = false;
+}
+
+// State for iterative param dump (dumpparams2)
+var iterativeDumpState = {
+    active: false,
+    slot: 0,
+    totalParams: 0,
+    currentIndex: 0,
+    lines: [],
+    waitingForCount: false,
+    waitingForName: false
+};
+
+/**
+ * Start iterative param dump - uses getparamcount + getparamname loop
+ * More reliable for VST3 plugins that don't respond to "params" message
+ */
+function startParamDumpIterative(slot) {
+    if (slot < 1 || slot > 8) return;
+
+    iterativeDumpState.active = true;
+    iterativeDumpState.slot = slot;
+    iterativeDumpState.totalParams = 0;
+    iterativeDumpState.currentIndex = 0;
+    iterativeDumpState.lines = [];
+    iterativeDumpState.waitingForCount = true;
+    iterativeDumpState.waitingForName = false;
+
+    // Add header
+    iterativeDumpState.lines.push("=== PARAM DUMP FOR SLOT " + slot + " ===");
+    iterativeDumpState.lines.push("Plugin: " + (slots[slot].name || "Unknown"));
+    iterativeDumpState.lines.push("Path: " + (slots[slot].path || "Unknown"));
+    iterativeDumpState.lines.push("---");
+
+    log("Starting iterative param dump for slot " + slot + "...\n");
+
+    // First, get the param count using "get -4"
+    outlet(slot - 1, "get", -4);
+}
+
+/**
+ * Handle param count response for iterative dump
+ * Called when vst~ returns the param count
+ */
+function handleParamCountResponse(slot, count) {
+    if (!iterativeDumpState.active || iterativeDumpState.slot !== slot) return;
+    if (!iterativeDumpState.waitingForCount) return;
+
+    iterativeDumpState.waitingForCount = false;
+    iterativeDumpState.totalParams = count;
+
+    log("Got param count: " + count + " for slot " + slot + "\n");
+
+    if (count <= 0) {
+        // No params, finish immediately
+        finishIterativeDump();
+        return;
+    }
+
+    // Start getting param names
+    iterativeDumpState.currentIndex = 0;
+    getNextParamName();
+}
+
+/**
+ * Get the next param name in the iteration
+ */
+function getNextParamName() {
+    if (!iterativeDumpState.active) return;
+
+    if (iterativeDumpState.currentIndex >= iterativeDumpState.totalParams) {
+        // Done with all params
+        finishIterativeDump();
+        return;
+    }
+
+    iterativeDumpState.waitingForName = true;
+    // Use "get <index>" to get param info - index is 1-based in vst~
+    outlet(iterativeDumpState.slot - 1, "get", iterativeDumpState.currentIndex + 1);
+}
+
+/**
+ * Handle param name response for iterative dump
+ */
+function handleParamNameResponse(slot, index, name) {
+    if (!iterativeDumpState.active || iterativeDumpState.slot !== slot) return;
+    if (!iterativeDumpState.waitingForName) return;
+
+    iterativeDumpState.waitingForName = false;
+
+    // Add to lines (1-indexed for display)
+    iterativeDumpState.lines.push((index + 1) + ": " + name);
+
+    // Move to next param
+    iterativeDumpState.currentIndex++;
+
+    // Small delay to avoid flooding, then get next
+    var nextTask = new Task(function() {
+        getNextParamName();
+    });
+    nextTask.schedule(10);  // 10ms delay between params
+}
+
+/**
+ * Finish the iterative param dump
+ */
+function finishIterativeDump() {
+    iterativeDumpState.lines.push("---");
+    iterativeDumpState.lines.push("=== END DUMP ===");
+
+    var PARAM_LOG = "/Users/brentpinero/Documents/serum_llm_2/vst_param_dump.txt";
+    try {
+        var f = new File(PARAM_LOG, "write", "TEXT");
+        if (f.isopen) {
+            for (var i = 0; i < iterativeDumpState.lines.length; i++) {
+                f.writeline(iterativeDumpState.lines[i]);
+            }
+            f.close();
+            log("Iterative param dump complete! " + iterativeDumpState.totalParams + " params written to vst_param_dump.txt\n");
+        } else {
+            log("ERROR: Could not open param dump file for writing\n");
+        }
+    } catch (e) {
+        log("ERROR writing iterative param dump: " + e + "\n");
+    }
+
+    iterativeDumpState.active = false;
 }
 
 // Track currently selected output slot (for VST Hub)
@@ -272,20 +490,52 @@ function selectSlot(slot) {
 
 /**
  * Get parameter count from plugin
+ * Uses "get -4" message which returns param count from outlet 5 (5th from right)
  */
 function getParamCount(slot) {
     if (slot < 1 || slot > 8) return;
-    outlet(slot - 1, "getparamcount");
-    log("Requesting param count for slot " + slot + "\n");
+    outlet(slot - 1, "get", -4);
+    log("Requesting param count for slot " + slot + " (get -4)\n");
 }
 
 /**
  * Get a specific parameter name by index
+ * Individual param names come from "get" with positive index
  */
 function getParamName(slot, index) {
     if (slot < 1 || slot > 8) return;
-    outlet(slot - 1, "getparamname", index);
-    log("Requesting param name " + index + " for slot " + slot + "\n");
+    outlet(slot - 1, "get", index);
+    log("Requesting param " + index + " info for slot " + slot + "\n");
+}
+
+/**
+ * Get sub-plugin names from a shell plugin (like WaveShell)
+ * Output comes from vst~ outlet 7 (2nd from right)
+ */
+function getSubNames(slot) {
+    if (slot < 1 || slot > 8) return;
+    outlet(slot - 1, "getsubnames");
+    log("Requesting sub-plugin names for slot " + slot + " (check outlet 7)\n");
+}
+
+/**
+ * Print sub-plugin IDs to Max console (for shell plugins)
+ */
+function printIds(slot) {
+    if (slot < 1 || slot > 8) return;
+    outlet(slot - 1, "printids");
+    log("Printing sub-plugin IDs for slot " + slot + " (check Max console)\n");
+}
+
+/**
+ * Load a specific sub-plugin inside a shell plugin
+ * @param {number} slot - The slot number
+ * @param {string} subPluginName - The sub-plugin name or ID
+ */
+function loadSubPlugin(slot, subPluginName) {
+    if (slot < 1 || slot > 8) return;
+    outlet(slot - 1, "subname", subPluginName);
+    log("Loading sub-plugin '" + subPluginName + "' in slot " + slot + "\n");
 }
 
 /**
@@ -353,6 +603,150 @@ function list() {
     var args = arrayfromargs(arguments);
     if (args.length >= 3) {
         setParam(parseInt(args[0]), parseInt(args[1]), parseFloat(args[2]));
+    }
+}
+
+/**
+ * Handle vst~ dump output routed back to us
+ * Called via "vstdump <slot> <data...>" message
+ *
+ * For "params" message, vst~ streams individual parameter names as symbols
+ * Each arrives as: vstdump <slot> <paramname>
+ */
+function vstdump() {
+    var args = arrayfromargs(arguments);
+
+    // Debug: log what we received
+    post("vstdump received: " + args.join(" ") + "\n");
+
+    if (args.length < 2) return;
+
+    var slot = parseInt(args[0]);
+    var data = args.slice(1).join(" ");  // Data might have spaces
+
+    // If we're in param dump mode for this slot, capture the param name
+    if (paramDumpState.active && paramDumpState.slot === slot) {
+        paramDumpState.currentIndex++;
+        paramDumpState.lines.push(paramDumpState.currentIndex + ": " + data);
+        paramDumpState.totalParams = paramDumpState.currentIndex;
+    }
+}
+
+/**
+ * Handle param count response from vst~
+ * Called via "vstparamcount <slot> <count>" message
+ * This receives data from vst~ outlet 4 (int outlet) via prepend vstparamcount
+ */
+function vstparamcount() {
+    var args = arrayfromargs(arguments);
+    post("vstparamcount received: " + args.join(" ") + "\n");
+
+    if (args.length < 2) return;
+
+    var slot = parseInt(args[0]);
+    var count = parseInt(args[1]);
+
+    log("Slot " + slot + " has " + count + " parameters\n");
+
+    // Route to iterative dump handler if active
+    handleParamCountResponse(slot, count);
+}
+
+/**
+ * Handle param info from vst~ outlet 3 (5th from right - list outlet)
+ * Called via "vstparams <slot> <data...>" message
+ *
+ * This receives data from vst~ outlet 3 after "get" commands:
+ * - get -4: returns "-4 <paramcount>"
+ * - get <positive_index>: returns "<index> <value>" (just the value, not the name!)
+ *
+ * Note: Parameter NAMES come from "params" message through outlet 2 (vstdump)
+ */
+function vstparams() {
+    var args = arrayfromargs(arguments);
+    // Log raw args with explicit quoting for debugging
+    var debugStr = "vstparams raw: [";
+    for (var i = 0; i < args.length; i++) {
+        debugStr += "'" + args[i] + "'";
+        if (i < args.length - 1) debugStr += ", ";
+    }
+    debugStr += "]";
+    log(debugStr + "\n");
+
+    if (args.length < 2) return;
+
+    var slot = parseInt(args[0]);
+    var firstVal = parseInt(args[1]);
+    log("vstparams: slot=" + slot + ", firstVal=" + firstVal + ", args.length=" + args.length + "\n");
+
+    // Check if this is a param count response (get -4 returns: -4 <count>)
+    if (firstVal === -4 && args.length >= 3) {
+        var count = parseInt(args[2]);
+        log("Slot " + slot + " param count from get -4: " + count + "\n");
+        handleParamCountResponse(slot, count);
+        return;
+    }
+
+    // Otherwise it's a param value response (get <index> returns: <index> <value>)
+    // Note: This is just the VALUE, not the name!
+    if (iterativeDumpState.active && iterativeDumpState.slot === slot) {
+        // We can't get names this way - only values
+        // Need to use the params message instead
+        log("Got param value, index=" + firstVal + ", but need names from params message\n");
+    } else {
+        var data = args.slice(1).join(" ");
+        log("Slot " + slot + " param info: " + data + "\n");
+    }
+}
+
+/**
+ * Handle param name response from vst~
+ * Called via "vstparamname <slot> <index> <name>" message
+ */
+function vstparamname() {
+    var args = arrayfromargs(arguments);
+    post("vstparamname received: " + args.join(" ") + "\n");
+
+    if (args.length < 3) return;
+
+    var slot = parseInt(args[0]);
+    var index = parseInt(args[1]);
+    var name = args.slice(2).join(" ");  // Name might have spaces
+
+    // Route to iterative dump handler if active
+    handleParamNameResponse(slot, index, name);
+}
+
+
+/**
+ * Write param data to a separate file for cleaner capture
+ */
+function logParamData(msg) {
+    var PARAM_LOG = "/Users/brentpinero/Documents/serum_llm_2/vst_param_dump.txt";
+    try {
+        var f = new File(PARAM_LOG, "write");
+        if (f.isopen) {
+            // Seek to end for append
+            f.position = f.eof;
+            f.writeline(msg);
+            f.close();
+        }
+    } catch (e) {
+        post("Param log error: " + e + "\n");
+    }
+}
+
+/**
+ * Handle parameter info from vst~ (param index name value)
+ * Called via "vstparam <slot> <index> <name> <value>"
+ */
+function vstparam() {
+    var args = arrayfromargs(arguments);
+    if (args.length >= 2) {
+        var slot = args[0];
+        // Rest is param data - could be "index name value" format
+        var paramData = args.slice(1).join(" ");
+        log("VST" + slot + " PARAM: " + paramData + "\n");
     }
 }
 

@@ -1,0 +1,26 @@
+{
+  "plugin": "SSLComp Stereo",
+  "vendor": "Waves",
+  "format": "VST3 (via WaveShell)",
+  "path": "/Library/Audio/Plug-Ins/VST3/WaveShell1-VST3 14.12.vst3",
+  "shell_subname": "SSLComp Stereo",
+  "parameter_count": 13,
+  "params": {
+    "1": "Bypass",
+    "2": "Bank",
+    "3": "Thresh",
+    "4": "Makeup",
+    "5": "Attack",
+    "6": "Release",
+    "7": "Ratio",
+    "8": "Rate-S",
+    "9": "IN",
+    "10": "ANLG",
+    "11": "AutoFade",
+    "12": "Mix",
+    "13": "Trim"
+  },
+  "edge_cases": [
+    "Loaded via WaveShell subname command"
+  ]
+}

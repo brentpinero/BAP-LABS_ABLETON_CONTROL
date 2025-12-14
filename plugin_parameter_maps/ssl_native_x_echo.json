@@ -1,0 +1,32 @@
+{
+  "plugin": "SSL Native X-Echo",
+  "vendor": "SSL",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/SSL Native X-Echo.vst3",
+  "parameter_count": 21,
+  "params": {
+    "1": "Input Gain",
+    "2": "Output Gain",
+    "3": "Master Bypass",
+    "4": "Note Snap",
+    "5": "Delay Time",
+    "6": "Ping Pong",
+    "7": "Tap 1 Enable",
+    "8": "Tap 2 Enable",
+    "9": "Tap 3 Enable",
+    "10": "Tap 4 Enable",
+    "11": "De-Esser",
+    "12": "Diffusion",
+    "13": "Treble",
+    "14": "Bass",
+    "15": "Saturation",
+    "16": "Wow & Flutter",
+    "17": "Feedback",
+    "18": "Width",
+    "19": "Freeze",
+    "20": "Kill",
+    "21": "Mix"
+  },
+  "notes": "Delay with 4 taps, tape character (wow/flutter/saturation), diffusion, and freeze/kill functions.",
+  "edge_cases": []
+}

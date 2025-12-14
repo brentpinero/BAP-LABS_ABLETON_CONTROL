@@ -1,0 +1,26 @@
+{
+  "plugin": "SSL DeEss",
+  "vendor": "SSL",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/SSL DeEss.vst3",
+  "parameter_count": 15,
+  "params": {
+    "1": "Bypass",
+    "2": "Low Frequency Cut-off",
+    "3": "Low Frequency Bypass",
+    "4": "High Frequency Cut-off",
+    "5": "High Frequency Bypass",
+    "6": "Threshold",
+    "7": "Amount",
+    "8": "Blend",
+    "9": "Mode",
+    "10": "Lookahead",
+    "11": "Oversampling",
+    "12": "Brighten",
+    "13": "Auto Listen",
+    "14": "Filters Listen",
+    "15": "Compressor Listen"
+  },
+  "notes": "De-esser with adjustable frequency band, lookahead, and oversampling options.",
+  "edge_cases": []
+}

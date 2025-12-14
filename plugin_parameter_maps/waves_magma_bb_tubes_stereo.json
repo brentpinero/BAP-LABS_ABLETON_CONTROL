@@ -1,0 +1,25 @@
+{
+  "plugin": "Magma BB Tubes Stereo",
+  "vendor": "Waves",
+  "format": "VST3 (via WaveShell)",
+  "path": "/Library/Audio/Plug-Ins/VST3/WaveShell1-VST3 14.12.vst3",
+  "shell_subname": "Magma BB Tubes Stereo",
+  "parameter_count": 12,
+  "params": {
+    "1": "Bypass",
+    "2": "Bank",
+    "3": "Out",
+    "4": "Beast",
+    "5": "Beauty",
+    "6": "TonePre",
+    "7": "TonePost",
+    "8": "BassRelief",
+    "9": "Sensitivity",
+    "10": "TransformerOnOff",
+    "11": "Mix",
+    "12": "BeastType"
+  },
+  "edge_cases": [
+    "Loaded via WaveShell subname command"
+  ]
+}

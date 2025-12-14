@@ -1,0 +1,20 @@
+{
+  "plugin": "SSL 360 Link Bus Compressor",
+  "vendor": "SSL",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/SSL 360 Link Bus Compressor.vst3",
+  "parameter_count": 9,
+  "params": {
+    "1": "CompBypass",
+    "2": "THRESHOLD",
+    "3": "MAKEUP",
+    "4": "ATTACK",
+    "5": "RELEASE",
+    "6": "RATIO",
+    "7": "S/C HPF",
+    "8": "MIX",
+    "9": "GroupSense"
+  },
+  "notes": "Simplified bus compressor for SSL 360 Link system. Very few parameters compared to full SSL compressors.",
+  "edge_cases": []
+}

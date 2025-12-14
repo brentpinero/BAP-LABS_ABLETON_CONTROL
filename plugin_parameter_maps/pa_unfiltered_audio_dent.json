@@ -1,0 +1,11 @@
+{
+  "plugin": "Unfiltered Audio Dent",
+  "vendor": "Plugin Alliance",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/Unfiltered Audio Dent.vst3",
+  "parameter_count": 0,
+  "params": {},
+  "edge_cases": [
+    "CRASHES_ABLETON - skip this plugin"
+  ]
+}

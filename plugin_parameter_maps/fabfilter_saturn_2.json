@@ -1,0 +1,53 @@
+{
+  "plugin": "FabFilter Saturn 2",
+  "vendor": "FabFilter",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/FabFilter Saturn 2.vst3",
+  "parameter_count": 1088,
+  "params": {
+    "1": "Input Gain",
+    "2": "Input Pan",
+    "3": "Output Gain",
+    "4": "Output Pan",
+    "5": "Bypass",
+    "6": "Mix",
+    "7": "Num Active Bands",
+    "8": "Band 1 Feedback Amount",
+    "9": "Band 1 Feedback Frequency",
+    "10": "Band 1 Dynamics",
+    "11": "Band 1 Style",
+    "12": "Band 1 Drive",
+    "13": "Band 1 Drive Pan",
+    "14": "Band 1 Bass",
+    "15": "Band 1 Mid",
+    "16": "Band 1 Treble",
+    "17": "Band 1 Presence",
+    "18": "Band 1 Mix",
+    "19": "Band 1 Level",
+    "20": "Band 1 Pan",
+    "21": "Band 1 Enabled",
+    "22": "Band 1 State",
+    "23": "Band 1 Crossover Frequency",
+    "24": "Band 1 Crossover Slope"
+  },
+  "band_offsets": {
+    "description": "Each band has 17 params. Band N params = 8 + (N-1)*17",
+    "params_per_band": 17,
+    "band_1_start": 8,
+    "band_2_start": 25,
+    "band_3_start": 42,
+    "band_4_start": 59,
+    "band_5_start": 76,
+    "band_6_start": 93
+  },
+  "modulation_sections": {
+    "xy_controllers": "110-134 (6 controllers, 4 params each)",
+    "xlfos": "135-573 (6 XLFOs with 16 steps each)",
+    "envelope_generators": "574-646 (6 EGs, 12 params each)",
+    "envelope_followers": "647-663 (4 EFs, 4 params each)",
+    "midi_sources": "664-694 (10 sources, 3 params each)",
+    "modulation_slots": "701-951 (50 slots, 5 params each)"
+  },
+  "notes": "Params 953-955, 1088 are Internal. Params 956-1087 are MIDI CC mappings.",
+  "edge_cases": []
+}

@@ -1,0 +1,21 @@
+{
+  "plugin": "Lindell 50 Buss",
+  "vendor": "Plugin Alliance",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/Lindell 50 Buss.vst3",
+  "parameter_count": 11,
+  "params": {
+    "1": "Pre Gain",
+    "2": "THD",
+    "3": "Cut",
+    "4": "Phase",
+    "5": "Unity",
+    "6": "Level",
+    "7": "TMT Channel",
+    "8": "TMT Link",
+    "9": "Input Level",
+    "10": "Output Level",
+    "11": "Bypass"
+  },
+  "edge_cases": []
+}

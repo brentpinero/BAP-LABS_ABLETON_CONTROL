@@ -1,0 +1,29 @@
+{
+  "plugin": "Lindell 6X-500",
+  "vendor": "Plugin Alliance",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/Lindell 6X-500.vst3",
+  "parameter_count": 19,
+  "params": {
+    "1": "Input gain",
+    "2": "Output level",
+    "3": "Link",
+    "4": "Hi boost",
+    "5": "Hi frequency",
+    "6": "Low boost",
+    "7": "Low frequency",
+    "8": "EQ on",
+    "9": "Polarity",
+    "10": "Analog",
+    "11": "Lowpass frequency",
+    "12": "Lowpass slope",
+    "13": "Low filter on",
+    "14": "Highpass frequency",
+    "15": "Highpass slope",
+    "16": "High filter on",
+    "17": "Bypass",
+    "18": "Bypass",
+    "19": "Program"
+  },
+  "edge_cases": []
+}

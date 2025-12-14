@@ -1,0 +1,24 @@
+{
+  "plugin": "NEOLD BIG AL",
+  "vendor": "Plugin Alliance",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/NEOLD BIG AL.vst3",
+  "parameter_count": 14,
+  "params": {
+    "1": "Master Bypass",
+    "2": "Bank",
+    "3": "Power",
+    "4": "Emphasis",
+    "5": "Bass Compensator",
+    "6": "Voltage Sag",
+    "7": "Drive",
+    "8": "Level",
+    "9": "Low EQ",
+    "10": "High EQ",
+    "11": "Mix",
+    "12": "Meter Mode",
+    "13": "GR Meter",
+    "14": "VU Meter"
+  },
+  "edge_cases": []
+}

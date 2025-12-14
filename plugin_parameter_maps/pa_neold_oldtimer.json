@@ -1,0 +1,31 @@
+{
+  "plugin": "NEOLD OLDTIMER",
+  "vendor": "Plugin Alliance",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/NEOLD OLDTIMER.vst3",
+  "parameter_count": 21,
+  "params": {
+    "1": "Master Bypass",
+    "2": "Bank",
+    "3": "Power",
+    "4": "Filter",
+    "5": "Link",
+    "6": "Sync",
+    "7": "Modulation",
+    "8": "Resonance",
+    "9": "Type",
+    "10": "Rate",
+    "11": "Depth",
+    "12": "Feedback",
+    "13": "Style",
+    "14": "Spread",
+    "15": "Time Left",
+    "16": "Time Right",
+    "17": "Topology",
+    "18": "Mix",
+    "19": "Level",
+    "20": "Erase",
+    "21": "Glitch"
+  },
+  "edge_cases": []
+}

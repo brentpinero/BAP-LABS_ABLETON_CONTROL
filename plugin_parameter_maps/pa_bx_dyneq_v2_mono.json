@@ -1,0 +1,33 @@
+{
+  "plugin": "bx_dynEQ V2 Mono",
+  "vendor": "Plugin Alliance",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/bx_dynEQ V2 Mono.vst3",
+  "parameter_count": 23,
+  "params": {
+    "1": "Master Bypass",
+    "2": "Preset",
+    "3": "EQ Bypass",
+    "4": "In Gain",
+    "5": "Out Gain",
+    "6": "EQ Attack",
+    "7": "EQ Release",
+    "8": "EQ Threshold",
+    "9": "EQ Frequency",
+    "10": "EQ Key Fq",
+    "11": "EQ Type",
+    "12": "EQ Key Type",
+    "13": "EQ Factor",
+    "14": "EQ Boost/Cut",
+    "15": "EQ Max. Gain",
+    "16": "EQ Key Solo",
+    "17": "EQ Noise Solo",
+    "18": "EQ Link Frequencies",
+    "19": "EQ Link Types",
+    "20": "EQ Sidechain",
+    "21": "EQ Inverse Mode",
+    "22": "EQ Max. Gain X2",
+    "23": "Bypass"
+  },
+  "edge_cases": []
+}

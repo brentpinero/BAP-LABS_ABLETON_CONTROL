@@ -1,0 +1,19 @@
+{
+  "plugin": "bx_cleansweep V2",
+  "vendor": "Plugin Alliance",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/bx_cleansweep V2.vst3",
+  "parameter_count": 9,
+  "params": {
+    "1": "Highpass Cutoff",
+    "2": "Lowpass Cutoff",
+    "3": "Highpass On/Off",
+    "4": "Lowpass On/Off",
+    "5": "Phase Rev.",
+    "6": "Input Gain",
+    "7": "Setting",
+    "8": "Bypass",
+    "9": "Bypass"
+  },
+  "edge_cases": []
+}

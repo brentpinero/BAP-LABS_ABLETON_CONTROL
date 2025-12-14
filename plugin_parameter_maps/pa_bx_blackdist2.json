@@ -1,0 +1,16 @@
+{
+  "plugin": "bx_blackdist2",
+  "vendor": "Plugin Alliance",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/bx_blackdist2.vst3",
+  "parameter_count": 6,
+  "params": {
+    "1": "Bypass",
+    "2": "Dist",
+    "3": "Filter",
+    "4": "Vol",
+    "5": "Setting",
+    "6": "Bypass"
+  },
+  "edge_cases": []
+}

@@ -1,0 +1,19 @@
+{
+  "plugin": "SSL Fusion HF Compressor",
+  "vendor": "SSL",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/SSL Fusion HF Compressor.vst3",
+  "parameter_count": 8,
+  "params": {
+    "1": "Bypass",
+    "2": "Input Trim",
+    "3": "Output Trim",
+    "4": "Threshold",
+    "5": "X-Over",
+    "6": "Mix",
+    "7": "Listen",
+    "8": "Auto Gain"
+  },
+  "notes": "HF-only compressor from SSL Fusion hardware. Tames high frequencies.",
+  "edge_cases": []
+}

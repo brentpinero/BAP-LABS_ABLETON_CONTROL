@@ -1,0 +1,33 @@
+{
+  "plugin": "Auto-Tune SoundSoap",
+  "vendor": "Antares",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/Auto-Tune SoundSoap.vst3",
+  "parameter_count": 23,
+  "params": {
+    "1": "De-Click Percentage",
+    "2": "Enhance",
+    "3": "Noise Tuner",
+    "4": "Noise Reduction",
+    "5": "Preserve Voice",
+    "6": "Remove Rumble",
+    "7": "De-Hum Mode",
+    "8": "Noise Reduction Mode",
+    "9": "Boost Volume",
+    "10": "De-Clip Enable",
+    "11": "Track",
+    "12": "Harmonics",
+    "13": "Lo-Cut Freq",
+    "14": "Hi-Cut Freq",
+    "15": "Broadband Limit Low",
+    "16": "Broadband Limit High",
+    "17": "Enhance Mode",
+    "18": "Expand Threshold",
+    "19": "Expand Ratio",
+    "20": "Input Gain",
+    "21": "De-esser HPF",
+    "22": "De-esser Threshold",
+    "23": "Master Bypass"
+  },
+  "edge_cases": []
+}

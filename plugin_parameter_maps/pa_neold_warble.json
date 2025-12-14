@@ -1,0 +1,27 @@
+{
+  "plugin": "NEOLD WARBLE",
+  "vendor": "Plugin Alliance",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/NEOLD WARBLE.vst3",
+  "parameter_count": 17,
+  "params": {
+    "1": "Master Bypass",
+    "2": "Bank",
+    "3": "Power",
+    "4": "Wow Depth",
+    "5": "Wow Speed",
+    "6": "Flutter Depth",
+    "7": "Flutter Speed",
+    "8": "Dirt",
+    "9": "Age",
+    "10": "Noise",
+    "11": "Low Cut Freq.",
+    "12": "Low Cut Q",
+    "13": "High Cut Freq.",
+    "14": "High Cut Q",
+    "15": "Mix",
+    "16": "Level",
+    "17": "Tape Speed"
+  },
+  "edge_cases": []
+}

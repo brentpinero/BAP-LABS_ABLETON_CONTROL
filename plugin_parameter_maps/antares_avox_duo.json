@@ -1,0 +1,20 @@
+{
+  "plugin": "AVOX DUO",
+  "vendor": "Antares",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/AVOX DUO.vst3",
+  "parameter_count": 10,
+  "params": {
+    "1": "Vocal Range",
+    "2": "Vocal Timbre",
+    "3": "Vibrato Variation",
+    "4": "Pitch Variation",
+    "5": "Timing Variation",
+    "6": "Original Level",
+    "7": "Double Level",
+    "8": "Original Pan",
+    "9": "Double Pan",
+    "10": "Master Bypass"
+  },
+  "edge_cases": []
+}

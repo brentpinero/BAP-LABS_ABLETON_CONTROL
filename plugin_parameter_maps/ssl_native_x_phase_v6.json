@@ -1,0 +1,30 @@
+{
+  "plugin": "SSL Native X-Phase v6",
+  "vendor": "SSL",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/SSL Native X-Phase v6.vst3",
+  "parameter_count": 19,
+  "params": {
+    "1": "Bypass",
+    "2": "Input Gain",
+    "3": "Output Gain",
+    "4": "Delay Units",
+    "5": "Delay On L",
+    "6": "Delay On R",
+    "7": "Delay Time L",
+    "8": "Delay Time R",
+    "9": "Allpass L",
+    "10": "Allpass R",
+    "11": "Phase Invert L",
+    "12": "Phase Invert R",
+    "13": "Frequency L",
+    "14": "Frequency R",
+    "15": "Q L",
+    "16": "Q R",
+    "17": "Filter Order L",
+    "18": "Filter Order R",
+    "19": "Link"
+  },
+  "notes": "Phase alignment tool with delay, allpass filters, and phase invert per channel.",
+  "edge_cases": []
+}

@@ -1,0 +1,9 @@
+{
+  "plugin": "Auto-Tune Access",
+  "vendor": "Antares",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/Auto-Tune Access.vst3",
+  "parameter_count": 0,
+  "params": {},
+  "edge_cases": []
+}

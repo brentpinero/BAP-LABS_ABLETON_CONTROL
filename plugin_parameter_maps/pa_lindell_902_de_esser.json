@@ -1,0 +1,22 @@
+{
+  "plugin": "Lindell 902 De-esser",
+  "vendor": "Plugin Alliance",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/Lindell 902 De-esser.vst3",
+  "parameter_count": 12,
+  "params": {
+    "1": "Frequency",
+    "2": "Range",
+    "3": "Mode HF Only",
+    "4": "Listen",
+    "5": "In",
+    "6": "Mix",
+    "7": "Air",
+    "8": "In Gain",
+    "9": "Out Gain",
+    "10": "External Side Chain",
+    "11": "Bypass",
+    "12": "Program"
+  },
+  "edge_cases": []
+}

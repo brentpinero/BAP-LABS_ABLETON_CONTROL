@@ -1,0 +1,14 @@
+{
+  "plugin": "bx_boom",
+  "vendor": "Plugin Alliance",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/bx_boom.vst3",
+  "parameter_count": 4,
+  "params": {
+    "1": "Master Bypass",
+    "2": "Boom! Factor",
+    "3": "Mode",
+    "4": "Bypass"
+  },
+  "edge_cases": []
+}

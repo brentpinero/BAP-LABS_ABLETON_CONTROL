@@ -1,0 +1,16 @@
+{
+  "plugin": "AVOX WARM",
+  "vendor": "Antares",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/AVOX WARM.vst3",
+  "parameter_count": 6,
+  "params": {
+    "1": "Input Gain",
+    "2": "Drive Gain",
+    "3": "Output Gain",
+    "4": "Velvet Crunch",
+    "5": "Omni Tube",
+    "6": "Master Bypass"
+  },
+  "edge_cases": []
+}

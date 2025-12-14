@@ -1,0 +1,20 @@
+{
+  "plugin": "SSL Fusion Violet EQ",
+  "vendor": "SSL",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/SSL Fusion Violet EQ.vst3",
+  "parameter_count": 9,
+  "params": {
+    "1": "Bypass",
+    "2": "Input Trim",
+    "3": "Output Trim",
+    "4": "HPF",
+    "5": "Fat",
+    "6": "Low Gain",
+    "7": "Low Cut-off",
+    "8": "High Gain",
+    "9": "High Cut-off"
+  },
+  "notes": "2-band shelving EQ from SSL Fusion hardware with Fat option.",
+  "edge_cases": []
+}

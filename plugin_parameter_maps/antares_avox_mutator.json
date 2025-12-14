@@ -1,0 +1,23 @@
+{
+  "plugin": "AVOX MUTATOR",
+  "vendor": "Antares",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/AVOX MUTATOR.vst3",
+  "parameter_count": 13,
+  "params": {
+    "1": "Shift Pitch",
+    "2": "Vocal Range",
+    "3": "Throat Width",
+    "4": "Throat Length",
+    "5": "Volume",
+    "6": "Bypass",
+    "7": "Mutation",
+    "8": "Mutant Mix",
+    "9": "Dialect",
+    "10": "Alienize",
+    "11": "Tempo Sync",
+    "12": "Note Length",
+    "13": "Master Bypass"
+  },
+  "edge_cases": []
+}

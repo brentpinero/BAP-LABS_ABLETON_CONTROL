@@ -1,0 +1,30 @@
+{
+  "plugin": "SSL X-DynEQ",
+  "vendor": "SSL",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/SSL X-DynEQ.vst3",
+  "parameter_count": 630,
+  "params": {
+    "1": "Bypass",
+    "2": "Input Gain",
+    "3": "Output Gain",
+    "4": "Phase Invert",
+    "5": "Scale",
+    "6": "Parallel Mode"
+  },
+  "band_structure": {
+    "description": "24-band dynamic EQ with 26 params per band",
+    "total_bands": 24,
+    "params_per_band": 26,
+    "band_param_names": [
+      "Used", "Bypass", "Type", "Stereo Mode", "Frequency", "Gain", "Q", "Bell Shape",
+      "LPF HPF Type", "BPF Type", "Roll-Off", "Width", "Dynamic", "Compress/Expand",
+      "Auto-Threshold", "Threshold", "Ratio", "Knee", "Range", "Auto-Attack",
+      "Attack", "Hold", "Auto-Release", "Release", "S/C Filter Mode", "External S/C"
+    ],
+    "band_1_start": 7,
+    "band_formula": "Band N params = 7 + (N-1)*26"
+  },
+  "notes": "Extremely detailed 24-band dynamic EQ. Each band has full compressor/expander controls. Very CPU-intensive.",
+  "edge_cases": []
+}

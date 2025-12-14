@@ -1,0 +1,21 @@
+{
+  "plugin": "Lindell 69 Buss",
+  "vendor": "Plugin Alliance",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/Lindell 69 Buss.vst3",
+  "parameter_count": 11,
+  "params": {
+    "1": "THD",
+    "2": "Gain",
+    "3": "Phase",
+    "4": "Mute",
+    "5": "Unity",
+    "6": "Level",
+    "7": "Input Level",
+    "8": "Output Level",
+    "9": "TMT Channel",
+    "10": "TMT Link",
+    "11": "Bypass"
+  },
+  "edge_cases": []
+}

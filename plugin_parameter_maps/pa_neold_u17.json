@@ -1,0 +1,29 @@
+{
+  "plugin": "NEOLD U17",
+  "vendor": "Plugin Alliance",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/NEOLD U17.vst3",
+  "parameter_count": 19,
+  "params": {
+    "1": "Master Bypass",
+    "2": "Bank",
+    "3": "Power",
+    "4": "Density",
+    "5": "Emphasis",
+    "6": "Input",
+    "7": "Torque",
+    "8": "Output",
+    "9": "Attack Time",
+    "10": "Release Time",
+    "11": "Shape",
+    "12": "Frequency",
+    "13": "Detector",
+    "14": "Monitor",
+    "15": "Mix",
+    "16": "Meter Mode",
+    "17": "External SC",
+    "18": "GR Meter",
+    "19": "VU Meter"
+  },
+  "edge_cases": []
+}

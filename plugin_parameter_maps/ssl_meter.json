@@ -1,0 +1,33 @@
+{
+  "plugin": "SSL Meter",
+  "vendor": "SSL",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/SSL Meter.vst3",
+  "parameter_count": 22,
+  "params": {
+    "1": "Bypass",
+    "2": "Global Delay",
+    "3": "Digital Peak Hold",
+    "4": "Digital True Peak",
+    "5": "RMS Integration",
+    "6": "Digital Type",
+    "7": "Analogue Mode",
+    "8": "Analogue Reference Level",
+    "9": "0 VU Line-Up",
+    "10": "Analogue Max Needle",
+    "11": "Analogue Dual Format",
+    "12": "Lissajous Fade Time",
+    "13": "RTA Peak Hold",
+    "14": "RTA Analysis Source",
+    "15": "RTA Weighting",
+    "16": "RTA Averaging",
+    "17": "GroupSense",
+    "18": "True Peak High Quality",
+    "19": "Analogue Meters LED Overload",
+    "20": "RTA Scale Top",
+    "21": "RTA Scale Bottom",
+    "22": "RTA Selected Band"
+  },
+  "notes": "Metering plugin with digital/analog modes, RTA, Lissajous display, and true peak detection.",
+  "edge_cases": []
+}

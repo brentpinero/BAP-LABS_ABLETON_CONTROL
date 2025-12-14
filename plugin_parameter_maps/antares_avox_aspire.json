@@ -1,0 +1,19 @@
+{
+  "plugin": "AVOX ASPIRE",
+  "vendor": "Antares",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/AVOX ASPIRE.vst3",
+  "parameter_count": 9,
+  "params": {
+    "1": "Voice Type",
+    "2": "Increase or Reduce",
+    "3": "Tracking Ratio",
+    "4": "Noise Reduction",
+    "5": "Noise Enhancement",
+    "6": "EQ Frequency",
+    "7": "EQ Q",
+    "8": "EQ Gain",
+    "9": "Master Bypass"
+  },
+  "edge_cases": []
+}

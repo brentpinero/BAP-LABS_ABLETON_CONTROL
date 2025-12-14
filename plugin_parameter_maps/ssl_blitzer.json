@@ -1,0 +1,27 @@
+{
+  "plugin": "SSL Blitzer",
+  "vendor": "SSL",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/SSL Blitzer.vst3",
+  "parameter_count": 16,
+  "params": {
+    "1": "Bypass",
+    "2": "Input Gain",
+    "3": "Output Gain",
+    "4": "Mix",
+    "5": "Auto Gain",
+    "6": "Ratio",
+    "7": "BLITZ!",
+    "8": "Attack",
+    "9": "Release",
+    "10": "Drive",
+    "11": "Transients",
+    "12": "Sidechain HPF",
+    "13": "Sidechain Frequency",
+    "14": "Sidechain Q",
+    "15": "Sidechain Gain",
+    "16": "Sidechain Listen"
+  },
+  "notes": "Aggressive compression/saturation tool with BLITZ mode and transient control.",
+  "edge_cases": []
+}

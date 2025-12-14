@@ -1,0 +1,28 @@
+{
+  "plugin": "EffectRack",
+  "vendor": "Soundtoys",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/Soundtoys/EffectRack.vst3",
+  "parameter_count": 140,
+  "params": {
+    "1": "Bypass",
+    "2": "Slot1_Solo",
+    "3": "Slot2_Solo",
+    "4": "Slot3_Solo",
+    "5": "Slot4_Solo",
+    "6": "Slot5_Solo",
+    "7": "Slot6_Solo",
+    "136": "InputGain",
+    "137": "OutputGain",
+    "138": "Recycle",
+    "139": "Mix",
+    "140": "Tempo"
+  },
+  "structure": {
+    "slot_solos": "2-7 (6 slots)",
+    "assignable_macros": "8-135 (128 Unassigned slots - populated when effects are loaded)",
+    "global_controls": "136-140"
+  },
+  "notes": "Shell plugin containing all Soundtoys effects (6 slots). Params 8-135 are 'Unassigned' macro slots that get populated when effects are loaded into slots. Lives in Soundtoys subfolder.",
+  "edge_cases": ["Shell plugin - actual params depend on loaded effects", "Assignable macro system"]
+}

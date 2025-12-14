@@ -1,0 +1,29 @@
+{
+  "plugin": "NEOLD V76U73",
+  "vendor": "Plugin Alliance",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/NEOLD V76U73.vst3",
+  "parameter_count": 19,
+  "params": {
+    "1": "Master Bypass",
+    "2": "Bank",
+    "3": "Power",
+    "4": "Gain",
+    "5": "Linear",
+    "6": "High Cut",
+    "7": "Low Cut",
+    "8": "Send",
+    "9": "Mode",
+    "10": "Release Time",
+    "11": "Attack Time",
+    "12": "Detector",
+    "13": "SC Filter",
+    "14": "Meter Mode",
+    "15": "Makeup Gain",
+    "16": "Mix",
+    "17": "Trim",
+    "18": "VU Meter",
+    "19": "GR Meter"
+  },
+  "edge_cases": []
+}

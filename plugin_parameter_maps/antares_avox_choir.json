@@ -1,0 +1,16 @@
+{
+  "plugin": "AVOX CHOIR",
+  "vendor": "Antares",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/AVOX CHOIR.vst3",
+  "parameter_count": 6,
+  "params": {
+    "1": "Voice Count",
+    "2": "Vibrato Variation",
+    "3": "Pitch Variation",
+    "4": "Timing Variation",
+    "5": "Stereo Spread",
+    "6": "Master Bypass"
+  },
+  "edge_cases": []
+}

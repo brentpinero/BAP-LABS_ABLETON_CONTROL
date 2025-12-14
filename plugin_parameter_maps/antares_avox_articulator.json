@@ -1,0 +1,29 @@
+{
+  "plugin": "AVOX ARTICULATOR",
+  "vendor": "Antares",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/AVOX ARTICULATOR.vst3",
+  "parameter_count": 19,
+  "params": {
+    "1": "Output Bypass",
+    "2": "Voice Range",
+    "3": "Tracking",
+    "4": "Throat Width",
+    "5": "Throat Length",
+    "6": "Synth input gain",
+    "7": "Noise input gain",
+    "8": "Synth compressor",
+    "9": "Amp Mod Env Amt",
+    "10": "EQ freq",
+    "11": "EQ Q",
+    "12": "EQ gain",
+    "13": "Volume",
+    "14": "Voice pan",
+    "15": "Synth output gain",
+    "16": "Synth output pan",
+    "17": "Stereo Noise",
+    "18": "EQ Bypass",
+    "19": "Master Bypass"
+  },
+  "edge_cases": []
+}

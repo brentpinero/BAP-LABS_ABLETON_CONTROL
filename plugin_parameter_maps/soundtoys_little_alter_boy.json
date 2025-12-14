@@ -1,0 +1,18 @@
+{
+  "plugin": "LittleAlterBoy",
+  "vendor": "Soundtoys",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/Soundtoys/LittleAlterBoy.vst3",
+  "parameter_count": 7,
+  "params": {
+    "1": "Bypass",
+    "2": "Pitch",
+    "3": "Formant",
+    "4": "Drive",
+    "5": "Mix",
+    "6": "ShiftMode",
+    "7": "FormantLink"
+  },
+  "notes": "Pitch and formant shifting voice changer with drive/saturation. Note: Lives in Soundtoys subfolder.",
+  "edge_cases": []
+}

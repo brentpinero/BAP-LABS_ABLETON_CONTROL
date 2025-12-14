@@ -1,0 +1,26 @@
+{
+  "plugin": "SSL Native X-Comp v6",
+  "vendor": "SSL",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/SSL Native X-Comp v6.vst3",
+  "parameter_count": 15,
+  "params": {
+    "1": "Threshold",
+    "2": "Ratio",
+    "3": "Max GR",
+    "4": "Knee",
+    "5": "Makeup Gain",
+    "6": "HF Bleed Amount",
+    "7": "HF Bleed Freq",
+    "8": "LF Bleed Amount",
+    "9": "LF Bleed Freq",
+    "10": "Input Gain",
+    "11": "Output Gain",
+    "12": "Attack",
+    "13": "Release",
+    "14": "Bypass",
+    "15": "Listen"
+  },
+  "notes": "Compressor with HF/LF bleed (frequency-dependent compression). Good for parallel compression.",
+  "edge_cases": []
+}

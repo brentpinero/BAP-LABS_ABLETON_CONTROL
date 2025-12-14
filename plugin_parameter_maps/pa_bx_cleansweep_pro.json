@@ -1,0 +1,25 @@
+{
+  "plugin": "bx_cleansweep Pro",
+  "vendor": "Plugin Alliance",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/bx_cleansweep Pro.vst3",
+  "parameter_count": 15,
+  "params": {
+    "1": "Bypass",
+    "2": "Setting",
+    "3": "Phase Rev.",
+    "4": "Input Gain",
+    "5": "Lowpass On/Off",
+    "6": "Lowpass Cutoff",
+    "7": "Lowpass Type",
+    "8": "Lowpass Order",
+    "9": "LP Parameter",
+    "10": "Highpass On/Off",
+    "11": "Highpass Cutoff",
+    "12": "Highpass Type",
+    "13": "Highpass Order",
+    "14": "HP Parameter",
+    "15": "Bypass"
+  },
+  "edge_cases": []
+}

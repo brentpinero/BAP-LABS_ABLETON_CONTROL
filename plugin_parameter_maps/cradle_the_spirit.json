@@ -1,0 +1,29 @@
+{
+  "plugin": "Cradle The Spirit",
+  "vendor": "Cradle",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/Cradle The Spirit.vst3",
+  "parameter_count": 19,
+  "params": {
+    "1": "Input Gain",
+    "2": "Gain Rider Speed",
+    "3": "Gain Rider Amount",
+    "4": "Gain Rider Floor",
+    "5": "Gain Rider State",
+    "6": "Compression",
+    "7": "Focus",
+    "8": "Character State",
+    "9": "EQ Low Gain",
+    "10": "EQ High Gain",
+    "11": "EQ State",
+    "12": "Doubler Stereo",
+    "13": "Doubler Mix",
+    "14": "Doubler State",
+    "15": "Reverb Filter",
+    "16": "Reverb Mix",
+    "17": "Reverb State",
+    "18": "Output Gain",
+    "19": "Bypass"
+  },
+  "edge_cases": []
+}

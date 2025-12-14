@@ -1,0 +1,22 @@
+{
+  "plugin": "bx_boom V3",
+  "vendor": "Plugin Alliance",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/bx_boom V3.vst3",
+  "parameter_count": 12,
+  "params": {
+    "1": "Power",
+    "2": "Bank",
+    "3": "Boom Amount",
+    "4": "Tone",
+    "5": "Frequency Mode",
+    "6": "Frequency - Simple",
+    "7": "Frequency - Fine",
+    "8": "Frequency - Notes",
+    "9": "Drive",
+    "10": "Phase Rotation",
+    "11": "Output Gain",
+    "12": "Bypass"
+  },
+  "edge_cases": []
+}

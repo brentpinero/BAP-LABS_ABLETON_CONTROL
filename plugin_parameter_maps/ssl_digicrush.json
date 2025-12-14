@@ -1,0 +1,23 @@
+{
+  "plugin": "SSL Digicrush",
+  "vendor": "SSL",
+  "format": "VST3",
+  "path": "/Library/Audio/Plug-Ins/VST3/SSL Digicrush.vst3",
+  "parameter_count": 12,
+  "params": {
+    "1": "Bypass",
+    "2": "Mix",
+    "3": "Output Gain",
+    "4": "Overload",
+    "5": "Downsample",
+    "6": "Jitter",
+    "7": "Bits",
+    "8": "Bit Reduction Mode",
+    "9": "Anti-Aliasing",
+    "10": "Anti-Aliasing Frequency",
+    "11": "Anti-Images",
+    "12": "Anti-Images Frequency"
+  },
+  "notes": "Bitcrusher/downsampler with aliasing control and jitter.",
+  "edge_cases": []
+}

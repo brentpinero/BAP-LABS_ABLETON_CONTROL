@@ -247,15 +247,71 @@ The user wants to learn **architecture design from first principles**, not just 
 4. ✅ Documented edge cases: Container plugins (EffectRack, WaveShell) and Cradle God Particle don't respond to param automation
 5. ✅ Updated `unified_mcp_bridge.py` with universal VST commands
 
-**OSC Commands Available:**
-- `/register <slot> <path>` - Load plugin into slot 1-8
-- `/unregister <slot>` - Unload plugin
-- `/<slot>/param <idx> <val>` - Set parameter (1-based index, 0-1 value)
-- `/<slot>/open`, `/<slot>/close` - Open/close plugin GUI
-- `/<slot>/params` - Query parameter names
-- `/list`, `/ping` - Utility commands
+### ✅ Phase 0.5: Plugin Parameter Mapping (COMPLETE - 2024-12-13)
+1. ✅ Mapped 319 VST plugins across all vendors (SSL, Plugin Alliance, Waves, Antares, etc.)
+2. ✅ Created JSON parameter maps in `plugin_parameter_maps/` directory
+3. ✅ Added shell plugin support (WaveShell subname commands)
+4. ✅ Documented edge cases (MIDI generators, container plugins)
 
-### ✅ Phase 1: Audio Data Generation (COMPLETE)
+### 🔄 Phase 1: Mix Analysis Hub for Self-Play Learning (IN PROGRESS - 2024-12-13)
+
+**Goal**: Build real-time audio analysis pipeline to enable LLM self-play learning on mix decisions.
+
+**Architecture** (documented in `research/MIX_ANALYSIS_ASSISTANT_ARCHITECTURE.md`):
+```
+M4L Device (Audio Analysis) → OSC (port 9880) → Python Bridge → LLM Context
+                                                      ↓
+                                              Bar-by-bar caching
+                                                      ↓
+                                              32-bar context window
+                                                      ↓
+                                              Qwen3-4B reasoning + MCP actions
+```
+
+**Built Components**:
+1. ✅ `Mix Analysis Hub.maxpat` - M4L device with:
+   - RMS/Peak level metering (L/R)
+   - Stereo correlation analysis
+   - Mid/Side width calculation
+   - Transport sync via Live API (`transport_sync.js`)
+   - OSC streaming to Python @ 30Hz
+
+2. ✅ `mix_assistant_bridge.py` - Integrated Python bridge:
+   - OSC receiver for audio analysis
+   - Bar-by-bar caching (BarCache with LRU eviction)
+   - 32-bar context window assembly
+   - Transport state tracking (bar, beat, BPM, playing)
+   - Integration with Qwen3-4B via MLX
+   - MCP tool execution for Ableton control
+
+3. ✅ `transport_sync.js` - Live API reader:
+   - Reads `is_playing`, `tempo`, `current_song_time`
+   - Calculates bar/beat from song position
+   - Fires bar change events for caching
+
+**🧪 NEXT STEP: End-to-End Test**
+```bash
+# Terminal 1: Run test receiver
+python test_mix_hub_receiver.py
+
+# In Ableton:
+# 1. Load Mix Analysis Hub.maxpat as M4L Audio Effect on Master
+# 2. Enable toggle
+# 3. Play audio for 30-60 seconds
+
+# Check log file for OSC data:
+# mix_hub_test.log
+```
+
+**Files**:
+- `Mix Analysis Hub.maxpat` - M4L device
+- `transport_sync.js` - Live API JavaScript
+- `mix_assistant_bridge.py` - Full integrated bridge
+- `mix_analysis_bridge.py` - Standalone OSC receiver
+- `test_mix_hub_receiver.py` - Test harness with logging
+- `research/MIX_ANALYSIS_ASSISTANT_ARCHITECTURE.md` - Full architecture doc
+
+### ✅ Phase 2: Audio Data Generation (COMPLETE)
 1. ✅ Built automated preset rendering system (111,732 files)
 2. ✅ Generated mel-spectrograms for all audio
 3. ✅ Verified audio quality and consistency

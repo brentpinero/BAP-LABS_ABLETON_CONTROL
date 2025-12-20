@@ -1,0 +1,507 @@
+{
+  "plugin": "Performer",
+  "type": "audio_effect",
+  "uri": "query:AudioFx#Performer",
+  "class_name": "MxDeviceAudioEffect",
+  "parameter_count": 50,
+  "parameters": [
+    {
+      "index": 0,
+      "name": "Device On",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 1,
+      "name": "Control 01",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 2,
+      "name": "Control 02",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 3,
+      "name": "Control 03",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 4,
+      "name": "Control 04",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 5,
+      "name": "Control 05",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 6,
+      "name": "Control 06",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 7,
+      "name": "Control 07",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 8,
+      "name": "Control 08",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 9,
+      "name": "Control 09",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 10,
+      "name": "Control 10",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 11,
+      "name": "Control 11",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 12,
+      "name": "Control 12",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 13,
+      "name": "Control 13",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 14,
+      "name": "Control 14",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 15,
+      "name": "Control 15",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 16,
+      "name": "Control 16",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 17,
+      "name": "Control 17",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 18,
+      "name": "Control 18",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 19,
+      "name": "Control 19",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 20,
+      "name": "Control 20",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 21,
+      "name": "Control 21",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 22,
+      "name": "Control 22",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 23,
+      "name": "Control 23",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 24,
+      "name": "Control 24",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 25,
+      "name": "Control 25",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 26,
+      "name": "Control 26",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 27,
+      "name": "Control 27",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 28,
+      "name": "Control 28",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 29,
+      "name": "Control 29",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 30,
+      "name": "Control 30",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 31,
+      "name": "Control 31",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 32,
+      "name": "Control 32",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 33,
+      "name": "Control 33",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 34,
+      "name": "Control 34",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 35,
+      "name": "Control 35",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 36,
+      "name": "Control 36",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 37,
+      "name": "Control 37",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 38,
+      "name": "Control 38",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 39,
+      "name": "Control 39",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 40,
+      "name": "Control 40",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 41,
+      "name": "Control 41",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 42,
+      "name": "Control 42",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 43,
+      "name": "Control 43",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 44,
+      "name": "Control 44",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 45,
+      "name": "Control 45",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 46,
+      "name": "Control 46",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 47,
+      "name": "Control 47",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 48,
+      "name": "Control 48",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 49,
+      "name": "Editor",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    }
+  ]
+}

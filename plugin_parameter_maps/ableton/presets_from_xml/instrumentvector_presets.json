@@ -1,0 +1,4866 @@
+{
+  "device_class": "InstrumentVector",
+  "preset_count": 270,
+  "presets": [
+    {
+      "preset_name": "Vocal Territory",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Pad/Vocal Territory.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.390625,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Aqueous Pad",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Pad/Aqueous Pad.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.390625,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Silver Surfer",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Pad/Silver Surfer.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.19140625,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Soul Sucker",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Pad/Soul Sucker.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1465454102,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Frantasmagoria.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Pad/Frantasmagoria.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.19140625,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Morgen Pad",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Pad/Morgen Pad.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.09283447266,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Anna Pad",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Pad/Anna Pad.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1291503906,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Fadestepper Pad",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Pad/Fadestepper Pad.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.3252563477,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Shapes & Saws Pad",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Pad/Shapes & Saws Pad.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2271118164,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Subtlepad.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Pad/Subtlepad.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.08813476562,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Airlite.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Pad/Airlite.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1983032227,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Perseids.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Pad/Perseids.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1587524414,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Mellow Noise Pad",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Pad/Mellow Noise Pad.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.158490181,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Spektrum",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Pad/Spektrum.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1026000977,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Slow Motion.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Pad/Slow Motion.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1235961914,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Organic Lo-Fi Pad",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Pad/Organic Lo-Fi Pad.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.5861816406,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Remember November",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Pad/Remember November.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.5011875629,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "What's The Vector",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Pad/What's The Vector.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.4619750977,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Replicant Sunset",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Pad/Replicant Sunset.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2346191406,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Pad Basique",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Pad/Pad Basique.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2739868164,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Somewhere Deep In The 80's",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Pad/Somewhere Deep In The 80's.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1525878906,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Sylvian Key Wayze",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Pad/Sylvian Key Wayze.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.3433227539,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Simple Pad.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Pad/Simple Pad.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1348266602,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Sync Drift Pad",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Pad/Sync Drift Pad.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.3548133969,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Mechanix Pad",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Pad/Mechanix Pad.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.3525390625,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Endomorph.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Pad/Endomorph.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1983032227,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Analog Soft Pad",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Pad/Analog Soft Pad.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2905883789,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Pitchpadpluck.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Pad/Pitchpadpluck.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2660742998,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Andreas Wide Pad",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Pad/Andreas Wide Pad.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2271118164,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Atmos Pad",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Pad/Atmos Pad.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2905883789,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Evolution.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Pad/Evolution.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2905883789,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Carpentry Skills",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Rhythmic/Carpentry Skills.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.7932128906,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Tesla Riser Loop",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Rhythmic/Tesla Riser Loop.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.6475219727,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "A Wobble Modwheel",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Rhythmic/A Wobble Modwheel.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2739868164,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Skatepark Dynasty",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Rhythmic/Skatepark Dynasty.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.25,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Second Sticks",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Rhythmic/Second Sticks.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.5011875629,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Wire Bass Journey",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Rhythmic/Wire Bass Journey.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1714477539,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Neo Post Acid.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Rhythmic/Neo Post Acid.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1846313477,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Twinkle & Hold.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Rhythmic/Twinkle & Hold.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1714477539,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Whats The Antimatter.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Rhythmic/Whats The Antimatter.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.19140625,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Punch Bowl Dunk",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Rhythmic/Punch Bowl Dunk.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2197265625,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Chouncer.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Rhythmic/Chouncer.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.5011875629,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Chatterbox.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Rhythmic/Chatterbox.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.5625,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Face Melter.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Rhythmic/Face Melter.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1235961914,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Wave Terminology",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Rhythmic/Wave Terminology.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.3076782227,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Velocity Doubler",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Rhythmic/Velocity Doubler.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.3433227539,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Molten Metal",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Rhythmic/Molten Metal.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.09765625,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Roller FM Bass",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Rhythmic/Roller FM Bass.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.66015625,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Velocity LFO Resolume",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Rhythmic/Velocity LFO Resolume.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1714477539,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Scraps.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Rhythmic/Scraps.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.4306640625,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Vowel Cadence",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Rhythmic/Vowel Cadence.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.25,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "SH Notes",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Rhythmic/SH Notes.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Yayaya.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Rhythmic/Yayaya.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2739868164,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Concatenation",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Rhythmic/Concatenation.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2422485352,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Maverick Pulser",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Rhythmic/Maverick Pulser.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.06646728516,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Ramble Mod",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Rhythmic/Ramble Mod.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.7385253906,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Midnight Chase",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Rhythmic/Midnight Chase.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1846313477,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Bass Grinder",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Rhythmic/Bass Grinder.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.07476806641,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Bastille Basher",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Rhythmic/Bastille Basher.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.3525390625,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Chasing The LFO",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Rhythmic/Chasing The LFO.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.5393066406,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Poly Saw",
+      "rel_path": "Devices/Instruments/Wavetable/Brass/Poly Saw.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2346191406,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Poly Pressure Saw",
+      "rel_path": "Devices/Instruments/Wavetable/Brass/Poly Pressure Saw.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2512515783,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Poly 60 Saw",
+      "rel_path": "Devices/Instruments/Wavetable/Brass/Poly 60 Saw.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.3252563477,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Matrix Horns",
+      "rel_path": "Devices/Instruments/Wavetable/Brass/Matrix Horns.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.09981651604,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Brutal Quad Saw",
+      "rel_path": "Devices/Instruments/Wavetable/Brass/Brutal Quad Saw.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.09765625,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Flyte Time Brass",
+      "rel_path": "Devices/Instruments/Wavetable/Brass/Flyte Time Brass.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.3713378906,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Vox Brass",
+      "rel_path": "Devices/Instruments/Wavetable/Brass/Vox Brass.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1348266602,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Alphalog Brass",
+      "rel_path": "Devices/Instruments/Wavetable/Brass/Alphalog Brass.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1128540039,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Wave Sync Brass",
+      "rel_path": "Devices/Instruments/Wavetable/Brass/Wave Sync Brass.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.3713378906,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Mad Farfisa",
+      "rel_path": "Devices/Instruments/Wavetable/Bass/Mad Farfisa.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.0791015625,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Wowble Bass.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Bass/Wowble Bass.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.31640625,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Abdominal Bass",
+      "rel_path": "Devices/Instruments/Wavetable/Bass/Abdominal Bass.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1291503906,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Amber Low Glow",
+      "rel_path": "Devices/Instruments/Wavetable/Bass/Amber Low Glow.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1983032227,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Altered Harmonic Bass",
+      "rel_path": "Devices/Instruments/Wavetable/Bass/Altered Harmonic Bass.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.4004516602,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Model D Solo",
+      "rel_path": "Devices/Instruments/Wavetable/Bass/Model D Solo.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1650390625,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Granite Shard.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Bass/Granite Shard.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.19140625,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Battery Acid.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Bass/Battery Acid.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2869315445,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Mini Flashlite",
+      "rel_path": "Devices/Instruments/Wavetable/Bass/Mini Flashlite.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.7943251729,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Granite Face",
+      "rel_path": "Devices/Instruments/Wavetable/Bass/Granite Face.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1258927286,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Shockwave Bass.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Bass/Shockwave Bass.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.3433227539,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Nasal Petroleum.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Bass/Nasal Petroleum.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.5011875629,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Golden Growl",
+      "rel_path": "Devices/Instruments/Wavetable/Bass/Golden Growl.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1995255202,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Particle Breakup",
+      "rel_path": "Devices/Instruments/Wavetable/Bass/Particle Breakup.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.0625,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Crossover Syn Bass",
+      "rel_path": "Devices/Instruments/Wavetable/Bass/Crossover Syn Bass.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2739868164,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Grande Bass",
+      "rel_path": "Devices/Instruments/Wavetable/Bass/Grande Bass.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.5610947013,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Calculated Bass",
+      "rel_path": "Devices/Instruments/Wavetable/Bass/Calculated Bass.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.25,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Unison Phase Bass",
+      "rel_path": "Devices/Instruments/Wavetable/Bass/Unison Phase Bass.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.390625,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Post Bass.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Bass/Post Bass.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.5011875629,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Hot Wobble.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Bass/Hot Wobble.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2238721251,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Rawkus Wobble",
+      "rel_path": "Devices/Instruments/Wavetable/Bass/Rawkus Wobble.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1584883779,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Effing Bass.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Bass/Effing Bass.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2113125771,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Fragile",
+      "rel_path": "Devices/Instruments/Wavetable/Bass/Fragile.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1650390625,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Table Bass",
+      "rel_path": "Devices/Instruments/Wavetable/Bass/Table Bass.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.485199362,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Mono Wah Wave",
+      "rel_path": "Devices/Instruments/Wavetable/Bass/Mono Wah Wave.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.6226196289,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Yah Yah Mah",
+      "rel_path": "Devices/Instruments/Wavetable/Bass/Yah Yah Mah.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1525878906,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Upward Flight",
+      "rel_path": "Devices/Instruments/Wavetable/Bass/Upward Flight.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2124633789,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Forceful Ambition",
+      "rel_path": "Devices/Instruments/Wavetable/Bass/Forceful Ambition.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1122018695,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Jupiter Plus Bass",
+      "rel_path": "Devices/Instruments/Wavetable/Bass/Jupiter Plus Bass.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1026000977,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "The Hunter",
+      "rel_path": "Devices/Instruments/Wavetable/Bass/The Hunter.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2578735352,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Hello Nueman",
+      "rel_path": "Devices/Instruments/Wavetable/Bass/Hello Nueman.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.06855884939,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Epilogue Bass.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Bass/Epilogue Bass.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.3618774414,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Mechanix Bass",
+      "rel_path": "Devices/Instruments/Wavetable/Bass/Mechanix Bass.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2739868164,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Zardoz.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Bass/Zardoz.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.09765625,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Warp Drive D.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Bass/Warp Drive D.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1944258958,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Super Sub Drone Bass",
+      "rel_path": "Devices/Instruments/Wavetable/Bass/Super Sub Drone Bass.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2124633789,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Model HU Bass",
+      "rel_path": "Devices/Instruments/Wavetable/Bass/Model HU Bass.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1348266602,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Bob's Place Bass",
+      "rel_path": "Devices/Instruments/Wavetable/Bass/Bob's Place Bass.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1205391735,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Pendulum",
+      "rel_path": "Devices/Instruments/Wavetable/Bass/Pendulum.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2422485352,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Slider Deep Bass",
+      "rel_path": "Devices/Instruments/Wavetable/Bass/Slider Deep Bass.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.4306640625,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Before The Plunge",
+      "rel_path": "Devices/Instruments/Wavetable/Bass/Before The Plunge.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1076660156,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Sub Terrain",
+      "rel_path": "Devices/Instruments/Wavetable/Bass/Sub Terrain.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1076660156,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Unstraight.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Bass/Unstraight.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1995258182,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Poison Pen",
+      "rel_path": "Devices/Instruments/Wavetable/Bass/Poison Pen.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1235961914,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Midnight Chase Bass",
+      "rel_path": "Devices/Instruments/Wavetable/Bass/Midnight Chase Bass.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.6280562878,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Echo Bay",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Lead/Echo Bay.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.4943847656,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Nitrean.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Lead/Nitrean.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1465454102,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Kraven Ridge",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Lead/Kraven Ridge.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1348266602,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Clear My Throat Lead",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Lead/Clear My Throat Lead.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1026000977,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Synced Maniplulation.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Lead/Synced Maniplulation.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2053222656,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Callibrated Solo",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Lead/Callibrated Solo.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1779785156,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Trident Stab.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Lead/Trident Stab.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.765625,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Lord of Clavichord",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Lead/Lord of Clavichord.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1026000977,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Bright SAW Lead",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Lead/Bright SAW Lead.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2658691406,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Air Flute Magnus",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Lead/Air Flute Magnus.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2271118164,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Paisley Solo",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Lead/Paisley Solo.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1846313477,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Glowstick Juice",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Lead/Glowstick Juice.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.4204711914,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Spring & Sprung",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Lead/Spring & Sprung.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.140625,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Digitalcable.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Lead/Digitalcable.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1779785156,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Anger Management",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Lead/Anger Management.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1348266602,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Helium Inhale",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Lead/Helium Inhale.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.06423057616,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Ele Webble",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Lead/Ele Webble.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.5861816406,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Slate.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Lead/Slate.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Diagraph Persona",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Lead/Diagraph Persona.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.140625,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Saw Stack",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Lead/Saw Stack.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.6857910156,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Folded Over",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Lead/Folded Over.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2124633789,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Arr Matey Lead",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Lead/Arr Matey Lead.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.3162259459,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Micro Mini Lead",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Lead/Micro Mini Lead.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.87890625,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "37th Street",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Lead/37th Street.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.8871284723,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Sync Juno Lead",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Lead/Sync Juno Lead.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.5166015625,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Just Beat It",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Lead/Just Beat It.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1983032227,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "A Thick Wave",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Lead/A Thick Wave.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.6226196289,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Chaotica.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Lead/Chaotica.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.3433227539,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Collateral Damage",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Lead/Collateral Damage.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1181640625,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Munster Funk Solo",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Lead/Munster Funk Solo.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1983032227,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Model H Lead",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Lead/Model H Lead.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1128540039,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Funk Wah Solo",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Lead/Funk Wah Solo.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1235961914,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "DiveBomb Lead Drop",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Lead/DiveBomb Lead Drop.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.09765625,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "After Fade",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Lead/After Fade.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.4619750977,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Bees & Snakeskin",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Lead/Bees & Snakeskin.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1235961914,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Walkie Talkeez",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Lead/Walkie Talkeez.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1181640625,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Twisted Guts.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Lead/Twisted Guts.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1587524414,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Levitate Lead",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Lead/Levitate Lead.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2985377908,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Hixx Trix",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Lead/Hixx Trix.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2511889338,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "squAErs",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Lead/squAErs.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.5011875629,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Whisper Advantage",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Lead/Whisper Advantage.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1525878906,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Swurm.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Lead/Swurm.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.4104003906,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Fake Reverb.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Lead/Fake Reverb.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.5011875629,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Prog Regression",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Lead/Prog Regression.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2053222656,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "A Brief History of Chime.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Mallets/A Brief History of Chime.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.5742797852,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Fizz Bells",
+      "rel_path": "Devices/Instruments/Wavetable/Mallets/Fizz Bells.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.5278930664,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Frantasia",
+      "rel_path": "Devices/Instruments/Wavetable/Mallets/Frantasia.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2691015005,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Bell Degrees",
+      "rel_path": "Devices/Instruments/Wavetable/Mallets/Bell Degrees.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2525063157,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Bell Prelude",
+      "rel_path": "Devices/Instruments/Wavetable/Mallets/Bell Prelude.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.47265625,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Ambient Element.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Mallets/Ambient Element.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1883637607,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Flexibell.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Mallets/Flexibell.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2220176905,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Hang Drum Festival",
+      "rel_path": "Devices/Instruments/Wavetable/Mallets/Hang Drum Festival.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.235831663,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Crockhausen.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Mallets/Crockhausen.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2346191406,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Talk Talk Bells",
+      "rel_path": "Devices/Instruments/Wavetable/Mallets/Talk Talk Bells.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.3306250572,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Glinting Echoes.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Mallets/Glinting Echoes.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2053222656,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Toy Marimba.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Mallets/Toy Marimba.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1974691749,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Eastern Dream Pluck",
+      "rel_path": "Devices/Instruments/Wavetable/Guitar & Plucked/Eastern Dream Pluck.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.5233618617,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Pizza To Go",
+      "rel_path": "Devices/Instruments/Wavetable/Guitar & Plucked/Pizza To Go.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2104515731,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Velo-Rezzo Plucks",
+      "rel_path": "Devices/Instruments/Wavetable/Guitar & Plucked/Velo-Rezzo Plucks.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.4004516602,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Arpeggiate Me",
+      "rel_path": "Devices/Instruments/Wavetable/Guitar & Plucked/Arpeggiate Me.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.4204711914,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Pianositar.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Guitar & Plucked/Pianositar.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2220766097,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Banjorific",
+      "rel_path": "Devices/Instruments/Wavetable/Guitar & Plucked/Banjorific.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.3525390625,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Glocken Pluck",
+      "rel_path": "Devices/Instruments/Wavetable/Guitar & Plucked/Glocken Pluck.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.3202852607,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "FM Piano Detuned",
+      "rel_path": "Devices/Instruments/Wavetable/Piano & Keys/FM Piano Detuned.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.5623415709,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Organ Retro Harmonic",
+      "rel_path": "Devices/Instruments/Wavetable/Piano & Keys/Organ Retro Harmonic.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2905883789,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Organ Nylon Drawbars",
+      "rel_path": "Devices/Instruments/Wavetable/Piano & Keys/Organ Nylon Drawbars.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1076660156,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Detuney Sustained Keys",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Keys/Detuney Sustained Keys.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.251188904,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Poly Juno Square",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Keys/Poly Juno Square.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2990722656,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Poly Filter Saw",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Keys/Poly Filter Saw.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2422485352,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Asure Skies",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Keys/Asure Skies.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.19140625,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Juno Organ Wave",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Keys/Juno Organ Wave.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.3252563477,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Noize of Art Flute",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Keys/Noize of Art Flute.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2053222656,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Classic JX Wave",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Keys/Classic JX Wave.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.3162286282,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "GGP.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Keys/GGP.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.3162259459,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Classic Juno Wave",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Keys/Classic Juno Wave.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.4514160156,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Classic Analog Clavinette",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Keys/Classic Analog Clavinette.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.4306640625,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Eastern Fifth.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Keys/Eastern Fifth.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.3548106253,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Here Kitty Kitty.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Keys/Here Kitty Kitty.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.3618774414,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Tell Me Sumthin' Clav",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Keys/Tell Me Sumthin' Clav.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2304000109,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Pizza Go-Go",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Keys/Pizza Go-Go.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2422485352,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "VOSM",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Keys/VOSM.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2905883789,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Silver Keys.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Keys/Silver Keys.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2822265625,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Tunnel Vision",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Keys/Tunnel Vision.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.07943233848,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Poly Sync",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Keys/Poly Sync.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2636180818,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Lush Roads.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Keys/Lush Roads.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1778274924,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Poly Filter Pulse",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Keys/Poly Filter Pulse.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2124633789,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Oklahoma Corral",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Keys/Oklahoma Corral.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2658691406,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Haunted Minutes",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Keys/Haunted Minutes.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.5625,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Change The Table Keys.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Keys/Change The Table Keys.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1465454102,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "A Degree Of Synth",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Keys/A Degree Of Synth.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.3342285156,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Crystal Labyrinth Keys",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Keys/Crystal Labyrinth Keys.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.390625,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Poly Pulse Blend",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Keys/Poly Pulse Blend.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1714477539,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "12 CC's and Counting",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Keys/12 CC's and Counting.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2124633789,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Velocity Keys",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Keys/Velocity Keys.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.158490181,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "A Soft Chord",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Keys/A Soft Chord.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1995258182,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Juno Multi Wave",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Keys/Juno Multi Wave.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.4514160156,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Saucery.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Keys/Saucery.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2822265625,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Position Glass",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Keys/Position Glass.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2197265625,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Sentient Shadows.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Keys/Sentient Shadows.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.4004516602,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Gold Keys.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Keys/Gold Keys.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2739868164,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Aaghra Keys",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Keys/Aaghra Keys.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1995258182,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Helium Blockade",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Keys/Helium Blockade.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.05133056641,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Glowing Filaments.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Keys/Glowing Filaments.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2739868164,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Tear Tear",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Keys/Tear Tear.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2739868164,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Moonscape Piano",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Keys/Moonscape Piano.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1650390625,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Wide Room Pad",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Keys/Wide Room Pad.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2271118164,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Munster Funk",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Keys/Munster Funk.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1846313477,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Solar Flare",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Keys/Solar Flare.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1091063395,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Dulcimore Keys.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Keys/Dulcimore Keys.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2905883789,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Poly Sweep Saw",
+      "rel_path": "Devices/Instruments/Wavetable/Synth Keys/Poly Sweep Saw.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.3252563477,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Darknet.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Effects/Darknet.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.4306640625,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Target Acquired",
+      "rel_path": "Devices/Instruments/Wavetable/Effects/Target Acquired.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.5011858344,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Alien Cesarian.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Effects/Alien Cesarian.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.5011875629,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Warehouse Shivers.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Effects/Warehouse Shivers.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1198891029,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Kick Drum FuzzJump",
+      "rel_path": "Devices/Instruments/Wavetable/Effects/Kick Drum FuzzJump.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.5623435378,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "The Day The Earth Shrunk.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Effects/The Day The Earth Shrunk.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.7413053513,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Airplane Wave",
+      "rel_path": "Devices/Instruments/Wavetable/Effects/Airplane Wave.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1151754037,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Turntable Brake",
+      "rel_path": "Devices/Instruments/Wavetable/Effects/Turntable Brake.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.8498535156,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Riser Windup Light",
+      "rel_path": "Devices/Instruments/Wavetable/Effects/Riser Windup Light.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.5742797852,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Head Trip.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Effects/Head Trip.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Top Quark.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Effects/Top Quark.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2346191406,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Digi Race",
+      "rel_path": "Devices/Instruments/Wavetable/Effects/Digi Race.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.5982055664,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Robert's Theorem",
+      "rel_path": "Devices/Instruments/Wavetable/Effects/Robert's Theorem.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.5623435378,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Cletterling",
+      "rel_path": "Devices/Instruments/Wavetable/Effects/Cletterling.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.5011875629,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Scan Thru",
+      "rel_path": "Devices/Instruments/Wavetable/Effects/Scan Thru.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1181640625,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Sky Spy.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Effects/Sky Spy.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2789160609,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Riser Section 8",
+      "rel_path": "Devices/Instruments/Wavetable/Effects/Riser Section 8.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Ghostly Mirror.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Effects/Ghostly Mirror.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2235515863,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Rubbery Flick.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Effects/Rubbery Flick.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2511889338,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Enjoy the Show FX",
+      "rel_path": "Devices/Instruments/Wavetable/Effects/Enjoy the Show FX.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.3525390625,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Wait For It",
+      "rel_path": "Devices/Instruments/Wavetable/Effects/Wait For It.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.07055664062,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Kicky Tom.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Percussive/Kicky Tom.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2197265625,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Fluffy zap.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Percussive/Fluffy zap.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.5011875629,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Tom Yum.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Percussive/Tom Yum.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.3981056809,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Turgid Kick.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Percussive/Turgid Kick.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.9384765625,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Bunker Kick.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Percussive/Bunker Kick.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.19140625,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Throb Kick.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Percussive/Throb Kick.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1714477539,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Tronic Snare.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Percussive/Tronic Snare.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.3758350909,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Specific Hat.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Percussive/Specific Hat.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.3809204102,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Spacey Ambient Pad",
+      "rel_path": "Devices/Instruments/Wavetable/Ambient & Evolving/Spacey Ambient Pad.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.3433227539,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "The Reveal.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Ambient & Evolving/The Reveal.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1455899179,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Release Yourself.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Ambient & Evolving/Release Yourself.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1412538886,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Grungey Ambient Pad",
+      "rel_path": "Devices/Instruments/Wavetable/Ambient & Evolving/Grungey Ambient Pad.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.3252563477,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Spacefolder.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Ambient & Evolving/Spacefolder.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1714477539,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Kitchen Sync",
+      "rel_path": "Devices/Instruments/Wavetable/Ambient & Evolving/Kitchen Sync.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2511889338,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Tones From Nowhere.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Ambient & Evolving/Tones From Nowhere.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.3252563477,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Prehistoric VHS.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Ambient & Evolving/Prehistoric VHS.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1465454102,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Martian Ham Radio",
+      "rel_path": "Devices/Instruments/Wavetable/Ambient & Evolving/Martian Ham Radio.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2818393707,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Flux Capacitor.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Ambient & Evolving/Flux Capacitor.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2511885762,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Venus Doppler",
+      "rel_path": "Devices/Instruments/Wavetable/Ambient & Evolving/Venus Doppler.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2578735352,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Van Der Graaf.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Ambient & Evolving/Van Der Graaf.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.06646728516,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Descenting Dreams",
+      "rel_path": "Devices/Instruments/Wavetable/Ambient & Evolving/Descenting Dreams.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.4943847656,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Embellish The Dead Zone",
+      "rel_path": "Devices/Instruments/Wavetable/Ambient & Evolving/Embellish The Dead Zone.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.2511885762,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Echoic Chamber",
+      "rel_path": "Devices/Instruments/Wavetable/Ambient & Evolving/Echoic Chamber.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1258921474,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Drifting Ambient Pad",
+      "rel_path": "Devices/Instruments/Wavetable/Ambient & Evolving/Drifting Ambient Pad.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.5623415709,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Symphonialgorithmic.adv",
+      "rel_path": "Devices/Instruments/Wavetable/Ambient & Evolving/Symphonialgorithmic.adv",
+      "device_class": "InstrumentVector",
+      "plugin_name": "Wavetable",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 92,
+          "name": "Volume",
+          "value": 0.1465454102,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    }
+  ]
+}

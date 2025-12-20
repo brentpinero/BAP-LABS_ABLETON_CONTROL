@@ -1,0 +1,435 @@
+{
+  "device_class": "Cabinet",
+  "preset_count": 11,
+  "presets": [
+    {
+      "preset_name": "4x10 Bass Cab.adv",
+      "rel_path": "Devices/Audio Effects/Cabinet/4x10 Bass Cab.adv",
+      "device_class": "Cabinet",
+      "plugin_name": "Cabinet",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Cabinet Type",
+          "value": 4.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 3,
+          "name": "Microphone Position",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 4,
+          "name": "Dual Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Bottom Up.adv",
+      "rel_path": "Devices/Audio Effects/Cabinet/Bottom Up.adv",
+      "device_class": "Cabinet",
+      "plugin_name": "Cabinet",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Cabinet Type",
+          "value": 4.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 3,
+          "name": "Microphone Position",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 4,
+          "name": "Dual Mono",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Dry/Wet",
+          "value": 0.555555582,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "2x12 Cab.adv",
+      "rel_path": "Devices/Audio Effects/Cabinet/2x12 Cab.adv",
+      "device_class": "Cabinet",
+      "plugin_name": "Cabinet",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Cabinet Type",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 3,
+          "name": "Microphone Position",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 4,
+          "name": "Dual Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Bright Small Box.adv",
+      "rel_path": "Devices/Audio Effects/Cabinet/Bright Small Box.adv",
+      "device_class": "Cabinet",
+      "plugin_name": "Cabinet",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Cabinet Type",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 3,
+          "name": "Microphone Position",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 4,
+          "name": "Dual Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Dry/Wet",
+          "value": 0.4523809552,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "4x12 Cab.adv",
+      "rel_path": "Devices/Audio Effects/Cabinet/4x12 Cab.adv",
+      "device_class": "Cabinet",
+      "plugin_name": "Cabinet",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Cabinet Type",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 3,
+          "name": "Microphone Position",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 4,
+          "name": "Dual Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Small Drum Room.adv",
+      "rel_path": "Devices/Audio Effects/Cabinet/Small Drum Room.adv",
+      "device_class": "Cabinet",
+      "plugin_name": "Cabinet",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Cabinet Type",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 3,
+          "name": "Microphone Position",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 4,
+          "name": "Dual Mono",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Dry/Wet",
+          "value": 0.5952380896,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Slight Reflections.adv",
+      "rel_path": "Devices/Audio Effects/Cabinet/Slight Reflections.adv",
+      "device_class": "Cabinet",
+      "plugin_name": "Cabinet",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Cabinet Type",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 3,
+          "name": "Microphone Position",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 4,
+          "name": "Dual Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Dry/Wet",
+          "value": 0.3333333433,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "1x12 Cab.adv",
+      "rel_path": "Devices/Audio Effects/Cabinet/1x12 Cab.adv",
+      "device_class": "Cabinet",
+      "plugin_name": "Cabinet",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Cabinet Type",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 3,
+          "name": "Microphone Position",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 4,
+          "name": "Dual Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Studio Room.adv",
+      "rel_path": "Devices/Audio Effects/Cabinet/Studio Room.adv",
+      "device_class": "Cabinet",
+      "plugin_name": "Cabinet",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Cabinet Type",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 3,
+          "name": "Microphone Position",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 4,
+          "name": "Dual Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Dry/Wet",
+          "value": 0.4047619104,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "4x10 Cab.adv",
+      "rel_path": "Devices/Audio Effects/Cabinet/4x10 Cab.adv",
+      "device_class": "Cabinet",
+      "plugin_name": "Cabinet",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Cabinet Type",
+          "value": 3.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 3,
+          "name": "Microphone Position",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 4,
+          "name": "Dual Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Sit in the Mix.adv",
+      "rel_path": "Devices/Audio Effects/Cabinet/Sit in the Mix.adv",
+      "device_class": "Cabinet",
+      "plugin_name": "Cabinet",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Cabinet Type",
+          "value": 3.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 3,
+          "name": "Microphone Position",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 4,
+          "name": "Dual Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Dry/Wet",
+          "value": 0.396825403,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    }
+  ]
+}

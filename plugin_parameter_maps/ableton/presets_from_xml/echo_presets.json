@@ -1,0 +1,2550 @@
+{
+  "device_class": "Echo",
+  "preset_count": 48,
+  "presets": [
+    {
+      "preset_name": "A Bit Tipsy",
+      "rel_path": "Devices/Audio Effects/Echo/Vintage Delay/A Bit Tipsy.adv",
+      "device_class": "Echo",
+      "plugin_name": "Echo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 6,
+      "parameters": [
+        {
+          "index": 16,
+          "name": "Feedback",
+          "value": 0.6071428657,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "Channel Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 19,
+          "name": "Input Gain",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Output Gain",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 51,
+          "name": "Stereo Width",
+          "value": 1.46031749,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 52,
+          "name": "Dry Wet",
+          "value": 0.4047619104,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Dark Fade Analog",
+      "rel_path": "Devices/Audio Effects/Echo/Vintage Delay/Dark Fade Analog.adv",
+      "device_class": "Echo",
+      "plugin_name": "Echo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 6,
+      "parameters": [
+        {
+          "index": 16,
+          "name": "Feedback",
+          "value": 0.7023809552,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "Channel Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 19,
+          "name": "Input Gain",
+          "value": 12.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Output Gain",
+          "value": 0.891250968,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 51,
+          "name": "Stereo Width",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 52,
+          "name": "Dry Wet",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "HallowTrip.adv",
+      "rel_path": "Devices/Audio Effects/Echo/Vintage Delay/HallowTrip.adv",
+      "device_class": "Echo",
+      "plugin_name": "Echo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 6,
+      "parameters": [
+        {
+          "index": 16,
+          "name": "Feedback",
+          "value": 0.7619048357,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "Channel Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 19,
+          "name": "Input Gain",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Output Gain",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 51,
+          "name": "Stereo Width",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 52,
+          "name": "Dry Wet",
+          "value": 0.5078125,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Dub Syndicate.adv",
+      "rel_path": "Devices/Audio Effects/Echo/Vintage Delay/Dub Syndicate.adv",
+      "device_class": "Echo",
+      "plugin_name": "Echo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 6,
+      "parameters": [
+        {
+          "index": 16,
+          "name": "Feedback",
+          "value": 0.6785714626,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "Channel Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 19,
+          "name": "Input Gain",
+          "value": 2.53968048,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Output Gain",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 51,
+          "name": "Stereo Width",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 52,
+          "name": "Dry Wet",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "TwoAnalogues.adv",
+      "rel_path": "Devices/Audio Effects/Echo/Vintage Delay/TwoAnalogues.adv",
+      "device_class": "Echo",
+      "plugin_name": "Echo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 6,
+      "parameters": [
+        {
+          "index": 16,
+          "name": "Feedback",
+          "value": 0.8214285374,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "Channel Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 19,
+          "name": "Input Gain",
+          "value": 0.6349220276,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Output Gain",
+          "value": 1.45527852,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 51,
+          "name": "Stereo Width",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 52,
+          "name": "Dry Wet",
+          "value": 0.5078125,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Clipped Slap Analog ",
+      "rel_path": "Devices/Audio Effects/Echo/Vintage Delay/Clipped Slap Analog .adv",
+      "device_class": "Echo",
+      "plugin_name": "Echo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 6,
+      "parameters": [
+        {
+          "index": 16,
+          "name": "Feedback",
+          "value": 0.7023809552,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "Channel Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 19,
+          "name": "Input Gain",
+          "value": 20.3174591,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Output Gain",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 51,
+          "name": "Stereo Width",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 52,
+          "name": "Dry Wet",
+          "value": 0.5396825671,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Tweezy Tape",
+      "rel_path": "Devices/Audio Effects/Echo/Vintage Delay/Tweezy Tape.adv",
+      "device_class": "Echo",
+      "plugin_name": "Echo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 6,
+      "parameters": [
+        {
+          "index": 16,
+          "name": "Feedback",
+          "value": 0.75,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "Channel Mode",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 19,
+          "name": "Input Gain",
+          "value": 2.53968048,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Output Gain",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 51,
+          "name": "Stereo Width",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 52,
+          "name": "Dry Wet",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Dem Ducks",
+      "rel_path": "Devices/Audio Effects/Echo/Vintage Delay/Dem Ducks.adv",
+      "device_class": "Echo",
+      "plugin_name": "Echo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 6,
+      "parameters": [
+        {
+          "index": 16,
+          "name": "Feedback",
+          "value": 0.4761905074,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "Channel Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 19,
+          "name": "Input Gain",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Output Gain",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 51,
+          "name": "Stereo Width",
+          "value": 1.28571427,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 52,
+          "name": "Dry Wet",
+          "value": 0.8015872836,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Gated Splash",
+      "rel_path": "Devices/Audio Effects/Echo/Vintage Delay/Gated Splash.adv",
+      "device_class": "Echo",
+      "plugin_name": "Echo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 6,
+      "parameters": [
+        {
+          "index": 16,
+          "name": "Feedback",
+          "value": 0.1904762089,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "Channel Mode",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 19,
+          "name": "Input Gain",
+          "value": -1.90476227,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Output Gain",
+          "value": 0.7346938848,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 51,
+          "name": "Stereo Width",
+          "value": 1.34920633,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 52,
+          "name": "Dry Wet",
+          "value": 0.6746031642,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Analog Triplet Dub.adv",
+      "rel_path": "Devices/Audio Effects/Echo/Vintage Delay/Analog Triplet Dub.adv",
+      "device_class": "Echo",
+      "plugin_name": "Echo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 6,
+      "parameters": [
+        {
+          "index": 16,
+          "name": "Feedback",
+          "value": 0.7142857313,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "Channel Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 19,
+          "name": "Input Gain",
+          "value": 10.1587296,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Output Gain",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 51,
+          "name": "Stereo Width",
+          "value": 0.90625,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 52,
+          "name": "Dry Wet",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Flutter One.adv",
+      "rel_path": "Devices/Audio Effects/Echo/Vintage Delay/Flutter One.adv",
+      "device_class": "Echo",
+      "plugin_name": "Echo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 6,
+      "parameters": [
+        {
+          "index": 16,
+          "name": "Feedback",
+          "value": 0.7619048357,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "Channel Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 19,
+          "name": "Input Gain",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Output Gain",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 51,
+          "name": "Stereo Width",
+          "value": 1.25396824,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 52,
+          "name": "Dry Wet",
+          "value": 0.4761904776,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Tape Reverb Space",
+      "rel_path": "Devices/Audio Effects/Echo/Vintage Delay/Tape Reverb Space.adv",
+      "device_class": "Echo",
+      "plugin_name": "Echo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 6,
+      "parameters": [
+        {
+          "index": 16,
+          "name": "Feedback",
+          "value": 0.3928571641,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "Channel Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 19,
+          "name": "Input Gain",
+          "value": 8.88888931,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Output Gain",
+          "value": 0.968505919,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 51,
+          "name": "Stereo Width",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 52,
+          "name": "Dry Wet",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Long Tape.adv",
+      "rel_path": "Devices/Audio Effects/Echo/Vintage Delay/Long Tape.adv",
+      "device_class": "Echo",
+      "plugin_name": "Echo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 6,
+      "parameters": [
+        {
+          "index": 16,
+          "name": "Feedback",
+          "value": 0.7619048357,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "Channel Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 19,
+          "name": "Input Gain",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Output Gain",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 51,
+          "name": "Stereo Width",
+          "value": 1.25396824,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 52,
+          "name": "Dry Wet",
+          "value": 0.4761904776,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Smacked.adv",
+      "rel_path": "Devices/Audio Effects/Echo/Vintage Delay/Smacked.adv",
+      "device_class": "Echo",
+      "plugin_name": "Echo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 6,
+      "parameters": [
+        {
+          "index": 16,
+          "name": "Feedback",
+          "value": 0.6785714626,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "Channel Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 19,
+          "name": "Input Gain",
+          "value": 12.69841,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Output Gain",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 51,
+          "name": "Stereo Width",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 52,
+          "name": "Dry Wet",
+          "value": 0.5078125,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Hiss Tape Mode",
+      "rel_path": "Devices/Audio Effects/Echo/Vintage Delay/Hiss Tape Mode.adv",
+      "device_class": "Echo",
+      "plugin_name": "Echo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 6,
+      "parameters": [
+        {
+          "index": 16,
+          "name": "Feedback",
+          "value": 0.6071428657,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "Channel Mode",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 19,
+          "name": "Input Gain",
+          "value": 6.34920502,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Output Gain",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 51,
+          "name": "Stereo Width",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 52,
+          "name": "Dry Wet",
+          "value": 0.3571428657,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Semi Sync",
+      "rel_path": "Devices/Audio Effects/Echo/Vintage Delay/Semi Sync.adv",
+      "device_class": "Echo",
+      "plugin_name": "Echo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 6,
+      "parameters": [
+        {
+          "index": 16,
+          "name": "Feedback",
+          "value": 0.24609375,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "Channel Mode",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 19,
+          "name": "Input Gain",
+          "value": 6.34920502,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Output Gain",
+          "value": 0.7346938848,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 51,
+          "name": "Stereo Width",
+          "value": 1.34920633,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 52,
+          "name": "Dry Wet",
+          "value": 0.6904761791,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Delay Syndicate.adv",
+      "rel_path": "Devices/Audio Effects/Echo/Vintage Delay/Delay Syndicate.adv",
+      "device_class": "Echo",
+      "plugin_name": "Echo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 6,
+      "parameters": [
+        {
+          "index": 16,
+          "name": "Feedback",
+          "value": 0.4133858085,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "Channel Mode",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 19,
+          "name": "Input Gain",
+          "value": 11.4285698,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Output Gain",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 51,
+          "name": "Stereo Width",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 52,
+          "name": "Dry Wet",
+          "value": 0.6031746268,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Digital Pong",
+      "rel_path": "Devices/Audio Effects/Echo/Clean Delay/Digital Pong.adv",
+      "device_class": "Echo",
+      "plugin_name": "Echo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 6,
+      "parameters": [
+        {
+          "index": 16,
+          "name": "Feedback",
+          "value": 0.09523810446,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "Channel Mode",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 19,
+          "name": "Input Gain",
+          "value": 13.9682541,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Output Gain",
+          "value": 1.45527852,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 51,
+          "name": "Stereo Width",
+          "value": 0.8730158806,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 52,
+          "name": "Dry Wet",
+          "value": 0.380952388,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Mid Filter Delay",
+      "rel_path": "Devices/Audio Effects/Echo/Clean Delay/Mid Filter Delay.adv",
+      "device_class": "Echo",
+      "plugin_name": "Echo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 6,
+      "parameters": [
+        {
+          "index": 16,
+          "name": "Feedback",
+          "value": 0.4642857313,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "Channel Mode",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 19,
+          "name": "Input Gain",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Output Gain",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 51,
+          "name": "Stereo Width",
+          "value": 1.0476191,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 52,
+          "name": "Dry Wet",
+          "value": 0.6428571343,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Fake Dub Room",
+      "rel_path": "Devices/Audio Effects/Echo/Clean Delay/Fake Dub Room.adv",
+      "device_class": "Echo",
+      "plugin_name": "Echo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 6,
+      "parameters": [
+        {
+          "index": 16,
+          "name": "Feedback",
+          "value": 0.01190476306,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "Channel Mode",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 19,
+          "name": "Input Gain",
+          "value": 6.34920502,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Output Gain",
+          "value": 0.6553288102,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 51,
+          "name": "Stereo Width",
+          "value": 1.34920633,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 52,
+          "name": "Dry Wet",
+          "value": 0.5952380896,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Ping Pong Wide",
+      "rel_path": "Devices/Audio Effects/Echo/Clean Delay/Ping Pong Wide.adv",
+      "device_class": "Echo",
+      "plugin_name": "Echo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 6,
+      "parameters": [
+        {
+          "index": 16,
+          "name": "Feedback",
+          "value": 0.4404762089,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "Channel Mode",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 19,
+          "name": "Input Gain",
+          "value": 6.98413086,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Output Gain",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 51,
+          "name": "Stereo Width",
+          "value": 1.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 52,
+          "name": "Dry Wet",
+          "value": 0.396825403,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Time Travel Echo",
+      "rel_path": "Devices/Audio Effects/Echo/Clean Delay/Time Travel Echo.adv",
+      "device_class": "Echo",
+      "plugin_name": "Echo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 6,
+      "parameters": [
+        {
+          "index": 16,
+          "name": "Feedback",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "Channel Mode",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 19,
+          "name": "Input Gain",
+          "value": 3.17460632,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Output Gain",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 51,
+          "name": "Stereo Width",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 52,
+          "name": "Dry Wet",
+          "value": 0.5873016119,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Ensemble Digital.adv",
+      "rel_path": "Devices/Audio Effects/Echo/Clean Delay/Ensemble Digital.adv",
+      "device_class": "Echo",
+      "plugin_name": "Echo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 6,
+      "parameters": [
+        {
+          "index": 16,
+          "name": "Feedback",
+          "value": 0.1190476269,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "Channel Mode",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 19,
+          "name": "Input Gain",
+          "value": 8.88888931,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Output Gain",
+          "value": 1.2700932,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 51,
+          "name": "Stereo Width",
+          "value": 0.6190476418,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 52,
+          "name": "Dry Wet",
+          "value": 0.6746031642,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "8DotBall.adv",
+      "rel_path": "Devices/Audio Effects/Echo/Clean Delay/8DotBall.adv",
+      "device_class": "Echo",
+      "plugin_name": "Echo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 6,
+      "parameters": [
+        {
+          "index": 16,
+          "name": "Feedback",
+          "value": 0.6785714626,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "Channel Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 19,
+          "name": "Input Gain",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Output Gain",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 51,
+          "name": "Stereo Width",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 52,
+          "name": "Dry Wet",
+          "value": 0.5078125,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Slapback.adv",
+      "rel_path": "Devices/Audio Effects/Echo/Clean Delay/Slapback.adv",
+      "device_class": "Echo",
+      "plugin_name": "Echo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 6,
+      "parameters": [
+        {
+          "index": 16,
+          "name": "Feedback",
+          "value": 0.2738095224,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "Channel Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 19,
+          "name": "Input Gain",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Output Gain",
+          "value": 1.265625,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 51,
+          "name": "Stereo Width",
+          "value": 1.15873015,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 52,
+          "name": "Dry Wet",
+          "value": 0.5078125,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Dark Pillow Tap",
+      "rel_path": "Devices/Audio Effects/Echo/Clean Delay/Dark Pillow Tap.adv",
+      "device_class": "Echo",
+      "plugin_name": "Echo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 6,
+      "parameters": [
+        {
+          "index": 16,
+          "name": "Feedback",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "Channel Mode",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 19,
+          "name": "Input Gain",
+          "value": 6.98413086,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Output Gain",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 51,
+          "name": "Stereo Width",
+          "value": 1.44444442,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 52,
+          "name": "Dry Wet",
+          "value": 0.6031746268,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Digital Edge Ping Pong",
+      "rel_path": "Devices/Audio Effects/Echo/Clean Delay/Digital Edge Ping Pong.adv",
+      "device_class": "Echo",
+      "plugin_name": "Echo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 6,
+      "parameters": [
+        {
+          "index": 16,
+          "name": "Feedback",
+          "value": 0.6785714626,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "Channel Mode",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 19,
+          "name": "Input Gain",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Output Gain",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 51,
+          "name": "Stereo Width",
+          "value": 1.06349206,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 52,
+          "name": "Dry Wet",
+          "value": 0.555555582,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Slap Filter Mod",
+      "rel_path": "Devices/Audio Effects/Echo/Clean Delay/Slap Filter Mod.adv",
+      "device_class": "Echo",
+      "plugin_name": "Echo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 6,
+      "parameters": [
+        {
+          "index": 16,
+          "name": "Feedback",
+          "value": 0.1071428657,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "Channel Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 19,
+          "name": "Input Gain",
+          "value": 12.0634918,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Output Gain",
+          "value": 1.234568,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 51,
+          "name": "Stereo Width",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 52,
+          "name": "Dry Wet",
+          "value": 0.4682539701,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Simple Long Digi Delay",
+      "rel_path": "Devices/Audio Effects/Echo/Clean Delay/Simple Long Digi Delay.adv",
+      "device_class": "Echo",
+      "plugin_name": "Echo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 6,
+      "parameters": [
+        {
+          "index": 16,
+          "name": "Feedback",
+          "value": 0.3452380896,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "Channel Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 19,
+          "name": "Input Gain",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Output Gain",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 51,
+          "name": "Stereo Width",
+          "value": 1.06349206,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 52,
+          "name": "Dry Wet",
+          "value": 0.6666666865,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Analog Collapse",
+      "rel_path": "Devices/Audio Effects/Echo/Modulated Delay/Analog Collapse.adv",
+      "device_class": "Echo",
+      "plugin_name": "Echo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 6,
+      "parameters": [
+        {
+          "index": 16,
+          "name": "Feedback",
+          "value": 0.3214285672,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "Channel Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 19,
+          "name": "Input Gain",
+          "value": 15.2380943,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Output Gain",
+          "value": 0.7077349424,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 51,
+          "name": "Stereo Width",
+          "value": 1.34920633,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 52,
+          "name": "Dry Wet",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Broken Pipe",
+      "rel_path": "Devices/Audio Effects/Echo/Modulated Delay/Broken Pipe.adv",
+      "device_class": "Echo",
+      "plugin_name": "Echo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 6,
+      "parameters": [
+        {
+          "index": 16,
+          "name": "Feedback",
+          "value": 0.75,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "Channel Mode",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 19,
+          "name": "Input Gain",
+          "value": 17.1428604,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Output Gain",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 51,
+          "name": "Stereo Width",
+          "value": 0.9841269851,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 52,
+          "name": "Dry Wet",
+          "value": 0.6984127164,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "The Unpredictable Spring",
+      "rel_path": "Devices/Audio Effects/Echo/Modulated Delay/The Unpredictable Spring.adv",
+      "device_class": "Echo",
+      "plugin_name": "Echo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 6,
+      "parameters": [
+        {
+          "index": 16,
+          "name": "Feedback",
+          "value": 0.7380952239,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "Channel Mode",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 19,
+          "name": "Input Gain",
+          "value": 9.52381134,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Output Gain",
+          "value": 0.6812799573,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 51,
+          "name": "Stereo Width",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 52,
+          "name": "Dry Wet",
+          "value": 0.6999999881,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "DrumFlanger.adv",
+      "rel_path": "Devices/Audio Effects/Echo/Modulated Delay/DrumFlanger.adv",
+      "device_class": "Echo",
+      "plugin_name": "Echo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 6,
+      "parameters": [
+        {
+          "index": 16,
+          "name": "Feedback",
+          "value": 0.8214285374,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "Channel Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 19,
+          "name": "Input Gain",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Output Gain",
+          "value": 1.265625,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 51,
+          "name": "Stereo Width",
+          "value": 1.15873015,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 52,
+          "name": "Dry Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Climbing Flange",
+      "rel_path": "Devices/Audio Effects/Echo/Modulated Delay/Climbing Flange.adv",
+      "device_class": "Echo",
+      "plugin_name": "Echo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 6,
+      "parameters": [
+        {
+          "index": 16,
+          "name": "Feedback",
+          "value": 0.5119047761,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "Channel Mode",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 19,
+          "name": "Input Gain",
+          "value": 17.1428604,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Output Gain",
+          "value": 0.7079402208,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 51,
+          "name": "Stereo Width",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 52,
+          "name": "Dry Wet",
+          "value": 0.8000000119,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Flanged Out",
+      "rel_path": "Devices/Audio Effects/Echo/Modulated Delay/Flanged Out.adv",
+      "device_class": "Echo",
+      "plugin_name": "Echo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 6,
+      "parameters": [
+        {
+          "index": 16,
+          "name": "Feedback",
+          "value": 0.6785714626,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "Channel Mode",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 19,
+          "name": "Input Gain",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Output Gain",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 51,
+          "name": "Stereo Width",
+          "value": 1.52380955,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 52,
+          "name": "Dry Wet",
+          "value": 0.6031746268,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "HallMod.adv",
+      "rel_path": "Devices/Audio Effects/Echo/Modulated Delay/HallMod.adv",
+      "device_class": "Echo",
+      "plugin_name": "Echo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 6,
+      "parameters": [
+        {
+          "index": 16,
+          "name": "Feedback",
+          "value": 0.6666666865,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "Channel Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 19,
+          "name": "Input Gain",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Output Gain",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 51,
+          "name": "Stereo Width",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 52,
+          "name": "Dry Wet",
+          "value": 0.4920634925,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "WhaChorus.adv",
+      "rel_path": "Devices/Audio Effects/Echo/Modulated Delay/WhaChorus.adv",
+      "device_class": "Echo",
+      "plugin_name": "Echo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 6,
+      "parameters": [
+        {
+          "index": 16,
+          "name": "Feedback",
+          "value": 0.7619048357,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "Channel Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 19,
+          "name": "Input Gain",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Output Gain",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 51,
+          "name": "Stereo Width",
+          "value": 1.25396824,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 52,
+          "name": "Dry Wet",
+          "value": 0.4841269851,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Liqourice Whip",
+      "rel_path": "Devices/Audio Effects/Echo/Modulated Delay/Liqourice Whip.adv",
+      "device_class": "Echo",
+      "plugin_name": "Echo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 6,
+      "parameters": [
+        {
+          "index": 16,
+          "name": "Feedback",
+          "value": 0.9285714626,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "Channel Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 19,
+          "name": "Input Gain",
+          "value": 5.07936478,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Output Gain",
+          "value": 0.7943251729,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 51,
+          "name": "Stereo Width",
+          "value": 1.76190472,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 52,
+          "name": "Dry Wet",
+          "value": 0.6587301493,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Back Door.adv",
+      "rel_path": "Devices/Audio Effects/Echo/Modulated Delay/Back Door.adv",
+      "device_class": "Echo",
+      "plugin_name": "Echo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 6,
+      "parameters": [
+        {
+          "index": 16,
+          "name": "Feedback",
+          "value": 0.6785714626,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "Channel Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 19,
+          "name": "Input Gain",
+          "value": 8.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Output Gain",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 51,
+          "name": "Stereo Width",
+          "value": 1.25396824,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 52,
+          "name": "Dry Wet",
+          "value": 0.4841269851,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Minimal Skip",
+      "rel_path": "Devices/Audio Effects/Echo/Modulated Delay/Scratchtastic.adv",
+      "device_class": "Echo",
+      "plugin_name": "Echo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 6,
+      "parameters": [
+        {
+          "index": 16,
+          "name": "Feedback",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "Channel Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 19,
+          "name": "Input Gain",
+          "value": 12.0634918,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Output Gain",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 51,
+          "name": "Stereo Width",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 52,
+          "name": "Dry Wet",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Filter Flutter Analog ",
+      "rel_path": "Devices/Audio Effects/Echo/Ambient Spaces/Filter Flutter Analog .adv",
+      "device_class": "Echo",
+      "plugin_name": "Echo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 6,
+      "parameters": [
+        {
+          "index": 16,
+          "name": "Feedback",
+          "value": 0.8452380896,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "Channel Mode",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 19,
+          "name": "Input Gain",
+          "value": 7.61904907,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Output Gain",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 51,
+          "name": "Stereo Width",
+          "value": 0.90625,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 52,
+          "name": "Dry Wet",
+          "value": 0.4603174627,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Ethereal Canyon.adv",
+      "rel_path": "Devices/Audio Effects/Echo/Ambient Spaces/Ethereal Canyon.adv",
+      "device_class": "Echo",
+      "plugin_name": "Echo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 6,
+      "parameters": [
+        {
+          "index": 16,
+          "name": "Feedback",
+          "value": 0.8452380896,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "Channel Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 19,
+          "name": "Input Gain",
+          "value": 1.90476227,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Output Gain",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 51,
+          "name": "Stereo Width",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 52,
+          "name": "Dry Wet",
+          "value": 0.3492063582,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Shimmery.adv",
+      "rel_path": "Devices/Audio Effects/Echo/Ambient Spaces/Shimmery.adv",
+      "device_class": "Echo",
+      "plugin_name": "Echo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 6,
+      "parameters": [
+        {
+          "index": 16,
+          "name": "Feedback",
+          "value": 0.7619048357,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "Channel Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 19,
+          "name": "Input Gain",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Output Gain",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 51,
+          "name": "Stereo Width",
+          "value": 1.25396824,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 52,
+          "name": "Dry Wet",
+          "value": 0.4841269851,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Distant.adv",
+      "rel_path": "Devices/Audio Effects/Echo/Ambient Spaces/Distant.adv",
+      "device_class": "Echo",
+      "plugin_name": "Echo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 6,
+      "parameters": [
+        {
+          "index": 16,
+          "name": "Feedback",
+          "value": 0.6547619104,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "Channel Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 19,
+          "name": "Input Gain",
+          "value": 12.69841,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Output Gain",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 51,
+          "name": "Stereo Width",
+          "value": 0.2222222239,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 52,
+          "name": "Dry Wet",
+          "value": 0.5078125,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Set back in Space",
+      "rel_path": "Devices/Audio Effects/Echo/Ambient Spaces/Set back in Space.adv",
+      "device_class": "Echo",
+      "plugin_name": "Echo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 6,
+      "parameters": [
+        {
+          "index": 16,
+          "name": "Feedback",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "Channel Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 19,
+          "name": "Input Gain",
+          "value": 5.7142868,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Output Gain",
+          "value": 1.25891733,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 51,
+          "name": "Stereo Width",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 52,
+          "name": "Dry Wet",
+          "value": 0.8015872836,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Downwards.adv",
+      "rel_path": "Devices/Audio Effects/Echo/Ambient Spaces/Downwards.adv",
+      "device_class": "Echo",
+      "plugin_name": "Echo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 6,
+      "parameters": [
+        {
+          "index": 16,
+          "name": "Feedback",
+          "value": 0.8809524179,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "Channel Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 19,
+          "name": "Input Gain",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Output Gain",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 51,
+          "name": "Stereo Width",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 52,
+          "name": "Dry Wet",
+          "value": 0.4920634925,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Nostalgia.adv",
+      "rel_path": "Devices/Audio Effects/Echo/Ambient Spaces/Nostalgia.adv",
+      "device_class": "Echo",
+      "plugin_name": "Echo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 6,
+      "parameters": [
+        {
+          "index": 16,
+          "name": "Feedback",
+          "value": 0.5238095522,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "Channel Mode",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 19,
+          "name": "Input Gain",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Output Gain",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 51,
+          "name": "Stereo Width",
+          "value": 1.23809528,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 52,
+          "name": "Dry Wet",
+          "value": 0.4285714328,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Diffused Long Cascades",
+      "rel_path": "Devices/Audio Effects/Echo/Ambient Spaces/Diffused Long Cascades.adv",
+      "device_class": "Echo",
+      "plugin_name": "Echo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 6,
+      "parameters": [
+        {
+          "index": 16,
+          "name": "Feedback",
+          "value": 0.6071428657,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "Channel Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 19,
+          "name": "Input Gain",
+          "value": 11.4285698,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Output Gain",
+          "value": 0.4444444776,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 51,
+          "name": "Stereo Width",
+          "value": 0.6031746268,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 52,
+          "name": "Dry Wet",
+          "value": 0.6190476418,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    }
+  ]
+}

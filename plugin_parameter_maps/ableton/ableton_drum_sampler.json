@@ -1,0 +1,401 @@
+{
+  "plugin": "Drum Sampler",
+  "type": "instrument",
+  "uri": "query:Synths#Drum%20Sampler",
+  "class_name": "DrumCell",
+  "parameter_count": 40,
+  "parameters": [
+    {
+      "index": 0,
+      "name": "Device On",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 1,
+      "name": "Transpose",
+      "value": 0.0,
+      "min": -48.0,
+      "max": 48.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 2,
+      "name": "Detune",
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.5
+    },
+    {
+      "index": 3,
+      "name": "Vel > Vol",
+      "value": 0.3499999940395355,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.3499999940395355
+    },
+    {
+      "index": 4,
+      "name": "Mod Src",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 5,
+      "name": "Mod Dest",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 5.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 6,
+      "name": "Mod Amt",
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.5
+    },
+    {
+      "index": 7,
+      "name": "Flt On",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 8,
+      "name": "Flt Freq",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 1.0
+    },
+    {
+      "index": 9,
+      "name": "Flt Reso",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 10,
+      "name": "Flt Type",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 3.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 11,
+      "name": "Flt Gain",
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.5
+    },
+    {
+      "index": 12,
+      "name": "Attack",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 13,
+      "name": "Hold",
+      "value": 0.5184267163276672,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.5184267163276672
+    },
+    {
+      "index": 14,
+      "name": "Decay",
+      "value": 0.6278578639030457,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.6278578639030457
+    },
+    {
+      "index": 15,
+      "name": "Env Mode",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 16,
+      "name": "Start",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 17,
+      "name": "Length",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 1.0
+    },
+    {
+      "index": 18,
+      "name": "Volume",
+      "value": 0.3333333432674408,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.3333333432674408
+    },
+    {
+      "index": 19,
+      "name": "Pan",
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.5
+    },
+    {
+      "index": 20,
+      "name": "FX On",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 21,
+      "name": "FX Type",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 8.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 22,
+      "name": "Pitch Env Amt",
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.5
+    },
+    {
+      "index": 23,
+      "name": "Pitch Env Decay",
+      "value": 0.5288019180297852,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.5288019180297852
+    },
+    {
+      "index": 24,
+      "name": "Sub Amt",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 25,
+      "name": "Sub Freq",
+      "value": 0.5621640682220459,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.5
+    },
+    {
+      "index": 26,
+      "name": "Noise Amt",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 27,
+      "name": "Noise Color",
+      "value": 0.8140136003494263,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.8140136003494263
+    },
+    {
+      "index": 28,
+      "name": "Loop Offset",
+      "value": 0.1414213478565216,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.1414213478565216
+    },
+    {
+      "index": 29,
+      "name": "Loop Length",
+      "value": 0.7693092823028564,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.7693092823028564
+    },
+    {
+      "index": 30,
+      "name": "Stretch Factor",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 31,
+      "name": "Grain Size",
+      "value": 0.5674802660942078,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.5674802660942078
+    },
+    {
+      "index": 32,
+      "name": "Punch Amt",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 33,
+      "name": "Punch Release",
+      "value": 0.4000000059604645,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.4000000059604645
+    },
+    {
+      "index": 34,
+      "name": "8-Bit Rate",
+      "value": 0.7775953412055969,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.7775953412055969
+    },
+    {
+      "index": 35,
+      "name": "8-Bit Flt Decay",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 1.0
+    },
+    {
+      "index": 36,
+      "name": "FM Amt",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 37,
+      "name": "FM Freq",
+      "value": 0.7538031339645386,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.7538031339645386
+    },
+    {
+      "index": 38,
+      "name": "RM Amt",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 39,
+      "name": "RM Freq",
+      "value": 0.7246636152267456,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.7246636152267456
+    }
+  ]
+}

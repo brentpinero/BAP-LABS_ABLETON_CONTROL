@@ -1,0 +1,893 @@
+{
+  "plugin": "CV Instrument",
+  "type": "instrument",
+  "uri": "query:Synths#CV%20Instrument",
+  "class_name": "MxDeviceInstrument",
+  "parameter_count": 93,
+  "parameters": [
+    {
+      "index": 0,
+      "name": "Device On",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 1,
+      "name": "Feedback",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 2,
+      "name": "Echo Time",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1000.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 3,
+      "name": "Feedback",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 4,
+      "name": "Echo Time",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1000.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 5,
+      "name": "Fall 1",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1000.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 6,
+      "name": "Max 1",
+      "value": 100.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 100.0
+    },
+    {
+      "index": 7,
+      "name": "Min 1",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 8,
+      "name": "Rise 1",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1000.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 9,
+      "name": "Shape 1",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 10,
+      "name": "Source 1",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 5.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 11,
+      "name": "Exp 1 Pol",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 12,
+      "name": "Fall 2",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1000.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 13,
+      "name": "Max 2",
+      "value": 100.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 100.0
+    },
+    {
+      "index": 14,
+      "name": "Min 2",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 15,
+      "name": "Rise 2",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1000.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 16,
+      "name": "Shape 2",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 17,
+      "name": "Source 2",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 5.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 18,
+      "name": "Exp 2 Pol",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 19,
+      "name": "Fall 3",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1000.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 20,
+      "name": "Max 3",
+      "value": 100.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 100.0
+    },
+    {
+      "index": 21,
+      "name": "Min 3",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 22,
+      "name": "Rise 3",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1000.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 23,
+      "name": "Shape 3",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 24,
+      "name": "Source 3",
+      "value": 4.0,
+      "min": 0.0,
+      "max": 5.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 25,
+      "name": "Exp 3 Pol",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 26,
+      "name": "Gate",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 27,
+      "name": "G. Shape",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 28,
+      "name": "Glide",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 10000.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 29,
+      "name": "Volume",
+      "value": 0.0,
+      "min": -76.0,
+      "max": 24.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 30,
+      "name": "Legato",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 31,
+      "name": "Monitor",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 32,
+      "name": "P. Bend",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 33,
+      "name": "PB Range",
+      "value": 2.0,
+      "min": -48.0,
+      "max": 48.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 2.0
+    },
+    {
+      "index": 34,
+      "name": "Retrigger",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 35,
+      "name": "Amp",
+      "value": 100.0,
+      "min": -100.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 100.0
+    },
+    {
+      "index": 36,
+      "name": "Attack",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 2000.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 37,
+      "name": "FM Fine",
+      "value": 0.0,
+      "min": -0.9900000095367432,
+      "max": 0.9900000095367432,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 38,
+      "name": "FM Ratio",
+      "value": 3.0,
+      "min": 0.0,
+      "max": 10.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 39,
+      "name": "Rate",
+      "value": 3.843418836593628,
+      "min": 0.009999999776482582,
+      "max": 30.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 3.843418836593628
+    },
+    {
+      "index": 40,
+      "name": "Jitter",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 41,
+      "name": "Phase",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 42,
+      "name": "Polarity",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 43,
+      "name": "Retrigger",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 44,
+      "name": "Shape",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 11.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 45,
+      "name": "Smooth",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 46,
+      "name": "Rate",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 23.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 47,
+      "name": "Env2",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 48,
+      "name": "T. Leng",
+      "value": 308.7760009765625,
+      "min": 1.0,
+      "max": 1000.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 308.7760009765625
+    },
+    {
+      "index": 49,
+      "name": "Trig Type",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 3.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 50,
+      "name": "Polarity",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 51,
+      "name": "Env1",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 12.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 52,
+      "name": "Page",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 2.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 53,
+      "name": "Env2",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 12.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 54,
+      "name": "Page",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 2.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 55,
+      "name": "Expression 1",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 12.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 56,
+      "name": "Expression 2",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 12.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 57,
+      "name": "Expression 3",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 12.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 58,
+      "name": "Page",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 3.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 59,
+      "name": "Gate",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 12.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 60,
+      "name": "Audio From",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 10.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 61,
+      "name": "Pitch",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 12.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 62,
+      "name": "Routing",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 2.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 63,
+      "name": "Shaper",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 12.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 64,
+      "name": "Page",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 65,
+      "name": "Amount",
+      "value": 100.0,
+      "min": -100.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 100.0
+    },
+    {
+      "index": 66,
+      "name": "Amount",
+      "value": 100.0,
+      "min": -100.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 100.0
+    },
+    {
+      "index": 67,
+      "name": "Time Mode",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 2.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 68,
+      "name": "Attack",
+      "value": 1259.9210205078125,
+      "min": 0.0,
+      "max": 20000.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 1259.9210205078125
+    },
+    {
+      "index": 69,
+      "name": "Attack",
+      "value": 1259.9210205078125,
+      "min": 0.0,
+      "max": 20000.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 1259.9210205078125
+    },
+    {
+      "index": 70,
+      "name": "ASlope",
+      "value": 0.0,
+      "min": -100.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 71,
+      "name": "Velocity",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 72,
+      "name": "ASlope",
+      "value": 0.0,
+      "min": -100.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 73,
+      "name": "Velocity",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 74,
+      "name": "Decay",
+      "value": 3462.127197265625,
+      "min": 1.0,
+      "max": 20000.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 3462.127197265625
+    },
+    {
+      "index": 75,
+      "name": "Decay",
+      "value": 3462.127197265625,
+      "min": 1.0,
+      "max": 20000.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 3462.127197265625
+    },
+    {
+      "index": 76,
+      "name": "DSlope",
+      "value": 0.0,
+      "min": -100.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 77,
+      "name": "DSlope",
+      "value": 0.0,
+      "min": -100.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 78,
+      "name": "Sustain",
+      "value": 50.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 50.0
+    },
+    {
+      "index": 79,
+      "name": "Sustain",
+      "value": 50.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 50.0
+    },
+    {
+      "index": 80,
+      "name": "SustainMode",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 81,
+      "name": "SustainMode",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 82,
+      "name": "Monitor Env",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 83,
+      "name": "Release",
+      "value": 6211.8037109375,
+      "min": 1.0,
+      "max": 20000.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 6211.8037109375
+    },
+    {
+      "index": 84,
+      "name": "Release",
+      "value": 6211.8037109375,
+      "min": 1.0,
+      "max": 20000.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 6211.8037109375
+    },
+    {
+      "index": 85,
+      "name": "RSlope",
+      "value": 0.0,
+      "min": -100.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 86,
+      "name": "RSlope",
+      "value": 0.0,
+      "min": -100.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 87,
+      "name": "LoopMode",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 3.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 88,
+      "name": "LoopMode",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 3.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 89,
+      "name": "SyncRate",
+      "value": 9.0,
+      "min": 0.0,
+      "max": 15.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 90,
+      "name": "SyncRate",
+      "value": 9.0,
+      "min": 0.0,
+      "max": 15.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 91,
+      "name": "Time",
+      "value": 2.0859477519989014,
+      "min": 0.009999999776482582,
+      "max": 4.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 2.0859477519989014
+    },
+    {
+      "index": 92,
+      "name": "Time",
+      "value": 2.0859477519989014,
+      "min": 0.009999999776482582,
+      "max": 4.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 2.0859477519989014
+    }
+  ]
+}

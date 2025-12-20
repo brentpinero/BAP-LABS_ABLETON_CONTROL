@@ -1,0 +1,104 @@
+{
+  "plugin": "EQ Three",
+  "type": "audio_effect",
+  "uri": "query:AudioFx#EQ%20Three",
+  "class_name": "FilterEQ3",
+  "parameter_count": 10,
+  "parameters": [
+    {
+      "index": 0,
+      "name": "Device On",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 1,
+      "name": "GainLo",
+      "value": 0.8500000238418579,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.8500000238418579
+    },
+    {
+      "index": 2,
+      "name": "GainMid",
+      "value": 0.8500000238418579,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.8500000238418579
+    },
+    {
+      "index": 3,
+      "name": "GainHi",
+      "value": 0.8500000238418579,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.8500000238418579
+    },
+    {
+      "index": 4,
+      "name": "FreqLo",
+      "value": 0.34948500990867615,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.34948500990867615
+    },
+    {
+      "index": 5,
+      "name": "FreqHi",
+      "value": 0.5612967610359192,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.5612967610359192
+    },
+    {
+      "index": 6,
+      "name": "LowOn",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 7,
+      "name": "MidOn",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 8,
+      "name": "HighOn",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 9,
+      "name": "Slope",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    }
+  ]
+}

@@ -1,0 +1,581 @@
+{
+  "device_class": "AutoPan2",
+  "preset_count": 23,
+  "presets": [
+    {
+      "preset_name": "Pan Diverging Eights",
+      "rel_path": "Devices/Audio Effects/Auto Pan-Tremolo/Pan Diverging Eights.adv",
+      "device_class": "AutoPan2",
+      "plugin_name": "Auto Pan-Tremolo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 16,
+          "name": "Attack Time",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Sonic Pendulum",
+      "rel_path": "Devices/Audio Effects/Auto Pan-Tremolo/Pan Pendulum.adv",
+      "device_class": "AutoPan2",
+      "plugin_name": "Auto Pan-Tremolo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 16,
+          "name": "Attack Time",
+          "value": 0.4237495065,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Pan Eight Feel Soft Stereo",
+      "rel_path": "Devices/Audio Effects/Auto Pan-Tremolo/Trem Soft Eights.adv",
+      "device_class": "AutoPan2",
+      "plugin_name": "Auto Pan-Tremolo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 16,
+          "name": "Attack Time",
+          "value": 0.1427769959,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "90 Degrees Swing",
+      "rel_path": "Devices/Audio Effects/Auto Pan-Tremolo/Pan 90 Degrees Swing.adv",
+      "device_class": "AutoPan2",
+      "plugin_name": "Auto Pan-Tremolo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 16,
+          "name": "Attack Time",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Slow & Steady",
+      "rel_path": "Devices/Audio Effects/Auto Pan-Tremolo/Pan Swells.adv",
+      "device_class": "AutoPan2",
+      "plugin_name": "Auto Pan-Tremolo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 16,
+          "name": "Attack Time",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Trem Vintage Eights",
+      "rel_path": "Devices/Audio Effects/Auto Pan-Tremolo/Trem Vintage Eights.adv",
+      "device_class": "AutoPan2",
+      "plugin_name": "Auto Pan-Tremolo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Mode",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 16,
+          "name": "Attack Time",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Trem Flutter",
+      "rel_path": "Devices/Audio Effects/Auto Pan-Tremolo/Trem Flutter.adv",
+      "device_class": "AutoPan2",
+      "plugin_name": "Auto Pan-Tremolo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Mode",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 16,
+          "name": "Attack Time",
+          "value": 0.05477876961,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Stacatto Triplet Fronts",
+      "rel_path": "Devices/Audio Effects/Auto Pan-Tremolo/Trem Staccato Triplets.adv",
+      "device_class": "AutoPan2",
+      "plugin_name": "Auto Pan-Tremolo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 16,
+          "name": "Attack Time",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Reverse Touch",
+      "rel_path": "Devices/Audio Effects/Auto Pan-Tremolo/Trem Reverse Touch.adv",
+      "device_class": "AutoPan2",
+      "plugin_name": "Auto Pan-Tremolo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Mode",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 16,
+          "name": "Attack Time",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Pan Wander Trip",
+      "rel_path": "Devices/Audio Effects/Auto Pan-Tremolo/Pan Wander Trip.adv",
+      "device_class": "AutoPan2",
+      "plugin_name": "Auto Pan-Tremolo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 16,
+          "name": "Attack Time",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Pan Bounce",
+      "rel_path": "Devices/Audio Effects/Auto Pan-Tremolo/Pan Bounce.adv",
+      "device_class": "AutoPan2",
+      "plugin_name": "Auto Pan-Tremolo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 16,
+          "name": "Attack Time",
+          "value": 0.01111378893,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Around The Head",
+      "rel_path": "Devices/Audio Effects/Auto Pan-Tremolo/Pan Around The Head.adv",
+      "device_class": "AutoPan2",
+      "plugin_name": "Auto Pan-Tremolo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 16,
+          "name": "Attack Time",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Trem Fast Vibrations",
+      "rel_path": "Devices/Audio Effects/Auto Pan-Tremolo/Trem Fast Vibrations.adv",
+      "device_class": "AutoPan2",
+      "plugin_name": "Auto Pan-Tremolo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Mode",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 16,
+          "name": "Attack Time",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Subtle Spiral ",
+      "rel_path": "Devices/Audio Effects/Auto Pan-Tremolo/Pan Triplet Spiral.adv",
+      "device_class": "AutoPan2",
+      "plugin_name": "Auto Pan-Tremolo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 16,
+          "name": "Attack Time",
+          "value": 0.1778470725,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Trem Harmonic Filter",
+      "rel_path": "Devices/Audio Effects/Auto Pan-Tremolo/Trem Filter Harmonic.adv",
+      "device_class": "AutoPan2",
+      "plugin_name": "Auto Pan-Tremolo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Mode",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 16,
+          "name": "Attack Time",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Ghost Pump",
+      "rel_path": "Devices/Audio Effects/Auto Pan-Tremolo/Trem Ghost Pump.adv",
+      "device_class": "AutoPan2",
+      "plugin_name": "Auto Pan-Tremolo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Mode",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 16,
+          "name": "Attack Time",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Eight Note Rhythm Gate",
+      "rel_path": "Devices/Audio Effects/Auto Pan-Tremolo/Trem Gate Basic.adv",
+      "device_class": "AutoPan2",
+      "plugin_name": "Auto Pan-Tremolo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Mode",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 16,
+          "name": "Attack Time",
+          "value": 4.834937045e-06,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Pan and Pump Triplets",
+      "rel_path": "Devices/Audio Effects/Auto Pan-Tremolo/Pan And Pump Triplets.adv",
+      "device_class": "AutoPan2",
+      "plugin_name": "Auto Pan-Tremolo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 16,
+          "name": "Attack Time",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Subtle Panning",
+      "rel_path": "Devices/Audio Effects/Auto Pan-Tremolo/Pan Subtle Panning.adv",
+      "device_class": "AutoPan2",
+      "plugin_name": "Auto Pan-Tremolo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 16,
+          "name": "Attack Time",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "7/8th Filter Groove",
+      "rel_path": "Devices/Audio Effects/Auto Pan-Tremolo/Trem Filter Shift.adv",
+      "device_class": "AutoPan2",
+      "plugin_name": "Auto Pan-Tremolo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Mode",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 16,
+          "name": "Attack Time",
+          "value": 0.1427769959,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Sixteenth Gate",
+      "rel_path": "Devices/Audio Effects/Auto Pan-Tremolo/Trem Gate Spikey.adv",
+      "device_class": "AutoPan2",
+      "plugin_name": "Auto Pan-Tremolo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Mode",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 16,
+          "name": "Attack Time",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Trem Gate Offbeat",
+      "rel_path": "Devices/Audio Effects/Auto Pan-Tremolo/Trem Gate Offbeat.adv",
+      "device_class": "AutoPan2",
+      "plugin_name": "Auto Pan-Tremolo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Mode",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 16,
+          "name": "Attack Time",
+          "value": 4.834937045e-06,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Sixteenth Stutter",
+      "rel_path": "Devices/Audio Effects/Auto Pan-Tremolo/Pan Sixteenth Stutter.adv",
+      "device_class": "AutoPan2",
+      "plugin_name": "Auto Pan-Tremolo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 16,
+          "name": "Attack Time",
+          "value": 0.0121604912,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,512 @@
+{
+  "device_class": "Limiter",
+  "preset_count": 11,
+  "presets": [
+    {
+      "preset_name": "Fast.adv",
+      "rel_path": "Devices/Audio Effects/Limiter/Fast.adv",
+      "device_class": "Limiter",
+      "plugin_name": "Limiter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Ceiling",
+          "value": -0.3000000119,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Release",
+          "value": 0.2460452169,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "Lookahead",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Routing",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Low Latency.adv",
+      "rel_path": "Devices/Audio Effects/Limiter/Low Latency.adv",
+      "device_class": "Limiter",
+      "plugin_name": "Limiter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Ceiling",
+          "value": -0.3000000119,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Release",
+          "value": 0.2460452169,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "Lookahead",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Routing",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Lookahead.adv",
+      "rel_path": "Devices/Audio Effects/Limiter/Lookahead.adv",
+      "device_class": "Limiter",
+      "plugin_name": "Limiter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Ceiling",
+          "value": -0.3000000119,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Release",
+          "value": 0.2460452169,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "Lookahead",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Routing",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Push.adv",
+      "rel_path": "Devices/Audio Effects/Limiter/Push.adv",
+      "device_class": "Limiter",
+      "plugin_name": "Limiter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Ceiling",
+          "value": -0.3000000119,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Release",
+          "value": 0.2460452169,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "Lookahead",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Routing",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "True Peak Limiter",
+      "rel_path": "Devices/Audio Effects/Limiter/True Peak Limiter.adv",
+      "device_class": "Limiter",
+      "plugin_name": "Limiter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Ceiling",
+          "value": -0.2999997139,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Release",
+          "value": 99.9999542,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "Lookahead",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Routing",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Mode",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Slow.adv",
+      "rel_path": "Devices/Audio Effects/Limiter/Slow.adv",
+      "device_class": "Limiter",
+      "plugin_name": "Limiter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Ceiling",
+          "value": -0.3000000119,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Release",
+          "value": 447.925995,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "Lookahead",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Routing",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Upper Ceiling.adv",
+      "rel_path": "Devices/Audio Effects/Limiter/Upper Ceiling.adv",
+      "device_class": "Limiter",
+      "plugin_name": "Limiter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Ceiling",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Release",
+          "value": 0.2460452169,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "Lookahead",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Routing",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Mid-Side Limiter",
+      "rel_path": "Devices/Audio Effects/Limiter/Mid-Side Limiter.adv",
+      "device_class": "Limiter",
+      "plugin_name": "Limiter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Ceiling",
+          "value": -0.2999997139,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Release",
+          "value": 99.9999542,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "Lookahead",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Routing",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Independence.adv",
+      "rel_path": "Devices/Audio Effects/Limiter/Independence.adv",
+      "device_class": "Limiter",
+      "plugin_name": "Limiter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Ceiling",
+          "value": -0.3000000119,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Release",
+          "value": 0.2460452169,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "Lookahead",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Routing",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Reduce.adv",
+      "rel_path": "Devices/Audio Effects/Limiter/Reduce.adv",
+      "device_class": "Limiter",
+      "plugin_name": "Limiter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Ceiling",
+          "value": -0.3000000119,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Release",
+          "value": 0.2460452169,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "Lookahead",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Routing",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Maximizer",
+      "rel_path": "Devices/Audio Effects/Limiter/Maximizer.adv",
+      "device_class": "Limiter",
+      "plugin_name": "Limiter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Ceiling",
+          "value": -0.2999997139,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Release",
+          "value": 99.9999542,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "Lookahead",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Routing",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    }
+  ]
+}

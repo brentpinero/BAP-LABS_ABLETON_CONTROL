@@ -1,0 +1,243 @@
+{
+  "plugin": "Vocoder",
+  "type": "audio_effect",
+  "uri": "query:AudioFx#Vocoder",
+  "class_name": "Vocoder",
+  "parameter_count": 24,
+  "parameters": [
+    {
+      "index": 0,
+      "name": "Device On",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 1,
+      "name": "Lower Filter Band",
+      "value": 1.903090000152588,
+      "min": 1.3010300397872925,
+      "max": 3.301029920578003,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 1.903090000152588
+    },
+    {
+      "index": 2,
+      "name": "Upper Filter Band",
+      "value": 4.07918119430542,
+      "min": 2.301029920578003,
+      "max": 4.255272388458252,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 4.07918119430542
+    },
+    {
+      "index": 3,
+      "name": "Formant Shift",
+      "value": 0.0,
+      "min": -36.0,
+      "max": 36.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 4,
+      "name": "Filter Bandwidth",
+      "value": 1.0,
+      "min": 0.10000000149011612,
+      "max": 2.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 1.0
+    },
+    {
+      "index": 5,
+      "name": "Precise/Retro",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 6,
+      "name": "Gate Threshold",
+      "value": -60.0,
+      "min": -60.0,
+      "max": 12.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": -60.0
+    },
+    {
+      "index": 7,
+      "name": "Output Level",
+      "value": 0.0,
+      "min": -24.0,
+      "max": 24.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 8,
+      "name": "Attack Time",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 3.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 9,
+      "name": "Release Time",
+      "value": 2.176091194152832,
+      "min": 1.0,
+      "max": 4.477121353149414,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 2.176091194152832
+    },
+    {
+      "index": 10,
+      "name": "Unvoiced Sensitivity",
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.5
+    },
+    {
+      "index": 11,
+      "name": "Unvoiced Speed",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 12,
+      "name": "Unvoiced Level",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 13,
+      "name": "Enhance",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 14,
+      "name": "Mono/Stereo",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 2.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 15,
+      "name": "Dry/Wet",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 1.0
+    },
+    {
+      "index": 16,
+      "name": "Envelope Depth",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 2.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 1.0
+    },
+    {
+      "index": 17,
+      "name": "Noise Rate",
+      "value": 4.301030158996582,
+      "min": 2.0,
+      "max": 4.301030158996582,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 4.301030158996582
+    },
+    {
+      "index": 18,
+      "name": "Noise Crackle",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 1.0
+    },
+    {
+      "index": 19,
+      "name": "Lower Pitch Detection",
+      "value": 1.903090000152588,
+      "min": 1.4771212339401245,
+      "max": 2.477121353149414,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 1.903090000152588
+    },
+    {
+      "index": 20,
+      "name": "Upper Pitch Detection",
+      "value": 2.698970079421997,
+      "min": 2.477121353149414,
+      "max": 3.477121353149414,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 2.698970079421997
+    },
+    {
+      "index": 21,
+      "name": "Oscillator Pitch",
+      "value": 0.0,
+      "min": -36.0,
+      "max": 36.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 22,
+      "name": "Oscillator Waveform",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 3.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 23,
+      "name": "Ext. In Gain",
+      "value": 0.4000000059604645,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.4000000059604645
+    }
+  ]
+}

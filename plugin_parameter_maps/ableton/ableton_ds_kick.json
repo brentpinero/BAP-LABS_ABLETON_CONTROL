@@ -1,0 +1,106 @@
+{
+  "plugin": "DS Kick",
+  "type": "instrument",
+  "uri": "query:Synths#DS%20Kick",
+  "class_name": "MxDeviceInstrument",
+  "parameter_count": 10,
+  "parameters": [
+    {
+      "index": 0,
+      "name": "Device On",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 1,
+      "name": "Attack",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 2,
+      "name": "Decay",
+      "value": 40.1574821472168,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 40.1574821472168
+    },
+    {
+      "index": 3,
+      "name": "Env",
+      "value": 39.370079040527344,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 39.370079040527344
+    },
+    {
+      "index": 4,
+      "name": "overdrive",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 5,
+      "name": "Overtone",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 6,
+      "name": "PhaseReset",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 7,
+      "name": "Pitch",
+      "value": 109.16002655029297,
+      "min": 30.0,
+      "max": 200.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 109.16002655029297
+    },
+    {
+      "index": 8,
+      "name": "Volume",
+      "value": -24.850690841674805,
+      "min": -70.0,
+      "max": 6.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": -24.850690841674805
+    },
+    {
+      "index": 9,
+      "name": "Click",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    }
+  ]
+}

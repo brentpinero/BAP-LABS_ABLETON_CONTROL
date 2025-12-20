@@ -1,0 +1,359 @@
+{
+  "plugin": "Shifter",
+  "type": "audio_effect",
+  "uri": "query:AudioFx#Shifter",
+  "class_name": "Shifter",
+  "parameter_count": 36,
+  "parameters": [
+    {
+      "index": 0,
+      "name": "Device On",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 1,
+      "name": "Lfo Amount Hz",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 2,
+      "name": "Lfo Amount St",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 3,
+      "name": "Lfo Waveform",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 9.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 4,
+      "name": "Lfo Sync",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 5,
+      "name": "Lfo Rate Hz",
+      "value": 0.4593089520931244,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.4593089520931244
+    },
+    {
+      "index": 6,
+      "name": "Lfo S. Rate",
+      "value": 12.0,
+      "min": 0.0,
+      "max": 21.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 12.0
+    },
+    {
+      "index": 7,
+      "name": "Lfo Spin",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 8,
+      "name": "Lfo Phase",
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.5
+    },
+    {
+      "index": 9,
+      "name": "Lfo Spin Amount",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 10,
+      "name": "Lfo Offset",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 11,
+      "name": "Lfo Width",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 12,
+      "name": "Lfo Duty Cycle",
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.5
+    },
+    {
+      "index": 13,
+      "name": "Pitch Coarse",
+      "value": 0.0,
+      "min": -24.0,
+      "max": 24.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 14,
+      "name": "Pitch Fine",
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.5
+    },
+    {
+      "index": 15,
+      "name": "Pitch Window",
+      "value": 0.5904815793037415,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.5904815793037415
+    },
+    {
+      "index": 16,
+      "name": "Mod Fine",
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.5
+    },
+    {
+      "index": 17,
+      "name": "FShift Coarse",
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.5
+    },
+    {
+      "index": 18,
+      "name": "RM Coarse",
+      "value": 0.75,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.75
+    },
+    {
+      "index": 19,
+      "name": "RM Drive",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 20,
+      "name": "RM Drive Gain",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 21,
+      "name": "MidiPitch Glide",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 22,
+      "name": "Env On",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 23,
+      "name": "Env Attack",
+      "value": 0.19732442498207092,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.19732442498207092
+    },
+    {
+      "index": 24,
+      "name": "Env Release",
+      "value": 0.49987494945526123,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.49987494945526123
+    },
+    {
+      "index": 25,
+      "name": "Env Amount Hz",
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.5
+    },
+    {
+      "index": 26,
+      "name": "Env Amount St",
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.5
+    },
+    {
+      "index": 27,
+      "name": "Delay On",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 28,
+      "name": "Delay Sync",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 29,
+      "name": "Delay Time",
+      "value": 0.34901344776153564,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.34901344776153564
+    },
+    {
+      "index": 30,
+      "name": "Delay S. Time",
+      "value": 9.0,
+      "min": 0.0,
+      "max": 17.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 9.0
+    },
+    {
+      "index": 31,
+      "name": "Delay Feedback",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 32,
+      "name": "Mode",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 2.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 33,
+      "name": "Tone",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 1.0
+    },
+    {
+      "index": 34,
+      "name": "Wide",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 35,
+      "name": "Dry/Wet",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 1.0
+    }
+  ]
+}

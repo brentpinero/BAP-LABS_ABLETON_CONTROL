@@ -1,0 +1,3471 @@
+{
+  "device_class": "MidiChord",
+  "preset_count": 21,
+  "presets": [
+    {
+      "preset_name": "Half-dim 7 Chord.adv",
+      "rel_path": "Devices/MIDI Effects/Chord/Half-dim 7 Chord.adv",
+      "device_class": "MidiChord",
+      "plugin_name": "Chord",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 22,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Shift1",
+          "value": 3.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 3,
+          "name": "Velocity1",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 4,
+          "name": "Chance1",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Shift2",
+          "value": 6.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 7,
+          "name": "Velocity2",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Chance2",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Shift3",
+          "value": 10.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 11,
+          "name": "Velocity3",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 12,
+          "name": "Chance3",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Shift4",
+          "value": -2.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 15,
+          "name": "Velocity4",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 16,
+          "name": "Chance4",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Shift5",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 19,
+          "name": "Velocity5",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 20,
+          "name": "Chance5",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 21,
+          "name": "Shift6",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 23,
+          "name": "Velocity6",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 24,
+          "name": "Chance6",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Strum",
+          "value": 0.0,
+          "min": -20.0,
+          "max": 20.0
+        },
+        {
+          "index": 26,
+          "name": "Strum Tension",
+          "value": 0.0,
+          "min": -100.0,
+          "max": 100.0
+        },
+        {
+          "index": 27,
+          "name": "Strum Crescendo",
+          "value": 0.0,
+          "min": -100.0,
+          "max": 100.0
+        },
+        {
+          "index": 28,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Debusian.adv",
+      "rel_path": "Devices/MIDI Effects/Chord/Debusian.adv",
+      "device_class": "MidiChord",
+      "plugin_name": "Chord",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 22,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Shift1",
+          "value": -16.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 3,
+          "name": "Velocity1",
+          "value": 1.02054691,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 4,
+          "name": "Chance1",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Shift2",
+          "value": 3.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 7,
+          "name": "Velocity2",
+          "value": 0.5385937691,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Chance2",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Shift3",
+          "value": 18.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 11,
+          "name": "Velocity3",
+          "value": 0.833984375,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 12,
+          "name": "Chance3",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Shift4",
+          "value": -6.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 15,
+          "name": "Velocity4",
+          "value": 0.7407031059,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 16,
+          "name": "Chance4",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Shift5",
+          "value": -9.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 19,
+          "name": "Velocity5",
+          "value": 1.1604687,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 20,
+          "name": "Chance5",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 21,
+          "name": "Shift6",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 23,
+          "name": "Velocity6",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 24,
+          "name": "Chance6",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Strum",
+          "value": 0.0,
+          "min": -20.0,
+          "max": 20.0
+        },
+        {
+          "index": 26,
+          "name": "Strum Tension",
+          "value": 0.0,
+          "min": -100.0,
+          "max": 100.0
+        },
+        {
+          "index": 27,
+          "name": "Strum Crescendo",
+          "value": 0.0,
+          "min": -100.0,
+          "max": 100.0
+        },
+        {
+          "index": 28,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Major Triad.adv",
+      "rel_path": "Devices/MIDI Effects/Chord/Major Triad.adv",
+      "device_class": "MidiChord",
+      "plugin_name": "Chord",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 22,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Shift1",
+          "value": 4.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 3,
+          "name": "Velocity1",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 4,
+          "name": "Chance1",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Shift2",
+          "value": 7.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 7,
+          "name": "Velocity2",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Chance2",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Shift3",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 11,
+          "name": "Velocity3",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 12,
+          "name": "Chance3",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Shift4",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 15,
+          "name": "Velocity4",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 16,
+          "name": "Chance4",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Shift5",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 19,
+          "name": "Velocity5",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 20,
+          "name": "Chance5",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 21,
+          "name": "Shift6",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 23,
+          "name": "Velocity6",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 24,
+          "name": "Chance6",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Strum",
+          "value": 0.0,
+          "min": -20.0,
+          "max": 20.0
+        },
+        {
+          "index": 26,
+          "name": "Strum Tension",
+          "value": 0.0,
+          "min": -100.0,
+          "max": 100.0
+        },
+        {
+          "index": 27,
+          "name": "Strum Crescendo",
+          "value": 0.0,
+          "min": -100.0,
+          "max": 100.0
+        },
+        {
+          "index": 28,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Minor Triad",
+      "rel_path": "Devices/MIDI Effects/Chord/Minor Triad.adv",
+      "device_class": "MidiChord",
+      "plugin_name": "Chord",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 22,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Shift1",
+          "value": 3.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 3,
+          "name": "Velocity1",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 4,
+          "name": "Chance1",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Shift2",
+          "value": 7.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 7,
+          "name": "Velocity2",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Chance2",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Shift3",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 11,
+          "name": "Velocity3",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 12,
+          "name": "Chance3",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Shift4",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 15,
+          "name": "Velocity4",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 16,
+          "name": "Chance4",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Shift5",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 19,
+          "name": "Velocity5",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 20,
+          "name": "Chance5",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 21,
+          "name": "Shift6",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 23,
+          "name": "Velocity6",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 24,
+          "name": "Chance6",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Strum",
+          "value": 0.0,
+          "min": -20.0,
+          "max": 20.0
+        },
+        {
+          "index": 26,
+          "name": "Strum Tension",
+          "value": 0.0,
+          "min": -100.0,
+          "max": 100.0
+        },
+        {
+          "index": 27,
+          "name": "Strum Crescendo",
+          "value": 0.0,
+          "min": -100.0,
+          "max": 100.0
+        },
+        {
+          "index": 28,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Zukunft Futur.adv",
+      "rel_path": "Devices/MIDI Effects/Chord/Zukunft Futur.adv",
+      "device_class": "MidiChord",
+      "plugin_name": "Chord",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 22,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Shift1",
+          "value": 2.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 3,
+          "name": "Velocity1",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 4,
+          "name": "Chance1",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Shift2",
+          "value": 4.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 7,
+          "name": "Velocity2",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Chance2",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Shift3",
+          "value": 5.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 11,
+          "name": "Velocity3",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 12,
+          "name": "Chance3",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Shift4",
+          "value": 7.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 15,
+          "name": "Velocity4",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 16,
+          "name": "Chance4",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Shift5",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 19,
+          "name": "Velocity5",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 20,
+          "name": "Chance5",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 21,
+          "name": "Shift6",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 23,
+          "name": "Velocity6",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 24,
+          "name": "Chance6",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Strum",
+          "value": 0.0,
+          "min": -20.0,
+          "max": 20.0
+        },
+        {
+          "index": 26,
+          "name": "Strum Tension",
+          "value": 0.0,
+          "min": -100.0,
+          "max": 100.0
+        },
+        {
+          "index": 27,
+          "name": "Strum Crescendo",
+          "value": 0.0,
+          "min": -100.0,
+          "max": 100.0
+        },
+        {
+          "index": 28,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Stacked Fourths.adv",
+      "rel_path": "Devices/MIDI Effects/Chord/Stacked Fourths.adv",
+      "device_class": "MidiChord",
+      "plugin_name": "Chord",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 22,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Shift1",
+          "value": -5.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 3,
+          "name": "Velocity1",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 4,
+          "name": "Chance1",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Shift2",
+          "value": 5.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 7,
+          "name": "Velocity2",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Chance2",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Shift3",
+          "value": 10.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 11,
+          "name": "Velocity3",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 12,
+          "name": "Chance3",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Shift4",
+          "value": 15.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 15,
+          "name": "Velocity4",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 16,
+          "name": "Chance4",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Shift5",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 19,
+          "name": "Velocity5",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 20,
+          "name": "Chance5",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 21,
+          "name": "Shift6",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 23,
+          "name": "Velocity6",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 24,
+          "name": "Chance6",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Strum",
+          "value": 0.0,
+          "min": -20.0,
+          "max": 20.0
+        },
+        {
+          "index": 26,
+          "name": "Strum Tension",
+          "value": 0.0,
+          "min": -100.0,
+          "max": 100.0
+        },
+        {
+          "index": 27,
+          "name": "Strum Crescendo",
+          "value": 0.0,
+          "min": -100.0,
+          "max": 100.0
+        },
+        {
+          "index": 28,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Film Noir.adv",
+      "rel_path": "Devices/MIDI Effects/Chord/Film Noir.adv",
+      "device_class": "MidiChord",
+      "plugin_name": "Chord",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 22,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Shift1",
+          "value": -2.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 3,
+          "name": "Velocity1",
+          "value": 0.833984375,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 4,
+          "name": "Chance1",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Shift2",
+          "value": 5.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 7,
+          "name": "Velocity2",
+          "value": 1.25374997,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Chance2",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Shift3",
+          "value": -6.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 11,
+          "name": "Velocity3",
+          "value": 0.7407031059,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 12,
+          "name": "Chance3",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Shift4",
+          "value": 12.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 15,
+          "name": "Velocity4",
+          "value": 0.6474218965,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 16,
+          "name": "Chance4",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Shift5",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 19,
+          "name": "Velocity5",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 20,
+          "name": "Chance5",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 21,
+          "name": "Shift6",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 23,
+          "name": "Velocity6",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 24,
+          "name": "Chance6",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Strum",
+          "value": 0.0,
+          "min": -20.0,
+          "max": 20.0
+        },
+        {
+          "index": 26,
+          "name": "Strum Tension",
+          "value": 0.0,
+          "min": -100.0,
+          "max": 100.0
+        },
+        {
+          "index": 27,
+          "name": "Strum Crescendo",
+          "value": 0.0,
+          "min": -100.0,
+          "max": 100.0
+        },
+        {
+          "index": 28,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Grandiosa.adv",
+      "rel_path": "Devices/MIDI Effects/Chord/Grandiosa.adv",
+      "device_class": "MidiChord",
+      "plugin_name": "Chord",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 22,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Shift1",
+          "value": -12.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 3,
+          "name": "Velocity1",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 4,
+          "name": "Chance1",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Shift2",
+          "value": -24.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 7,
+          "name": "Velocity2",
+          "value": 1.33148432,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Chance2",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Shift3",
+          "value": 12.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 11,
+          "name": "Velocity3",
+          "value": 1.40921879,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 12,
+          "name": "Chance3",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Shift4",
+          "value": 7.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 15,
+          "name": "Velocity4",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 16,
+          "name": "Chance4",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Shift5",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 19,
+          "name": "Velocity5",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 20,
+          "name": "Chance5",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 21,
+          "name": "Shift6",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 23,
+          "name": "Velocity6",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 24,
+          "name": "Chance6",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Strum",
+          "value": 0.0,
+          "min": -20.0,
+          "max": 20.0
+        },
+        {
+          "index": 26,
+          "name": "Strum Tension",
+          "value": 0.0,
+          "min": -100.0,
+          "max": 100.0
+        },
+        {
+          "index": 27,
+          "name": "Strum Crescendo",
+          "value": 0.0,
+          "min": -100.0,
+          "max": 100.0
+        },
+        {
+          "index": 28,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Fifth Chord.adv",
+      "rel_path": "Devices/MIDI Effects/Chord/Fifth Chord.adv",
+      "device_class": "MidiChord",
+      "plugin_name": "Chord",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 22,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Shift1",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 3,
+          "name": "Velocity1",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 4,
+          "name": "Chance1",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Shift2",
+          "value": 7.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 7,
+          "name": "Velocity2",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Chance2",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Shift3",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 11,
+          "name": "Velocity3",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 12,
+          "name": "Chance3",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Shift4",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 15,
+          "name": "Velocity4",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 16,
+          "name": "Chance4",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Shift5",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 19,
+          "name": "Velocity5",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 20,
+          "name": "Chance5",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 21,
+          "name": "Shift6",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 23,
+          "name": "Velocity6",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 24,
+          "name": "Chance6",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Strum",
+          "value": 0.0,
+          "min": -20.0,
+          "max": 20.0
+        },
+        {
+          "index": 26,
+          "name": "Strum Tension",
+          "value": 0.0,
+          "min": -100.0,
+          "max": 100.0
+        },
+        {
+          "index": 27,
+          "name": "Strum Crescendo",
+          "value": 0.0,
+          "min": -100.0,
+          "max": 100.0
+        },
+        {
+          "index": 28,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Jazz for Dummies.adv",
+      "rel_path": "Devices/MIDI Effects/Chord/Jazz for Dummies.adv",
+      "device_class": "MidiChord",
+      "plugin_name": "Chord",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 22,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Shift1",
+          "value": 3.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 3,
+          "name": "Velocity1",
+          "value": 0.5385937691,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 4,
+          "name": "Chance1",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Shift2",
+          "value": 5.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 7,
+          "name": "Velocity2",
+          "value": 0.8806250095,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Chance2",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Shift3",
+          "value": -16.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 11,
+          "name": "Velocity3",
+          "value": 1.005,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 12,
+          "name": "Chance3",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Shift4",
+          "value": -10.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 15,
+          "name": "Velocity4",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 16,
+          "name": "Chance4",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Shift5",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 19,
+          "name": "Velocity5",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 20,
+          "name": "Chance5",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 21,
+          "name": "Shift6",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 23,
+          "name": "Velocity6",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 24,
+          "name": "Chance6",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Strum",
+          "value": 0.0,
+          "min": -20.0,
+          "max": 20.0
+        },
+        {
+          "index": 26,
+          "name": "Strum Tension",
+          "value": 0.0,
+          "min": -100.0,
+          "max": 100.0
+        },
+        {
+          "index": 27,
+          "name": "Strum Crescendo",
+          "value": 0.0,
+          "min": -100.0,
+          "max": 100.0
+        },
+        {
+          "index": 28,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Einfach Schoen.adv",
+      "rel_path": "Devices/MIDI Effects/Chord/Einfach Schoen.adv",
+      "device_class": "MidiChord",
+      "plugin_name": "Chord",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 22,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Shift1",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 3,
+          "name": "Velocity1",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 4,
+          "name": "Chance1",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Shift2",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 7,
+          "name": "Velocity2",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Chance2",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Shift3",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 11,
+          "name": "Velocity3",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 12,
+          "name": "Chance3",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Shift4",
+          "value": 36.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 15,
+          "name": "Velocity4",
+          "value": 1.51804686,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 16,
+          "name": "Chance4",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Shift5",
+          "value": -28.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 19,
+          "name": "Velocity5",
+          "value": 0.4919531345,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 20,
+          "name": "Chance5",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 21,
+          "name": "Shift6",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 23,
+          "name": "Velocity6",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 24,
+          "name": "Chance6",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Strum",
+          "value": 0.0,
+          "min": -20.0,
+          "max": 20.0
+        },
+        {
+          "index": 26,
+          "name": "Strum Tension",
+          "value": 0.0,
+          "min": -100.0,
+          "max": 100.0
+        },
+        {
+          "index": 27,
+          "name": "Strum Crescendo",
+          "value": 0.0,
+          "min": -100.0,
+          "max": 100.0
+        },
+        {
+          "index": 28,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "House for to go.adv",
+      "rel_path": "Devices/MIDI Effects/Chord/House for to go.adv",
+      "device_class": "MidiChord",
+      "plugin_name": "Chord",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 22,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Shift1",
+          "value": 3.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 3,
+          "name": "Velocity1",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 4,
+          "name": "Chance1",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Shift2",
+          "value": 7.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 7,
+          "name": "Velocity2",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Chance2",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Shift3",
+          "value": -12.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 11,
+          "name": "Velocity3",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 12,
+          "name": "Chance3",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Shift4",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 15,
+          "name": "Velocity4",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 16,
+          "name": "Chance4",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Shift5",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 19,
+          "name": "Velocity5",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 20,
+          "name": "Chance5",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 21,
+          "name": "Shift6",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 23,
+          "name": "Velocity6",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 24,
+          "name": "Chance6",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Strum",
+          "value": 0.0,
+          "min": -20.0,
+          "max": 20.0
+        },
+        {
+          "index": 26,
+          "name": "Strum Tension",
+          "value": 0.0,
+          "min": -100.0,
+          "max": 100.0
+        },
+        {
+          "index": 27,
+          "name": "Strum Crescendo",
+          "value": 0.0,
+          "min": -100.0,
+          "max": 100.0
+        },
+        {
+          "index": 28,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Minor 7 Chord",
+      "rel_path": "Devices/MIDI Effects/Chord/Minor 7 Chord.adv",
+      "device_class": "MidiChord",
+      "plugin_name": "Chord",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 22,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Shift1",
+          "value": 3.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 3,
+          "name": "Velocity1",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 4,
+          "name": "Chance1",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Shift2",
+          "value": 7.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 7,
+          "name": "Velocity2",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Chance2",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Shift3",
+          "value": 10.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 11,
+          "name": "Velocity3",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 12,
+          "name": "Chance3",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Shift4",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 15,
+          "name": "Velocity4",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 16,
+          "name": "Chance4",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Shift5",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 19,
+          "name": "Velocity5",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 20,
+          "name": "Chance5",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 21,
+          "name": "Shift6",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 23,
+          "name": "Velocity6",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 24,
+          "name": "Chance6",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Strum",
+          "value": 0.0,
+          "min": -20.0,
+          "max": 20.0
+        },
+        {
+          "index": 26,
+          "name": "Strum Tension",
+          "value": 0.0,
+          "min": -100.0,
+          "max": 100.0
+        },
+        {
+          "index": 27,
+          "name": "Strum Crescendo",
+          "value": 0.0,
+          "min": -100.0,
+          "max": 100.0
+        },
+        {
+          "index": 28,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Major 7 Chord",
+      "rel_path": "Devices/MIDI Effects/Chord/Major 7 Chord.adv",
+      "device_class": "MidiChord",
+      "plugin_name": "Chord",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 22,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Shift1",
+          "value": 4.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 3,
+          "name": "Velocity1",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 4,
+          "name": "Chance1",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Shift2",
+          "value": 7.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 7,
+          "name": "Velocity2",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Chance2",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Shift3",
+          "value": 11.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 11,
+          "name": "Velocity3",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 12,
+          "name": "Chance3",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Shift4",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 15,
+          "name": "Velocity4",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 16,
+          "name": "Chance4",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Shift5",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 19,
+          "name": "Velocity5",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 20,
+          "name": "Chance5",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 21,
+          "name": "Shift6",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 23,
+          "name": "Velocity6",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 24,
+          "name": "Chance6",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Strum",
+          "value": 0.0,
+          "min": -20.0,
+          "max": 20.0
+        },
+        {
+          "index": 26,
+          "name": "Strum Tension",
+          "value": 0.0,
+          "min": -100.0,
+          "max": 100.0
+        },
+        {
+          "index": 27,
+          "name": "Strum Crescendo",
+          "value": 0.0,
+          "min": -100.0,
+          "max": 100.0
+        },
+        {
+          "index": 28,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Add Fifth.adv",
+      "rel_path": "Devices/MIDI Effects/Chord/Add Fifth.adv",
+      "device_class": "MidiChord",
+      "plugin_name": "Chord",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 22,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Shift1",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 3,
+          "name": "Velocity1",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 4,
+          "name": "Chance1",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Shift2",
+          "value": 7.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 7,
+          "name": "Velocity2",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Chance2",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Shift3",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 11,
+          "name": "Velocity3",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 12,
+          "name": "Chance3",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Shift4",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 15,
+          "name": "Velocity4",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 16,
+          "name": "Chance4",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Shift5",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 19,
+          "name": "Velocity5",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 20,
+          "name": "Chance5",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 21,
+          "name": "Shift6",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 23,
+          "name": "Velocity6",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 24,
+          "name": "Chance6",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Strum",
+          "value": 0.0,
+          "min": -20.0,
+          "max": 20.0
+        },
+        {
+          "index": 26,
+          "name": "Strum Tension",
+          "value": 0.0,
+          "min": -100.0,
+          "max": 100.0
+        },
+        {
+          "index": 27,
+          "name": "Strum Crescendo",
+          "value": 0.0,
+          "min": -100.0,
+          "max": 100.0
+        },
+        {
+          "index": 28,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Ligetian.adv",
+      "rel_path": "Devices/MIDI Effects/Chord/Ligetian.adv",
+      "device_class": "MidiChord",
+      "plugin_name": "Chord",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 22,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Shift1",
+          "value": 1.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 3,
+          "name": "Velocity1",
+          "value": 0.8650781512,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 4,
+          "name": "Chance1",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Shift2",
+          "value": 2.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 7,
+          "name": "Velocity2",
+          "value": 0.6318749785,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Chance2",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Shift3",
+          "value": 3.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 11,
+          "name": "Velocity3",
+          "value": 1.23820317,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 12,
+          "name": "Chance3",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Shift4",
+          "value": 4.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 15,
+          "name": "Velocity4",
+          "value": 0.4297656119,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 16,
+          "name": "Chance4",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Shift5",
+          "value": 5.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 19,
+          "name": "Velocity5",
+          "value": 1.1604687,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 20,
+          "name": "Chance5",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 21,
+          "name": "Shift6",
+          "value": 6.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 23,
+          "name": "Velocity6",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 24,
+          "name": "Chance6",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Strum",
+          "value": 0.0,
+          "min": -20.0,
+          "max": 20.0
+        },
+        {
+          "index": 26,
+          "name": "Strum Tension",
+          "value": 0.0,
+          "min": -100.0,
+          "max": 100.0
+        },
+        {
+          "index": 27,
+          "name": "Strum Crescendo",
+          "value": 0.0,
+          "min": -100.0,
+          "max": 100.0
+        },
+        {
+          "index": 28,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Fourth Chord.adv",
+      "rel_path": "Devices/MIDI Effects/Chord/Fourth Chord.adv",
+      "device_class": "MidiChord",
+      "plugin_name": "Chord",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 22,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Shift1",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 3,
+          "name": "Velocity1",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 4,
+          "name": "Chance1",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Shift2",
+          "value": 5.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 7,
+          "name": "Velocity2",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Chance2",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Shift3",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 11,
+          "name": "Velocity3",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 12,
+          "name": "Chance3",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Shift4",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 15,
+          "name": "Velocity4",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 16,
+          "name": "Chance4",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Shift5",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 19,
+          "name": "Velocity5",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 20,
+          "name": "Chance5",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 21,
+          "name": "Shift6",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 23,
+          "name": "Velocity6",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 24,
+          "name": "Chance6",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Strum",
+          "value": 0.0,
+          "min": -20.0,
+          "max": 20.0
+        },
+        {
+          "index": 26,
+          "name": "Strum Tension",
+          "value": 0.0,
+          "min": -100.0,
+          "max": 100.0
+        },
+        {
+          "index": 27,
+          "name": "Strum Crescendo",
+          "value": 0.0,
+          "min": -100.0,
+          "max": 100.0
+        },
+        {
+          "index": 28,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Eternal Sunshine.adv",
+      "rel_path": "Devices/MIDI Effects/Chord/Eternal Sunshine.adv",
+      "device_class": "MidiChord",
+      "plugin_name": "Chord",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 22,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Shift1",
+          "value": 5.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 3,
+          "name": "Velocity1",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 4,
+          "name": "Chance1",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Shift2",
+          "value": 9.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 7,
+          "name": "Velocity2",
+          "value": 1.33148432,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Chance2",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Shift3",
+          "value": -7.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 11,
+          "name": "Velocity3",
+          "value": 0.4764062464,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 12,
+          "name": "Chance3",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Shift4",
+          "value": -12.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 15,
+          "name": "Velocity4",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 16,
+          "name": "Chance4",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Shift5",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 19,
+          "name": "Velocity5",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 20,
+          "name": "Chance5",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 21,
+          "name": "Shift6",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 23,
+          "name": "Velocity6",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 24,
+          "name": "Chance6",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Strum",
+          "value": 0.0,
+          "min": -20.0,
+          "max": 20.0
+        },
+        {
+          "index": 26,
+          "name": "Strum Tension",
+          "value": 0.0,
+          "min": -100.0,
+          "max": 100.0
+        },
+        {
+          "index": 27,
+          "name": "Strum Crescendo",
+          "value": 0.0,
+          "min": -100.0,
+          "max": 100.0
+        },
+        {
+          "index": 28,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Major 6 Chord.adv",
+      "rel_path": "Devices/MIDI Effects/Chord/Major 6 Chord.adv",
+      "device_class": "MidiChord",
+      "plugin_name": "Chord",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 22,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Shift1",
+          "value": 4.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 3,
+          "name": "Velocity1",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 4,
+          "name": "Chance1",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Shift2",
+          "value": 7.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 7,
+          "name": "Velocity2",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Chance2",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Shift3",
+          "value": 9.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 11,
+          "name": "Velocity3",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 12,
+          "name": "Chance3",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Shift4",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 15,
+          "name": "Velocity4",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 16,
+          "name": "Chance4",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Shift5",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 19,
+          "name": "Velocity5",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 20,
+          "name": "Chance5",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 21,
+          "name": "Shift6",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 23,
+          "name": "Velocity6",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 24,
+          "name": "Chance6",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Strum",
+          "value": 0.0,
+          "min": -20.0,
+          "max": 20.0
+        },
+        {
+          "index": 26,
+          "name": "Strum Tension",
+          "value": 0.0,
+          "min": -100.0,
+          "max": 100.0
+        },
+        {
+          "index": 27,
+          "name": "Strum Crescendo",
+          "value": 0.0,
+          "min": -100.0,
+          "max": 100.0
+        },
+        {
+          "index": 28,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Add Fourth.adv",
+      "rel_path": "Devices/MIDI Effects/Chord/Add Fourth.adv",
+      "device_class": "MidiChord",
+      "plugin_name": "Chord",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 22,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Shift1",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 3,
+          "name": "Velocity1",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 4,
+          "name": "Chance1",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Shift2",
+          "value": 5.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 7,
+          "name": "Velocity2",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Chance2",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Shift3",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 11,
+          "name": "Velocity3",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 12,
+          "name": "Chance3",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Shift4",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 15,
+          "name": "Velocity4",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 16,
+          "name": "Chance4",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Shift5",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 19,
+          "name": "Velocity5",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 20,
+          "name": "Chance5",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 21,
+          "name": "Shift6",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 23,
+          "name": "Velocity6",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 24,
+          "name": "Chance6",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Strum",
+          "value": 0.0,
+          "min": -20.0,
+          "max": 20.0
+        },
+        {
+          "index": 26,
+          "name": "Strum Tension",
+          "value": 0.0,
+          "min": -100.0,
+          "max": 100.0
+        },
+        {
+          "index": 27,
+          "name": "Strum Crescendo",
+          "value": 0.0,
+          "min": -100.0,
+          "max": 100.0
+        },
+        {
+          "index": 28,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Stacked Fifths",
+      "rel_path": "Devices/MIDI Effects/Chord/Stacked Fifths.adv",
+      "device_class": "MidiChord",
+      "plugin_name": "Chord",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 22,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Shift1",
+          "value": -7.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 3,
+          "name": "Velocity1",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 4,
+          "name": "Chance1",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Shift2",
+          "value": 7.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 7,
+          "name": "Velocity2",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Chance2",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Shift3",
+          "value": 14.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 11,
+          "name": "Velocity3",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 12,
+          "name": "Chance3",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Shift4",
+          "value": 21.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 15,
+          "name": "Velocity4",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 16,
+          "name": "Chance4",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Shift5",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 19,
+          "name": "Velocity5",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 20,
+          "name": "Chance5",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 21,
+          "name": "Shift6",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 23,
+          "name": "Velocity6",
+          "value": 1.0,
+          "min": 0.009999999776482582,
+          "max": 2.0
+        },
+        {
+          "index": 24,
+          "name": "Chance6",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Strum",
+          "value": 0.0,
+          "min": -20.0,
+          "max": 20.0
+        },
+        {
+          "index": 26,
+          "name": "Strum Tension",
+          "value": 0.0,
+          "min": -100.0,
+          "max": 100.0
+        },
+        {
+          "index": 27,
+          "name": "Strum Crescendo",
+          "value": 0.0,
+          "min": -100.0,
+          "max": 100.0
+        },
+        {
+          "index": 28,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    }
+  ]
+}

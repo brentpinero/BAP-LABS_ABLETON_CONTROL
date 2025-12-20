@@ -1,0 +1,164 @@
+{
+  "plugin": "Envelope MIDI",
+  "type": "midi_effect",
+  "uri": "query:MidiFx#Envelope%20MIDI",
+  "class_name": "MxDeviceMidiEffect",
+  "parameter_count": 16,
+  "parameters": [
+    {
+      "index": 0,
+      "name": "Device On",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 1,
+      "name": "Echo Time",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1000.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 2,
+      "name": "Env Feedback",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 3,
+      "name": "Amount",
+      "value": 100.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 100.0
+    },
+    {
+      "index": 4,
+      "name": "Attack",
+      "value": 2502.28759765625,
+      "min": 0.10000000149011612,
+      "max": 20000.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 2502.28759765625
+    },
+    {
+      "index": 5,
+      "name": "ASlope",
+      "value": 0.0,
+      "min": -100.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 6,
+      "name": "Decay",
+      "value": 7179.6162109375,
+      "min": 1.0,
+      "max": 20000.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 7179.6162109375
+    },
+    {
+      "index": 7,
+      "name": "DSlope",
+      "value": 0.0,
+      "min": -100.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 8,
+      "name": "Sustain",
+      "value": -30.018404006958008,
+      "min": -70.0,
+      "max": 0.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": -30.018404006958008
+    },
+    {
+      "index": 9,
+      "name": "SustainMode",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 10,
+      "name": "Velocity",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 11,
+      "name": "Release",
+      "value": 7179.6162109375,
+      "min": 1.0,
+      "max": 20000.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 7179.6162109375
+    },
+    {
+      "index": 12,
+      "name": "Slope",
+      "value": 0.0,
+      "min": -100.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 13,
+      "name": "LoopMode",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 3.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 14,
+      "name": "SyncRate",
+      "value": 9.0,
+      "min": 0.0,
+      "max": 15.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 15,
+      "name": "Time",
+      "value": 2.0859477519989014,
+      "min": 0.009999999776482582,
+      "max": 4.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 2.0859477519989014
+    }
+  ]
+}

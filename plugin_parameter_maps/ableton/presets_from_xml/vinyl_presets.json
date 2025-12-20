@@ -1,0 +1,76 @@
+{
+  "device_class": "Vinyl",
+  "preset_count": 7,
+  "presets": [
+    {
+      "preset_name": "Klirr",
+      "rel_path": "Devices/Audio Effects/Vinyl Distortion/Klirr.adv",
+      "device_class": "Vinyl",
+      "plugin_name": "Vinyl Distortion",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Awfull",
+      "rel_path": "Devices/Audio Effects/Vinyl Distortion/Awfull.adv",
+      "device_class": "Vinyl",
+      "plugin_name": "Vinyl Distortion",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Vinyl",
+      "rel_path": "Devices/Audio Effects/Vinyl Distortion/Vinyl.adv",
+      "device_class": "Vinyl",
+      "plugin_name": "Vinyl Distortion",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Zerr",
+      "rel_path": "Devices/Audio Effects/Vinyl Distortion/Zerr.adv",
+      "device_class": "Vinyl",
+      "plugin_name": "Vinyl Distortion",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Nonreal",
+      "rel_path": "Devices/Audio Effects/Vinyl Distortion/Nonreal.adv",
+      "device_class": "Vinyl",
+      "plugin_name": "Vinyl Distortion",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Crack",
+      "rel_path": "Devices/Audio Effects/Vinyl Distortion/Crack.adv",
+      "device_class": "Vinyl",
+      "plugin_name": "Vinyl Distortion",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Dubplate",
+      "rel_path": "Devices/Audio Effects/Vinyl Distortion/Dubplate.adv",
+      "device_class": "Vinyl",
+      "plugin_name": "Vinyl Distortion",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    }
+  ]
+}

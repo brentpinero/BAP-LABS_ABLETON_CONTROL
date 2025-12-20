@@ -1,0 +1,314 @@
+{
+  "plugin": "Bouncy Notes",
+  "type": "midi_effect",
+  "uri": "query:MidiFx#Bouncy%20Notes",
+  "class_name": "MxDeviceMidiEffect",
+  "parameter_count": 32,
+  "parameters": [
+    {
+      "index": 0,
+      "name": "Device On",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 1,
+      "name": "Auto Drop",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 2,
+      "name": "Auto Drop Rate",
+      "value": 12.0,
+      "min": 0.0,
+      "max": 20.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 3,
+      "name": "Ball Lifetime",
+      "value": 17.0,
+      "min": 0.0,
+      "max": 21.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 4,
+      "name": "Mass",
+      "value": 2.6787402629852295,
+      "min": 1.0,
+      "max": 5.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 2.6787402629852295
+    },
+    {
+      "index": 5,
+      "name": "Vel>Ball",
+      "value": 100.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 100.0
+    },
+    {
+      "index": 6,
+      "name": "Voices",
+      "value": 16.0,
+      "min": 1.0,
+      "max": 32.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 16.0
+    },
+    {
+      "index": 7,
+      "name": "Filter",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 8,
+      "name": "Drop Direction",
+      "value": 0.0,
+      "min": -1.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 9,
+      "name": "Rnd>Dir",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 10,
+      "name": "Height",
+      "value": 0.45670801401138306,
+      "min": -1.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.45670801401138306
+    },
+    {
+      "index": 11,
+      "name": "Drop Mode",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 12,
+      "name": "Drum Mode",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 13,
+      "name": "Edge Behavior",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 3.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 14,
+      "name": "Floor Collision",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 2.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 15,
+      "name": "Freeze",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 16,
+      "name": "Friction",
+      "value": 0.34645670652389526,
+      "min": 0.0,
+      "max": 2.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.34645670652389526
+    },
+    {
+      "index": 17,
+      "name": "Gravity",
+      "value": 22.834646224975586,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 22.834646224975586
+    },
+    {
+      "index": 18,
+      "name": "Thru",
+      "value": 100.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 100.0
+    },
+    {
+      "index": 19,
+      "name": "Note Length",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 21.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 20,
+      "name": "Rnd>Len",
+      "value": 30.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 30.0
+    },
+    {
+      "index": 21,
+      "name": "Gain",
+      "value": 173.205078125,
+      "min": 0.0,
+      "max": 300.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 173.205078125
+    },
+    {
+      "index": 22,
+      "name": "Note Quant",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 21.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 23,
+      "name": "Speed",
+      "value": 0.0,
+      "min": -1.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 24,
+      "name": "Pianoroll Key",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 18.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 25,
+      "name": "Pianoroll Size",
+      "value": 72.0,
+      "min": 1.0,
+      "max": 127.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 72.0
+    },
+    {
+      "index": 26,
+      "name": "Start Pitch",
+      "value": 24.0,
+      "min": 0.0,
+      "max": 127.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 27,
+      "name": "Pianoroll Tonic",
+      "value": 2.0,
+      "min": 0.0,
+      "max": 11.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 28,
+      "name": "Velocity Fade",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 29,
+      "name": "Vel>Hght",
+      "value": 10.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 10.0
+    },
+    {
+      "index": 30,
+      "name": "Vel2Grav",
+      "value": 10.0,
+      "min": -100.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 10.0
+    },
+    {
+      "index": 31,
+      "name": "Vel2Mass",
+      "value": 30.0,
+      "min": -100.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 30.0
+    }
+  ]
+}

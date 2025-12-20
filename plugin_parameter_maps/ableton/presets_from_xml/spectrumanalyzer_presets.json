@@ -1,0 +1,116 @@
+{
+  "device_class": "SpectrumAnalyzer",
+  "preset_count": 11,
+  "presets": [
+    {
+      "preset_name": "Pitch.adv",
+      "rel_path": "Devices/Audio Effects/Spectrum/Pitch.adv",
+      "device_class": "SpectrumAnalyzer",
+      "plugin_name": "Spectrum",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Noise Floor.adv",
+      "rel_path": "Devices/Audio Effects/Spectrum/Noise Floor.adv",
+      "device_class": "SpectrumAnalyzer",
+      "plugin_name": "Spectrum",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Spectrum.adv",
+      "rel_path": "Devices/Audio Effects/Spectrum/Spectrum.adv",
+      "device_class": "SpectrumAnalyzer",
+      "plugin_name": "Spectrum",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Quick.adv",
+      "rel_path": "Devices/Audio Effects/Spectrum/Quick.adv",
+      "device_class": "SpectrumAnalyzer",
+      "plugin_name": "Spectrum",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Accurate Fast",
+      "rel_path": "Devices/Audio Effects/Spectrum/Accurate Fast.adv",
+      "device_class": "SpectrumAnalyzer",
+      "plugin_name": "Spectrum",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Notes.adv",
+      "rel_path": "Devices/Audio Effects/Spectrum/Notes.adv",
+      "device_class": "SpectrumAnalyzer",
+      "plugin_name": "Spectrum",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Spectrum-Fast Log",
+      "rel_path": "Devices/Audio Effects/Spectrum/Slow Average Log.adv",
+      "device_class": "SpectrumAnalyzer",
+      "plugin_name": "Spectrum",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Overview.adv",
+      "rel_path": "Devices/Audio Effects/Spectrum/Overview.adv",
+      "device_class": "SpectrumAnalyzer",
+      "plugin_name": "Spectrum",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Master.adv",
+      "rel_path": "Devices/Audio Effects/Spectrum/Master.adv",
+      "device_class": "SpectrumAnalyzer",
+      "plugin_name": "Spectrum",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Linear Scale Low CPU.adv",
+      "rel_path": "Devices/Audio Effects/Spectrum/Linear Scale Low CPU.adv",
+      "device_class": "SpectrumAnalyzer",
+      "plugin_name": "Spectrum",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Spectrum-Slow Average Log",
+      "rel_path": "Devices/Audio Effects/Spectrum/Slow Average Line.adv",
+      "device_class": "SpectrumAnalyzer",
+      "plugin_name": "Spectrum",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    }
+  ]
+}

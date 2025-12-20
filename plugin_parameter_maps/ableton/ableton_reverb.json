@@ -1,0 +1,326 @@
+{
+  "plugin": "Reverb",
+  "type": "audio_effect",
+  "uri": "query:AudioFx#Reverb",
+  "class_name": "Reverb",
+  "parameter_count": 33,
+  "parameters": [
+    {
+      "index": 0,
+      "name": "Device On",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 1,
+      "name": "Predelay",
+      "value": 0.2589765787124634,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.2589765787124634
+    },
+    {
+      "index": 2,
+      "name": "In LowCut On",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 3,
+      "name": "In HighCut On",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 4,
+      "name": "In Filter Freq",
+      "value": 0.47729402780532837,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.47729402780532837
+    },
+    {
+      "index": 5,
+      "name": "In Filter Width",
+      "value": 0.6294117569923401,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.6294117569923401
+    },
+    {
+      "index": 6,
+      "name": "ER Spin On",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 7,
+      "name": "ER Spin Rate",
+      "value": 0.48569256067276,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.48569256067276
+    },
+    {
+      "index": 8,
+      "name": "ER Spin Amount",
+      "value": 0.6544755101203918,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.6544755101203918
+    },
+    {
+      "index": 9,
+      "name": "ER Shape",
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.5
+    },
+    {
+      "index": 10,
+      "name": "HiFilter On",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 11,
+      "name": "HiFilter Type",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 12,
+      "name": "HiFilter Freq",
+      "value": 0.8102341890335083,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.8102341890335083
+    },
+    {
+      "index": 13,
+      "name": "HiShelf Gain",
+      "value": 0.625,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.625
+    },
+    {
+      "index": 14,
+      "name": "LowShelf On",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 15,
+      "name": "LowShelf Freq",
+      "value": 0.227199524641037,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.227199524641037
+    },
+    {
+      "index": 16,
+      "name": "LowShelf Gain",
+      "value": 0.6875,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.6875
+    },
+    {
+      "index": 17,
+      "name": "Chorus On",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 18,
+      "name": "Chorus Rate",
+      "value": 0.10369296371936798,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.10369296371936798
+    },
+    {
+      "index": 19,
+      "name": "Chorus Amount",
+      "value": 0.002506265649572015,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.002506265649572015
+    },
+    {
+      "index": 20,
+      "name": "Decay Time",
+      "value": 0.31413534283638,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.31413534283638
+    },
+    {
+      "index": 21,
+      "name": "Diffusion",
+      "value": 0.6246089935302734,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.6246089935302734
+    },
+    {
+      "index": 22,
+      "name": "Scale",
+      "value": 0.3684210479259491,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.3684210479259491
+    },
+    {
+      "index": 23,
+      "name": "Freeze On",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 24,
+      "name": "Flat On",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 25,
+      "name": "Cut On",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 26,
+      "name": "Room Size",
+      "value": 0.7915151119232178,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.7915151119232178
+    },
+    {
+      "index": 27,
+      "name": "Size Smoothing",
+      "value": 2.0,
+      "min": 0.0,
+      "max": 2.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 28,
+      "name": "Stereo Image",
+      "value": 0.8333333134651184,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.8333333134651184
+    },
+    {
+      "index": 29,
+      "name": "Density",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 3.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 30,
+      "name": "Reflect Level",
+      "value": 0.49356332421302795,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.49356332421302795
+    },
+    {
+      "index": 31,
+      "name": "Diffuse Level",
+      "value": 0.49356332421302795,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.49356332421302795
+    },
+    {
+      "index": 32,
+      "name": "Dry/Wet",
+      "value": 0.550000011920929,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.550000011920929
+    }
+  ]
+}

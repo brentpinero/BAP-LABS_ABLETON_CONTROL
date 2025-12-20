@@ -1,0 +1,1078 @@
+{
+  "device_class": "GlueCompressor",
+  "preset_count": 16,
+  "presets": [
+    {
+      "preset_name": "Mastering - Make It Loud",
+      "rel_path": "Devices/Audio Effects/Glue Compressor/Mastering - Make It Loud.adv",
+      "device_class": "GlueCompressor",
+      "plugin_name": "Glue Compressor",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Threshold",
+          "value": -12.0,
+          "min": -40.0,
+          "max": 0.0
+        },
+        {
+          "index": 2,
+          "name": "Range",
+          "value": 70.0,
+          "min": 0.0,
+          "max": 70.0
+        },
+        {
+          "index": 3,
+          "name": "Makeup",
+          "value": 5.0,
+          "min": 0.0,
+          "max": 20.0
+        },
+        {
+          "index": 4,
+          "name": "Attack",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 5,
+          "name": "Ratio",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 6,
+          "name": "Release",
+          "value": 6.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 7,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Peak Clip In",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Guitar - Lead Solo",
+      "rel_path": "Devices/Audio Effects/Glue Compressor/Guitar - Lead Solo.adv",
+      "device_class": "GlueCompressor",
+      "plugin_name": "Glue Compressor",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Threshold",
+          "value": -10.3999996,
+          "min": -40.0,
+          "max": 0.0
+        },
+        {
+          "index": 2,
+          "name": "Range",
+          "value": 70.0,
+          "min": 0.0,
+          "max": 70.0
+        },
+        {
+          "index": 3,
+          "name": "Makeup",
+          "value": 7.0,
+          "min": 0.0,
+          "max": 20.0
+        },
+        {
+          "index": 4,
+          "name": "Attack",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 5,
+          "name": "Ratio",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 6,
+          "name": "Release",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 7,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Peak Clip In",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Guitar - Peak Clipping",
+      "rel_path": "Devices/Audio Effects/Glue Compressor/Guitar - Peak Clipping.adv",
+      "device_class": "GlueCompressor",
+      "plugin_name": "Glue Compressor",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Threshold",
+          "value": -12.3999996,
+          "min": -40.0,
+          "max": 0.0
+        },
+        {
+          "index": 2,
+          "name": "Range",
+          "value": 70.0,
+          "min": 0.0,
+          "max": 70.0
+        },
+        {
+          "index": 3,
+          "name": "Makeup",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 20.0
+        },
+        {
+          "index": 4,
+          "name": "Attack",
+          "value": 6.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 5,
+          "name": "Ratio",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 6,
+          "name": "Release",
+          "value": 3.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 7,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Peak Clip In",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Mastering - Catch Peaks",
+      "rel_path": "Devices/Audio Effects/Glue Compressor/Mastering - Catch Peaks.adv",
+      "device_class": "GlueCompressor",
+      "plugin_name": "Glue Compressor",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Threshold",
+          "value": -8.0,
+          "min": -40.0,
+          "max": 0.0
+        },
+        {
+          "index": 2,
+          "name": "Range",
+          "value": 70.0,
+          "min": 0.0,
+          "max": 70.0
+        },
+        {
+          "index": 3,
+          "name": "Makeup",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 20.0
+        },
+        {
+          "index": 4,
+          "name": "Attack",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 5,
+          "name": "Ratio",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 6,
+          "name": "Release",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 7,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Peak Clip In",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Drum - Full Parallel",
+      "rel_path": "Devices/Audio Effects/Glue Compressor/Drum - Full Parallel.adv",
+      "device_class": "GlueCompressor",
+      "plugin_name": "Glue Compressor",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Threshold",
+          "value": -17.4603176,
+          "min": -40.0,
+          "max": 0.0
+        },
+        {
+          "index": 2,
+          "name": "Range",
+          "value": 70.0,
+          "min": 0.0,
+          "max": 70.0
+        },
+        {
+          "index": 3,
+          "name": "Makeup",
+          "value": 8.09523773,
+          "min": 0.0,
+          "max": 20.0
+        },
+        {
+          "index": 4,
+          "name": "Attack",
+          "value": 4.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 5,
+          "name": "Ratio",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 6,
+          "name": "Release",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 7,
+          "name": "Dry/Wet",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Peak Clip In",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Drum - gentle two buss sidechain.adv",
+      "rel_path": "Devices/Audio Effects/Glue Compressor/Drum - gentle two buss sidechain.adv",
+      "device_class": "GlueCompressor",
+      "plugin_name": "Glue Compressor",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Threshold",
+          "value": -17.7777786,
+          "min": -40.0,
+          "max": 0.0
+        },
+        {
+          "index": 2,
+          "name": "Range",
+          "value": 70.0,
+          "min": 0.0,
+          "max": 70.0
+        },
+        {
+          "index": 3,
+          "name": "Makeup",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 20.0
+        },
+        {
+          "index": 4,
+          "name": "Attack",
+          "value": 6.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 5,
+          "name": "Ratio",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 6,
+          "name": "Release",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 7,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Peak Clip In",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Drum - Gentle Sidechain EQ",
+      "rel_path": "Devices/Audio Effects/Glue Compressor/Drum - Gentle Sidechain EQ.adv",
+      "device_class": "GlueCompressor",
+      "plugin_name": "Glue Compressor",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Threshold",
+          "value": -17.7777786,
+          "min": -40.0,
+          "max": 0.0
+        },
+        {
+          "index": 2,
+          "name": "Range",
+          "value": 70.0,
+          "min": 0.0,
+          "max": 70.0
+        },
+        {
+          "index": 3,
+          "name": "Makeup",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 20.0
+        },
+        {
+          "index": 4,
+          "name": "Attack",
+          "value": 6.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 5,
+          "name": "Ratio",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 6,
+          "name": "Release",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 7,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Peak Clip In",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Glue Sidechain EQ.adv",
+      "rel_path": "Devices/Audio Effects/Glue Compressor/Glue Sidechain EQ.adv",
+      "device_class": "GlueCompressor",
+      "plugin_name": "Glue Compressor",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Threshold",
+          "value": -10.1587276,
+          "min": -40.0,
+          "max": 0.0
+        },
+        {
+          "index": 2,
+          "name": "Range",
+          "value": 70.0,
+          "min": 0.0,
+          "max": 70.0
+        },
+        {
+          "index": 3,
+          "name": "Makeup",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 20.0
+        },
+        {
+          "index": 4,
+          "name": "Attack",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 5,
+          "name": "Ratio",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 6,
+          "name": "Release",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 7,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Peak Clip In",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Bass - Punch",
+      "rel_path": "Devices/Audio Effects/Glue Compressor/Bass - Punch.adv",
+      "device_class": "GlueCompressor",
+      "plugin_name": "Glue Compressor",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Threshold",
+          "value": -17.1428566,
+          "min": -40.0,
+          "max": 0.0
+        },
+        {
+          "index": 2,
+          "name": "Range",
+          "value": 25.0,
+          "min": 0.0,
+          "max": 70.0
+        },
+        {
+          "index": 3,
+          "name": "Makeup",
+          "value": 4.0,
+          "min": 0.0,
+          "max": 20.0
+        },
+        {
+          "index": 4,
+          "name": "Attack",
+          "value": 5.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 5,
+          "name": "Ratio",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 6,
+          "name": "Release",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 7,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Peak Clip In",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Bass - Punch and Parallel",
+      "rel_path": "Devices/Audio Effects/Glue Compressor/Bass - Punch and Parallel.adv",
+      "device_class": "GlueCompressor",
+      "plugin_name": "Glue Compressor",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Threshold",
+          "value": -17.1428566,
+          "min": -40.0,
+          "max": 0.0
+        },
+        {
+          "index": 2,
+          "name": "Range",
+          "value": 25.0,
+          "min": 0.0,
+          "max": 70.0
+        },
+        {
+          "index": 3,
+          "name": "Makeup",
+          "value": 4.0,
+          "min": 0.0,
+          "max": 20.0
+        },
+        {
+          "index": 4,
+          "name": "Attack",
+          "value": 5.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 5,
+          "name": "Ratio",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 6,
+          "name": "Release",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 7,
+          "name": "Dry/Wet",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Peak Clip In",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Guitar - Controlled Dynamics",
+      "rel_path": "Devices/Audio Effects/Glue Compressor/Guitar - Controlled Dynamics.adv",
+      "device_class": "GlueCompressor",
+      "plugin_name": "Glue Compressor",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Threshold",
+          "value": -4.5999999,
+          "min": -40.0,
+          "max": 0.0
+        },
+        {
+          "index": 2,
+          "name": "Range",
+          "value": 70.0,
+          "min": 0.0,
+          "max": 70.0
+        },
+        {
+          "index": 3,
+          "name": "Makeup",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 20.0
+        },
+        {
+          "index": 4,
+          "name": "Attack",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 5,
+          "name": "Ratio",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 6,
+          "name": "Release",
+          "value": 6.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 7,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Peak Clip In",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Mastering - Gentle Limiter",
+      "rel_path": "Devices/Audio Effects/Glue Compressor/Mastering - Gentle Limiter.adv",
+      "device_class": "GlueCompressor",
+      "plugin_name": "Glue Compressor",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Threshold",
+          "value": -40.0,
+          "min": -40.0,
+          "max": 0.0
+        },
+        {
+          "index": 2,
+          "name": "Range",
+          "value": 3.0,
+          "min": 0.0,
+          "max": 70.0
+        },
+        {
+          "index": 3,
+          "name": "Makeup",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 20.0
+        },
+        {
+          "index": 4,
+          "name": "Attack",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 5,
+          "name": "Ratio",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 6,
+          "name": "Release",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 7,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Peak Clip In",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Drum - Rock Parallel Room",
+      "rel_path": "Devices/Audio Effects/Glue Compressor/Drum - Rock Parallel Room.adv",
+      "device_class": "GlueCompressor",
+      "plugin_name": "Glue Compressor",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Threshold",
+          "value": -19.0,
+          "min": -40.0,
+          "max": 0.0
+        },
+        {
+          "index": 2,
+          "name": "Range",
+          "value": 70.0,
+          "min": 0.0,
+          "max": 70.0
+        },
+        {
+          "index": 3,
+          "name": "Makeup",
+          "value": 6.0,
+          "min": 0.0,
+          "max": 20.0
+        },
+        {
+          "index": 4,
+          "name": "Attack",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 5,
+          "name": "Ratio",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 6,
+          "name": "Release",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 7,
+          "name": "Dry/Wet",
+          "value": 0.6399999857,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Peak Clip In",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Mastering - Add Sustain",
+      "rel_path": "Devices/Audio Effects/Glue Compressor/Mastering - Add Sustain.adv",
+      "device_class": "GlueCompressor",
+      "plugin_name": "Glue Compressor",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Threshold",
+          "value": -6.4000001,
+          "min": -40.0,
+          "max": 0.0
+        },
+        {
+          "index": 2,
+          "name": "Range",
+          "value": 70.0,
+          "min": 0.0,
+          "max": 70.0
+        },
+        {
+          "index": 3,
+          "name": "Makeup",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 20.0
+        },
+        {
+          "index": 4,
+          "name": "Attack",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 5,
+          "name": "Ratio",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 6,
+          "name": "Release",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 7,
+          "name": "Dry/Wet",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Peak Clip In",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Drum - Gentle Two Buss",
+      "rel_path": "Devices/Audio Effects/Glue Compressor/Drum - Gentle Two Buss.adv",
+      "device_class": "GlueCompressor",
+      "plugin_name": "Glue Compressor",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Threshold",
+          "value": -2.4000001,
+          "min": -40.0,
+          "max": 0.0
+        },
+        {
+          "index": 2,
+          "name": "Range",
+          "value": 70.0,
+          "min": 0.0,
+          "max": 70.0
+        },
+        {
+          "index": 3,
+          "name": "Makeup",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 20.0
+        },
+        {
+          "index": 4,
+          "name": "Attack",
+          "value": 6.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 5,
+          "name": "Ratio",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 6,
+          "name": "Release",
+          "value": 6.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 7,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Peak Clip In",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Bass - Low Extender",
+      "rel_path": "Devices/Audio Effects/Glue Compressor/Bass - Low Extender.adv",
+      "device_class": "GlueCompressor",
+      "plugin_name": "Glue Compressor",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Threshold",
+          "value": -21.9047623,
+          "min": -40.0,
+          "max": 0.0
+        },
+        {
+          "index": 2,
+          "name": "Range",
+          "value": 25.0,
+          "min": 0.0,
+          "max": 70.0
+        },
+        {
+          "index": 3,
+          "name": "Makeup",
+          "value": 5.0,
+          "min": 0.0,
+          "max": 20.0
+        },
+        {
+          "index": 4,
+          "name": "Attack",
+          "value": 5.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 5,
+          "name": "Ratio",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 6,
+          "name": "Release",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 7,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Peak Clip In",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    }
+  ]
+}

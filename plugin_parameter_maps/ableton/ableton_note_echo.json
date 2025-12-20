@@ -1,0 +1,134 @@
+{
+  "plugin": "Note Echo",
+  "type": "midi_effect",
+  "uri": "query:MidiFx#Note%20Echo",
+  "class_name": "MxDeviceMidiEffect",
+  "parameter_count": 13,
+  "parameters": [
+    {
+      "index": 0,
+      "name": "Device On",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 1,
+      "name": "Beat Division",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 7.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 2,
+      "name": "Beat Offset Percentage",
+      "value": 0.0,
+      "min": -33.33000183105469,
+      "max": 33.33000183105469,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 3,
+      "name": "Delay Mode",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 4,
+      "name": "Delay",
+      "value": 100.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 100.0
+    },
+    {
+      "index": 5,
+      "name": "Fback",
+      "value": 50.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 50.0
+    },
+    {
+      "index": 6,
+      "name": "MPE On",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 7,
+      "name": "Ms Delay",
+      "value": 500.0,
+      "min": 1.0,
+      "max": 2000.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 500.0
+    },
+    {
+      "index": 8,
+      "name": "Note PB Fback",
+      "value": 100.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 100.0
+    },
+    {
+      "index": 9,
+      "name": "Pitch",
+      "value": 0.0,
+      "min": -12.0,
+      "max": 12.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 10,
+      "name": "Press Fback",
+      "value": 100.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 100.0
+    },
+    {
+      "index": 11,
+      "name": "Slide Fback",
+      "value": 100.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 100.0
+    },
+    {
+      "index": 12,
+      "name": "Thru/Mute",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    }
+  ]
+}

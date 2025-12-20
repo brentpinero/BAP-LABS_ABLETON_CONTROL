@@ -1,0 +1,2814 @@
+{
+  "device_class": "Hybrid",
+  "preset_count": 72,
+  "presets": [
+    {
+      "preset_name": "Dirty Synth Room",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Room/Dirty Synth Room.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Synthetic Drum Room",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Room/Synthetic Drum Room.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Modest Corner",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Room/Modest Corner.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 3.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Car Garage",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Room/Car Garage.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Empty Walls",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Room/Empty Walls.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Room Slapback",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Room/Room Slapback.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Large Hostel Bedroom",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Room/Large Hostel Bedroom.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Small Dark Room",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Room/Small Dark Room.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 3.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Spatial Room",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Room/Spatial Room.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Empty Floor",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Room/Empty Floor.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Snare Plate Digital Vintage",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Drums/Snare Plate Digital Vintage.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 3.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Drums In A Closet",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Drums/Drums In A Closet.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 3.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Lively Resonant",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Drums/Lively Resonant.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Drums In A Canyon",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Drums/Drums In A Canyon.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Dark Snare Room",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Drums/Dark Snare Room.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Rain On Drums",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Drums/Rain On Drums.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Clap Reverb",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Drums/Clap Hybrid.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Snare Hybrid",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Drums/Snare Hybrid.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Modal Hybrid",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Drums/Modal Hybrid.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Short Bliss",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Drums/Short Bliss.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 3.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Vintage Drum Echo",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Drums/Vintage Drum Echo.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Fat Drum Studio",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Drums/Fat Drum Studio.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Slap Lo-Fi",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Drums/Slap Lo Fi.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 3.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Gated & Ambience",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Drums/Gated & Ambience.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Drum Kit Silo",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Special/Drum Kit Silo.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Wicked Whip",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Special/Wicked Whip.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Space Tank",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Special/Space Tank.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Reversal Protocol",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Special/Reversal Protocol.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Echo Flex",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Special/Echo Flex.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Throat Texture Oh",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Special/Throat Texture Oh.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Gated Stretch",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Special/Gated Stretch.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Throat Texture U",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Special/Throat Texture Uh.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Pitched Down Delay Spiral",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Special/Pitched Down Delay Spiral.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Vintage Boombox",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Special/Vintage Boombox.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 3.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 4.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Bathtub Percussion",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Special/Bathtub Percussion.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Harmonic Tension",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Special/Harmonic Tension.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Throat Texture Ah",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Special/Throat Texture Ah.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Filter Waves",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Special/Filter Waves.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Phone Call",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Special/Phone Call.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Spring Parade",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Special/Spring Parade.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Intercom Speaker",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Special/Intercom Speaker.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Echo Streets",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Space/Echo Streets.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Submarine Space",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Space/Submarine Space.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 3.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Large Octave Shimmer",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Space/Large Octave Shimmer.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Empty Oil Tank",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Space/Empty Oil Tank.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Stutter Dub",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Space/Stutter Dub.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Resonantic Space",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Space/Resonantic Space.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Droney Cave",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Space/Droney Cave.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 3.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Long Dark Space",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Space/Large Dark Space.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Large Shimmer Plate",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Space/Large Shimmer Plate.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Dub Tech Filtered",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Space/Filtered Dub Tech.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Endless Arctic",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Space/Endless Arctic.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Presenza Hall",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Hall/Presenza Hall.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Sheer Hall",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Hall/Sheer Hall.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Voice Plate",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Hall/Vocal Plate Hall.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Pop Vocal",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Hall/Vocal Pop Hall.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Cathedral Huge",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Hall/Cathedral Huge.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Artificial Flutter Hall",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Hall/Artificial Flutter Hall.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Piano Hall",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Hall/Piano Hall.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Small Dirty Plate",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Hall/Small Dirty Plate.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 3.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Keys Bastille",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Hall/Keys Bastille.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Refraction Episode",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Hall/Refraction Episode.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Sparse Hall",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Hall/Sparse Hall.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Tartaruga Hall",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Hall/Tartaruga Hall.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Medium Dark Plate",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Hall/Medium Dark Plate.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Synthetic Hall",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Hall/Synthetic Hall.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Galactic Coral Hall",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Hall/Galactic Coral Hall.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Wide Hallway",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Hall/Wide Hallway.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Blurry Hall Delayed",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Hall/Delayed Blurry Hall.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Modulated Cinematic Space",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Hall/Modulated Cinematic Space.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Guitar Tones",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Hall/Guitar Tones.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Plate Foyer",
+      "rel_path": "Devices/Audio Effects/Hybrid Reverb/Hall/Plate Foyer.adv",
+      "device_class": "Hybrid",
+      "plugin_name": "Hybrid Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 48,
+          "name": "Routing",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 50,
+          "name": "Vintage",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 4.0
+        },
+        {
+          "index": 52,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 53,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    }
+  ]
+}

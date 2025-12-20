@@ -253,63 +253,89 @@ The user wants to learn **architecture design from first principles**, not just 
 3. ✅ Added shell plugin support (WaveShell subname commands)
 4. ✅ Documented edge cases (MIDI generators, container plugins)
 
-### 🔄 Phase 1: Mix Analysis Hub for Self-Play Learning (IN PROGRESS - 2024-12-13)
+### ⏸️ Phase 1: Mix Analysis Hub (PAUSED - 2024-12-19)
 
-**Goal**: Build real-time audio analysis pipeline to enable LLM self-play learning on mix decisions.
+**Status**: Paused due to `live.observer` reliability issues. The OSC streaming for levels/stereo works, but transport sync via Live API is unreliable.
 
-**Architecture** (documented in `research/MIX_ANALYSIS_ASSISTANT_ARCHITECTURE.md`):
-```
-M4L Device (Audio Analysis) → OSC (port 9880) → Python Bridge → LLM Context
-                                                      ↓
-                                              Bar-by-bar caching
-                                                      ↓
-                                              32-bar context window
-                                                      ↓
-                                              Qwen3-4B reasoning + MCP actions
-```
+**Pivot Decision**: Instead of debugging M4L Live API issues, we're:
+1. Researching alternative audio capture/render approaches for M4L
+2. Focusing on completing the MCP infrastructure first
+3. Mapping Ableton stock plugins to enable full DAW control
 
-**Built Components**:
-1. ✅ `Mix Analysis Hub.maxpat` - M4L device with:
-   - RMS/Peak level metering (L/R)
-   - Stereo correlation analysis
-   - Mid/Side width calculation
-   - Transport sync via Live API (`transport_sync.js`)
-   - OSC streaming to Python @ 30Hz
+**Archived Components** (in `old/` or kept for reference):
+- `Mix Analysis Hub.maxpat` - Levels/stereo work, transport sync unreliable
+- `transport_sync.js` - Live API reader (buggy)
+- `mix_assistant_bridge.py` - Python bridge (works)
 
-2. ✅ `mix_assistant_bridge.py` - Integrated Python bridge:
-   - OSC receiver for audio analysis
-   - Bar-by-bar caching (BarCache with LRU eviction)
-   - 32-bar context window assembly
-   - Transport state tracking (bar, beat, BPM, playing)
-   - Integration with Qwen3-4B via MLX
-   - MCP tool execution for Ableton control
+---
 
-3. ✅ `transport_sync.js` - Live API reader:
-   - Reads `is_playing`, `tempo`, `current_song_time`
-   - Calculates bar/beat from song position
-   - Fires bar change events for caching
+### 🔄 Phase 1.5: MCP Infrastructure & Plugin Mapping (IN PROGRESS - 2024-12-19)
 
-**🧪 NEXT STEP: End-to-End Test**
-```bash
-# Terminal 1: Run test receiver
-python test_mix_hub_receiver.py
+**Goal**: Complete the MCP control layer so model can control ALL Ableton plugins (stock + third-party) before tackling audio feedback loop.
 
-# In Ableton:
-# 1. Load Mix Analysis Hub.maxpat as M4L Audio Effect on Master
-# 2. Enable toggle
-# 3. Play audio for 30-60 seconds
+**Current State**:
+- ✅ Third-party VST plugins mapped (319 plugins in `plugin_parameter_maps/`)
+- ✅ MCP controls BAP Labs VST Synth Controller (port 9878) and FX Chain (port 9879)
+- ✅ MCP controls Ableton via ahujasid/ableton-mcp (port 9877)
+- ❌ Ableton stock plugins NOT mapped yet
+- ❌ MCP doesn't follow Anthropic best practices yet
 
-# Check log file for OSC data:
-# mix_hub_test.log
+**Tasks**:
+
+#### Task 1: Map Ableton Stock Plugins
+Create JSON parameter maps for all Ableton Live stock plugins:
+- **Instruments**: Wavetable, Operator, Analog, Simpler, Sampler, Drift, Collision, Electric, Tension
+- **Audio Effects**: Compressor, EQ Eight, Reverb, Delay, Saturator, Limiter, Gate, Chorus-Ensemble, Phaser-Flanger, etc.
+- **MIDI Effects**: Arpeggiator, Chord, Note Length, Pitch, Random, Scale, Velocity
+
+Format: Same as `plugin_parameter_maps/fabfilter_proq3.json`
+```json
+{
+  "plugin": "Ableton Compressor",
+  "type": "stock_audio_effect",
+  "parameters": {
+    "Threshold": {"index": 0, "range": [-inf, 0], "unit": "dB"},
+    "Ratio": {"index": 1, "range": [1, inf], "unit": "ratio"},
+    ...
+  }
+}
 ```
 
-**Files**:
-- `Mix Analysis Hub.maxpat` - M4L device
-- `transport_sync.js` - Live API JavaScript
-- `mix_assistant_bridge.py` - Full integrated bridge
-- `mix_analysis_bridge.py` - Standalone OSC receiver
-- `test_mix_hub_receiver.py` - Test harness with logging
-- `research/MIX_ANALYSIS_ASSISTANT_ARCHITECTURE.md` - Full architecture doc
+#### Task 2: Update MCP with Anthropic Best Practices
+Reference: https://www.anthropic.com/engineering/code-execution-with-mcp
+
+Key improvements:
+1. **Progressive Disclosure**: Don't load all 319 plugin maps upfront
+   - Implement `search_plugins(query)` tool for discovery
+   - Load plugin params on-demand when needed
+
+2. **Token Efficiency**: Filter data before sending to model
+   - Summarize audio features instead of raw values
+   - Use plugin IDs instead of full paths
+
+3. **Local Processing**: Run filtering/aggregation in MCP, not model
+   - Example: "5 rows instead of 10,000" principle
+
+4. **Tool Organization**: Structure tools by category
+   ```
+   tools/
+   ├── ableton/        # Transport, tracks, clips
+   ├── vst_synths/     # Synth plugin control
+   ├── vst_effects/    # Effect plugin control
+   └── stock_plugins/  # Ableton stock plugins
+   ```
+
+#### Task 3: Research Audio Capture M4L Approach (User Research)
+User is researching alternative approaches for:
+- Capturing rendered audio from Ableton
+- Sending audio back to model for analysis
+- Avoiding `live.observer` reliability issues
+
+Options being explored:
+- `buffer~` object for audio capture
+- `sfrecord~` for rendering to file
+- `groove~` for playback into analysis
+- External rendering via command line (Ableton CLI?)
 
 ### ✅ Phase 2: Audio Data Generation (COMPLETE)
 1. ✅ Built automated preset rendering system (111,732 files)

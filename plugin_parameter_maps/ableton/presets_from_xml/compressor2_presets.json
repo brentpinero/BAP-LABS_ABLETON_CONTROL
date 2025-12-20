@@ -1,0 +1,1338 @@
+{
+  "device_class": "Compressor2",
+  "preset_count": 18,
+  "presets": [
+    {
+      "preset_name": "Basic Peak Compressor",
+      "rel_path": "Devices/Audio Effects/Compressor/Basic Peak Compressor.adv",
+      "device_class": "Compressor2",
+      "plugin_name": "Compressor",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 9,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Threshold",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Ratio",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Expansion Ratio",
+          "value": 1.14999998,
+          "min": 1.0,
+          "max": 2.0
+        },
+        {
+          "index": 4,
+          "name": "Attack",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Release",
+          "value": 50.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Model",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 12,
+          "name": "Knee",
+          "value": 6.0,
+          "min": 0.0,
+          "max": 18.0
+        },
+        {
+          "index": 13,
+          "name": "LookAhead",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Acoustic",
+      "rel_path": "Devices/Audio Effects/Compressor/Acoustic.adv",
+      "device_class": "Compressor2",
+      "plugin_name": "Compressor",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 9,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Threshold",
+          "value": 0.1326842159,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Ratio",
+          "value": 2.24561405,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Expansion Ratio",
+          "value": 1.14999998,
+          "min": 1.0,
+          "max": 2.0
+        },
+        {
+          "index": 4,
+          "name": "Attack",
+          "value": 17.9460278,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Release",
+          "value": 221.654724,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Model",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 12,
+          "name": "Knee",
+          "value": 7.734375,
+          "min": 0.0,
+          "max": 18.0
+        },
+        {
+          "index": 13,
+          "name": "LookAhead",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "De-esser",
+      "rel_path": "Devices/Audio Effects/Compressor/De-esser.adv",
+      "device_class": "Compressor2",
+      "plugin_name": "Compressor",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 9,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Threshold",
+          "value": 0.1728025377,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Ratio",
+          "value": 3.00000024,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Expansion Ratio",
+          "value": 1.14999998,
+          "min": 1.0,
+          "max": 2.0
+        },
+        {
+          "index": 4,
+          "name": "Attack",
+          "value": 0.02275845967,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Release",
+          "value": 100.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Model",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 12,
+          "name": "Knee",
+          "value": 6.046875,
+          "min": 0.0,
+          "max": 18.0
+        },
+        {
+          "index": 13,
+          "name": "LookAhead",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Gentle Squeeze",
+      "rel_path": "Devices/Audio Effects/Compressor/Gentle Squeeze.adv",
+      "device_class": "Compressor2",
+      "plugin_name": "Compressor",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 9,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Threshold",
+          "value": 0.08451673388,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Ratio",
+          "value": 1.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Expansion Ratio",
+          "value": 1.14999998,
+          "min": 1.0,
+          "max": 2.0
+        },
+        {
+          "index": 4,
+          "name": "Attack",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Release",
+          "value": 100.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Model",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 12,
+          "name": "Knee",
+          "value": 12.234375,
+          "min": 0.0,
+          "max": 18.0
+        },
+        {
+          "index": 13,
+          "name": "LookAhead",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Brute Compression",
+      "rel_path": "Devices/Audio Effects/Compressor/Brute Compression.adv",
+      "device_class": "Compressor2",
+      "plugin_name": "Compressor",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 9,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Threshold",
+          "value": 0.02532847784,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Ratio",
+          "value": 12.6000004,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Expansion Ratio",
+          "value": 1.14999998,
+          "min": 1.0,
+          "max": 2.0
+        },
+        {
+          "index": 4,
+          "name": "Attack",
+          "value": 0.009999999776,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Release",
+          "value": 10.2438354,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Model",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 12,
+          "name": "Knee",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 18.0
+        },
+        {
+          "index": 13,
+          "name": "LookAhead",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Acoustic Kick Compressor",
+      "rel_path": "Devices/Audio Effects/Compressor/Acoustic Kick Compressor.adv",
+      "device_class": "Compressor2",
+      "plugin_name": "Compressor",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 9,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Threshold",
+          "value": 0.1791548878,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Ratio",
+          "value": 4.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Expansion Ratio",
+          "value": 1.14999998,
+          "min": 1.0,
+          "max": 2.0
+        },
+        {
+          "index": 4,
+          "name": "Attack",
+          "value": 30.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Release",
+          "value": 120.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Model",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 12,
+          "name": "Knee",
+          "value": 0.421875,
+          "min": 0.0,
+          "max": 18.0
+        },
+        {
+          "index": 13,
+          "name": "LookAhead",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Mildly Aggresive",
+      "rel_path": "Devices/Audio Effects/Compressor/Mildly Aggresive.adv",
+      "device_class": "Compressor2",
+      "plugin_name": "Compressor",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 9,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Threshold",
+          "value": 0.07269660383,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Ratio",
+          "value": 4.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Expansion Ratio",
+          "value": 1.14999998,
+          "min": 1.0,
+          "max": 2.0
+        },
+        {
+          "index": 4,
+          "name": "Attack",
+          "value": 25.8641682,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Release",
+          "value": 100.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Model",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 12,
+          "name": "Knee",
+          "value": 4.0,
+          "min": 0.0,
+          "max": 18.0
+        },
+        {
+          "index": 13,
+          "name": "LookAhead",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Gentle-Kneeless",
+      "rel_path": "Devices/Audio Effects/Compressor/Gentle-Kneeless.adv",
+      "device_class": "Compressor2",
+      "plugin_name": "Compressor",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 9,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Threshold",
+          "value": 0.1430941969,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Ratio",
+          "value": 1.15315318,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Expansion Ratio",
+          "value": 1.14999998,
+          "min": 1.0,
+          "max": 2.0
+        },
+        {
+          "index": 4,
+          "name": "Attack",
+          "value": 0.05179474875,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Release",
+          "value": 100.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Model",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 12,
+          "name": "Knee",
+          "value": 18.0,
+          "min": 0.0,
+          "max": 18.0
+        },
+        {
+          "index": 13,
+          "name": "LookAhead",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Flattenator",
+      "rel_path": "Devices/Audio Effects/Compressor/Flattenator.adv",
+      "device_class": "Compressor2",
+      "plugin_name": "Compressor",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 9,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Threshold",
+          "value": 0.0005011872854,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Ratio",
+          "value": 3.4028232635611926e+38,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Expansion Ratio",
+          "value": 1.14999998,
+          "min": 1.0,
+          "max": 2.0
+        },
+        {
+          "index": 4,
+          "name": "Attack",
+          "value": 0.009999999776,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Release",
+          "value": 103.400497,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Model",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 12,
+          "name": "Knee",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 18.0
+        },
+        {
+          "index": 13,
+          "name": "LookAhead",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Classical Compression",
+      "rel_path": "Devices/Audio Effects/Compressor/Classical Compression.adv",
+      "device_class": "Compressor2",
+      "plugin_name": "Compressor",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 9,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Threshold",
+          "value": 0.3275013268,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Ratio",
+          "value": 1.15315318,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Expansion Ratio",
+          "value": 1.14999998,
+          "min": 1.0,
+          "max": 2.0
+        },
+        {
+          "index": 4,
+          "name": "Attack",
+          "value": 0.2234634012,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Release",
+          "value": 100.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Model",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 12,
+          "name": "Knee",
+          "value": 6.046875,
+          "min": 0.0,
+          "max": 18.0
+        },
+        {
+          "index": 13,
+          "name": "LookAhead",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Brick Wall",
+      "rel_path": "Devices/Audio Effects/Compressor/Brick Wall.adv",
+      "device_class": "Compressor2",
+      "plugin_name": "Compressor",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 9,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Threshold",
+          "value": 0.3275013268,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Ratio",
+          "value": 3.4028232635611926e+38,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Expansion Ratio",
+          "value": 1.14999998,
+          "min": 1.0,
+          "max": 2.0
+        },
+        {
+          "index": 4,
+          "name": "Attack",
+          "value": 0.01579111069,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Release",
+          "value": 100.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Model",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 12,
+          "name": "Knee",
+          "value": 0.984375,
+          "min": 0.0,
+          "max": 18.0
+        },
+        {
+          "index": 13,
+          "name": "LookAhead",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Generic Compressor",
+      "rel_path": "Devices/Audio Effects/Compressor/Generic Compressor.adv",
+      "device_class": "Compressor2",
+      "plugin_name": "Compressor",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 9,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Threshold",
+          "value": 0.08451673388,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Ratio",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Expansion Ratio",
+          "value": 1.14999998,
+          "min": 1.0,
+          "max": 2.0
+        },
+        {
+          "index": 4,
+          "name": "Attack",
+          "value": 10.0000029,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Release",
+          "value": 100.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Model",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 12,
+          "name": "Knee",
+          "value": 0.703125,
+          "min": 0.0,
+          "max": 18.0
+        },
+        {
+          "index": 13,
+          "name": "LookAhead",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Soft Snare Compressor",
+      "rel_path": "Devices/Audio Effects/Compressor/Soft Snare Compressor.adv",
+      "device_class": "Compressor2",
+      "plugin_name": "Compressor",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 9,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Threshold",
+          "value": 0.1099499166,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Ratio",
+          "value": 4.74074078,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Expansion Ratio",
+          "value": 1.14999998,
+          "min": 1.0,
+          "max": 2.0
+        },
+        {
+          "index": 4,
+          "name": "Attack",
+          "value": 3.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Release",
+          "value": 150.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 0.32421875,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Model",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 12,
+          "name": "Knee",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 18.0
+        },
+        {
+          "index": 13,
+          "name": "LookAhead",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Precise",
+      "rel_path": "Devices/Audio Effects/Compressor/Precise.adv",
+      "device_class": "Compressor2",
+      "plugin_name": "Compressor",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 9,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Threshold",
+          "value": 0.0369162485,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Ratio",
+          "value": 1.54216862,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Expansion Ratio",
+          "value": 1.14999998,
+          "min": 1.0,
+          "max": 2.0
+        },
+        {
+          "index": 4,
+          "name": "Attack",
+          "value": 0.8799226284,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Release",
+          "value": 100.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Model",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 12,
+          "name": "Knee",
+          "value": 6.0,
+          "min": 0.0,
+          "max": 18.0
+        },
+        {
+          "index": 13,
+          "name": "LookAhead",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Mix Gel",
+      "rel_path": "Devices/Audio Effects/Compressor/Mix Gel.adv",
+      "device_class": "Compressor2",
+      "plugin_name": "Compressor",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 9,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Threshold",
+          "value": 0.07838594168,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Ratio",
+          "value": 1.20000005,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Expansion Ratio",
+          "value": 1.14999998,
+          "min": 1.0,
+          "max": 2.0
+        },
+        {
+          "index": 4,
+          "name": "Attack",
+          "value": 12.4519739,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Release",
+          "value": 1018.55804,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Model",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 12,
+          "name": "Knee",
+          "value": 12.0,
+          "min": 0.0,
+          "max": 18.0
+        },
+        {
+          "index": 13,
+          "name": "LookAhead",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Kick Reducer",
+      "rel_path": "Devices/Audio Effects/Compressor/Kick Reducer.adv",
+      "device_class": "Compressor2",
+      "plugin_name": "Compressor",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 9,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Threshold",
+          "value": 0.1280699521,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Ratio",
+          "value": 3.4028232635611926e+38,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Expansion Ratio",
+          "value": 1.14999998,
+          "min": 1.0,
+          "max": 2.0
+        },
+        {
+          "index": 4,
+          "name": "Attack",
+          "value": 10.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Release",
+          "value": 100.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Model",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 12,
+          "name": "Knee",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 18.0
+        },
+        {
+          "index": 13,
+          "name": "LookAhead",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Loud-Kneeless",
+      "rel_path": "Devices/Audio Effects/Compressor/Loud-Kneeless.adv",
+      "device_class": "Compressor2",
+      "plugin_name": "Compressor",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 9,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Threshold",
+          "value": 0.1430941969,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Ratio",
+          "value": 2.16949153,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Expansion Ratio",
+          "value": 1.14999998,
+          "min": 1.0,
+          "max": 2.0
+        },
+        {
+          "index": 4,
+          "name": "Attack",
+          "value": 0.05179474875,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Release",
+          "value": 100.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Model",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 12,
+          "name": "Knee",
+          "value": 17.578125,
+          "min": 0.0,
+          "max": 18.0
+        },
+        {
+          "index": 13,
+          "name": "LookAhead",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Sustained Lead Vocal",
+      "rel_path": "Devices/Audio Effects/Compressor/Sustained Lead Vocal.adv",
+      "device_class": "Compressor2",
+      "plugin_name": "Compressor",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 9,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Threshold",
+          "value": 0.1335927099,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Ratio",
+          "value": 5.47826052,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Expansion Ratio",
+          "value": 1.14999998,
+          "min": 1.0,
+          "max": 2.0
+        },
+        {
+          "index": 4,
+          "name": "Attack",
+          "value": 0.08178966492,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Release",
+          "value": 53.570755,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Model",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 12,
+          "name": "Knee",
+          "value": 6.046875,
+          "min": 0.0,
+          "max": 18.0
+        },
+        {
+          "index": 13,
+          "name": "LookAhead",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    }
+  ]
+}

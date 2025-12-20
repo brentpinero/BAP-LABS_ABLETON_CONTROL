@@ -1,0 +1,324 @@
+{
+  "device_class": "Looper",
+  "preset_count": 6,
+  "presets": [
+    {
+      "preset_name": "Reverse 1 Bar.adv",
+      "rel_path": "Devices/Audio Effects/Looper/Reverse 1 Bar.adv",
+      "device_class": "Looper",
+      "plugin_name": "Looper",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 6,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "State",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 2,
+          "name": "Feedback",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Reverse",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Monitor",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 7,
+          "name": "Song Control",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Tempo Control",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "16 Bar Phrase.adv",
+      "rel_path": "Devices/Audio Effects/Looper/16 Bar Phrase.adv",
+      "device_class": "Looper",
+      "plugin_name": "Looper",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 6,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "State",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 2,
+          "name": "Feedback",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Reverse",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Monitor",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 7,
+          "name": "Song Control",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Tempo Control",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "8 Bar Phrase.adv",
+      "rel_path": "Devices/Audio Effects/Looper/8 Bar Phrase.adv",
+      "device_class": "Looper",
+      "plugin_name": "Looper",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 6,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "State",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 2,
+          "name": "Feedback",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Reverse",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Monitor",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 7,
+          "name": "Song Control",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Tempo Control",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "1 Bar Phrase.adv",
+      "rel_path": "Devices/Audio Effects/Looper/1 Bar Phrase.adv",
+      "device_class": "Looper",
+      "plugin_name": "Looper",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 6,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "State",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 2,
+          "name": "Feedback",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Reverse",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Monitor",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 7,
+          "name": "Song Control",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Tempo Control",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "4 Bar Phrase.adv",
+      "rel_path": "Devices/Audio Effects/Looper/4 Bar Phrase.adv",
+      "device_class": "Looper",
+      "plugin_name": "Looper",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 6,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "State",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 2,
+          "name": "Feedback",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Reverse",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Monitor",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 7,
+          "name": "Song Control",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Tempo Control",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "2 Bar Phrase.adv",
+      "rel_path": "Devices/Audio Effects/Looper/2 Bar Phrase.adv",
+      "device_class": "Looper",
+      "plugin_name": "Looper",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 6,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "State",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 2,
+          "name": "Feedback",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Reverse",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Monitor",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 7,
+          "name": "Song Control",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Tempo Control",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    }
+  ]
+}

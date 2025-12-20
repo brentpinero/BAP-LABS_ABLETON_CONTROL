@@ -1,0 +1,614 @@
+{
+  "device_class": "GrainDelay",
+  "preset_count": 19,
+  "presets": [
+    {
+      "preset_name": "Tubby",
+      "rel_path": "Devices/Audio Effects/Grain Delay/Tubby.adv",
+      "device_class": "GrainDelay",
+      "plugin_name": "Grain Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Spray",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Pitch",
+          "value": 12.0,
+          "min": -36.0,
+          "max": 12.0
+        },
+        {
+          "index": 5,
+          "name": "Feedback",
+          "value": 0.9499999881,
+          "min": 0.0,
+          "max": 0.949999988079071
+        }
+      ]
+    },
+    {
+      "preset_name": "Grains.adv",
+      "rel_path": "Devices/Audio Effects/Grain Delay/Grains.adv",
+      "device_class": "GrainDelay",
+      "plugin_name": "Grain Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Spray",
+          "value": 500.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Pitch",
+          "value": 12.0,
+          "min": -36.0,
+          "max": 12.0
+        },
+        {
+          "index": 5,
+          "name": "Feedback",
+          "value": 0.8386718631,
+          "min": 0.0,
+          "max": 0.949999988079071
+        }
+      ]
+    },
+    {
+      "preset_name": "Kick Toner",
+      "rel_path": "Devices/Audio Effects/Grain Delay/Kick Toner.adv",
+      "device_class": "GrainDelay",
+      "plugin_name": "Grain Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Spray",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Pitch",
+          "value": 12.0,
+          "min": -36.0,
+          "max": 12.0
+        },
+        {
+          "index": 5,
+          "name": "Feedback",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 0.949999988079071
+        }
+      ]
+    },
+    {
+      "preset_name": "Minor Third Up",
+      "rel_path": "Devices/Audio Effects/Grain Delay/Minor Third Up.adv",
+      "device_class": "GrainDelay",
+      "plugin_name": "Grain Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Spray",
+          "value": 0.48828125,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Pitch",
+          "value": 3.0,
+          "min": -36.0,
+          "max": 12.0
+        },
+        {
+          "index": 5,
+          "name": "Feedback",
+          "value": 0.8015624285,
+          "min": 0.0,
+          "max": 0.949999988079071
+        }
+      ]
+    },
+    {
+      "preset_name": "Drive Low.adv",
+      "rel_path": "Devices/Audio Effects/Grain Delay/Drive Low.adv",
+      "device_class": "GrainDelay",
+      "plugin_name": "Grain Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Spray",
+          "value": 0.48828125,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Pitch",
+          "value": -12.0,
+          "min": -36.0,
+          "max": 12.0
+        },
+        {
+          "index": 5,
+          "name": "Feedback",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 0.949999988079071
+        }
+      ]
+    },
+    {
+      "preset_name": "Drive High.adv",
+      "rel_path": "Devices/Audio Effects/Grain Delay/Drive High.adv",
+      "device_class": "GrainDelay",
+      "plugin_name": "Grain Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Spray",
+          "value": 0.48828125,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Pitch",
+          "value": 12.0,
+          "min": -36.0,
+          "max": 12.0
+        },
+        {
+          "index": 5,
+          "name": "Feedback",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 0.949999988079071
+        }
+      ]
+    },
+    {
+      "preset_name": "Bubbles.adv",
+      "rel_path": "Devices/Audio Effects/Grain Delay/Bubbles.adv",
+      "device_class": "GrainDelay",
+      "plugin_name": "Grain Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Spray",
+          "value": 500.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Pitch",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 12.0
+        },
+        {
+          "index": 5,
+          "name": "Feedback",
+          "value": 0.630859375,
+          "min": 0.0,
+          "max": 0.949999988079071
+        }
+      ]
+    },
+    {
+      "preset_name": "Low Feedback.adv",
+      "rel_path": "Devices/Audio Effects/Grain Delay/Low Feedback.adv",
+      "device_class": "GrainDelay",
+      "plugin_name": "Grain Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Spray",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Pitch",
+          "value": -25.0,
+          "min": -36.0,
+          "max": 12.0
+        },
+        {
+          "index": 5,
+          "name": "Feedback",
+          "value": 0.6011718512,
+          "min": 0.0,
+          "max": 0.949999988079071
+        }
+      ]
+    },
+    {
+      "preset_name": "Low Tone Flutter",
+      "rel_path": "Devices/Audio Effects/Grain Delay/Low Tone Flutter.adv",
+      "device_class": "GrainDelay",
+      "plugin_name": "Grain Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Spray",
+          "value": 56.427002,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Pitch",
+          "value": -33.75,
+          "min": -36.0,
+          "max": 12.0
+        },
+        {
+          "index": 5,
+          "name": "Feedback",
+          "value": 0.5343750119,
+          "min": 0.0,
+          "max": 0.949999988079071
+        }
+      ]
+    },
+    {
+      "preset_name": "Five.adv",
+      "rel_path": "Devices/Audio Effects/Grain Delay/Five.adv",
+      "device_class": "GrainDelay",
+      "plugin_name": "Grain Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Spray",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Pitch",
+          "value": 5.0,
+          "min": -36.0,
+          "max": 12.0
+        },
+        {
+          "index": 5,
+          "name": "Feedback",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 0.949999988079071
+        }
+      ]
+    },
+    {
+      "preset_name": "Rubberband.adv",
+      "rel_path": "Devices/Audio Effects/Grain Delay/Rubberband.adv",
+      "device_class": "GrainDelay",
+      "plugin_name": "Grain Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Spray",
+          "value": 8.81958008,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Pitch",
+          "value": 1.875,
+          "min": -36.0,
+          "max": 12.0
+        },
+        {
+          "index": 5,
+          "name": "Feedback",
+          "value": 0.8460937142,
+          "min": 0.0,
+          "max": 0.949999988079071
+        }
+      ]
+    },
+    {
+      "preset_name": "Rush.adv",
+      "rel_path": "Devices/Audio Effects/Grain Delay/Rush.adv",
+      "device_class": "GrainDelay",
+      "plugin_name": "Grain Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Spray",
+          "value": 1.49536121,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Pitch",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 12.0
+        },
+        {
+          "index": 5,
+          "name": "Feedback",
+          "value": 0.6705882549,
+          "min": 0.0,
+          "max": 0.949999988079071
+        }
+      ]
+    },
+    {
+      "preset_name": "Quartertones",
+      "rel_path": "Devices/Audio Effects/Grain Delay/Quartertones.adv",
+      "device_class": "GrainDelay",
+      "plugin_name": "Grain Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Spray",
+          "value": 1.09863281,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Pitch",
+          "value": 0.5,
+          "min": -36.0,
+          "max": 12.0
+        },
+        {
+          "index": 5,
+          "name": "Feedback",
+          "value": 0.8015624285,
+          "min": 0.0,
+          "max": 0.949999988079071
+        }
+      ]
+    },
+    {
+      "preset_name": "Borg.adv",
+      "rel_path": "Devices/Audio Effects/Grain Delay/Borg.adv",
+      "device_class": "GrainDelay",
+      "plugin_name": "Grain Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Spray",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Pitch",
+          "value": -16.6117649,
+          "min": -36.0,
+          "max": 12.0
+        },
+        {
+          "index": 5,
+          "name": "Feedback",
+          "value": 0.9499999881,
+          "min": 0.0,
+          "max": 0.949999988079071
+        }
+      ]
+    },
+    {
+      "preset_name": "Minor Third Down",
+      "rel_path": "Devices/Audio Effects/Grain Delay/Minor Third Down.adv",
+      "device_class": "GrainDelay",
+      "plugin_name": "Grain Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Spray",
+          "value": 0.48828125,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Pitch",
+          "value": -3.0,
+          "min": -36.0,
+          "max": 12.0
+        },
+        {
+          "index": 5,
+          "name": "Feedback",
+          "value": 0.8015624285,
+          "min": 0.0,
+          "max": 0.949999988079071
+        }
+      ]
+    },
+    {
+      "preset_name": "Kick Toner",
+      "rel_path": "Devices/Audio Effects/Grain Delay/Drum Electrifier.adv",
+      "device_class": "GrainDelay",
+      "plugin_name": "Grain Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Spray",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Pitch",
+          "value": 12.0,
+          "min": -36.0,
+          "max": 12.0
+        },
+        {
+          "index": 5,
+          "name": "Feedback",
+          "value": 0.7347655892,
+          "min": 0.0,
+          "max": 0.949999988079071
+        }
+      ]
+    },
+    {
+      "preset_name": "Ascent.adv",
+      "rel_path": "Devices/Audio Effects/Grain Delay/Ascent.adv",
+      "device_class": "GrainDelay",
+      "plugin_name": "Grain Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Spray",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Pitch",
+          "value": 5.25,
+          "min": -36.0,
+          "max": 12.0
+        },
+        {
+          "index": 5,
+          "name": "Feedback",
+          "value": 0.4209803939,
+          "min": 0.0,
+          "max": 0.949999988079071
+        }
+      ]
+    },
+    {
+      "preset_name": "Wirrness.adv",
+      "rel_path": "Devices/Audio Effects/Grain Delay/Wirrness.adv",
+      "device_class": "GrainDelay",
+      "plugin_name": "Grain Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Spray",
+          "value": 1.80903411,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Pitch",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 12.0
+        },
+        {
+          "index": 5,
+          "name": "Feedback",
+          "value": 0.9499999881,
+          "min": 0.0,
+          "max": 0.949999988079071
+        }
+      ]
+    },
+    {
+      "preset_name": "Rumble.adv",
+      "rel_path": "Devices/Audio Effects/Grain Delay/Rumble.adv",
+      "device_class": "GrainDelay",
+      "plugin_name": "Grain Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Spray",
+          "value": 14.7705069,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Pitch",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 12.0
+        },
+        {
+          "index": 5,
+          "name": "Feedback",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 0.949999988079071
+        }
+      ]
+    }
+  ]
+}

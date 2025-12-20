@@ -1,0 +1,318 @@
+{
+  "device_class": "MidiRandom",
+  "preset_count": 8,
+  "presets": [
+    {
+      "preset_name": "Fifth.adv",
+      "rel_path": "Devices/MIDI Effects/Random/Fifth.adv",
+      "device_class": "MidiRandom",
+      "plugin_name": "Random",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Chance",
+          "value": 0.8015872836,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Choices",
+          "value": 2.0,
+          "min": 1.0,
+          "max": 24.0
+        },
+        {
+          "index": 4,
+          "name": "Sign",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 6,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Chaos.adv",
+      "rel_path": "Devices/MIDI Effects/Random/Chaos.adv",
+      "device_class": "MidiRandom",
+      "plugin_name": "Random",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Chance",
+          "value": 0.928571403,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Choices",
+          "value": 12.0,
+          "min": 1.0,
+          "max": 24.0
+        },
+        {
+          "index": 4,
+          "name": "Sign",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 6,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Forced Jazz.adv",
+      "rel_path": "Devices/MIDI Effects/Random/Forced Jazz.adv",
+      "device_class": "MidiRandom",
+      "plugin_name": "Random",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Chance",
+          "value": 0.6507936716,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Choices",
+          "value": 1.0,
+          "min": 1.0,
+          "max": 24.0
+        },
+        {
+          "index": 4,
+          "name": "Sign",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 6,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Low Oct.adv",
+      "rel_path": "Devices/MIDI Effects/Random/Low Oct.adv",
+      "device_class": "MidiRandom",
+      "plugin_name": "Random",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Chance",
+          "value": 0.6507936716,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Choices",
+          "value": 1.0,
+          "min": 1.0,
+          "max": 24.0
+        },
+        {
+          "index": 4,
+          "name": "Sign",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 6,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Jazz Again.adv",
+      "rel_path": "Devices/MIDI Effects/Random/Jazz Again.adv",
+      "device_class": "MidiRandom",
+      "plugin_name": "Random",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Chance",
+          "value": 0.8015872836,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Choices",
+          "value": 1.0,
+          "min": 1.0,
+          "max": 24.0
+        },
+        {
+          "index": 4,
+          "name": "Sign",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 6,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Orange.adv",
+      "rel_path": "Devices/MIDI Effects/Random/Orange.adv",
+      "device_class": "MidiRandom",
+      "plugin_name": "Random",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Chance",
+          "value": 0.4047619104,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Choices",
+          "value": 1.0,
+          "min": 1.0,
+          "max": 24.0
+        },
+        {
+          "index": 4,
+          "name": "Sign",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 6,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Drama.adv",
+      "rel_path": "Devices/MIDI Effects/Random/Drama.adv",
+      "device_class": "MidiRandom",
+      "plugin_name": "Random",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Chance",
+          "value": 0.206349209,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Choices",
+          "value": 5.0,
+          "min": 1.0,
+          "max": 24.0
+        },
+        {
+          "index": 4,
+          "name": "Sign",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 6,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Blue.adv",
+      "rel_path": "Devices/MIDI Effects/Random/Blue.adv",
+      "device_class": "MidiRandom",
+      "plugin_name": "Random",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Chance",
+          "value": 0.1031746045,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Choices",
+          "value": 1.0,
+          "min": 1.0,
+          "max": 24.0
+        },
+        {
+          "index": 4,
+          "name": "Sign",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 6,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    }
+  ]
+}

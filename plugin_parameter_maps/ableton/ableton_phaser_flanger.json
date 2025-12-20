@@ -1,0 +1,311 @@
+{
+  "plugin": "Phaser-Flanger",
+  "type": "audio_effect",
+  "uri": "query:AudioFx#Phaser-Flanger",
+  "class_name": "PhaserNew",
+  "parameter_count": 31,
+  "parameters": [
+    {
+      "index": 0,
+      "name": "Device On",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 1,
+      "name": "Amount",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 1.0
+    },
+    {
+      "index": 2,
+      "name": "Mod Wave",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 9.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 3,
+      "name": "Mod Freq",
+      "value": 0.361190527677536,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.361190527677536
+    },
+    {
+      "index": 4,
+      "name": "Mod Freq 2",
+      "value": 0.361190527677536,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.361190527677536
+    },
+    {
+      "index": 5,
+      "name": "Mod Sync",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 6,
+      "name": "Mod Sync 2",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 7,
+      "name": "Mod Rate",
+      "value": 4.0,
+      "min": 0.0,
+      "max": 21.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 4.0
+    },
+    {
+      "index": 8,
+      "name": "Mod Rate 2",
+      "value": 4.0,
+      "min": 0.0,
+      "max": 21.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 4.0
+    },
+    {
+      "index": 9,
+      "name": "Mod Phase",
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.5
+    },
+    {
+      "index": 10,
+      "name": "Spin Enabled",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 11,
+      "name": "Spin",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 12,
+      "name": "Duty Cycle",
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.5
+    },
+    {
+      "index": 13,
+      "name": "Lfo Blend",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 14,
+      "name": "Env Enabled",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 15,
+      "name": "Env Amount",
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.5
+    },
+    {
+      "index": 16,
+      "name": "Env Attack",
+      "value": 0.19732442498207092,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.19732442498207092
+    },
+    {
+      "index": 17,
+      "name": "Env Release",
+      "value": 0.49987494945526123,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.49987494945526123
+    },
+    {
+      "index": 18,
+      "name": "Mode",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 2.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 19,
+      "name": "Notches",
+      "value": 4.0,
+      "min": 1.0,
+      "max": 42.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 4.0
+    },
+    {
+      "index": 20,
+      "name": "Flange Time",
+      "value": 0.6075279116630554,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.6075279116630554
+    },
+    {
+      "index": 21,
+      "name": "Doubler Time",
+      "value": 0.6880202889442444,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.6880202889442444
+    },
+    {
+      "index": 22,
+      "name": "Mod Blend",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 23,
+      "name": "Center Freq",
+      "value": 0.4768235981464386,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.4768235981464386
+    },
+    {
+      "index": 24,
+      "name": "Spread",
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.5
+    },
+    {
+      "index": 25,
+      "name": "Feedback",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 26,
+      "name": "Warmth",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 27,
+      "name": "Safe Freq",
+      "value": 0.46830782294273376,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.46830782294273376
+    },
+    {
+      "index": 28,
+      "name": "FB Inv",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 29,
+      "name": "Output Gain",
+      "value": 0.7071067690849304,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.7071067690849304
+    },
+    {
+      "index": 30,
+      "name": "Dry/Wet",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 1.0
+    }
+  ]
+}

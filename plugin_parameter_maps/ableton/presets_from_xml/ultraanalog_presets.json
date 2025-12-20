@@ -1,0 +1,2674 @@
+{
+  "device_class": "UltraAnalog",
+  "preset_count": 58,
+  "presets": [
+    {
+      "preset_name": "Thick Chord Pad",
+      "rel_path": "Devices/Instruments/Analog/Synth Pad/Thick Chord Pad.adv",
+      "device_class": "UltraAnalog",
+      "plugin_name": "Analog",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Volume",
+          "value": 0.7142857313,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Octave",
+          "value": 0.0,
+          "min": -3.0,
+          "max": 3.0
+        },
+        {
+          "index": 35,
+          "name": "Noise Color",
+          "value": 0.5476190448,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Noise Balance",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Noise Level",
+          "value": 0.34375,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Charry Pad",
+      "rel_path": "Devices/Instruments/Analog/Synth Pad/Charry Pad.adv",
+      "device_class": "UltraAnalog",
+      "plugin_name": "Analog",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Volume",
+          "value": 0.7047892213,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Octave",
+          "value": 1.0,
+          "min": -3.0,
+          "max": 3.0
+        },
+        {
+          "index": 35,
+          "name": "Noise Color",
+          "value": 0.722222209,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Noise Balance",
+          "value": 0.1015625,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Noise Level",
+          "value": 0.140625,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Square Sync Tremolo Pad",
+      "rel_path": "Devices/Instruments/Analog/Synth Pad/Square Sync Tremolo Pad.adv",
+      "device_class": "UltraAnalog",
+      "plugin_name": "Analog",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Volume",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Octave",
+          "value": 1.0,
+          "min": -3.0,
+          "max": 3.0
+        },
+        {
+          "index": 35,
+          "name": "Noise Color",
+          "value": 0.8730158806,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Noise Balance",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Noise Level",
+          "value": 0.3828125,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Glass Low Strings Pad",
+      "rel_path": "Devices/Instruments/Analog/Synth Pad/Glass Low Strings Pad.adv",
+      "device_class": "UltraAnalog",
+      "plugin_name": "Analog",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Volume",
+          "value": 0.7047892213,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Octave",
+          "value": 0.0,
+          "min": -3.0,
+          "max": 3.0
+        },
+        {
+          "index": 35,
+          "name": "Noise Color",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Noise Balance",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Noise Level",
+          "value": 0.4140625,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Fifth Pad",
+      "rel_path": "Devices/Instruments/Analog/Synth Pad/Fifth Pad.adv",
+      "device_class": "UltraAnalog",
+      "plugin_name": "Analog",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Volume",
+          "value": 0.5004031062,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Octave",
+          "value": 0.0,
+          "min": -3.0,
+          "max": 3.0
+        },
+        {
+          "index": 35,
+          "name": "Noise Color",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Noise Balance",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Noise Level",
+          "value": 0.0078125,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Glass High Strings Pad",
+      "rel_path": "Devices/Instruments/Analog/Synth Pad/Glass High Strings Pad.adv",
+      "device_class": "UltraAnalog",
+      "plugin_name": "Analog",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Volume",
+          "value": 0.5265403986,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Octave",
+          "value": 0.0,
+          "min": -3.0,
+          "max": 3.0
+        },
+        {
+          "index": 35,
+          "name": "Noise Color",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Noise Balance",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Noise Level",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Strings Detuned Pad",
+      "rel_path": "Devices/Instruments/Analog/Synth Pad/Strings Detuned Pad.adv",
+      "device_class": "UltraAnalog",
+      "plugin_name": "Analog",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Volume",
+          "value": 0.5265403986,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Octave",
+          "value": 0.0,
+          "min": -3.0,
+          "max": 3.0
+        },
+        {
+          "index": 35,
+          "name": "Noise Color",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Noise Balance",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Noise Level",
+          "value": 0.8062000275,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Bright Thin Sweep Pad",
+      "rel_path": "Devices/Instruments/Analog/Synth Pad/Bright Thin Sweep Pad.adv",
+      "device_class": "UltraAnalog",
+      "plugin_name": "Analog",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Volume",
+          "value": 0.706349194,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Octave",
+          "value": -1.0,
+          "min": -3.0,
+          "max": 3.0
+        },
+        {
+          "index": 35,
+          "name": "Noise Color",
+          "value": 0.777777791,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Noise Balance",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Noise Level",
+          "value": 0.296875,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Mellow Notch Brass",
+      "rel_path": "Devices/Instruments/Analog/Brass/Mellow Notch Brass.adv",
+      "device_class": "UltraAnalog",
+      "plugin_name": "Analog",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Volume",
+          "value": 0.5793650746,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Octave",
+          "value": 0.0,
+          "min": -3.0,
+          "max": 3.0
+        },
+        {
+          "index": 35,
+          "name": "Noise Color",
+          "value": 0.7857142687,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Noise Balance",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Noise Level",
+          "value": 0.138330847,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "80s VCO Brass",
+      "rel_path": "Devices/Instruments/Analog/Brass/80s VCO Brass.adv",
+      "device_class": "UltraAnalog",
+      "plugin_name": "Analog",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Volume",
+          "value": 0.4426840842,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Octave",
+          "value": 0.0,
+          "min": -3.0,
+          "max": 3.0
+        },
+        {
+          "index": 35,
+          "name": "Noise Color",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Noise Balance",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Noise Level",
+          "value": 0.8062000275,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Horn2 Hollow Brass",
+      "rel_path": "Devices/Instruments/Analog/Brass/Horn2 Hollow Brass.adv",
+      "device_class": "UltraAnalog",
+      "plugin_name": "Analog",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Volume",
+          "value": 0.3515625,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Octave",
+          "value": -1.0,
+          "min": -3.0,
+          "max": 3.0
+        },
+        {
+          "index": 35,
+          "name": "Noise Color",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Noise Balance",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Noise Level",
+          "value": 0.8062000275,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Saw Pure Brass",
+      "rel_path": "Devices/Instruments/Analog/Brass/Saw Pure Brass.adv",
+      "device_class": "UltraAnalog",
+      "plugin_name": "Analog",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Volume",
+          "value": 0.4682539701,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Octave",
+          "value": 0.0,
+          "min": -3.0,
+          "max": 3.0
+        },
+        {
+          "index": 35,
+          "name": "Noise Color",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Noise Balance",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Noise Level",
+          "value": 0.8062000275,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Dual OSC Rubber Bass",
+      "rel_path": "Devices/Instruments/Analog/Bass/Dual OSC Rubber Bass.adv",
+      "device_class": "UltraAnalog",
+      "plugin_name": "Analog",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Volume",
+          "value": 0.3984375,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Octave",
+          "value": 2.0,
+          "min": -3.0,
+          "max": 3.0
+        },
+        {
+          "index": 35,
+          "name": "Noise Color",
+          "value": 0.6349206567,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Noise Balance",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Noise Level",
+          "value": 0.203125,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Muted Dark Bass",
+      "rel_path": "Devices/Instruments/Analog/Bass/Muted Dark Bass.adv",
+      "device_class": "UltraAnalog",
+      "plugin_name": "Analog",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Volume",
+          "value": 0.5265403986,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Octave",
+          "value": 1.0,
+          "min": -3.0,
+          "max": 3.0
+        },
+        {
+          "index": 35,
+          "name": "Noise Color",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Noise Balance",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Noise Level",
+          "value": 0.8062000275,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Dual OSC Reso Noise Bass",
+      "rel_path": "Devices/Instruments/Analog/Bass/Dual OSC Reso Noise Bass.adv",
+      "device_class": "UltraAnalog",
+      "plugin_name": "Analog",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Volume",
+          "value": 0.5421459675,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Octave",
+          "value": 1.0,
+          "min": -3.0,
+          "max": 3.0
+        },
+        {
+          "index": 35,
+          "name": "Noise Color",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Noise Balance",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Noise Level",
+          "value": 0.4140625,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Dual OSC Vibrato Bass",
+      "rel_path": "Devices/Instruments/Analog/Bass/Dual OSC Vibrato Bass.adv",
+      "device_class": "UltraAnalog",
+      "plugin_name": "Analog",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Volume",
+          "value": 0.5873016119,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Octave",
+          "value": 2.0,
+          "min": -3.0,
+          "max": 3.0
+        },
+        {
+          "index": 35,
+          "name": "Noise Color",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Noise Balance",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Noise Level",
+          "value": 0.8062000275,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Rhythmic Octaves Bass",
+      "rel_path": "Devices/Instruments/Analog/Bass/Rhythmic Octaves Bass.adv",
+      "device_class": "UltraAnalog",
+      "plugin_name": "Analog",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Volume",
+          "value": 0.6428571343,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Octave",
+          "value": 0.0,
+          "min": -3.0,
+          "max": 3.0
+        },
+        {
+          "index": 35,
+          "name": "Noise Color",
+          "value": 0.125,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Noise Balance",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Noise Level",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Saw Complex Bass",
+      "rel_path": "Devices/Instruments/Analog/Bass/Saw Complex Bass.adv",
+      "device_class": "UltraAnalog",
+      "plugin_name": "Analog",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Volume",
+          "value": 0.9047619104,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Octave",
+          "value": 3.0,
+          "min": -3.0,
+          "max": 3.0
+        },
+        {
+          "index": 35,
+          "name": "Noise Color",
+          "value": 0.6349206567,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Noise Balance",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Noise Level",
+          "value": 0.0078125,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Square Pure Bass",
+      "rel_path": "Devices/Instruments/Analog/Bass/Square Pure Bass.adv",
+      "device_class": "UltraAnalog",
+      "plugin_name": "Analog",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Volume",
+          "value": 0.777777791,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Octave",
+          "value": 0.0,
+          "min": -3.0,
+          "max": 3.0
+        },
+        {
+          "index": 35,
+          "name": "Noise Color",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Noise Balance",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Noise Level",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Smooth SQU Bass.adv",
+      "rel_path": "Devices/Instruments/Analog/Bass/Smooth SQU Bass.adv",
+      "device_class": "UltraAnalog",
+      "plugin_name": "Analog",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Volume",
+          "value": 0.6240625381,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Octave",
+          "value": 0.0,
+          "min": -3.0,
+          "max": 3.0
+        },
+        {
+          "index": 35,
+          "name": "Noise Color",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Noise Balance",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Noise Level",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Saw Sub Complex Bass",
+      "rel_path": "Devices/Instruments/Analog/Bass/Saw Sub Complex Bass.adv",
+      "device_class": "UltraAnalog",
+      "plugin_name": "Analog",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Volume",
+          "value": 0.6028571725,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Octave",
+          "value": 0.0,
+          "min": -3.0,
+          "max": 3.0
+        },
+        {
+          "index": 35,
+          "name": "Noise Color",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Noise Balance",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Noise Level",
+          "value": 0.8062000275,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Saw Pure Muted Bass",
+      "rel_path": "Devices/Instruments/Analog/Bass/Saw Pure Muted Bass.adv",
+      "device_class": "UltraAnalog",
+      "plugin_name": "Analog",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Volume",
+          "value": 0.9424953461,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Octave",
+          "value": 1.0,
+          "min": -3.0,
+          "max": 3.0
+        },
+        {
+          "index": 35,
+          "name": "Noise Color",
+          "value": 0.190476194,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Noise Balance",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Noise Level",
+          "value": 0.793650806,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Square Percussive Bass.adv",
+      "rel_path": "Devices/Instruments/Analog/Bass/Square Percussive Bass.adv",
+      "device_class": "UltraAnalog",
+      "plugin_name": "Analog",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Volume",
+          "value": 0.6272765398,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Octave",
+          "value": 0.0,
+          "min": -3.0,
+          "max": 3.0
+        },
+        {
+          "index": 35,
+          "name": "Noise Color",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Noise Balance",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Noise Level",
+          "value": 0.8062000275,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Square Dual Muted Bass",
+      "rel_path": "Devices/Instruments/Analog/Bass/Square Dual Muted Bass.adv",
+      "device_class": "UltraAnalog",
+      "plugin_name": "Analog",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Volume",
+          "value": 0.5158730149,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Octave",
+          "value": 2.0,
+          "min": -3.0,
+          "max": 3.0
+        },
+        {
+          "index": 35,
+          "name": "Noise Color",
+          "value": 0.1904761791,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Noise Balance",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Noise Level",
+          "value": 0.8058600426,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Dual OSC Buzz Octaves Bass",
+      "rel_path": "Devices/Instruments/Analog/Bass/Dual OSC Buzz Octaves Bass.adv",
+      "device_class": "UltraAnalog",
+      "plugin_name": "Analog",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Volume",
+          "value": 0.2957142889,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Octave",
+          "value": 1.0,
+          "min": -3.0,
+          "max": 3.0
+        },
+        {
+          "index": 35,
+          "name": "Noise Color",
+          "value": 0.2857142985,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Noise Balance",
+          "value": 0.1171875,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Noise Level",
+          "value": 0.4296875,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Dual OSC Sample & Hold Bass",
+      "rel_path": "Devices/Instruments/Analog/Bass/Dual OSC Sample & Hold Bass.adv",
+      "device_class": "UltraAnalog",
+      "plugin_name": "Analog",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Volume",
+          "value": 0.8391385674,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Octave",
+          "value": 2.0,
+          "min": -3.0,
+          "max": 3.0
+        },
+        {
+          "index": 35,
+          "name": "Noise Color",
+          "value": 0.3622047305,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Noise Balance",
+          "value": 0.1328125,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Noise Level",
+          "value": 0.8062000275,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Saw Filter Bass",
+      "rel_path": "Devices/Instruments/Analog/Bass/Saw Filter Bass.adv",
+      "device_class": "UltraAnalog",
+      "plugin_name": "Analog",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Volume",
+          "value": 0.8333333135,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Octave",
+          "value": 1.0,
+          "min": -3.0,
+          "max": 3.0
+        },
+        {
+          "index": 35,
+          "name": "Noise Color",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Noise Balance",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Noise Level",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Dual OSC Plastic Bass",
+      "rel_path": "Devices/Instruments/Analog/Bass/Dual OSC Plastic Bass.adv",
+      "device_class": "UltraAnalog",
+      "plugin_name": "Analog",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Volume",
+          "value": 0.2959375381,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Octave",
+          "value": 1.0,
+          "min": -3.0,
+          "max": 3.0
+        },
+        {
+          "index": 35,
+          "name": "Noise Color",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Noise Balance",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Noise Level",
+          "value": 0.4296875,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Muted Wow Bass",
+      "rel_path": "Devices/Instruments/Analog/Bass/Muted Wow Bass.adv",
+      "device_class": "UltraAnalog",
+      "plugin_name": "Analog",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Volume",
+          "value": 0.4426840842,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Octave",
+          "value": 2.0,
+          "min": -3.0,
+          "max": 3.0
+        },
+        {
+          "index": 35,
+          "name": "Noise Color",
+          "value": 0.6587301493,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Noise Balance",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Noise Level",
+          "value": 0.5708046556,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Saw Detune Sync Lead",
+      "rel_path": "Devices/Instruments/Analog/Synth Lead/Saw Detune Sync Lead.adv",
+      "device_class": "UltraAnalog",
+      "plugin_name": "Analog",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Volume",
+          "value": 0.4688995779,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Octave",
+          "value": 0.0,
+          "min": -3.0,
+          "max": 3.0
+        },
+        {
+          "index": 35,
+          "name": "Noise Color",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Noise Balance",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Noise Level",
+          "value": 0.4140625,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "S&H Pluck Slow Lead",
+      "rel_path": "Devices/Instruments/Analog/Synth Lead/S&H Pluck Slow Lead.adv",
+      "device_class": "UltraAnalog",
+      "plugin_name": "Analog",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Volume",
+          "value": 0.3133333623,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Octave",
+          "value": 0.0,
+          "min": -3.0,
+          "max": 3.0
+        },
+        {
+          "index": 35,
+          "name": "Noise Color",
+          "value": 0.75,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Noise Balance",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Noise Level",
+          "value": 0.484375,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Square Sync Lead",
+      "rel_path": "Devices/Instruments/Analog/Synth Lead/Square Sync Lead.adv",
+      "device_class": "UltraAnalog",
+      "plugin_name": "Analog",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Volume",
+          "value": 0.5917544961,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Octave",
+          "value": 0.0,
+          "min": -3.0,
+          "max": 3.0
+        },
+        {
+          "index": 35,
+          "name": "Noise Color",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Noise Balance",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Noise Level",
+          "value": 0.8062000275,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Dual OSC Muted Sweep Lead",
+      "rel_path": "Devices/Instruments/Analog/Synth Lead/Dual OSC Muted Sweep Lead.adv",
+      "device_class": "UltraAnalog",
+      "plugin_name": "Analog",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Volume",
+          "value": 0.3945482075,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Octave",
+          "value": 2.0,
+          "min": -3.0,
+          "max": 3.0
+        },
+        {
+          "index": 35,
+          "name": "Noise Color",
+          "value": 0.6349206567,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Noise Balance",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Noise Level",
+          "value": 0.0078125,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Nasal Mod Lead",
+      "rel_path": "Devices/Instruments/Analog/Synth Lead/Nasal Mod Lead.adv",
+      "device_class": "UltraAnalog",
+      "plugin_name": "Analog",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Volume",
+          "value": 0.6272765398,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Octave",
+          "value": -1.0,
+          "min": -3.0,
+          "max": 3.0
+        },
+        {
+          "index": 35,
+          "name": "Noise Color",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Noise Balance",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Noise Level",
+          "value": 0.6269841194,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Fourths Lead",
+      "rel_path": "Devices/Instruments/Analog/Synth Lead/Fourths Lead.adv",
+      "device_class": "UltraAnalog",
+      "plugin_name": "Analog",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Volume",
+          "value": 0.4541270137,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Octave",
+          "value": 1.0,
+          "min": -3.0,
+          "max": 3.0
+        },
+        {
+          "index": 35,
+          "name": "Noise Color",
+          "value": 0.08730158955,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Noise Balance",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Noise Level",
+          "value": 0.8062000275,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Metalic Lead",
+      "rel_path": "Devices/Instruments/Analog/Synth Lead/Metalic Lead.adv",
+      "device_class": "UltraAnalog",
+      "plugin_name": "Analog",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Volume",
+          "value": 0.5396825671,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Octave",
+          "value": 0.0,
+          "min": -3.0,
+          "max": 3.0
+        },
+        {
+          "index": 35,
+          "name": "Noise Color",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Noise Balance",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Noise Level",
+          "value": 0.6746031642,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Dual OSC Buzz Lead",
+      "rel_path": "Devices/Instruments/Analog/Synth Lead/Dual OSC Buzz Lead.adv",
+      "device_class": "UltraAnalog",
+      "plugin_name": "Analog",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Volume",
+          "value": 0.4426840842,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Octave",
+          "value": 1.0,
+          "min": -3.0,
+          "max": 3.0
+        },
+        {
+          "index": 35,
+          "name": "Noise Color",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Noise Balance",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Noise Level",
+          "value": 0.765625,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Dual OSC Sync Bright Lead",
+      "rel_path": "Devices/Instruments/Analog/Synth Lead/Dual OSC Sync Bright Lead.adv",
+      "device_class": "UltraAnalog",
+      "plugin_name": "Analog",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Volume",
+          "value": 0.2958666384,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Octave",
+          "value": 0.0,
+          "min": -3.0,
+          "max": 3.0
+        },
+        {
+          "index": 35,
+          "name": "Noise Color",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Noise Balance",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Noise Level",
+          "value": 0.4140625,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Kick Complex Perc",
+      "rel_path": "Devices/Instruments/Analog/Synth Percussion/Kick Complex Perc.adv",
+      "device_class": "UltraAnalog",
+      "plugin_name": "Analog",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Volume",
+          "value": 0.3516248763,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Octave",
+          "value": 0.0,
+          "min": -3.0,
+          "max": 3.0
+        },
+        {
+          "index": 35,
+          "name": "Noise Color",
+          "value": 0.53125,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Noise Balance",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Noise Level",
+          "value": 0.25,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Noise Hit Perc",
+      "rel_path": "Devices/Instruments/Analog/Synth Percussion/Noise Hit Perc.adv",
+      "device_class": "UltraAnalog",
+      "plugin_name": "Analog",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Volume",
+          "value": 0.4179243743,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Octave",
+          "value": 0.0,
+          "min": -3.0,
+          "max": 3.0
+        },
+        {
+          "index": 35,
+          "name": "Noise Color",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Noise Balance",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Noise Level",
+          "value": 0.8062000275,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Organ Vibrato",
+      "rel_path": "Devices/Instruments/Analog/Piano & Keys/Organ Vibrato.adv",
+      "device_class": "UltraAnalog",
+      "plugin_name": "Analog",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Volume",
+          "value": 0.5396825671,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Octave",
+          "value": 0.0,
+          "min": -3.0,
+          "max": 3.0
+        },
+        {
+          "index": 35,
+          "name": "Noise Color",
+          "value": 0.8968253732,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Noise Balance",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Noise Level",
+          "value": 0.515625,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "E-Piano Muted Pure",
+      "rel_path": "Devices/Instruments/Analog/Piano & Keys/E-Piano Muted Pure.adv",
+      "device_class": "UltraAnalog",
+      "plugin_name": "Analog",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Volume",
+          "value": 0.3015873134,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Octave",
+          "value": -1.0,
+          "min": -3.0,
+          "max": 3.0
+        },
+        {
+          "index": 35,
+          "name": "Noise Color",
+          "value": 0.1031746045,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Noise Balance",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Noise Level",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Organ Percussive",
+      "rel_path": "Devices/Instruments/Analog/Piano & Keys/Organ Percussive.adv",
+      "device_class": "UltraAnalog",
+      "plugin_name": "Analog",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Volume",
+          "value": 0.6666666865,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Octave",
+          "value": 0.0,
+          "min": -3.0,
+          "max": 3.0
+        },
+        {
+          "index": 35,
+          "name": "Noise Color",
+          "value": 0.296875,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Noise Balance",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Noise Level",
+          "value": 0.6190476418,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Organ Octaves Slow",
+      "rel_path": "Devices/Instruments/Analog/Piano & Keys/Organ Octaves Slow.adv",
+      "device_class": "UltraAnalog",
+      "plugin_name": "Analog",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Volume",
+          "value": 0.6190476418,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Octave",
+          "value": 1.0,
+          "min": -3.0,
+          "max": 3.0
+        },
+        {
+          "index": 35,
+          "name": "Noise Color",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Noise Balance",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Noise Level",
+          "value": 0.0078125,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Organ Church Slow",
+      "rel_path": "Devices/Instruments/Analog/Piano & Keys/Organ Church Slow.adv",
+      "device_class": "UltraAnalog",
+      "plugin_name": "Analog",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Volume",
+          "value": 0.7047889829,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Octave",
+          "value": 1.0,
+          "min": -3.0,
+          "max": 3.0
+        },
+        {
+          "index": 35,
+          "name": "Noise Color",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Noise Balance",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Noise Level",
+          "value": 0.4140625,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Soft Morning Keys",
+      "rel_path": "Devices/Instruments/Analog/Synth Keys/Soft Morning Keys.adv",
+      "device_class": "UltraAnalog",
+      "plugin_name": "Analog",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Volume",
+          "value": 0.3412698507,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Octave",
+          "value": 0.0,
+          "min": -3.0,
+          "max": 3.0
+        },
+        {
+          "index": 35,
+          "name": "Noise Color",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Noise Balance",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Noise Level",
+          "value": 0.078125,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Tremolo Tines",
+      "rel_path": "Devices/Instruments/Analog/Synth Keys/Tremolo Tines.adv",
+      "device_class": "UltraAnalog",
+      "plugin_name": "Analog",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Volume",
+          "value": 0.8391385674,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Octave",
+          "value": 0.0,
+          "min": -3.0,
+          "max": 3.0
+        },
+        {
+          "index": 35,
+          "name": "Noise Color",
+          "value": 0.6349206567,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Noise Balance",
+          "value": 0.04761904478,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Noise Level",
+          "value": 0.3125,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Synth Organ Long Release",
+      "rel_path": "Devices/Instruments/Analog/Synth Keys/Synth Organ Long Release.adv",
+      "device_class": "UltraAnalog",
+      "plugin_name": "Analog",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Volume",
+          "value": 0.5396825671,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Octave",
+          "value": 0.0,
+          "min": -3.0,
+          "max": 3.0
+        },
+        {
+          "index": 35,
+          "name": "Noise Color",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Noise Balance",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Noise Level",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Accordion Unisono Pad",
+      "rel_path": "Devices/Instruments/Analog/Synth Keys/Accordion Unisono Pad.adv",
+      "device_class": "UltraAnalog",
+      "plugin_name": "Analog",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Volume",
+          "value": 0.3516248763,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Octave",
+          "value": 1.0,
+          "min": -3.0,
+          "max": 3.0
+        },
+        {
+          "index": 35,
+          "name": "Noise Color",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Noise Balance",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Noise Level",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Saw Elegant Thick Keys",
+      "rel_path": "Devices/Instruments/Analog/Synth Keys/Saw Elegant Thick Keys.adv",
+      "device_class": "UltraAnalog",
+      "plugin_name": "Analog",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Volume",
+          "value": 0.5276190639,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Octave",
+          "value": 1.0,
+          "min": -3.0,
+          "max": 3.0
+        },
+        {
+          "index": 35,
+          "name": "Noise Color",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Noise Balance",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Noise Level",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "S&H Muted Keys",
+      "rel_path": "Devices/Instruments/Analog/Synth Keys/S&H Muted Keys.adv",
+      "device_class": "UltraAnalog",
+      "plugin_name": "Analog",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Volume",
+          "value": 0.5873016119,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Octave",
+          "value": 0.0,
+          "min": -3.0,
+          "max": 3.0
+        },
+        {
+          "index": 35,
+          "name": "Noise Color",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Noise Balance",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Noise Level",
+          "value": 0.8062000275,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Sweep Lead",
+      "rel_path": "Devices/Instruments/Analog/Synth Keys/Sweep Keys.adv",
+      "device_class": "UltraAnalog",
+      "plugin_name": "Analog",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Volume",
+          "value": 0.7301587462,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Octave",
+          "value": 0.0,
+          "min": -3.0,
+          "max": 3.0
+        },
+        {
+          "index": 35,
+          "name": "Noise Color",
+          "value": 0.1889763772,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Noise Balance",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Noise Level",
+          "value": 0.8062000275,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Movie Pad",
+      "rel_path": "Devices/Instruments/Analog/Effects/Movie Pad.adv",
+      "device_class": "UltraAnalog",
+      "plugin_name": "Analog",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Volume",
+          "value": 0.5238095522,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Octave",
+          "value": 1.0,
+          "min": -3.0,
+          "max": 3.0
+        },
+        {
+          "index": 35,
+          "name": "Noise Color",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Noise Balance",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Noise Level",
+          "value": 0.0703125,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Rhythmic Iron",
+      "rel_path": "Devices/Instruments/Analog/Effects/Rhythmic Iron.adv",
+      "device_class": "UltraAnalog",
+      "plugin_name": "Analog",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Volume",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Octave",
+          "value": 0.0,
+          "min": -3.0,
+          "max": 3.0
+        },
+        {
+          "index": 35,
+          "name": "Noise Color",
+          "value": 0.4841269851,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Noise Balance",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Noise Level",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Zap",
+      "rel_path": "Devices/Instruments/Analog/Effects/Zap.adv",
+      "device_class": "UltraAnalog",
+      "plugin_name": "Analog",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Volume",
+          "value": 0.777777791,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Octave",
+          "value": -1.0,
+          "min": -3.0,
+          "max": 3.0
+        },
+        {
+          "index": 35,
+          "name": "Noise Color",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Noise Balance",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Noise Level",
+          "value": 0.4921875,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Games5 Shutter",
+      "rel_path": "Devices/Instruments/Analog/Effects/Shutter Games.adv",
+      "device_class": "UltraAnalog",
+      "plugin_name": "Analog",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Volume",
+          "value": 0.571428597,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Octave",
+          "value": 0.0,
+          "min": -3.0,
+          "max": 3.0
+        },
+        {
+          "index": 35,
+          "name": "Noise Color",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Noise Balance",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Noise Level",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "S&H Games",
+      "rel_path": "Devices/Instruments/Analog/Effects/S&H Games.adv",
+      "device_class": "UltraAnalog",
+      "plugin_name": "Analog",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Volume",
+          "value": 0.5793650746,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Octave",
+          "value": 0.0,
+          "min": -3.0,
+          "max": 3.0
+        },
+        {
+          "index": 35,
+          "name": "Noise Color",
+          "value": 0.5476190448,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Noise Balance",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Noise Level",
+          "value": 0.34375,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Overtones",
+      "rel_path": "Devices/Instruments/Analog/Effects/Overtones.adv",
+      "device_class": "UltraAnalog",
+      "plugin_name": "Analog",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Volume",
+          "value": 0.3203125,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Octave",
+          "value": 0.0,
+          "min": -3.0,
+          "max": 3.0
+        },
+        {
+          "index": 35,
+          "name": "Noise Color",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Noise Balance",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Noise Level",
+          "value": 0.8062000275,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    }
+  ]
+}

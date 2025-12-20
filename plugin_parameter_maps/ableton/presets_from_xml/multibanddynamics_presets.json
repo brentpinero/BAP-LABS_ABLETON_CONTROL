@@ -1,0 +1,126 @@
+{
+  "device_class": "MultibandDynamics",
+  "preset_count": 12,
+  "presets": [
+    {
+      "preset_name": "Broken Antenna 2",
+      "rel_path": "Devices/Audio Effects/Multiband Dynamics/Broken Antenna.adv",
+      "device_class": "MultibandDynamics",
+      "plugin_name": "Multiband Dynamics",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Standard Multiband Comp",
+      "rel_path": "Devices/Audio Effects/Multiband Dynamics/A Standard Multiband Comp.adv",
+      "device_class": "MultibandDynamics",
+      "plugin_name": "Multiband Dynamics",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Car stereo.adv",
+      "rel_path": "Devices/Audio Effects/Multiband Dynamics/Car stereo.adv",
+      "device_class": "MultibandDynamics",
+      "plugin_name": "Multiband Dynamics",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Multiband Compression.adv",
+      "rel_path": "Devices/Audio Effects/Multiband Dynamics/Multiband Compression.adv",
+      "device_class": "MultibandDynamics",
+      "plugin_name": "Multiband Dynamics",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Speech Enhancer",
+      "rel_path": "Devices/Audio Effects/Multiband Dynamics/Speech Enhancer.adv",
+      "device_class": "MultibandDynamics",
+      "plugin_name": "Multiband Dynamics",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Vocal Control",
+      "rel_path": "Devices/Audio Effects/Multiband Dynamics/Vocal Control.adv",
+      "device_class": "MultibandDynamics",
+      "plugin_name": "Multiband Dynamics",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Car stereo",
+      "rel_path": "Devices/Audio Effects/Multiband Dynamics/OTT.adv",
+      "device_class": "MultibandDynamics",
+      "plugin_name": "Multiband Dynamics",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Flatline.adv",
+      "rel_path": "Devices/Audio Effects/Multiband Dynamics/Flatline.adv",
+      "device_class": "MultibandDynamics",
+      "plugin_name": "Multiband Dynamics",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Restore punch.adv",
+      "rel_path": "Devices/Audio Effects/Multiband Dynamics/Restore punch.adv",
+      "device_class": "MultibandDynamics",
+      "plugin_name": "Multiband Dynamics",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Multiband Gate.adv",
+      "rel_path": "Devices/Audio Effects/Multiband Dynamics/Multiband Gate.adv",
+      "device_class": "MultibandDynamics",
+      "plugin_name": "Multiband Dynamics",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Split Band De-esser",
+      "rel_path": "Devices/Audio Effects/Multiband Dynamics/Split Band De-esser.adv",
+      "device_class": "MultibandDynamics",
+      "plugin_name": "Multiband Dynamics",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Reduce Ambience.adv",
+      "rel_path": "Devices/Audio Effects/Multiband Dynamics/Reduce Ambience.adv",
+      "device_class": "MultibandDynamics",
+      "plugin_name": "Multiband Dynamics",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    }
+  ]
+}

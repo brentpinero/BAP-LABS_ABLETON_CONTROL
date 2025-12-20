@@ -1,0 +1,915 @@
+{
+  "plugin": "Wavetable",
+  "type": "instrument",
+  "uri": "query:Synths#Wavetable",
+  "class_name": "InstrumentVector",
+  "parameter_count": 93,
+  "parameters": [
+    {
+      "index": 0,
+      "name": "Device On",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 1,
+      "name": "Osc 1 On",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 2,
+      "name": "Osc 1 Transp",
+      "value": 0.0,
+      "min": -24.0,
+      "max": 24.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 3,
+      "name": "Osc 1 Detune",
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.5
+    },
+    {
+      "index": 4,
+      "name": "Osc 1 Pos",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 5,
+      "name": "Osc 1 Effect 1",
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.5
+    },
+    {
+      "index": 6,
+      "name": "Osc 1 Effect 2",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 7,
+      "name": "Osc 1 Pan",
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.5
+    },
+    {
+      "index": 8,
+      "name": "Osc 1 Gain",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 1.0
+    },
+    {
+      "index": 9,
+      "name": "Osc 2 On",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 10,
+      "name": "Osc 2 Transp",
+      "value": 0.0,
+      "min": -24.0,
+      "max": 24.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 11,
+      "name": "Osc 2 Detune",
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.5
+    },
+    {
+      "index": 12,
+      "name": "Osc 2 Pos",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 13,
+      "name": "Osc 2 Effect 1",
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.5
+    },
+    {
+      "index": 14,
+      "name": "Osc 2 Effect 2",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 15,
+      "name": "Osc 2 Pan",
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.5
+    },
+    {
+      "index": 16,
+      "name": "Osc 2 Gain",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 1.0
+    },
+    {
+      "index": 17,
+      "name": "Sub On",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 18,
+      "name": "Sub Tone",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 19,
+      "name": "Sub Gain",
+      "value": 0.5011875033378601,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.5
+    },
+    {
+      "index": 20,
+      "name": "Sub Transpose",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 2.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 21,
+      "name": "Filter 1 On",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 22,
+      "name": "Filter 1 Type",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 4.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 23,
+      "name": "Filter 1 LP/HP",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 4.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 24,
+      "name": "Filter 1 BP/NO/Morph",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 25,
+      "name": "Filter 1 Slope",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 26,
+      "name": "Filter 1 Freq",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.9965783953666687
+    },
+    {
+      "index": 27,
+      "name": "Filter 1 Res",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 28,
+      "name": "Filter 1 Drive",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 29,
+      "name": "Filter 1 Morph",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 30,
+      "name": "Filter 2 On",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 31,
+      "name": "Filter 2 Type",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 4.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 32,
+      "name": "Filter 2 LP/HP",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 4.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 33,
+      "name": "Filter 2 BP/NO/Morph",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 34,
+      "name": "Filter 2 Slope",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 35,
+      "name": "Filter 2 Freq",
+      "value": 2.2411345526052173e-06,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.9965783953666687
+    },
+    {
+      "index": 36,
+      "name": "Filter 2 Res",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 37,
+      "name": "Filter 2 Drive",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 38,
+      "name": "Filter 2 Morph",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 39,
+      "name": "Amp Attack",
+      "value": 0.08408964425325394,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.08408964425325394
+    },
+    {
+      "index": 40,
+      "name": "Amp Decay",
+      "value": 0.41592657566070557,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.41592657566070557
+    },
+    {
+      "index": 41,
+      "name": "Amp Release",
+      "value": 0.41592657566070557,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.41592657566070557
+    },
+    {
+      "index": 42,
+      "name": "Amp A Slope",
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.5
+    },
+    {
+      "index": 43,
+      "name": "Amp D Slope",
+      "value": 0.75,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.75
+    },
+    {
+      "index": 44,
+      "name": "Amp R Slope",
+      "value": 0.75,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.75
+    },
+    {
+      "index": 45,
+      "name": "Amp Sustain",
+      "value": 0.7079460024833679,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.7071067690849304
+    },
+    {
+      "index": 46,
+      "name": "Amp Loop Mode",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 2.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 47,
+      "name": "Env 2 Attack",
+      "value": 0.08408964425325394,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.08408964425325394
+    },
+    {
+      "index": 48,
+      "name": "Env 2 Decay",
+      "value": 0.41592657566070557,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.41592657566070557
+    },
+    {
+      "index": 49,
+      "name": "Env 2 Release",
+      "value": 0.41592657566070557,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.41592657566070557
+    },
+    {
+      "index": 50,
+      "name": "Env 2 A Slope",
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.5
+    },
+    {
+      "index": 51,
+      "name": "Env 2 D Slope",
+      "value": 0.75,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.75
+    },
+    {
+      "index": 52,
+      "name": "Env 2 R Slope",
+      "value": 0.75,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.75
+    },
+    {
+      "index": 53,
+      "name": "Env 2 Initial",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 54,
+      "name": "Env 2 Peak",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 1.0
+    },
+    {
+      "index": 55,
+      "name": "Env 2 Sustain",
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.5
+    },
+    {
+      "index": 56,
+      "name": "Env 2 Final",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 57,
+      "name": "Env 2 Loop Mode",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 2.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 58,
+      "name": "Env 3 Attack",
+      "value": 0.08408964425325394,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.08408964425325394
+    },
+    {
+      "index": 59,
+      "name": "Env 3 Decay",
+      "value": 0.41592657566070557,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.41592657566070557
+    },
+    {
+      "index": 60,
+      "name": "Env 3 Release",
+      "value": 0.41592657566070557,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.41592657566070557
+    },
+    {
+      "index": 61,
+      "name": "Env 3 A Slope",
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.5
+    },
+    {
+      "index": 62,
+      "name": "Env 3 D Slope",
+      "value": 0.75,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.75
+    },
+    {
+      "index": 63,
+      "name": "Env 3 R Slope",
+      "value": 0.75,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.75
+    },
+    {
+      "index": 64,
+      "name": "Env 3 Initial",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 65,
+      "name": "Env 3 Peak",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 1.0
+    },
+    {
+      "index": 66,
+      "name": "Env 3 Sustain",
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.5
+    },
+    {
+      "index": 67,
+      "name": "Env 3 Final",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 68,
+      "name": "Env 3 Loop Mode",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 2.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 69,
+      "name": "LFO 1 Retrigger",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 70,
+      "name": "LFO 1 Shape",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 4.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 71,
+      "name": "LFO 1 Amount",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 1.0
+    },
+    {
+      "index": 72,
+      "name": "LFO 1 Shaping",
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.5
+    },
+    {
+      "index": 73,
+      "name": "LFO 1 Phase Offset",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 74,
+      "name": "LFO 1 Sync",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 75,
+      "name": "LFO 1 Rate",
+      "value": 0.32078906893730164,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.32078906893730164
+    },
+    {
+      "index": 76,
+      "name": "LFO 1 S. Rate",
+      "value": 15.0,
+      "min": 0.0,
+      "max": 21.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 15.0
+    },
+    {
+      "index": 77,
+      "name": "LFO 1 Attack Time",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 78,
+      "name": "LFO 2 Retrigger",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 79,
+      "name": "LFO 2 Shape",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 4.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 80,
+      "name": "LFO 2 Amount",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 1.0
+    },
+    {
+      "index": 81,
+      "name": "LFO 2 Shaping",
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.5
+    },
+    {
+      "index": 82,
+      "name": "LFO 2 Phase Offset",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 83,
+      "name": "LFO 2 Sync",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 84,
+      "name": "LFO 2 Rate",
+      "value": 0.32078906893730164,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.32078906893730164
+    },
+    {
+      "index": 85,
+      "name": "LFO 2 S. Rate",
+      "value": 15.0,
+      "min": 0.0,
+      "max": 21.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 15.0
+    },
+    {
+      "index": 86,
+      "name": "LFO 2 Attack Time",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 87,
+      "name": "Time",
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.5
+    },
+    {
+      "index": 88,
+      "name": "Global Mod Amount",
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.5
+    },
+    {
+      "index": 89,
+      "name": "Unison Amount",
+      "value": 0.30000001192092896,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.30000001192092896
+    },
+    {
+      "index": 90,
+      "name": "Transpose",
+      "value": 0.0,
+      "min": -48.0,
+      "max": 48.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 91,
+      "name": "Glide",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 92,
+      "name": "Volume",
+      "value": 0.5956621766090393,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.7071067690849304
+    }
+  ]
+}

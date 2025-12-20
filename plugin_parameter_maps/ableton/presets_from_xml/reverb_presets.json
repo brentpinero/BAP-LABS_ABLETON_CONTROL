@@ -1,0 +1,5299 @@
+{
+  "device_class": "Reverb",
+  "preset_count": 79,
+  "presets": [
+    {
+      "preset_name": "Museum Lobby",
+      "rel_path": "Devices/Audio Effects/Reverb/Room/Museum Lobby.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 15.0000019,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 3705.50952,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 4.10661316,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Long Ambience",
+      "rel_path": "Devices/Audio Effects/Reverb/Room/Long Ambience.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 11239.3867,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 38.1444244,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Small Room",
+      "rel_path": "Devices/Audio Effects/Reverb/Room/Small Room.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 10.0000029,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 850.000427,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 3.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Garage",
+      "rel_path": "Devices/Audio Effects/Reverb/Room/Garage.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 30.0000134,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 620.186462,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 0.80375278,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Small Chamber",
+      "rel_path": "Devices/Audio Effects/Reverb/Room/Small Chamber.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 5.00000095,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 600.000183,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 3.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Medium Room",
+      "rel_path": "Devices/Audio Effects/Reverb/Room/Medium Room.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 7.99999094,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 1222.97546,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Concrete Chamber",
+      "rel_path": "Devices/Audio Effects/Reverb/Room/Concrete Chamber.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 0.5518369675,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 2304.90698,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 0.6688030958,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Large Chamber",
+      "rel_path": "Devices/Audio Effects/Reverb/Room/Large Chamber.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 10.0000029,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 1000.00024,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 12.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Dark Room",
+      "rel_path": "Devices/Audio Effects/Reverb/Room/Dark Medium Room.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 8.00000286,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 1678.94153,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 26.4108658,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Tile Room",
+      "rel_path": "Devices/Audio Effects/Reverb/Room/Tile Room.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 3.00000072,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 1222.97546,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 3.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Small Tile",
+      "rel_path": "Devices/Audio Effects/Reverb/Room/Small Tile.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 0.9499999881,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 851.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 0.2664088607,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Office",
+      "rel_path": "Devices/Audio Effects/Reverb/Room/Office.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 8.00000286,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 600.000183,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 18.0000038,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "In A Box",
+      "rel_path": "Devices/Audio Effects/Reverb/Room/In A Box.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 8.31634712,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 710.397461,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 1.67656112,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Wooden Room",
+      "rel_path": "Devices/Audio Effects/Reverb/Room/Wooden Room.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 3.59572029,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 815.000122,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 3.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Drums Room",
+      "rel_path": "Devices/Audio Effects/Reverb/Room/Drums Room.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 7.99999094,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 1222.97546,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Wood Room",
+      "rel_path": "Devices/Audio Effects/Reverb/Room/Room Wood.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 40.8908348,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 963.166077,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 27.0295715,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Plate Damped",
+      "rel_path": "Devices/Audio Effects/Reverb/Room/Plate Damped.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 2.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 890.840332,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 1.78249145,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Standard Room",
+      "rel_path": "Devices/Audio Effects/Reverb/Room/Standard Room.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 16.0000076,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 900.000061,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 5.00000048,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Ambience Medium",
+      "rel_path": "Devices/Audio Effects/Reverb/Room/Ambience Medium.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 15.7905722,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 3624.51904,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 1.78249145,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "High Verb",
+      "rel_path": "Devices/Audio Effects/Reverb/Room/High Verb.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 35.3078003,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 1651.04883,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 100.000008,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Ambience",
+      "rel_path": "Devices/Audio Effects/Reverb/Room/Ambience.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 15.0000067,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 600.000183,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 20.0000019,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Venus Bright",
+      "rel_path": "Devices/Audio Effects/Reverb/Room/Venus Bright.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 1.10000002,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 1150.00012,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 11.9100008,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Marble Lobby",
+      "rel_path": "Devices/Audio Effects/Reverb/Room/Marble Lobby.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 1.69927359,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 6640.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 0.7100000381,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Dark Room",
+      "rel_path": "Devices/Audio Effects/Reverb/Room/Dark Small Room.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 12.3394499,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 813.73053,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 0.3206279874,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Backbone",
+      "rel_path": "Devices/Audio Effects/Reverb/Room/Backbone.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 56.9282913,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 1678.94153,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 500.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Bright Room",
+      "rel_path": "Devices/Audio Effects/Reverb/Room/Bright Room.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 5.00000095,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 500.000153,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 0.80375278,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Corridor",
+      "rel_path": "Devices/Audio Effects/Reverb/Room/Corridor.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 10.0000029,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 900.000061,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Guitar Room",
+      "rel_path": "Devices/Audio Effects/Reverb/Room/Guitar Room.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 30.0000134,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 1200.00024,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 20.0000019,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Storage Space",
+      "rel_path": "Devices/Audio Effects/Reverb/Room/Storage Space.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 35.3078003,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 1975.96594,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 0.9548131824,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Snare Room",
+      "rel_path": "Devices/Audio Effects/Reverb/Room/Snare Room.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 10.0000029,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 1200.00024,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 5.00000048,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Big Room",
+      "rel_path": "Devices/Audio Effects/Reverb/Room/Big Room.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 12.0000038,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 1000.00024,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 3.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Living Room",
+      "rel_path": "Devices/Audio Effects/Reverb/Room/Living Room.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 13.6187296,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 1533.61438,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 70.3901291,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Six Seconds",
+      "rel_path": "Devices/Audio Effects/Reverb/Special/Six Seconds.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 29.9821606,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 5447.37842,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 70.3901291,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Sizzle",
+      "rel_path": "Devices/Audio Effects/Reverb/Special/Sizzle.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 100.000031,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 5000.00244,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 179.999969,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Singing Can",
+      "rel_path": "Devices/Audio Effects/Reverb/Special/Singing Can.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 3.59572029,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 10266.5186,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 0.2836516201,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Frozen Build Up",
+      "rel_path": "Devices/Audio Effects/Reverb/Special/Frozen Build Up.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 29.9821606,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 8566.12598,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 500.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Large Space Chorus",
+      "rel_path": "Devices/Audio Effects/Reverb/Special/Large Space Chorus.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 51.5807152,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 12304.4434,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 95.6207199,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Reflections",
+      "rel_path": "Devices/Audio Effects/Reverb/Special/Reflections.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 4545.15576,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 500.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Empty Club",
+      "rel_path": "Devices/Audio Effects/Reverb/Special/Empty Club.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 12.0000038,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 1200.00024,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 6.86127758,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Parallel Walls",
+      "rel_path": "Devices/Audio Effects/Reverb/Special/Parallel Walls.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 80.0000153,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 800.000183,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 0.2220000029,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Reverb-Sixty Seconds",
+      "rel_path": "Devices/Audio Effects/Reverb/Special/Sixty Seconds.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 34.7635536,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 60000.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 74.8375778,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Red Canyon",
+      "rel_path": "Devices/Audio Effects/Reverb/Special/Red Canyon.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 98.6636353,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 5551.26611,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 500.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Parking Garage",
+      "rel_path": "Devices/Audio Effects/Reverb/Special/Parking Garage.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 81.1241684,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 5307.46533,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 123.538757,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Short Ambience",
+      "rel_path": "Devices/Audio Effects/Reverb/Special/Short Ambience.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 890.840332,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 11.2013321,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Stadium",
+      "rel_path": "Devices/Audio Effects/Reverb/Special/Stadium.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 66.0068893,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 4000.00171,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 40.0000076,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Bright Long Verb",
+      "rel_path": "Devices/Audio Effects/Reverb/Special/Bright Long Verb.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 29.9821606,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 3310.78467,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 72.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Outer Space",
+      "rel_path": "Devices/Audio Effects/Reverb/Special/Outer Space.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 12.0000038,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 7147.36035,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 0.2220000029,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Forest Floor",
+      "rel_path": "Devices/Audio Effects/Reverb/Special/Forest Floor.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 2.50000048,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 2161.66943,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 10.860774,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Space Reverb",
+      "rel_path": "Devices/Audio Effects/Reverb/Special/Space Reverb.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 103.61171,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 19522.207,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 500.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Bright Reflecions",
+      "rel_path": "Devices/Audio Effects/Reverb/Special/Bright Reflections.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 30.0000134,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 2000.00012,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 159.999985,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Wide Ambience",
+      "rel_path": "Devices/Audio Effects/Reverb/Special/Wide Ambience.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 56.9282913,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 4343.99316,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 38.1444244,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Oil Barrel",
+      "rel_path": "Devices/Audio Effects/Reverb/Special/Oil Barrel.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 8.00000286,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 1604.6333,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 0.2220000029,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Halluzinatione",
+      "rel_path": "Devices/Audio Effects/Reverb/Special/Halluzinatione.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 21.2285442,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 1756.69055,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 45.841114,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Basement",
+      "rel_path": "Devices/Audio Effects/Reverb/Special/Basement.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 2.00000048,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 1838.03931,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 10.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Hall Damped",
+      "rel_path": "Devices/Audio Effects/Reverb/Hall/Hall Damped.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 27.1657772,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 2587.07373,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 289.322937,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Hall Shine",
+      "rel_path": "Devices/Audio Effects/Reverb/Hall/Hall Shine.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 21.2285442,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 2105.39697,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 38.1444244,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Foyer",
+      "rel_path": "Devices/Audio Effects/Reverb/Hall/Foyer.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 30.0000134,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 1700.00061,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 30.0000095,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Large Factory",
+      "rel_path": "Devices/Audio Effects/Reverb/Hall/Large Factory.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 51.5807152,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 5206.28467,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 12.6615191,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Medium Hall",
+      "rel_path": "Devices/Audio Effects/Reverb/Hall/Medium Hall.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 35.0000191,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 2200.00073,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 79.9999847,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Small Hall",
+      "rel_path": "Devices/Audio Effects/Reverb/Hall/Small Hall.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 20.0000134,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 1399.99988,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 89.9999771,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Vocal Hall",
+      "rel_path": "Devices/Audio Effects/Reverb/Hall/Vocal Hall.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 90.0000153,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 3000.00122,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 100.000008,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Gymnasium",
+      "rel_path": "Devices/Audio Effects/Reverb/Hall/Gymnasium.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 26.0000114,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 1800.00012,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 30.0000095,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Wodden Hall",
+      "rel_path": "Devices/Audio Effects/Reverb/Hall/Wooden Hall.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 60.0000229,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 2800.00122,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 179.999969,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Cathedral",
+      "rel_path": "Devices/Audio Effects/Reverb/Hall/Cathedral.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 60.0000229,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 5000.00244,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 179.999969,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Vocal Space",
+      "rel_path": "Devices/Audio Effects/Reverb/Hall/Vocal Space.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 5.49926805,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 3238.4209,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 11.9100008,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Large Hall",
+      "rel_path": "Devices/Audio Effects/Reverb/Hall/Large Hall.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 65.0000305,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 2800.00122,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 79.9999847,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Medium Concert",
+      "rel_path": "Devices/Audio Effects/Reverb/Hall/Medium Concert.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 40.6713257,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 3223.21167,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 100.000008,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Warm Reverb Long",
+      "rel_path": "Devices/Audio Effects/Reverb/Hall/Warm Reverb Long.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 29.9821606,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 6000.00244,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 70.3901291,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Medium Stage",
+      "rel_path": "Devices/Audio Effects/Reverb/Hall/Medium Stage.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 12.0000038,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 1600.00024,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 30.0000095,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Long Tail",
+      "rel_path": "Devices/Audio Effects/Reverb/Hall/Long Tail.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 7147.36035,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 165.96814,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Spacious",
+      "rel_path": "Devices/Audio Effects/Reverb/Hall/Spacious.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 30.0000134,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 3000.00122,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 120.000008,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Church",
+      "rel_path": "Devices/Audio Effects/Reverb/Hall/Church.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 65.0000305,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 4200.00146,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 159.999985,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Large Stage",
+      "rel_path": "Devices/Audio Effects/Reverb/Hall/Large Stage.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 30.0000134,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 2100.00098,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 59.9999962,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Concert Hall",
+      "rel_path": "Devices/Audio Effects/Reverb/Hall/Concert Hall.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 50.0000153,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 2400.00122,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 89.9999771,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Late Wrapper",
+      "rel_path": "Devices/Audio Effects/Reverb/Hall/Late Wrapper.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 80.5000076,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 2009.99988,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 95.620018,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Dark Room",
+      "rel_path": "Devices/Audio Effects/Reverb/Hall/Dark Hall.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 36.5211563,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 3967.98267,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 156.104919,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Ballad Reverb",
+      "rel_path": "Devices/Audio Effects/Reverb/Hall/Ballad Reverb.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 30.0000134,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 3000.00122,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 100.000008,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Arena Tail",
+      "rel_path": "Devices/Audio Effects/Reverb/Hall/Arena Tail.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 34.1527901,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 5408.98438,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 499.999939,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Main Hall",
+      "rel_path": "Devices/Audio Effects/Reverb/Hall/Main Hall.adv",
+      "device_class": "Reverb",
+      "plugin_name": "Reverb",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Predelay",
+          "value": 55.0000114,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "Chorus On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Decay Time",
+          "value": 2600.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 23,
+          "name": "Freeze On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 24,
+          "name": "Flat On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Cut On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Room Size",
+          "value": 59.9999962,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Size Smoothing",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    }
+  ]
+}

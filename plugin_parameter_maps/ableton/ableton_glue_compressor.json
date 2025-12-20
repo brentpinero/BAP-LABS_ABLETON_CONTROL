@@ -1,0 +1,174 @@
+{
+  "plugin": "Glue Compressor",
+  "type": "audio_effect",
+  "uri": "query:AudioFx#Glue%20Compressor",
+  "class_name": "GlueCompressor",
+  "parameter_count": 17,
+  "parameters": [
+    {
+      "index": 0,
+      "name": "Device On",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 1,
+      "name": "Threshold",
+      "value": 0.0,
+      "min": -40.0,
+      "max": 0.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 2,
+      "name": "Range",
+      "value": 70.0,
+      "min": 0.0,
+      "max": 70.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 70.0
+    },
+    {
+      "index": 3,
+      "name": "Makeup",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 20.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 4,
+      "name": "Attack",
+      "value": 3.0,
+      "min": 0.0,
+      "max": 6.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 3.0
+    },
+    {
+      "index": 5,
+      "name": "Ratio",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 2.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 1.0
+    },
+    {
+      "index": 6,
+      "name": "Release",
+      "value": 3.0,
+      "min": 0.0,
+      "max": 6.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 3.0
+    },
+    {
+      "index": 7,
+      "name": "Dry/Wet",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 1.0
+    },
+    {
+      "index": 8,
+      "name": "Peak Clip In",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 9,
+      "name": "S/C On",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 10,
+      "name": "S/C Gain",
+      "value": 0.4000000059604645,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.4000000059604645
+    },
+    {
+      "index": 11,
+      "name": "S/C Mix",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 1.0
+    },
+    {
+      "index": 12,
+      "name": "S/C EQ Type",
+      "value": 5.0,
+      "min": 0.0,
+      "max": 5.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 13,
+      "name": "S/C EQ On",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 14,
+      "name": "S/C EQ Freq",
+      "value": 0.3052678406238556,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.3052678406238556
+    },
+    {
+      "index": 15,
+      "name": "S/C EQ Gain",
+      "value": 0.0,
+      "min": -15.0,
+      "max": 15.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 16,
+      "name": "S/C EQ Q",
+      "value": 0.40856707096099854,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.40856707096099854
+    }
+  ]
+}

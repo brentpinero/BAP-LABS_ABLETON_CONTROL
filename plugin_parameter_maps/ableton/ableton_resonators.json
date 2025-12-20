@@ -1,0 +1,368 @@
+{
+  "plugin": "Resonators",
+  "type": "audio_effect",
+  "uri": "query:AudioFx#Resonators",
+  "class_name": "Resonator",
+  "parameter_count": 37,
+  "parameters": [
+    {
+      "index": 0,
+      "name": "Device On",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 1,
+      "name": "Filter On",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 2,
+      "name": "Frequency",
+      "value": 0.45369580388069153,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.45369580388069153
+    },
+    {
+      "index": 3,
+      "name": "Filter Type",
+      "value": 2.0,
+      "min": 0.0,
+      "max": 3.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 4,
+      "name": "Mode",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 5,
+      "name": "Decay",
+      "value": 50.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 50.0
+    },
+    {
+      "index": 6,
+      "name": "Const",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 7,
+      "name": "Color",
+      "value": 90.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 90.0
+    },
+    {
+      "index": 8,
+      "name": "Width",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 1.0
+    },
+    {
+      "index": 9,
+      "name": "Dry/Wet",
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.5
+    },
+    {
+      "index": 10,
+      "name": "Global Gain",
+      "value": 0.0,
+      "min": -15.0,
+      "max": 15.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 11,
+      "name": "Use Current Scale",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 12,
+      "name": "I On",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 13,
+      "name": "I Note",
+      "value": 48.0,
+      "min": 12.0,
+      "max": 84.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 48.0
+    },
+    {
+      "index": 14,
+      "name": "I Note Scale Degrees",
+      "value": 0.0,
+      "min": -21.0,
+      "max": 21.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 15,
+      "name": "I Tune",
+      "value": 0.0,
+      "min": -50.0,
+      "max": 50.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 16,
+      "name": "I Gain",
+      "value": 0.8500000238418579,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.8500000238418579
+    },
+    {
+      "index": 17,
+      "name": "II On",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 18,
+      "name": "II Pitch",
+      "value": 0.0,
+      "min": -24.0,
+      "max": 24.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 19,
+      "name": "II Pitch Scale Degrees",
+      "value": 0.0,
+      "min": -21.0,
+      "max": 21.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 20,
+      "name": "II Tune",
+      "value": 0.0,
+      "min": -50.0,
+      "max": 50.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 21,
+      "name": "II Gain",
+      "value": 0.8500000238418579,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.8500000238418579
+    },
+    {
+      "index": 22,
+      "name": "III On",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 23,
+      "name": "III Pitch",
+      "value": 0.0,
+      "min": -24.0,
+      "max": 24.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 24,
+      "name": "III Pitch Scale Degrees",
+      "value": 0.0,
+      "min": -21.0,
+      "max": 21.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 25,
+      "name": "III Tune",
+      "value": 0.0,
+      "min": -50.0,
+      "max": 50.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 26,
+      "name": "III Gain",
+      "value": 0.8500000238418579,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.8500000238418579
+    },
+    {
+      "index": 27,
+      "name": "IV On",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 28,
+      "name": "IV Pitch",
+      "value": 0.0,
+      "min": -24.0,
+      "max": 24.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 29,
+      "name": "IV Pitch Scale Degrees",
+      "value": 0.0,
+      "min": -21.0,
+      "max": 21.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 30,
+      "name": "IV Tune",
+      "value": 0.0,
+      "min": -50.0,
+      "max": 50.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 31,
+      "name": "IV Gain",
+      "value": 0.8500000238418579,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.8500000238418579
+    },
+    {
+      "index": 32,
+      "name": "V On",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 33,
+      "name": "V Pitch",
+      "value": 0.0,
+      "min": -24.0,
+      "max": 24.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 34,
+      "name": "V Pitch Scale Degrees",
+      "value": 0.0,
+      "min": -21.0,
+      "max": 21.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 35,
+      "name": "V Tune",
+      "value": 0.0,
+      "min": -50.0,
+      "max": 50.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 36,
+      "name": "V Gain",
+      "value": 0.8500000238418579,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.8500000238418579
+    }
+  ]
+}

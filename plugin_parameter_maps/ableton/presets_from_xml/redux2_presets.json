@@ -1,0 +1,420 @@
+{
+  "device_class": "Redux2",
+  "preset_count": 9,
+  "presets": [
+    {
+      "preset_name": "Synth Bite",
+      "rel_path": "Devices/Audio Effects/Redux/Synth Bite.adv",
+      "device_class": "Redux2",
+      "plugin_name": "Redux",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Sample Rate",
+          "value": 6750.09961,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Jitter",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Bit Depth",
+          "value": 16.0,
+          "min": 1.0,
+          "max": 16.0
+        },
+        {
+          "index": 4,
+          "name": "Quantizer Shape",
+          "value": 0.01587301679,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Some Dust",
+      "rel_path": "Devices/Audio Effects/Redux/Some Dust.adv",
+      "device_class": "Redux2",
+      "plugin_name": "Redux",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Sample Rate",
+          "value": 23205.8262,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Jitter",
+          "value": 0.43392542,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Bit Depth",
+          "value": 11.0,
+          "min": 1.0,
+          "max": 16.0
+        },
+        {
+          "index": 4,
+          "name": "Quantizer Shape",
+          "value": 0.8888888955,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Vintage Sampler",
+      "rel_path": "Devices/Audio Effects/Redux/Vintage Sampler.adv",
+      "device_class": "Redux2",
+      "plugin_name": "Redux",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Sample Rate",
+          "value": 13000.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Jitter",
+          "value": 0.01417233609,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Bit Depth",
+          "value": 12.0,
+          "min": 1.0,
+          "max": 16.0
+        },
+        {
+          "index": 4,
+          "name": "Quantizer Shape",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Low Sample Rate",
+      "rel_path": "Devices/Audio Effects/Redux/Low Sample Rate.adv",
+      "device_class": "Redux2",
+      "plugin_name": "Redux",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Sample Rate",
+          "value": 4000.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Jitter",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Bit Depth",
+          "value": 16.0,
+          "min": 1.0,
+          "max": 16.0
+        },
+        {
+          "index": 4,
+          "name": "Quantizer Shape",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Epoxy Crush",
+      "rel_path": "Devices/Audio Effects/Redux/Epoxy Crush.adv",
+      "device_class": "Redux2",
+      "plugin_name": "Redux",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Sample Rate",
+          "value": 7432.99365,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Jitter",
+          "value": 0.07281431556,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Bit Depth",
+          "value": 2.0,
+          "min": 1.0,
+          "max": 16.0
+        },
+        {
+          "index": 4,
+          "name": "Quantizer Shape",
+          "value": 0.1746031791,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Chiptune Filter",
+      "rel_path": "Devices/Audio Effects/Redux/Chiptune Filter.adv",
+      "device_class": "Redux2",
+      "plugin_name": "Redux",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Sample Rate",
+          "value": 22491.3789,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Jitter",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Bit Depth",
+          "value": 1.0,
+          "min": 1.0,
+          "max": 16.0
+        },
+        {
+          "index": 4,
+          "name": "Quantizer Shape",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Dirt & Grit",
+      "rel_path": "Devices/Audio Effects/Redux/Dirt & Grit.adv",
+      "device_class": "Redux2",
+      "plugin_name": "Redux",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Sample Rate",
+          "value": 9963.53125,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Jitter",
+          "value": 0.2998866141,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Bit Depth",
+          "value": 4.0,
+          "min": 1.0,
+          "max": 16.0
+        },
+        {
+          "index": 4,
+          "name": "Quantizer Shape",
+          "value": 0.277777791,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Kaputt",
+      "rel_path": "Devices/Audio Effects/Redux/Kaputt.adv",
+      "device_class": "Redux2",
+      "plugin_name": "Redux",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Sample Rate",
+          "value": 240.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Jitter",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Bit Depth",
+          "value": 4.0,
+          "min": 1.0,
+          "max": 16.0
+        },
+        {
+          "index": 4,
+          "name": "Quantizer Shape",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "New Mirage",
+      "rel_path": "Devices/Audio Effects/Redux/New Mirage.adv",
+      "device_class": "Redux2",
+      "plugin_name": "Redux",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Sample Rate",
+          "value": 7700.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Jitter",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Bit Depth",
+          "value": 8.0,
+          "min": 1.0,
+          "max": 16.0
+        },
+        {
+          "index": 4,
+          "name": "Quantizer Shape",
+          "value": 0.9920634627,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,166 @@
+{
+  "device_class": "FrequencyShifter",
+  "preset_count": 16,
+  "presets": [
+    {
+      "preset_name": "Dirty Tremolo",
+      "rel_path": "Devices/Audio Effects/Legacy/Frequency Shifter/Dirty Tremolo (Legacy).adv",
+      "device_class": "FrequencyShifter",
+      "plugin_name": "Shifter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "High Flutter",
+      "rel_path": "Devices/Audio Effects/Legacy/Frequency Shifter/High Flutter (Legacy).adv",
+      "device_class": "FrequencyShifter",
+      "plugin_name": "Shifter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Sharp Glass",
+      "rel_path": "Devices/Audio Effects/Legacy/Frequency Shifter/Sharp Glass (Legacy).adv",
+      "device_class": "FrequencyShifter",
+      "plugin_name": "Shifter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "DTMF (Legacy).adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Frequency Shifter/DTMF (Legacy).adv",
+      "device_class": "FrequencyShifter",
+      "plugin_name": "Shifter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Flange",
+      "rel_path": "Devices/Audio Effects/Legacy/Frequency Shifter/Ring (Legacy).adv",
+      "device_class": "FrequencyShifter",
+      "plugin_name": "Shifter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Phasing",
+      "rel_path": "Devices/Audio Effects/Legacy/Frequency Shifter/Spacebirds (Legacy).adv",
+      "device_class": "FrequencyShifter",
+      "plugin_name": "Shifter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Mud Slide",
+      "rel_path": "Devices/Audio Effects/Legacy/Frequency Shifter/Electric Distortion (Legacy).adv",
+      "device_class": "FrequencyShifter",
+      "plugin_name": "Shifter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Phasing (Legacy).adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Frequency Shifter/Phasing (Legacy).adv",
+      "device_class": "FrequencyShifter",
+      "plugin_name": "Shifter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Ring",
+      "rel_path": "Devices/Audio Effects/Legacy/Frequency Shifter/Stereo Vibrato (Legacy).adv",
+      "device_class": "FrequencyShifter",
+      "plugin_name": "Shifter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Mud Slide",
+      "rel_path": "Devices/Audio Effects/Legacy/Frequency Shifter/Many Birds (Legacy).adv",
+      "device_class": "FrequencyShifter",
+      "plugin_name": "Shifter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Freq Shift Flanger (Legacy).adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Frequency Shifter/Freq Shift Flanger (Legacy).adv",
+      "device_class": "FrequencyShifter",
+      "plugin_name": "Shifter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Mud Slide",
+      "rel_path": "Devices/Audio Effects/Legacy/Frequency Shifter/Mud Slide (Legacy).adv",
+      "device_class": "FrequencyShifter",
+      "plugin_name": "Shifter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Damien (Legacy).adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Frequency Shifter/Damien (Legacy).adv",
+      "device_class": "FrequencyShifter",
+      "plugin_name": "Shifter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Mud Slide",
+      "rel_path": "Devices/Audio Effects/Legacy/Frequency Shifter/Transmission (Legacy).adv",
+      "device_class": "FrequencyShifter",
+      "plugin_name": "Shifter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Mud Slide",
+      "rel_path": "Devices/Audio Effects/Legacy/Frequency Shifter/Slow Motion Drive (Legacy).adv",
+      "device_class": "FrequencyShifter",
+      "plugin_name": "Shifter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Mud Slide",
+      "rel_path": "Devices/Audio Effects/Legacy/Frequency Shifter/Space Syncopations (Legacy).adv",
+      "device_class": "FrequencyShifter",
+      "plugin_name": "Shifter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "plugin": "DS HH",
+  "type": "instrument",
+  "uri": "query:Synths#DS%20HH",
+  "class_name": "MxDeviceInstrument",
+  "parameter_count": 8,
+  "parameters": [
+    {
+      "index": 0,
+      "name": "Device On",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 1,
+      "name": "Attack",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 2,
+      "name": "Decay",
+      "value": 53.714908599853516,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 53.714908599853516
+    },
+    {
+      "index": 3,
+      "name": "Slope",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 4,
+      "name": "Noise",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 5,
+      "name": "Pitch",
+      "value": 40.94488525390625,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 40.94488525390625
+    },
+    {
+      "index": 6,
+      "name": "Tone",
+      "value": 90.55117797851562,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 90.55117797851562
+    },
+    {
+      "index": 7,
+      "name": "Volume",
+      "value": -10.897710800170898,
+      "min": -70.0,
+      "max": 18.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": -10.897710800170898
+    }
+  ]
+}

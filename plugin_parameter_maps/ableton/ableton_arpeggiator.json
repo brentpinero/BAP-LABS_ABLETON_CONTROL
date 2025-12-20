@@ -1,0 +1,208 @@
+{
+  "plugin": "Arpeggiator",
+  "type": "midi_effect",
+  "uri": "query:MidiFx#Arpeggiator",
+  "class_name": "MidiArpeggiator",
+  "parameter_count": 21,
+  "parameters": [
+    {
+      "index": 0,
+      "name": "Device On",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 1,
+      "name": "Style",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 17.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 2,
+      "name": "Offset",
+      "value": 0.0,
+      "min": -8.0,
+      "max": 8.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 3,
+      "name": "Repeats",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 16.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 4,
+      "name": "Sync On",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 5,
+      "name": "Synced Rate",
+      "value": 8.0,
+      "min": 0.0,
+      "max": 13.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 8.0
+    },
+    {
+      "index": 6,
+      "name": "Groove",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 3.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 7,
+      "name": "Free Rate",
+      "value": 0.15051500499248505,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.15051500499248505
+    },
+    {
+      "index": 8,
+      "name": "Gate",
+      "value": 50.0,
+      "min": 1.0,
+      "max": 200.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 50.0
+    },
+    {
+      "index": 9,
+      "name": "Retrigger Mode",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 2.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 10,
+      "name": "Ret. Interval",
+      "value": 8.0,
+      "min": 0.0,
+      "max": 14.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 8.0
+    },
+    {
+      "index": 11,
+      "name": "Hold On",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 12,
+      "name": "Tranpose Mode",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 35.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 13,
+      "name": "Tranpose Key",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 11.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 14,
+      "name": "Transp. Steps",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 8.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 15,
+      "name": "Transp. Dist.",
+      "value": 12.0,
+      "min": -24.0,
+      "max": 24.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 12.0
+    },
+    {
+      "index": 16,
+      "name": "Velocity On",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 17,
+      "name": "Vel. Retrigger",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 18,
+      "name": "Velocity Decay",
+      "value": 0.5293594598770142,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.5293594598770142
+    },
+    {
+      "index": 19,
+      "name": "Velocity Target",
+      "value": 64.0,
+      "min": 0.0,
+      "max": 127.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 64.0
+    },
+    {
+      "index": 20,
+      "name": "Use Current Scale",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    }
+  ]
+}

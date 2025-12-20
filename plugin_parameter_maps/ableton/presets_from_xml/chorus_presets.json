@@ -1,0 +1,331 @@
+{
+  "device_class": "Chorus",
+  "preset_count": 13,
+  "presets": [
+    {
+      "preset_name": "Flounch.adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Chorus/Flounch.adv",
+      "device_class": "Chorus",
+      "plugin_name": "Chorus-Ensemble",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 5,
+          "name": "Feedback",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Gamma Rays.adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Chorus/Gamma Rays.adv",
+      "device_class": "Chorus",
+      "plugin_name": "Chorus-Ensemble",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 5,
+          "name": "Feedback",
+          "value": 0.5685039163,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Gagalon.adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Chorus/Gagalon.adv",
+      "device_class": "Chorus",
+      "plugin_name": "Chorus-Ensemble",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 5,
+          "name": "Feedback",
+          "value": 0.8452755809,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Dry/Wet",
+          "value": 0.5905511975,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Zorbus.adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Chorus/Zorbus.adv",
+      "device_class": "Chorus",
+      "plugin_name": "Chorus-Ensemble",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 5,
+          "name": "Feedback",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Dry/Wet",
+          "value": 0.48031497,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Minus.adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Chorus/Minus.adv",
+      "device_class": "Chorus",
+      "plugin_name": "Chorus-Ensemble",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 5,
+          "name": "Feedback",
+          "value": 0.7704724073,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Dry/Wet",
+          "value": 0.6062992215,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Subtile.adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Chorus/Subtile.adv",
+      "device_class": "Chorus",
+      "plugin_name": "Chorus-Ensemble",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 5,
+          "name": "Feedback",
+          "value": 0.9499999881,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Dry/Wet",
+          "value": 0.2283464521,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Laundry.adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Chorus/Laundry.adv",
+      "device_class": "Chorus",
+      "plugin_name": "Chorus-Ensemble",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 5,
+          "name": "Feedback",
+          "value": 0.9499999881,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Chorus.adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Chorus/Chorus.adv",
+      "device_class": "Chorus",
+      "plugin_name": "Chorus-Ensemble",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 5,
+          "name": "Feedback",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Dry/Wet",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Slow Pan.adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Chorus/Slow Pan.adv",
+      "device_class": "Chorus",
+      "plugin_name": "Chorus-Ensemble",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 5,
+          "name": "Feedback",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Resorus.adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Chorus/Resorus.adv",
+      "device_class": "Chorus",
+      "plugin_name": "Chorus-Ensemble",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 5,
+          "name": "Feedback",
+          "value": 0.3515747786,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Dry/Wet",
+          "value": 0.755905509,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Yo Man!.adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Chorus/Yo Man!.adv",
+      "device_class": "Chorus",
+      "plugin_name": "Chorus-Ensemble",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 5,
+          "name": "Feedback",
+          "value": 0.7405511737,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Plus.adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Chorus/Plus.adv",
+      "device_class": "Chorus",
+      "plugin_name": "Chorus-Ensemble",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 5,
+          "name": "Feedback",
+          "value": 0.7704724073,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Dry/Wet",
+          "value": 0.6062992215,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Warning.adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Chorus/Warning.adv",
+      "device_class": "Chorus",
+      "plugin_name": "Chorus-Ensemble",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 5,
+          "name": "Feedback",
+          "value": 0.7704724073,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Dry/Wet",
+          "value": 0.6062992215,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    }
+  ]
+}

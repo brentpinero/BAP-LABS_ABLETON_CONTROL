@@ -1,0 +1,653 @@
+{
+  "plugin": "Rotating Rhythm Generator",
+  "type": "midi_effect",
+  "uri": "query:MidiFx#Rotating%20Rhythm%20Generator",
+  "class_name": "MxDeviceMidiEffect",
+  "parameter_count": 68,
+  "parameters": [
+    {
+      "index": 0,
+      "name": "Device On",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 1,
+      "name": "Rotate",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 3.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 2,
+      "name": "Active",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 3,
+      "name": "Division",
+      "value": 2.0,
+      "min": 0.0,
+      "max": 19.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 4,
+      "name": "Division",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 41.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 5,
+      "name": "Fill",
+      "value": 64.0,
+      "min": 0.0,
+      "max": 64.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 64.0
+    },
+    {
+      "index": 6,
+      "name": "Euclidian",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 7,
+      "name": "Steps",
+      "value": 64.0,
+      "min": 0.0,
+      "max": 64.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 64.0
+    },
+    {
+      "index": 8,
+      "name": "Logic",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 9,
+      "name": "Operator",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 3.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 10,
+      "name": "Partner",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 2.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 11,
+      "name": "Length",
+      "value": 10.0,
+      "min": 10.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 10.0
+    },
+    {
+      "index": 12,
+      "name": "Note",
+      "value": 36.0,
+      "min": 0.0,
+      "max": 127.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 36.0
+    },
+    {
+      "index": 13,
+      "name": "Odds",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 14,
+      "name": "Offset",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 32.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 15,
+      "name": "Offset",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 64.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 16,
+      "name": "Swing",
+      "value": 0.0,
+      "min": -50.0,
+      "max": 50.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 17,
+      "name": "Velocity",
+      "value": 100.0,
+      "min": 0.0,
+      "max": 127.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 100.0
+    },
+    {
+      "index": 18,
+      "name": "Active",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 19,
+      "name": "Division",
+      "value": 2.0,
+      "min": 0.0,
+      "max": 19.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 20,
+      "name": "Division",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 41.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 21,
+      "name": "Fill",
+      "value": 64.0,
+      "min": 0.0,
+      "max": 64.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 64.0
+    },
+    {
+      "index": 22,
+      "name": "Euclidian",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 23,
+      "name": "Steps",
+      "value": 64.0,
+      "min": 0.0,
+      "max": 64.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 64.0
+    },
+    {
+      "index": 24,
+      "name": "Logic",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 25,
+      "name": "Operator",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 3.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 26,
+      "name": "Partner",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 2.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 27,
+      "name": "Length",
+      "value": 10.0,
+      "min": 10.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 10.0
+    },
+    {
+      "index": 28,
+      "name": "Note",
+      "value": 38.0,
+      "min": 0.0,
+      "max": 127.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 38.0
+    },
+    {
+      "index": 29,
+      "name": "Odds",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 30,
+      "name": "Offset",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 32.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 31,
+      "name": "Offset",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 64.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 32,
+      "name": "Swing",
+      "value": 0.0,
+      "min": -50.0,
+      "max": 50.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 33,
+      "name": "Velocity",
+      "value": 100.0,
+      "min": 0.0,
+      "max": 127.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 100.0
+    },
+    {
+      "index": 34,
+      "name": "Active",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 35,
+      "name": "Division",
+      "value": 2.0,
+      "min": 0.0,
+      "max": 19.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 36,
+      "name": "Division",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 41.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 37,
+      "name": "Fill",
+      "value": 64.0,
+      "min": 0.0,
+      "max": 64.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 64.0
+    },
+    {
+      "index": 38,
+      "name": "Euclidian",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 39,
+      "name": "Steps",
+      "value": 64.0,
+      "min": 0.0,
+      "max": 64.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 64.0
+    },
+    {
+      "index": 40,
+      "name": "Logic",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 41,
+      "name": "Operator",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 3.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 42,
+      "name": "Partner",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 2.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 43,
+      "name": "Length",
+      "value": 10.0,
+      "min": 10.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 10.0
+    },
+    {
+      "index": 44,
+      "name": "Note",
+      "value": 41.0,
+      "min": 0.0,
+      "max": 127.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 41.0
+    },
+    {
+      "index": 45,
+      "name": "Odds",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 46,
+      "name": "Offset",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 32.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 47,
+      "name": "Offset",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 64.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 48,
+      "name": "Swing",
+      "value": 0.0,
+      "min": -50.0,
+      "max": 50.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 49,
+      "name": "Velocity",
+      "value": 100.0,
+      "min": 0.0,
+      "max": 127.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 100.0
+    },
+    {
+      "index": 50,
+      "name": "Active",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 51,
+      "name": "Division",
+      "value": 2.0,
+      "min": 0.0,
+      "max": 19.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 52,
+      "name": "Division",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 41.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 53,
+      "name": "Fill",
+      "value": 64.0,
+      "min": 0.0,
+      "max": 64.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 64.0
+    },
+    {
+      "index": 54,
+      "name": "Euclidian",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 55,
+      "name": "Steps",
+      "value": 64.0,
+      "min": 0.0,
+      "max": 64.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 64.0
+    },
+    {
+      "index": 56,
+      "name": "Logic",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 57,
+      "name": "Operator",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 3.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 58,
+      "name": "Partner",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 2.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 59,
+      "name": "Length",
+      "value": 10.0,
+      "min": 10.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 10.0
+    },
+    {
+      "index": 60,
+      "name": "Note",
+      "value": 48.0,
+      "min": 0.0,
+      "max": 127.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 48.0
+    },
+    {
+      "index": 61,
+      "name": "Odds",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 62,
+      "name": "Offset",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 32.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 63,
+      "name": "Offset",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 64.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 64,
+      "name": "Swing",
+      "value": 0.0,
+      "min": -50.0,
+      "max": 50.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 65,
+      "name": "Velocity",
+      "value": 100.0,
+      "min": 0.0,
+      "max": 127.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 100.0
+    },
+    {
+      "index": 66,
+      "name": "Generator",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 3.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 67,
+      "name": "Part",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 2.0,
+      "is_enabled": true,
+      "is_quantized": true
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "device_class": "Transmute",
+  "preset_count": 8,
+  "presets": [
+    {
+      "preset_name": "Reso Mirrors",
+      "rel_path": "Devices/Audio Effects/Spectral Resonator/Reso Mirrors.adv",
+      "device_class": "Transmute",
+      "plugin_name": "Spectral Resonator",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Drum Challenger",
+      "rel_path": "Devices/Audio Effects/Spectral Resonator/Drum Challenger.adv",
+      "device_class": "Transmute",
+      "plugin_name": "Spectral Resonator",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Wandering Reso",
+      "rel_path": "Devices/Audio Effects/Spectral Resonator/Wandering Reso.adv",
+      "device_class": "Transmute",
+      "plugin_name": "Spectral Resonator",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Dripping Grains",
+      "rel_path": "Devices/Audio Effects/Spectral Resonator/Dripping Grains.adv",
+      "device_class": "Transmute",
+      "plugin_name": "Spectral Resonator",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Low Rider Drums",
+      "rel_path": "Devices/Audio Effects/Spectral Resonator/Low Rider Drums.adv",
+      "device_class": "Transmute",
+      "plugin_name": "Spectral Resonator",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Robot Drums",
+      "rel_path": "Devices/Audio Effects/Spectral Resonator/Robot Drums.adv",
+      "device_class": "Transmute",
+      "plugin_name": "Spectral Resonator",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Metallic Tail",
+      "rel_path": "Devices/Audio Effects/Spectral Resonator/Metallic Tail.adv",
+      "device_class": "Transmute",
+      "plugin_name": "Spectral Resonator",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Drum Snow",
+      "rel_path": "Devices/Audio Effects/Spectral Resonator/Drum Snow.adv",
+      "device_class": "Transmute",
+      "plugin_name": "Spectral Resonator",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    }
+  ]
+}

@@ -1,0 +1,201 @@
+{
+  "plugin": "Auto Pan-Tremolo",
+  "type": "audio_effect",
+  "uri": "query:AudioFx#Auto%20Pan-Tremolo",
+  "class_name": "AutoPan2",
+  "parameter_count": 20,
+  "parameters": [
+    {
+      "index": 0,
+      "name": "Device On",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 1,
+      "name": "Mode",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 2,
+      "name": "Amount",
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.5
+    },
+    {
+      "index": 3,
+      "name": "Waveform",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 8.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 4,
+      "name": "Invert",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 5,
+      "name": "Time Mode",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 5.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 6,
+      "name": "Frequency",
+      "value": 0.35995158553123474,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.35995158553123474
+    },
+    {
+      "index": 7,
+      "name": "Time",
+      "value": 0.1973896026611328,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.1973896026611328
+    },
+    {
+      "index": 8,
+      "name": "Rate",
+      "value": 6.0,
+      "min": 0.0,
+      "max": 21.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 6.0
+    },
+    {
+      "index": 9,
+      "name": "16th",
+      "value": 16.0,
+      "min": 1.0,
+      "max": 64.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 16.0
+    },
+    {
+      "index": 10,
+      "name": "Phase",
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.5
+    },
+    {
+      "index": 11,
+      "name": "Offset",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 12,
+      "name": "Stereo Mode",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 13,
+      "name": "Spin",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 14,
+      "name": "Panning Shape",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 15,
+      "name": "Tremolo Shape",
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.5
+    },
+    {
+      "index": 16,
+      "name": "Attack Time",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 17,
+      "name": "Dyn Mod",
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.5
+    },
+    {
+      "index": 18,
+      "name": "Harmonic",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 19,
+      "name": "Vintage",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    }
+  ]
+}

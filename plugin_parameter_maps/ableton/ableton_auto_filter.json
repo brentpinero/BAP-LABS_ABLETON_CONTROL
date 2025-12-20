@@ -1,0 +1,444 @@
+{
+  "plugin": "Auto Filter",
+  "type": "audio_effect",
+  "uri": "query:AudioFx#Auto%20Filter",
+  "class_name": "AutoFilter2",
+  "parameter_count": 45,
+  "parameters": [
+    {
+      "index": 0,
+      "name": "Device On",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 1,
+      "name": "Frequency",
+      "value": 0.8996566534042358,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.8996566534042358
+    },
+    {
+      "index": 2,
+      "name": "Resonance",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 3,
+      "name": "Morph",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 4,
+      "name": "Type",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 9.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 5,
+      "name": "Slope",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 6,
+      "name": "Morph Slope",
+      "value": 2.0,
+      "min": 0.0,
+      "max": 3.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 7,
+      "name": "Circuit",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 3.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 8,
+      "name": "Drive",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 9,
+      "name": "Control",
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.5
+    },
+    {
+      "index": 10,
+      "name": "Pitch",
+      "value": 0.0,
+      "min": -36.0,
+      "max": 36.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 11,
+      "name": "Formant",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 12,
+      "name": "LFO Amount",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 13,
+      "name": "LFO Wave",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 7.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 14,
+      "name": "LFO T Mode",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 5.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 15,
+      "name": "LFO Freq",
+      "value": 0.35995158553123474,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.35995158553123474
+    },
+    {
+      "index": 16,
+      "name": "LFO Time",
+      "value": 0.1973896026611328,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.1973896026611328
+    },
+    {
+      "index": 17,
+      "name": "LFO Rate",
+      "value": 4.0,
+      "min": 0.0,
+      "max": 21.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 4.0
+    },
+    {
+      "index": 18,
+      "name": "LFO 16th",
+      "value": 16.0,
+      "min": 1.0,
+      "max": 64.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 16.0
+    },
+    {
+      "index": 19,
+      "name": "LFO Phase",
+      "value": 0.011111111380159855,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 20,
+      "name": "LFO Offset",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 21,
+      "name": "LFO S Mode",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 22,
+      "name": "LFO Spin",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 23,
+      "name": "LFO Morph",
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.5
+    },
+    {
+      "index": 24,
+      "name": "LFO Smoothing",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 25,
+      "name": "LFO Q Mode",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 2.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 26,
+      "name": "LFO Steps",
+      "value": 8.0,
+      "min": 2.0,
+      "max": 64.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 8.0
+    },
+    {
+      "index": 27,
+      "name": "LFO S&H",
+      "value": -4.0,
+      "min": -6.0,
+      "max": 0.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": -4.0
+    },
+    {
+      "index": 28,
+      "name": "Env Amount",
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.5
+    },
+    {
+      "index": 29,
+      "name": "Env Attack",
+      "value": 0.25084149837493896,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.25084149837493896
+    },
+    {
+      "index": 30,
+      "name": "Env Hold On",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 31,
+      "name": "Env Release",
+      "value": 0.47415632009506226,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.47415632009506226
+    },
+    {
+      "index": 32,
+      "name": "Env S&H On",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 33,
+      "name": "Env S&H",
+      "value": -4.0,
+      "min": -6.0,
+      "max": 0.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": -4.0
+    },
+    {
+      "index": 34,
+      "name": "Output",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 1.0
+    },
+    {
+      "index": 35,
+      "name": "Soft Clip On",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 36,
+      "name": "Dry/Wet",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 1.0
+    },
+    {
+      "index": 37,
+      "name": "S/C EQ On",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 38,
+      "name": "S/C EQ Type",
+      "value": 5.0,
+      "min": 0.0,
+      "max": 5.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 39,
+      "name": "S/C EQ Freq",
+      "value": 0.3052678406238556,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.3052678406238556
+    },
+    {
+      "index": 40,
+      "name": "S/C EQ Q",
+      "value": 0.40856707096099854,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.40856707096099854
+    },
+    {
+      "index": 41,
+      "name": "S/C EQ Gain",
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.5
+    },
+    {
+      "index": 42,
+      "name": "S/C On",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 43,
+      "name": "S/C Gain",
+      "value": 0.4000000059604645,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.4000000059604645
+    },
+    {
+      "index": 44,
+      "name": "S/C Mix",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 1.0
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "device_class": "Redux",
+  "preset_count": 6,
+  "presets": [
+    {
+      "preset_name": "Down 2.66.adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Redux Legacy/Down 2.66.adv",
+      "device_class": "Redux",
+      "plugin_name": "Redux",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Bit Depth",
+          "value": 16.0,
+          "min": 1.0,
+          "max": 16.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Redux.adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Redux Legacy/Redux.adv",
+      "device_class": "Redux",
+      "plugin_name": "Redux",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Bit Depth",
+          "value": 16.0,
+          "min": 1.0,
+          "max": 16.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Mirage.adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Redux Legacy/Mirage.adv",
+      "device_class": "Redux",
+      "plugin_name": "Redux",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Bit Depth",
+          "value": 8.0,
+          "min": 1.0,
+          "max": 16.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Old Sampler...",
+      "rel_path": "Devices/Audio Effects/Legacy/Redux Legacy/12-bit Fidelity.adv",
+      "device_class": "Redux",
+      "plugin_name": "Redux",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Bit Depth",
+          "value": 12.0,
+          "min": 1.0,
+          "max": 16.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Old Sampler.adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Redux Legacy/Old Sampler.adv",
+      "device_class": "Redux",
+      "plugin_name": "Redux",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Bit Depth",
+          "value": 8.0,
+          "min": 1.0,
+          "max": 16.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Broken Hihats.adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Redux Legacy/Broken Hihats.adv",
+      "device_class": "Redux",
+      "plugin_name": "Redux",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Bit Depth",
+          "value": 16.0,
+          "min": 1.0,
+          "max": 16.0
+        }
+      ]
+    }
+  ]
+}

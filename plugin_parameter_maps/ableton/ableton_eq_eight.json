@@ -1,0 +1,815 @@
+{
+  "plugin": "EQ Eight",
+  "type": "audio_effect",
+  "uri": "query:AudioFx#EQ%20Eight",
+  "class_name": "Eq8",
+  "parameter_count": 84,
+  "parameters": [
+    {
+      "index": 0,
+      "name": "Device On",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 1,
+      "name": "Output Gain",
+      "value": 0.0,
+      "min": -12.0,
+      "max": 12.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 2,
+      "name": "Scale",
+      "value": 1.0,
+      "min": -2.0,
+      "max": 2.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 1.0
+    },
+    {
+      "index": 3,
+      "name": "Adaptive Q",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 4,
+      "name": "1 Filter On A",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 5,
+      "name": "1 Filter Type A",
+      "value": 2.0,
+      "min": 0.0,
+      "max": 7.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 6,
+      "name": "1 Frequency A",
+      "value": 0.14274713397026062,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.1801268309354782
+    },
+    {
+      "index": 7,
+      "name": "1 Gain A",
+      "value": 0.0,
+      "min": -15.0,
+      "max": 15.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 8,
+      "name": "1 Resonance A",
+      "value": 0.37666621804237366,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.37666621804237366
+    },
+    {
+      "index": 9,
+      "name": "1 Filter On B",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 10,
+      "name": "1 Filter Type B",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 7.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 11,
+      "name": "1 Frequency B",
+      "value": 0.1801268309354782,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.1801268309354782
+    },
+    {
+      "index": 12,
+      "name": "1 Gain B",
+      "value": 0.0,
+      "min": -15.0,
+      "max": 15.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 13,
+      "name": "1 Resonance B",
+      "value": 0.37666621804237366,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.37666621804237366
+    },
+    {
+      "index": 14,
+      "name": "2 Filter On A",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 15,
+      "name": "2 Filter Type A",
+      "value": 3.0,
+      "min": 0.0,
+      "max": 7.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 16,
+      "name": "2 Frequency A",
+      "value": 0.3892475962638855,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.3892475962638855
+    },
+    {
+      "index": 17,
+      "name": "2 Gain A",
+      "value": 0.0,
+      "min": -15.0,
+      "max": 15.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 18,
+      "name": "2 Resonance A",
+      "value": 0.37666621804237366,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.37666621804237366
+    },
+    {
+      "index": 19,
+      "name": "2 Filter On B",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 20,
+      "name": "2 Filter Type B",
+      "value": 2.0,
+      "min": 0.0,
+      "max": 7.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 21,
+      "name": "2 Frequency B",
+      "value": 0.3892475962638855,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.3892475962638855
+    },
+    {
+      "index": 22,
+      "name": "2 Gain B",
+      "value": 0.0,
+      "min": -15.0,
+      "max": 15.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 23,
+      "name": "2 Resonance B",
+      "value": 0.37666621804237366,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.37666621804237366
+    },
+    {
+      "index": 24,
+      "name": "3 Filter On A",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 25,
+      "name": "3 Filter Type A",
+      "value": 3.0,
+      "min": 0.0,
+      "max": 7.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 26,
+      "name": "3 Frequency A",
+      "value": 0.5983683466911316,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.2991841733455658
+    },
+    {
+      "index": 27,
+      "name": "3 Gain A",
+      "value": 0.0,
+      "min": -15.0,
+      "max": 15.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 28,
+      "name": "3 Resonance A",
+      "value": 0.37666621804237366,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.37666621804237366
+    },
+    {
+      "index": 29,
+      "name": "3 Filter On B",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 30,
+      "name": "3 Filter Type B",
+      "value": 3.0,
+      "min": 0.0,
+      "max": 7.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 31,
+      "name": "3 Frequency B",
+      "value": 0.2991841733455658,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.2991841733455658
+    },
+    {
+      "index": 32,
+      "name": "3 Gain B",
+      "value": 0.0,
+      "min": -15.0,
+      "max": 15.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 33,
+      "name": "3 Resonance B",
+      "value": 0.37666621804237366,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.37666621804237366
+    },
+    {
+      "index": 34,
+      "name": "4 Filter On A",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 35,
+      "name": "4 Filter Type A",
+      "value": 5.0,
+      "min": 0.0,
+      "max": 7.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 36,
+      "name": "4 Frequency A",
+      "value": 0.8074891567230225,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.5083049535751343
+    },
+    {
+      "index": 37,
+      "name": "4 Gain A",
+      "value": 0.0,
+      "min": -15.0,
+      "max": 15.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 38,
+      "name": "4 Resonance A",
+      "value": 0.37666621804237366,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.37666621804237366
+    },
+    {
+      "index": 39,
+      "name": "4 Filter On B",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 40,
+      "name": "4 Filter Type B",
+      "value": 3.0,
+      "min": 0.0,
+      "max": 7.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 41,
+      "name": "4 Frequency B",
+      "value": 0.5083049535751343,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.5083049535751343
+    },
+    {
+      "index": 42,
+      "name": "4 Gain B",
+      "value": 0.0,
+      "min": -15.0,
+      "max": 15.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 43,
+      "name": "4 Resonance B",
+      "value": 0.37666621804237366,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.37666621804237366
+    },
+    {
+      "index": 44,
+      "name": "5 Filter On A",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 45,
+      "name": "5 Filter Type A",
+      "value": 3.0,
+      "min": 0.0,
+      "max": 7.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 46,
+      "name": "5 Frequency A",
+      "value": 0.2991841733455658,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.6884317994117737
+    },
+    {
+      "index": 47,
+      "name": "5 Gain A",
+      "value": 0.0,
+      "min": -15.0,
+      "max": 15.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 48,
+      "name": "5 Resonance A",
+      "value": 0.37666621804237366,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.37666621804237366
+    },
+    {
+      "index": 49,
+      "name": "5 Filter On B",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 50,
+      "name": "5 Filter Type B",
+      "value": 3.0,
+      "min": 0.0,
+      "max": 7.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 51,
+      "name": "5 Frequency B",
+      "value": 0.6884317994117737,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.6884317994117737
+    },
+    {
+      "index": 52,
+      "name": "5 Gain B",
+      "value": 0.0,
+      "min": -15.0,
+      "max": 15.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 53,
+      "name": "5 Resonance B",
+      "value": 0.37666621804237366,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.37666621804237366
+    },
+    {
+      "index": 54,
+      "name": "6 Filter On A",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 55,
+      "name": "6 Filter Type A",
+      "value": 3.0,
+      "min": 0.0,
+      "max": 7.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 56,
+      "name": "6 Frequency A",
+      "value": 0.8975525498390198,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.8975525498390198
+    },
+    {
+      "index": 57,
+      "name": "6 Gain A",
+      "value": 0.0,
+      "min": -15.0,
+      "max": 15.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 58,
+      "name": "6 Resonance A",
+      "value": 0.37666621804237366,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.37666621804237366
+    },
+    {
+      "index": 59,
+      "name": "6 Filter On B",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 60,
+      "name": "6 Filter Type B",
+      "value": 3.0,
+      "min": 0.0,
+      "max": 7.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 61,
+      "name": "6 Frequency B",
+      "value": 0.8975525498390198,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.8975525498390198
+    },
+    {
+      "index": 62,
+      "name": "6 Gain B",
+      "value": 0.0,
+      "min": -15.0,
+      "max": 15.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 63,
+      "name": "6 Resonance B",
+      "value": 0.37666621804237366,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.37666621804237366
+    },
+    {
+      "index": 64,
+      "name": "7 Filter On A",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 65,
+      "name": "7 Filter Type A",
+      "value": 3.0,
+      "min": 0.0,
+      "max": 7.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 66,
+      "name": "7 Frequency A",
+      "value": 0.8074891567230225,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.8074891567230225
+    },
+    {
+      "index": 67,
+      "name": "7 Gain A",
+      "value": 0.0,
+      "min": -15.0,
+      "max": 15.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 68,
+      "name": "7 Resonance A",
+      "value": 0.37666621804237366,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.37666621804237366
+    },
+    {
+      "index": 69,
+      "name": "7 Filter On B",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 70,
+      "name": "7 Filter Type B",
+      "value": 5.0,
+      "min": 0.0,
+      "max": 7.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 71,
+      "name": "7 Frequency B",
+      "value": 0.8074891567230225,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.8074891567230225
+    },
+    {
+      "index": 72,
+      "name": "7 Gain B",
+      "value": 0.0,
+      "min": -15.0,
+      "max": 15.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 73,
+      "name": "7 Resonance B",
+      "value": 0.37666621804237366,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.37666621804237366
+    },
+    {
+      "index": 74,
+      "name": "8 Filter On A",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 75,
+      "name": "8 Filter Type A",
+      "value": 6.0,
+      "min": 0.0,
+      "max": 7.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 76,
+      "name": "8 Frequency A",
+      "value": 0.9739260673522949,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.9739260673522949
+    },
+    {
+      "index": 77,
+      "name": "8 Gain A",
+      "value": 0.0,
+      "min": -15.0,
+      "max": 15.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 78,
+      "name": "8 Resonance A",
+      "value": 0.37666621804237366,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.37666621804237366
+    },
+    {
+      "index": 79,
+      "name": "8 Filter On B",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 80,
+      "name": "8 Filter Type B",
+      "value": 6.0,
+      "min": 0.0,
+      "max": 7.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 81,
+      "name": "8 Frequency B",
+      "value": 0.9739260673522949,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.9739260673522949
+    },
+    {
+      "index": 82,
+      "name": "8 Gain B",
+      "value": 0.0,
+      "min": -15.0,
+      "max": 15.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 83,
+      "name": "8 Resonance B",
+      "value": 0.37666621804237366,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.37666621804237366
+    }
+  ]
+}

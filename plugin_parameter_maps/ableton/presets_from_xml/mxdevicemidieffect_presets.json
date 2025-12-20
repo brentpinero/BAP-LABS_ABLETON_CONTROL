@@ -1,0 +1,226 @@
+{
+  "device_class": "MxDeviceMidiEffect",
+  "preset_count": 22,
+  "presets": [
+    {
+      "preset_name": "Note PB 50",
+      "rel_path": "Devices/MIDI Effects/MPE Control/Note PB 50.adv",
+      "device_class": "MxDeviceMidiEffect",
+      "plugin_name": "Envelope MIDI",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "MPE to MIDI",
+      "rel_path": "Devices/MIDI Effects/MPE Control/MPE to MIDI.adv",
+      "device_class": "MxDeviceMidiEffect",
+      "plugin_name": "Envelope MIDI",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "MPE Off.adv",
+      "rel_path": "Devices/MIDI Effects/MPE Control/MPE Off.adv",
+      "device_class": "MxDeviceMidiEffect",
+      "plugin_name": "Envelope MIDI",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Note PB 25",
+      "rel_path": "Devices/MIDI Effects/MPE Control/Note PB 25.adv",
+      "device_class": "MxDeviceMidiEffect",
+      "plugin_name": "Envelope MIDI",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Note PB Off",
+      "rel_path": "Devices/MIDI Effects/MPE Control/Note PB Off.adv",
+      "device_class": "MxDeviceMidiEffect",
+      "plugin_name": "Envelope MIDI",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Force Relative Slide",
+      "rel_path": "Devices/MIDI Effects/MPE Control/Force Relative Slide.adv",
+      "device_class": "MxDeviceMidiEffect",
+      "plugin_name": "Envelope MIDI",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Pressure and Slide Invert.adv",
+      "rel_path": "Devices/MIDI Effects/MPE Control/Pressure and Slide Invert.adv",
+      "device_class": "MxDeviceMidiEffect",
+      "plugin_name": "Envelope MIDI",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Keep It Major",
+      "rel_path": "Devices/MIDI Effects/Note Echo/Keep It Major.adv",
+      "device_class": "MxDeviceMidiEffect",
+      "plugin_name": "Envelope MIDI",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Pad Spiral",
+      "rel_path": "Devices/MIDI Effects/Note Echo/Pad Spiral.adv",
+      "device_class": "MxDeviceMidiEffect",
+      "plugin_name": "Envelope MIDI",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Thirds Stacked",
+      "rel_path": "Devices/MIDI Effects/Note Echo/Thirds Stacked.adv",
+      "device_class": "MxDeviceMidiEffect",
+      "plugin_name": "Envelope MIDI",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Karplus Shimmer",
+      "rel_path": "Devices/MIDI Effects/Note Echo/Karplus Shimmer.adv",
+      "device_class": "MxDeviceMidiEffect",
+      "plugin_name": "Envelope MIDI",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Downwards Flutter",
+      "rel_path": "Devices/MIDI Effects/Note Echo/Downwards Flutter.adv",
+      "device_class": "MxDeviceMidiEffect",
+      "plugin_name": "Envelope MIDI",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Rapid Response",
+      "rel_path": "Devices/MIDI Effects/Note Echo/Rapid Response.adv",
+      "device_class": "MxDeviceMidiEffect",
+      "plugin_name": "Envelope MIDI",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Arcade Repeat",
+      "rel_path": "Devices/MIDI Effects/Note Echo/Arcade Repeat.adv",
+      "device_class": "MxDeviceMidiEffect",
+      "plugin_name": "Envelope MIDI",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Keys Mute",
+      "rel_path": "Devices/MIDI Effects/Note Echo/Keys Mute.adv",
+      "device_class": "MxDeviceMidiEffect",
+      "plugin_name": "Envelope MIDI",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Fifth Stage",
+      "rel_path": "Devices/MIDI Effects/Note Echo/Fifth Stage.adv",
+      "device_class": "MxDeviceMidiEffect",
+      "plugin_name": "Envelope MIDI",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Drift and Fall",
+      "rel_path": "Devices/MIDI Effects/Note Echo/Drift and Fall.adv",
+      "device_class": "MxDeviceMidiEffect",
+      "plugin_name": "Envelope MIDI",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Slow Climb Sweeper",
+      "rel_path": "Devices/MIDI Effects/Envelope MIDI/Slow Climb Sweeper.adv",
+      "device_class": "MxDeviceMidiEffect",
+      "plugin_name": "Envelope MIDI",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Slow ADSR",
+      "rel_path": "Devices/MIDI Effects/Envelope MIDI/Slow ADSR.adv",
+      "device_class": "MxDeviceMidiEffect",
+      "plugin_name": "Envelope MIDI",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Fast Attack",
+      "rel_path": "Devices/MIDI Effects/Envelope MIDI/Fast Attack.adv",
+      "device_class": "MxDeviceMidiEffect",
+      "plugin_name": "Envelope MIDI",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Fast Pluck",
+      "rel_path": "Devices/MIDI Effects/Envelope MIDI/Fast Pluck.adv",
+      "device_class": "MxDeviceMidiEffect",
+      "plugin_name": "Envelope MIDI",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Impact Echo",
+      "rel_path": "Devices/MIDI Effects/Envelope MIDI/Impact Echo.adv",
+      "device_class": "MxDeviceMidiEffect",
+      "plugin_name": "Envelope MIDI",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    }
+  ]
+}

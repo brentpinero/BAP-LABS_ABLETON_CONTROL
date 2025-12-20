@@ -1,0 +1,582 @@
+{
+  "device_class": "ChannelEq",
+  "preset_count": 18,
+  "presets": [
+    {
+      "preset_name": "Snare Focus",
+      "rel_path": "Devices/Audio Effects/Channel EQ/Snare Focus.adv",
+      "device_class": "ChannelEq",
+      "plugin_name": "Channel EQ",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Highpass On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Mid Gain",
+          "value": 1.97811604,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Gain",
+          "value": 0.9361177683,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Upper Middle",
+      "rel_path": "Devices/Audio Effects/Channel EQ/Upper Middle.adv",
+      "device_class": "ChannelEq",
+      "plugin_name": "Channel EQ",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Highpass On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Mid Gain",
+          "value": 3.14605355,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Gain",
+          "value": 0.5251735449,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Low End Boost",
+      "rel_path": "Devices/Audio Effects/Channel EQ/Low End Boost.adv",
+      "device_class": "ChannelEq",
+      "plugin_name": "Channel EQ",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Highpass On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Mid Gain",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Gain",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Vocal Curve",
+      "rel_path": "Devices/Audio Effects/Channel EQ/Vocal Curve.adv",
+      "device_class": "ChannelEq",
+      "plugin_name": "Channel EQ",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Highpass On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Mid Gain",
+          "value": 1.04499209,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Gain",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Low Cut",
+      "rel_path": "Devices/Audio Effects/Channel EQ/Low Cut.adv",
+      "device_class": "ChannelEq",
+      "plugin_name": "Channel EQ",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Highpass On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Mid Gain",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Gain",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Mid Accent",
+      "rel_path": "Devices/Audio Effects/Channel EQ/Mid Accent.adv",
+      "device_class": "ChannelEq",
+      "plugin_name": "Channel EQ",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Highpass On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Mid Gain",
+          "value": 1.81144738,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Gain",
+          "value": 0.7943263054,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Drum Loop Smoother",
+      "rel_path": "Devices/Audio Effects/Channel EQ/Drum Loop Smoother.adv",
+      "device_class": "ChannelEq",
+      "plugin_name": "Channel EQ",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Highpass On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Mid Gain",
+          "value": 1.6588217,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Gain",
+          "value": 0.8203353882,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Keys Bright",
+      "rel_path": "Devices/Audio Effects/Channel EQ/Keys Bright.adv",
+      "device_class": "ChannelEq",
+      "plugin_name": "Channel EQ",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Highpass On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Mid Gain",
+          "value": 1.78341901,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Gain",
+          "value": 0.8489664793,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Heartbeat Kick",
+      "rel_path": "Devices/Audio Effects/Channel EQ/Heartbeat Kick.adv",
+      "device_class": "ChannelEq",
+      "plugin_name": "Channel EQ",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Highpass On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Mid Gain",
+          "value": 0.2669216394,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Gain",
+          "value": 0.4812578261,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Mid Focus",
+      "rel_path": "Devices/Audio Effects/Channel EQ/Mid Focus.adv",
+      "device_class": "ChannelEq",
+      "plugin_name": "Channel EQ",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Highpass On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Mid Gain",
+          "value": 2.16011953,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Gain",
+          "value": 1.25892854,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Hi Hat Boost",
+      "rel_path": "Devices/Audio Effects/Channel EQ/Hi Hat Boost.adv",
+      "device_class": "ChannelEq",
+      "plugin_name": "Channel EQ",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Highpass On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Mid Gain",
+          "value": 0.4918798804,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Gain",
+          "value": 0.728654623,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Hi End Regulator",
+      "rel_path": "Devices/Audio Effects/Channel EQ/Hi End Regulator.adv",
+      "device_class": "ChannelEq",
+      "plugin_name": "Channel EQ",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Highpass On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Mid Gain",
+          "value": 0.25,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Gain",
+          "value": 0.4314907491,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "High End Boost",
+      "rel_path": "Devices/Audio Effects/Channel EQ/High End Boost.adv",
+      "device_class": "ChannelEq",
+      "plugin_name": "Channel EQ",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Highpass On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Mid Gain",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Gain",
+          "value": 0.8175188899,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Low Shelf",
+      "rel_path": "Devices/Audio Effects/Channel EQ/Low Shelf.adv",
+      "device_class": "ChannelEq",
+      "plugin_name": "Channel EQ",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Highpass On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Mid Gain",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Gain",
+          "value": 1.12202156,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "High Shelf",
+      "rel_path": "Devices/Audio Effects/Channel EQ/High Shelf.adv",
+      "device_class": "ChannelEq",
+      "plugin_name": "Channel EQ",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Highpass On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Mid Gain",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Gain",
+          "value": 1.12202156,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Boom Capture",
+      "rel_path": "Devices/Audio Effects/Channel EQ/Boom Capture.adv",
+      "device_class": "ChannelEq",
+      "plugin_name": "Channel EQ",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Highpass On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Mid Gain",
+          "value": 0.5138325095,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Gain",
+          "value": 1.05609536,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Middle Area",
+      "rel_path": "Devices/Audio Effects/Channel EQ/Middle Area.adv",
+      "device_class": "ChannelEq",
+      "plugin_name": "Channel EQ",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Highpass On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Mid Gain",
+          "value": 3.07811522,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Gain",
+          "value": 0.3785157204,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Radio 40's",
+      "rel_path": "Devices/Audio Effects/Channel EQ/Radio 40's.adv",
+      "device_class": "ChannelEq",
+      "plugin_name": "Channel EQ",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Highpass On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Mid Gain",
+          "value": 1.67035806,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Gain",
+          "value": 1.12757885,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,726 @@
+{
+  "device_class": "Chorus2",
+  "preset_count": 12,
+  "presets": [
+    {
+      "preset_name": "Vibrato Flutter",
+      "rel_path": "Devices/Audio Effects/Chorus-Ensemble/Vibrato Flutter.adv",
+      "device_class": "Chorus2",
+      "plugin_name": "Chorus-Ensemble",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Mode",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Rate",
+          "value": 7.28056097,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Amount",
+          "value": 0.1269841343,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Feedback",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Width",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "Warmth",
+          "value": 0.1047961935,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Ensemble Deep",
+      "rel_path": "Devices/Audio Effects/Chorus-Ensemble/Ensemble Deep.adv",
+      "device_class": "Chorus2",
+      "plugin_name": "Chorus-Ensemble",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Mode",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Rate",
+          "value": 0.5483837128,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Amount",
+          "value": 0.8095238209,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Feedback",
+          "value": 0.25,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Width",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "Warmth",
+          "value": 0.1047961935,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Dry/Wet",
+          "value": 0.7460317612,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Chorus Bass.adv",
+      "rel_path": "Devices/Audio Effects/Chorus-Ensemble/Chorus Bass.adv",
+      "device_class": "Chorus2",
+      "plugin_name": "Chorus-Ensemble",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Rate",
+          "value": 0.6585194468,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Amount",
+          "value": 0.7460317612,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Feedback",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Width",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "Warmth",
+          "value": 0.1047961935,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Dry/Wet",
+          "value": 0.8015872836,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Warm Ensemble",
+      "rel_path": "Devices/Audio Effects/Chorus-Ensemble/Warm Ensemble.adv",
+      "device_class": "Chorus2",
+      "plugin_name": "Chorus-Ensemble",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Mode",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Rate",
+          "value": 0.2900104225,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Amount",
+          "value": 0.9682539701,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Feedback",
+          "value": 0.2592857182,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Width",
+          "value": 0.859375,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "Warmth",
+          "value": 0.2392028123,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Dry/Wet",
+          "value": 0.9920634627,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Grunge Chorus",
+      "rel_path": "Devices/Audio Effects/Chorus-Ensemble/Vibrato Subtle.adv",
+      "device_class": "Chorus2",
+      "plugin_name": "Chorus-Ensemble",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Mode",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Rate",
+          "value": 1.66146326,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Amount",
+          "value": 0.1190476194,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Feedback",
+          "value": 0.2435714304,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Width",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "Warmth",
+          "value": 0.01042114943,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Dry/Wet",
+          "value": 0.7460317612,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Ensemble Feedback.adv",
+      "rel_path": "Devices/Audio Effects/Chorus-Ensemble/Ensemble Feedback.adv",
+      "device_class": "Chorus2",
+      "plugin_name": "Chorus-Ensemble",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Mode",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Rate",
+          "value": 0.5153386593,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Amount",
+          "value": 0.571428597,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Feedback",
+          "value": 0.801428616,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Width",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "Warmth",
+          "value": 0.02378682047,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Dry/Wet",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Vibrato Spacial",
+      "rel_path": "Devices/Audio Effects/Chorus-Ensemble/Vibrato Spacial.adv",
+      "device_class": "Chorus2",
+      "plugin_name": "Chorus-Ensemble",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Mode",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Rate",
+          "value": 3.96191239,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Amount",
+          "value": 0.1031746045,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Feedback",
+          "value": 0.275000006,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Width",
+          "value": 0.859375,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "Warmth",
+          "value": 0.02400000021,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Dry/Wet",
+          "value": 0.793650806,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Chorus Subtle Funk",
+      "rel_path": "Devices/Audio Effects/Chorus-Ensemble/Chorus Subtle Funk.adv",
+      "device_class": "Chorus2",
+      "plugin_name": "Chorus-Ensemble",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Rate",
+          "value": 0.5483837128,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Amount",
+          "value": 0.4047619104,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Feedback",
+          "value": 0.2278571427,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Width",
+          "value": 0.859375,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "Warmth",
+          "value": 0.01154563017,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Dry/Wet",
+          "value": 0.7460317612,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Vibrato Kaleidoscope",
+      "rel_path": "Devices/Audio Effects/Chorus-Ensemble/Vibrato Kaleidoscope.adv",
+      "device_class": "Chorus2",
+      "plugin_name": "Chorus-Ensemble",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Mode",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Rate",
+          "value": 1.66146326,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Amount",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Feedback",
+          "value": 0.2435714304,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Width",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "Warmth",
+          "value": 0.01042114943,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Dry/Wet",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Vibrato Wobble",
+      "rel_path": "Devices/Audio Effects/Chorus-Ensemble/Vibrato Wobble.adv",
+      "device_class": "Chorus2",
+      "plugin_name": "Chorus-Ensemble",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Mode",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Rate",
+          "value": 0.81404984,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Amount",
+          "value": 0.251968503,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Feedback",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Width",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "Warmth",
+          "value": 0.1047961935,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Chorus Classic",
+      "rel_path": "Devices/Audio Effects/Chorus-Ensemble/Chorus Classic.adv",
+      "device_class": "Chorus2",
+      "plugin_name": "Chorus-Ensemble",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Rate",
+          "value": 0.6199194193,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Amount",
+          "value": 0.5873016119,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Feedback",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Width",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "Warmth",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Warm Chorale",
+      "rel_path": "Devices/Audio Effects/Chorus-Ensemble/Warm Chorale.adv",
+      "device_class": "Chorus2",
+      "plugin_name": "Chorus-Ensemble",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Rate",
+          "value": 0.2396969795,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Amount",
+          "value": 0.9047619104,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Feedback",
+          "value": 0.4635714293,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Width",
+          "value": 0.859375,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "Warmth",
+          "value": 0.2696069479,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    }
+  ]
+}

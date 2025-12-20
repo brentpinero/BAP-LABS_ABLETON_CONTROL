@@ -1,0 +1,107 @@
+{
+  "plugin": "Dynamic Tube",
+  "type": "audio_effect",
+  "uri": "query:AudioFx#Dynamic%20Tube",
+  "class_name": "Tube",
+  "parameter_count": 10,
+  "parameters": [
+    {
+      "index": 0,
+      "name": "Device On",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 1,
+      "name": "Dry/Wet",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 1.0
+    },
+    {
+      "index": 2,
+      "name": "Drive",
+      "value": 0.0,
+      "min": -15.0,
+      "max": 15.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 3,
+      "name": "Output",
+      "value": 0.0,
+      "min": -15.0,
+      "max": 15.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 4,
+      "name": "Bias",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 5,
+      "name": "Envelope",
+      "value": 0.0,
+      "min": -3.0,
+      "max": 3.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 6,
+      "name": "Attack",
+      "value": 0.2686217725276947,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.2686217725276947
+    },
+    {
+      "index": 7,
+      "name": "Release",
+      "value": 0.4861535429954529,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.4861535429954529
+    },
+    {
+      "index": 8,
+      "name": "Tone",
+      "value": 0.0,
+      "min": -1.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 9,
+      "name": "Tube Type",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 2.0,
+      "is_enabled": true,
+      "is_quantized": true
+    }
+  ]
+}

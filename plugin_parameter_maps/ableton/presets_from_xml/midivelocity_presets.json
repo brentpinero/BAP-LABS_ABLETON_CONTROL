@@ -1,0 +1,906 @@
+{
+  "device_class": "MidiVelocity",
+  "preset_count": 15,
+  "presets": [
+    {
+      "preset_name": "Compression I.adv",
+      "rel_path": "Devices/MIDI Effects/Velocity/Compression I.adv",
+      "device_class": "MidiVelocity",
+      "plugin_name": "Velocity",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Drive",
+          "value": -0.03174603358,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Compand",
+          "value": -0.4444444478,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Random",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 64.0
+        },
+        {
+          "index": 4,
+          "name": "Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 5,
+          "name": "Operation",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Range",
+          "value": 127.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 9,
+          "name": "Lowest",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 127.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Forte.adv",
+      "rel_path": "Devices/MIDI Effects/Velocity/Forte.adv",
+      "device_class": "MidiVelocity",
+      "plugin_name": "Velocity",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Drive",
+          "value": 0.555555582,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Compand",
+          "value": 0.0,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Random",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 64.0
+        },
+        {
+          "index": 4,
+          "name": "Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 5,
+          "name": "Operation",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Range",
+          "value": 127.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 9,
+          "name": "Lowest",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 127.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Invert.adv",
+      "rel_path": "Devices/MIDI Effects/Velocity/Invert.adv",
+      "device_class": "MidiVelocity",
+      "plugin_name": "Velocity",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Drive",
+          "value": 0.0,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Compand",
+          "value": 0.0,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Random",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 64.0
+        },
+        {
+          "index": 4,
+          "name": "Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 5,
+          "name": "Operation",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Range",
+          "value": 127.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 9,
+          "name": "Lowest",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 127.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Cut Above 64.adv",
+      "rel_path": "Devices/MIDI Effects/Velocity/Cut Above 64.adv",
+      "device_class": "MidiVelocity",
+      "plugin_name": "Velocity",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Drive",
+          "value": 0.0,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Compand",
+          "value": 0.0,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Random",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 64.0
+        },
+        {
+          "index": 4,
+          "name": "Mode",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 5,
+          "name": "Operation",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Range",
+          "value": 127.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 9,
+          "name": "Lowest",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 127.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Compression II.adv",
+      "rel_path": "Devices/MIDI Effects/Velocity/Compression II.adv",
+      "device_class": "MidiVelocity",
+      "plugin_name": "Velocity",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Drive",
+          "value": -0.03174603358,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Compand",
+          "value": -0.4126984179,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Random",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 64.0
+        },
+        {
+          "index": 4,
+          "name": "Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 5,
+          "name": "Operation",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Range",
+          "value": 127.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 9,
+          "name": "Lowest",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 127.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Fix 64.adv",
+      "rel_path": "Devices/MIDI Effects/Velocity/Fix 64.adv",
+      "device_class": "MidiVelocity",
+      "plugin_name": "Velocity",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Drive",
+          "value": 0.0,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Compand",
+          "value": 0.0,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Random",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 64.0
+        },
+        {
+          "index": 4,
+          "name": "Mode",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 5,
+          "name": "Operation",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Range",
+          "value": 127.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 9,
+          "name": "Lowest",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 127.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Total Random.adv",
+      "rel_path": "Devices/MIDI Effects/Velocity/Total Random.adv",
+      "device_class": "MidiVelocity",
+      "plugin_name": "Velocity",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Drive",
+          "value": 0.0,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Compand",
+          "value": 0.0,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Random",
+          "value": 64.0,
+          "min": 0.0,
+          "max": 64.0
+        },
+        {
+          "index": 4,
+          "name": "Mode",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 5,
+          "name": "Operation",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Range",
+          "value": 127.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 9,
+          "name": "Lowest",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 127.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Fix 1.adv",
+      "rel_path": "Devices/MIDI Effects/Velocity/Fix 1.adv",
+      "device_class": "MidiVelocity",
+      "plugin_name": "Velocity",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Drive",
+          "value": 0.0,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Compand",
+          "value": 0.0,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Random",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 64.0
+        },
+        {
+          "index": 4,
+          "name": "Mode",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 5,
+          "name": "Operation",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Range",
+          "value": 127.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 9,
+          "name": "Lowest",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 127.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Add some Random.adv",
+      "rel_path": "Devices/MIDI Effects/Velocity/Add some Random.adv",
+      "device_class": "MidiVelocity",
+      "plugin_name": "Velocity",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Drive",
+          "value": 0.0,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Compand",
+          "value": 0.0,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Random",
+          "value": 30.0,
+          "min": 0.0,
+          "max": 64.0
+        },
+        {
+          "index": 4,
+          "name": "Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 5,
+          "name": "Operation",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Range",
+          "value": 127.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 9,
+          "name": "Lowest",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 127.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Fix 96.adv",
+      "rel_path": "Devices/MIDI Effects/Velocity/Fix 96.adv",
+      "device_class": "MidiVelocity",
+      "plugin_name": "Velocity",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Drive",
+          "value": 0.0,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Compand",
+          "value": 0.0,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Random",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 64.0
+        },
+        {
+          "index": 4,
+          "name": "Mode",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 5,
+          "name": "Operation",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Range",
+          "value": 127.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 9,
+          "name": "Lowest",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 127.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Dynamic I.adv",
+      "rel_path": "Devices/MIDI Effects/Velocity/Dynamic I.adv",
+      "device_class": "MidiVelocity",
+      "plugin_name": "Velocity",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Drive",
+          "value": -0.03174603358,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Compand",
+          "value": 0.7142857313,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Random",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 64.0
+        },
+        {
+          "index": 4,
+          "name": "Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 5,
+          "name": "Operation",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Range",
+          "value": 127.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 9,
+          "name": "Lowest",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 127.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Fix 32.adv",
+      "rel_path": "Devices/MIDI Effects/Velocity/Fix 32.adv",
+      "device_class": "MidiVelocity",
+      "plugin_name": "Velocity",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Drive",
+          "value": 0.0,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Compand",
+          "value": 0.0,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Random",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 64.0
+        },
+        {
+          "index": 4,
+          "name": "Mode",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 5,
+          "name": "Operation",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Range",
+          "value": 127.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 9,
+          "name": "Lowest",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 127.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Fix 127.adv",
+      "rel_path": "Devices/MIDI Effects/Velocity/Fix 127.adv",
+      "device_class": "MidiVelocity",
+      "plugin_name": "Velocity",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Drive",
+          "value": 0.0,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Compand",
+          "value": 0.0,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Random",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 64.0
+        },
+        {
+          "index": 4,
+          "name": "Mode",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 5,
+          "name": "Operation",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Range",
+          "value": 127.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 9,
+          "name": "Lowest",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 127.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Piano.adv",
+      "rel_path": "Devices/MIDI Effects/Velocity/Piano.adv",
+      "device_class": "MidiVelocity",
+      "plugin_name": "Velocity",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Drive",
+          "value": -0.5079365373,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Compand",
+          "value": 0.0,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Random",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 64.0
+        },
+        {
+          "index": 4,
+          "name": "Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 5,
+          "name": "Operation",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Range",
+          "value": 127.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 9,
+          "name": "Lowest",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 127.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Dynamic II.adv",
+      "rel_path": "Devices/MIDI Effects/Velocity/Dynamic II.adv",
+      "device_class": "MidiVelocity",
+      "plugin_name": "Velocity",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Drive",
+          "value": -0.03174603358,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Compand",
+          "value": 0.7142857313,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Random",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 64.0
+        },
+        {
+          "index": 4,
+          "name": "Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 5,
+          "name": "Operation",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Range",
+          "value": 127.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 9,
+          "name": "Lowest",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 127.0
+        }
+      ]
+    }
+  ]
+}

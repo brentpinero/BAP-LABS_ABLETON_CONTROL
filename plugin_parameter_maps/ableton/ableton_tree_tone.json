@@ -1,0 +1,844 @@
+{
+  "plugin": "Tree Tone",
+  "type": "instrument",
+  "uri": "query:Synths#Tree%20Tone",
+  "class_name": "MxDeviceInstrument",
+  "parameter_count": 87,
+  "parameters": [
+    {
+      "index": 0,
+      "name": "Device On",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 1,
+      "name": "Dest A",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 22.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 2,
+      "name": "Dest A Amount",
+      "value": 0.0,
+      "min": -100.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 3,
+      "name": "Dest A Amount",
+      "value": 0.0,
+      "min": -100.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 4,
+      "name": "Dest A Amount",
+      "value": 0.0,
+      "min": -100.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 5,
+      "name": "Dest A Amount",
+      "value": 0.0,
+      "min": -100.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 6,
+      "name": "Dest A Amount",
+      "value": 0.0,
+      "min": -100.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 7,
+      "name": "Dest A Amount",
+      "value": 0.0,
+      "min": -100.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 8,
+      "name": "Dest A Amount",
+      "value": 0.0,
+      "min": -100.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 9,
+      "name": "Dest A Amount",
+      "value": 0.0,
+      "min": -100.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 10,
+      "name": "Dest A Amount",
+      "value": 0.0,
+      "min": -100.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 11,
+      "name": "Dest A",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 22.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 12,
+      "name": "Dest A",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 22.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 13,
+      "name": "Dest A",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 22.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 14,
+      "name": "Dest A",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 22.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 15,
+      "name": "Dest A",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 22.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 16,
+      "name": "Dest A",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 22.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 17,
+      "name": "Dest A",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 22.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 18,
+      "name": "Dest A",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 22.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 19,
+      "name": "Dest B",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 22.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 20,
+      "name": "Dest B",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 22.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 21,
+      "name": "Dest B Amount",
+      "value": 0.0,
+      "min": -100.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 22,
+      "name": "Dest B Amount",
+      "value": 0.0,
+      "min": -100.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 23,
+      "name": "Dest B Amount",
+      "value": 0.0,
+      "min": -100.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 24,
+      "name": "Dest B Amount",
+      "value": 0.0,
+      "min": -100.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 25,
+      "name": "Dest B Amount",
+      "value": 0.0,
+      "min": -100.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 26,
+      "name": "Dest B Amount",
+      "value": 0.0,
+      "min": -100.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 27,
+      "name": "Dest B Amount",
+      "value": 0.0,
+      "min": -100.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 28,
+      "name": "Dest B Amount",
+      "value": 0.0,
+      "min": -100.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 29,
+      "name": "Dest B Amount",
+      "value": 0.0,
+      "min": -100.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 30,
+      "name": "Dest B",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 22.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 31,
+      "name": "Dest B",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 22.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 32,
+      "name": "Dest B",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 22.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 33,
+      "name": "Dest B",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 22.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 34,
+      "name": "Dest B",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 22.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 35,
+      "name": "Dest B",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 22.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 36,
+      "name": "Dest B",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 22.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 37,
+      "name": "Env 1 Attack",
+      "value": 1259.9210205078125,
+      "min": 0.0,
+      "max": 20000.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 1259.9210205078125
+    },
+    {
+      "index": 38,
+      "name": "Env 1 Decay",
+      "value": 4641.5888671875,
+      "min": 0.0,
+      "max": 20000.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 4641.5888671875
+    },
+    {
+      "index": 39,
+      "name": "Env 1 Release",
+      "value": 3419.951904296875,
+      "min": 0.0,
+      "max": 20000.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 3419.951904296875
+    },
+    {
+      "index": 40,
+      "name": "Env 1 Sustain",
+      "value": 100.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 100.0
+    },
+    {
+      "index": 41,
+      "name": "Env 2 Attack",
+      "value": 1259.9210205078125,
+      "min": 0.0,
+      "max": 20000.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 1259.9210205078125
+    },
+    {
+      "index": 42,
+      "name": "Env 2 Decay",
+      "value": 4641.5888671875,
+      "min": 0.0,
+      "max": 20000.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 4641.5888671875
+    },
+    {
+      "index": 43,
+      "name": "Env 2 Release",
+      "value": 3419.951904296875,
+      "min": 0.0,
+      "max": 20000.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 3419.951904296875
+    },
+    {
+      "index": 44,
+      "name": "Env 2 sustain",
+      "value": 100.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 100.0
+    },
+    {
+      "index": 45,
+      "name": "Inharmonicity",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 46,
+      "name": "Gain",
+      "value": 0.0,
+      "min": -70.0,
+      "max": 30.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 47,
+      "name": "Key to Mallet",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 48,
+      "name": "LFO 1 Offset",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 49,
+      "name": "LFO 1 Rate Free",
+      "value": 1.0488088130950928,
+      "min": 0.0,
+      "max": 10.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 1.0488088130950928
+    },
+    {
+      "index": 50,
+      "name": "LFO 1 Rate Synced",
+      "value": 10.0,
+      "min": 0.0,
+      "max": 18.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 51,
+      "name": "LFO 1 Retrig",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 52,
+      "name": "LFO 1 Shape",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 4.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 53,
+      "name": "LFO 1 Sync",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 54,
+      "name": "LFO 2 Offset",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 55,
+      "name": "LFO 2 Rate Free",
+      "value": 1.0488088130950928,
+      "min": 0.0,
+      "max": 10.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 1.0488088130950928
+    },
+    {
+      "index": 56,
+      "name": "LFO 2 Rate Synced",
+      "value": 10.0,
+      "min": 0.0,
+      "max": 18.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 57,
+      "name": "LFO 2 Retrig",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 58,
+      "name": "LFO 2 Shape",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 4.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 59,
+      "name": "LFO 2 Sync",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 60,
+      "name": "Lock",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 61,
+      "name": "Mallet Hi Cut",
+      "value": 16937.9375,
+      "min": 0.0,
+      "max": 19000.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 16937.9375
+    },
+    {
+      "index": 62,
+      "name": "Mallet Lo Cut",
+      "value": 4504.0478515625,
+      "min": 0.0,
+      "max": 19000.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 4504.0478515625
+    },
+    {
+      "index": 63,
+      "name": "Gain",
+      "value": 0.0,
+      "min": -70.0,
+      "max": 30.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 64,
+      "name": "New Tree",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 65,
+      "name": "Filter Cf",
+      "value": 0.3700787425041199,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.3700787425041199
+    },
+    {
+      "index": 66,
+      "name": "Noise Filter Width",
+      "value": 0.19362205266952515,
+      "min": 0.0,
+      "max": 0.5,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.19362205266952515
+    },
+    {
+      "index": 67,
+      "name": "Noise",
+      "value": -12.0,
+      "min": -70.0,
+      "max": 30.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": -12.0
+    },
+    {
+      "index": 68,
+      "name": "Noise Thru",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 69,
+      "name": "Pan",
+      "value": 0.0,
+      "min": -50.0,
+      "max": 50.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 70,
+      "name": "Pink",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 71,
+      "name": "Rain",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 72,
+      "name": "Rain Center",
+      "value": 0.0,
+      "min": -0.5,
+      "max": 0.5,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 73,
+      "name": "Speed",
+      "value": 52.9150276184082,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 52.9150276184082
+    },
+    {
+      "index": 74,
+      "name": "Rain Spread",
+      "value": 0.7667093873023987,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.7667093873023987
+    },
+    {
+      "index": 75,
+      "name": "Decay",
+      "value": 50.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 50.0
+    },
+    {
+      "index": 76,
+      "name": "Algo Mix",
+      "value": 55.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 55.0
+    },
+    {
+      "index": 77,
+      "name": "Root Offset",
+      "value": 1.0,
+      "min": 1.0,
+      "max": 2.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 1.0
+    },
+    {
+      "index": 78,
+      "name": "Scale Degree",
+      "value": 0.0,
+      "min": -12.0,
+      "max": 12.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 79,
+      "name": "Scale Mode",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 80,
+      "name": "Scale Tonic",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 11.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 81,
+      "name": "Scale Type",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 16.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 82,
+      "name": "Tree Shape",
+      "value": 4.0,
+      "min": 0.0,
+      "max": 5.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 83,
+      "name": "Tuning",
+      "value": 0.0,
+      "min": -0.5,
+      "max": 0.5,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 84,
+      "name": "Spread",
+      "value": -0.09588686376810074,
+      "min": -0.5,
+      "max": 0.5,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": -0.09588686376810074
+    },
+    {
+      "index": 85,
+      "name": "Wind",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 86,
+      "name": "Wind Speed",
+      "value": 0.28346458077430725,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.28346458077430725
+    }
+  ]
+}

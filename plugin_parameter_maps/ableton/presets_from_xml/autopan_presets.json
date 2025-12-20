@@ -1,0 +1,136 @@
+{
+  "device_class": "AutoPan",
+  "preset_count": 13,
+  "presets": [
+    {
+      "preset_name": "Dizziness (Legacy).adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Auto Pan/Dizziness (Legacy).adv",
+      "device_class": "AutoPan",
+      "plugin_name": "Auto Pan-Tremolo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Around The Head (Legacy).adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Auto Pan/Around The Head (Legacy).adv",
+      "device_class": "AutoPan",
+      "plugin_name": "Auto Pan-Tremolo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Copycat (Legacy).adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Auto Pan/Copycat (Legacy).adv",
+      "device_class": "AutoPan",
+      "plugin_name": "Auto Pan-Tremolo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "90 Degrees (Legacy).adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Auto Pan/90 Degrees (Legacy).adv",
+      "device_class": "AutoPan",
+      "plugin_name": "Auto Pan-Tremolo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "1to4 Note Contenders (Legacy).adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Auto Pan/1to4 Note Contenders (Legacy).adv",
+      "device_class": "AutoPan",
+      "plugin_name": "Auto Pan-Tremolo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Chopper (Legacy).adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Auto Pan/Chopper (Legacy).adv",
+      "device_class": "AutoPan",
+      "plugin_name": "Auto Pan-Tremolo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Suitcase Auto Pan",
+      "rel_path": "Devices/Audio Effects/Legacy/Auto Pan/Suitcase Auto Pan (Legacy).adv",
+      "device_class": "AutoPan",
+      "plugin_name": "Auto Pan-Tremolo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Subtle Stereo (Legacy).adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Auto Pan/Subtle Stereo (Legacy).adv",
+      "device_class": "AutoPan",
+      "plugin_name": "Auto Pan-Tremolo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Slow & Steady (Legacy).adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Auto Pan/Slow & Steady (Legacy).adv",
+      "device_class": "AutoPan",
+      "plugin_name": "Auto Pan-Tremolo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Tremolo",
+      "rel_path": "Devices/Audio Effects/Legacy/Auto Pan/Tremolo (Legacy).adv",
+      "device_class": "AutoPan",
+      "plugin_name": "Auto Pan-Tremolo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Sharing (Legacy).adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Auto Pan/Sharing (Legacy).adv",
+      "device_class": "AutoPan",
+      "plugin_name": "Auto Pan-Tremolo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Pan-Asia (Legacy).adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Auto Pan/Pan-Asia (Legacy).adv",
+      "device_class": "AutoPan",
+      "plugin_name": "Auto Pan-Tremolo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Shredder (Legacy).adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Auto Pan/Shredder (Legacy).adv",
+      "device_class": "AutoPan",
+      "plugin_name": "Auto Pan-Tremolo",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    }
+  ]
+}

@@ -1,0 +1,1116 @@
+{
+  "device_class": "Pedal",
+  "preset_count": 15,
+  "presets": [
+    {
+      "preset_name": "Synth Pad Fattener.adv",
+      "rel_path": "Devices/Audio Effects/Pedal/Synth Pad Fattener.adv",
+      "device_class": "Pedal",
+      "plugin_name": "Pedal",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 9,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Type",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 2,
+          "name": "Gain",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Output",
+          "value": 0.0,
+          "min": -20.0,
+          "max": 20.0
+        },
+        {
+          "index": 4,
+          "name": "Bass",
+          "value": -0.0700000003,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Mid",
+          "value": -0.7460317612,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Treble",
+          "value": 0.1428571939,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "Mid Freq",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Sub",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 0.6953125,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Bass Guitar Synthesizerizer.adv",
+      "rel_path": "Devices/Audio Effects/Pedal/Bass Guitar Synthesizerizer.adv",
+      "device_class": "Pedal",
+      "plugin_name": "Pedal",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 9,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Type",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 2,
+          "name": "Gain",
+          "value": 0.2698412836,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Output",
+          "value": -4.12698364,
+          "min": -20.0,
+          "max": 20.0
+        },
+        {
+          "index": 4,
+          "name": "Bass",
+          "value": 0.0,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Mid",
+          "value": 0.1904761791,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Treble",
+          "value": 0.1904761791,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "Mid Freq",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Sub",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Guitar Mellow Crunch.adv",
+      "rel_path": "Devices/Audio Effects/Pedal/Guitar Mellow Crunch.adv",
+      "device_class": "Pedal",
+      "plugin_name": "Pedal",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 9,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Type",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 2,
+          "name": "Gain",
+          "value": 0.2857142985,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Output",
+          "value": -4.76190472,
+          "min": -20.0,
+          "max": 20.0
+        },
+        {
+          "index": 4,
+          "name": "Bass",
+          "value": 0.0,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Mid",
+          "value": 0.390625,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Treble",
+          "value": -0.2539682388,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "Mid Freq",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Sub",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "E-Piano Soloist.adv",
+      "rel_path": "Devices/Audio Effects/Pedal/E-Piano Soloist.adv",
+      "device_class": "Pedal",
+      "plugin_name": "Pedal",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 9,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Type",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 2,
+          "name": "Gain",
+          "value": 0.03999999911,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Output",
+          "value": -4.44444466,
+          "min": -20.0,
+          "max": 20.0
+        },
+        {
+          "index": 4,
+          "name": "Bass",
+          "value": -0.8000000119,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Mid",
+          "value": 0.75,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Treble",
+          "value": 0.3015873432,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "Mid Freq",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Sub",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 0.6999999881,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Synth Lead Lushener.adv",
+      "rel_path": "Devices/Audio Effects/Pedal/Synth Lead Lushener.adv",
+      "device_class": "Pedal",
+      "plugin_name": "Pedal",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 9,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Type",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 2,
+          "name": "Gain",
+          "value": 0.1666666716,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Output",
+          "value": -6.0,
+          "min": -20.0,
+          "max": 20.0
+        },
+        {
+          "index": 4,
+          "name": "Bass",
+          "value": -1.0,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Mid",
+          "value": -1.0,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Treble",
+          "value": 0.1428571939,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "Mid Freq",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Sub",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 0.75,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Dirt Guitar",
+      "rel_path": "Devices/Audio Effects/Pedal/Guitar Dirt.adv",
+      "device_class": "Pedal",
+      "plugin_name": "Pedal",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 9,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Type",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 2,
+          "name": "Gain",
+          "value": 0.01587301679,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Output",
+          "value": -3.80952454,
+          "min": -20.0,
+          "max": 20.0
+        },
+        {
+          "index": 4,
+          "name": "Bass",
+          "value": 0.6190476418,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Mid",
+          "value": 0.2857142687,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Treble",
+          "value": 0.578125,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "Mid Freq",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Sub",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 0.6171875,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Little Drive",
+      "rel_path": "Devices/Audio Effects/Pedal/Little Drive.adv",
+      "device_class": "Pedal",
+      "plugin_name": "Pedal",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 9,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Type",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 2,
+          "name": "Gain",
+          "value": 0.1640625,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Output",
+          "value": -0.3174610138,
+          "min": -20.0,
+          "max": 20.0
+        },
+        {
+          "index": 4,
+          "name": "Bass",
+          "value": 0.2380952835,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Mid",
+          "value": 0.3492063284,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Treble",
+          "value": -0.1269841194,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "Mid Freq",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Sub",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 0.4140625,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Hot Fuzz",
+      "rel_path": "Devices/Audio Effects/Pedal/Hot Fuzz.adv",
+      "device_class": "Pedal",
+      "plugin_name": "Pedal",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 9,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Type",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 2,
+          "name": "Gain",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Output",
+          "value": -2.53968239,
+          "min": -20.0,
+          "max": 20.0
+        },
+        {
+          "index": 4,
+          "name": "Bass",
+          "value": -0.2539682388,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Mid",
+          "value": 0.234375,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Treble",
+          "value": -0.1269841194,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "Mid Freq",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Sub",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 0.515625,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Broken Amp",
+      "rel_path": "Devices/Audio Effects/Pedal/Broken Pedal.adv",
+      "device_class": "Pedal",
+      "plugin_name": "Pedal",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 9,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Type",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 2,
+          "name": "Gain",
+          "value": 0.02380952425,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Output",
+          "value": 0.0,
+          "min": -20.0,
+          "max": 20.0
+        },
+        {
+          "index": 4,
+          "name": "Bass",
+          "value": -0.222222209,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Mid",
+          "value": 0.1587301493,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Treble",
+          "value": 0.1904761791,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "Mid Freq",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Sub",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 0.5859375,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Guitar Gnarly Fuzz.adv",
+      "rel_path": "Devices/Audio Effects/Pedal/Guitar Gnarly Fuzz.adv",
+      "device_class": "Pedal",
+      "plugin_name": "Pedal",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 9,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Type",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 2,
+          "name": "Gain",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Output",
+          "value": -6.03174591,
+          "min": -20.0,
+          "max": 20.0
+        },
+        {
+          "index": 4,
+          "name": "Bass",
+          "value": 0.0,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Mid",
+          "value": 0.6031746864,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Treble",
+          "value": -0.2380952239,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "Mid Freq",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Sub",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Warm Fuzz",
+      "rel_path": "Devices/Audio Effects/Pedal/Warm Fuzz.adv",
+      "device_class": "Pedal",
+      "plugin_name": "Pedal",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 9,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Type",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 2,
+          "name": "Gain",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Output",
+          "value": -5.39682579,
+          "min": -20.0,
+          "max": 20.0
+        },
+        {
+          "index": 4,
+          "name": "Bass",
+          "value": 0.444444418,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Mid",
+          "value": -0.1428571343,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Treble",
+          "value": -0.2380952239,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "Mid Freq",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Sub",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 0.671875,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Drum Patina.adv",
+      "rel_path": "Devices/Audio Effects/Pedal/Drum Patina.adv",
+      "device_class": "Pedal",
+      "plugin_name": "Pedal",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 9,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Type",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 2,
+          "name": "Gain",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Output",
+          "value": 0.0,
+          "min": -20.0,
+          "max": 20.0
+        },
+        {
+          "index": 4,
+          "name": "Bass",
+          "value": 0.0,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Mid",
+          "value": -0.3968254328,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Treble",
+          "value": 0.4539682865,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "Mid Freq",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Sub",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Drum Purgatory.adv",
+      "rel_path": "Devices/Audio Effects/Pedal/Drum Purgatory.adv",
+      "device_class": "Pedal",
+      "plugin_name": "Pedal",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 9,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Type",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 2,
+          "name": "Gain",
+          "value": 0.1031746045,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Output",
+          "value": 0.952381134,
+          "min": -20.0,
+          "max": 20.0
+        },
+        {
+          "index": 4,
+          "name": "Bass",
+          "value": -0.1904761791,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Mid",
+          "value": -0.4920635223,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Treble",
+          "value": 0.0,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "Mid Freq",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Sub",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Bass Guitar Front of Stage.adv",
+      "rel_path": "Devices/Audio Effects/Pedal/Bass Guitar Front of Stage.adv",
+      "device_class": "Pedal",
+      "plugin_name": "Pedal",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 9,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Type",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 2,
+          "name": "Gain",
+          "value": 0.05000000075,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Output",
+          "value": -3.0,
+          "min": -20.0,
+          "max": 20.0
+        },
+        {
+          "index": 4,
+          "name": "Bass",
+          "value": -0.1746031642,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Mid",
+          "value": 0.2539682388,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Treble",
+          "value": 0.3174602985,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "Mid Freq",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Sub",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "E-Piano Dirt & Gnarl.adv",
+      "rel_path": "Devices/Audio Effects/Pedal/E-Piano Dirt & Gnarl.adv",
+      "device_class": "Pedal",
+      "plugin_name": "Pedal",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 9,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Type",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 2,
+          "name": "Gain",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Output",
+          "value": -7.61904716,
+          "min": -20.0,
+          "max": 20.0
+        },
+        {
+          "index": 4,
+          "name": "Bass",
+          "value": -0.6984127164,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Mid",
+          "value": 0.0,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Treble",
+          "value": 0.1428571939,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "Mid Freq",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 8,
+          "name": "Sub",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 0.6499999762,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    }
+  ]
+}

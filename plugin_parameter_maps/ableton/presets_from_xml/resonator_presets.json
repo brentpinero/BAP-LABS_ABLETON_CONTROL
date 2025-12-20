@@ -1,0 +1,435 @@
+{
+  "device_class": "Resonator",
+  "preset_count": 11,
+  "presets": [
+    {
+      "preset_name": "Valhalla.adv",
+      "rel_path": "Devices/Audio Effects/Resonators/Valhalla.adv",
+      "device_class": "Resonator",
+      "plugin_name": "Resonators",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 8,
+          "name": "Width",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 0.5669292808,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Global Gain",
+          "value": 5.90551043,
+          "min": -15.0,
+          "max": 15.0
+        },
+        {
+          "index": 11,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Vienna.adv",
+      "rel_path": "Devices/Audio Effects/Resonators/Vienna.adv",
+      "device_class": "Resonator",
+      "plugin_name": "Resonators",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 8,
+          "name": "Width",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Global Gain",
+          "value": 2.61904764,
+          "min": -15.0,
+          "max": 15.0
+        },
+        {
+          "index": 11,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Tokyo.adv",
+      "rel_path": "Devices/Audio Effects/Resonators/Tokyo.adv",
+      "device_class": "Resonator",
+      "plugin_name": "Resonators",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 8,
+          "name": "Width",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 0.6111111045,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Global Gain",
+          "value": 1.90476191,
+          "min": -15.0,
+          "max": 15.0
+        },
+        {
+          "index": 11,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Prague.adv",
+      "rel_path": "Devices/Audio Effects/Resonators/Prague.adv",
+      "device_class": "Resonator",
+      "plugin_name": "Resonators",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 8,
+          "name": "Width",
+          "value": 0.5634920597,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 0.571428597,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Global Gain",
+          "value": 4.76190472,
+          "min": -15.0,
+          "max": 15.0
+        },
+        {
+          "index": 11,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Berlin.adv",
+      "rel_path": "Devices/Audio Effects/Resonators/Berlin.adv",
+      "device_class": "Resonator",
+      "plugin_name": "Resonators",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 8,
+          "name": "Width",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 0.4920634925,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Global Gain",
+          "value": 5.23809528,
+          "min": -15.0,
+          "max": 15.0
+        },
+        {
+          "index": 11,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Rome.adv",
+      "rel_path": "Devices/Audio Effects/Resonators/Rome.adv",
+      "device_class": "Resonator",
+      "plugin_name": "Resonators",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 8,
+          "name": "Width",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Global Gain",
+          "value": 12.3809528,
+          "min": -15.0,
+          "max": 15.0
+        },
+        {
+          "index": 11,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Moscow.adv",
+      "rel_path": "Devices/Audio Effects/Resonators/Moscow.adv",
+      "device_class": "Resonator",
+      "plugin_name": "Resonators",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 8,
+          "name": "Width",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Global Gain",
+          "value": 2.14285707,
+          "min": -15.0,
+          "max": 15.0
+        },
+        {
+          "index": 11,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "LosAngeles.adv",
+      "rel_path": "Devices/Audio Effects/Resonators/LosAngeles.adv",
+      "device_class": "Resonator",
+      "plugin_name": "Resonators",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 8,
+          "name": "Width",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Global Gain",
+          "value": 2.61904764,
+          "min": -15.0,
+          "max": 15.0
+        },
+        {
+          "index": 11,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Paris.adv",
+      "rel_path": "Devices/Audio Effects/Resonators/Paris.adv",
+      "device_class": "Resonator",
+      "plugin_name": "Resonators",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 8,
+          "name": "Width",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Global Gain",
+          "value": 12.3809528,
+          "min": -15.0,
+          "max": 15.0
+        },
+        {
+          "index": 11,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Munich.adv",
+      "rel_path": "Devices/Audio Effects/Resonators/Munich.adv",
+      "device_class": "Resonator",
+      "plugin_name": "Resonators",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 8,
+          "name": "Width",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Global Gain",
+          "value": 2.14285707,
+          "min": -15.0,
+          "max": 15.0
+        },
+        {
+          "index": 11,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Brooklyn.adv",
+      "rel_path": "Devices/Audio Effects/Resonators/Brooklyn.adv",
+      "device_class": "Resonator",
+      "plugin_name": "Resonators",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 4,
+      "parameters": [
+        {
+          "index": 8,
+          "name": "Width",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Global Gain",
+          "value": -10.0,
+          "min": -15.0,
+          "max": 15.0
+        },
+        {
+          "index": 11,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    }
+  ]
+}

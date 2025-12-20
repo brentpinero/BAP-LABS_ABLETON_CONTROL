@@ -1,0 +1,1788 @@
+{
+  "device_class": "Saturator",
+  "preset_count": 22,
+  "presets": [
+    {
+      "preset_name": "Gritty Bass",
+      "rel_path": "Devices/Audio Effects/Saturator/Gritty Bass.adv",
+      "device_class": "Saturator",
+      "plugin_name": "Saturator",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 10,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Pre Dc Filter",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Type",
+          "value": 3.0,
+          "min": 0.0,
+          "max": 7.0
+        },
+        {
+          "index": 4,
+          "name": "Color On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "Color Width",
+          "value": 0.8188976645,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "Dry/Wet",
+          "value": 0.6587301493,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "WS Drive",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 15,
+          "name": "WS Curve",
+          "value": 0.05000000075,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 16,
+          "name": "WS Damp",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "WS Period",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "WS Depth",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "A Bit Warmer",
+      "rel_path": "Devices/Audio Effects/Saturator/A Bit Warmer.adv",
+      "device_class": "Saturator",
+      "plugin_name": "Saturator",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 10,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Pre Dc Filter",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Type",
+          "value": 5.0,
+          "min": 0.0,
+          "max": 7.0
+        },
+        {
+          "index": 4,
+          "name": "Color On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "Color Width",
+          "value": 0.09448818862,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "Dry/Wet",
+          "value": 0.6190476418,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "WS Drive",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 15,
+          "name": "WS Curve",
+          "value": 0.05000000075,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 16,
+          "name": "WS Damp",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "WS Period",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "WS Depth",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Reso Grind",
+      "rel_path": "Devices/Audio Effects/Saturator/Reso Grind.adv",
+      "device_class": "Saturator",
+      "plugin_name": "Saturator",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 10,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Pre Dc Filter",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Type",
+          "value": 4.0,
+          "min": 0.0,
+          "max": 7.0
+        },
+        {
+          "index": 4,
+          "name": "Color On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "Color Width",
+          "value": 0.5600000024,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "WS Drive",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 15,
+          "name": "WS Curve",
+          "value": 0.05000000075,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 16,
+          "name": "WS Damp",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "WS Period",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "WS Depth",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Hot Tubes.adv",
+      "rel_path": "Devices/Audio Effects/Saturator/Hot Tubes.adv",
+      "device_class": "Saturator",
+      "plugin_name": "Saturator",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 10,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Pre Dc Filter",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Type",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 7.0
+        },
+        {
+          "index": 4,
+          "name": "Color On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "Color Width",
+          "value": 0.2992126048,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "WS Drive",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 15,
+          "name": "WS Curve",
+          "value": 0.05000000075,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 16,
+          "name": "WS Damp",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "WS Period",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "WS Depth",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Beat Clipper",
+      "rel_path": "Devices/Audio Effects/Saturator/Beat Clipper.adv",
+      "device_class": "Saturator",
+      "plugin_name": "Saturator",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 10,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Pre Dc Filter",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Type",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 7.0
+        },
+        {
+          "index": 4,
+          "name": "Color On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "Color Width",
+          "value": 0.3000000119,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "WS Drive",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 15,
+          "name": "WS Curve",
+          "value": 0.05000000075,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 16,
+          "name": "WS Damp",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "WS Period",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "WS Depth",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Rage Clipper",
+      "rel_path": "Devices/Audio Effects/Saturator/Rage Clipper.adv",
+      "device_class": "Saturator",
+      "plugin_name": "Saturator",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 10,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Pre Dc Filter",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Type",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 7.0
+        },
+        {
+          "index": 4,
+          "name": "Color On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "Color Width",
+          "value": 0.3000000119,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "WS Drive",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 15,
+          "name": "WS Curve",
+          "value": 0.05000000075,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 16,
+          "name": "WS Damp",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "WS Period",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "WS Depth",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Crew Cut.adv",
+      "rel_path": "Devices/Audio Effects/Saturator/Crew Cut.adv",
+      "device_class": "Saturator",
+      "plugin_name": "Saturator",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 10,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Pre Dc Filter",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Type",
+          "value": 5.0,
+          "min": 0.0,
+          "max": 7.0
+        },
+        {
+          "index": 4,
+          "name": "Color On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "Color Width",
+          "value": 0.3000000119,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "Dry/Wet",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "WS Drive",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 15,
+          "name": "WS Curve",
+          "value": 0.05000000075,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 16,
+          "name": "WS Damp",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "WS Period",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "WS Depth",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Analog Clip",
+      "rel_path": "Devices/Audio Effects/Saturator/Analog Clip.adv",
+      "device_class": "Saturator",
+      "plugin_name": "Saturator",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 10,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Pre Dc Filter",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Type",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 7.0
+        },
+        {
+          "index": 4,
+          "name": "Color On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "Color Width",
+          "value": 0.3000000119,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "WS Drive",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 15,
+          "name": "WS Curve",
+          "value": 0.05000000075,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 16,
+          "name": "WS Damp",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "WS Period",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "WS Depth",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Ignition Charge",
+      "rel_path": "Devices/Audio Effects/Saturator/Sinoid Fold.adv",
+      "device_class": "Saturator",
+      "plugin_name": "Saturator",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 10,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Pre Dc Filter",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Type",
+          "value": 5.0,
+          "min": 0.0,
+          "max": 7.0
+        },
+        {
+          "index": 4,
+          "name": "Color On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "Color Width",
+          "value": 0.8503937125,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "WS Drive",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 15,
+          "name": "WS Curve",
+          "value": 0.05000000075,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 16,
+          "name": "WS Damp",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "WS Period",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "WS Depth",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Lurching Drums",
+      "rel_path": "Devices/Audio Effects/Saturator/Lurching Drums.adv",
+      "device_class": "Saturator",
+      "plugin_name": "Saturator",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 10,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Pre Dc Filter",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Type",
+          "value": 5.0,
+          "min": 0.0,
+          "max": 7.0
+        },
+        {
+          "index": 4,
+          "name": "Color On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "Color Width",
+          "value": 0.6614173055,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "WS Drive",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 15,
+          "name": "WS Curve",
+          "value": 0.05000000075,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 16,
+          "name": "WS Damp",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "WS Period",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "WS Depth",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Warm Up Lows",
+      "rel_path": "Devices/Audio Effects/Saturator/Warm Up Lows.adv",
+      "device_class": "Saturator",
+      "plugin_name": "Saturator",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 10,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Pre Dc Filter",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Type",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 7.0
+        },
+        {
+          "index": 4,
+          "name": "Color On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "Color Width",
+          "value": 0.6587301493,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "Dry/Wet",
+          "value": 0.7142857313,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "WS Drive",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 15,
+          "name": "WS Curve",
+          "value": 0.05000000075,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 16,
+          "name": "WS Damp",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "WS Period",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "WS Depth",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Epoxy Breath",
+      "rel_path": "Devices/Audio Effects/Saturator/Hard Color.adv",
+      "device_class": "Saturator",
+      "plugin_name": "Saturator",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 10,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Pre Dc Filter",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Type",
+          "value": 4.0,
+          "min": 0.0,
+          "max": 7.0
+        },
+        {
+          "index": 4,
+          "name": "Color On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "Color Width",
+          "value": 0.8897637725,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "WS Drive",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 15,
+          "name": "WS Curve",
+          "value": 0.05000000075,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 16,
+          "name": "WS Damp",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "WS Period",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "WS Depth",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "808 Shaper",
+      "rel_path": "Devices/Audio Effects/Saturator/808 Shaper.adv",
+      "device_class": "Saturator",
+      "plugin_name": "Saturator",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 10,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Pre Dc Filter",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Type",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 7.0
+        },
+        {
+          "index": 4,
+          "name": "Color On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "Color Width",
+          "value": 0.3000000119,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "WS Drive",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 15,
+          "name": "WS Curve",
+          "value": 0.05000000075,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 16,
+          "name": "WS Damp",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "WS Period",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "WS Depth",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Rectifier.adv",
+      "rel_path": "Devices/Audio Effects/Saturator/Rectifier.adv",
+      "device_class": "Saturator",
+      "plugin_name": "Saturator",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 10,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Pre Dc Filter",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Type",
+          "value": 4.0,
+          "min": 0.0,
+          "max": 7.0
+        },
+        {
+          "index": 4,
+          "name": "Color On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "Color Width",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "WS Drive",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 15,
+          "name": "WS Curve",
+          "value": 0.05000000075,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 16,
+          "name": "WS Damp",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "WS Period",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "WS Depth",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Warm Up Highs",
+      "rel_path": "Devices/Audio Effects/Saturator/Warm Up Highs.adv",
+      "device_class": "Saturator",
+      "plugin_name": "Saturator",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 10,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Pre Dc Filter",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Type",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 7.0
+        },
+        {
+          "index": 4,
+          "name": "Color On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "Color Width",
+          "value": 0.7619047761,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "Dry/Wet",
+          "value": 0.7142857313,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "WS Drive",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 15,
+          "name": "WS Curve",
+          "value": 0.05000000075,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 16,
+          "name": "WS Damp",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "WS Period",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "WS Depth",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Digital Clip Center",
+      "rel_path": "Devices/Audio Effects/Saturator/Digital Clip Center.adv",
+      "device_class": "Saturator",
+      "plugin_name": "Saturator",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 10,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Pre Dc Filter",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Type",
+          "value": 6.0,
+          "min": 0.0,
+          "max": 7.0
+        },
+        {
+          "index": 4,
+          "name": "Color On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "Color Width",
+          "value": 0.5396825671,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "Dry/Wet",
+          "value": 0.5396825671,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "WS Drive",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 15,
+          "name": "WS Curve",
+          "value": 0.05000000075,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 16,
+          "name": "WS Damp",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "WS Period",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "WS Depth",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Soft Shape",
+      "rel_path": "Devices/Audio Effects/Saturator/Basic Soft.adv",
+      "device_class": "Saturator",
+      "plugin_name": "Saturator",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 10,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Pre Dc Filter",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Type",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 7.0
+        },
+        {
+          "index": 4,
+          "name": "Color On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "Color Width",
+          "value": 0.3000000119,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "WS Drive",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 15,
+          "name": "WS Curve",
+          "value": 0.05000000075,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 16,
+          "name": "WS Damp",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "WS Period",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "WS Depth",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Offensive Tone",
+      "rel_path": "Devices/Audio Effects/Saturator/Rough Tone.adv",
+      "device_class": "Saturator",
+      "plugin_name": "Saturator",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 10,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Pre Dc Filter",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Type",
+          "value": 7.0,
+          "min": 0.0,
+          "max": 7.0
+        },
+        {
+          "index": 4,
+          "name": "Color On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "Color Width",
+          "value": 0.2539682686,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "WS Drive",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 15,
+          "name": "WS Curve",
+          "value": 0.1019999981,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 16,
+          "name": "WS Damp",
+          "value": 0.046875,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "WS Period",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "WS Depth",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Manic Smash",
+      "rel_path": "Devices/Audio Effects/Saturator/Manic Smash.adv",
+      "device_class": "Saturator",
+      "plugin_name": "Saturator",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 10,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Pre Dc Filter",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Type",
+          "value": 6.0,
+          "min": 0.0,
+          "max": 7.0
+        },
+        {
+          "index": 4,
+          "name": "Color On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "Color Width",
+          "value": 0.6614173055,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "WS Drive",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 15,
+          "name": "WS Curve",
+          "value": 0.05000000075,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 16,
+          "name": "WS Damp",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "WS Period",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "WS Depth",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Menace Machine",
+      "rel_path": "Devices/Audio Effects/Saturator/Hard Punch.adv",
+      "device_class": "Saturator",
+      "plugin_name": "Saturator",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 10,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Pre Dc Filter",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Type",
+          "value": 4.0,
+          "min": 0.0,
+          "max": 7.0
+        },
+        {
+          "index": 4,
+          "name": "Color On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "Color Width",
+          "value": 0.551181078,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "WS Drive",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 15,
+          "name": "WS Curve",
+          "value": 0.05000000075,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 16,
+          "name": "WS Damp",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "WS Period",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "WS Depth",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Digital Clip Center",
+      "rel_path": "Devices/Audio Effects/Saturator/Soft Shaper.adv",
+      "device_class": "Saturator",
+      "plugin_name": "Saturator",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 10,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Pre Dc Filter",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Type",
+          "value": 7.0,
+          "min": 0.0,
+          "max": 7.0
+        },
+        {
+          "index": 4,
+          "name": "Color On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "Color Width",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "Dry/Wet",
+          "value": 0.5396825671,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "WS Drive",
+          "value": 0.2265625,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 15,
+          "name": "WS Curve",
+          "value": 0.046875,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 16,
+          "name": "WS Damp",
+          "value": 0.1640625,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "WS Period",
+          "value": 0.0859375,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "WS Depth",
+          "value": 0.0625,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Mid-Range Phattener.adv",
+      "rel_path": "Devices/Audio Effects/Saturator/Mid-Range Phattener.adv",
+      "device_class": "Saturator",
+      "plugin_name": "Saturator",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 10,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Pre Dc Filter",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Type",
+          "value": 3.0,
+          "min": 0.0,
+          "max": 7.0
+        },
+        {
+          "index": 4,
+          "name": "Color On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "Color Width",
+          "value": 0.8346456885,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "Dry/Wet",
+          "value": 0.503937006,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "WS Drive",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 15,
+          "name": "WS Curve",
+          "value": 0.05000000075,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 16,
+          "name": "WS Damp",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "WS Period",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 18,
+          "name": "WS Depth",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    }
+  ]
+}

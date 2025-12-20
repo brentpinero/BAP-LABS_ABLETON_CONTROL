@@ -1,0 +1,88 @@
+{
+  "plugin": "DS Clap",
+  "type": "instrument",
+  "uri": "query:Synths#DS%20Clap",
+  "class_name": "MxDeviceInstrument",
+  "parameter_count": 8,
+  "parameters": [
+    {
+      "index": 0,
+      "name": "Device On",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 1,
+      "name": "Decay",
+      "value": 30.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 30.0
+    },
+    {
+      "index": 2,
+      "name": "Sloppy",
+      "value": 24.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 24.0
+    },
+    {
+      "index": 3,
+      "name": "Spread",
+      "value": 76.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 76.0
+    },
+    {
+      "index": 4,
+      "name": "Tail",
+      "value": 65.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 65.0
+    },
+    {
+      "index": 5,
+      "name": "Tone",
+      "value": 32.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 32.0
+    },
+    {
+      "index": 6,
+      "name": "Tune",
+      "value": 42.42640686035156,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 42.42640686035156
+    },
+    {
+      "index": 7,
+      "name": "Volume",
+      "value": -6.0,
+      "min": -70.0,
+      "max": 18.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": -6.0
+    }
+  ]
+}

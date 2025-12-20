@@ -1,0 +1,101 @@
+{
+  "plugin": "CV Clock In",
+  "type": "audio_effect",
+  "uri": "query:AudioFx#CV%20Clock%20In",
+  "class_name": "MxDeviceAudioEffect",
+  "parameter_count": 10,
+  "parameters": [
+    {
+      "index": 0,
+      "name": "Device On",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 1,
+      "name": "Clock",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 10.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 2,
+      "name": "Transport",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 10.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 3,
+      "name": "Tempo On",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 4,
+      "name": "Taps",
+      "value": 2.0,
+      "min": 0.0,
+      "max": 6.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 5,
+      "name": "Transport On",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 6,
+      "name": "Transp. Mode",
+      "value": 2.0,
+      "min": 0.0,
+      "max": 3.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 7,
+      "name": "Restart",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 8,
+      "name": "Thresh",
+      "value": 0.5012877583503723,
+      "min": 0.009999999776482582,
+      "max": 0.800000011920929,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.5012877583503723
+    },
+    {
+      "index": 9,
+      "name": "Thresh",
+      "value": 0.5012877583503723,
+      "min": 0.009999999776482582,
+      "max": 0.800000011920929,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.5012877583503723
+    }
+  ]
+}

@@ -1,0 +1,2106 @@
+{
+  "device_class": "InstrumentMeld",
+  "preset_count": 84,
+  "presets": [
+    {
+      "preset_name": "The Rhythm.adv",
+      "rel_path": "Devices/Instruments/Meld/Synth Rhythmic/The Rhythm.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Rich N Reich.adv",
+      "rel_path": "Devices/Instruments/Meld/Synth Rhythmic/Rich N Reich.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 0.7265625,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Bad Maths Arp",
+      "rel_path": "Devices/Instruments/Meld/Synth Rhythmic/Bad Maths Arp.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Werkstuecktraeger.adv",
+      "rel_path": "Devices/Instruments/Meld/Synth Rhythmic/Werkstuecktraeger.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 0.734375,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Gotta Catchem",
+      "rel_path": "Devices/Instruments/Meld/Bass/Gotta Catchem.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 0.5011858344,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Bassic.adv",
+      "rel_path": "Devices/Instruments/Meld/Bass/Bassic.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Carioto Bass",
+      "rel_path": "Devices/Instruments/Meld/Bass/Carioto Bass.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 0.5011858344,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Vertical Bass.adv",
+      "rel_path": "Devices/Instruments/Meld/Bass/Vertical Bass.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 0.5011858344,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Fatal Bass",
+      "rel_path": "Devices/Instruments/Meld/Bass/Fatal Bass.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Bully Bass",
+      "rel_path": "Devices/Instruments/Meld/Bass/Bully Bass.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 0.7380952239,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Myloacid.adv",
+      "rel_path": "Devices/Instruments/Meld/Bass/Myloacid.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 0.5011858344,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Geld.adv",
+      "rel_path": "Devices/Instruments/Meld/Bass/Geld.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 0.5011858344,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Tap It Hold It",
+      "rel_path": "Devices/Instruments/Meld/Bass/Tap It Hold It.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 0.5011858344,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Comb Bass",
+      "rel_path": "Devices/Instruments/Meld/Bass/Comb Bass.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Sugar Bass",
+      "rel_path": "Devices/Instruments/Meld/Bass/Sugar Bass.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 0.7142857313,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Itchy Sub",
+      "rel_path": "Devices/Instruments/Meld/Bass/Itchy Sub.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 0.9206349254,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Woozy Bass.adv",
+      "rel_path": "Devices/Instruments/Meld/Bass/Woozy Bass.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Neurotimbre.adv",
+      "rel_path": "Devices/Instruments/Meld/Bass/Neurotimbre.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 0.5011858344,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Shining Light",
+      "rel_path": "Devices/Instruments/Meld/Pad/Shining Light.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 1.25892854,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Outskirts",
+      "rel_path": "Devices/Instruments/Meld/Pad/Outskirts.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 0.3548133969,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Late Reply",
+      "rel_path": "Devices/Instruments/Meld/Pad/Late Reply.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 0.3008729219,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Cycle.adv",
+      "rel_path": "Devices/Instruments/Meld/Pad/Cycle.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 0.3730158806,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Drivetime Sine",
+      "rel_path": "Devices/Instruments/Meld/Pad/Drivetime Sine.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 0.3548134267,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Cosmic Summer",
+      "rel_path": "Devices/Instruments/Meld/Pad/Cosmic Summer.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 0.7079439163,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Stellar Saws",
+      "rel_path": "Devices/Instruments/Meld/Pad/Stellar Saws.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 0.5011858344,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Tiran Sines",
+      "rel_path": "Devices/Instruments/Meld/Pad/Tiran Sines.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 0.3981052041,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Tarpaulin.adv",
+      "rel_path": "Devices/Instruments/Meld/Pad/Tarpaulin.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Elizabethan Gloom.adv",
+      "rel_path": "Devices/Instruments/Meld/Pad/Elizabethan Gloom.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 0.7079439163,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Sines By The Sea",
+      "rel_path": "Devices/Instruments/Meld/Pad/Sines By The Sea.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 0.5011858344,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Slow Burn.adv",
+      "rel_path": "Devices/Instruments/Meld/Pad/Slow Burn.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 0.6640625,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Starchestra.adv",
+      "rel_path": "Devices/Instruments/Meld/Pad/Starchestra.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 0.3888888955,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Theatrical Swell",
+      "rel_path": "Devices/Instruments/Meld/Pad/Theatrical Swell.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 0.3174603283,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Riga.adv",
+      "rel_path": "Devices/Instruments/Meld/Pad/Riga.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 0.3981052041,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Detuned String Machine",
+      "rel_path": "Devices/Instruments/Meld/Pad/Detuned String Machine.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 0.5859103799,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Kaneda Sunrise",
+      "rel_path": "Devices/Instruments/Meld/Pad/Kaneda Sunrise.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Avantchord.adv",
+      "rel_path": "Devices/Instruments/Meld/Pad/Avantchord.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Whley",
+      "rel_path": "Devices/Instruments/Meld/Synth Lead/Whley.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 0.5011858344,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Sawstyle",
+      "rel_path": "Devices/Instruments/Meld/Synth Lead/Sawstyle.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Old School Raver.adv",
+      "rel_path": "Devices/Instruments/Meld/Synth Lead/Old School Raver.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 0.5011858344,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Held.adv",
+      "rel_path": "Devices/Instruments/Meld/Synth Lead/Held.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 0.8095238209,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Happy Chords",
+      "rel_path": "Devices/Instruments/Meld/Synth Lead/Happy Chords.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 0.3548134267,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "HyperGlass Lead",
+      "rel_path": "Devices/Instruments/Meld/Synth Lead/HyperGlass Lead.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 0.7594666481,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Velvet Hourglass",
+      "rel_path": "Devices/Instruments/Meld/Synth Lead/Velvet Hourglass.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 0.2216958255,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Glitter",
+      "rel_path": "Devices/Instruments/Meld/Synth Lead/Glitter.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 0.5011858344,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "One Way Chords",
+      "rel_path": "Devices/Instruments/Meld/Synth Lead/One Way Chords.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 0.7079439163,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Bad Geometry Lead",
+      "rel_path": "Devices/Instruments/Meld/Synth Lead/Bad Geometry Lead.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Basic House Chords",
+      "rel_path": "Devices/Instruments/Meld/Synth Lead/House Chords.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 0.5011858344,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Chords R Us",
+      "rel_path": "Devices/Instruments/Meld/Synth Lead/Chords R Us.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 0.5011871457,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Carbon String.adv",
+      "rel_path": "Devices/Instruments/Meld/Synth Lead/Carbon String.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 0.3981052041,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Flutish.adv",
+      "rel_path": "Devices/Instruments/Meld/Synth Lead/Flutish.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Megatripolis.adv",
+      "rel_path": "Devices/Instruments/Meld/Synth Keys/Megatripolis.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 0.5011858344,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "ColFm2.adv",
+      "rel_path": "Devices/Instruments/Meld/Synth Keys/ColFm2.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 0.5011858344,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Hooka Shade.adv",
+      "rel_path": "Devices/Instruments/Meld/Synth Keys/Hooka Shade.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 0.7079439163,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "B-Stock",
+      "rel_path": "Devices/Instruments/Meld/Synth Keys/B-Stock.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 0.5011858344,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Beard Comb.adv",
+      "rel_path": "Devices/Instruments/Meld/Synth Keys/Beard Comb.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 0.5011858344,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Plastic Lead",
+      "rel_path": "Devices/Instruments/Meld/Synth Keys/Plastic Lead.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 0.5011858344,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Stab Twice for Murder",
+      "rel_path": "Devices/Instruments/Meld/Synth Keys/Stab Twice for Murder.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 0.6171875,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Dusty Chords",
+      "rel_path": "Devices/Instruments/Meld/Synth Keys/Dusty Chords.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 0.5011871457,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Key Ups",
+      "rel_path": "Devices/Instruments/Meld/Synth Keys/Key Ups.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Chair of Board",
+      "rel_path": "Devices/Instruments/Meld/Synth Keys/Chair of Board.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 0.6309606433,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Cracked Piano",
+      "rel_path": "Devices/Instruments/Meld/Synth Keys/Cracked Piano.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 0.944444418,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "FM Organ.adv",
+      "rel_path": "Devices/Instruments/Meld/Synth Keys/FM Organ.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 0.5011858344,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Flab.adv",
+      "rel_path": "Devices/Instruments/Meld/Synth Keys/Flab.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 0.5011858344,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Lively Ringer.adv",
+      "rel_path": "Devices/Instruments/Meld/Synth Keys/Lively Ringer.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Jigsaw Approaching",
+      "rel_path": "Devices/Instruments/Meld/Effects/Jigsaw Approaching.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 0.7079439163,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Balkan Kid.adv",
+      "rel_path": "Devices/Instruments/Meld/Effects/Balkan Kid.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 0.7079439163,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Sonic Stuffing",
+      "rel_path": "Devices/Instruments/Meld/Effects/Sonic Stuffing.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 0.7943263054,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Darting Particulate",
+      "rel_path": "Devices/Instruments/Meld/Effects/Darting Particulate.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Don't Laugh",
+      "rel_path": "Devices/Instruments/Meld/Effects/Don't Laugh.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 0.5011858344,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Strange Rain",
+      "rel_path": "Devices/Instruments/Meld/Effects/Strange Rain.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 0.5623415709,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Exquisite Wasteland.adv",
+      "rel_path": "Devices/Instruments/Meld/Effects/Exquisite Wasteland.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 0.5011858344,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Granny State.adv",
+      "rel_path": "Devices/Instruments/Meld/Percussive/Granny State.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 0.5011858344,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Speedy Snares",
+      "rel_path": "Devices/Instruments/Meld/Percussive/Speedy Snares.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 0.5011858344,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Acid Kick.adv",
+      "rel_path": "Devices/Instruments/Meld/Percussive/Acid Kick.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Random Keys.adv",
+      "rel_path": "Devices/Instruments/Meld/Percussive/Random Keys.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 0.5011858344,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Extrakick",
+      "rel_path": "Devices/Instruments/Meld/Percussive/Extrakick.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 0.5011858344,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Plate Kick",
+      "rel_path": "Devices/Instruments/Meld/Percussive/Plate Kick.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Percolator",
+      "rel_path": "Devices/Instruments/Meld/Percussive/Percolator.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 0.5011858344,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Club Kick",
+      "rel_path": "Devices/Instruments/Meld/Percussive/Club Kick.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 0.5011858344,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Rim Membrane",
+      "rel_path": "Devices/Instruments/Meld/Percussive/Rim Membrane.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Gametal",
+      "rel_path": "Devices/Instruments/Meld/Percussive/Gametal.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Death Kicks",
+      "rel_path": "Devices/Instruments/Meld/Percussive/Death Kicks.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Thunder Kick",
+      "rel_path": "Devices/Instruments/Meld/Percussive/Thunder Kick.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "PolyPlucks",
+      "rel_path": "Devices/Instruments/Meld/Percussive/PolyPlucks.adv",
+      "device_class": "InstrumentMeld",
+      "plugin_name": "Meld",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 127,
+          "name": "Volume",
+          "value": 0.6904761791,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 128,
+          "name": "Mono Legato",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    }
+  ]
+}

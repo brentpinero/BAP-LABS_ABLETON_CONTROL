@@ -1,0 +1,744 @@
+{
+  "plugin": "Vector Grain",
+  "type": "instrument",
+  "uri": "query:Synths#Vector%20Grain",
+  "class_name": "MxDeviceInstrument",
+  "parameter_count": 77,
+  "parameters": [
+    {
+      "index": 0,
+      "name": "Device On",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 1,
+      "name": "Attack",
+      "value": 1259.9210205078125,
+      "min": 0.0,
+      "max": 20000.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 1259.9210205078125
+    },
+    {
+      "index": 2,
+      "name": "Decay",
+      "value": 4641.5888671875,
+      "min": 0.0,
+      "max": 20000.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 4641.5888671875
+    },
+    {
+      "index": 3,
+      "name": "Release",
+      "value": 3914.86767578125,
+      "min": 0.0,
+      "max": 20000.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 3914.86767578125
+    },
+    {
+      "index": 4,
+      "name": "Sustain",
+      "value": 100.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 100.0
+    },
+    {
+      "index": 5,
+      "name": "Attractor Charge",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 2.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 6,
+      "name": "Attractor Strength",
+      "value": 0.4000000059604645,
+      "min": -1.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.4000000059604645
+    },
+    {
+      "index": 7,
+      "name": "Attractor X",
+      "value": 0.0,
+      "min": -1.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 8,
+      "name": "Attractor Y",
+      "value": 0.0,
+      "min": -1.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 9,
+      "name": "Buffer Size",
+      "value": 2000.0,
+      "min": 5.0,
+      "max": 20000.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 2000.0
+    },
+    {
+      "index": 10,
+      "name": "Edge",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 2.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 11,
+      "name": "Emit Fade",
+      "value": 0.20472441613674164,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.20472441613674164
+    },
+    {
+      "index": 12,
+      "name": "Emit Fade Center",
+      "value": 0.0,
+      "min": -1.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 13,
+      "name": "Emit Rate Spread",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 14,
+      "name": "Emit Rate",
+      "value": 6.0,
+      "min": 0.0,
+      "max": 18.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 15,
+      "name": "Attractor",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 16,
+      "name": "Enable Emitter",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 17,
+      "name": "Flowfield",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 18,
+      "name": "Enable Recording Saving",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 19,
+      "name": "Filter Cut",
+      "value": 0.800000011920929,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.800000011920929
+    },
+    {
+      "index": 20,
+      "name": "Filter Q",
+      "value": 0.25,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.25
+    },
+    {
+      "index": 21,
+      "name": "Filter Type",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 6.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 22,
+      "name": "Finetune Display",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 23,
+      "name": "Flowfield Charge",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 2.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 24,
+      "name": "Flowfield Size",
+      "value": 2.0,
+      "min": 0.0,
+      "max": 4.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 25,
+      "name": "Flowfield Strength",
+      "value": 0.3499999940395355,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.3499999940395355
+    },
+    {
+      "index": 26,
+      "name": "Freeze",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 27,
+      "name": "Grain Fade Center",
+      "value": 0.0,
+      "min": -1.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 28,
+      "name": "Grain Fade",
+      "value": 0.20472441613674164,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.20472441613674164
+    },
+    {
+      "index": 29,
+      "name": "Gain",
+      "value": 0.0,
+      "min": -70.0,
+      "max": 30.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 30,
+      "name": "Pan",
+      "value": 0.0,
+      "min": -50.0,
+      "max": 50.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 31,
+      "name": "Size Free",
+      "value": 994.33056640625,
+      "min": 5.0,
+      "max": 4000.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 994.33056640625
+    },
+    {
+      "index": 32,
+      "name": "Size Sync",
+      "value": 9.0,
+      "min": 0.0,
+      "max": 21.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 33,
+      "name": "Grain Start",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 34,
+      "name": "Grains",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 16.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 35,
+      "name": "Ladder",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 36,
+      "name": "Ladder Type",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 6.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 37,
+      "name": "Lock",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 38,
+      "name": "MIDI Pitch Mode",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 39,
+      "name": "Magnetism",
+      "value": 0.0,
+      "min": -1.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 40,
+      "name": "Mod Mag Amount",
+      "value": 0.0,
+      "min": -1.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 41,
+      "name": "Mag Mod Dest",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 10.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 42,
+      "name": "Mass Mod Amount",
+      "value": 0.0,
+      "min": -1.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 43,
+      "name": "Mass Mod Dest",
+      "value": 2.0,
+      "min": 0.0,
+      "max": 10.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 44,
+      "name": "Mass Spread",
+      "value": 0.26771700382232666,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.26771700382232666
+    },
+    {
+      "index": 45,
+      "name": "Gain",
+      "value": 0.0,
+      "min": -70.0,
+      "max": 10.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 46,
+      "name": "Normalize",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 47,
+      "name": "Click Mode",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 48,
+      "name": "Partcile Lifetime Spread",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 49,
+      "name": "Charge",
+      "value": 0.0,
+      "min": -1.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 50,
+      "name": "Particle Life",
+      "value": 6.0,
+      "min": 0.0,
+      "max": 18.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 51,
+      "name": "Mass",
+      "value": 2.449650764465332,
+      "min": 0.30000001192092896,
+      "max": 5.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 2.449650764465332
+    },
+    {
+      "index": 52,
+      "name": "Pitch Finetune",
+      "value": 0.0,
+      "min": -1.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 53,
+      "name": "Pitch Scale",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 17.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 54,
+      "name": "Pitch Transpose",
+      "value": 0.0,
+      "min": -24.0,
+      "max": 24.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 55,
+      "name": "Scale",
+      "value": 3.9932990074157715,
+      "min": 0.009999999776482582,
+      "max": 8.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 3.9932990074157715
+    },
+    {
+      "index": 56,
+      "name": "Randomize",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 57,
+      "name": "Record",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 58,
+      "name": "Record in Loop",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 59,
+      "name": "Reverse",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 60,
+      "name": "Sample Length",
+      "value": 100.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 100.0
+    },
+    {
+      "index": 61,
+      "name": "Sample Start ",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 62,
+      "name": "Save State",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 63,
+      "name": "Show Pitch  Scales",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 64,
+      "name": "Skip",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 65,
+      "name": "Speed",
+      "value": 3.9932990074157715,
+      "min": 0.009999999776482582,
+      "max": 8.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 3.9932990074157715
+    },
+    {
+      "index": 66,
+      "name": "Sync Sizes",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 67,
+      "name": "Velocity",
+      "value": 52.79999923706055,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 52.79999923706055
+    },
+    {
+      "index": 68,
+      "name": "Vel Mod Amount",
+      "value": 0.0,
+      "min": -1.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 69,
+      "name": "Vel Mod Dest",
+      "value": 7.0,
+      "min": 0.0,
+      "max": 10.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 70,
+      "name": "Mod X Amount",
+      "value": 0.0,
+      "min": -1.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 71,
+      "name": "X Mod Dest",
+      "value": 8.0,
+      "min": 0.0,
+      "max": 10.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 72,
+      "name": "X Off",
+      "value": 0.0,
+      "min": -1.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 73,
+      "name": "Mod Y Amount",
+      "value": 0.0,
+      "min": -1.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 74,
+      "name": "Y Mod Dest",
+      "value": 9.0,
+      "min": 0.0,
+      "max": 10.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 75,
+      "name": "Y off",
+      "value": 0.0,
+      "min": -1.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 76,
+      "name": "Burst",
+      "value": 1.0,
+      "min": 1.0,
+      "max": 16.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 1.0
+    }
+  ]
+}

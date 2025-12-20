@@ -1,0 +1,256 @@
+{
+  "device_class": "MxDeviceAudioEffect",
+  "preset_count": 25,
+  "presets": [
+    {
+      "preset_name": "16ths Ghosts.adv",
+      "rel_path": "Devices/Audio Effects/Envelope Follower/16ths Ghosts.adv",
+      "device_class": "MxDeviceAudioEffect",
+      "plugin_name": "Performer",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Slow Rise.adv",
+      "rel_path": "Devices/Audio Effects/Envelope Follower/Slow Rise.adv",
+      "device_class": "MxDeviceAudioEffect",
+      "plugin_name": "Performer",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "8ths Precise",
+      "rel_path": "Devices/Audio Effects/Envelope Follower/8ths Precise.adv",
+      "device_class": "MxDeviceAudioEffect",
+      "plugin_name": "Performer",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Gentle Waves.adv",
+      "rel_path": "Devices/Audio Effects/Envelope Follower/Gentle Waves.adv",
+      "device_class": "MxDeviceAudioEffect",
+      "plugin_name": "Performer",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Fast Rise & Fall.adv",
+      "rel_path": "Devices/Audio Effects/Envelope Follower/Fast Rise & Fall.adv",
+      "device_class": "MxDeviceAudioEffect",
+      "plugin_name": "Performer",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "4ths Soft Peaks",
+      "rel_path": "Devices/Audio Effects/Shaper/4ths Soft Peaks.adv",
+      "device_class": "MxDeviceAudioEffect",
+      "plugin_name": "Performer",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "4ths Choker",
+      "rel_path": "Devices/Audio Effects/Shaper/4ths Choker.adv",
+      "device_class": "MxDeviceAudioEffect",
+      "plugin_name": "Performer",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Break After Two",
+      "rel_path": "Devices/Audio Effects/Shaper/Break After Two.adv",
+      "device_class": "MxDeviceAudioEffect",
+      "plugin_name": "Performer",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Offbeat Intervals",
+      "rel_path": "Devices/Audio Effects/Shaper/Offbeat Intervals.adv",
+      "device_class": "MxDeviceAudioEffect",
+      "plugin_name": "Performer",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "8ths Swelling",
+      "rel_path": "Devices/Audio Effects/Shaper/8ths Swelling.adv",
+      "device_class": "MxDeviceAudioEffect",
+      "plugin_name": "Performer",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "4ths Fast Peaks",
+      "rel_path": "Devices/Audio Effects/Shaper/4ths Fast Peaks.adv",
+      "device_class": "MxDeviceAudioEffect",
+      "plugin_name": "Performer",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Downbeat Syncopated",
+      "rel_path": "Devices/Audio Effects/Shaper/Downbeat Syncopated.adv",
+      "device_class": "MxDeviceAudioEffect",
+      "plugin_name": "Performer",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Pulse Against 4ths",
+      "rel_path": "Devices/Audio Effects/Shaper/Pulse Against 4ths.adv",
+      "device_class": "MxDeviceAudioEffect",
+      "plugin_name": "Performer",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Shakey Climb",
+      "rel_path": "Devices/Audio Effects/Shaper/Shakey Climb.adv",
+      "device_class": "MxDeviceAudioEffect",
+      "plugin_name": "Performer",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Fast Extremes",
+      "rel_path": "Devices/Audio Effects/Shaper/Fast Extremes.adv",
+      "device_class": "MxDeviceAudioEffect",
+      "plugin_name": "Performer",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Stutter Accents",
+      "rel_path": "Devices/Audio Effects/Shaper/Stutter Accents.adv",
+      "device_class": "MxDeviceAudioEffect",
+      "plugin_name": "Performer",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "4ths Climb",
+      "rel_path": "Devices/Audio Effects/Shaper/4ths Climb.adv",
+      "device_class": "MxDeviceAudioEffect",
+      "plugin_name": "Performer",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Rhythm Triangle 8ths",
+      "rel_path": "Devices/Audio Effects/LFO/Rhythm Triangle 8ths.adv",
+      "device_class": "MxDeviceAudioEffect",
+      "plugin_name": "Performer",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Ducker Snappy",
+      "rel_path": "Devices/Audio Effects/LFO/Ducker Snappy.adv",
+      "device_class": "MxDeviceAudioEffect",
+      "plugin_name": "Performer",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Wobble Slow",
+      "rel_path": "Devices/Audio Effects/LFO/Wobble Slow.adv",
+      "device_class": "MxDeviceAudioEffect",
+      "plugin_name": "Performer",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Rhythm Offbeat Filter",
+      "rel_path": "Devices/Audio Effects/LFO/Rhythm Offbeat Filter.adv",
+      "device_class": "MxDeviceAudioEffect",
+      "plugin_name": "Performer",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Pulse Filter Pad",
+      "rel_path": "Devices/Audio Effects/LFO/Pulse Filter Pad.adv",
+      "device_class": "MxDeviceAudioEffect",
+      "plugin_name": "Performer",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Rhythm Against 8ths",
+      "rel_path": "Devices/Audio Effects/LFO/Rhythm Against 8ths.adv",
+      "device_class": "MxDeviceAudioEffect",
+      "plugin_name": "Performer",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Flutter Fast",
+      "rel_path": "Devices/Audio Effects/LFO/Flutter Fast.adv",
+      "device_class": "MxDeviceAudioEffect",
+      "plugin_name": "Performer",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Rhythm Saw Up 4ths",
+      "rel_path": "Devices/Audio Effects/LFO/Rhythm Saw Up 4ths.adv",
+      "device_class": "MxDeviceAudioEffect",
+      "plugin_name": "Performer",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    }
+  ]
+}

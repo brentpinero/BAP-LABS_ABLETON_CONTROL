@@ -1,0 +1,144 @@
+{
+  "plugin": "Arrangement Looper",
+  "type": "audio_effect",
+  "uri": "query:AudioFx#Arrangement%20Looper",
+  "class_name": "MxDeviceAudioEffect",
+  "parameter_count": 15,
+  "parameters": [
+    {
+      "index": 0,
+      "name": "Device On",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 1,
+      "name": "Division Mode",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 2,
+      "name": "Length Odds 1",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 127.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 3,
+      "name": "Length Odds 2",
+      "value": 3.0,
+      "min": 0.0,
+      "max": 127.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 4,
+      "name": "Length Odds 3",
+      "value": 7.0,
+      "min": 0.0,
+      "max": 127.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 5,
+      "name": "Length Odds 4",
+      "value": 31.0,
+      "min": 0.0,
+      "max": 127.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 6,
+      "name": "Length Simple 1",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 13.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 7,
+      "name": "Length Simple 2",
+      "value": 3.0,
+      "min": 0.0,
+      "max": 13.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 8,
+      "name": "Length Simple 3",
+      "value": 5.0,
+      "min": 0.0,
+      "max": 13.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 9,
+      "name": "Length Simple 4",
+      "value": 9.0,
+      "min": 0.0,
+      "max": 13.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 10,
+      "name": "Loop On / Off 1",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 11,
+      "name": "Loop On / Off 2",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 12,
+      "name": "Loop On / Off 3",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 13,
+      "name": "Loop On / Off 4",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 14,
+      "name": "Quantize Loop Start",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 14.0,
+      "is_enabled": true,
+      "is_quantized": true
+    }
+  ]
+}

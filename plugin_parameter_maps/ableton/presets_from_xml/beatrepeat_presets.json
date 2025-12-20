@@ -1,0 +1,786 @@
+{
+  "device_class": "BeatRepeat",
+  "preset_count": 13,
+  "presets": [
+    {
+      "preset_name": "Slap Back.adv",
+      "rel_path": "Devices/Audio Effects/Beat Repeat/Slap Back.adv",
+      "device_class": "BeatRepeat",
+      "plugin_name": "Beat Repeat",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Chance",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Interval",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 7.0
+        },
+        {
+          "index": 3,
+          "name": "Offset",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 15.0
+        },
+        {
+          "index": 4,
+          "name": "Grid",
+          "value": 5.0,
+          "min": 0.0,
+          "max": 15.0
+        },
+        {
+          "index": 8,
+          "name": "Gate",
+          "value": 9.0,
+          "min": 0.0,
+          "max": 18.0
+        },
+        {
+          "index": 12,
+          "name": "Mix Type",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 14,
+          "name": "Filter On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Repeight.adv",
+      "rel_path": "Devices/Audio Effects/Beat Repeat/Repeight.adv",
+      "device_class": "BeatRepeat",
+      "plugin_name": "Beat Repeat",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Chance",
+          "value": 0.4094488323,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Interval",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 7.0
+        },
+        {
+          "index": 3,
+          "name": "Offset",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 15.0
+        },
+        {
+          "index": 4,
+          "name": "Grid",
+          "value": 9.0,
+          "min": 0.0,
+          "max": 15.0
+        },
+        {
+          "index": 8,
+          "name": "Gate",
+          "value": 3.0,
+          "min": 0.0,
+          "max": 18.0
+        },
+        {
+          "index": 12,
+          "name": "Mix Type",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 14,
+          "name": "Filter On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Fill In The Gaps.adv",
+      "rel_path": "Devices/Audio Effects/Beat Repeat/Fill In The Gaps.adv",
+      "device_class": "BeatRepeat",
+      "plugin_name": "Beat Repeat",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Chance",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Interval",
+          "value": 3.0,
+          "min": 0.0,
+          "max": 7.0
+        },
+        {
+          "index": 3,
+          "name": "Offset",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 15.0
+        },
+        {
+          "index": 4,
+          "name": "Grid",
+          "value": 8.0,
+          "min": 0.0,
+          "max": 15.0
+        },
+        {
+          "index": 8,
+          "name": "Gate",
+          "value": 18.0,
+          "min": 0.0,
+          "max": 18.0
+        },
+        {
+          "index": 12,
+          "name": "Mix Type",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 14,
+          "name": "Filter On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Robo Voice.adv",
+      "rel_path": "Devices/Audio Effects/Beat Repeat/Robo Voice.adv",
+      "device_class": "BeatRepeat",
+      "plugin_name": "Beat Repeat",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Chance",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Interval",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 7.0
+        },
+        {
+          "index": 3,
+          "name": "Offset",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 15.0
+        },
+        {
+          "index": 4,
+          "name": "Grid",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 15.0
+        },
+        {
+          "index": 8,
+          "name": "Gate",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 18.0
+        },
+        {
+          "index": 12,
+          "name": "Mix Type",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 14,
+          "name": "Filter On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Squishy.adv",
+      "rel_path": "Devices/Audio Effects/Beat Repeat/Squishy.adv",
+      "device_class": "BeatRepeat",
+      "plugin_name": "Beat Repeat",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Chance",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Interval",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 7.0
+        },
+        {
+          "index": 3,
+          "name": "Offset",
+          "value": 4.0,
+          "min": 0.0,
+          "max": 15.0
+        },
+        {
+          "index": 4,
+          "name": "Grid",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 15.0
+        },
+        {
+          "index": 8,
+          "name": "Gate",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 18.0
+        },
+        {
+          "index": 12,
+          "name": "Mix Type",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 14,
+          "name": "Filter On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Microfillz.adv",
+      "rel_path": "Devices/Audio Effects/Beat Repeat/Microfillz.adv",
+      "device_class": "BeatRepeat",
+      "plugin_name": "Beat Repeat",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Chance",
+          "value": 0.6456692815,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Interval",
+          "value": 4.0,
+          "min": 0.0,
+          "max": 7.0
+        },
+        {
+          "index": 3,
+          "name": "Offset",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 15.0
+        },
+        {
+          "index": 4,
+          "name": "Grid",
+          "value": 7.0,
+          "min": 0.0,
+          "max": 15.0
+        },
+        {
+          "index": 8,
+          "name": "Gate",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 18.0
+        },
+        {
+          "index": 12,
+          "name": "Mix Type",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 14,
+          "name": "Filter On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Vocal Fun.adv",
+      "rel_path": "Devices/Audio Effects/Beat Repeat/Vocal Fun.adv",
+      "device_class": "BeatRepeat",
+      "plugin_name": "Beat Repeat",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Chance",
+          "value": 0.803149581,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Interval",
+          "value": 4.0,
+          "min": 0.0,
+          "max": 7.0
+        },
+        {
+          "index": 3,
+          "name": "Offset",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 15.0
+        },
+        {
+          "index": 4,
+          "name": "Grid",
+          "value": 5.0,
+          "min": 0.0,
+          "max": 15.0
+        },
+        {
+          "index": 8,
+          "name": "Gate",
+          "value": 3.0,
+          "min": 0.0,
+          "max": 18.0
+        },
+        {
+          "index": 12,
+          "name": "Mix Type",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 14,
+          "name": "Filter On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Semisubtle.adv",
+      "rel_path": "Devices/Audio Effects/Beat Repeat/Semisubtle.adv",
+      "device_class": "BeatRepeat",
+      "plugin_name": "Beat Repeat",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Chance",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Interval",
+          "value": 5.0,
+          "min": 0.0,
+          "max": 7.0
+        },
+        {
+          "index": 3,
+          "name": "Offset",
+          "value": 8.0,
+          "min": 0.0,
+          "max": 15.0
+        },
+        {
+          "index": 4,
+          "name": "Grid",
+          "value": 9.0,
+          "min": 0.0,
+          "max": 15.0
+        },
+        {
+          "index": 8,
+          "name": "Gate",
+          "value": 6.0,
+          "min": 0.0,
+          "max": 18.0
+        },
+        {
+          "index": 12,
+          "name": "Mix Type",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 14,
+          "name": "Filter On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Insect.adv",
+      "rel_path": "Devices/Audio Effects/Beat Repeat/Insect.adv",
+      "device_class": "BeatRepeat",
+      "plugin_name": "Beat Repeat",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Chance",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Interval",
+          "value": 3.0,
+          "min": 0.0,
+          "max": 7.0
+        },
+        {
+          "index": 3,
+          "name": "Offset",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 15.0
+        },
+        {
+          "index": 4,
+          "name": "Grid",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 15.0
+        },
+        {
+          "index": 8,
+          "name": "Gate",
+          "value": 17.0,
+          "min": 0.0,
+          "max": 18.0
+        },
+        {
+          "index": 12,
+          "name": "Mix Type",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 14,
+          "name": "Filter On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Airpusher.adv",
+      "rel_path": "Devices/Audio Effects/Beat Repeat/Airpusher.adv",
+      "device_class": "BeatRepeat",
+      "plugin_name": "Beat Repeat",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Chance",
+          "value": 0.700787425,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Interval",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 7.0
+        },
+        {
+          "index": 3,
+          "name": "Offset",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 15.0
+        },
+        {
+          "index": 4,
+          "name": "Grid",
+          "value": 7.0,
+          "min": 0.0,
+          "max": 15.0
+        },
+        {
+          "index": 8,
+          "name": "Gate",
+          "value": 8.0,
+          "min": 0.0,
+          "max": 18.0
+        },
+        {
+          "index": 12,
+          "name": "Mix Type",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 14,
+          "name": "Filter On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Brain Dance.adv",
+      "rel_path": "Devices/Audio Effects/Beat Repeat/Brain Dance.adv",
+      "device_class": "BeatRepeat",
+      "plugin_name": "Beat Repeat",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Chance",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Interval",
+          "value": 3.0,
+          "min": 0.0,
+          "max": 7.0
+        },
+        {
+          "index": 3,
+          "name": "Offset",
+          "value": 4.0,
+          "min": 0.0,
+          "max": 15.0
+        },
+        {
+          "index": 4,
+          "name": "Grid",
+          "value": 3.0,
+          "min": 0.0,
+          "max": 15.0
+        },
+        {
+          "index": 8,
+          "name": "Gate",
+          "value": 4.0,
+          "min": 0.0,
+          "max": 18.0
+        },
+        {
+          "index": 12,
+          "name": "Mix Type",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 14,
+          "name": "Filter On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Chopping Block.adv",
+      "rel_path": "Devices/Audio Effects/Beat Repeat/Chopping Block.adv",
+      "device_class": "BeatRepeat",
+      "plugin_name": "Beat Repeat",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Chance",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Interval",
+          "value": 3.0,
+          "min": 0.0,
+          "max": 7.0
+        },
+        {
+          "index": 3,
+          "name": "Offset",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 15.0
+        },
+        {
+          "index": 4,
+          "name": "Grid",
+          "value": 7.0,
+          "min": 0.0,
+          "max": 15.0
+        },
+        {
+          "index": 8,
+          "name": "Gate",
+          "value": 7.0,
+          "min": 0.0,
+          "max": 18.0
+        },
+        {
+          "index": 12,
+          "name": "Mix Type",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 14,
+          "name": "Filter On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Deconstruct.adv",
+      "rel_path": "Devices/Audio Effects/Beat Repeat/Deconstruct.adv",
+      "device_class": "BeatRepeat",
+      "plugin_name": "Beat Repeat",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Chance",
+          "value": 0.1653543264,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Interval",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 7.0
+        },
+        {
+          "index": 3,
+          "name": "Offset",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 15.0
+        },
+        {
+          "index": 4,
+          "name": "Grid",
+          "value": 3.0,
+          "min": 0.0,
+          "max": 15.0
+        },
+        {
+          "index": 8,
+          "name": "Gate",
+          "value": 14.0,
+          "min": 0.0,
+          "max": 18.0
+        },
+        {
+          "index": 12,
+          "name": "Mix Type",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 14,
+          "name": "Filter On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    }
+  ]
+}

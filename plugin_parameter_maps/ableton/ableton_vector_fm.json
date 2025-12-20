@@ -1,0 +1,713 @@
+{
+  "plugin": "Vector FM",
+  "type": "instrument",
+  "uri": "query:Synths#Vector%20FM",
+  "class_name": "MxDeviceInstrument",
+  "parameter_count": 74,
+  "parameters": [
+    {
+      "index": 0,
+      "name": "Device On",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 1,
+      "name": "Attack",
+      "value": 1259.9210205078125,
+      "min": 0.0,
+      "max": 20000.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 1259.9210205078125
+    },
+    {
+      "index": 2,
+      "name": "Decay",
+      "value": 4641.5888671875,
+      "min": 0.0,
+      "max": 20000.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 4641.5888671875
+    },
+    {
+      "index": 3,
+      "name": "Release",
+      "value": 3914.86767578125,
+      "min": 0.0,
+      "max": 20000.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 3914.86767578125
+    },
+    {
+      "index": 4,
+      "name": "Sustain",
+      "value": 100.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 100.0
+    },
+    {
+      "index": 5,
+      "name": "Attractor Charge",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 2.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 6,
+      "name": "Attractor Strength",
+      "value": 0.4000000059604645,
+      "min": -1.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.4000000059604645
+    },
+    {
+      "index": 7,
+      "name": "Attractor X",
+      "value": 0.0,
+      "min": -1.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 8,
+      "name": "Attractor Y",
+      "value": 0.0,
+      "min": -1.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 9,
+      "name": "CarrFreq",
+      "value": 5784.75390625,
+      "min": 0.0,
+      "max": 12544.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 5784.75390625
+    },
+    {
+      "index": 10,
+      "name": "CarrNote",
+      "value": 60.0,
+      "min": 0.0,
+      "max": 127.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 60.0
+    },
+    {
+      "index": 11,
+      "name": "CarrShape",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 4.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 12,
+      "name": "Carr Mode",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 13,
+      "name": "Edge",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 2.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 14,
+      "name": "Emit Fade",
+      "value": 0.20472441613674164,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.20472441613674164
+    },
+    {
+      "index": 15,
+      "name": "Emit Fade Center",
+      "value": 0.0,
+      "min": -1.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 16,
+      "name": "Emit Rate Spread",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 17,
+      "name": "Emit Rate",
+      "value": 6.0,
+      "min": 0.0,
+      "max": 18.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 18,
+      "name": "Attractor",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 19,
+      "name": "Enable Emitter",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 20,
+      "name": "Flowfield",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 21,
+      "name": "Filter Cut",
+      "value": 0.800000011920929,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.800000011920929
+    },
+    {
+      "index": 22,
+      "name": "Filter Resonance",
+      "value": 0.25,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.25
+    },
+    {
+      "index": 23,
+      "name": "Filter Type",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 6.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 24,
+      "name": "Flowfield Charge",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 2.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 25,
+      "name": "Flowfield Size",
+      "value": 2.0,
+      "min": 0.0,
+      "max": 4.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 26,
+      "name": "Flowfield Strength",
+      "value": 0.3499999940395355,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.3499999940395355
+    },
+    {
+      "index": 27,
+      "name": "Freeze",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 28,
+      "name": "Gain",
+      "value": -1.0,
+      "min": -70.0,
+      "max": 30.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": -1.0
+    },
+    {
+      "index": 29,
+      "name": "Pan",
+      "value": 0.0,
+      "min": -50.0,
+      "max": 50.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 30,
+      "name": "Grains",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 16.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 31,
+      "name": "Index10",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 32,
+      "name": "Ladder",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 33,
+      "name": "Ladder Type",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 6.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 34,
+      "name": "Lock",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 35,
+      "name": "MIDI Pitch Mode",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 36,
+      "name": "Magnetism",
+      "value": 0.0,
+      "min": -1.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 37,
+      "name": "Mod Mag Amount",
+      "value": -0.5118110179901123,
+      "min": -1.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": -0.5118110179901123
+    },
+    {
+      "index": 38,
+      "name": "Mag Mod Dest",
+      "value": 6.0,
+      "min": 0.0,
+      "max": 9.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 39,
+      "name": "Mass Mod Amount",
+      "value": 0.31496062874794006,
+      "min": -1.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.31496062874794006
+    },
+    {
+      "index": 40,
+      "name": "Mass Mod Dest",
+      "value": 8.0,
+      "min": 0.0,
+      "max": 9.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 41,
+      "name": "Mass Spread",
+      "value": 0.26771700382232666,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.26771700382232666
+    },
+    {
+      "index": 42,
+      "name": "Gain",
+      "value": -12.0,
+      "min": -70.0,
+      "max": 10.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": -12.0
+    },
+    {
+      "index": 43,
+      "name": "modFreq",
+      "value": 5784.75390625,
+      "min": 0.0,
+      "max": 12544.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 5784.75390625
+    },
+    {
+      "index": 44,
+      "name": "ModHarm",
+      "value": 3.0,
+      "min": 0.0,
+      "max": 7.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 45,
+      "name": "ModRatio",
+      "value": 4.4721360206604,
+      "min": 0.0,
+      "max": 20.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 4.4721360206604
+    },
+    {
+      "index": 46,
+      "name": "Index",
+      "value": 4.6415886878967285,
+      "min": 0.0,
+      "max": 10.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 4.6415886878967285
+    },
+    {
+      "index": 47,
+      "name": "ModShape",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 4.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 48,
+      "name": "Mod Mode",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 2.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 49,
+      "name": "Operator#",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 3.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 50,
+      "name": "Click Mode",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 51,
+      "name": "OpChain2",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 7.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 52,
+      "name": "OpChain3",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 7.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 53,
+      "name": "OpChain4",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 7.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 54,
+      "name": "Partcile Lifetime Spread",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 55,
+      "name": "Charge",
+      "value": 0.0,
+      "min": -1.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 56,
+      "name": "Particle Life",
+      "value": 6.0,
+      "min": 0.0,
+      "max": 18.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 57,
+      "name": "Mass",
+      "value": 2.449650764465332,
+      "min": 0.30000001192092896,
+      "max": 5.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 2.449650764465332
+    },
+    {
+      "index": 58,
+      "name": "Pitch Scale",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 17.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 59,
+      "name": "Scale",
+      "value": 3.9932990074157715,
+      "min": 0.009999999776482582,
+      "max": 8.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 3.9932990074157715
+    },
+    {
+      "index": 60,
+      "name": "Randomize",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 61,
+      "name": "Save State",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 62,
+      "name": "Skip",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 63,
+      "name": "Speed",
+      "value": 3.9932990074157715,
+      "min": 0.009999999776482582,
+      "max": 8.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 3.9932990074157715
+    },
+    {
+      "index": 64,
+      "name": "Velocity",
+      "value": 52.79999923706055,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 52.79999923706055
+    },
+    {
+      "index": 65,
+      "name": "Vel Mod Amount",
+      "value": 0.4251968562602997,
+      "min": -1.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.4251968562602997
+    },
+    {
+      "index": 66,
+      "name": "Vel Mod Dest",
+      "value": 5.0,
+      "min": 0.0,
+      "max": 9.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 67,
+      "name": "Mod X Amount",
+      "value": 0.8582677245140076,
+      "min": -1.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.8582677245140076
+    },
+    {
+      "index": 68,
+      "name": "X Mod Dest",
+      "value": 7.0,
+      "min": 0.0,
+      "max": 9.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 69,
+      "name": "X Off",
+      "value": 0.0,
+      "min": -1.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 70,
+      "name": "Mod Y Amount",
+      "value": 0.5984252095222473,
+      "min": -1.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.5984252095222473
+    },
+    {
+      "index": 71,
+      "name": "Y Mod Dest",
+      "value": 4.0,
+      "min": 0.0,
+      "max": 9.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 72,
+      "name": "Y off",
+      "value": 0.0,
+      "min": -1.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 73,
+      "name": "Burst",
+      "value": 1.0,
+      "min": 1.0,
+      "max": 16.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 1.0
+    }
+  ]
+}

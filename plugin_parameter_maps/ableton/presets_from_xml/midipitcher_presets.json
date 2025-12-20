@@ -1,0 +1,186 @@
+{
+  "device_class": "MidiPitcher",
+  "preset_count": 3,
+  "presets": [
+    {
+      "preset_name": "+ 24.adv",
+      "rel_path": "Devices/MIDI Effects/Pitch/+ 24.adv",
+      "device_class": "MidiPitcher",
+      "plugin_name": "Pitch",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Pitch",
+          "value": 24.0,
+          "min": -128.0,
+          "max": 128.0
+        },
+        {
+          "index": 2,
+          "name": "Pitch Scale Degrees",
+          "value": 0.0,
+          "min": -30.0,
+          "max": 30.0
+        },
+        {
+          "index": 3,
+          "name": "Lowest",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 4,
+          "name": "Range",
+          "value": 127.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 6,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "Step Width",
+          "value": 12.0,
+          "min": 1.0,
+          "max": 48.0
+        },
+        {
+          "index": 8,
+          "name": "Step Width Scale Degrees",
+          "value": 7.0,
+          "min": 1.0,
+          "max": 30.0
+        }
+      ]
+    },
+    {
+      "preset_name": "+ 12.adv",
+      "rel_path": "Devices/MIDI Effects/Pitch/+ 12.adv",
+      "device_class": "MidiPitcher",
+      "plugin_name": "Pitch",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Pitch",
+          "value": 12.0,
+          "min": -128.0,
+          "max": 128.0
+        },
+        {
+          "index": 2,
+          "name": "Pitch Scale Degrees",
+          "value": 0.0,
+          "min": -30.0,
+          "max": 30.0
+        },
+        {
+          "index": 3,
+          "name": "Lowest",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 4,
+          "name": "Range",
+          "value": 127.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 6,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "Step Width",
+          "value": 12.0,
+          "min": 1.0,
+          "max": 48.0
+        },
+        {
+          "index": 8,
+          "name": "Step Width Scale Degrees",
+          "value": 7.0,
+          "min": 1.0,
+          "max": 30.0
+        }
+      ]
+    },
+    {
+      "preset_name": "- 12.adv",
+      "rel_path": "Devices/MIDI Effects/Pitch/- 12.adv",
+      "device_class": "MidiPitcher",
+      "plugin_name": "Pitch",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Pitch",
+          "value": -12.0,
+          "min": -128.0,
+          "max": 128.0
+        },
+        {
+          "index": 2,
+          "name": "Pitch Scale Degrees",
+          "value": 0.0,
+          "min": -30.0,
+          "max": 30.0
+        },
+        {
+          "index": 3,
+          "name": "Lowest",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 4,
+          "name": "Range",
+          "value": 127.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 6,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "Step Width",
+          "value": 12.0,
+          "min": 1.0,
+          "max": 48.0
+        },
+        {
+          "index": 8,
+          "name": "Step Width Scale Degrees",
+          "value": 7.0,
+          "min": 1.0,
+          "max": 30.0
+        }
+      ]
+    }
+  ]
+}

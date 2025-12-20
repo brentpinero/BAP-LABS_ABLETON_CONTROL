@@ -1,0 +1,1556 @@
+{
+  "device_class": "Eq8",
+  "preset_count": 62,
+  "presets": [
+    {
+      "preset_name": "Strings EQ 1.adv",
+      "rel_path": "Devices/Audio Effects/EQ Eight/Instrument/Strings EQ 1.adv",
+      "device_class": "Eq8",
+      "plugin_name": "EQ Eight",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Scale",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Adaptive Q",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Strings EQ 2.adv",
+      "rel_path": "Devices/Audio Effects/EQ Eight/Instrument/Strings EQ 2.adv",
+      "device_class": "Eq8",
+      "plugin_name": "EQ Eight",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Scale",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Adaptive Q",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Bright Acoustic Guitar",
+      "rel_path": "Devices/Audio Effects/EQ Eight/Instrument/Bright Acoustic Guitar.adv",
+      "device_class": "Eq8",
+      "plugin_name": "EQ Eight",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Scale",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Adaptive Q",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "E Bass Modern.adv",
+      "rel_path": "Devices/Audio Effects/EQ Eight/Instrument/E Bass Modern.adv",
+      "device_class": "Eq8",
+      "plugin_name": "EQ Eight",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Scale",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Adaptive Q",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "E Bass Vintage.adv",
+      "rel_path": "Devices/Audio Effects/EQ Eight/Instrument/E Bass Vintage.adv",
+      "device_class": "Eq8",
+      "plugin_name": "EQ Eight",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Scale",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Adaptive Q",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Acoustic Git EQ 1",
+      "rel_path": "Devices/Audio Effects/EQ Eight/Instrument/Acoustic Git EQ 1.adv",
+      "device_class": "Eq8",
+      "plugin_name": "EQ Eight",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Scale",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Adaptive Q",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Piano EQ 1.adv",
+      "rel_path": "Devices/Audio Effects/EQ Eight/Instrument/Piano EQ 1.adv",
+      "device_class": "Eq8",
+      "plugin_name": "EQ Eight",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Scale",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Adaptive Q",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Acoustic Git EQ 2",
+      "rel_path": "Devices/Audio Effects/EQ Eight/Instrument/Acoustic Git EQ 2.adv",
+      "device_class": "Eq8",
+      "plugin_name": "EQ Eight",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Scale",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Adaptive Q",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Piano EQ 2.adv",
+      "rel_path": "Devices/Audio Effects/EQ Eight/Instrument/Piano EQ 2.adv",
+      "device_class": "Eq8",
+      "plugin_name": "EQ Eight",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Scale",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Adaptive Q",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Funky E Guitar.adv",
+      "rel_path": "Devices/Audio Effects/EQ Eight/Instrument/Funky E Guitar.adv",
+      "device_class": "Eq8",
+      "plugin_name": "EQ Eight",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Scale",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Adaptive Q",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Clear Acoustic Guitar",
+      "rel_path": "Devices/Audio Effects/EQ Eight/Instrument/Clear Acoustic Guitar.adv",
+      "device_class": "Eq8",
+      "plugin_name": "EQ Eight",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Scale",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Adaptive Q",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Electric Git EQ 1.adv",
+      "rel_path": "Devices/Audio Effects/EQ Eight/Instrument/Electric Git EQ 1.adv",
+      "device_class": "Eq8",
+      "plugin_name": "EQ Eight",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Scale",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Adaptive Q",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Electric Git EQ 2.adv",
+      "rel_path": "Devices/Audio Effects/EQ Eight/Instrument/Electric Git EQ 2.adv",
+      "device_class": "Eq8",
+      "plugin_name": "EQ Eight",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Scale",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Adaptive Q",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Kick EQ 2_hb",
+      "rel_path": "Devices/Audio Effects/EQ Eight/Drums/Kick EQ 4.adv",
+      "device_class": "Eq8",
+      "plugin_name": "EQ Eight",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Scale",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Adaptive Q",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Hat EQ 1",
+      "rel_path": "Devices/Audio Effects/EQ Eight/Drums/Hat EQ 1.adv",
+      "device_class": "Eq8",
+      "plugin_name": "EQ Eight",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Scale",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Adaptive Q",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Cymbal EQ 1",
+      "rel_path": "Devices/Audio Effects/EQ Eight/Drums/Cymbal EQ 1.adv",
+      "device_class": "Eq8",
+      "plugin_name": "EQ Eight",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Scale",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Adaptive Q",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Hat EQ 1_hb",
+      "rel_path": "Devices/Audio Effects/EQ Eight/Drums/Hat EQ 2.adv",
+      "device_class": "Eq8",
+      "plugin_name": "EQ Eight",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Scale",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Adaptive Q",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Cymbal EQ 1_hb",
+      "rel_path": "Devices/Audio Effects/EQ Eight/Drums/Cymbal EQ 2.adv",
+      "device_class": "Eq8",
+      "plugin_name": "EQ Eight",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Scale",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Adaptive Q",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Kick EQ 1_hb",
+      "rel_path": "Devices/Audio Effects/EQ Eight/Drums/Kick EQ 2.adv",
+      "device_class": "Eq8",
+      "plugin_name": "EQ Eight",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Scale",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Adaptive Q",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Kick EQ 2_hb",
+      "rel_path": "Devices/Audio Effects/EQ Eight/Drums/Kick EQ 3.adv",
+      "device_class": "Eq8",
+      "plugin_name": "EQ Eight",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Scale",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Adaptive Q",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Kick EQ 1_hb",
+      "rel_path": "Devices/Audio Effects/EQ Eight/Drums/Kick EQ 1.adv",
+      "device_class": "Eq8",
+      "plugin_name": "EQ Eight",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Scale",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Adaptive Q",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Floor Tom EQ 1_hb",
+      "rel_path": "Devices/Audio Effects/EQ Eight/Drums/Floor Tom EQ 2.adv",
+      "device_class": "Eq8",
+      "plugin_name": "EQ Eight",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Scale",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Adaptive Q",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Floor Tom EQ 1",
+      "rel_path": "Devices/Audio Effects/EQ Eight/Drums/Floor Tom EQ 1.adv",
+      "device_class": "Eq8",
+      "plugin_name": "EQ Eight",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Scale",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Adaptive Q",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Snare EQ 1_hb",
+      "rel_path": "Devices/Audio Effects/EQ Eight/Drums/Snare EQ 3.adv",
+      "device_class": "Eq8",
+      "plugin_name": "EQ Eight",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Scale",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Adaptive Q",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Snare EQ 1_hb",
+      "rel_path": "Devices/Audio Effects/EQ Eight/Drums/Snare EQ 2.adv",
+      "device_class": "Eq8",
+      "plugin_name": "EQ Eight",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Scale",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Adaptive Q",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Floor Tom EQ 1_hb",
+      "rel_path": "Devices/Audio Effects/EQ Eight/Drums/Rack Tom EQ 1.adv",
+      "device_class": "Eq8",
+      "plugin_name": "EQ Eight",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Scale",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Adaptive Q",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Snare EQ 1",
+      "rel_path": "Devices/Audio Effects/EQ Eight/Drums/Snare EQ 1.adv",
+      "device_class": "Eq8",
+      "plugin_name": "EQ Eight",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Scale",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Adaptive Q",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Rack Tom EQ 1_hb",
+      "rel_path": "Devices/Audio Effects/EQ Eight/Drums/Rack Tom EQ 2.adv",
+      "device_class": "Eq8",
+      "plugin_name": "EQ Eight",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Scale",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Adaptive Q",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Light Vocal",
+      "rel_path": "Devices/Audio Effects/EQ Eight/Vocal/Light Vocal.adv",
+      "device_class": "Eq8",
+      "plugin_name": "EQ Eight",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Scale",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Adaptive Q",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Remove Nasal Frequencies",
+      "rel_path": "Devices/Audio Effects/EQ Eight/Vocal/Remove Nasal Frequencies.adv",
+      "device_class": "Eq8",
+      "plugin_name": "EQ Eight",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Scale",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Adaptive Q",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Remove Mud",
+      "rel_path": "Devices/Audio Effects/EQ Eight/Vocal/Remove Mud.adv",
+      "device_class": "Eq8",
+      "plugin_name": "EQ Eight",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Scale",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Adaptive Q",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Telephone Vocal",
+      "rel_path": "Devices/Audio Effects/EQ Eight/Vocal/Telephone Vocal.adv",
+      "device_class": "Eq8",
+      "plugin_name": "EQ Eight",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Scale",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Adaptive Q",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Vocal Presence",
+      "rel_path": "Devices/Audio Effects/EQ Eight/Vocal/Vocal Presence.adv",
+      "device_class": "Eq8",
+      "plugin_name": "EQ Eight",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Scale",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Adaptive Q",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Airy Vocal",
+      "rel_path": "Devices/Audio Effects/EQ Eight/Vocal/Airy Vocal.adv",
+      "device_class": "Eq8",
+      "plugin_name": "EQ Eight",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Scale",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Adaptive Q",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Phat Low.adv",
+      "rel_path": "Devices/Audio Effects/EQ Eight/Filter/Phat Low.adv",
+      "device_class": "Eq8",
+      "plugin_name": "EQ Eight",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Scale",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Adaptive Q",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Notch 4.adv",
+      "rel_path": "Devices/Audio Effects/EQ Eight/Filter/Notch 4.adv",
+      "device_class": "Eq8",
+      "plugin_name": "EQ Eight",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Scale",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Adaptive Q",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "LowCut.adv",
+      "rel_path": "Devices/Audio Effects/EQ Eight/Filter/LowCut.adv",
+      "device_class": "Eq8",
+      "plugin_name": "EQ Eight",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Scale",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Adaptive Q",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Stereo Effect II.adv",
+      "rel_path": "Devices/Audio Effects/EQ Eight/Filter/Stereo Effect II.adv",
+      "device_class": "Eq8",
+      "plugin_name": "EQ Eight",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Scale",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Adaptive Q",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Power Book Boost.adv",
+      "rel_path": "Devices/Audio Effects/EQ Eight/Filter/Power Book Boost.adv",
+      "device_class": "Eq8",
+      "plugin_name": "EQ Eight",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Scale",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Adaptive Q",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Stereo Effect I.adv",
+      "rel_path": "Devices/Audio Effects/EQ Eight/Filter/Stereo Effect I.adv",
+      "device_class": "Eq8",
+      "plugin_name": "EQ Eight",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Scale",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Adaptive Q",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Gentle Vintage.adv",
+      "rel_path": "Devices/Audio Effects/EQ Eight/Filter/Gentle Vintage.adv",
+      "device_class": "Eq8",
+      "plugin_name": "EQ Eight",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Scale",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Adaptive Q",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Center Kill",
+      "rel_path": "Devices/Audio Effects/EQ Eight/Filter/Center Kill.adv",
+      "device_class": "Eq8",
+      "plugin_name": "EQ Eight",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Scale",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Adaptive Q",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "In the Air.adv",
+      "rel_path": "Devices/Audio Effects/EQ Eight/Filter/In the Air.adv",
+      "device_class": "Eq8",
+      "plugin_name": "EQ Eight",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Scale",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Adaptive Q",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Ultra High.adv",
+      "rel_path": "Devices/Audio Effects/EQ Eight/Filter/Ultra High.adv",
+      "device_class": "Eq8",
+      "plugin_name": "EQ Eight",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Scale",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Adaptive Q",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Lo-Hi Shelf.adv",
+      "rel_path": "Devices/Audio Effects/EQ Eight/Filter/Lo-Hi Shelf.adv",
+      "device_class": "Eq8",
+      "plugin_name": "EQ Eight",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Scale",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Adaptive Q",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Curved.adv",
+      "rel_path": "Devices/Audio Effects/EQ Eight/Filter/Curved.adv",
+      "device_class": "Eq8",
+      "plugin_name": "EQ Eight",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Scale",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Adaptive Q",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Cheesy Speaker.adv",
+      "rel_path": "Devices/Audio Effects/EQ Eight/Filter/Cheesy Speaker.adv",
+      "device_class": "Eq8",
+      "plugin_name": "EQ Eight",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Scale",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Adaptive Q",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Dance Master.adv",
+      "rel_path": "Devices/Audio Effects/EQ Eight/Filter/Dance Master.adv",
+      "device_class": "Eq8",
+      "plugin_name": "EQ Eight",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Scale",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Adaptive Q",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Xtra Low.adv",
+      "rel_path": "Devices/Audio Effects/EQ Eight/Filter/Xtra Low.adv",
+      "device_class": "Eq8",
+      "plugin_name": "EQ Eight",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Scale",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Adaptive Q",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Loop Aid.adv",
+      "rel_path": "Devices/Audio Effects/EQ Eight/Filter/Loop Aid.adv",
+      "device_class": "Eq8",
+      "plugin_name": "EQ Eight",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Scale",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Adaptive Q",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "String and Snap.adv",
+      "rel_path": "Devices/Audio Effects/EQ Eight/Filter/String and Snap.adv",
+      "device_class": "Eq8",
+      "plugin_name": "EQ Eight",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Scale",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Adaptive Q",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Singing A.adv",
+      "rel_path": "Devices/Audio Effects/EQ Eight/Formant/Singing A.adv",
+      "device_class": "Eq8",
+      "plugin_name": "EQ Eight",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Scale",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Adaptive Q",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Singing C.adv",
+      "rel_path": "Devices/Audio Effects/EQ Eight/Formant/Singing C.adv",
+      "device_class": "Eq8",
+      "plugin_name": "EQ Eight",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Scale",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Adaptive Q",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Singing G.adv",
+      "rel_path": "Devices/Audio Effects/EQ Eight/Formant/Singing G.adv",
+      "device_class": "Eq8",
+      "plugin_name": "EQ Eight",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Scale",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Adaptive Q",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Singing E.adv",
+      "rel_path": "Devices/Audio Effects/EQ Eight/Formant/Singing E.adv",
+      "device_class": "Eq8",
+      "plugin_name": "EQ Eight",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Scale",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Adaptive Q",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Vocal A.adv",
+      "rel_path": "Devices/Audio Effects/EQ Eight/Formant/Vocal A.adv",
+      "device_class": "Eq8",
+      "plugin_name": "EQ Eight",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Scale",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Adaptive Q",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Vocal U.adv",
+      "rel_path": "Devices/Audio Effects/EQ Eight/Formant/Vocal U.adv",
+      "device_class": "Eq8",
+      "plugin_name": "EQ Eight",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Scale",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Adaptive Q",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Vocal E.adv",
+      "rel_path": "Devices/Audio Effects/EQ Eight/Formant/Vocal E.adv",
+      "device_class": "Eq8",
+      "plugin_name": "EQ Eight",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Scale",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Adaptive Q",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Vocal UU.adv",
+      "rel_path": "Devices/Audio Effects/EQ Eight/Formant/Vocal UU.adv",
+      "device_class": "Eq8",
+      "plugin_name": "EQ Eight",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Scale",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Adaptive Q",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Vocal I.adv",
+      "rel_path": "Devices/Audio Effects/EQ Eight/Formant/Vocal I.adv",
+      "device_class": "Eq8",
+      "plugin_name": "EQ Eight",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Scale",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Adaptive Q",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Vocal O.adv",
+      "rel_path": "Devices/Audio Effects/EQ Eight/Formant/Vocal O.adv",
+      "device_class": "Eq8",
+      "plugin_name": "EQ Eight",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Scale",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Adaptive Q",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Vocal OE.adv",
+      "rel_path": "Devices/Audio Effects/EQ Eight/Formant/Vocal OE.adv",
+      "device_class": "Eq8",
+      "plugin_name": "EQ Eight",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Scale",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "index": 3,
+          "name": "Adaptive Q",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    }
+  ]
+}

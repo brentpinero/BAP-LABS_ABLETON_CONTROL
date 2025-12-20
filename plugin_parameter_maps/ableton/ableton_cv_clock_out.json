@@ -1,0 +1,120 @@
+{
+  "plugin": "CV Clock Out",
+  "type": "audio_effect",
+  "uri": "query:AudioFx#CV%20Clock%20Out",
+  "class_name": "MxDeviceAudioEffect",
+  "parameter_count": 12,
+  "parameters": [
+    {
+      "index": 0,
+      "name": "Device On",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 1,
+      "name": "Amp",
+      "value": 75.0,
+      "min": 10.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 75.0
+    },
+    {
+      "index": 2,
+      "name": "Clock type",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 2.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 3,
+      "name": "PPQN",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 2.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 4,
+      "name": "Clock",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 12.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 5,
+      "name": "Transport",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 12.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 6,
+      "name": "Division",
+      "value": 2.0,
+      "min": 0.0,
+      "max": 19.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 7,
+      "name": "Division",
+      "value": 16.0,
+      "min": 0.0,
+      "max": 41.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 8,
+      "name": "Swing",
+      "value": 0.0,
+      "min": -50.0,
+      "max": 50.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 9,
+      "name": "Trig Length",
+      "value": 10.0,
+      "min": 1.0,
+      "max": 90.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 10.0
+    },
+    {
+      "index": 10,
+      "name": "Mute",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 11,
+      "name": "T. Trig/Gate",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    }
+  ]
+}

@@ -1,0 +1,196 @@
+{
+  "device_class": "AutoShift",
+  "preset_count": 19,
+  "presets": [
+    {
+      "preset_name": "Gentle Tune",
+      "rel_path": "Devices/Audio Effects/Auto Shift/Tune Gentle.adv",
+      "device_class": "AutoShift",
+      "plugin_name": "Auto Shift",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Tune Hard.adv",
+      "rel_path": "Devices/Audio Effects/Auto Shift/Tune Hard.adv",
+      "device_class": "AutoShift",
+      "plugin_name": "Auto Shift",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Doubler Third",
+      "rel_path": "Devices/Audio Effects/Auto Shift/Added Third.adv",
+      "device_class": "AutoShift",
+      "plugin_name": "Auto Shift",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Tune Smooth.adv",
+      "rel_path": "Devices/Audio Effects/Auto Shift/Tune Smooth.adv",
+      "device_class": "AutoShift",
+      "plugin_name": "Auto Shift",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Live Mode",
+      "rel_path": "Devices/Audio Effects/Auto Shift/Live Mode.adv",
+      "device_class": "AutoShift",
+      "plugin_name": "Auto Shift",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Doubler Fifth",
+      "rel_path": "Devices/Audio Effects/Auto Shift/Added Fifth.adv",
+      "device_class": "AutoShift",
+      "plugin_name": "Auto Shift",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Vibrato Effect",
+      "rel_path": "Devices/Audio Effects/Auto Shift/Pitch Vibrato.adv",
+      "device_class": "AutoShift",
+      "plugin_name": "Auto Shift",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Mid Range",
+      "rel_path": "Devices/Audio Effects/Auto Shift/Scale Aware.adv",
+      "device_class": "AutoShift",
+      "plugin_name": "Auto Shift",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Pan Fast.adv",
+      "rel_path": "Devices/Audio Effects/Auto Shift/Pan Fast.adv",
+      "device_class": "AutoShift",
+      "plugin_name": "Auto Shift",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Pitch & Formant LFO",
+      "rel_path": "Devices/Audio Effects/Auto Shift/Pitch & Formant LFO.adv",
+      "device_class": "AutoShift",
+      "plugin_name": "Auto Shift",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Slow Tune",
+      "rel_path": "Devices/Audio Effects/Auto Shift/Tune Slow.adv",
+      "device_class": "AutoShift",
+      "plugin_name": "Auto Shift",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Formant LFO",
+      "rel_path": "Devices/Audio Effects/Auto Shift/Formant LFO.adv",
+      "device_class": "AutoShift",
+      "plugin_name": "Auto Shift",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "MIDI On",
+      "rel_path": "Devices/Audio Effects/Auto Shift/MIDI In Harmonies.adv",
+      "device_class": "AutoShift",
+      "plugin_name": "Auto Shift",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Octave Up.adv",
+      "rel_path": "Devices/Audio Effects/Auto Shift/Octave Up.adv",
+      "device_class": "AutoShift",
+      "plugin_name": "Auto Shift",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Voice Bass.adv",
+      "rel_path": "Devices/Audio Effects/Auto Shift/Voice Bass.adv",
+      "device_class": "AutoShift",
+      "plugin_name": "Auto Shift",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Voice Soprano-1",
+      "rel_path": "Devices/Audio Effects/Auto Shift/Voice Soprano.adv",
+      "device_class": "AutoShift",
+      "plugin_name": "Auto Shift",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Formant Low.adv",
+      "rel_path": "Devices/Audio Effects/Auto Shift/Formant Low.adv",
+      "device_class": "AutoShift",
+      "plugin_name": "Auto Shift",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Vox Guitar.adv",
+      "rel_path": "Devices/Audio Effects/Auto Shift/Vox Guitar.adv",
+      "device_class": "AutoShift",
+      "plugin_name": "Auto Shift",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Low Octave",
+      "rel_path": "Devices/Audio Effects/Auto Shift/Octave Down.adv",
+      "device_class": "AutoShift",
+      "plugin_name": "Auto Shift",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    }
+  ]
+}

@@ -1,0 +1,646 @@
+{
+  "device_class": "Roar",
+  "preset_count": 64,
+  "presets": [
+    {
+      "preset_name": "Circuit Bent Toy",
+      "rel_path": "Devices/Audio Effects/Roar/Circuit Bent Toy.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Basic Mid Side",
+      "rel_path": "Devices/Audio Effects/Roar/Basic Mid Side.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Resample and Hold.adv",
+      "rel_path": "Devices/Audio Effects/Roar/Resample and Hold.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Multi Band Stutter",
+      "rel_path": "Devices/Audio Effects/Roar/Multi Band Stutter.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Basic Feedback",
+      "rel_path": "Devices/Audio Effects/Roar/Basic Feedback.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Basic Parallel",
+      "rel_path": "Devices/Audio Effects/Roar/Basic Parallel.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Bad Aux",
+      "rel_path": "Devices/Audio Effects/Roar/Bad Aux.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Lofi Repeater",
+      "rel_path": "Devices/Audio Effects/Roar/LoFi Repeater.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "VHS",
+      "rel_path": "Devices/Audio Effects/Roar/VHS Mild.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Shifting Grit",
+      "rel_path": "Devices/Audio Effects/Roar/Shifting Grit.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Acid Distortion",
+      "rel_path": "Devices/Audio Effects/Roar/Acid Distortion.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Basic Multi Band",
+      "rel_path": "Devices/Audio Effects/Roar/Basic Multi Band.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Rough Dub Echo",
+      "rel_path": "Devices/Audio Effects/Roar/Rough Dub Echo.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Mix Punch Up",
+      "rel_path": "Devices/Audio Effects/Roar/Mix Punch Up.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Mid Side Enhance",
+      "rel_path": "Devices/Audio Effects/Roar/Mid Side Enhance.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Sunny Side Up",
+      "rel_path": "Devices/Audio Effects/Roar/Sunny Side Up.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Guitar Wall of Amps",
+      "rel_path": "Devices/Audio Effects/Roar/Guitar Wall of Amps.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Smashed Top End.adv",
+      "rel_path": "Devices/Audio Effects/Roar/Smashed Top End.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Glitch Wild",
+      "rel_path": "Devices/Audio Effects/Roar/Glitch Wild.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Alien Symphony",
+      "rel_path": "Devices/Audio Effects/Roar/Alien Symphony.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Mix Shine On",
+      "rel_path": "Devices/Audio Effects/Roar/Mix Shine On.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Colored Tremolo",
+      "rel_path": "Devices/Audio Effects/Roar/Colored Tremolo.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Mix High End Sparkler",
+      "rel_path": "Devices/Audio Effects/Roar/Mix High End Sparkler.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Drums Second Opinion",
+      "rel_path": "Devices/Audio Effects/Roar/Drums Second Opinion.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Rhythmic Feedbacker",
+      "rel_path": "Devices/Audio Effects/Roar/Rhythmic Feedbacker.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Crunchy Bass",
+      "rel_path": "Devices/Audio Effects/Roar/Bass Crunch Pulse.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Bass Synthetic Crunch",
+      "rel_path": "Devices/Audio Effects/Roar/Bass Synthetic Crunch.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Bass Fattener",
+      "rel_path": "Devices/Audio Effects/Roar/Bass Fattener.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Drums Spectral Breaks",
+      "rel_path": "Devices/Audio Effects/Roar/Drums Spectral Breaks.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Guitar Phased Delay",
+      "rel_path": "Devices/Audio Effects/Roar/Guitar Phased Delay.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Drums Moving Crusher",
+      "rel_path": "Devices/Audio Effects/Roar/Drums Moving Crusher.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Mix Dynamic EQ & Multi Band Comp",
+      "rel_path": "Devices/Audio Effects/Roar/Mix Dynamic EQ & MB Comp.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Kick Me",
+      "rel_path": "Devices/Audio Effects/Roar/Kick Me.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Drums Bassliner",
+      "rel_path": "Devices/Audio Effects/Roar/Drums Deep Bassliner.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Mid Side Enhance",
+      "rel_path": "Devices/Audio Effects/Roar/Mix Mid Side Enhance.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Thick Phase",
+      "rel_path": "Devices/Audio Effects/Roar/Saturation & Warble.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Key Memories",
+      "rel_path": "Devices/Audio Effects/Roar/Key Memories.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Lo-fi Sampler",
+      "rel_path": "Devices/Audio Effects/Roar/LoFi Sampler.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Mono Drums Squasher",
+      "rel_path": "Devices/Audio Effects/Roar/Mono Drums Squasher.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "E-Bass Smasher",
+      "rel_path": "Devices/Audio Effects/Roar/Bass Smasher.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Keys Dirty Dub",
+      "rel_path": "Devices/Audio Effects/Roar/Keys Dirty Dub.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Glitch Resonance",
+      "rel_path": "Devices/Audio Effects/Roar/Glitch Resonance.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Tape Saturation",
+      "rel_path": "Devices/Audio Effects/Roar/Tape Saturation.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Mix Mid Range Detail",
+      "rel_path": "Devices/Audio Effects/Roar/Mix Mid Range Detail.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Guitar Bright Tone",
+      "rel_path": "Devices/Audio Effects/Roar/Guitar Bright Tone.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Creeping Feedback",
+      "rel_path": "Devices/Audio Effects/Roar/Creeping Feedback.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Drum Break Duster",
+      "rel_path": "Devices/Audio Effects/Roar/Drum Break Duster.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Mix Crunch Bus",
+      "rel_path": "Devices/Audio Effects/Roar/Mix Crunch Bus.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Stereo Drive",
+      "rel_path": "Devices/Audio Effects/Roar/Stereo Drive.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Double Diode Treatment",
+      "rel_path": "Devices/Audio Effects/Roar/Diode Treatment.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Drums Moving Bassliner",
+      "rel_path": "Devices/Audio Effects/Roar/Drums Moving Bassliner.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Made for 808s",
+      "rel_path": "Devices/Audio Effects/Roar/Made for 808s.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "E-Bass Fuzz",
+      "rel_path": "Devices/Audio Effects/Roar/Bass Fuzz.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Drum Kit Enhancer",
+      "rel_path": "Devices/Audio Effects/Roar/Drum Kit Enhancer.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Noisy Clarity",
+      "rel_path": "Devices/Audio Effects/Roar/Drums Noisy Clarity.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "E-Bass Crunch",
+      "rel_path": "Devices/Audio Effects/Roar/Bass Crunch.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "INWARD COMPRESSION",
+      "rel_path": "Devices/Audio Effects/Roar/Inward Compression.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Mix Fat Tape",
+      "rel_path": "Devices/Audio Effects/Roar/Mix Fat Tape.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "VHS Wrecked",
+      "rel_path": "Devices/Audio Effects/Roar/VHS Wrecked.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Glitch Rhythmic",
+      "rel_path": "Devices/Audio Effects/Roar/Glitch Rhythmic.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Vocal Cranked",
+      "rel_path": "Devices/Audio Effects/Roar/Vocal Cranked.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Mix Low End Supply",
+      "rel_path": "Devices/Audio Effects/Roar/Mix Low End Supply.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Glitch Feedback",
+      "rel_path": "Devices/Audio Effects/Roar/Glitch Feedback.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Hot Box Mids",
+      "rel_path": "Devices/Audio Effects/Roar/Hot Sides.adv",
+      "device_class": "Roar",
+      "plugin_name": "Roar",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    }
+  ]
+}

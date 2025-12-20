@@ -1,0 +1,96 @@
+{
+  "plugin": "Pitch",
+  "type": "midi_effect",
+  "uri": "query:MidiFx#Pitch",
+  "class_name": "MidiPitcher",
+  "parameter_count": 9,
+  "parameters": [
+    {
+      "index": 0,
+      "name": "Device On",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 1,
+      "name": "Pitch",
+      "value": 0.0,
+      "min": -128.0,
+      "max": 128.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 2,
+      "name": "Pitch Scale Degrees",
+      "value": 0.0,
+      "min": -30.0,
+      "max": 30.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 3,
+      "name": "Lowest",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 127.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 4,
+      "name": "Range",
+      "value": 127.0,
+      "min": 0.0,
+      "max": 127.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 127.0
+    },
+    {
+      "index": 5,
+      "name": "Mode",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 2.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 6,
+      "name": "Use Current Scale",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 7,
+      "name": "Step Width",
+      "value": 12.0,
+      "min": 1.0,
+      "max": 48.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 12.0
+    },
+    {
+      "index": 8,
+      "name": "Step Width Scale Degrees",
+      "value": 7.0,
+      "min": 1.0,
+      "max": 30.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 7.0
+    }
+  ]
+}

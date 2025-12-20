@@ -204,6 +204,10 @@ class AbletonMCPExtended(ControlSurface):
             elif command_type == "get_browser_items_at_path":
                 path = params.get("path", "")
                 response["result"] = self._get_browser_items_at_path(path)
+            elif command_type == "get_all_presets":
+                category_type = params.get("category_type", "audio_effects")
+                max_depth = params.get("max_depth", 5)
+                response["result"] = self._get_all_presets(category_type, max_depth)
 
             # Device parameter commands (read-only)
             elif command_type == "get_device_parameters":
@@ -400,6 +404,15 @@ class AbletonMCPExtended(ControlSurface):
                         "is_playing": clip.is_playing
                     })
 
+            # Get devices on the track
+            devices = []
+            for device_index, device in enumerate(track.devices):
+                devices.append({
+                    "index": device_index,
+                    "name": device.name,
+                    "class_name": device.class_name
+                })
+
             result = {
                 "index": track_index,
                 "name": track.name,
@@ -412,7 +425,9 @@ class AbletonMCPExtended(ControlSurface):
                 "panning": track.mixer_device.panning.value,
                 "clip_slots": clip_slots,
                 "arrangement_clips": arrangement_clips,
-                "arrangement_clip_count": len(arrangement_clips)
+                "arrangement_clip_count": len(arrangement_clips),
+                "devices": devices,
+                "device_count": len(devices)
             }
             return result
         except Exception as e:
@@ -952,6 +967,64 @@ class AbletonMCPExtended(ControlSurface):
             }
         except Exception as e:
             self.log_message("Error getting browser items: " + str(e))
+            raise
+
+    def _get_all_presets(self, category_type, max_depth=5):
+        """Recursively get all loadable presets from a browser category."""
+        try:
+            app = self.application()
+            if not app or not hasattr(app, 'browser'):
+                raise RuntimeError("Browser not available")
+
+            category_map = {
+                "instruments": "instruments",
+                "sounds": "sounds",
+                "drums": "drums",
+                "audio_effects": "audio_effects",
+                "midi_effects": "midi_effects",
+            }
+
+            if category_type not in category_map:
+                raise ValueError("Unknown category: " + category_type)
+
+            root = getattr(app.browser, category_map[category_type])
+            all_presets = []
+
+            def recurse(item, path, depth):
+                if depth > max_depth:
+                    return
+
+                if not hasattr(item, 'children'):
+                    return
+
+                for child in item.children:
+                    child_name = child.name if hasattr(child, 'name') else "Unknown"
+                    child_path = path + "/" + child_name if path else child_name
+                    child_uri = child.uri if hasattr(child, 'uri') else None
+                    is_loadable = hasattr(child, 'is_loadable') and child.is_loadable
+                    has_children = hasattr(child, 'children') and bool(child.children)
+
+                    if is_loadable:
+                        all_presets.append({
+                            "name": child_name,
+                            "path": child_path,
+                            "uri": child_uri,
+                            "is_folder": has_children
+                        })
+
+                    # Recurse into folders
+                    if has_children:
+                        recurse(child, child_path, depth + 1)
+
+            recurse(root, "", 0)
+
+            return {
+                "category": category_type,
+                "preset_count": len(all_presets),
+                "presets": all_presets
+            }
+        except Exception as e:
+            self.log_message("Error getting all presets: " + str(e))
             raise
 
     def _load_browser_item(self, track_index, item_uri):

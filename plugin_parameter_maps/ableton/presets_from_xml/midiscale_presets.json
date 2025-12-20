@@ -1,0 +1,2166 @@
+{
+  "device_class": "MidiScale",
+  "preset_count": 36,
+  "presets": [
+    {
+      "preset_name": "Pelog Selisir",
+      "rel_path": "Devices/MIDI Effects/Scale/Pelog Selisir.adv",
+      "device_class": "MidiScale",
+      "plugin_name": "Scale",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Base",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 11.0
+        },
+        {
+          "index": 2,
+          "name": "InternalScale",
+          "value": 29.0,
+          "min": 0.0,
+          "max": 35.0
+        },
+        {
+          "index": 3,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Transpose",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 5,
+          "name": "Fold",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Lowest",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 7,
+          "name": "Range",
+          "value": 128.0,
+          "min": 0.0,
+          "max": 128.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Whole Tone",
+      "rel_path": "Devices/MIDI Effects/Scale/Whole Tone.adv",
+      "device_class": "MidiScale",
+      "plugin_name": "Scale",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Base",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 11.0
+        },
+        {
+          "index": 2,
+          "name": "InternalScale",
+          "value": 8.0,
+          "min": 0.0,
+          "max": 35.0
+        },
+        {
+          "index": 3,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Transpose",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 5,
+          "name": "Fold",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Lowest",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 7,
+          "name": "Range",
+          "value": 128.0,
+          "min": 0.0,
+          "max": 128.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Whole-Half Diminished",
+      "rel_path": "Devices/MIDI Effects/Scale/Whole-Half Diminished.adv",
+      "device_class": "MidiScale",
+      "plugin_name": "Scale",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Base",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 11.0
+        },
+        {
+          "index": 2,
+          "name": "InternalScale",
+          "value": 10.0,
+          "min": 0.0,
+          "max": 35.0
+        },
+        {
+          "index": 3,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Transpose",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 5,
+          "name": "Fold",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Lowest",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 7,
+          "name": "Range",
+          "value": 128.0,
+          "min": 0.0,
+          "max": 128.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Harmonic Minor.adv",
+      "rel_path": "Devices/MIDI Effects/Scale/Harmonic Minor.adv",
+      "device_class": "MidiScale",
+      "plugin_name": "Scale",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Base",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 11.0
+        },
+        {
+          "index": 2,
+          "name": "InternalScale",
+          "value": 14.0,
+          "min": 0.0,
+          "max": 35.0
+        },
+        {
+          "index": 3,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Transpose",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 5,
+          "name": "Fold",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Lowest",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 7,
+          "name": "Range",
+          "value": 128.0,
+          "min": 0.0,
+          "max": 128.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Locrian Super",
+      "rel_path": "Devices/MIDI Effects/Scale/Super Locrian.adv",
+      "device_class": "MidiScale",
+      "plugin_name": "Scale",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Base",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 11.0
+        },
+        {
+          "index": 2,
+          "name": "InternalScale",
+          "value": 21.0,
+          "min": 0.0,
+          "max": 35.0
+        },
+        {
+          "index": 3,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Transpose",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 5,
+          "name": "Fold",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Lowest",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 7,
+          "name": "Range",
+          "value": 128.0,
+          "min": 0.0,
+          "max": 128.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Phrygian Mode",
+      "rel_path": "Devices/MIDI Effects/Scale/Phrygian.adv",
+      "device_class": "MidiScale",
+      "plugin_name": "Scale",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Base",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 11.0
+        },
+        {
+          "index": 2,
+          "name": "InternalScale",
+          "value": 6.0,
+          "min": 0.0,
+          "max": 35.0
+        },
+        {
+          "index": 3,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Transpose",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 5,
+          "name": "Fold",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Lowest",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 7,
+          "name": "Range",
+          "value": 128.0,
+          "min": 0.0,
+          "max": 128.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Lydian Dominant",
+      "rel_path": "Devices/MIDI Effects/Scale/Lydian Dominant.adv",
+      "device_class": "MidiScale",
+      "plugin_name": "Scale",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Base",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 11.0
+        },
+        {
+          "index": 2,
+          "name": "InternalScale",
+          "value": 20.0,
+          "min": 0.0,
+          "max": 35.0
+        },
+        {
+          "index": 3,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Transpose",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 5,
+          "name": "Fold",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Lowest",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 7,
+          "name": "Range",
+          "value": 128.0,
+          "min": 0.0,
+          "max": 128.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Messiaen 3",
+      "rel_path": "Devices/MIDI Effects/Scale/Messiaen 3.adv",
+      "device_class": "MidiScale",
+      "plugin_name": "Scale",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Base",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 11.0
+        },
+        {
+          "index": 2,
+          "name": "InternalScale",
+          "value": 31.0,
+          "min": 0.0,
+          "max": 35.0
+        },
+        {
+          "index": 3,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Transpose",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 5,
+          "name": "Fold",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Lowest",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 7,
+          "name": "Range",
+          "value": 128.0,
+          "min": 0.0,
+          "max": 128.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Insen",
+      "rel_path": "Devices/MIDI Effects/Scale/In-Sen.adv",
+      "device_class": "MidiScale",
+      "plugin_name": "Scale",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Base",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 11.0
+        },
+        {
+          "index": 2,
+          "name": "InternalScale",
+          "value": 26.0,
+          "min": 0.0,
+          "max": 35.0
+        },
+        {
+          "index": 3,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Transpose",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 5,
+          "name": "Fold",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Lowest",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 7,
+          "name": "Range",
+          "value": 128.0,
+          "min": 0.0,
+          "max": 128.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Messiaen 7",
+      "rel_path": "Devices/MIDI Effects/Scale/Messiaen 7.adv",
+      "device_class": "MidiScale",
+      "plugin_name": "Scale",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Base",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 11.0
+        },
+        {
+          "index": 2,
+          "name": "InternalScale",
+          "value": 35.0,
+          "min": 0.0,
+          "max": 35.0
+        },
+        {
+          "index": 3,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Transpose",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 5,
+          "name": "Fold",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Lowest",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 7,
+          "name": "Range",
+          "value": 128.0,
+          "min": 0.0,
+          "max": 128.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Messiaen 6",
+      "rel_path": "Devices/MIDI Effects/Scale/Messiaen 6.adv",
+      "device_class": "MidiScale",
+      "plugin_name": "Scale",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Base",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 11.0
+        },
+        {
+          "index": 2,
+          "name": "InternalScale",
+          "value": 34.0,
+          "min": 0.0,
+          "max": 35.0
+        },
+        {
+          "index": 3,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Transpose",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 5,
+          "name": "Fold",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Lowest",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 7,
+          "name": "Range",
+          "value": 128.0,
+          "min": 0.0,
+          "max": 128.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Dorian Mode",
+      "rel_path": "Devices/MIDI Effects/Scale/Dorian.adv",
+      "device_class": "MidiScale",
+      "plugin_name": "Scale",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Base",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 11.0
+        },
+        {
+          "index": 2,
+          "name": "InternalScale",
+          "value": 3.0,
+          "min": 0.0,
+          "max": 35.0
+        },
+        {
+          "index": 3,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Transpose",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 5,
+          "name": "Fold",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Lowest",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 7,
+          "name": "Range",
+          "value": 128.0,
+          "min": 0.0,
+          "max": 128.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Major Pentatonic",
+      "rel_path": "Devices/MIDI Effects/Scale/Major Pentatonic.adv",
+      "device_class": "MidiScale",
+      "plugin_name": "Scale",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Base",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 11.0
+        },
+        {
+          "index": 2,
+          "name": "InternalScale",
+          "value": 13.0,
+          "min": 0.0,
+          "max": 35.0
+        },
+        {
+          "index": 3,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Transpose",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 5,
+          "name": "Fold",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Lowest",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 7,
+          "name": "Range",
+          "value": 128.0,
+          "min": 0.0,
+          "max": 128.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Major Harmonic",
+      "rel_path": "Devices/MIDI Effects/Scale/Harmonic Major.adv",
+      "device_class": "MidiScale",
+      "plugin_name": "Scale",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Base",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 11.0
+        },
+        {
+          "index": 2,
+          "name": "InternalScale",
+          "value": 15.0,
+          "min": 0.0,
+          "max": 35.0
+        },
+        {
+          "index": 3,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Transpose",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 5,
+          "name": "Fold",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Lowest",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 7,
+          "name": "Range",
+          "value": 128.0,
+          "min": 0.0,
+          "max": 128.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Messiaen 4",
+      "rel_path": "Devices/MIDI Effects/Scale/Messiaen 4.adv",
+      "device_class": "MidiScale",
+      "plugin_name": "Scale",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Base",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 11.0
+        },
+        {
+          "index": 2,
+          "name": "InternalScale",
+          "value": 32.0,
+          "min": 0.0,
+          "max": 35.0
+        },
+        {
+          "index": 3,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Transpose",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 5,
+          "name": "Fold",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Lowest",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 7,
+          "name": "Range",
+          "value": 128.0,
+          "min": 0.0,
+          "max": 128.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Messiaen 5",
+      "rel_path": "Devices/MIDI Effects/Scale/Messiaen 5.adv",
+      "device_class": "MidiScale",
+      "plugin_name": "Scale",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Base",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 11.0
+        },
+        {
+          "index": 2,
+          "name": "InternalScale",
+          "value": 33.0,
+          "min": 0.0,
+          "max": 35.0
+        },
+        {
+          "index": 3,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Transpose",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 5,
+          "name": "Fold",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Lowest",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 7,
+          "name": "Range",
+          "value": 128.0,
+          "min": 0.0,
+          "max": 128.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Locrian",
+      "rel_path": "Devices/MIDI Effects/Scale/Locrian.adv",
+      "device_class": "MidiScale",
+      "plugin_name": "Scale",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Base",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 11.0
+        },
+        {
+          "index": 2,
+          "name": "InternalScale",
+          "value": 7.0,
+          "min": 0.0,
+          "max": 35.0
+        },
+        {
+          "index": 3,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Transpose",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 5,
+          "name": "Fold",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Lowest",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 7,
+          "name": "Range",
+          "value": 128.0,
+          "min": 0.0,
+          "max": 128.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Minor.adv",
+      "rel_path": "Devices/MIDI Effects/Scale/Minor.adv",
+      "device_class": "MidiScale",
+      "plugin_name": "Scale",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Base",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 11.0
+        },
+        {
+          "index": 2,
+          "name": "InternalScale",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 35.0
+        },
+        {
+          "index": 3,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Transpose",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 5,
+          "name": "Fold",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Lowest",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 7,
+          "name": "Range",
+          "value": 128.0,
+          "min": 0.0,
+          "max": 128.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Dorian #4",
+      "rel_path": "Devices/MIDI Effects/Scale/Dorian #4.adv",
+      "device_class": "MidiScale",
+      "plugin_name": "Scale",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Base",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 11.0
+        },
+        {
+          "index": 2,
+          "name": "InternalScale",
+          "value": 16.0,
+          "min": 0.0,
+          "max": 35.0
+        },
+        {
+          "index": 3,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Transpose",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 5,
+          "name": "Fold",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Lowest",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 7,
+          "name": "Range",
+          "value": 128.0,
+          "min": 0.0,
+          "max": 128.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Minor Pentatonic",
+      "rel_path": "Devices/MIDI Effects/Scale/Minor Pentatonic.adv",
+      "device_class": "MidiScale",
+      "plugin_name": "Scale",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Base",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 11.0
+        },
+        {
+          "index": 2,
+          "name": "InternalScale",
+          "value": 12.0,
+          "min": 0.0,
+          "max": 35.0
+        },
+        {
+          "index": 3,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Transpose",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 5,
+          "name": "Fold",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Lowest",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 7,
+          "name": "Range",
+          "value": 128.0,
+          "min": 0.0,
+          "max": 128.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Lydian",
+      "rel_path": "Devices/MIDI Effects/Scale/Lydian.adv",
+      "device_class": "MidiScale",
+      "plugin_name": "Scale",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Base",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 11.0
+        },
+        {
+          "index": 2,
+          "name": "InternalScale",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 35.0
+        },
+        {
+          "index": 3,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Transpose",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 5,
+          "name": "Fold",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Lowest",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 7,
+          "name": "Range",
+          "value": 128.0,
+          "min": 0.0,
+          "max": 128.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Half-Whole Diminished",
+      "rel_path": "Devices/MIDI Effects/Scale/Half-Whole Diminished.adv",
+      "device_class": "MidiScale",
+      "plugin_name": "Scale",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Base",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 11.0
+        },
+        {
+          "index": 2,
+          "name": "InternalScale",
+          "value": 9.0,
+          "min": 0.0,
+          "max": 35.0
+        },
+        {
+          "index": 3,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Transpose",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 5,
+          "name": "Fold",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Lowest",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 7,
+          "name": "Range",
+          "value": 128.0,
+          "min": 0.0,
+          "max": 128.0
+        }
+      ]
+    },
+    {
+      "preset_name": "8-Tone Spanish",
+      "rel_path": "Devices/MIDI Effects/Scale/8-Tone Spanish.adv",
+      "device_class": "MidiScale",
+      "plugin_name": "Scale",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Base",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 11.0
+        },
+        {
+          "index": 2,
+          "name": "InternalScale",
+          "value": 22.0,
+          "min": 0.0,
+          "max": 35.0
+        },
+        {
+          "index": 3,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Transpose",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 5,
+          "name": "Fold",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Lowest",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 7,
+          "name": "Range",
+          "value": 128.0,
+          "min": 0.0,
+          "max": 128.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Lydian Augmented",
+      "rel_path": "Devices/MIDI Effects/Scale/Lydian Augmented.adv",
+      "device_class": "MidiScale",
+      "plugin_name": "Scale",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Base",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 11.0
+        },
+        {
+          "index": 2,
+          "name": "InternalScale",
+          "value": 19.0,
+          "min": 0.0,
+          "max": 35.0
+        },
+        {
+          "index": 3,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Transpose",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 5,
+          "name": "Fold",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Lowest",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 7,
+          "name": "Range",
+          "value": 128.0,
+          "min": 0.0,
+          "max": 128.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Iwato",
+      "rel_path": "Devices/MIDI Effects/Scale/Iwato.adv",
+      "device_class": "MidiScale",
+      "plugin_name": "Scale",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Base",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 11.0
+        },
+        {
+          "index": 2,
+          "name": "InternalScale",
+          "value": 27.0,
+          "min": 0.0,
+          "max": 35.0
+        },
+        {
+          "index": 3,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Transpose",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 5,
+          "name": "Fold",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Lowest",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 7,
+          "name": "Range",
+          "value": 128.0,
+          "min": 0.0,
+          "max": 128.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Hirajoshi",
+      "rel_path": "Devices/MIDI Effects/Scale/Hirajoshi.adv",
+      "device_class": "MidiScale",
+      "plugin_name": "Scale",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Base",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 11.0
+        },
+        {
+          "index": 2,
+          "name": "InternalScale",
+          "value": 25.0,
+          "min": 0.0,
+          "max": 35.0
+        },
+        {
+          "index": 3,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Transpose",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 5,
+          "name": "Fold",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Lowest",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 7,
+          "name": "Range",
+          "value": 128.0,
+          "min": 0.0,
+          "max": 128.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Minor Melodic Up",
+      "rel_path": "Devices/MIDI Effects/Scale/Melodic Minor Ascending.adv",
+      "device_class": "MidiScale",
+      "plugin_name": "Scale",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Base",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 11.0
+        },
+        {
+          "index": 2,
+          "name": "InternalScale",
+          "value": 18.0,
+          "min": 0.0,
+          "max": 35.0
+        },
+        {
+          "index": 3,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Transpose",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 5,
+          "name": "Fold",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Lowest",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 7,
+          "name": "Range",
+          "value": 128.0,
+          "min": 0.0,
+          "max": 128.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Pelog Tembung",
+      "rel_path": "Devices/MIDI Effects/Scale/Pelog Tembung.adv",
+      "device_class": "MidiScale",
+      "plugin_name": "Scale",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Base",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 11.0
+        },
+        {
+          "index": 2,
+          "name": "InternalScale",
+          "value": 30.0,
+          "min": 0.0,
+          "max": 35.0
+        },
+        {
+          "index": 3,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Transpose",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 5,
+          "name": "Fold",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Lowest",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 7,
+          "name": "Range",
+          "value": 128.0,
+          "min": 0.0,
+          "max": 128.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Phrygian Dominant",
+      "rel_path": "Devices/MIDI Effects/Scale/Phrygian Dominant.adv",
+      "device_class": "MidiScale",
+      "plugin_name": "Scale",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Base",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 11.0
+        },
+        {
+          "index": 2,
+          "name": "InternalScale",
+          "value": 17.0,
+          "min": 0.0,
+          "max": 35.0
+        },
+        {
+          "index": 3,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Transpose",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 5,
+          "name": "Fold",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Lowest",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 7,
+          "name": "Range",
+          "value": 128.0,
+          "min": 0.0,
+          "max": 128.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Minor Blues",
+      "rel_path": "Devices/MIDI Effects/Scale/Minor Blues.adv",
+      "device_class": "MidiScale",
+      "plugin_name": "Scale",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Base",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 11.0
+        },
+        {
+          "index": 2,
+          "name": "InternalScale",
+          "value": 11.0,
+          "min": 0.0,
+          "max": 35.0
+        },
+        {
+          "index": 3,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Transpose",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 5,
+          "name": "Fold",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Lowest",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 7,
+          "name": "Range",
+          "value": 128.0,
+          "min": 0.0,
+          "max": 128.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Major.adv",
+      "rel_path": "Devices/MIDI Effects/Scale/Major.adv",
+      "device_class": "MidiScale",
+      "plugin_name": "Scale",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Base",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 11.0
+        },
+        {
+          "index": 2,
+          "name": "InternalScale",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 35.0
+        },
+        {
+          "index": 3,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Transpose",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 5,
+          "name": "Fold",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Lowest",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 7,
+          "name": "Range",
+          "value": 128.0,
+          "min": 0.0,
+          "max": 128.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Mixolydian Mode",
+      "rel_path": "Devices/MIDI Effects/Scale/Mixolydian.adv",
+      "device_class": "MidiScale",
+      "plugin_name": "Scale",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Base",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 11.0
+        },
+        {
+          "index": 2,
+          "name": "InternalScale",
+          "value": 4.0,
+          "min": 0.0,
+          "max": 35.0
+        },
+        {
+          "index": 3,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Transpose",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 5,
+          "name": "Fold",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Lowest",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 7,
+          "name": "Range",
+          "value": 128.0,
+          "min": 0.0,
+          "max": 128.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Melodic Minor Descending",
+      "rel_path": "Devices/MIDI Effects/Scale/Melodic Minor Descending.adv",
+      "device_class": "MidiScale",
+      "plugin_name": "Scale",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Base",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 11.0
+        },
+        {
+          "index": 2,
+          "name": "InternalScale",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 35.0
+        },
+        {
+          "index": 3,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Transpose",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 5,
+          "name": "Fold",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Lowest",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 7,
+          "name": "Range",
+          "value": 128.0,
+          "min": 0.0,
+          "max": 128.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Bhairav",
+      "rel_path": "Devices/MIDI Effects/Scale/Bhairav.adv",
+      "device_class": "MidiScale",
+      "plugin_name": "Scale",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Base",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 11.0
+        },
+        {
+          "index": 2,
+          "name": "InternalScale",
+          "value": 23.0,
+          "min": 0.0,
+          "max": 35.0
+        },
+        {
+          "index": 3,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Transpose",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 5,
+          "name": "Fold",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Lowest",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 7,
+          "name": "Range",
+          "value": 128.0,
+          "min": 0.0,
+          "max": 128.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Kumoi",
+      "rel_path": "Devices/MIDI Effects/Scale/Kumoi.adv",
+      "device_class": "MidiScale",
+      "plugin_name": "Scale",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Base",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 11.0
+        },
+        {
+          "index": 2,
+          "name": "InternalScale",
+          "value": 28.0,
+          "min": 0.0,
+          "max": 35.0
+        },
+        {
+          "index": 3,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Transpose",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 5,
+          "name": "Fold",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Lowest",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 7,
+          "name": "Range",
+          "value": 128.0,
+          "min": 0.0,
+          "max": 128.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Minor Hungarian",
+      "rel_path": "Devices/MIDI Effects/Scale/Hungarian Minor.adv",
+      "device_class": "MidiScale",
+      "plugin_name": "Scale",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Base",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 11.0
+        },
+        {
+          "index": 2,
+          "name": "InternalScale",
+          "value": 24.0,
+          "min": 0.0,
+          "max": 35.0
+        },
+        {
+          "index": 3,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Transpose",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 5,
+          "name": "Fold",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Lowest",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 7,
+          "name": "Range",
+          "value": 128.0,
+          "min": 0.0,
+          "max": 128.0
+        }
+      ]
+    }
+  ]
+}

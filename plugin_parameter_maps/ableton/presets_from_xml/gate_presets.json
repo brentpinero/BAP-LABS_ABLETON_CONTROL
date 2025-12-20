@@ -1,0 +1,306 @@
+{
+  "device_class": "Gate",
+  "preset_count": 5,
+  "presets": [
+    {
+      "preset_name": "Soft Reducer.adv",
+      "rel_path": "Devices/Audio Effects/Gate/Soft Reducer.adv",
+      "device_class": "Gate",
+      "plugin_name": "Gate",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Threshold",
+          "value": 0.1662730426,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Attack",
+          "value": 150.0,
+          "min": 0.019999999552965164,
+          "max": 150.0
+        },
+        {
+          "index": 3,
+          "name": "Hold",
+          "value": 54.8640747,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Release",
+          "value": 110.838577,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Return",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 24.0
+        },
+        {
+          "index": 8,
+          "name": "FlipMode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "LookAhead",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Flipside.adv",
+      "rel_path": "Devices/Audio Effects/Gate/Flipside.adv",
+      "device_class": "Gate",
+      "plugin_name": "Gate",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Threshold",
+          "value": 0.3090295196,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Attack",
+          "value": 0.6426851749,
+          "min": 0.019999999552965164,
+          "max": 150.0
+        },
+        {
+          "index": 3,
+          "name": "Hold",
+          "value": 131.037094,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Release",
+          "value": 30.9820957,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Return",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 24.0
+        },
+        {
+          "index": 8,
+          "name": "FlipMode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "LookAhead",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Softy.adv",
+      "rel_path": "Devices/Audio Effects/Gate/Softy.adv",
+      "device_class": "Gate",
+      "plugin_name": "Gate",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Threshold",
+          "value": 0.03890449554,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Attack",
+          "value": 0.2221679986,
+          "min": 0.019999999552965164,
+          "max": 150.0
+        },
+        {
+          "index": 3,
+          "name": "Hold",
+          "value": 36.5458908,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Release",
+          "value": 3.44923472,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Return",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 24.0
+        },
+        {
+          "index": 8,
+          "name": "FlipMode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "LookAhead",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Short Cut.adv",
+      "rel_path": "Devices/Audio Effects/Gate/Short Cut.adv",
+      "device_class": "Gate",
+      "plugin_name": "Gate",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Threshold",
+          "value": 0.5143396854,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Attack",
+          "value": 0.01999999955,
+          "min": 0.019999999552965164,
+          "max": 150.0
+        },
+        {
+          "index": 3,
+          "name": "Hold",
+          "value": 3.19257784,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Release",
+          "value": 13.2451639,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Return",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 24.0
+        },
+        {
+          "index": 8,
+          "name": "FlipMode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "LookAhead",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Gated Drums.adv",
+      "rel_path": "Devices/Audio Effects/Gate/Gated Drums.adv",
+      "device_class": "Gate",
+      "plugin_name": "Gate",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Threshold",
+          "value": 0.3090295196,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "Attack",
+          "value": 0.01999999955,
+          "min": 0.019999999552965164,
+          "max": 150.0
+        },
+        {
+          "index": 3,
+          "name": "Hold",
+          "value": 262.953583,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Release",
+          "value": 30.9820957,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Return",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 24.0
+        },
+        {
+          "index": 8,
+          "name": "FlipMode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "LookAhead",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    }
+  ]
+}

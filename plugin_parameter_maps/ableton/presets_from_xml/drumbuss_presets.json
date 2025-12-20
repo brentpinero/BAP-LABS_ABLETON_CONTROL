@@ -1,0 +1,1018 @@
+{
+  "device_class": "DrumBuss",
+  "preset_count": 22,
+  "presets": [
+    {
+      "preset_name": "Punch Boom in A",
+      "rel_path": "Devices/Audio Effects/Drum Buss/Punch Boom in A.adv",
+      "device_class": "DrumBuss",
+      "plugin_name": "Drum Buss",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Drive Type",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 9,
+          "name": "Boom Decay",
+          "value": 0.8515625,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Boom Audition",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 12,
+          "name": "Output Gain",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Drum Sharpener.adv",
+      "rel_path": "Devices/Audio Effects/Drum Buss/Drum Sharpener.adv",
+      "device_class": "DrumBuss",
+      "plugin_name": "Drum Buss",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Drive Type",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 9,
+          "name": "Boom Decay",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Boom Audition",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 12,
+          "name": "Output Gain",
+          "value": 0.7943282127,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Drum Pumper.adv",
+      "rel_path": "Devices/Audio Effects/Drum Buss/Drum Pumper.adv",
+      "device_class": "DrumBuss",
+      "plugin_name": "Drum Buss",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Drive Type",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 9,
+          "name": "Boom Decay",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Boom Audition",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 12,
+          "name": "Output Gain",
+          "value": 0.5529673696,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Compression Gate.adv",
+      "rel_path": "Devices/Audio Effects/Drum Buss/Compression Gate.adv",
+      "device_class": "DrumBuss",
+      "plugin_name": "Drum Buss",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Drive Type",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 9,
+          "name": "Boom Decay",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Boom Audition",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 12,
+          "name": "Output Gain",
+          "value": 0.630957365,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Punch Bass in G",
+      "rel_path": "Devices/Audio Effects/Drum Buss/Punch Bass in G.adv",
+      "device_class": "DrumBuss",
+      "plugin_name": "Drum Buss",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Drive Type",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 9,
+          "name": "Boom Decay",
+          "value": 0.9153125286,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Boom Audition",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 12,
+          "name": "Output Gain",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Crisp Comp in G",
+      "rel_path": "Devices/Audio Effects/Drum Buss/Crisp Comp in G.adv",
+      "device_class": "DrumBuss",
+      "plugin_name": "Drum Buss",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Drive Type",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 9,
+          "name": "Boom Decay",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Boom Audition",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 12,
+          "name": "Output Gain",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Drum Softener.adv",
+      "rel_path": "Devices/Audio Effects/Drum Buss/Drum Softener.adv",
+      "device_class": "DrumBuss",
+      "plugin_name": "Drum Buss",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Drive Type",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 9,
+          "name": "Boom Decay",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Boom Audition",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 12,
+          "name": "Output Gain",
+          "value": 1.12201846,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Squeeze & Drive in G",
+      "rel_path": "Devices/Audio Effects/Drum Buss/Squeeze & Drive in G.adv",
+      "device_class": "DrumBuss",
+      "plugin_name": "Drum Buss",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Drive Type",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 9,
+          "name": "Boom Decay",
+          "value": 0.140625,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Boom Audition",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 12,
+          "name": "Output Gain",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Punchy Driven ",
+      "rel_path": "Devices/Audio Effects/Drum Buss/Punchy Driven .adv",
+      "device_class": "DrumBuss",
+      "plugin_name": "Drum Buss",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Drive Type",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 9,
+          "name": "Boom Decay",
+          "value": 0.109375,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Boom Audition",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 12,
+          "name": "Output Gain",
+          "value": 0.7141244411,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Transient Shift Decay",
+      "rel_path": "Devices/Audio Effects/Drum Buss/Transient Shift Decay.adv",
+      "device_class": "DrumBuss",
+      "plugin_name": "Drum Buss",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Drive Type",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 9,
+          "name": "Boom Decay",
+          "value": 0.9296875,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Boom Audition",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 12,
+          "name": "Output Gain",
+          "value": 0.5770648718,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Instant Mayhem.adv",
+      "rel_path": "Devices/Audio Effects/Drum Buss/Instant Mayhem.adv",
+      "device_class": "DrumBuss",
+      "plugin_name": "Drum Buss",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Drive Type",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 9,
+          "name": "Boom Decay",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Boom Audition",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 12,
+          "name": "Output Gain",
+          "value": 0.5529673696,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Transient Shaping Enhance",
+      "rel_path": "Devices/Audio Effects/Drum Buss/Transient Shaping Enhance.adv",
+      "device_class": "DrumBuss",
+      "plugin_name": "Drum Buss",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Drive Type",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 9,
+          "name": "Boom Decay",
+          "value": 0.2890625,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Boom Audition",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 12,
+          "name": "Output Gain",
+          "value": 0.6557970643,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Full Boom in E",
+      "rel_path": "Devices/Audio Effects/Drum Buss/Full Boom in E.adv",
+      "device_class": "DrumBuss",
+      "plugin_name": "Drum Buss",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Drive Type",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 9,
+          "name": "Boom Decay",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Boom Audition",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 12,
+          "name": "Output Gain",
+          "value": 0.7451921105,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Boom in C.adv",
+      "rel_path": "Devices/Audio Effects/Drum Buss/Boom in C.adv",
+      "device_class": "DrumBuss",
+      "plugin_name": "Drum Buss",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Drive Type",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 9,
+          "name": "Boom Decay",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Boom Audition",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 12,
+          "name": "Output Gain",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Boom in A.adv",
+      "rel_path": "Devices/Audio Effects/Drum Buss/Boom in A.adv",
+      "device_class": "DrumBuss",
+      "plugin_name": "Drum Buss",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Drive Type",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 9,
+          "name": "Boom Decay",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Boom Audition",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 12,
+          "name": "Output Gain",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Muffled Crunch in E",
+      "rel_path": "Devices/Audio Effects/Drum Buss/Muffled Crunch in E.adv",
+      "device_class": "DrumBuss",
+      "plugin_name": "Drum Buss",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Drive Type",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 9,
+          "name": "Boom Decay",
+          "value": 0.8828125,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Boom Audition",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 12,
+          "name": "Output Gain",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Crisp Boom in C",
+      "rel_path": "Devices/Audio Effects/Drum Buss/Crisp Boom in C.adv",
+      "device_class": "DrumBuss",
+      "plugin_name": "Drum Buss",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Drive Type",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 9,
+          "name": "Boom Decay",
+          "value": 0.6484375,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Boom Audition",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 12,
+          "name": "Output Gain",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Soft Boom in D",
+      "rel_path": "Devices/Audio Effects/Drum Buss/Boom in D.adv",
+      "device_class": "DrumBuss",
+      "plugin_name": "Drum Buss",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Drive Type",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 9,
+          "name": "Boom Decay",
+          "value": 0.8359375,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Boom Audition",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 12,
+          "name": "Output Gain",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Boom in E.adv",
+      "rel_path": "Devices/Audio Effects/Drum Buss/Boom in E.adv",
+      "device_class": "DrumBuss",
+      "plugin_name": "Drum Buss",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Drive Type",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 9,
+          "name": "Boom Decay",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Boom Audition",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 12,
+          "name": "Output Gain",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Boom in G.adv",
+      "rel_path": "Devices/Audio Effects/Drum Buss/Boom in G.adv",
+      "device_class": "DrumBuss",
+      "plugin_name": "Drum Buss",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Drive Type",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 9,
+          "name": "Boom Decay",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Boom Audition",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 12,
+          "name": "Output Gain",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Bonzo on the Dials.adv",
+      "rel_path": "Devices/Audio Effects/Drum Buss/Bonzo on the Dials.adv",
+      "device_class": "DrumBuss",
+      "plugin_name": "Drum Buss",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Drive Type",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 9,
+          "name": "Boom Decay",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Boom Audition",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 12,
+          "name": "Output Gain",
+          "value": 0.5529673696,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Fat & Ruff in E",
+      "rel_path": "Devices/Audio Effects/Drum Buss/Fat & Ruff in E.adv",
+      "device_class": "DrumBuss",
+      "plugin_name": "Drum Buss",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Drive Type",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 9,
+          "name": "Boom Decay",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Boom Audition",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 12,
+          "name": "Output Gain",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    }
+  ]
+}

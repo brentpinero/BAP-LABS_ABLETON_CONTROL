@@ -1,0 +1,896 @@
+{
+  "device_class": "Drift",
+  "preset_count": 89,
+  "presets": [
+    {
+      "preset_name": "Star Dust Strings",
+      "rel_path": "Devices/Instruments/Drift/Strings/Star Dust Strings.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Darkened Strings",
+      "rel_path": "Devices/Instruments/Drift/Strings/Darkened Strings.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Pitch Rise Strings",
+      "rel_path": "Devices/Instruments/Drift/Strings/Pitch Rise Strings.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Metallic Strings",
+      "rel_path": "Devices/Instruments/Drift/Strings/Metallic Strings.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Slow Roll Strings",
+      "rel_path": "Devices/Instruments/Drift/Strings/Slow Roll Strings.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Echo Pulse",
+      "rel_path": "Devices/Instruments/Drift/Synth Rhythmic/Echo Pulse.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Pulsating Pad",
+      "rel_path": "Devices/Instruments/Drift/Synth Rhythmic/Pulsating Pad.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Vanguard Brass",
+      "rel_path": "Devices/Instruments/Drift/Brass/Vanguard Brass.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Prime Brass",
+      "rel_path": "Devices/Instruments/Drift/Brass/Prime Brass.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Climb The Ladder",
+      "rel_path": "Devices/Instruments/Drift/Bass/Climb The Ladder.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Vintage Chorus Bass",
+      "rel_path": "Devices/Instruments/Drift/Bass/Vintage Chorus Bass.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Airfare Bass",
+      "rel_path": "Devices/Instruments/Drift/Bass/Airfare Bass.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Seventy Two Bass",
+      "rel_path": "Devices/Instruments/Drift/Bass/Seventy Two Bass.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Floot Bass",
+      "rel_path": "Devices/Instruments/Drift/Bass/Floot Bass.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Sol Bass",
+      "rel_path": "Devices/Instruments/Drift/Bass/Sol Bass.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "AG Bass.adv",
+      "rel_path": "Devices/Instruments/Drift/Bass/AG Bass.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Clob Bass",
+      "rel_path": "Devices/Instruments/Drift/Bass/Clob Bass.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Dub Wob Bass",
+      "rel_path": "Devices/Instruments/Drift/Bass/Dub Wob Bass.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Not Enough Bass",
+      "rel_path": "Devices/Instruments/Drift/Bass/Not Enough Bass.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Dub Techno Bass",
+      "rel_path": "Devices/Instruments/Drift/Bass/Dub Techno Bass.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Deep Bass",
+      "rel_path": "Devices/Instruments/Drift/Bass/Deep Bass.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Grimer Bass",
+      "rel_path": "Devices/Instruments/Drift/Bass/Grimer Bass.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Synth on Screen",
+      "rel_path": "Devices/Instruments/Drift/Pad/Synth on Screen.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Wave Pad",
+      "rel_path": "Devices/Instruments/Drift/Pad/Wave Pad.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Gentle Pulse Pad",
+      "rel_path": "Devices/Instruments/Drift/Pad/Gentle Pulse Pad.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Shark Pad",
+      "rel_path": "Devices/Instruments/Drift/Pad/Shark Pad.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Sweet Tooth.adv",
+      "rel_path": "Devices/Instruments/Drift/Pad/Sweet Tooth.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Morning Chorus Pad",
+      "rel_path": "Devices/Instruments/Drift/Pad/Morning Chorus Pad.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Light Frost",
+      "rel_path": "Devices/Instruments/Drift/Pad/Light Frost.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Flutter Pad",
+      "rel_path": "Devices/Instruments/Drift/Pad/Flutter Pad.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Foglie Pad",
+      "rel_path": "Devices/Instruments/Drift/Pad/Foglie Pad.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Scape Shape Pad",
+      "rel_path": "Devices/Instruments/Drift/Pad/Scape Shape Pad.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Metallic Flutter Pad",
+      "rel_path": "Devices/Instruments/Drift/Pad/Metallic Flutter Pad.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Rising Fog Pad",
+      "rel_path": "Devices/Instruments/Drift/Pad/Rising Fog Pad.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Bloom Pad.adv",
+      "rel_path": "Devices/Instruments/Drift/Pad/Bloom Pad.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Star Talk Pad",
+      "rel_path": "Devices/Instruments/Drift/Pad/Star Talk Pad.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Monday Morning",
+      "rel_path": "Devices/Instruments/Drift/Pad/Monday Morning.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Metallic Swell Pad",
+      "rel_path": "Devices/Instruments/Drift/Pad/Metallic Swell Pad.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Crunch Arcade",
+      "rel_path": "Devices/Instruments/Drift/Synth Lead/Crunch Arcade.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Hubus Lead",
+      "rel_path": "Devices/Instruments/Drift/Synth Lead/Hubus Lead.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Kentucky Lead",
+      "rel_path": "Devices/Instruments/Drift/Synth Lead/Kentucky Lead.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Wide Lead",
+      "rel_path": "Devices/Instruments/Drift/Synth Lead/Euphoria Lead.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Rogue",
+      "rel_path": "Devices/Instruments/Drift/Synth Lead/Rogue.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Game Console",
+      "rel_path": "Devices/Instruments/Drift/Synth Lead/Game Console.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Echo Bells",
+      "rel_path": "Devices/Instruments/Drift/Mallets/Echo Bells.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Toy Xylophone",
+      "rel_path": "Devices/Instruments/Drift/Mallets/Toy Xylophone.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Hickory Bells",
+      "rel_path": "Devices/Instruments/Drift/Mallets/Hickory Bells.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Bell Wave",
+      "rel_path": "Devices/Instruments/Drift/Mallets/Bell Wave.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Church Bell",
+      "rel_path": "Devices/Instruments/Drift/Mallets/Church Bell.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Synthetic Xylophone",
+      "rel_path": "Devices/Instruments/Drift/Mallets/Synthetic Xylophone.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Majestic FM Bells",
+      "rel_path": "Devices/Instruments/Drift/Mallets/Majestic FM Bells.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Ranger Bells",
+      "rel_path": "Devices/Instruments/Drift/Mallets/Ranger Bells.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Rubber Bell",
+      "rel_path": "Devices/Instruments/Drift/Mallets/Rubber Bell.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Trinidad Plucks",
+      "rel_path": "Devices/Instruments/Drift/Plucked/Trinidad Plucks.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Zonk Pluck",
+      "rel_path": "Devices/Instruments/Drift/Plucked/Zonk Pluck.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Chirp Pluck",
+      "rel_path": "Devices/Instruments/Drift/Plucked/Chirp Pluck.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "FM Four Pluck HUS",
+      "rel_path": "Devices/Instruments/Drift/Plucked/FM Four Pluck.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Glacial Tolerance",
+      "rel_path": "Devices/Instruments/Drift/Plucked/Glacial Tolerance.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Big Floor Stab",
+      "rel_path": "Devices/Instruments/Drift/Plucked/Big Floor Stab.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Synth Piano",
+      "rel_path": "Devices/Instruments/Drift/Piano & Keys/Synth Piano.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Bellatine",
+      "rel_path": "Devices/Instruments/Drift/Piano & Keys/Bellatine.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Transistor Reeds",
+      "rel_path": "Devices/Instruments/Drift/Piano & Keys/Transistor Reeds.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Paddles Out",
+      "rel_path": "Devices/Instruments/Drift/Piano & Keys/Paddles Out.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Keynell",
+      "rel_path": "Devices/Instruments/Drift/Synth Keys/Keynell.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Numan Keystrike",
+      "rel_path": "Devices/Instruments/Drift/Synth Keys/Numan Keystrike.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Retro Bell Keys",
+      "rel_path": "Devices/Instruments/Drift/Synth Keys/Retro Bell Keys.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Arcade Split HUS",
+      "rel_path": "Devices/Instruments/Drift/Synth Keys/Arcade Split.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "La String Machine",
+      "rel_path": "Devices/Instruments/Drift/Synth Keys/La String Machine.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Stereo Saw",
+      "rel_path": "Devices/Instruments/Drift/Synth Keys/Stereo Saw.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Tiny Echoes",
+      "rel_path": "Devices/Instruments/Drift/Synth Keys/Tiny Echoes.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Orbit Ray",
+      "rel_path": "Devices/Instruments/Drift/Synth Keys/Orbit Ray.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Slip Sliding",
+      "rel_path": "Devices/Instruments/Drift/Synth Keys/Slip Sliding.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Atlas Keys",
+      "rel_path": "Devices/Instruments/Drift/Synth Keys/Atlas Keys.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "80s Tape",
+      "rel_path": "Devices/Instruments/Drift/Synth Keys/80s Tape.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Floom",
+      "rel_path": "Devices/Instruments/Drift/Synth Keys/Floom.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Gentle Sixty",
+      "rel_path": "Devices/Instruments/Drift/Synth Keys/Gentle Sixty.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Beating Vibraphone",
+      "rel_path": "Devices/Instruments/Drift/Synth Keys/Beating Vibraphone.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Delta Polylogue",
+      "rel_path": "Devices/Instruments/Drift/Synth Keys/Delta Polylogue.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Rectangular Bliss",
+      "rel_path": "Devices/Instruments/Drift/Synth Keys/Rectangular Bliss.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Toy Helicopter",
+      "rel_path": "Devices/Instruments/Drift/Effects/Toy Helicopter.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Gear Shift",
+      "rel_path": "Devices/Instruments/Drift/Effects/Gear Shift.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Passing By",
+      "rel_path": "Devices/Instruments/Drift/Effects/Passing By.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "FM Halfstep Sticks",
+      "rel_path": "Devices/Instruments/Drift/Percussive/FM Halfstep Sticks.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Lo-Fi Metal Hit",
+      "rel_path": "Devices/Instruments/Drift/Percussive/Lo-Fi Metal Hit.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "FM Halfstep Clang",
+      "rel_path": "Devices/Instruments/Drift/Percussive/FM Halfstep Clang.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "FM Halfstep Whirr",
+      "rel_path": "Devices/Instruments/Drift/Percussive/FM Halfstep Whirr.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Analog Tom",
+      "rel_path": "Devices/Instruments/Drift/Percussive/Analog Tom.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Lo-Fi Tech Tom",
+      "rel_path": "Devices/Instruments/Drift/Percussive/Lo-Fi Tech Tom.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Analog Ride",
+      "rel_path": "Devices/Instruments/Drift/Percussive/Analog Ride.adv",
+      "device_class": "Drift",
+      "plugin_name": "Drift",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    }
+  ]
+}

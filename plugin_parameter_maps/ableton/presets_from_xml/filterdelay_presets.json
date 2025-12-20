@@ -1,0 +1,156 @@
+{
+  "device_class": "FilterDelay",
+  "preset_count": 15,
+  "presets": [
+    {
+      "preset_name": "Stereoflex.adv",
+      "rel_path": "Devices/Audio Effects/Filter Delay/Stereoflex.adv",
+      "device_class": "FilterDelay",
+      "plugin_name": "Filter Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Loopo.adv",
+      "rel_path": "Devices/Audio Effects/Filter Delay/Loopo.adv",
+      "device_class": "FilterDelay",
+      "plugin_name": "Filter Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Repetitor II.adv",
+      "rel_path": "Devices/Audio Effects/Filter Delay/Repetitor II.adv",
+      "device_class": "FilterDelay",
+      "plugin_name": "Filter Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Wanderer.adv",
+      "rel_path": "Devices/Audio Effects/Filter Delay/Wanderer.adv",
+      "device_class": "FilterDelay",
+      "plugin_name": "Filter Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Ambidel.adv",
+      "rel_path": "Devices/Audio Effects/Filter Delay/Ambidel.adv",
+      "device_class": "FilterDelay",
+      "plugin_name": "Filter Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Short.adv",
+      "rel_path": "Devices/Audio Effects/Filter Delay/Short.adv",
+      "device_class": "FilterDelay",
+      "plugin_name": "Filter Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Go Mid.adv",
+      "rel_path": "Devices/Audio Effects/Filter Delay/Go Mid.adv",
+      "device_class": "FilterDelay",
+      "plugin_name": "Filter Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Repetitor.adv",
+      "rel_path": "Devices/Audio Effects/Filter Delay/Repetitor.adv",
+      "device_class": "FilterDelay",
+      "plugin_name": "Filter Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Dezent.adv",
+      "rel_path": "Devices/Audio Effects/Filter Delay/Dezent.adv",
+      "device_class": "FilterDelay",
+      "plugin_name": "Filter Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Complex 5.adv",
+      "rel_path": "Devices/Audio Effects/Filter Delay/Complex 5.adv",
+      "device_class": "FilterDelay",
+      "plugin_name": "Filter Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Moving 3-5-6.adv",
+      "rel_path": "Devices/Audio Effects/Filter Delay/Moving 3-5-6.adv",
+      "device_class": "FilterDelay",
+      "plugin_name": "Filter Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Moving 3.adv",
+      "rel_path": "Devices/Audio Effects/Filter Delay/Moving 3.adv",
+      "device_class": "FilterDelay",
+      "plugin_name": "Filter Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Simple Filter 5.adv",
+      "rel_path": "Devices/Audio Effects/Filter Delay/Simple Filter 5.adv",
+      "device_class": "FilterDelay",
+      "plugin_name": "Filter Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Simple Filter 1.adv",
+      "rel_path": "Devices/Audio Effects/Filter Delay/Simple Filter 1.adv",
+      "device_class": "FilterDelay",
+      "plugin_name": "Filter Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Simple Filter 3.adv",
+      "rel_path": "Devices/Audio Effects/Filter Delay/Simple Filter 3.adv",
+      "device_class": "FilterDelay",
+      "plugin_name": "Filter Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    }
+  ]
+}

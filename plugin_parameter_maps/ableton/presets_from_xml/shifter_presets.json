@@ -1,0 +1,246 @@
+{
+  "device_class": "Shifter",
+  "preset_count": 24,
+  "presets": [
+    {
+      "preset_name": "Tremolo",
+      "rel_path": "Devices/Audio Effects/Shifter/Shifter Tremolo.adv",
+      "device_class": "Shifter",
+      "plugin_name": "Shifter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Tape Malfunction.adv",
+      "rel_path": "Devices/Audio Effects/Shifter/Tape Malfunction.adv",
+      "device_class": "Shifter",
+      "plugin_name": "Shifter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Whammy Nudge.adv",
+      "rel_path": "Devices/Audio Effects/Shifter/Whammy Nudge.adv",
+      "device_class": "Shifter",
+      "plugin_name": "Shifter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Scrapulator.adv",
+      "rel_path": "Devices/Audio Effects/Shifter/Scrapulator.adv",
+      "device_class": "Shifter",
+      "plugin_name": "Shifter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Space Syncopations",
+      "rel_path": "Devices/Audio Effects/Shifter/Space Syncopations.adv",
+      "device_class": "Shifter",
+      "plugin_name": "Shifter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Dirty Tonal.adv",
+      "rel_path": "Devices/Audio Effects/Shifter/Dirty Tonal.adv",
+      "device_class": "Shifter",
+      "plugin_name": "Shifter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Spacebirds",
+      "rel_path": "Devices/Audio Effects/Shifter/Spacebirds.adv",
+      "device_class": "Shifter",
+      "plugin_name": "Shifter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Dirty Tremolo",
+      "rel_path": "Devices/Audio Effects/Shifter/Dirty Tremolo.adv",
+      "device_class": "Shifter",
+      "plugin_name": "Shifter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Twisted Riser.adv",
+      "rel_path": "Devices/Audio Effects/Shifter/Twisted Riser.adv",
+      "device_class": "Shifter",
+      "plugin_name": "Shifter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Ring",
+      "rel_path": "Devices/Audio Effects/Shifter/Ring.adv",
+      "device_class": "Shifter",
+      "plugin_name": "Shifter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Phasing.adv",
+      "rel_path": "Devices/Audio Effects/Shifter/Phasing.adv",
+      "device_class": "Shifter",
+      "plugin_name": "Shifter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Shifter Flanger.adv",
+      "rel_path": "Devices/Audio Effects/Shifter/Shifter Flanger.adv",
+      "device_class": "Shifter",
+      "plugin_name": "Shifter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Wibble.adv",
+      "rel_path": "Devices/Audio Effects/Shifter/Wibble.adv",
+      "device_class": "Shifter",
+      "plugin_name": "Shifter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Electric Distortion",
+      "rel_path": "Devices/Audio Effects/Shifter/Electric Distortion.adv",
+      "device_class": "Shifter",
+      "plugin_name": "Shifter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "DTMF.adv",
+      "rel_path": "Devices/Audio Effects/Shifter/DTMF.adv",
+      "device_class": "Shifter",
+      "plugin_name": "Shifter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Wobbly Octave Down.adv",
+      "rel_path": "Devices/Audio Effects/Shifter/Wobbly Octave Down.adv",
+      "device_class": "Shifter",
+      "plugin_name": "Shifter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Damien.adv",
+      "rel_path": "Devices/Audio Effects/Shifter/Damien.adv",
+      "device_class": "Shifter",
+      "plugin_name": "Shifter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Stereo Vibrato",
+      "rel_path": "Devices/Audio Effects/Shifter/Stereo Vibrato.adv",
+      "device_class": "Shifter",
+      "plugin_name": "Shifter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Mud Slide",
+      "rel_path": "Devices/Audio Effects/Shifter/Mud Slide.adv",
+      "device_class": "Shifter",
+      "plugin_name": "Shifter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Transmission",
+      "rel_path": "Devices/Audio Effects/Shifter/Transmission.adv",
+      "device_class": "Shifter",
+      "plugin_name": "Shifter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Race Car.adv",
+      "rel_path": "Devices/Audio Effects/Shifter/Race Car.adv",
+      "device_class": "Shifter",
+      "plugin_name": "Shifter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Slow Motion Drive",
+      "rel_path": "Devices/Audio Effects/Shifter/Slow Motion Drive.adv",
+      "device_class": "Shifter",
+      "plugin_name": "Shifter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Trillswitch.adv",
+      "rel_path": "Devices/Audio Effects/Shifter/Trillswitch.adv",
+      "device_class": "Shifter",
+      "plugin_name": "Shifter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Autonomous Photon Ray.adv",
+      "rel_path": "Devices/Audio Effects/Shifter/Autonomous Photon Ray.adv",
+      "device_class": "Shifter",
+      "plugin_name": "Shifter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    }
+  ]
+}

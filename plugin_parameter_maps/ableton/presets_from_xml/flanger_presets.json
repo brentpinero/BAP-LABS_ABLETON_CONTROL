@@ -1,0 +1,141 @@
+{
+  "device_class": "Flanger",
+  "preset_count": 9,
+  "presets": [
+    {
+      "preset_name": "Wiggle.adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Flanger/Wiggle.adv",
+      "device_class": "Flanger",
+      "has_base_map": false,
+      "xml_parameters": {
+        "on": "true",
+        "drywet": 1.0,
+        "delaytime": 3.48647571,
+        "feedback": 0.8915804029,
+        "feedbacksign": "true",
+        "lfoamount": 0.1889763772,
+        "hipass": 20.0
+      }
+    },
+    {
+      "preset_name": "Flanger.adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Flanger/Flanger.adv",
+      "device_class": "Flanger",
+      "has_base_map": false,
+      "xml_parameters": {
+        "on": "true",
+        "drywet": 1.0,
+        "delaytime": 2.5,
+        "feedback": 0.8999999762,
+        "feedbacksign": "true",
+        "lfoamount": 1.0,
+        "hipass": 100.0
+      }
+    },
+    {
+      "preset_name": "Tinkertoy.adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Flanger/Tinkertoy.adv",
+      "device_class": "Flanger",
+      "has_base_map": false,
+      "xml_parameters": {
+        "on": "true",
+        "drywet": 0.3937009573,
+        "delaytime": 2.04997897,
+        "feedback": 0.9353039265,
+        "feedbacksign": "true",
+        "lfoamount": 0.2598427236,
+        "hipass": 54.3628998
+      }
+    },
+    {
+      "preset_name": "Subotnics.adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Flanger/Subotnics.adv",
+      "device_class": "Flanger",
+      "has_base_map": false,
+      "xml_parameters": {
+        "on": "true",
+        "drywet": 1.0,
+        "delaytime": 1.04085565,
+        "feedback": 0.9900000095,
+        "feedbacksign": "false",
+        "lfoamount": 1.0,
+        "hipass": 1417.12732
+      }
+    },
+    {
+      "preset_name": "Swirling.adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Flanger/Swirling.adv",
+      "device_class": "Flanger",
+      "has_base_map": false,
+      "xml_parameters": {
+        "on": "true",
+        "drywet": 0.5,
+        "delaytime": 2.50000048,
+        "feedback": 0.8999999762,
+        "feedbacksign": "true",
+        "lfoamount": 1.0,
+        "hipass": 56.8252487
+      }
+    },
+    {
+      "preset_name": "Hearing Voices.adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Flanger/Hearing Voices.adv",
+      "device_class": "Flanger",
+      "has_base_map": false,
+      "xml_parameters": {
+        "on": "true",
+        "drywet": 0.6692914963,
+        "delaytime": 2.50000048,
+        "feedback": 0.8999999762,
+        "feedbacksign": "true",
+        "lfoamount": 0.4724408388,
+        "hipass": 124.281555
+      }
+    },
+    {
+      "preset_name": "Afraid Of Bees.adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Flanger/Afraid Of Bees.adv",
+      "device_class": "Flanger",
+      "has_base_map": false,
+      "xml_parameters": {
+        "on": "true",
+        "drywet": 1.0,
+        "delaytime": 0.3857383728,
+        "feedback": 0.4267846644,
+        "feedbacksign": "true",
+        "lfoamount": 1.0,
+        "hipass": 20.0
+      }
+    },
+    {
+      "preset_name": "Metallic.adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Flanger/Metallic.adv",
+      "device_class": "Flanger",
+      "has_base_map": false,
+      "xml_parameters": {
+        "on": "true",
+        "drywet": 1.0,
+        "delaytime": 2.50000048,
+        "feedback": 0.9212307334,
+        "feedbacksign": "true",
+        "lfoamount": 0.4094488323,
+        "hipass": 499.176758
+      }
+    },
+    {
+      "preset_name": "Techsys.adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Flanger/Techsys.adv",
+      "device_class": "Flanger",
+      "has_base_map": false,
+      "xml_parameters": {
+        "on": "true",
+        "drywet": 1.0,
+        "delaytime": 2.95333362,
+        "feedback": 0.7987877727,
+        "feedbacksign": "true",
+        "lfoamount": 0.8425197005,
+        "hipass": 20.0
+      }
+    }
+  ]
+}

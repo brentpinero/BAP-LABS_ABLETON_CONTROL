@@ -1,0 +1,142 @@
+{
+  "plugin": "CV Envelope Follower",
+  "type": "audio_effect",
+  "uri": "query:AudioFx#CV%20Envelope%20Follower",
+  "class_name": "MxDeviceAudioEffect",
+  "parameter_count": 14,
+  "parameters": [
+    {
+      "index": 0,
+      "name": "Device On",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 1,
+      "name": "Delay",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 500.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 2,
+      "name": "Delay",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 6.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 3,
+      "name": "Fall",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 4,
+      "name": "Gain",
+      "value": -19.971267700195312,
+      "min": -70.0,
+      "max": 30.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": -19.971267700195312
+    },
+    {
+      "index": 5,
+      "name": "CV Max",
+      "value": 100.0,
+      "min": -100.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 100.0
+    },
+    {
+      "index": 6,
+      "name": "CV Min",
+      "value": -100.0,
+      "min": -100.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": -100.0
+    },
+    {
+      "index": 7,
+      "name": "Rise",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 8,
+      "name": "Trig Mode",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 2.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 9,
+      "name": "Invert",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 10,
+      "name": "Thresh",
+      "value": -16.273836135864258,
+      "min": -60.0,
+      "max": 0.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": -16.273836135864258
+    },
+    {
+      "index": 11,
+      "name": "CV To",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 12.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 12,
+      "name": "Trigger To",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 12.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 13,
+      "name": "Delay Mode",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    }
+  ]
+}

@@ -1,0 +1,774 @@
+{
+  "device_class": "AutoFilter2",
+  "preset_count": 24,
+  "presets": [
+    {
+      "preset_name": "Disco Filter",
+      "rel_path": "Devices/Audio Effects/Auto Filter/Disco Filter.adv",
+      "device_class": "AutoFilter2",
+      "plugin_name": "Auto Filter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 34,
+          "name": "Output",
+          "value": 0.5623415709,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 35,
+          "name": "Soft Clip On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Cut-O-Move LPF V2",
+      "rel_path": "Devices/Audio Effects/Auto Filter/Cut-O-Move LPF.adv",
+      "device_class": "AutoFilter2",
+      "plugin_name": "Auto Filter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 34,
+          "name": "Output",
+          "value": 0.609375,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 35,
+          "name": "Soft Clip On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Stereo Sweep Contours",
+      "rel_path": "Devices/Audio Effects/Auto Filter/Stereo Contours.adv",
+      "device_class": "AutoFilter2",
+      "plugin_name": "Auto Filter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 34,
+          "name": "Output",
+          "value": 0.3981052041,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 35,
+          "name": "Soft Clip On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Cut-O-Move HPF V2",
+      "rel_path": "Devices/Audio Effects/Auto Filter/Cut-O-Move HPF.adv",
+      "device_class": "AutoFilter2",
+      "plugin_name": "Auto Filter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 34,
+          "name": "Output",
+          "value": 0.609375,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 35,
+          "name": "Soft Clip On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Comb Filtered Beat",
+      "rel_path": "Devices/Audio Effects/Auto Filter/Comb Filtered Beat.adv",
+      "device_class": "AutoFilter2",
+      "plugin_name": "Auto Filter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 34,
+          "name": "Output",
+          "value": 0.7943263054,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 35,
+          "name": "Soft Clip On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Dry/Wet",
+          "value": 0.6499999762,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Tops Off & Crunch",
+      "rel_path": "Devices/Audio Effects/Auto Filter/Tops Off & Crunch.adv",
+      "device_class": "AutoFilter2",
+      "plugin_name": "Auto Filter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 34,
+          "name": "Output",
+          "value": 0.5308839083,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 35,
+          "name": "Soft Clip On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Stereo Notch",
+      "rel_path": "Devices/Audio Effects/Auto Filter/Notch Stereo Sweep.adv",
+      "device_class": "AutoFilter2",
+      "plugin_name": "Auto Filter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 34,
+          "name": "Output",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 35,
+          "name": "Soft Clip On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Beat Mosaic V2",
+      "rel_path": "Devices/Audio Effects/Auto Filter/Beat Mosaic.adv",
+      "device_class": "AutoFilter2",
+      "plugin_name": "Auto Filter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 34,
+          "name": "Output",
+          "value": 0.421875,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 35,
+          "name": "Soft Clip On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Dry/Wet",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Synced Resonant Comb Filter",
+      "rel_path": "Devices/Audio Effects/Auto Filter/Comb Tumble Synced.adv",
+      "device_class": "AutoFilter2",
+      "plugin_name": "Auto Filter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 34,
+          "name": "Output",
+          "value": 0.5623415709,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 35,
+          "name": "Soft Clip On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Dry/Wet",
+          "value": 0.7460317612,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Resampling Filter S&H",
+      "rel_path": "Devices/Audio Effects/Auto Filter/Resampling Filter S&H.adv",
+      "device_class": "AutoFilter2",
+      "plugin_name": "Auto Filter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 34,
+          "name": "Output",
+          "value": 0.3548134267,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 35,
+          "name": "Soft Clip On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Dry/Wet",
+          "value": 0.8015872836,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Bandpass Spinner",
+      "rel_path": "Devices/Audio Effects/Auto Filter/Band-pass Spinner.adv",
+      "device_class": "AutoFilter2",
+      "plugin_name": "Auto Filter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 34,
+          "name": "Output",
+          "value": 0.5703125,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 35,
+          "name": "Soft Clip On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Psycho Band",
+      "rel_path": "Devices/Audio Effects/Auto Filter/Psycho Band.adv",
+      "device_class": "AutoFilter2",
+      "plugin_name": "Auto Filter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 34,
+          "name": "Output",
+          "value": 0.5011858344,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 35,
+          "name": "Soft Clip On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Swirl",
+      "rel_path": "Devices/Audio Effects/Auto Filter/Swirl.adv",
+      "device_class": "AutoFilter2",
+      "plugin_name": "Auto Filter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 34,
+          "name": "Output",
+          "value": 0.6531326771,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 35,
+          "name": "Soft Clip On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Dry/Wet",
+          "value": 0.6000000238,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Move & Color",
+      "rel_path": "Devices/Audio Effects/Auto Filter/Move & Color.adv",
+      "device_class": "AutoFilter2",
+      "plugin_name": "Auto Filter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 34,
+          "name": "Output",
+          "value": 0.4466847181,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 35,
+          "name": "Soft Clip On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Dry/Wet",
+          "value": 0.8015872836,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Comb Envelope",
+      "rel_path": "Devices/Audio Effects/Auto Filter/Comb Envelope.adv",
+      "device_class": "AutoFilter2",
+      "plugin_name": "Auto Filter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 34,
+          "name": "Output",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 35,
+          "name": "Soft Clip On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Twin Peaks",
+      "rel_path": "Devices/Audio Effects/Auto Filter/Twin Peaks.adv",
+      "device_class": "AutoFilter2",
+      "plugin_name": "Auto Filter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 34,
+          "name": "Output",
+          "value": 0.375836134,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 35,
+          "name": "Soft Clip On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Dry/Wet",
+          "value": 0.8095238209,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Clipped Notch",
+      "rel_path": "Devices/Audio Effects/Auto Filter/Notch Slide Crunch.adv",
+      "device_class": "AutoFilter2",
+      "plugin_name": "Auto Filter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 34,
+          "name": "Output",
+          "value": 0.3548134267,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 35,
+          "name": "Soft Clip On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Dry/Wet",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Guitar Auto-Wah",
+      "rel_path": "Devices/Audio Effects/Auto Filter/Guitar Auto-Wah.adv",
+      "device_class": "AutoFilter2",
+      "plugin_name": "Auto Filter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 34,
+          "name": "Output",
+          "value": 0.3981052041,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 35,
+          "name": "Soft Clip On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Vocal Quivver",
+      "rel_path": "Devices/Audio Effects/Auto Filter/Vocal Quivver.adv",
+      "device_class": "AutoFilter2",
+      "plugin_name": "Auto Filter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 34,
+          "name": "Output",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 35,
+          "name": "Soft Clip On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Dry/Wet",
+          "value": 0.6499999762,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Step by Step",
+      "rel_path": "Devices/Audio Effects/Auto Filter/Step by Step.adv",
+      "device_class": "AutoFilter2",
+      "plugin_name": "Auto Filter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 34,
+          "name": "Output",
+          "value": 0.6309606433,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 35,
+          "name": "Soft Clip On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Dry/Wet",
+          "value": 0.8095238209,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Crashing Waves",
+      "rel_path": "Devices/Audio Effects/Auto Filter/Crashing Waves.adv",
+      "device_class": "AutoFilter2",
+      "plugin_name": "Auto Filter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 34,
+          "name": "Output",
+          "value": 0.5011858344,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 35,
+          "name": "Soft Clip On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Dry/Wet",
+          "value": 0.8095238209,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Slide Away",
+      "rel_path": "Devices/Audio Effects/Auto Filter/High-pass Slide Away.adv",
+      "device_class": "AutoFilter2",
+      "plugin_name": "Auto Filter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 34,
+          "name": "Output",
+          "value": 0.7943263054,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 35,
+          "name": "Soft Clip On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Top Spreader",
+      "rel_path": "Devices/Audio Effects/Auto Filter/Top Spreader.adv",
+      "device_class": "AutoFilter2",
+      "plugin_name": "Auto Filter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 34,
+          "name": "Output",
+          "value": 0.5011858344,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 35,
+          "name": "Soft Clip On",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "DJ Filter Soft Clip",
+      "rel_path": "Devices/Audio Effects/Auto Filter/DJ Filter Soft Clip.adv",
+      "device_class": "AutoFilter2",
+      "plugin_name": "Auto Filter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 34,
+          "name": "Output",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 35,
+          "name": "Soft Clip On",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 36,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    }
+  ]
+}

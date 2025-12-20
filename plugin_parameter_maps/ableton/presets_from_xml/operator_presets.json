@@ -1,0 +1,3316 @@
+{
+  "device_class": "Operator",
+  "preset_count": 331,
+  "presets": [
+    {
+      "preset_name": "Vocal Choral1 Muted Pad",
+      "rel_path": "Devices/Instruments/Operator/Synth Pad/Vocal Choral Muted Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Chorus & Strings Sweep Pad.adv",
+      "rel_path": "Devices/Instruments/Operator/Synth Pad/Chorus & Strings Sweep Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Pitch Attack Pad",
+      "rel_path": "Devices/Instruments/Operator/Synth Pad/Pitch Attack Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Square Reso Pad",
+      "rel_path": "Devices/Instruments/Operator/Synth Pad/Square Reso Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Thin Buzz Fast Attack Pad.adv",
+      "rel_path": "Devices/Instruments/Operator/Synth Pad/Thin Buzz Fast Attack Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Muted5 Chorus Pad",
+      "rel_path": "Devices/Instruments/Operator/Synth Pad/Muted Chorus Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Glass2 Unpitched Pad",
+      "rel_path": "Devices/Instruments/Operator/Synth Pad/Glass Unpitched Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Bell String Detuned Pad",
+      "rel_path": "Devices/Instruments/Operator/Synth Pad/Bell String Detuned Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Glass3 Vibrato Pad",
+      "rel_path": "Devices/Instruments/Operator/Synth Pad/Glass Vibrato Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Toy Pad Keys Attack",
+      "rel_path": "Devices/Instruments/Operator/Synth Pad/Toy Keys Attack Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Pad Fog",
+      "rel_path": "Devices/Instruments/Operator/Synth Pad/Fog Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Pure1 Muted Pad",
+      "rel_path": "Devices/Instruments/Operator/Synth Pad/Pure Muted Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Fuzzpad",
+      "rel_path": "Devices/Instruments/Operator/Synth Pad/Fuzz Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Buzz1 Slow Sweep Pad",
+      "rel_path": "Devices/Instruments/Operator/Synth Pad/Buzz Slow Sweep Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Pure2 Reso Sweep Pad",
+      "rel_path": "Devices/Instruments/Operator/Synth Pad/Pure Reso Sweep Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Thick Organ Pad",
+      "rel_path": "Devices/Instruments/Operator/Synth Pad/Thick Organ Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Glass Detuned Fast Attack Pad",
+      "rel_path": "Devices/Instruments/Operator/Synth Pad/Glass Detuned Fast Attack Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Sandy Pad",
+      "rel_path": "Devices/Instruments/Operator/Synth Pad/Sandy Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Orchestral Sweep Pad",
+      "rel_path": "Devices/Instruments/Operator/Synth Pad/Orchestral Sweep Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Strings Basis",
+      "rel_path": "Devices/Instruments/Operator/Synth Pad/Strings Basis Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Warble Rhythm Noise Pad",
+      "rel_path": "Devices/Instruments/Operator/Synth Pad/Warble Rhythm Noise Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Reso Envelope Pad",
+      "rel_path": "Devices/Instruments/Operator/Synth Pad/Reso Envelope Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Highpass Sweep Pad",
+      "rel_path": "Devices/Instruments/Operator/Synth Pad/Highpass Sweep Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Hollow2 reso Sweep Pad",
+      "rel_path": "Devices/Instruments/Operator/Synth Pad/Hollow Reso Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Tine Pad",
+      "rel_path": "Devices/Instruments/Operator/Synth Pad/Tine Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Strings3 Keys Attack Pad",
+      "rel_path": "Devices/Instruments/Operator/Synth Pad/Strings Keys Attack Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Pad-Muted2 (Upper Sweep)",
+      "rel_path": "Devices/Instruments/Operator/Synth Pad/Muted Upper Sweep Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Hollow1 Sweep Pad",
+      "rel_path": "Devices/Instruments/Operator/Synth Pad/Hollow Sweep Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Swept Organ Pad",
+      "rel_path": "Devices/Instruments/Operator/Synth Pad/Swept Organ Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Strings4 5ths Pad",
+      "rel_path": "Devices/Instruments/Operator/Synth Pad/Strings 5ths Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Soft Shimmer Filter Sweep Pad",
+      "rel_path": "Devices/Instruments/Operator/Synth Pad/Soft Shimmer Filter Sweep Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "5ths3 Glass Motion Pad",
+      "rel_path": "Devices/Instruments/Operator/Synth Pad/5ths Glass Motion Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Analog Slow Sweep Pad",
+      "rel_path": "Devices/Instruments/Operator/Synth Pad/Analog Slow Sweep Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Strings2 Filter Sweep Pad",
+      "rel_path": "Devices/Instruments/Operator/Synth Pad/Strings Filter Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Still Sky",
+      "rel_path": "Devices/Instruments/Operator/Synth Pad/Still Sky Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Glass4 Thin Pad",
+      "rel_path": "Devices/Instruments/Operator/Synth Pad/Glass Thin Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "5ths1 Detuned Pad",
+      "rel_path": "Devices/Instruments/Operator/Synth Pad/5ths Detuned Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Muted4 Motion Pad",
+      "rel_path": "Devices/Instruments/Operator/Synth Pad/Muted Motion Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Glass5 Vibrato Pad",
+      "rel_path": "Devices/Instruments/Operator/Synth Pad/Glass Wah Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Pad-Bright Pad (Filter Sweep)",
+      "rel_path": "Devices/Instruments/Operator/Synth Pad/Bright Filterless Sweep Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Vintage Sampler Noise Pad",
+      "rel_path": "Devices/Instruments/Operator/Synth Pad/Vintage Sampler Noise Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Glass6 Thin Pure Pad",
+      "rel_path": "Devices/Instruments/Operator/Synth Pad/Glass Thin Pure Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Buzz2 Motion Pad",
+      "rel_path": "Devices/Instruments/Operator/Synth Pad/Buzz Wide Motion Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Filtered Style Pad.adv",
+      "rel_path": "Devices/Instruments/Operator/Synth Pad/Filtered Style Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Resonant Sweep",
+      "rel_path": "Devices/Instruments/Operator/Synth Pad/Resonant Sweep Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Buzz4 Motion Pad",
+      "rel_path": "Devices/Instruments/Operator/Synth Pad/Buzz Slow Motion Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Muted1 Soft Shimmer Pad",
+      "rel_path": "Devices/Instruments/Operator/Synth Pad/Muted Soft Shimmer Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Muted3 Noise Sweep Pad",
+      "rel_path": "Devices/Instruments/Operator/Synth Pad/Muted Noise Sweep Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Vocal Choral2 Stereo Sweep Pad",
+      "rel_path": "Devices/Instruments/Operator/Synth Pad/Vocal Choral Stereo Sweep Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Cut Pad",
+      "rel_path": "Devices/Instruments/Operator/Synth Pad/Cut Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Pad-Vocal Motion (Filter Sweep)",
+      "rel_path": "Devices/Instruments/Operator/Synth Pad/Vocal Motion Filter Sweep Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Noise Slow Sweep Pad",
+      "rel_path": "Devices/Instruments/Operator/Synth Pad/Noise Slow Sweep Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Strings1 Vibrato Sweep Pad",
+      "rel_path": "Devices/Instruments/Operator/Synth Pad/Strings Vibrato Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Buzz3 Reso Stereo Pad",
+      "rel_path": "Devices/Instruments/Operator/Synth Pad/Buzz Reso Stereo Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Slow Sweep Pad",
+      "rel_path": "Devices/Instruments/Operator/Synth Pad/Slow Sweep Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "World Scape",
+      "rel_path": "Devices/Instruments/Operator/Synth Pad/World Scape Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "5ths2 Filter Sweep Pad",
+      "rel_path": "Devices/Instruments/Operator/Synth Pad/5ths Filter Sweep Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Thin Pad Filter Sweep",
+      "rel_path": "Devices/Instruments/Operator/Synth Pad/Thin Pad Filter Sweep.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Vocal Vowel Slow Sweep Pad",
+      "rel_path": "Devices/Instruments/Operator/Synth Pad/Vocal Vowel Slow Sweep Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Nasal Pitch Scoop Pad",
+      "rel_path": "Devices/Instruments/Operator/Synth Pad/Nasal Pitch Scoop Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Toy Glass",
+      "rel_path": "Devices/Instruments/Operator/Synth Pad/Toy Glass Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Poly1 Detuned",
+      "rel_path": "Devices/Instruments/Operator/Synth Pad/Poly Detuned Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Synth Reso2 16ths Sweep",
+      "rel_path": "Devices/Instruments/Operator/Synth Rhythmic/Synth Reso Sweep 16ths.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Lead Buzz 4ths",
+      "rel_path": "Devices/Instruments/Operator/Synth Rhythmic/Buzz Lead 4ths.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Synth Hollow 16ths",
+      "rel_path": "Devices/Instruments/Operator/Synth Rhythmic/Hollow Synth 16ths.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Metal Plucked 8ths",
+      "rel_path": "Devices/Instruments/Operator/Synth Rhythmic/Metal Pluck 8ths.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Rhythmic Padtinez",
+      "rel_path": "Devices/Instruments/Operator/Synth Rhythmic/Rhythmic Tines Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Bass Pong",
+      "rel_path": "Devices/Instruments/Operator/Synth Rhythmic/Rhythmic Pong Bass.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Bass Buzz 16ths",
+      "rel_path": "Devices/Instruments/Operator/Synth Rhythmic/Buzz Bass 16ths.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Perc Full 16ths",
+      "rel_path": "Devices/Instruments/Operator/Synth Rhythmic/Full Perc Pluck 16ths.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Perc Thin 8ths",
+      "rel_path": "Devices/Instruments/Operator/Synth Rhythmic/Thin Perc 8ths.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Synth Buzz2 Square",
+      "rel_path": "Devices/Instruments/Operator/Synth Rhythmic/Rhythmic Square Synth Buzz.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Pure Bell 8ths",
+      "rel_path": "Devices/Instruments/Operator/Synth Rhythmic/Pure Bell 8ths.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Bass & Perc Full",
+      "rel_path": "Devices/Instruments/Operator/Synth Rhythmic/Rhythmic Bass & Perc Full.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Bass & HiHat2 Sweep",
+      "rel_path": "Devices/Instruments/Operator/Synth Rhythmic/Rhythmic Bass & Hihat Sweep.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Bass Bell",
+      "rel_path": "Devices/Instruments/Operator/Synth Rhythmic/Rhythmic Bass & Bell.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Synth Buzz1 8ths",
+      "rel_path": "Devices/Instruments/Operator/Synth Rhythmic/Synth Buzz 8ths.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "SciFi2 Plucked",
+      "rel_path": "Devices/Instruments/Operator/Synth Rhythmic/Rhythmic SciFi Pluck.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Rhythmic Sweep Synth Buzz.adv",
+      "rel_path": "Devices/Instruments/Operator/Synth Rhythmic/Rhythmic Sweep Synth Buzz.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Synth Reso1 16ths Buzz",
+      "rel_path": "Devices/Instruments/Operator/Synth Rhythmic/Synth Reso Buzz 16ths.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "SciFi Machine",
+      "rel_path": "Devices/Instruments/Operator/Synth Rhythmic/SciFi Machine.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Bass & HIHat1",
+      "rel_path": "Devices/Instruments/Operator/Synth Rhythmic/Rhythmic Bass & Hihat Basic.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Keys Machine",
+      "rel_path": "Devices/Instruments/Operator/Synth Rhythmic/Noisy Keys Machine.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Bass Wow",
+      "rel_path": "Devices/Instruments/Operator/Synth Rhythmic/Rhythmic Wow Bass.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Rhythmic Synth Buzz4 (Octaves Sweep)",
+      "rel_path": "Devices/Instruments/Operator/Synth Rhythmic/Rhythmic Synth Buzz.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Bass Machine",
+      "rel_path": "Devices/Instruments/Operator/Synth Rhythmic/Klong Bass Machine.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Sweep Chorus Brass",
+      "rel_path": "Devices/Instruments/Operator/Brass/Sweep Chorus Brass.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Soft3 FM Sweep Brass",
+      "rel_path": "Devices/Instruments/Operator/Brass/Soft FM Sweep Brass.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Slight Vibrato Brass",
+      "rel_path": "Devices/Instruments/Operator/Brass/Slight Vibrato Brass.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Plain & Simple Brass",
+      "rel_path": "Devices/Instruments/Operator/Brass/Plain & Simple Brass.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Soft1 Warm Brass",
+      "rel_path": "Devices/Instruments/Operator/Brass/Soft Warm Brass.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Analog Bouquet Brass",
+      "rel_path": "Devices/Instruments/Operator/Brass/Analog Bouquet Brass.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Release Brass",
+      "rel_path": "Devices/Instruments/Operator/Brass/Release Brass.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Azimuth Brass",
+      "rel_path": "Devices/Instruments/Operator/Brass/Azimuth Brass.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Soft2 5ths Brass",
+      "rel_path": "Devices/Instruments/Operator/Brass/Soft 5ths Brass.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Bright Brass",
+      "rel_path": "Devices/Instruments/Operator/Brass/Bright Brass.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Sinelike Basic Bass",
+      "rel_path": "Devices/Instruments/Operator/Bass/Sinelike Basic Bass.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Metallic2 Mallet Bass",
+      "rel_path": "Devices/Instruments/Operator/Bass/Metallic Mallet Bass.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "WahWah Bass",
+      "rel_path": "Devices/Instruments/Operator/Bass/WahWah Bass.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Sub2 Sine Bass",
+      "rel_path": "Devices/Instruments/Operator/Bass/Sub Sine Bass.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Electric FM Muffled Bass",
+      "rel_path": "Devices/Instruments/Operator/Bass/Electric FM Muffled Bass.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Guitar Bass",
+      "rel_path": "Devices/Instruments/Operator/Bass/Guitar Bass.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Sweep1 Unison Bass",
+      "rel_path": "Devices/Instruments/Operator/Bass/Sweep Unison Bass.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Disto FM Bass",
+      "rel_path": "Devices/Instruments/Operator/Bass/Disto FM Bass.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Fast Filter Attack",
+      "rel_path": "Devices/Instruments/Operator/Bass/Fast Filter Attack Bass.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Sweep2 Slow Bass",
+      "rel_path": "Devices/Instruments/Operator/Bass/Sweep Slow Bass.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "OP Bass.adv",
+      "rel_path": "Devices/Instruments/Operator/Bass/OP Bass.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Organ Bass",
+      "rel_path": "Devices/Instruments/Operator/Bass/Organ Bass.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Dynamic Filter Bass",
+      "rel_path": "Devices/Instruments/Operator/Bass/Dynamic Filter Bass.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "House Bass",
+      "rel_path": "Devices/Instruments/Operator/Bass/House Bass.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Acid Bass",
+      "rel_path": "Devices/Instruments/Operator/Bass/Acid Bass.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Short Decay2 Saw Bass",
+      "rel_path": "Devices/Instruments/Operator/Bass/Short Decay Saw Bass.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Release Bass",
+      "rel_path": "Devices/Instruments/Operator/Bass/Release Bass.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Metallic1 Basic Bass",
+      "rel_path": "Devices/Instruments/Operator/Bass/Metallic Basic Bass.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Juicy Ladder Bass",
+      "rel_path": "Devices/Instruments/Operator/Bass/Juicy Ladder Bass.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Short Decay1 Sine Bass",
+      "rel_path": "Devices/Instruments/Operator/Bass/Short Decay Sine Bass.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Growl Bass",
+      "rel_path": "Devices/Instruments/Operator/Bass/Growl Bass.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Kingbass",
+      "rel_path": "Devices/Instruments/Operator/Bass/King Bass.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Neaww2",
+      "rel_path": "Devices/Instruments/Operator/Bass/Neaww Bass.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Detuned1 Attack Bass",
+      "rel_path": "Devices/Instruments/Operator/Bass/Detuned Attack Bass.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Selekta Bass",
+      "rel_path": "Devices/Instruments/Operator/Bass/Selekta Bass.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Harsh FM Bass",
+      "rel_path": "Devices/Instruments/Operator/Bass/Harsh FM Bass.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Temposyncbass",
+      "rel_path": "Devices/Instruments/Operator/Bass/Sneaky Sync Bass.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Wurpbass",
+      "rel_path": "Devices/Instruments/Operator/Bass/Wurp Bass.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Sub1 Clicky Bass",
+      "rel_path": "Devices/Instruments/Operator/Bass/Sub Clicky Bass.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Face Bass",
+      "rel_path": "Devices/Instruments/Operator/Bass/Face Bass.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Sweep3 Flange Bass",
+      "rel_path": "Devices/Instruments/Operator/Bass/Sweep Flange Bass.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Wobbly Flag Bass.adv",
+      "rel_path": "Devices/Instruments/Operator/Bass/Wobbly Flag Bass.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Sneaky Bass",
+      "rel_path": "Devices/Instruments/Operator/Bass/Sneaky Bass.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Housy Bass",
+      "rel_path": "Devices/Instruments/Operator/Bass/Housy Bass.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Dynamic3 Harmonics Bass",
+      "rel_path": "Devices/Instruments/Operator/Bass/Dynamic Harmonics Bass.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Distortion1 Bright Bass",
+      "rel_path": "Devices/Instruments/Operator/Bass/Distortion Bright Bass.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Short Decay",
+      "rel_path": "Devices/Instruments/Operator/Bass/Short Decay Wah Bass.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Creep Bass",
+      "rel_path": "Devices/Instruments/Operator/Bass/Creep Bass.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Distortion2 Filtered Bass",
+      "rel_path": "Devices/Instruments/Operator/Bass/Distortion Filtered Bass.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Azimuth Bass",
+      "rel_path": "Devices/Instruments/Operator/Bass/Azimuth Bass.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Electric FM4 Wow Bass",
+      "rel_path": "Devices/Instruments/Operator/Bass/Electric FM Wow Bass.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Detuned2 Lowpass Bass",
+      "rel_path": "Devices/Instruments/Operator/Bass/Detuned Lowpass Bass.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Three Op Bass.adv",
+      "rel_path": "Devices/Instruments/Operator/Bass/Three Op Bass.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Electric FM3 Fuzz Bass",
+      "rel_path": "Devices/Instruments/Operator/Bass/Electric FM Fuzz Bass.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Waveforms-Square 3",
+      "rel_path": "Devices/Instruments/Operator/Components/Square 3 Waveforms.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Noise Hit Attack",
+      "rel_path": "Devices/Instruments/Operator/Components/Noise Hit Attack.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Sine Blip",
+      "rel_path": "Devices/Instruments/Operator/Components/Sine Blip Attack.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Waveforms-Square 32",
+      "rel_path": "Devices/Instruments/Operator/Components/Square 32 Waveforms.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Sine",
+      "rel_path": "Devices/Instruments/Operator/Components/Sine Waveforms.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Waveforms-Square 4",
+      "rel_path": "Devices/Instruments/Operator/Components/Square 4 Waveforms.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "SineNotchSweep Waveforms",
+      "rel_path": "Devices/Instruments/Operator/Components/Sine Notch Sweep Waveforms.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Waveforms-Square 16",
+      "rel_path": "Devices/Instruments/Operator/Components/Square 16 Waveforms.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Sine",
+      "rel_path": "Devices/Instruments/Operator/Components/Saw 3 Waveforms.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Waveforms-Square D",
+      "rel_path": "Devices/Instruments/Operator/Components/Square D Waveforms.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Sine Mono Glide Waveforms",
+      "rel_path": "Devices/Instruments/Operator/Components/Sine Mono Glide Waveforms.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Waveforms-Square 8",
+      "rel_path": "Devices/Instruments/Operator/Components/Square 8 Waveforms.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Waveforms-Square 64",
+      "rel_path": "Devices/Instruments/Operator/Components/Square 64 Waveforms.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Sine BlipFilter Attack",
+      "rel_path": "Devices/Instruments/Operator/Components/Sine Blip Filter Attack.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Steel Drum",
+      "rel_path": "Devices/Instruments/Operator/Components/Short Metallic Spectral.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Low Pass Filter",
+      "rel_path": "Devices/Instruments/Operator/Components/Low Pass Filter.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Waveforms-Square 6-1",
+      "rel_path": "Devices/Instruments/Operator/Components/Square 6 Waveforms.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Waveforms-Triangle",
+      "rel_path": "Devices/Instruments/Operator/Components/Triangle Waveforms.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "FM4 Shimmering Release Lead",
+      "rel_path": "Devices/Instruments/Operator/Synth Lead/FM Shimmering Release Lead.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Lead-Buzz2 (Sweep)",
+      "rel_path": "Devices/Instruments/Operator/Synth Lead/Buzz Sweep Lead.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Sine1 Noise Attack Lead",
+      "rel_path": "Devices/Instruments/Operator/Synth Lead/Sine Noise Attack Lead.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Square2 Filter Sweep Lead",
+      "rel_path": "Devices/Instruments/Operator/Synth Lead/Square Filter Sweep Lead.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "FM5 Harpsichord Lead",
+      "rel_path": "Devices/Instruments/Operator/Synth Lead/FM Harpsichord Lead.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "One Harmonic Bleep",
+      "rel_path": "Devices/Instruments/Operator/Synth Lead/One Harmonic Bleep.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Unison2 Saw Lead",
+      "rel_path": "Devices/Instruments/Operator/Synth Lead/Unison Saw Lead.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Atom Lead",
+      "rel_path": "Devices/Instruments/Operator/Synth Lead/Atom Lead.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Filterless Sweep",
+      "rel_path": "Devices/Instruments/Operator/Synth Lead/Filterless Sweep Lead.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Nasal Formant Lead",
+      "rel_path": "Devices/Instruments/Operator/Synth Lead/Nasal Formant Lead.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Unison4 Filter Velo Lead",
+      "rel_path": "Devices/Instruments/Operator/Synth Lead/Unison Filter Velo Lead.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Thin Buzz Motion Lead",
+      "rel_path": "Devices/Instruments/Operator/Synth Lead/Thin Buzz Motion Lead.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Wow Attack Lead",
+      "rel_path": "Devices/Instruments/Operator/Synth Lead/Wow Attack Lead.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Square3 Glide Lead",
+      "rel_path": "Devices/Instruments/Operator/Synth Lead/Square Glide Lead.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Bright Overtone Lead",
+      "rel_path": "Devices/Instruments/Operator/Synth Lead/Bright Overtone Lead.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Unison1 Square Lead",
+      "rel_path": "Devices/Instruments/Operator/Synth Lead/Unison Square Lead.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Unison3 FM Lead",
+      "rel_path": "Devices/Instruments/Operator/Synth Lead/Unison FM Lead.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Major 3rd Lead",
+      "rel_path": "Devices/Instruments/Operator/Synth Lead/Major 3rd Lead.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "LoFi Sines Lead",
+      "rel_path": "Devices/Instruments/Operator/Synth Lead/LoFi Sines Lead.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Buzz3 Aftertouch Noise Lead",
+      "rel_path": "Devices/Instruments/Operator/Synth Lead/Buzz Aftertouch Noise Lead.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Syncy Lead",
+      "rel_path": "Devices/Instruments/Operator/Synth Lead/Syncy Lead.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "FM3 Glide Lead",
+      "rel_path": "Devices/Instruments/Operator/Synth Lead/FM Glide Lead.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Square1 Dirty Lead",
+      "rel_path": "Devices/Instruments/Operator/Synth Lead/Square Dirty Lead.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Sweep2 Rhythmic Lead",
+      "rel_path": "Devices/Instruments/Operator/Synth Lead/Sweep Rhythmic Lead.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Agenda Lead",
+      "rel_path": "Devices/Instruments/Operator/Synth Lead/Agenda Lead.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Buzz4 Overtones Lead",
+      "rel_path": "Devices/Instruments/Operator/Synth Lead/Buzz Overtones Lead.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Wow Vibrato",
+      "rel_path": "Devices/Instruments/Operator/Synth Lead/Wow Vibrato.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Sweep1 Upwards Lead",
+      "rel_path": "Devices/Instruments/Operator/Synth Lead/Sweep Upwards Lead.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "FM1 Short Lead",
+      "rel_path": "Devices/Instruments/Operator/Synth Lead/FM Short Lead.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Sine2 Vibrato Lead",
+      "rel_path": "Devices/Instruments/Operator/Synth Lead/Sine Vibrato Lead.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Lead-FM2 (Filterless Sweep)",
+      "rel_path": "Devices/Instruments/Operator/Synth Lead/FM Filterless Sweep Lead.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Minor 7th Chord Lead",
+      "rel_path": "Devices/Instruments/Operator/Synth Lead/Minor 7th Chord Lead.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Sax Lead.adv",
+      "rel_path": "Devices/Instruments/Operator/Synth Lead/Sax Lead.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Pitch Mod Bells",
+      "rel_path": "Devices/Instruments/Operator/Mallets/Bells Pitch Mod.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Glockenspiel Tremolo",
+      "rel_path": "Devices/Instruments/Operator/Mallets/Glockenspiel Tremolo.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Tin Bowl",
+      "rel_path": "Devices/Instruments/Operator/Mallets/Tin Bowl.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Tinkle3 Noisy Bells",
+      "rel_path": "Devices/Instruments/Operator/Mallets/Bells Tinkle Noisy.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Marimba Plastic",
+      "rel_path": "Devices/Instruments/Operator/Mallets/Marimba Plastic.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Pure Vibes",
+      "rel_path": "Devices/Instruments/Operator/Mallets/Vibes Pure.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Perc Noisy Attack",
+      "rel_path": "Devices/Instruments/Operator/Mallets/Bells Noisy Attack.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Vibrant",
+      "rel_path": "Devices/Instruments/Operator/Mallets/Bells Vibrant.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Long Marimba",
+      "rel_path": "Devices/Instruments/Operator/Mallets/Marimba Long.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Classic Bell2 Muffled Bells",
+      "rel_path": "Devices/Instruments/Operator/Mallets/Bells Classic Muffled.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Tinkle4 Rich Bells",
+      "rel_path": "Devices/Instruments/Operator/Mallets/Bells Tinkle Rich.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Tubular Bells",
+      "rel_path": "Devices/Instruments/Operator/Mallets/Tubular Bells.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Classic Bell3 Bright Bells",
+      "rel_path": "Devices/Instruments/Operator/Mallets/Bells Classic Bright.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "HighPass Wineglass",
+      "rel_path": "Devices/Instruments/Operator/Mallets/Wineglass High Pass.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Tinkle2 Fine Bells",
+      "rel_path": "Devices/Instruments/Operator/Mallets/Bells Tinkle Fine.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Bells Sun.adv",
+      "rel_path": "Devices/Instruments/Operator/Mallets/Bells Sun.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Tinkle1 Dry Bells",
+      "rel_path": "Devices/Instruments/Operator/Mallets/Bells Tinkle Dry.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Bells Brushed Hits",
+      "rel_path": "Devices/Instruments/Operator/Mallets/Bells Brushed Hits.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Tinkle5 Toy Bells",
+      "rel_path": "Devices/Instruments/Operator/Mallets/Bells Tinkle Toy.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Simple FM Bells",
+      "rel_path": "Devices/Instruments/Operator/Mallets/Bells FM Simple.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Rattling",
+      "rel_path": "Devices/Instruments/Operator/Mallets/Bells Rattling.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Damped Bells",
+      "rel_path": "Devices/Instruments/Operator/Mallets/Bells Damped.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Mallets-Plastic Kalimba",
+      "rel_path": "Devices/Instruments/Operator/Mallets/Kalimba Plastic.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Marimba Wood",
+      "rel_path": "Devices/Instruments/Operator/Mallets/Marimba Wood.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Metallic Hit",
+      "rel_path": "Devices/Instruments/Operator/Mallets/Metallic Hit.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Plain Octaves",
+      "rel_path": "Devices/Instruments/Operator/Mallets/Bells Plain Octaves.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Leslie Bell",
+      "rel_path": "Devices/Instruments/Operator/Mallets/Bells Leslie.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Dynamic Metallic",
+      "rel_path": "Devices/Instruments/Operator/Mallets/Metallic Dynamic.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Plastic Vibraphone",
+      "rel_path": "Devices/Instruments/Operator/Mallets/Vibraphone Plastic.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Bells Classic Basic",
+      "rel_path": "Devices/Instruments/Operator/Mallets/Bells Classic Basic.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Fifths",
+      "rel_path": "Devices/Instruments/Operator/Mallets/Bells Fifths.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "12 String Guitar",
+      "rel_path": "Devices/Instruments/Operator/Guitar & Plucked/12 String Guitar.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Percu Blip Bleep",
+      "rel_path": "Devices/Instruments/Operator/Guitar & Plucked/Perc Blip Bleep.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Harp Plastic",
+      "rel_path": "Devices/Instruments/Operator/Guitar & Plucked/Harp Plastic.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Rubber",
+      "rel_path": "Devices/Instruments/Operator/Guitar & Plucked/Rubber Pluck.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Power Chords Guitar",
+      "rel_path": "Devices/Instruments/Operator/Guitar & Plucked/Power Chords Guitar.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "FM Sitar",
+      "rel_path": "Devices/Instruments/Operator/Guitar & Plucked/FM Sitar.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Kototar",
+      "rel_path": "Devices/Instruments/Operator/Guitar & Plucked/Kototar.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "FM Koto",
+      "rel_path": "Devices/Instruments/Operator/Guitar & Plucked/FM Koto.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Plucky Delay Bleep",
+      "rel_path": "Devices/Instruments/Operator/Guitar & Plucked/Delay Bleep Pluck.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Pitchy Release",
+      "rel_path": "Devices/Instruments/Operator/Guitar & Plucked/Pitchy Release Pluck.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Pluck",
+      "rel_path": "Devices/Instruments/Operator/Guitar & Plucked/FM Basic Pluck.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Suitar Guitar",
+      "rel_path": "Devices/Instruments/Operator/Guitar & Plucked/Suitar Guitar.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Analog HiHat Bleep",
+      "rel_path": "Devices/Instruments/Operator/Synth Percussion/Analog HiHat Bleep.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Wood Percussion",
+      "rel_path": "Devices/Instruments/Operator/Synth Percussion/Wood Percussion.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "BD 1 Kick",
+      "rel_path": "Devices/Instruments/Operator/Synth Percussion/BD 1 Kick.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Smack Kick",
+      "rel_path": "Devices/Instruments/Operator/Synth Percussion/Smack Kick.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Geigerzaehler Bleep.adv",
+      "rel_path": "Devices/Instruments/Operator/Synth Percussion/Geigerzaehler Bleep.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Q Thud Hi",
+      "rel_path": "Devices/Instruments/Operator/Synth Percussion/Q Thud Hi.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Kick-Zapp",
+      "rel_path": "Devices/Instruments/Operator/Synth Percussion/Zapp Kick.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Noisy Wood Percussion",
+      "rel_path": "Devices/Instruments/Operator/Synth Percussion/Noisy Wood Percussion.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "E-Ride Cymbal Bell",
+      "rel_path": "Devices/Instruments/Operator/Synth Percussion/E-Ride Cymbal Bell.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Shout Cowbell Percussion",
+      "rel_path": "Devices/Instruments/Operator/Synth Percussion/Shout Cowbell Percussion.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Noise Perc Percussion",
+      "rel_path": "Devices/Instruments/Operator/Synth Percussion/Noise Perc Percussion.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Organ1 Basic",
+      "rel_path": "Devices/Instruments/Operator/Piano & Keys/Organ Basic.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Organ3 Stereo",
+      "rel_path": "Devices/Instruments/Operator/Piano & Keys/Organ Stereo.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Organ7 Plucky",
+      "rel_path": "Devices/Instruments/Operator/Piano & Keys/Organ Plucky.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Rubber Piano",
+      "rel_path": "Devices/Instruments/Operator/Piano & Keys/FM Piano Rubber.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Clicky",
+      "rel_path": "Devices/Instruments/Operator/Piano & Keys/Organ Clicky.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Organ2 Clicky Sine",
+      "rel_path": "Devices/Instruments/Operator/Piano & Keys/Organ Clicky Sine.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Clav Filtered",
+      "rel_path": "Devices/Instruments/Operator/Piano & Keys/Clav Filtered.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "FM Piano Filtered",
+      "rel_path": "Devices/Instruments/Operator/Piano & Keys/FM Piano Filtered.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "FM Piano Decay",
+      "rel_path": "Devices/Instruments/Operator/Piano & Keys/FM Piano Decay.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Sustained Celesta",
+      "rel_path": "Devices/Instruments/Operator/Piano & Keys/Celesta Sustained.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Simple",
+      "rel_path": "Devices/Instruments/Operator/Piano & Keys/FM Piano Simple.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "FM Piano Classic",
+      "rel_path": "Devices/Instruments/Operator/Piano & Keys/FM Piano Classic.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "LoFi Piano",
+      "rel_path": "Devices/Instruments/Operator/Piano & Keys/Clav Lo Fi .adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "FM Piano3 Dirty",
+      "rel_path": "Devices/Instruments/Operator/Piano & Keys/FM Piano Dirty.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Organ6 Formant",
+      "rel_path": "Devices/Instruments/Operator/Piano & Keys/Organ Formant.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Organ5 Slow Decay",
+      "rel_path": "Devices/Instruments/Operator/Piano & Keys/Organ Slow Decay.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "FM Harpsichord",
+      "rel_path": "Devices/Instruments/Operator/Piano & Keys/FM Harpsichord.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "FM Piano5 Simple",
+      "rel_path": "Devices/Instruments/Operator/Piano & Keys/FM Piano Bright.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Nasal Tines-1",
+      "rel_path": "Devices/Instruments/Operator/Piano & Keys/Nasal Tines.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Organ4 Dance",
+      "rel_path": "Devices/Instruments/Operator/Piano & Keys/Organ Dance.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Tremolo Synth Piano.adv",
+      "rel_path": "Devices/Instruments/Operator/Synth Keys/Tremolo Synth Piano.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "FM Chord",
+      "rel_path": "Devices/Instruments/Operator/Synth Keys/Chord FM Keys.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Plucked",
+      "rel_path": "Devices/Instruments/Operator/Synth Keys/Plucked Keys.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Harsh Keys",
+      "rel_path": "Devices/Instruments/Operator/Synth Keys/Harsh Keys.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Chimes & Warm Pad",
+      "rel_path": "Devices/Instruments/Operator/Synth Keys/Warm Chime Keys.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Distorted Brass",
+      "rel_path": "Devices/Instruments/Operator/Synth Keys/Distorted Keys.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Nasal Chorus Keys.adv",
+      "rel_path": "Devices/Instruments/Operator/Synth Keys/Nasal Chorus Keys.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Poly2 Release",
+      "rel_path": "Devices/Instruments/Operator/Synth Keys/Poly Release Keys.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Buzz Release Keys",
+      "rel_path": "Devices/Instruments/Operator/Synth Keys/Buzz Release Keys.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Keys-Dynamic1 (Buzz)-1",
+      "rel_path": "Devices/Instruments/Operator/Synth Keys/Dynamic Buzz Keys.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Nebulae2",
+      "rel_path": "Devices/Instruments/Operator/Synth Keys/Nebulae Keys.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Dynamic2 Pitch",
+      "rel_path": "Devices/Instruments/Operator/Synth Keys/Dynamic Pitch Keys.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Inharmonic Long Release",
+      "rel_path": "Devices/Instruments/Operator/Synth Keys/Inharmonic Release Keys.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Recorder Winds",
+      "rel_path": "Devices/Instruments/Operator/Synth Keys/Recorder Keys.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Percussive",
+      "rel_path": "Devices/Instruments/Operator/Synth Keys/Percussive Keys.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Chord Mod Keys 2.adv",
+      "rel_path": "Devices/Instruments/Operator/Synth Keys/Chord Mod Keys 2.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Chord Mod Keys 1.adv",
+      "rel_path": "Devices/Instruments/Operator/Synth Keys/Chord Mod Keys 1.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Wind Machine",
+      "rel_path": "Devices/Instruments/Operator/Effects/Wind Machine.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Sweep3 Pitch FX Lead",
+      "rel_path": "Devices/Instruments/Operator/Effects/Sweep Pitch FX.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Dub Filter FX.adv",
+      "rel_path": "Devices/Instruments/Operator/Effects/Dub Filter FX.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Drip",
+      "rel_path": "Devices/Instruments/Operator/Effects/Drip.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Tesseract Unpredictable Velocity.adv",
+      "rel_path": "Devices/Instruments/Operator/Effects/Tesseract Unpredictable Velocity.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Squishy Bleep",
+      "rel_path": "Devices/Instruments/Operator/Effects/Squishy Bleep.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Sweeping SciFi Cymbals",
+      "rel_path": "Devices/Instruments/Operator/Effects/Sweeping SciFi Cymbals.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Pitchy Gong",
+      "rel_path": "Devices/Instruments/Operator/Effects/Pitchy Gong.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Rhythmic Bells & Noise",
+      "rel_path": "Devices/Instruments/Operator/Effects/Rhythmic Bells & Noise.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Gnarly S&H Filter",
+      "rel_path": "Devices/Instruments/Operator/Effects/Gnarly S&H Filter.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Basscycle",
+      "rel_path": "Devices/Instruments/Operator/Effects/Basscycle Aftertouch.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Sweep & Wobble.adv",
+      "rel_path": "Devices/Instruments/Operator/Effects/Sweep & Wobble.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Tesseract Pitch Fall.adv",
+      "rel_path": "Devices/Instruments/Operator/Effects/Tesseract Pitch Fall.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Swooshy",
+      "rel_path": "Devices/Instruments/Operator/Effects/Swooshy.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Flutter Ambience",
+      "rel_path": "Devices/Instruments/Operator/Effects/Flutter Ambience.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Squeek & Loop Bleep.adv",
+      "rel_path": "Devices/Instruments/Operator/Effects/Squeek & Loop Bleep.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "S&H Filtered Noise",
+      "rel_path": "Devices/Instruments/Operator/Effects/S&H Filtered Noise.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Flute1 Basic Winds",
+      "rel_path": "Devices/Instruments/Operator/Winds/Flute Basic.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Ocarina Winds",
+      "rel_path": "Devices/Instruments/Operator/Winds/Ocarina Basic.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Flute2 Hard Winds",
+      "rel_path": "Devices/Instruments/Operator/Winds/Flute Hard.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Pan Flute Winds",
+      "rel_path": "Devices/Instruments/Operator/Winds/Pan Flute Basic.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Mello Flute Winds",
+      "rel_path": "Devices/Instruments/Operator/Winds/Flute Mellow.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Whistler Winds",
+      "rel_path": "Devices/Instruments/Operator/Winds/Whistler Winds.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Flute3 Double Winds",
+      "rel_path": "Devices/Instruments/Operator/Winds/Flute Double.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Choir Metal Muted.adv",
+      "rel_path": "Devices/Instruments/Operator/Synth Voices/Choir Metal Muted.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Portamento2 Male",
+      "rel_path": "Devices/Instruments/Operator/Synth Voices/Portamento Male.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Solo Female1 Fast Att",
+      "rel_path": "Devices/Instruments/Operator/Synth Voices/Solo Female Fast Att.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Portamento3 Female Pure",
+      "rel_path": "Devices/Instruments/Operator/Synth Voices/Portamento Female Pure.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Choir4 Reverb",
+      "rel_path": "Devices/Instruments/Operator/Synth Voices/Choir Reverb.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Solo Female3 Reso",
+      "rel_path": "Devices/Instruments/Operator/Synth Voices/Solo Female Reso.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Solo Female Long Rel.adv",
+      "rel_path": "Devices/Instruments/Operator/Synth Voices/Solo Female Long Rel.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Choir2 Metal Bright",
+      "rel_path": "Devices/Instruments/Operator/Synth Voices/Choir Metal Bright.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Solo Male1 Fast Attack",
+      "rel_path": "Devices/Instruments/Operator/Synth Voices/Solo Male Fast Attack.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Portamento1 Female Nasal",
+      "rel_path": "Devices/Instruments/Operator/Synth Voices/Portamento Female Nasal.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Solo Male Metal Echo.adv",
+      "rel_path": "Devices/Instruments/Operator/Synth Voices/Solo Male Metal Echo.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Voice-Choir3 (Steam)",
+      "rel_path": "Devices/Instruments/Operator/Synth Voices/Choir Steam.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Dynamic Inharmonics",
+      "rel_path": "Devices/Instruments/Operator/Ambient & Evolving/Dynamic Inharmonics.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Evolving-Metallic FM",
+      "rel_path": "Devices/Instruments/Operator/Ambient & Evolving/Metallic FM.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Detuned1 Broad",
+      "rel_path": "Devices/Instruments/Operator/Ambient & Evolving/Detuned Broad Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Noisy Beat2 Fourth",
+      "rel_path": "Devices/Instruments/Operator/Ambient & Evolving/Noisy Fourth Beat Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Bells & Thin Pad",
+      "rel_path": "Devices/Instruments/Operator/Ambient & Evolving/Bells & Thin Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Square Sweep",
+      "rel_path": "Devices/Instruments/Operator/Ambient & Evolving/Square Sweep.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Detuned3 Sustain",
+      "rel_path": "Devices/Instruments/Operator/Ambient & Evolving/Detuned Sustain Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Resonant Pad",
+      "rel_path": "Devices/Instruments/Operator/Ambient & Evolving/Resonant Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Noisy Beat1 Triple",
+      "rel_path": "Devices/Instruments/Operator/Ambient & Evolving/Noisy Triple Beat Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "High & Low",
+      "rel_path": "Devices/Instruments/Operator/Ambient & Evolving/High & Low.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Detuned Instable Pad",
+      "rel_path": "Devices/Instruments/Operator/Ambient & Evolving/Detuned Instable Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Grow & Shine",
+      "rel_path": "Devices/Instruments/Operator/Ambient & Evolving/Grow & Shine.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Fizzling Pad",
+      "rel_path": "Devices/Instruments/Operator/Ambient & Evolving/Fizzling Pad.adv",
+      "device_class": "Operator",
+      "plugin_name": "Operator",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    }
+  ]
+}

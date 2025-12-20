@@ -1,0 +1,524 @@
+{
+  "device_class": "FilterEQ3",
+  "preset_count": 7,
+  "presets": [
+    {
+      "preset_name": "Remove.adv",
+      "rel_path": "Devices/Audio Effects/EQ Three/Remove.adv",
+      "device_class": "FilterEQ3",
+      "plugin_name": "EQ Three",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 9,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "GainLo",
+          "value": 0.9964278936,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "GainMid",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "GainHi",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "FreqLo",
+          "value": 464.754883,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "FreqHi",
+          "value": 2037.84412,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "LowOn",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "MidOn",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "HighOn",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Slope",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Less Low More Mid.adv",
+      "rel_path": "Devices/Audio Effects/EQ Three/Less Low More Mid.adv",
+      "device_class": "FilterEQ3",
+      "plugin_name": "EQ Three",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 9,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "GainLo",
+          "value": 0.00031622799,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "GainMid",
+          "value": 1.99526203,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "GainHi",
+          "value": 0.9607078433,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "FreqLo",
+          "value": 77.5257874,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "FreqHi",
+          "value": 1897.36658,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "LowOn",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "MidOn",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "HighOn",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Slope",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Midnight.adv",
+      "rel_path": "Devices/Audio Effects/EQ Three/Midnight.adv",
+      "device_class": "FilterEQ3",
+      "plugin_name": "EQ Three",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 9,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "GainLo",
+          "value": 0.00031622799,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "GainMid",
+          "value": 1.99526203,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "GainHi",
+          "value": 0.00031622799,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "FreqLo",
+          "value": 622.598511,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "FreqHi",
+          "value": 3608.51685,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "LowOn",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "MidOn",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "HighOn",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Slope",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Boost HiHats.adv",
+      "rel_path": "Devices/Audio Effects/EQ Three/Boost HiHats.adv",
+      "device_class": "FilterEQ3",
+      "plugin_name": "EQ Three",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 9,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "GainLo",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "GainMid",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "GainHi",
+          "value": 1.99526203,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "FreqLo",
+          "value": 464.754883,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "FreqHi",
+          "value": 2037.84412,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "LowOn",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "MidOn",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "HighOn",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Slope",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Hi.adv",
+      "rel_path": "Devices/Audio Effects/EQ Three/Hi.adv",
+      "device_class": "FilterEQ3",
+      "plugin_name": "EQ Three",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 9,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "GainLo",
+          "value": 0.00031622799,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "GainMid",
+          "value": 0.00031622799,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "GainHi",
+          "value": 1.48977268,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "FreqLo",
+          "value": 249.999969,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "FreqHi",
+          "value": 1766.57275,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "LowOn",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "MidOn",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "HighOn",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Slope",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Infrasonic.adv",
+      "rel_path": "Devices/Audio Effects/EQ Three/Infrasonic.adv",
+      "device_class": "FilterEQ3",
+      "plugin_name": "EQ Three",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 9,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "GainLo",
+          "value": 1.99526203,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "GainMid",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "GainHi",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "FreqLo",
+          "value": 50.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "FreqHi",
+          "value": 2500.00049,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "LowOn",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "MidOn",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "HighOn",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Slope",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Edges.adv",
+      "rel_path": "Devices/Audio Effects/EQ Three/Edges.adv",
+      "device_class": "FilterEQ3",
+      "plugin_name": "EQ Three",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 9,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "GainLo",
+          "value": 0.9964278936,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 2,
+          "name": "GainMid",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "GainHi",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "FreqLo",
+          "value": 155.250671,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "FreqHi",
+          "value": 10917.7832,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "LowOn",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "MidOn",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "HighOn",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Slope",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    }
+  ]
+}

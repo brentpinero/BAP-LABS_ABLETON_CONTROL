@@ -612,6 +612,37 @@ class UnifiedMCPBridge:
         if cmd == "create" and len(parts) > 1 and parts[1].lower() == "track":
             return self.create_midi_track()
 
+        # =====================================================================
+        # DEVICE PARAMETER COMMANDS (for Ableton stock plugins)
+        # =====================================================================
+        if cmd == "device":
+            if len(parts) < 2:
+                return {"status": "error", "message": "Usage: device params <track> <device> OR device set <track> <device> <param> <value>"}
+
+            subcmd = parts[1].lower()
+
+            # device params <track_index> <device_index>
+            if subcmd == "params" and len(parts) >= 4:
+                try:
+                    track_idx = int(parts[2])
+                    device_idx = int(parts[3])
+                    return self.get_device_parameters(track_idx, device_idx)
+                except ValueError:
+                    return {"status": "error", "message": "Invalid track or device index"}
+
+            # device set <track_index> <device_index> <param_index> <value>
+            if subcmd == "set" and len(parts) >= 6:
+                try:
+                    track_idx = int(parts[2])
+                    device_idx = int(parts[3])
+                    param_idx = int(parts[4])
+                    value = float(parts[5])
+                    return self.set_device_parameter(track_idx, device_idx, param_idx, value)
+                except ValueError:
+                    return {"status": "error", "message": "Invalid indices or value"}
+
+            return {"status": "error", "message": f"Unknown device command: {subcmd}"}
+
         return {"status": "error", "message": f"Unknown command: {text}"}
 
 
@@ -658,6 +689,10 @@ def main():
         print("  tempo <bpm>                     - Set tempo")
         print("  session                         - Get session info")
         print("  create track                    - Create MIDI track")
+        print()
+        print("Device Parameter Commands (stock plugins):")
+        print("  device params <track> <device>  - Get all params for a device")
+        print("  device set <t> <d> <p> <val>    - Set param value on device")
         print()
         print("  quit                            - Exit")
         print()

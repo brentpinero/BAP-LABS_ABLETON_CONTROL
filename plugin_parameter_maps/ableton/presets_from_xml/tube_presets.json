@@ -1,0 +1,198 @@
+{
+  "device_class": "Tube",
+  "preset_count": 6,
+  "presets": [
+    {
+      "preset_name": "Hot Driven Tape.adv",
+      "rel_path": "Devices/Audio Effects/Dynamic Tube/Hot Driven Tape.adv",
+      "device_class": "Tube",
+      "plugin_name": "Dynamic Tube",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Bias",
+          "value": 0.1507936567,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Tone",
+          "value": -0.01587301679,
+          "min": -1.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Broken Tube.adv",
+      "rel_path": "Devices/Audio Effects/Dynamic Tube/Broken Tube.adv",
+      "device_class": "Tube",
+      "plugin_name": "Dynamic Tube",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Bias",
+          "value": 0.1349206418,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Tone",
+          "value": 1.0,
+          "min": -1.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Tube Trash.adv",
+      "rel_path": "Devices/Audio Effects/Dynamic Tube/Tube Trash.adv",
+      "device_class": "Tube",
+      "plugin_name": "Dynamic Tube",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Bias",
+          "value": 0.5476190448,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Tone",
+          "value": 0.8412698507,
+          "min": -1.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Distortion Gate.adv",
+      "rel_path": "Devices/Audio Effects/Dynamic Tube/Distortion Gate.adv",
+      "device_class": "Tube",
+      "plugin_name": "Dynamic Tube",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Bias",
+          "value": 0.7380952239,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Tone",
+          "value": 0.0,
+          "min": -1.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Warm Tube.adv",
+      "rel_path": "Devices/Audio Effects/Dynamic Tube/Warm Tube.adv",
+      "device_class": "Tube",
+      "plugin_name": "Dynamic Tube",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Bias",
+          "value": 0.07142857462,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Tone",
+          "value": 0.1587301642,
+          "min": -1.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Discreet Beat Dirt.adv",
+      "rel_path": "Devices/Audio Effects/Dynamic Tube/Discreet Beat Dirt.adv",
+      "device_class": "Tube",
+      "plugin_name": "Dynamic Tube",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Bias",
+          "value": 0.571428597,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Tone",
+          "value": 0.0,
+          "min": -1.0,
+          "max": 1.0
+        }
+      ]
+    }
+  ]
+}

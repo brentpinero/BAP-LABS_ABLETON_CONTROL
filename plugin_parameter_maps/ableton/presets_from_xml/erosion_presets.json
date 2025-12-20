@@ -1,0 +1,150 @@
+{
+  "device_class": "Erosion",
+  "preset_count": 8,
+  "presets": [
+    {
+      "preset_name": "Snorz.adv",
+      "rel_path": "Devices/Audio Effects/Erosion/Snorz.adv",
+      "device_class": "Erosion",
+      "plugin_name": "Erosion",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Sine 962 High.adv",
+      "rel_path": "Devices/Audio Effects/Erosion/Sine 962 High.adv",
+      "device_class": "Erosion",
+      "plugin_name": "Erosion",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Mode",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Sine 4.6 Mid.adv",
+      "rel_path": "Devices/Audio Effects/Erosion/Sine 4.6 Mid.adv",
+      "device_class": "Erosion",
+      "plugin_name": "Erosion",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Mode",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Wide and Dirty.adv",
+      "rel_path": "Devices/Audio Effects/Erosion/Wide and Dirty.adv",
+      "device_class": "Erosion",
+      "plugin_name": "Erosion",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Mode",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Sine 16 Max.adv",
+      "rel_path": "Devices/Audio Effects/Erosion/Sine 16 Max.adv",
+      "device_class": "Erosion",
+      "plugin_name": "Erosion",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Mode",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Noisy.adv",
+      "rel_path": "Devices/Audio Effects/Erosion/Noisy.adv",
+      "device_class": "Erosion",
+      "plugin_name": "Erosion",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Sine 3.2 Max.adv",
+      "rel_path": "Devices/Audio Effects/Erosion/Sine 3.2 Max.adv",
+      "device_class": "Erosion",
+      "plugin_name": "Erosion",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Mode",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Hiss.adv",
+      "rel_path": "Devices/Audio Effects/Erosion/Hiss.adv",
+      "device_class": "Erosion",
+      "plugin_name": "Erosion",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 1,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Mode",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        }
+      ]
+    }
+  ]
+}

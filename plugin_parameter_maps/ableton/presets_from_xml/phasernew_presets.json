@@ -1,0 +1,726 @@
+{
+  "device_class": "PhaserNew",
+  "preset_count": 12,
+  "presets": [
+    {
+      "preset_name": "Flanger Spinning",
+      "rel_path": "Devices/Audio Effects/Phaser-Flanger/Flanger Spinning.adv",
+      "device_class": "PhaserNew",
+      "plugin_name": "Phaser-Flanger",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 18,
+          "name": "Mode",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 19,
+          "name": "Notches",
+          "value": 35.0,
+          "min": 1.0,
+          "max": 42.0
+        },
+        {
+          "index": 24,
+          "name": "Spread",
+          "value": 0.7234374881,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Feedback",
+          "value": 0.7734375,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Warmth",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 29,
+          "name": "Output Gain",
+          "value": 0.7079439163,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 30,
+          "name": "Dry/Wet",
+          "value": 0.5952380896,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Phaser Feedback",
+      "rel_path": "Devices/Audio Effects/Phaser-Flanger/Phaser Feedback.adv",
+      "device_class": "PhaserNew",
+      "plugin_name": "Phaser-Flanger",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 18,
+          "name": "Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 19,
+          "name": "Notches",
+          "value": 8.0,
+          "min": 1.0,
+          "max": 42.0
+        },
+        {
+          "index": 24,
+          "name": "Spread",
+          "value": 0.5007812381,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Feedback",
+          "value": 0.6678571105,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Warmth",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 29,
+          "name": "Output Gain",
+          "value": 0.6309606433,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 30,
+          "name": "Dry/Wet",
+          "value": 0.8809523582,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Flanger Rebound",
+      "rel_path": "Devices/Audio Effects/Phaser-Flanger/Flanger Rebound.adv",
+      "device_class": "PhaserNew",
+      "plugin_name": "Phaser-Flanger",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 18,
+          "name": "Mode",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 19,
+          "name": "Notches",
+          "value": 16.0,
+          "min": 1.0,
+          "max": 42.0
+        },
+        {
+          "index": 24,
+          "name": "Spread",
+          "value": 0.7234374881,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Feedback",
+          "value": 0.2416535467,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Warmth",
+          "value": 0.08730158955,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 29,
+          "name": "Output Gain",
+          "value": 0.9999999404,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 30,
+          "name": "Dry/Wet",
+          "value": 0.8110235929,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Doubler Mirror",
+      "rel_path": "Devices/Audio Effects/Phaser-Flanger/Doubler Mirror.adv",
+      "device_class": "PhaserNew",
+      "plugin_name": "Phaser-Flanger",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 18,
+          "name": "Mode",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 19,
+          "name": "Notches",
+          "value": 4.0,
+          "min": 1.0,
+          "max": 42.0
+        },
+        {
+          "index": 24,
+          "name": "Spread",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Feedback",
+          "value": 0.275000006,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Warmth",
+          "value": 0.6031746268,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 29,
+          "name": "Output Gain",
+          "value": 1.28508437,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 30,
+          "name": "Dry/Wet",
+          "value": 0.6666666865,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Doubler Thick",
+      "rel_path": "Devices/Audio Effects/Phaser-Flanger/Doubler Thick.adv",
+      "device_class": "PhaserNew",
+      "plugin_name": "Phaser-Flanger",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 18,
+          "name": "Mode",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 19,
+          "name": "Notches",
+          "value": 35.0,
+          "min": 1.0,
+          "max": 42.0
+        },
+        {
+          "index": 24,
+          "name": "Spread",
+          "value": 0.7234374881,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Feedback",
+          "value": 0.4714285731,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Warmth",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 29,
+          "name": "Output Gain",
+          "value": 0.6898463964,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 30,
+          "name": "Dry/Wet",
+          "value": 0.793650806,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Phaser Follower",
+      "rel_path": "Devices/Audio Effects/Phaser-Flanger/Phaser Follower.adv",
+      "device_class": "PhaserNew",
+      "plugin_name": "Phaser-Flanger",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 18,
+          "name": "Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 19,
+          "name": "Notches",
+          "value": 9.0,
+          "min": 1.0,
+          "max": 42.0
+        },
+        {
+          "index": 24,
+          "name": "Spread",
+          "value": 0.159374997,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Feedback",
+          "value": 0.07857143134,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Warmth",
+          "value": 0.200000003,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 29,
+          "name": "Output Gain",
+          "value": 0.9999999404,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 30,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Doubler Ether",
+      "rel_path": "Devices/Audio Effects/Phaser-Flanger/Doubler Ether.adv",
+      "device_class": "PhaserNew",
+      "plugin_name": "Phaser-Flanger",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 18,
+          "name": "Mode",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 19,
+          "name": "Notches",
+          "value": 4.0,
+          "min": 1.0,
+          "max": 42.0
+        },
+        {
+          "index": 24,
+          "name": "Spread",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Feedback",
+          "value": 0.2199999988,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Warmth",
+          "value": 0.1349206418,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 29,
+          "name": "Output Gain",
+          "value": 1.52431345,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 30,
+          "name": "Dry/Wet",
+          "value": 0.706349194,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Phaser Particle Alliance",
+      "rel_path": "Devices/Audio Effects/Phaser-Flanger/Phaser Particle Alliance.adv",
+      "device_class": "PhaserNew",
+      "plugin_name": "Phaser-Flanger",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 18,
+          "name": "Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 19,
+          "name": "Notches",
+          "value": 10.0,
+          "min": 1.0,
+          "max": 42.0
+        },
+        {
+          "index": 24,
+          "name": "Spread",
+          "value": 1.65859377,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Feedback",
+          "value": 0.6285714507,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Warmth",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 29,
+          "name": "Output Gain",
+          "value": 0.8912506104,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 30,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Flanger Warm",
+      "rel_path": "Devices/Audio Effects/Phaser-Flanger/Flanger Warm.adv",
+      "device_class": "PhaserNew",
+      "plugin_name": "Phaser-Flanger",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 18,
+          "name": "Mode",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 19,
+          "name": "Notches",
+          "value": 4.0,
+          "min": 1.0,
+          "max": 42.0
+        },
+        {
+          "index": 24,
+          "name": "Spread",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Feedback",
+          "value": 0.3692857325,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Warmth",
+          "value": 0.375,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 29,
+          "name": "Output Gain",
+          "value": 1.12202156,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 30,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "FM Guitar Phase",
+      "rel_path": "Devices/Audio Effects/Phaser-Flanger/Phaser Guitar.adv",
+      "device_class": "PhaserNew",
+      "plugin_name": "Phaser-Flanger",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 18,
+          "name": "Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 19,
+          "name": "Notches",
+          "value": 13.0,
+          "min": 1.0,
+          "max": 42.0
+        },
+        {
+          "index": 24,
+          "name": "Spread",
+          "value": 0.7234374881,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Feedback",
+          "value": 0.3897637725,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Warmth",
+          "value": 0.007936508395,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 29,
+          "name": "Output Gain",
+          "value": 0.8678508401,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 30,
+          "name": "Dry/Wet",
+          "value": 0.787401557,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Doubler Default",
+      "rel_path": "Devices/Audio Effects/Phaser-Flanger/Doubler Default.adv",
+      "device_class": "PhaserNew",
+      "plugin_name": "Phaser-Flanger",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 18,
+          "name": "Mode",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 19,
+          "name": "Notches",
+          "value": 4.0,
+          "min": 1.0,
+          "max": 42.0
+        },
+        {
+          "index": 24,
+          "name": "Spread",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Feedback",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Warmth",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 29,
+          "name": "Output Gain",
+          "value": 0.9999999404,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 30,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Flanger Default",
+      "rel_path": "Devices/Audio Effects/Phaser-Flanger/Flanger Default.adv",
+      "device_class": "PhaserNew",
+      "plugin_name": "Phaser-Flanger",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 18,
+          "name": "Mode",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 19,
+          "name": "Notches",
+          "value": 4.0,
+          "min": 1.0,
+          "max": 42.0
+        },
+        {
+          "index": 24,
+          "name": "Spread",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 25,
+          "name": "Feedback",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "Warmth",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 29,
+          "name": "Output Gain",
+          "value": 0.9999999404,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 30,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    }
+  ]
+}

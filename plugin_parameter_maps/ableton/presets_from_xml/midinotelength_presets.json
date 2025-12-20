@@ -1,0 +1,218 @@
+{
+  "device_class": "MidiNoteLength",
+  "preset_count": 4,
+  "presets": [
+    {
+      "preset_name": "16th Notes.adv",
+      "rel_path": "Devices/MIDI Effects/Note Length/16th Notes.adv",
+      "device_class": "MidiNoteLength",
+      "plugin_name": "Note Length",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 6,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Latch",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Synced Length",
+          "value": 5.0,
+          "min": 0.0,
+          "max": 9.0
+        },
+        {
+          "index": 5,
+          "name": "Time Length",
+          "value": 10000.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Gate",
+          "value": 100.0,
+          "min": 1.0,
+          "max": 200.0
+        },
+        {
+          "index": 8,
+          "name": "Decay Time",
+          "value": 60000.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Decay Key Scale",
+          "value": 0.0,
+          "min": -1.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Note Off.adv",
+      "rel_path": "Devices/MIDI Effects/Note Length/Note Off.adv",
+      "device_class": "MidiNoteLength",
+      "plugin_name": "Note Length",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 6,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Latch",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Synced Length",
+          "value": 4.0,
+          "min": 0.0,
+          "max": 9.0
+        },
+        {
+          "index": 5,
+          "name": "Time Length",
+          "value": 100.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Gate",
+          "value": 100.0,
+          "min": 1.0,
+          "max": 200.0
+        },
+        {
+          "index": 8,
+          "name": "Decay Time",
+          "value": 60000.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Decay Key Scale",
+          "value": 0.0,
+          "min": -1.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Ten Seconds.adv",
+      "rel_path": "Devices/MIDI Effects/Note Length/Ten Seconds.adv",
+      "device_class": "MidiNoteLength",
+      "plugin_name": "Note Length",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 6,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Latch",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Synced Length",
+          "value": 4.0,
+          "min": 0.0,
+          "max": 9.0
+        },
+        {
+          "index": 5,
+          "name": "Time Length",
+          "value": 10000.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Gate",
+          "value": 100.0,
+          "min": 1.0,
+          "max": 200.0
+        },
+        {
+          "index": 8,
+          "name": "Decay Time",
+          "value": 60000.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Decay Key Scale",
+          "value": 0.0,
+          "min": -1.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Ten Milliseconds.adv",
+      "rel_path": "Devices/MIDI Effects/Note Length/Ten Milliseconds.adv",
+      "device_class": "MidiNoteLength",
+      "plugin_name": "Note Length",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 6,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Latch",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Synced Length",
+          "value": 4.0,
+          "min": 0.0,
+          "max": 9.0
+        },
+        {
+          "index": 5,
+          "name": "Time Length",
+          "value": 10.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Gate",
+          "value": 100.0,
+          "min": 1.0,
+          "max": 200.0
+        },
+        {
+          "index": 8,
+          "name": "Decay Time",
+          "value": 60000.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Decay Key Scale",
+          "value": 0.0,
+          "min": -1.0,
+          "max": 1.0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,246 @@
+{
+  "device_class": "Phaser",
+  "preset_count": 15,
+  "presets": [
+    {
+      "preset_name": "Talkie.adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Phaser/Talkie.adv",
+      "device_class": "Phaser",
+      "has_base_map": false,
+      "xml_parameters": {
+        "on": "true",
+        "drywet": 1.0,
+        "secondorder": "true",
+        "polecount": 5.0,
+        "q": 0.3125,
+        "centerfrequency": 2981.90015,
+        "feedback": 0.983179152,
+        "lfoamount": 0.803149581
+      }
+    },
+    {
+      "preset_name": "Phaser.adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Phaser/Phaser.adv",
+      "device_class": "Phaser",
+      "has_base_map": false,
+      "xml_parameters": {
+        "on": "true",
+        "drywet": 1.0,
+        "secondorder": "true",
+        "polecount": 4.0,
+        "q": 0.5,
+        "centerfrequency": 1000.0,
+        "feedback": 0.0,
+        "lfoamount": 0.0
+      }
+    },
+    {
+      "preset_name": "Acoustic Cascade.adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Phaser/Acoustic Cascade.adv",
+      "device_class": "Phaser",
+      "has_base_map": false,
+      "xml_parameters": {
+        "on": "true",
+        "drywet": 1.0,
+        "secondorder": "true",
+        "polecount": 6.0,
+        "q": 0.265625,
+        "centerfrequency": 3530.93066,
+        "feedback": 0.8936735392,
+        "lfoamount": 0.5826771855
+      }
+    },
+    {
+      "preset_name": "4-Pole Phizzle.adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Phaser/4-Pole Phizzle.adv",
+      "device_class": "Phaser",
+      "has_base_map": false,
+      "xml_parameters": {
+        "on": "true",
+        "drywet": 1.0,
+        "secondorder": "true",
+        "polecount": 4.0,
+        "q": 1.0,
+        "centerfrequency": 2981.90015,
+        "feedback": 0.9072235227,
+        "lfoamount": 0.4645670652
+      }
+    },
+    {
+      "preset_name": "Flickr Device",
+      "rel_path": "Devices/Audio Effects/Legacy/Phaser/Flicker Device.adv",
+      "device_class": "Phaser",
+      "has_base_map": false,
+      "xml_parameters": {
+        "on": "true",
+        "drywet": 0.6771653295,
+        "secondorder": "false",
+        "polecount": 4.0,
+        "q": 0.5,
+        "centerfrequency": 1857.73486,
+        "feedback": 0.5320498943,
+        "lfoamount": 0.5158730149
+      }
+    },
+    {
+      "preset_name": "Glass.adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Phaser/Glass.adv",
+      "device_class": "Phaser",
+      "has_base_map": false,
+      "xml_parameters": {
+        "on": "true",
+        "drywet": 1.0,
+        "secondorder": "false",
+        "polecount": 8.0,
+        "q": 0.1015625,
+        "centerfrequency": 124.349777,
+        "feedback": 0.9899998903,
+        "lfoamount": 0.3543307185
+      }
+    },
+    {
+      "preset_name": "Phased & Confused.adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Phaser/Phased & Confused.adv",
+      "device_class": "Phaser",
+      "has_base_map": false,
+      "xml_parameters": {
+        "on": "true",
+        "drywet": 1.0,
+        "secondorder": "false",
+        "polecount": 2.0,
+        "q": 0.8984375,
+        "centerfrequency": 999.999817,
+        "feedback": 0.8450443745,
+        "lfoamount": 0.0
+      }
+    },
+    {
+      "preset_name": "Discord.adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Phaser/Discord.adv",
+      "device_class": "Phaser",
+      "has_base_map": false,
+      "xml_parameters": {
+        "on": "true",
+        "drywet": 0.5590550303,
+        "secondorder": "true",
+        "polecount": 7.0,
+        "q": 0.3125,
+        "centerfrequency": 218.346405,
+        "feedback": 0.7763276696,
+        "lfoamount": 0.803149581
+      }
+    },
+    {
+      "preset_name": "Great Buddha.adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Phaser/Great Buddha.adv",
+      "device_class": "Phaser",
+      "has_base_map": false,
+      "xml_parameters": {
+        "on": "true",
+        "drywet": 1.0,
+        "secondorder": "false",
+        "polecount": 8.0,
+        "q": 0.0390625,
+        "centerfrequency": 745.837952,
+        "feedback": 0.9899998903,
+        "lfoamount": 1.0
+      }
+    },
+    {
+      "preset_name": "Zappified.adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Phaser/Zappified.adv",
+      "device_class": "Phaser",
+      "has_base_map": false,
+      "xml_parameters": {
+        "on": "true",
+        "drywet": 1.0,
+        "secondorder": "false",
+        "polecount": 6.0,
+        "q": 0.5,
+        "centerfrequency": 3907.7522,
+        "feedback": 0.8342876434,
+        "lfoamount": 0.0
+      }
+    },
+    {
+      "preset_name": "Soft.adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Phaser/Soft.adv",
+      "device_class": "Phaser",
+      "has_base_map": false,
+      "xml_parameters": {
+        "on": "true",
+        "drywet": 1.0,
+        "secondorder": "true",
+        "polecount": 5.0,
+        "q": 0.1015625,
+        "centerfrequency": 2199.78369,
+        "feedback": 0.5974467993,
+        "lfoamount": 0.4094488323
+      }
+    },
+    {
+      "preset_name": "Slow Churn.adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Phaser/Slow Churn.adv",
+      "device_class": "Phaser",
+      "has_base_map": false,
+      "xml_parameters": {
+        "on": "true",
+        "drywet": 1.0,
+        "secondorder": "false",
+        "polecount": 6.0,
+        "q": 0.8203125,
+        "centerfrequency": 697.085388,
+        "feedback": 0.918212235,
+        "lfoamount": 0.5118111372
+      }
+    },
+    {
+      "preset_name": "Wide.adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Phaser/Wide.adv",
+      "device_class": "Phaser",
+      "has_base_map": false,
+      "xml_parameters": {
+        "on": "true",
+        "drywet": 1.0,
+        "secondorder": "true",
+        "polecount": 8.0,
+        "q": 0.8125,
+        "centerfrequency": 342.785187,
+        "feedback": 0.7630788088,
+        "lfoamount": 1.0
+      }
+    },
+    {
+      "preset_name": "Mess.adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Phaser/Mess.adv",
+      "device_class": "Phaser",
+      "has_base_map": false,
+      "xml_parameters": {
+        "on": "true",
+        "drywet": 1.0,
+        "secondorder": "false",
+        "polecount": 1.0,
+        "q": 0.1015625,
+        "centerfrequency": 464.659882,
+        "feedback": 0.9746511579,
+        "lfoamount": 0.4173228443
+      }
+    },
+    {
+      "preset_name": "Enphasor.adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Phaser/Enphasor.adv",
+      "device_class": "Phaser",
+      "has_base_map": false,
+      "xml_parameters": {
+        "on": "true",
+        "drywet": 1.0,
+        "secondorder": "true",
+        "polecount": 8.0,
+        "q": 0.0390625,
+        "centerfrequency": 853.810242,
+        "feedback": 0.8059560657,
+        "lfoamount": 0.0
+      }
+    }
+  ]
+}

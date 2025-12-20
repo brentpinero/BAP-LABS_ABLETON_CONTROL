@@ -1,0 +1,386 @@
+{
+  "device_class": "OriginalSimpler",
+  "preset_count": 38,
+  "presets": [
+    {
+      "preset_name": "Git Proc Loop",
+      "rel_path": "Devices/Instruments/Simpler/Synth Rhythmic/Git Proc Loop.adv",
+      "device_class": "OriginalSimpler",
+      "plugin_name": "Simpler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Mini 1 OSC Bass",
+      "rel_path": "Devices/Instruments/Simpler/Bass/Mini 1 OSC Bass.adv",
+      "device_class": "OriginalSimpler",
+      "plugin_name": "Simpler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "BSeven Bass",
+      "rel_path": "Devices/Instruments/Simpler/Bass/B Seven Bass.adv",
+      "device_class": "OriginalSimpler",
+      "plugin_name": "Simpler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Muugy",
+      "rel_path": "Devices/Instruments/Simpler/Bass/Muugy Bass.adv",
+      "device_class": "OriginalSimpler",
+      "plugin_name": "Simpler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "BBass",
+      "rel_path": "Devices/Instruments/Simpler/Bass/B Bass.adv",
+      "device_class": "OriginalSimpler",
+      "plugin_name": "Simpler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Wonk Bass",
+      "rel_path": "Devices/Instruments/Simpler/Bass/Wonk Bass.adv",
+      "device_class": "OriginalSimpler",
+      "plugin_name": "Simpler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "JX Chorus Bass",
+      "rel_path": "Devices/Instruments/Simpler/Bass/JX Chorus Bass.adv",
+      "device_class": "OriginalSimpler",
+      "plugin_name": "Simpler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Sub808Bass",
+      "rel_path": "Devices/Instruments/Simpler/Bass/Sub 808 Bass.adv",
+      "device_class": "OriginalSimpler",
+      "plugin_name": "Simpler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Upright Bass",
+      "rel_path": "Devices/Instruments/Simpler/Bass/Upright Bass.adv",
+      "device_class": "OriginalSimpler",
+      "plugin_name": "Simpler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "MINI 3OSC Xectro",
+      "rel_path": "Devices/Instruments/Simpler/Bass/Mini 3 OSC Xectro Bass.adv",
+      "device_class": "OriginalSimpler",
+      "plugin_name": "Simpler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Piano Bass",
+      "rel_path": "Devices/Instruments/Simpler/Bass/Piano Bass.adv",
+      "device_class": "OriginalSimpler",
+      "plugin_name": "Simpler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Mini 2OSC Solo",
+      "rel_path": "Devices/Instruments/Simpler/Bass/Mini 2 OSC Solo Bass.adv",
+      "device_class": "OriginalSimpler",
+      "plugin_name": "Simpler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Bit Growl Bass",
+      "rel_path": "Devices/Instruments/Simpler/Bass/Bit Growl Bass.adv",
+      "device_class": "OriginalSimpler",
+      "plugin_name": "Simpler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "MINI 3OSC",
+      "rel_path": "Devices/Instruments/Simpler/Bass/Mini 3 OSC Bass.adv",
+      "device_class": "OriginalSimpler",
+      "plugin_name": "Simpler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Chord Floot Aboot",
+      "rel_path": "Devices/Instruments/Simpler/Pad/Chord Floot Aboot Pad.adv",
+      "device_class": "OriginalSimpler",
+      "plugin_name": "Simpler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Warm Bubbly Pad",
+      "rel_path": "Devices/Instruments/Simpler/Pad/Warm Bubbly Pad.adv",
+      "device_class": "OriginalSimpler",
+      "plugin_name": "Simpler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Jarble Ambience Poly",
+      "rel_path": "Devices/Instruments/Simpler/Pad/Jarble Ambience Pad.adv",
+      "device_class": "OriginalSimpler",
+      "plugin_name": "Simpler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "PPP",
+      "rel_path": "Devices/Instruments/Simpler/Pad/PPP Pad.adv",
+      "device_class": "OriginalSimpler",
+      "plugin_name": "Simpler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Drift Pad",
+      "rel_path": "Devices/Instruments/Simpler/Pad/Drift Pad.adv",
+      "device_class": "OriginalSimpler",
+      "plugin_name": "Simpler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Modular Church Organ",
+      "rel_path": "Devices/Instruments/Simpler/Pad/Modular Organ Pad.adv",
+      "device_class": "OriginalSimpler",
+      "plugin_name": "Simpler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Ring Modular",
+      "rel_path": "Devices/Instruments/Simpler/Synth Lead/Ring Modular Lead.adv",
+      "device_class": "OriginalSimpler",
+      "plugin_name": "Simpler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Analog Stab",
+      "rel_path": "Devices/Instruments/Simpler/Synth Lead/Analog Stab Lead.adv",
+      "device_class": "OriginalSimpler",
+      "plugin_name": "Simpler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Soover",
+      "rel_path": "Devices/Instruments/Simpler/Synth Lead/Soover Lead.adv",
+      "device_class": "OriginalSimpler",
+      "plugin_name": "Simpler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "E-Piano Chord Cmin7",
+      "rel_path": "Devices/Instruments/Simpler/Piano & Keys/E-Piano CMin7 Chord.adv",
+      "device_class": "OriginalSimpler",
+      "plugin_name": "Simpler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "E-Piano Chord CMaj7",
+      "rel_path": "Devices/Instruments/Simpler/Piano & Keys/E-Piano CMaj7 Chord.adv",
+      "device_class": "OriginalSimpler",
+      "plugin_name": "Simpler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Simplest Piano",
+      "rel_path": "Devices/Instruments/Simpler/Piano & Keys/Grand Piano Single Sample.adv",
+      "device_class": "OriginalSimpler",
+      "plugin_name": "Simpler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "E-Piano Cheap",
+      "rel_path": "Devices/Instruments/Simpler/Piano & Keys/E-Piano Cheap.adv",
+      "device_class": "OriginalSimpler",
+      "plugin_name": "Simpler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Delaychord",
+      "rel_path": "Devices/Instruments/Simpler/Piano & Keys/Clav Chord Delay.adv",
+      "device_class": "OriginalSimpler",
+      "plugin_name": "Simpler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Reverberant ",
+      "rel_path": "Devices/Instruments/Simpler/Synth Keys/Reverberant Keys.adv",
+      "device_class": "OriginalSimpler",
+      "plugin_name": "Simpler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Softchord",
+      "rel_path": "Devices/Instruments/Simpler/Synth Keys/Chord Soft Keys.adv",
+      "device_class": "OriginalSimpler",
+      "plugin_name": "Simpler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Vinyl Siren",
+      "rel_path": "Devices/Instruments/Simpler/Effects/Vinyl Siren.adv",
+      "device_class": "OriginalSimpler",
+      "plugin_name": "Simpler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Metallo Shake",
+      "rel_path": "Devices/Instruments/Simpler/Effects/Metallo Shake.adv",
+      "device_class": "OriginalSimpler",
+      "plugin_name": "Simpler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Supersine",
+      "rel_path": "Devices/Instruments/Simpler/Effects/Supersine.adv",
+      "device_class": "OriginalSimpler",
+      "plugin_name": "Simpler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Rhyt Mo.adv",
+      "rel_path": "Devices/Instruments/Simpler/Effects/Rhyt Mo.adv",
+      "device_class": "OriginalSimpler",
+      "plugin_name": "Simpler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Chimes Finger Down.adv",
+      "rel_path": "Devices/Instruments/Simpler/Effects/Chimes Finger Down.adv",
+      "device_class": "OriginalSimpler",
+      "plugin_name": "Simpler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Eko Ambience",
+      "rel_path": "Devices/Instruments/Simpler/Ambient & Evolving/Jarble Ambience.adv",
+      "device_class": "OriginalSimpler",
+      "plugin_name": "Simpler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Duetta",
+      "rel_path": "Devices/Instruments/Simpler/Ambient & Evolving/Duetta Pad.adv",
+      "device_class": "OriginalSimpler",
+      "plugin_name": "Simpler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Ambient Swells",
+      "rel_path": "Devices/Instruments/Simpler/Ambient & Evolving/Ambient Swells.adv",
+      "device_class": "OriginalSimpler",
+      "plugin_name": "Simpler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    }
+  ]
+}

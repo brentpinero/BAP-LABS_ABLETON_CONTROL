@@ -1,0 +1,56 @@
+{
+  "device_class": "InstrumentImpulse",
+  "preset_count": 2,
+  "presets": [
+    {
+      "preset_name": "Impulse 606.adv",
+      "rel_path": "Devices/Instruments/Impulse/Impulse 606.adv",
+      "device_class": "InstrumentImpulse",
+      "plugin_name": "Impulse",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Global Volume",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 2,
+          "name": "Global Time",
+          "value": 0.0,
+          "min": -1.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Impulse 808.adv",
+      "rel_path": "Devices/Instruments/Impulse/Impulse 808.adv",
+      "device_class": "InstrumentImpulse",
+      "plugin_name": "Impulse",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Global Volume",
+          "value": 0.0,
+          "min": -36.0,
+          "max": 36.0
+        },
+        {
+          "index": 2,
+          "name": "Global Time",
+          "value": 0.0,
+          "min": -1.0,
+          "max": 1.0
+        }
+      ]
+    }
+  ]
+}

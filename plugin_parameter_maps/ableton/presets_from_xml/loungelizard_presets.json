@@ -1,0 +1,431 @@
+{
+  "device_class": "LoungeLizard",
+  "preset_count": 17,
+  "presets": [
+    {
+      "preset_name": "E-Piano MKI Dirty",
+      "rel_path": "Devices/Instruments/Electric/Piano & Keys/E-Piano MKI Dirty.adv",
+      "device_class": "LoungeLizard",
+      "plugin_name": "Electric",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 4,
+          "name": "Volume",
+          "value": 0.5582084656,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Pickup Model",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "E-Piano Short Soft",
+      "rel_path": "Devices/Instruments/Electric/Piano & Keys/E-Piano Short Soft.adv",
+      "device_class": "LoungeLizard",
+      "plugin_name": "Electric",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 4,
+          "name": "Volume",
+          "value": 0.2619047761,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Pickup Model",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Wurli Soft Piano",
+      "rel_path": "Devices/Instruments/Electric/Piano & Keys/Wurli Soft Piano.adv",
+      "device_class": "LoungeLizard",
+      "plugin_name": "Electric",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 4,
+          "name": "Volume",
+          "value": 0.65625,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Pickup Model",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "E-Piano MKII Hollow",
+      "rel_path": "Devices/Instruments/Electric/Piano & Keys/E-Piano MKII Hollow.adv",
+      "device_class": "LoungeLizard",
+      "plugin_name": "Electric",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 4,
+          "name": "Volume",
+          "value": 0.3015873134,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Pickup Model",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "E-Piano MKII Hard",
+      "rel_path": "Devices/Instruments/Electric/Piano & Keys/E-Piano MKII Hard.adv",
+      "device_class": "LoungeLizard",
+      "plugin_name": "Electric",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 4,
+          "name": "Volume",
+          "value": 0.3730158806,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Pickup Model",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Wurli Hollow Piano",
+      "rel_path": "Devices/Instruments/Electric/Piano & Keys/Wurli Hollow Piano.adv",
+      "device_class": "LoungeLizard",
+      "plugin_name": "Electric",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 4,
+          "name": "Volume",
+          "value": 0.380952388,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Pickup Model",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "E-Piano MKII Bright",
+      "rel_path": "Devices/Instruments/Electric/Piano & Keys/E-Piano MKII Bright.adv",
+      "device_class": "LoungeLizard",
+      "plugin_name": "Electric",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 4,
+          "name": "Volume",
+          "value": 0.380952388,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Pickup Model",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "E-Piano Short Sharp",
+      "rel_path": "Devices/Instruments/Electric/Piano & Keys/E-Piano Short Sharp.adv",
+      "device_class": "LoungeLizard",
+      "plugin_name": "Electric",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 4,
+          "name": "Volume",
+          "value": 0.7047892213,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Pickup Model",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Wurli Classic Piano",
+      "rel_path": "Devices/Instruments/Electric/Piano & Keys/Wurli Classic Piano.adv",
+      "device_class": "LoungeLizard",
+      "plugin_name": "Electric",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 4,
+          "name": "Volume",
+          "value": 0.3888888955,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Pickup Model",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "E-Piano MKI Mellow",
+      "rel_path": "Devices/Instruments/Electric/Piano & Keys/E-Piano MKI Mellow.adv",
+      "device_class": "LoungeLizard",
+      "plugin_name": "Electric",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 4,
+          "name": "Volume",
+          "value": 0.4365079403,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Pickup Model",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Organ Soft",
+      "rel_path": "Devices/Instruments/Electric/Piano & Keys/Organ Soft.adv",
+      "device_class": "LoungeLizard",
+      "plugin_name": "Electric",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 4,
+          "name": "Volume",
+          "value": 0.8650793433,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Pickup Model",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "E-Piano MKI Simple.adv",
+      "rel_path": "Devices/Instruments/Electric/Piano & Keys/E-Piano MKI Simple.adv",
+      "device_class": "LoungeLizard",
+      "plugin_name": "Electric",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 4,
+          "name": "Volume",
+          "value": 0.4047619104,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Pickup Model",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Wurli Short Piano",
+      "rel_path": "Devices/Instruments/Electric/Piano & Keys/Wurli Short Piano.adv",
+      "device_class": "LoungeLizard",
+      "plugin_name": "Electric",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 4,
+          "name": "Volume",
+          "value": 0.4523809552,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Pickup Model",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Wurli Marimba Piano",
+      "rel_path": "Devices/Instruments/Electric/Piano & Keys/Wurli Marimba Piano.adv",
+      "device_class": "LoungeLizard",
+      "plugin_name": "Electric",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 4,
+          "name": "Volume",
+          "value": 0.4206349254,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Pickup Model",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "E-Piano MKII Old",
+      "rel_path": "Devices/Instruments/Electric/Piano & Keys/E-Piano MKII Old.adv",
+      "device_class": "LoungeLizard",
+      "plugin_name": "Electric",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 4,
+          "name": "Volume",
+          "value": 0.9126983881,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Pickup Model",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Vibes Soft",
+      "rel_path": "Devices/Instruments/Electric/Piano & Keys/Vibes Soft.adv",
+      "device_class": "LoungeLizard",
+      "plugin_name": "Electric",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 4,
+          "name": "Volume",
+          "value": 0.5396825671,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Pickup Model",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Organ Softer",
+      "rel_path": "Devices/Instruments/Electric/Piano & Keys/Organ Softer.adv",
+      "device_class": "LoungeLizard",
+      "plugin_name": "Electric",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 4,
+          "name": "Volume",
+          "value": 0.6031746268,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 27,
+          "name": "Pickup Model",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    }
+  ]
+}

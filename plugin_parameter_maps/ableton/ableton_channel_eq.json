@@ -1,0 +1,77 @@
+{
+  "plugin": "Channel EQ",
+  "type": "audio_effect",
+  "uri": "query:AudioFx#Channel%20EQ",
+  "class_name": "ChannelEq",
+  "parameter_count": 7,
+  "parameters": [
+    {
+      "index": 0,
+      "name": "Device On",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 1,
+      "name": "Highpass On",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 2,
+      "name": "Low Gain",
+      "value": 0.49884095788002014,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.49884095788002014
+    },
+    {
+      "index": 3,
+      "name": "Mid Gain",
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.5
+    },
+    {
+      "index": 4,
+      "name": "Mid Freq",
+      "value": 0.6107925176620483,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.6107925176620483
+    },
+    {
+      "index": 5,
+      "name": "High Gain",
+      "value": 0.49884095788002014,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.49884095788002014
+    },
+    {
+      "index": 6,
+      "name": "Gain",
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.5
+    }
+  ]
+}

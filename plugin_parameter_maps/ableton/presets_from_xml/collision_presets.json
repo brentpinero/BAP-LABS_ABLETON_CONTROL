@@ -1,0 +1,831 @@
+{
+  "device_class": "Collision",
+  "preset_count": 33,
+  "presets": [
+    {
+      "preset_name": "Vibes Modulated",
+      "rel_path": "Devices/Instruments/Collision/Mallets/Vibes Modulated.adv",
+      "device_class": "Collision",
+      "plugin_name": "Collision",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 4,
+          "name": "Retrigger",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Volume",
+          "value": 0.3888888955,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Vibes Bright",
+      "rel_path": "Devices/Instruments/Collision/Mallets/Vibes Bright.adv",
+      "device_class": "Collision",
+      "plugin_name": "Collision",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 4,
+          "name": "Retrigger",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Volume",
+          "value": 0.3345684409,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Xylophone Basic",
+      "rel_path": "Devices/Instruments/Collision/Mallets/Xylophone Basic.adv",
+      "device_class": "Collision",
+      "plugin_name": "Collision",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 4,
+          "name": "Retrigger",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Volume",
+          "value": 0.7125396729,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Vibes Basic",
+      "rel_path": "Devices/Instruments/Collision/Mallets/Vibes Basic.adv",
+      "device_class": "Collision",
+      "plugin_name": "Collision",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 4,
+          "name": "Retrigger",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Volume",
+          "value": 0.2263492197,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Bell Airy",
+      "rel_path": "Devices/Instruments/Collision/Mallets/Bell Airy.adv",
+      "device_class": "Collision",
+      "plugin_name": "Collision",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 4,
+          "name": "Retrigger",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Volume",
+          "value": 0.8888888955,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Electric Piano3 Mellow",
+      "rel_path": "Devices/Instruments/Collision/Mallets/Bells Mellow.adv",
+      "device_class": "Collision",
+      "plugin_name": "Collision",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 4,
+          "name": "Retrigger",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Volume",
+          "value": 0.4444444478,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Bells Deep",
+      "rel_path": "Devices/Instruments/Collision/Mallets/Bells Deep.adv",
+      "device_class": "Collision",
+      "plugin_name": "Collision",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 4,
+          "name": "Retrigger",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Volume",
+          "value": 0.2419047803,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Balafon Bright",
+      "rel_path": "Devices/Instruments/Collision/Mallets/Balafon Bright.adv",
+      "device_class": "Collision",
+      "plugin_name": "Collision",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 4,
+          "name": "Retrigger",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Volume",
+          "value": 0.2260317355,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Marimba Classic",
+      "rel_path": "Devices/Instruments/Collision/Mallets/Marimba Classic.adv",
+      "device_class": "Collision",
+      "plugin_name": "Collision",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 4,
+          "name": "Retrigger",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Volume",
+          "value": 0.2756249905,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Bell Plate Long",
+      "rel_path": "Devices/Instruments/Collision/Mallets/Bell Plate Long.adv",
+      "device_class": "Collision",
+      "plugin_name": "Collision",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 4,
+          "name": "Retrigger",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Volume",
+          "value": 0.4725905359,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Glockenspiel Detuned",
+      "rel_path": "Devices/Instruments/Collision/Mallets/Glockenspiel Detuned.adv",
+      "device_class": "Collision",
+      "plugin_name": "Collision",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 4,
+          "name": "Retrigger",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Volume",
+          "value": 0.25222224,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Bells Attack",
+      "rel_path": "Devices/Instruments/Collision/Mallets/Bells Attack.adv",
+      "device_class": "Collision",
+      "plugin_name": "Collision",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 4,
+          "name": "Retrigger",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Volume",
+          "value": 0.928571403,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Marimba Glassy",
+      "rel_path": "Devices/Instruments/Collision/Mallets/Marimba Glassy.adv",
+      "device_class": "Collision",
+      "plugin_name": "Collision",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 4,
+          "name": "Retrigger",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Volume",
+          "value": 0.1487301588,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Xylophone Dark",
+      "rel_path": "Devices/Instruments/Collision/Mallets/Xylophone Dark.adv",
+      "device_class": "Collision",
+      "plugin_name": "Collision",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 4,
+          "name": "Retrigger",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Volume",
+          "value": 0.372698456,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Balafon Brushed",
+      "rel_path": "Devices/Instruments/Collision/Mallets/Balafon Brushed.adv",
+      "device_class": "Collision",
+      "plugin_name": "Collision",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 4,
+          "name": "Retrigger",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Volume",
+          "value": 0.2236067951,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Vibes Mellow",
+      "rel_path": "Devices/Instruments/Collision/Mallets/Vibes Mellow.adv",
+      "device_class": "Collision",
+      "plugin_name": "Collision",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 4,
+          "name": "Retrigger",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Volume",
+          "value": 0.4365079403,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Bells Random",
+      "rel_path": "Devices/Instruments/Collision/Mallets/Bells Random.adv",
+      "device_class": "Collision",
+      "plugin_name": "Collision",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 4,
+          "name": "Retrigger",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Volume",
+          "value": 0.2301587313,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Music Box Slide",
+      "rel_path": "Devices/Instruments/Collision/Mallets/Music Box Slide.adv",
+      "device_class": "Collision",
+      "plugin_name": "Collision",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 4,
+          "name": "Retrigger",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Volume",
+          "value": 0.1120688766,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Bells Glass",
+      "rel_path": "Devices/Instruments/Collision/Mallets/Bells Glass.adv",
+      "device_class": "Collision",
+      "plugin_name": "Collision",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 4,
+          "name": "Retrigger",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Volume",
+          "value": 0.793650806,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Music Box",
+      "rel_path": "Devices/Instruments/Collision/Mallets/Music Box Basic.adv",
+      "device_class": "Collision",
+      "plugin_name": "Collision",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 4,
+          "name": "Retrigger",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Volume",
+          "value": 0.2981844544,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Music Box Beam",
+      "rel_path": "Devices/Instruments/Collision/Mallets/Music Box Beam.adv",
+      "device_class": "Collision",
+      "plugin_name": "Collision",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 4,
+          "name": "Retrigger",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Volume",
+          "value": 0.5005933046,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Marimba Sustain",
+      "rel_path": "Devices/Instruments/Collision/Mallets/Marimba Sustain.adv",
+      "device_class": "Collision",
+      "plugin_name": "Collision",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 4,
+          "name": "Retrigger",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Volume",
+          "value": 0.7125396729,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Glockenspiel Basic",
+      "rel_path": "Devices/Instruments/Collision/Mallets/Glockenspiel Basic.adv",
+      "device_class": "Collision",
+      "plugin_name": "Collision",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 4,
+          "name": "Retrigger",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Volume",
+          "value": 0.3333333433,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Resonant Casing",
+      "rel_path": "Devices/Instruments/Collision/Guitar & Plucked/Resonant Casing.adv",
+      "device_class": "Collision",
+      "plugin_name": "Collision",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 4,
+          "name": "Retrigger",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Volume",
+          "value": 0.3345684409,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Tube Harp",
+      "rel_path": "Devices/Instruments/Collision/Guitar & Plucked/Tube Harp.adv",
+      "device_class": "Collision",
+      "plugin_name": "Collision",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 4,
+          "name": "Retrigger",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Volume",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Acoustic String",
+      "rel_path": "Devices/Instruments/Collision/Guitar & Plucked/Acoustic String.adv",
+      "device_class": "Collision",
+      "plugin_name": "Collision",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 4,
+          "name": "Retrigger",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Volume",
+          "value": 0.277777791,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Digital String",
+      "rel_path": "Devices/Instruments/Collision/Guitar & Plucked/Digital String.adv",
+      "device_class": "Collision",
+      "plugin_name": "Collision",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 4,
+          "name": "Retrigger",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Volume",
+          "value": 0.2380952388,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Toy Piano Bells",
+      "rel_path": "Devices/Instruments/Collision/Piano & Keys/Toy Piano Bells.adv",
+      "device_class": "Collision",
+      "plugin_name": "Collision",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 4,
+          "name": "Retrigger",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Volume",
+          "value": 0.3333333433,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "E-Piano Dreamy",
+      "rel_path": "Devices/Instruments/Collision/Piano & Keys/E-Piano Dreamy.adv",
+      "device_class": "Collision",
+      "plugin_name": "Collision",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 4,
+          "name": "Retrigger",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Volume",
+          "value": 0.3153968453,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Pad4 Slow",
+      "rel_path": "Devices/Instruments/Collision/Ambient & Evolving/Slow Pad.adv",
+      "device_class": "Collision",
+      "plugin_name": "Collision",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 4,
+          "name": "Retrigger",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Volume",
+          "value": 0.5241854787,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Pad5 High",
+      "rel_path": "Devices/Instruments/Collision/Ambient & Evolving/High Pad.adv",
+      "device_class": "Collision",
+      "plugin_name": "Collision",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 4,
+          "name": "Retrigger",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Volume",
+          "value": 0.8333333135,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Air Of Dread",
+      "rel_path": "Devices/Instruments/Collision/Ambient & Evolving/Air Of Dread.adv",
+      "device_class": "Collision",
+      "plugin_name": "Collision",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 4,
+          "name": "Retrigger",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Volume",
+          "value": 0.5302552581,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Pad3 Noisy",
+      "rel_path": "Devices/Instruments/Collision/Ambient & Evolving/Noisy Pad.adv",
+      "device_class": "Collision",
+      "plugin_name": "Collision",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 2,
+      "parameters": [
+        {
+          "index": 4,
+          "name": "Retrigger",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Volume",
+          "value": 0.4920634925,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    }
+  ]
+}

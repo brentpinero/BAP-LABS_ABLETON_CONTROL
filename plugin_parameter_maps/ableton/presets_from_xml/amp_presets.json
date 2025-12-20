@@ -1,0 +1,894 @@
+{
+  "device_class": "Amp",
+  "preset_count": 12,
+  "presets": [
+    {
+      "preset_name": "Heavy.adv",
+      "rel_path": "Devices/Audio Effects/Amp/Heavy.adv",
+      "device_class": "Amp",
+      "plugin_name": "Amp",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 9,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Amp Type",
+          "value": 5.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 2,
+          "name": "Bass",
+          "value": 4.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Middle",
+          "value": 2.53968263,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Treble",
+          "value": 5.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Presence",
+          "value": 5.39682579,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Gain",
+          "value": 4.25196838,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "Volume",
+          "value": 7.06349182,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Dual Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Boost and Crunch.adv",
+      "rel_path": "Devices/Audio Effects/Amp/Boost and Crunch.adv",
+      "device_class": "Amp",
+      "plugin_name": "Amp",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 9,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Amp Type",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 2,
+          "name": "Bass",
+          "value": 10.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Middle",
+          "value": 6.92913437,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Treble",
+          "value": 10.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Presence",
+          "value": 10.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Gain",
+          "value": 9.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "Volume",
+          "value": 6.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Dual Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Discrete.adv",
+      "rel_path": "Devices/Audio Effects/Amp/Discrete.adv",
+      "device_class": "Amp",
+      "plugin_name": "Amp",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 9,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Amp Type",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 2,
+          "name": "Bass",
+          "value": 3.01587319,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Middle",
+          "value": 3.65079379,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Treble",
+          "value": 5.55555582,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Presence",
+          "value": 6.42857075,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Gain",
+          "value": 5.9375,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "Volume",
+          "value": 7.61904764,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Dual Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Clean.adv",
+      "rel_path": "Devices/Audio Effects/Amp/Clean.adv",
+      "device_class": "Amp",
+      "plugin_name": "Amp",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 9,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Amp Type",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 2,
+          "name": "Bass",
+          "value": 5.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Middle",
+          "value": 5.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Treble",
+          "value": 5.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Presence",
+          "value": 5.35433054,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Gain",
+          "value": 5.98425198,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "Volume",
+          "value": 6.19047642,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Dual Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Key Crunch.adv",
+      "rel_path": "Devices/Audio Effects/Amp/Key Crunch.adv",
+      "device_class": "Amp",
+      "plugin_name": "Amp",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 9,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Amp Type",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 2,
+          "name": "Bass",
+          "value": 3.88888884,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Middle",
+          "value": 3.88888884,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Treble",
+          "value": 6.74603176,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Presence",
+          "value": 3.01587319,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Gain",
+          "value": 5.03937006,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "Volume",
+          "value": 7.53968239,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Dual Mono",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Rhythm Funk.adv",
+      "rel_path": "Devices/Audio Effects/Amp/Rhythm Funk.adv",
+      "device_class": "Amp",
+      "plugin_name": "Amp",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 9,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Amp Type",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 2,
+          "name": "Bass",
+          "value": 4.44444466,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Middle",
+          "value": 6.42857122,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Treble",
+          "value": 4.28571415,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Presence",
+          "value": 3.49206352,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Gain",
+          "value": 1.61417317,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "Volume",
+          "value": 5.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Dual Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Metalic.adv",
+      "rel_path": "Devices/Audio Effects/Amp/Metalic.adv",
+      "device_class": "Amp",
+      "plugin_name": "Amp",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 9,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Amp Type",
+          "value": 4.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 2,
+          "name": "Bass",
+          "value": 5.47619057,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Middle",
+          "value": 6.82539701,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Treble",
+          "value": 6.58730173,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Presence",
+          "value": 7.30158758,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Gain",
+          "value": 6.65625,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "Volume",
+          "value": 7.06349182,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Dual Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 0.7936507463,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Screamer.adv",
+      "rel_path": "Devices/Audio Effects/Amp/Screamer.adv",
+      "device_class": "Amp",
+      "plugin_name": "Amp",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 9,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Amp Type",
+          "value": 5.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 2,
+          "name": "Bass",
+          "value": 5.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Middle",
+          "value": 8.01587296,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Treble",
+          "value": 5.79365063,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Presence",
+          "value": 5.5905509,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Gain",
+          "value": 6.25734329,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "Volume",
+          "value": 6.01931572,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Dual Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Marsh Mellows.adv",
+      "rel_path": "Devices/Audio Effects/Amp/Marsh Mellows.adv",
+      "device_class": "Amp",
+      "plugin_name": "Amp",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 9,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Amp Type",
+          "value": 3.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 2,
+          "name": "Bass",
+          "value": 6.37795258,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Middle",
+          "value": 5.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Treble",
+          "value": 5.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Presence",
+          "value": 4.01574802,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Gain",
+          "value": 7.85714293,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "Volume",
+          "value": 3.57142878,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Dual Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Rock all 10.adv",
+      "rel_path": "Devices/Audio Effects/Amp/Rock all 10.adv",
+      "device_class": "Amp",
+      "plugin_name": "Amp",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 9,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Amp Type",
+          "value": 3.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 2,
+          "name": "Bass",
+          "value": 10.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Middle",
+          "value": 10.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Treble",
+          "value": 10.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Presence",
+          "value": 9.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Gain",
+          "value": 1.25984251,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "Volume",
+          "value": 7.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Dual Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 0.755905509,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Blues Drive.adv",
+      "rel_path": "Devices/Audio Effects/Amp/Blues Drive.adv",
+      "device_class": "Amp",
+      "plugin_name": "Amp",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 9,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Amp Type",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 2,
+          "name": "Bass",
+          "value": 6.26984119,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Middle",
+          "value": 5.79365063,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Treble",
+          "value": 4.44444466,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Presence",
+          "value": 2.61904764,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Gain",
+          "value": 6.90476179,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "Volume",
+          "value": 8.25396824,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Dual Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Bass Roundup.adv",
+      "rel_path": "Devices/Audio Effects/Amp/Bass Roundup.adv",
+      "device_class": "Amp",
+      "plugin_name": "Amp",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 9,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Amp Type",
+          "value": 6.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 2,
+          "name": "Bass",
+          "value": 5.23809528,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Middle",
+          "value": 4.60317469,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 4,
+          "name": "Treble",
+          "value": 4.12698412,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Presence",
+          "value": 1.58730161,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Gain",
+          "value": 5.07936525,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 7,
+          "name": "Volume",
+          "value": 7.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Dual Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    }
+  ]
+}

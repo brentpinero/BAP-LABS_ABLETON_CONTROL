@@ -1,0 +1,766 @@
+{
+  "device_class": "MultiSampler",
+  "preset_count": 76,
+  "presets": [
+    {
+      "preset_name": "Megaphatness Pad",
+      "rel_path": "Devices/Instruments/Sampler/Synth Pad/Megaphatness Pad.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Simple One Pad",
+      "rel_path": "Devices/Instruments/Sampler/Synth Pad/Simple One Pad.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Revenge of Q Pad",
+      "rel_path": "Devices/Instruments/Sampler/Synth Pad/Revenge of Q Pad.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Panorama Pad",
+      "rel_path": "Devices/Instruments/Sampler/Synth Pad/Panorama Pad.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Seashore Pad",
+      "rel_path": "Devices/Instruments/Sampler/Synth Pad/Seashore Pad.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Biig Saw Lead",
+      "rel_path": "Devices/Instruments/Sampler/Synth Pad/Biig Saw Pad.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Galactica Pad",
+      "rel_path": "Devices/Instruments/Sampler/Synth Pad/Galactica Pad.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Sweeper Saege Pad",
+      "rel_path": "Devices/Instruments/Sampler/Synth Pad/Sweeper Saege Pad.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Pad-The Greatest",
+      "rel_path": "Devices/Instruments/Sampler/Synth Pad/The Greatest Pad.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Psycho Tables Pad",
+      "rel_path": "Devices/Instruments/Sampler/Synth Pad/Psycho Tables Pad.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Fat Heavy Drone Pad",
+      "rel_path": "Devices/Instruments/Sampler/Synth Pad/Fat Heavy Drone Pad.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Sine Saw Square Rhythm",
+      "rel_path": "Devices/Instruments/Sampler/Synth Rhythmic/Rhythmic Sine Saw Square.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Analogue Bass",
+      "rel_path": "Devices/Instruments/Sampler/Bass/Analogue Bass.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Pulse Bass",
+      "rel_path": "Devices/Instruments/Sampler/Bass/Pulse Bass.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Big Modules Bass",
+      "rel_path": "Devices/Instruments/Sampler/Bass/Big Modules Bass.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Mini Wobble_crk",
+      "rel_path": "Devices/Instruments/Sampler/Bass/Mini Wobble Bass.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Fine Pulse Bass",
+      "rel_path": "Devices/Instruments/Sampler/Bass/Fine Pulse Bass.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Good Old Vintage Phat Bass",
+      "rel_path": "Devices/Instruments/Sampler/Bass/Good Old Vintage Phat Bass.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Bass-Machine Punk",
+      "rel_path": "Devices/Instruments/Sampler/Bass/Machine Punk Bass.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Mini2OSC_crk_phl",
+      "rel_path": "Devices/Instruments/Sampler/Bass/Mini 2 OSC LFO Bass.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Mamas Bass",
+      "rel_path": "Devices/Instruments/Sampler/Bass/Mamas Bass.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Mini1OSC_crk",
+      "rel_path": "Devices/Instruments/Sampler/Bass/Mini 1 OSC Reso Bass.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Ambient Encounters Bass",
+      "rel_path": "Devices/Instruments/Sampler/Bass/Ambient Encounters Bass.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Byte Sized Bass_crk",
+      "rel_path": "Devices/Instruments/Sampler/Bass/Byte Sized Bass.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Infected Bass",
+      "rel_path": "Devices/Instruments/Sampler/Bass/Infected Bass.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Glide Square Bass",
+      "rel_path": "Devices/Instruments/Sampler/Bass/Glide Square Bass.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Acid Meltdown Bass",
+      "rel_path": "Devices/Instruments/Sampler/Bass/Acid Meltdown Bass.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Mod Bass",
+      "rel_path": "Devices/Instruments/Sampler/Bass/Mod Bass.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Saw Synth C Bass",
+      "rel_path": "Devices/Instruments/Sampler/Bass/Saw Filtered Bass.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Glidesynth Lead 2",
+      "rel_path": "Devices/Instruments/Sampler/Synth Lead/Glidesynth Lead 2.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Good Old Vintage Phat 2 Lead",
+      "rel_path": "Devices/Instruments/Sampler/Synth Lead/Good Old Vintage Phat 2 Lead.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Dark Thought Lead",
+      "rel_path": "Devices/Instruments/Sampler/Synth Lead/Dark Thought Lead.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Glidesynth Lead 1",
+      "rel_path": "Devices/Instruments/Sampler/Synth Lead/Glidesynth Lead 1.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "ARP 5th",
+      "rel_path": "Devices/Instruments/Sampler/Synth Lead/Arp 5th Lead.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "No 3O3 FM 2 Lead",
+      "rel_path": "Devices/Instruments/Sampler/Synth Lead/No 3O3 FM 2 Lead.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "DnB Tools 3 Lead",
+      "rel_path": "Devices/Instruments/Sampler/Synth Lead/DnB Tools 3 Lead.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "DnB Tools 2 Lead",
+      "rel_path": "Devices/Instruments/Sampler/Synth Lead/DnB Tools 2 Lead.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Good Old Vintage Phat 1 Lead",
+      "rel_path": "Devices/Instruments/Sampler/Synth Lead/Good Old Vintage Phat 1 Lead.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Sandblaster Lead",
+      "rel_path": "Devices/Instruments/Sampler/Synth Lead/Sandblaster Lead.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "DnB Tools 1 Lead",
+      "rel_path": "Devices/Instruments/Sampler/Synth Lead/DnB Tools 1 Lead.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Arp Poly Lead",
+      "rel_path": "Devices/Instruments/Sampler/Synth Lead/Arp Poly Lead.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "No 3O3 FM 1 Lead",
+      "rel_path": "Devices/Instruments/Sampler/Synth Lead/No 3O3 FM 1 Lead.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Vintage Bass Filter Sweep Template",
+      "rel_path": "Devices/Instruments/Sampler/Templates/Vintage Bass Filter Sweep Template.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Mono Bass with Glide Template",
+      "rel_path": "Devices/Instruments/Sampler/Templates/Mono Bass with Glide Template.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Slow Pad with Filter Sweep Template",
+      "rel_path": "Devices/Instruments/Sampler/Templates/Slow Pad with Filter Sweep Template.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Drum One Shot Template",
+      "rel_path": "Devices/Instruments/Sampler/Templates/Drum One Shot Template.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Tempo Steppe",
+      "rel_path": "Devices/Instruments/Sampler/Synth Keys/Tempo Steppe Keys.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Smooth Synth Keys",
+      "rel_path": "Devices/Instruments/Sampler/Synth Keys/Smooth Synth Keys.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Classical Keys",
+      "rel_path": "Devices/Instruments/Sampler/Synth Keys/Classical Keys.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Keys-Lovely Keys",
+      "rel_path": "Devices/Instruments/Sampler/Synth Keys/Lovely Keys.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Metallic Love",
+      "rel_path": "Devices/Instruments/Sampler/Synth Keys/Metallic Love Keys.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Electroflow Keys",
+      "rel_path": "Devices/Instruments/Sampler/Synth Keys/Electroflow Keys.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Strange Beats 1",
+      "rel_path": "Devices/Instruments/Sampler/Effects/Strange Beats 1.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Strange Beats 2",
+      "rel_path": "Devices/Instruments/Sampler/Effects/Strange Beats 2.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "LoFi Voodoo",
+      "rel_path": "Devices/Instruments/Sampler/Effects/LoFi Voodoo.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Zirp Sync Noiseloop",
+      "rel_path": "Devices/Instruments/Sampler/Effects/Zirp Sync Noiseloop.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Res Clicks B",
+      "rel_path": "Devices/Instruments/Sampler/Effects/Reso Clicks.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Klickering Lead Modern",
+      "rel_path": "Devices/Instruments/Sampler/Effects/Klickering Lead Modern.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Click And Finer Cuts",
+      "rel_path": "Devices/Instruments/Sampler/Effects/Click And Finer Cuts.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Saw Percussion",
+      "rel_path": "Devices/Instruments/Sampler/Effects/Saw Percussion.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Cnarz 1",
+      "rel_path": "Devices/Instruments/Sampler/Effects/Cnarz FX.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Click Noise",
+      "rel_path": "Devices/Instruments/Sampler/Effects/Click Noise.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Supershort Blip",
+      "rel_path": "Devices/Instruments/Sampler/Effects/Supershort Blip.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "LoFi Warp Drone",
+      "rel_path": "Devices/Instruments/Sampler/Effects/LoFi Warp Drone.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Strange Space Beats",
+      "rel_path": "Devices/Instruments/Sampler/Effects/Strange Space Beats.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Plock Blip",
+      "rel_path": "Devices/Instruments/Sampler/Effects/Plock Blip.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Space FlicFlac",
+      "rel_path": "Devices/Instruments/Sampler/Effects/Space FlicFlac.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Phantasm",
+      "rel_path": "Devices/Instruments/Sampler/Ambient & Evolving/Phantasm Pad.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Pitched Ambiente",
+      "rel_path": "Devices/Instruments/Sampler/Ambient & Evolving/Pitched Ambiente.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Ambient-Downstairs",
+      "rel_path": "Devices/Instruments/Sampler/Ambient & Evolving/Downstairs Pad.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Ambient Feeling",
+      "rel_path": "Devices/Instruments/Sampler/Ambient & Evolving/Ambient Feeling.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Chill Outzone",
+      "rel_path": "Devices/Instruments/Sampler/Ambient & Evolving/Chill Outzone.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Ambient-Dark One",
+      "rel_path": "Devices/Instruments/Sampler/Ambient & Evolving/Dark One.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Soft Industry",
+      "rel_path": "Devices/Instruments/Sampler/Ambient & Evolving/Soft Industry.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Independence Day",
+      "rel_path": "Devices/Instruments/Sampler/Ambient & Evolving/Independence Day.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    },
+    {
+      "preset_name": "Ambient-Ambiente",
+      "rel_path": "Devices/Instruments/Sampler/Ambient & Evolving/Ambiente Pad.adv",
+      "device_class": "MultiSampler",
+      "plugin_name": "Sampler",
+      "plugin_type": "instrument",
+      "has_base_map": true,
+      "parameter_count": 0,
+      "parameters": []
+    }
+  ]
+}

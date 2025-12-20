@@ -1,0 +1,426 @@
+{
+  "device_class": "MidiArpeggiator",
+  "preset_count": 7,
+  "presets": [
+    {
+      "preset_name": "Classic UpDown 8th.adv",
+      "rel_path": "Devices/MIDI Effects/Arpeggiator/Classic UpDown 8th.adv",
+      "device_class": "MidiArpeggiator",
+      "plugin_name": "Arpeggiator",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 5,
+          "name": "Synced Rate",
+          "value": 8.0,
+          "min": 0.0,
+          "max": 13.0
+        },
+        {
+          "index": 6,
+          "name": "Groove",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 7,
+          "name": "Free Rate",
+          "value": 20.0000019,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Gate",
+          "value": 50.0,
+          "min": 1.0,
+          "max": 200.0
+        },
+        {
+          "index": 18,
+          "name": "Velocity Decay",
+          "value": 1000.00128,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 19,
+          "name": "Velocity Target",
+          "value": 64.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 20,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Housier Than Thou.adv",
+      "rel_path": "Devices/MIDI Effects/Arpeggiator/Housier Than Thou.adv",
+      "device_class": "MidiArpeggiator",
+      "plugin_name": "Arpeggiator",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 5,
+          "name": "Synced Rate",
+          "value": 6.0,
+          "min": 0.0,
+          "max": 13.0
+        },
+        {
+          "index": 6,
+          "name": "Groove",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 7,
+          "name": "Free Rate",
+          "value": 200.000015,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Gate",
+          "value": 91.8818893,
+          "min": 1.0,
+          "max": 200.0
+        },
+        {
+          "index": 18,
+          "name": "Velocity Decay",
+          "value": 1000.00128,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 19,
+          "name": "Velocity Target",
+          "value": 64.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 20,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Bouncy Chords.adv",
+      "rel_path": "Devices/MIDI Effects/Arpeggiator/Bouncy Chords.adv",
+      "device_class": "MidiArpeggiator",
+      "plugin_name": "Arpeggiator",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 5,
+          "name": "Synced Rate",
+          "value": 6.0,
+          "min": 0.0,
+          "max": 13.0
+        },
+        {
+          "index": 6,
+          "name": "Groove",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 7,
+          "name": "Free Rate",
+          "value": 200.000015,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Gate",
+          "value": 84.0472412,
+          "min": 1.0,
+          "max": 200.0
+        },
+        {
+          "index": 18,
+          "name": "Velocity Decay",
+          "value": 50.9098129,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 19,
+          "name": "Velocity Target",
+          "value": 64.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 20,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Ubiquitous.adv",
+      "rel_path": "Devices/MIDI Effects/Arpeggiator/Ubiquitous.adv",
+      "device_class": "MidiArpeggiator",
+      "plugin_name": "Arpeggiator",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 5,
+          "name": "Synced Rate",
+          "value": 6.0,
+          "min": 0.0,
+          "max": 13.0
+        },
+        {
+          "index": 6,
+          "name": "Groove",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 7,
+          "name": "Free Rate",
+          "value": 200.000015,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Gate",
+          "value": 50.0,
+          "min": 1.0,
+          "max": 200.0
+        },
+        {
+          "index": 18,
+          "name": "Velocity Decay",
+          "value": 1000.00128,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 19,
+          "name": "Velocity Target",
+          "value": 64.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 20,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Descending Chords 12th.adv",
+      "rel_path": "Devices/MIDI Effects/Arpeggiator/Descending Chords 12th.adv",
+      "device_class": "MidiArpeggiator",
+      "plugin_name": "Arpeggiator",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 5,
+          "name": "Synced Rate",
+          "value": 7.0,
+          "min": 0.0,
+          "max": 13.0
+        },
+        {
+          "index": 6,
+          "name": "Groove",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 7,
+          "name": "Free Rate",
+          "value": 20.0000019,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Gate",
+          "value": 50.0,
+          "min": 1.0,
+          "max": 200.0
+        },
+        {
+          "index": 18,
+          "name": "Velocity Decay",
+          "value": 1922.0094,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 19,
+          "name": "Velocity Target",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 20,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "C Major Walk 16th Grooved.adv",
+      "rel_path": "Devices/MIDI Effects/Arpeggiator/C Major Walk 16th Grooved.adv",
+      "device_class": "MidiArpeggiator",
+      "plugin_name": "Arpeggiator",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 5,
+          "name": "Synced Rate",
+          "value": 6.0,
+          "min": 0.0,
+          "max": 13.0
+        },
+        {
+          "index": 6,
+          "name": "Groove",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 7,
+          "name": "Free Rate",
+          "value": 20.0000019,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Gate",
+          "value": 50.0,
+          "min": 1.0,
+          "max": 200.0
+        },
+        {
+          "index": 18,
+          "name": "Velocity Decay",
+          "value": 1922.0094,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 19,
+          "name": "Velocity Target",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 20,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Bach 16th.adv",
+      "rel_path": "Devices/MIDI Effects/Arpeggiator/Bach 16th.adv",
+      "device_class": "MidiArpeggiator",
+      "plugin_name": "Arpeggiator",
+      "plugin_type": "midi_effect",
+      "has_base_map": true,
+      "parameter_count": 7,
+      "parameters": [
+        {
+          "index": 5,
+          "name": "Synced Rate",
+          "value": 6.0,
+          "min": 0.0,
+          "max": 13.0
+        },
+        {
+          "index": 6,
+          "name": "Groove",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 7,
+          "name": "Free Rate",
+          "value": 20.0000019,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Gate",
+          "value": 50.0,
+          "min": 1.0,
+          "max": 200.0
+        },
+        {
+          "index": 18,
+          "name": "Velocity Decay",
+          "value": 1922.0094,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 19,
+          "name": "Velocity Target",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 127.0
+        },
+        {
+          "index": 20,
+          "name": "Use Current Scale",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    }
+  ]
+}

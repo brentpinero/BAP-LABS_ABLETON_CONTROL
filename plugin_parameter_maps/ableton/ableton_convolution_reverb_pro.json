@@ -1,0 +1,252 @@
+{
+  "plugin": "Convolution Reverb Pro",
+  "type": "audio_effect",
+  "uri": "query:AudioFx#Convolution%20Reverb%20Pro",
+  "class_name": "MxDeviceAudioEffect",
+  "parameter_count": 25,
+  "parameters": [
+    {
+      "index": 0,
+      "name": "Device On",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 1,
+      "name": "Dry/Wet",
+      "value": 50.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 50.0
+    },
+    {
+      "index": 2,
+      "name": "EQ Band",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 2.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 3,
+      "name": "Hi Freq",
+      "value": 15539.037109375,
+      "min": 30.0,
+      "max": 18000.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 15539.037109375
+    },
+    {
+      "index": 4,
+      "name": "Hi Gain",
+      "value": 0.0,
+      "min": -18.0,
+      "max": 18.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 5,
+      "name": "Hi S",
+      "value": 1.0,
+      "min": 0.05000000074505806,
+      "max": 2.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 1.0
+    },
+    {
+      "index": 6,
+      "name": "Lo Freq",
+      "value": 4519.37158203125,
+      "min": 30.0,
+      "max": 18000.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 4519.37158203125
+    },
+    {
+      "index": 7,
+      "name": "Lo Gain",
+      "value": 0.0,
+      "min": -18.0,
+      "max": 18.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 8,
+      "name": "Lo S",
+      "value": 1.0,
+      "min": 0.05000000074505806,
+      "max": 2.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 1.0
+    },
+    {
+      "index": 9,
+      "name": "Mid Freq",
+      "value": 8691.716796875,
+      "min": 30.0,
+      "max": 18000.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 8691.716796875
+    },
+    {
+      "index": 10,
+      "name": "Mid Gain",
+      "value": 0.0,
+      "min": -18.0,
+      "max": 18.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 11,
+      "name": "Mid Q",
+      "value": 0.7099999785423279,
+      "min": 0.05000000074505806,
+      "max": 2.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.7099999785423279
+    },
+    {
+      "index": 12,
+      "name": "EQ On",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 13,
+      "name": "Gain",
+      "value": 0.0,
+      "min": -20.0,
+      "max": 20.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 14,
+      "name": "Amount",
+      "value": 50.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 50.0
+    },
+    {
+      "index": 15,
+      "name": "Mod On",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 16,
+      "name": "Mod Rate",
+      "value": 1.0199999809265137,
+      "min": 0.05000000074505806,
+      "max": 2.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 1.0199999809265137
+    },
+    {
+      "index": 17,
+      "name": "Mod Type",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 18,
+      "name": "Mod Widen",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 19,
+      "name": "Pos Depth",
+      "value": 0.0,
+      "min": -100.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 20,
+      "name": "Pos On",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "is_enabled": true,
+      "is_quantized": true
+    },
+    {
+      "index": 21,
+      "name": "Pos Pan",
+      "value": 0.0,
+      "min": -50.0,
+      "max": 50.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 22,
+      "name": "Predelay",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 200.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 23,
+      "name": "Cascade",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 0.0
+    },
+    {
+      "index": 24,
+      "name": "Width",
+      "value": 100.0,
+      "min": 0.0,
+      "max": 100.0,
+      "is_enabled": true,
+      "is_quantized": false,
+      "default_value": 100.0
+    }
+  ]
+}

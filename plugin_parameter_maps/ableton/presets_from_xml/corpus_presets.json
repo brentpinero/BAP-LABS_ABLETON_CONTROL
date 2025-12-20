@@ -1,0 +1,3204 @@
+{
+  "device_class": "Corpus",
+  "preset_count": 26,
+  "presets": [
+    {
+      "preset_name": "Punchy Snare.adv",
+      "rel_path": "Devices/Audio Effects/Corpus/Punchy Snare.adv",
+      "device_class": "Corpus",
+      "plugin_name": "Corpus",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 16,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Resonance Type",
+          "value": 3.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 2,
+          "name": "Resonator Quality",
+          "value": 3.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 4,
+          "name": "Transpose",
+          "value": 0.0,
+          "min": -48.0,
+          "max": 48.0
+        },
+        {
+          "index": 7,
+          "name": "Decay",
+          "value": 0.571428597,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Radius",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "Inharmonics",
+          "value": 0.125,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Ratio",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "LFO On/Off",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 19,
+          "name": "LFO Sync",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "LFO Rate",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 21,
+          "name": "LFO Sync Rate",
+          "value": 4.0,
+          "min": 0.0,
+          "max": 21.0
+        },
+        {
+          "index": 22,
+          "name": "LFO Stereo Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "LFO Amount",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 31,
+          "name": "MIDI Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Bleed",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 38,
+          "name": "Dry Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Loop metal whisper",
+      "rel_path": "Devices/Audio Effects/Corpus/Loop Metal Needle.adv",
+      "device_class": "Corpus",
+      "plugin_name": "Corpus",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 16,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Resonance Type",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 2,
+          "name": "Resonator Quality",
+          "value": 3.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 4,
+          "name": "Transpose",
+          "value": 0.0,
+          "min": -48.0,
+          "max": 48.0
+        },
+        {
+          "index": 7,
+          "name": "Decay",
+          "value": 0.2592592537,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Radius",
+          "value": 0.5185185075,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "Inharmonics",
+          "value": 0.0,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Ratio",
+          "value": 0.007936508395,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "LFO On/Off",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 19,
+          "name": "LFO Sync",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "LFO Rate",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 21,
+          "name": "LFO Sync Rate",
+          "value": 8.0,
+          "min": 0.0,
+          "max": 21.0
+        },
+        {
+          "index": 22,
+          "name": "LFO Stereo Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "LFO Amount",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 31,
+          "name": "MIDI Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Bleed",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 38,
+          "name": "Dry Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Kick Sub Maker",
+      "rel_path": "Devices/Audio Effects/Corpus/Sub Kick Maker.adv",
+      "device_class": "Corpus",
+      "plugin_name": "Corpus",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 16,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Resonance Type",
+          "value": 3.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 2,
+          "name": "Resonator Quality",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 4,
+          "name": "Transpose",
+          "value": 0.0,
+          "min": -48.0,
+          "max": 48.0
+        },
+        {
+          "index": 7,
+          "name": "Decay",
+          "value": 0.4444444478,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Radius",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "Inharmonics",
+          "value": -0.9375,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Ratio",
+          "value": 0.9682539701,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "LFO On/Off",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 19,
+          "name": "LFO Sync",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "LFO Rate",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 21,
+          "name": "LFO Sync Rate",
+          "value": 14.0,
+          "min": 0.0,
+          "max": 21.0
+        },
+        {
+          "index": 22,
+          "name": "LFO Stereo Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "LFO Amount",
+          "value": 0.9841269851,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 31,
+          "name": "MIDI Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Bleed",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 38,
+          "name": "Dry Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Loop Percussifier 2",
+      "rel_path": "Devices/Audio Effects/Corpus/Loop Percussifier.adv",
+      "device_class": "Corpus",
+      "plugin_name": "Corpus",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 16,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Resonance Type",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 2,
+          "name": "Resonator Quality",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 4,
+          "name": "Transpose",
+          "value": 0.0,
+          "min": -48.0,
+          "max": 48.0
+        },
+        {
+          "index": 7,
+          "name": "Decay",
+          "value": 0.5952380896,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Radius",
+          "value": 0.9753086567,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "Inharmonics",
+          "value": 1.0,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Ratio",
+          "value": 0.6825397015,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "LFO On/Off",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 19,
+          "name": "LFO Sync",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "LFO Rate",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 21,
+          "name": "LFO Sync Rate",
+          "value": 8.0,
+          "min": 0.0,
+          "max": 21.0
+        },
+        {
+          "index": 22,
+          "name": "LFO Stereo Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "LFO Amount",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 31,
+          "name": "MIDI Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Bleed",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 38,
+          "name": "Dry Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Sub 2",
+      "rel_path": "Devices/Audio Effects/Corpus/Sub Filter Boost.adv",
+      "device_class": "Corpus",
+      "plugin_name": "Corpus",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 16,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Resonance Type",
+          "value": 6.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 2,
+          "name": "Resonator Quality",
+          "value": 3.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 4,
+          "name": "Transpose",
+          "value": 0.0,
+          "min": -48.0,
+          "max": 48.0
+        },
+        {
+          "index": 7,
+          "name": "Decay",
+          "value": 0.396825403,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Radius",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "Inharmonics",
+          "value": 1.0,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Ratio",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "LFO On/Off",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 19,
+          "name": "LFO Sync",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "LFO Rate",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 21,
+          "name": "LFO Sync Rate",
+          "value": 14.0,
+          "min": 0.0,
+          "max": 21.0
+        },
+        {
+          "index": 22,
+          "name": "LFO Stereo Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "LFO Amount",
+          "value": 0.9841269851,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 31,
+          "name": "MIDI Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Bleed",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 38,
+          "name": "Dry Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Add BassSynth to drum loop",
+      "rel_path": "Devices/Audio Effects/Corpus/Drum to Bass Synth.adv",
+      "device_class": "Corpus",
+      "plugin_name": "Corpus",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 16,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Resonance Type",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 2,
+          "name": "Resonator Quality",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 4,
+          "name": "Transpose",
+          "value": 0.0,
+          "min": -48.0,
+          "max": 48.0
+        },
+        {
+          "index": 7,
+          "name": "Decay",
+          "value": 0.8024691343,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Radius",
+          "value": 0.9753086567,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "Inharmonics",
+          "value": 0.0,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Ratio",
+          "value": 0.6825397015,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "LFO On/Off",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 19,
+          "name": "LFO Sync",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "LFO Rate",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 21,
+          "name": "LFO Sync Rate",
+          "value": 8.0,
+          "min": 0.0,
+          "max": 21.0
+        },
+        {
+          "index": 22,
+          "name": "LFO Stereo Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "LFO Amount",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 31,
+          "name": "MIDI Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Bleed",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 38,
+          "name": "Dry Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Bright Snare.adv",
+      "rel_path": "Devices/Audio Effects/Corpus/Bright Snare.adv",
+      "device_class": "Corpus",
+      "plugin_name": "Corpus",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 16,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Resonance Type",
+          "value": 3.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 2,
+          "name": "Resonator Quality",
+          "value": 3.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 4,
+          "name": "Transpose",
+          "value": 0.0,
+          "min": -48.0,
+          "max": 48.0
+        },
+        {
+          "index": 7,
+          "name": "Decay",
+          "value": 0.5634920597,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Radius",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "Inharmonics",
+          "value": 0.125,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Ratio",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "LFO On/Off",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 19,
+          "name": "LFO Sync",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "LFO Rate",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 21,
+          "name": "LFO Sync Rate",
+          "value": 4.0,
+          "min": 0.0,
+          "max": 21.0
+        },
+        {
+          "index": 22,
+          "name": "LFO Stereo Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "LFO Amount",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 31,
+          "name": "MIDI Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Bleed",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 38,
+          "name": "Dry Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Ping-Pong - loop",
+      "rel_path": "Devices/Audio Effects/Corpus/Loop Ping Pong.adv",
+      "device_class": "Corpus",
+      "plugin_name": "Corpus",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 16,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Resonance Type",
+          "value": 6.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 2,
+          "name": "Resonator Quality",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 4,
+          "name": "Transpose",
+          "value": 0.0,
+          "min": -48.0,
+          "max": 48.0
+        },
+        {
+          "index": 7,
+          "name": "Decay",
+          "value": 0.2380952388,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Radius",
+          "value": 0.9753086567,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "Inharmonics",
+          "value": 0.8730158806,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Ratio",
+          "value": 0.6825397015,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "LFO On/Off",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 19,
+          "name": "LFO Sync",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "LFO Rate",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 21,
+          "name": "LFO Sync Rate",
+          "value": 8.0,
+          "min": 0.0,
+          "max": 21.0
+        },
+        {
+          "index": 22,
+          "name": "LFO Stereo Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "LFO Amount",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 31,
+          "name": "MIDI Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Bleed",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 38,
+          "name": "Dry Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Loop Percussifier",
+      "rel_path": "Devices/Audio Effects/Corpus/Loop Tablamaker.adv",
+      "device_class": "Corpus",
+      "plugin_name": "Corpus",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 16,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Resonance Type",
+          "value": 3.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 2,
+          "name": "Resonator Quality",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 4,
+          "name": "Transpose",
+          "value": 0.0,
+          "min": -48.0,
+          "max": 48.0
+        },
+        {
+          "index": 7,
+          "name": "Decay",
+          "value": 0.4444444478,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Radius",
+          "value": 0.8095238209,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "Inharmonics",
+          "value": 1.0,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Ratio",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "LFO On/Off",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 19,
+          "name": "LFO Sync",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "LFO Rate",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 21,
+          "name": "LFO Sync Rate",
+          "value": 12.0,
+          "min": 0.0,
+          "max": 21.0
+        },
+        {
+          "index": 22,
+          "name": "LFO Stereo Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "LFO Amount",
+          "value": 0.9841269851,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 31,
+          "name": "MIDI Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Bleed",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 38,
+          "name": "Dry Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Loop Robotifier",
+      "rel_path": "Devices/Audio Effects/Corpus/Loop Robotifier.adv",
+      "device_class": "Corpus",
+      "plugin_name": "Corpus",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 16,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Resonance Type",
+          "value": 6.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 2,
+          "name": "Resonator Quality",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 4,
+          "name": "Transpose",
+          "value": 0.0,
+          "min": -48.0,
+          "max": 48.0
+        },
+        {
+          "index": 7,
+          "name": "Decay",
+          "value": 0.2301587313,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Radius",
+          "value": 0.8412698507,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "Inharmonics",
+          "value": 1.0,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Ratio",
+          "value": 0.007936508395,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "LFO On/Off",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 19,
+          "name": "LFO Sync",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "LFO Rate",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 21,
+          "name": "LFO Sync Rate",
+          "value": 8.0,
+          "min": 0.0,
+          "max": 21.0
+        },
+        {
+          "index": 22,
+          "name": "LFO Stereo Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "LFO Amount",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 31,
+          "name": "MIDI Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Bleed",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 38,
+          "name": "Dry Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Kick Medium.adv",
+      "rel_path": "Devices/Audio Effects/Corpus/Kick Medium.adv",
+      "device_class": "Corpus",
+      "plugin_name": "Corpus",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 16,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Resonance Type",
+          "value": 3.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 2,
+          "name": "Resonator Quality",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 4,
+          "name": "Transpose",
+          "value": 0.0,
+          "min": -48.0,
+          "max": 48.0
+        },
+        {
+          "index": 7,
+          "name": "Decay",
+          "value": 0.328125,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Radius",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "Inharmonics",
+          "value": 0.0,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Ratio",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "LFO On/Off",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 19,
+          "name": "LFO Sync",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "LFO Rate",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 21,
+          "name": "LFO Sync Rate",
+          "value": 4.0,
+          "min": 0.0,
+          "max": 21.0
+        },
+        {
+          "index": 22,
+          "name": "LFO Stereo Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "LFO Amount",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 31,
+          "name": "MIDI Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Bleed",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 38,
+          "name": "Dry Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Kick Loose.adv",
+      "rel_path": "Devices/Audio Effects/Corpus/Kick Loose.adv",
+      "device_class": "Corpus",
+      "plugin_name": "Corpus",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 16,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Resonance Type",
+          "value": 3.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 2,
+          "name": "Resonator Quality",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 4,
+          "name": "Transpose",
+          "value": 0.0,
+          "min": -48.0,
+          "max": 48.0
+        },
+        {
+          "index": 7,
+          "name": "Decay",
+          "value": 0.6640625,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Radius",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "Inharmonics",
+          "value": 0.0,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Ratio",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "LFO On/Off",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 19,
+          "name": "LFO Sync",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "LFO Rate",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 21,
+          "name": "LFO Sync Rate",
+          "value": 4.0,
+          "min": 0.0,
+          "max": 21.0
+        },
+        {
+          "index": 22,
+          "name": "LFO Stereo Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "LFO Amount",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 31,
+          "name": "MIDI Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Bleed",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 38,
+          "name": "Dry Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Elektro Robot - loop",
+      "rel_path": "Devices/Audio Effects/Corpus/Panning Rezo.adv",
+      "device_class": "Corpus",
+      "plugin_name": "Corpus",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 16,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Resonance Type",
+          "value": 5.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 2,
+          "name": "Resonator Quality",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 4,
+          "name": "Transpose",
+          "value": 0.0,
+          "min": -48.0,
+          "max": 48.0
+        },
+        {
+          "index": 7,
+          "name": "Decay",
+          "value": 0.1111111119,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Radius",
+          "value": 0.8095238209,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "Inharmonics",
+          "value": -1.0,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Ratio",
+          "value": 0.9682539701,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "LFO On/Off",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 19,
+          "name": "LFO Sync",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "LFO Rate",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 21,
+          "name": "LFO Sync Rate",
+          "value": 6.0,
+          "min": 0.0,
+          "max": 21.0
+        },
+        {
+          "index": 22,
+          "name": "LFO Stereo Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "LFO Amount",
+          "value": 0.9841269851,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 31,
+          "name": "MIDI Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Bleed",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 38,
+          "name": "Dry Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Loop Bounce",
+      "rel_path": "Devices/Audio Effects/Corpus/Loop Phase.adv",
+      "device_class": "Corpus",
+      "plugin_name": "Corpus",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 16,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Resonance Type",
+          "value": 3.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 2,
+          "name": "Resonator Quality",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 4,
+          "name": "Transpose",
+          "value": 0.0,
+          "min": -48.0,
+          "max": 48.0
+        },
+        {
+          "index": 7,
+          "name": "Decay",
+          "value": 0.706349194,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Radius",
+          "value": 0.9753086567,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "Inharmonics",
+          "value": 1.0,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Ratio",
+          "value": 0.007936508395,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "LFO On/Off",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 19,
+          "name": "LFO Sync",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "LFO Rate",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 21,
+          "name": "LFO Sync Rate",
+          "value": 8.0,
+          "min": 0.0,
+          "max": 21.0
+        },
+        {
+          "index": 22,
+          "name": "LFO Stereo Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "LFO Amount",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 31,
+          "name": "MIDI Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Bleed",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 38,
+          "name": "Dry Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Tubular Pan",
+      "rel_path": "Devices/Audio Effects/Corpus/Tubular Pan.adv",
+      "device_class": "Corpus",
+      "plugin_name": "Corpus",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 16,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Resonance Type",
+          "value": 6.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 2,
+          "name": "Resonator Quality",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 4,
+          "name": "Transpose",
+          "value": 0.0,
+          "min": -48.0,
+          "max": 48.0
+        },
+        {
+          "index": 7,
+          "name": "Decay",
+          "value": 0.814814806,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Radius",
+          "value": 0.5185185075,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "Inharmonics",
+          "value": 1.0,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Ratio",
+          "value": 0.007936508395,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "LFO On/Off",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 19,
+          "name": "LFO Sync",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "LFO Rate",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 21,
+          "name": "LFO Sync Rate",
+          "value": 8.0,
+          "min": 0.0,
+          "max": 21.0
+        },
+        {
+          "index": 22,
+          "name": "LFO Stereo Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "LFO Amount",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 31,
+          "name": "MIDI Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Bleed",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 38,
+          "name": "Dry Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Loop Random",
+      "rel_path": "Devices/Audio Effects/Corpus/Loop Random.adv",
+      "device_class": "Corpus",
+      "plugin_name": "Corpus",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 16,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Resonance Type",
+          "value": 5.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 2,
+          "name": "Resonator Quality",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 4,
+          "name": "Transpose",
+          "value": 0.0,
+          "min": -48.0,
+          "max": 48.0
+        },
+        {
+          "index": 7,
+          "name": "Decay",
+          "value": 0.5634920597,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Radius",
+          "value": 0.4761904776,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "Inharmonics",
+          "value": -1.0,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Ratio",
+          "value": 0.9682539701,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "LFO On/Off",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 19,
+          "name": "LFO Sync",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "LFO Rate",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 21,
+          "name": "LFO Sync Rate",
+          "value": 6.0,
+          "min": 0.0,
+          "max": 21.0
+        },
+        {
+          "index": 22,
+          "name": "LFO Stereo Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "LFO Amount",
+          "value": 0.9841269851,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 31,
+          "name": "MIDI Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Bleed",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 38,
+          "name": "Dry Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Loop Bongofier",
+      "rel_path": "Devices/Audio Effects/Corpus/Loop Ticking.adv",
+      "device_class": "Corpus",
+      "plugin_name": "Corpus",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 16,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Resonance Type",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 2,
+          "name": "Resonator Quality",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 4,
+          "name": "Transpose",
+          "value": 0.0,
+          "min": -48.0,
+          "max": 48.0
+        },
+        {
+          "index": 7,
+          "name": "Decay",
+          "value": 0.6190476418,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Radius",
+          "value": 0.8095238209,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "Inharmonics",
+          "value": 0.8730158806,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Ratio",
+          "value": 0.6825397015,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "LFO On/Off",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 19,
+          "name": "LFO Sync",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "LFO Rate",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 21,
+          "name": "LFO Sync Rate",
+          "value": 12.0,
+          "min": 0.0,
+          "max": 21.0
+        },
+        {
+          "index": 22,
+          "name": "LFO Stereo Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "LFO Amount",
+          "value": 0.9841269851,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 31,
+          "name": "MIDI Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Bleed",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 38,
+          "name": "Dry Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Loop Floppyfier",
+      "rel_path": "Devices/Audio Effects/Corpus/Loop Move.adv",
+      "device_class": "Corpus",
+      "plugin_name": "Corpus",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 16,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Resonance Type",
+          "value": 4.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 2,
+          "name": "Resonator Quality",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 4,
+          "name": "Transpose",
+          "value": 0.0,
+          "min": -48.0,
+          "max": 48.0
+        },
+        {
+          "index": 7,
+          "name": "Decay",
+          "value": 0.5476190448,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Radius",
+          "value": 0.9753086567,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "Inharmonics",
+          "value": 1.0,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Ratio",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "LFO On/Off",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 19,
+          "name": "LFO Sync",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "LFO Rate",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 21,
+          "name": "LFO Sync Rate",
+          "value": 8.0,
+          "min": 0.0,
+          "max": 21.0
+        },
+        {
+          "index": 22,
+          "name": "LFO Stereo Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "LFO Amount",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 31,
+          "name": "MIDI Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Bleed",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 38,
+          "name": "Dry Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Sub Boom",
+      "rel_path": "Devices/Audio Effects/Corpus/Sub Boom.adv",
+      "device_class": "Corpus",
+      "plugin_name": "Corpus",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 16,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Resonance Type",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 2,
+          "name": "Resonator Quality",
+          "value": 3.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 4,
+          "name": "Transpose",
+          "value": 0.0,
+          "min": -48.0,
+          "max": 48.0
+        },
+        {
+          "index": 7,
+          "name": "Decay",
+          "value": 0.190476194,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Radius",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "Inharmonics",
+          "value": -0.9375,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Ratio",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "LFO On/Off",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 19,
+          "name": "LFO Sync",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "LFO Rate",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 21,
+          "name": "LFO Sync Rate",
+          "value": 14.0,
+          "min": 0.0,
+          "max": 21.0
+        },
+        {
+          "index": 22,
+          "name": "LFO Stereo Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "LFO Amount",
+          "value": 0.9841269851,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 31,
+          "name": "MIDI Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Bleed",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 38,
+          "name": "Dry Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Metallic Rezo.adv",
+      "rel_path": "Devices/Audio Effects/Corpus/Metallic Rezo.adv",
+      "device_class": "Corpus",
+      "plugin_name": "Corpus",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 16,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Resonance Type",
+          "value": 3.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 2,
+          "name": "Resonator Quality",
+          "value": 3.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 4,
+          "name": "Transpose",
+          "value": 0.0,
+          "min": -48.0,
+          "max": 48.0
+        },
+        {
+          "index": 7,
+          "name": "Decay",
+          "value": 0.6269841194,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Radius",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "Inharmonics",
+          "value": 0.125,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Ratio",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "LFO On/Off",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 19,
+          "name": "LFO Sync",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "LFO Rate",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 21,
+          "name": "LFO Sync Rate",
+          "value": 4.0,
+          "min": 0.0,
+          "max": 21.0
+        },
+        {
+          "index": 22,
+          "name": "LFO Stereo Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "LFO Amount",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 31,
+          "name": "MIDI Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Bleed",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 38,
+          "name": "Dry Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Phasing Flange",
+      "rel_path": "Devices/Audio Effects/Corpus/Phasing Flange.adv",
+      "device_class": "Corpus",
+      "plugin_name": "Corpus",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 16,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Resonance Type",
+          "value": 5.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 2,
+          "name": "Resonator Quality",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 4,
+          "name": "Transpose",
+          "value": 0.0,
+          "min": -48.0,
+          "max": 48.0
+        },
+        {
+          "index": 7,
+          "name": "Decay",
+          "value": 0.3730158806,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Radius",
+          "value": 0.4761904776,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "Inharmonics",
+          "value": -0.03174602985,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Ratio",
+          "value": 0.9682539701,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "LFO On/Off",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 19,
+          "name": "LFO Sync",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "LFO Rate",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 21,
+          "name": "LFO Sync Rate",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 21.0
+        },
+        {
+          "index": 22,
+          "name": "LFO Stereo Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "LFO Amount",
+          "value": 0.9841269851,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 31,
+          "name": "MIDI Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Bleed",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 38,
+          "name": "Dry Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Kick Tight.adv",
+      "rel_path": "Devices/Audio Effects/Corpus/Kick Tight.adv",
+      "device_class": "Corpus",
+      "plugin_name": "Corpus",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 16,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Resonance Type",
+          "value": 3.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 2,
+          "name": "Resonator Quality",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 4,
+          "name": "Transpose",
+          "value": 0.0,
+          "min": -48.0,
+          "max": 48.0
+        },
+        {
+          "index": 7,
+          "name": "Decay",
+          "value": 0.4920634925,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Radius",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "Inharmonics",
+          "value": 0.0,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Ratio",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "LFO On/Off",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 19,
+          "name": "LFO Sync",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "LFO Rate",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 21,
+          "name": "LFO Sync Rate",
+          "value": 4.0,
+          "min": 0.0,
+          "max": 21.0
+        },
+        {
+          "index": 22,
+          "name": "LFO Stereo Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "LFO Amount",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 31,
+          "name": "MIDI Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Bleed",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 38,
+          "name": "Dry Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Pipe Resonator.adv",
+      "rel_path": "Devices/Audio Effects/Corpus/Pipe Resonator.adv",
+      "device_class": "Corpus",
+      "plugin_name": "Corpus",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 16,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Resonance Type",
+          "value": 5.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 2,
+          "name": "Resonator Quality",
+          "value": 3.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 4,
+          "name": "Transpose",
+          "value": 12.0,
+          "min": -48.0,
+          "max": 48.0
+        },
+        {
+          "index": 7,
+          "name": "Decay",
+          "value": 0.6031746268,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Radius",
+          "value": 0.8641975522,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "Inharmonics",
+          "value": 0.0,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Ratio",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "LFO On/Off",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 19,
+          "name": "LFO Sync",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "LFO Rate",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 21,
+          "name": "LFO Sync Rate",
+          "value": 4.0,
+          "min": 0.0,
+          "max": 21.0
+        },
+        {
+          "index": 22,
+          "name": "LFO Stereo Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "LFO Amount",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 31,
+          "name": "MIDI Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Bleed",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 38,
+          "name": "Dry Wet",
+          "value": 0.6963492036,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Hollow Loop",
+      "rel_path": "Devices/Audio Effects/Corpus/Loop Hollow.adv",
+      "device_class": "Corpus",
+      "plugin_name": "Corpus",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 16,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Resonance Type",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 2,
+          "name": "Resonator Quality",
+          "value": 3.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 4,
+          "name": "Transpose",
+          "value": 0.0,
+          "min": -48.0,
+          "max": 48.0
+        },
+        {
+          "index": 7,
+          "name": "Decay",
+          "value": 0.4814814925,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Radius",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "Inharmonics",
+          "value": -0.777777791,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Ratio",
+          "value": 0.007936508395,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "LFO On/Off",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 19,
+          "name": "LFO Sync",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "LFO Rate",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 21,
+          "name": "LFO Sync Rate",
+          "value": 6.0,
+          "min": 0.0,
+          "max": 21.0
+        },
+        {
+          "index": 22,
+          "name": "LFO Stereo Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "LFO Amount",
+          "value": 0.4047619104,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 31,
+          "name": "MIDI Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Bleed",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 38,
+          "name": "Dry Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Loop Bamboofier",
+      "rel_path": "Devices/Audio Effects/Corpus/Loop Rhythmic Changer.adv",
+      "device_class": "Corpus",
+      "plugin_name": "Corpus",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 16,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Resonance Type",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 2,
+          "name": "Resonator Quality",
+          "value": 3.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 4,
+          "name": "Transpose",
+          "value": 0.0,
+          "min": -48.0,
+          "max": 48.0
+        },
+        {
+          "index": 7,
+          "name": "Decay",
+          "value": 0.4320987761,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Radius",
+          "value": 0.9506173134,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "Inharmonics",
+          "value": -0.78125,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Ratio",
+          "value": 0.007936508395,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "LFO On/Off",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 19,
+          "name": "LFO Sync",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "LFO Rate",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 21,
+          "name": "LFO Sync Rate",
+          "value": 6.0,
+          "min": 0.0,
+          "max": 21.0
+        },
+        {
+          "index": 22,
+          "name": "LFO Stereo Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "LFO Amount",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 31,
+          "name": "MIDI Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Bleed",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 38,
+          "name": "Dry Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Drum Rezo Gate",
+      "rel_path": "Devices/Audio Effects/Corpus/Drum Rezo Gate.adv",
+      "device_class": "Corpus",
+      "plugin_name": "Corpus",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 16,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "Resonance Type",
+          "value": 6.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        {
+          "index": 2,
+          "name": "Resonator Quality",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 4,
+          "name": "Transpose",
+          "value": 0.0,
+          "min": -48.0,
+          "max": 48.0
+        },
+        {
+          "index": 7,
+          "name": "Decay",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Radius",
+          "value": 0.3359375,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "Inharmonics",
+          "value": 0.0,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Ratio",
+          "value": 0.6825397015,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 17,
+          "name": "LFO On/Off",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 19,
+          "name": "LFO Sync",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "LFO Rate",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 21,
+          "name": "LFO Sync Rate",
+          "value": 12.0,
+          "min": 0.0,
+          "max": 21.0
+        },
+        {
+          "index": 22,
+          "name": "LFO Stereo Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 26,
+          "name": "LFO Amount",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 31,
+          "name": "MIDI Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 37,
+          "name": "Bleed",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 38,
+          "name": "Dry Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    }
+  ]
+}

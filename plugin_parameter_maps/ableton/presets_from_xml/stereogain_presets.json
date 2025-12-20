@@ -1,0 +1,676 @@
+{
+  "device_class": "StereoGain",
+  "preset_count": 10,
+  "presets": [
+    {
+      "preset_name": "Right.adv",
+      "rel_path": "Devices/Audio Effects/Utility/Right.adv",
+      "device_class": "StereoGain",
+      "plugin_name": "Utility",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Channel Mode",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 4,
+          "name": "Stereo Width",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 5,
+          "name": "Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Balance",
+          "value": 0.0,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Gain",
+          "value": 1.0,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Mute",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "DC Filter",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Phase Invert.adv",
+      "rel_path": "Devices/Audio Effects/Utility/Phase Invert.adv",
+      "device_class": "StereoGain",
+      "plugin_name": "Utility",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Channel Mode",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 4,
+          "name": "Stereo Width",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 5,
+          "name": "Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Balance",
+          "value": 0.0,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Gain",
+          "value": 1.0,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Mute",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "DC Filter",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Mid Only.adv",
+      "rel_path": "Devices/Audio Effects/Utility/Mid Only.adv",
+      "device_class": "StereoGain",
+      "plugin_name": "Utility",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Channel Mode",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 4,
+          "name": "Stereo Width",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 5,
+          "name": "Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Balance",
+          "value": 0.0,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Gain",
+          "value": 1.0,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Mute",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "DC Filter",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Mono.adv",
+      "rel_path": "Devices/Audio Effects/Utility/Mono.adv",
+      "device_class": "StereoGain",
+      "plugin_name": "Utility",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Channel Mode",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 4,
+          "name": "Stereo Width",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 5,
+          "name": "Mono",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Balance",
+          "value": 0.0,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Gain",
+          "value": 1.0,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Mute",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "DC Filter",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Left.adv",
+      "rel_path": "Devices/Audio Effects/Utility/Left.adv",
+      "device_class": "StereoGain",
+      "plugin_name": "Utility",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Channel Mode",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 4,
+          "name": "Stereo Width",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 5,
+          "name": "Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Balance",
+          "value": 0.0,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Gain",
+          "value": 1.0,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Mute",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "DC Filter",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Sides Only.adv",
+      "rel_path": "Devices/Audio Effects/Utility/Sides Only.adv",
+      "device_class": "StereoGain",
+      "plugin_name": "Utility",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Channel Mode",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 4,
+          "name": "Stereo Width",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 5,
+          "name": "Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Balance",
+          "value": 0.0,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Gain",
+          "value": 1.0,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Mute",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "DC Filter",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Bass Mono.adv",
+      "rel_path": "Devices/Audio Effects/Utility/Bass Mono.adv",
+      "device_class": "StereoGain",
+      "plugin_name": "Utility",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Channel Mode",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 4,
+          "name": "Stereo Width",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 5,
+          "name": "Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Bass Mono",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Balance",
+          "value": 0.0,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Gain",
+          "value": 1.0,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Mute",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "DC Filter",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Narrow Stereo.adv",
+      "rel_path": "Devices/Audio Effects/Utility/Narrow Stereo.adv",
+      "device_class": "StereoGain",
+      "plugin_name": "Utility",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Channel Mode",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 4,
+          "name": "Stereo Width",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 5,
+          "name": "Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Balance",
+          "value": 0.0,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Gain",
+          "value": 1.0,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Mute",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "DC Filter",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Wide Stereo.adv",
+      "rel_path": "Devices/Audio Effects/Utility/Wide Stereo.adv",
+      "device_class": "StereoGain",
+      "plugin_name": "Utility",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Channel Mode",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 4,
+          "name": "Stereo Width",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 5,
+          "name": "Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Balance",
+          "value": 0.0,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Gain",
+          "value": 1.0,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Mute",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "DC Filter",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Difference.adv",
+      "rel_path": "Devices/Audio Effects/Utility/Difference.adv",
+      "device_class": "StereoGain",
+      "plugin_name": "Utility",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 8,
+      "parameters": [
+        {
+          "index": 3,
+          "name": "Channel Mode",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        {
+          "index": 4,
+          "name": "Stereo Width",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "index": 5,
+          "name": "Mono",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 6,
+          "name": "Bass Mono",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Balance",
+          "value": 0.0,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 9,
+          "name": "Gain",
+          "value": 2.61015725,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "index": 10,
+          "name": "Mute",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 11,
+          "name": "DC Filter",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    }
+  ]
+}

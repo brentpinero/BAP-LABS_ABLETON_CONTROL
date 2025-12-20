@@ -1,0 +1,998 @@
+{
+  "device_class": "Delay",
+  "preset_count": 31,
+  "presets": [
+    {
+      "preset_name": "Sloppy Delay",
+      "rel_path": "Devices/Audio Effects/Delay/Vintage Delay/Sloppy Delay.adv",
+      "device_class": "Delay",
+      "plugin_name": "Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 12,
+          "name": "Feedback",
+          "value": 0.2789682746,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Freeze",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Dry/Wet",
+          "value": 0.4499999881,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Flutter",
+      "rel_path": "Devices/Audio Effects/Delay/Vintage Delay/Flutter.adv",
+      "device_class": "Delay",
+      "plugin_name": "Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 12,
+          "name": "Feedback",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Freeze",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Dry/Wet",
+          "value": 0.7539682388,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "High",
+      "rel_path": "Devices/Audio Effects/Delay/Clean Delay/High.adv",
+      "device_class": "Delay",
+      "plugin_name": "Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 12,
+          "name": "Feedback",
+          "value": 0.7799999714,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Freeze",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Dry/Wet",
+          "value": 0.75,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Quarter Note",
+      "rel_path": "Devices/Audio Effects/Delay/Clean Delay/Quarter Note.adv",
+      "device_class": "Delay",
+      "plugin_name": "Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 12,
+          "name": "Feedback",
+          "value": 0.6600000262,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Freeze",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Dry/Wet",
+          "value": 0.6600000262,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "16th Dub",
+      "rel_path": "Devices/Audio Effects/Delay/Clean Delay/16th Dub.adv",
+      "device_class": "Delay",
+      "plugin_name": "Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 12,
+          "name": "Feedback",
+          "value": 0.7300000191,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Freeze",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Dry/Wet",
+          "value": 0.400000006,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Slight Slap",
+      "rel_path": "Devices/Audio Effects/Delay/Clean Delay/Slight Slap.adv",
+      "device_class": "Delay",
+      "plugin_name": "Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 12,
+          "name": "Feedback",
+          "value": 0.1055555567,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Freeze",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Dry/Wet",
+          "value": 0.1666666716,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Groove",
+      "rel_path": "Devices/Audio Effects/Delay/Clean Delay/Groove.adv",
+      "device_class": "Delay",
+      "plugin_name": "Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 12,
+          "name": "Feedback",
+          "value": 0.6899999976,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Freeze",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Dry/Wet",
+          "value": 0.8999999762,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Ping",
+      "rel_path": "Devices/Audio Effects/Delay/Clean Delay/Ping.adv",
+      "device_class": "Delay",
+      "plugin_name": "Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 12,
+          "name": "Feedback",
+          "value": 0.8999999762,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Freeze",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Dry/Wet",
+          "value": 0.6999999881,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Dotted Quarter Note",
+      "rel_path": "Devices/Audio Effects/Delay/Clean Delay/Dotted Quarter Note.adv",
+      "device_class": "Delay",
+      "plugin_name": "Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 12,
+          "name": "Feedback",
+          "value": 0.6600000262,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Freeze",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Dry/Wet",
+          "value": 0.6600000262,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Sixteenth Note",
+      "rel_path": "Devices/Audio Effects/Delay/Clean Delay/Sixteenth Note.adv",
+      "device_class": "Delay",
+      "plugin_name": "Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 12,
+          "name": "Feedback",
+          "value": 0.6600000262,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Freeze",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Dry/Wet",
+          "value": 0.6600000262,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Pong",
+      "rel_path": "Devices/Audio Effects/Delay/Clean Delay/Pong.adv",
+      "device_class": "Delay",
+      "plugin_name": "Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 12,
+          "name": "Feedback",
+          "value": 0.8999999762,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Freeze",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Dry/Wet",
+          "value": 0.6700000167,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "16th Ping Pong",
+      "rel_path": "Devices/Audio Effects/Delay/Clean Delay/16th Ping Pong.adv",
+      "device_class": "Delay",
+      "plugin_name": "Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 12,
+          "name": "Feedback",
+          "value": 0.5799999833,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Freeze",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Dry/Wet",
+          "value": 0.3300000131,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Uneven Two Beat",
+      "rel_path": "Devices/Audio Effects/Delay/Clean Delay/Uneven Two Beat.adv",
+      "device_class": "Delay",
+      "plugin_name": "Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 12,
+          "name": "Feedback",
+          "value": 0.5600000024,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Freeze",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Dry/Wet",
+          "value": 0.6600000262,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Dotted Eighth Note",
+      "rel_path": "Devices/Audio Effects/Delay/Clean Delay/Dotted Eighth Note.adv",
+      "device_class": "Delay",
+      "plugin_name": "Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 12,
+          "name": "Feedback",
+          "value": 0.6600000262,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Freeze",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Dry/Wet",
+          "value": 0.6600000262,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "4th Distant",
+      "rel_path": "Devices/Audio Effects/Delay/Clean Delay/4th Distant.adv",
+      "device_class": "Delay",
+      "plugin_name": "Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 12,
+          "name": "Feedback",
+          "value": 0.6408730149,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Freeze",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Dry/Wet",
+          "value": 0.2539682686,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "4th Bandpass",
+      "rel_path": "Devices/Audio Effects/Delay/Clean Delay/4th Bandpass.adv",
+      "device_class": "Delay",
+      "plugin_name": "Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 12,
+          "name": "Feedback",
+          "value": 0.5799999833,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Freeze",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Dry/Wet",
+          "value": 0.3300000131,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "8th Groove",
+      "rel_path": "Devices/Audio Effects/Delay/Clean Delay/8th Groove.adv",
+      "device_class": "Delay",
+      "plugin_name": "Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 12,
+          "name": "Feedback",
+          "value": 0.3199999928,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Freeze",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Dry/Wet",
+          "value": 0.3300000131,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Eighth Note",
+      "rel_path": "Devices/Audio Effects/Delay/Clean Delay/Eighth Note.adv",
+      "device_class": "Delay",
+      "plugin_name": "Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 12,
+          "name": "Feedback",
+          "value": 0.6600000262,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Freeze",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Dry/Wet",
+          "value": 0.6600000262,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Longest Ping Pong",
+      "rel_path": "Devices/Audio Effects/Delay/Clean Delay/Longest Ping Pong.adv",
+      "device_class": "Delay",
+      "plugin_name": "Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 12,
+          "name": "Feedback",
+          "value": 0.9499999881,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Freeze",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Glitch Delay",
+      "rel_path": "Devices/Audio Effects/Delay/Modulated Delay/Glitch Delay.adv",
+      "device_class": "Delay",
+      "plugin_name": "Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 12,
+          "name": "Feedback",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Freeze",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Dry/Wet",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Simple Chorus",
+      "rel_path": "Devices/Audio Effects/Delay/Modulated Delay/Simple Chorus.adv",
+      "device_class": "Delay",
+      "plugin_name": "Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 12,
+          "name": "Feedback",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Freeze",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Dry/Wet",
+          "value": 0.4682539701,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Fake Phaser",
+      "rel_path": "Devices/Audio Effects/Delay/Modulated Delay/Fake Phaser.adv",
+      "device_class": "Delay",
+      "plugin_name": "Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 12,
+          "name": "Feedback",
+          "value": 0.7690476179,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Freeze",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Dry/Wet",
+          "value": 0.4523809552,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Chopped Delay",
+      "rel_path": "Devices/Audio Effects/Delay/Modulated Delay/Chopped Delay.adv",
+      "device_class": "Delay",
+      "plugin_name": "Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 12,
+          "name": "Feedback",
+          "value": 0.4297619164,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Freeze",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Dry/Wet",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Simple Flanger",
+      "rel_path": "Devices/Audio Effects/Delay/Modulated Delay/Simple Flanger.adv",
+      "device_class": "Delay",
+      "plugin_name": "Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 12,
+          "name": "Feedback",
+          "value": 0.784126997,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Freeze",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Dry/Wet",
+          "value": 0.4365079403,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Disharmonics",
+      "rel_path": "Devices/Audio Effects/Delay/Ambient Spaces/Disharmonics.adv",
+      "device_class": "Delay",
+      "plugin_name": "Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 12,
+          "name": "Feedback",
+          "value": 0.9499999881,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Freeze",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Dry/Wet",
+          "value": 0.400000006,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Pan Right",
+      "rel_path": "Devices/Audio Effects/Delay/Ambient Spaces/Pan Right.adv",
+      "device_class": "Delay",
+      "plugin_name": "Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 12,
+          "name": "Feedback",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Freeze",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Robot",
+      "rel_path": "Devices/Audio Effects/Delay/Ambient Spaces/Robot.adv",
+      "device_class": "Delay",
+      "plugin_name": "Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 12,
+          "name": "Feedback",
+          "value": 0.9499999881,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Freeze",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Harmonics",
+      "rel_path": "Devices/Audio Effects/Delay/Ambient Spaces/Harmonics.adv",
+      "device_class": "Delay",
+      "plugin_name": "Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 12,
+          "name": "Feedback",
+          "value": 0.9499999881,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Freeze",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Dry/Wet",
+          "value": 0.400000006,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Full Range Spatial",
+      "rel_path": "Devices/Audio Effects/Delay/Ambient Spaces/Full Range Spatial.adv",
+      "device_class": "Delay",
+      "plugin_name": "Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 12,
+          "name": "Feedback",
+          "value": 0.7200000286,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Freeze",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Dry/Wet",
+          "value": 0.8100000024,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Hi Buzz",
+      "rel_path": "Devices/Audio Effects/Delay/Ambient Spaces/Hi Buzz.adv",
+      "device_class": "Delay",
+      "plugin_name": "Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 12,
+          "name": "Feedback",
+          "value": 0.9499999881,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Freeze",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Dry/Wet",
+          "value": 0.8700000048,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Pan Left",
+      "rel_path": "Devices/Audio Effects/Delay/Ambient Spaces/Pan Left.adv",
+      "device_class": "Delay",
+      "plugin_name": "Delay",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 3,
+      "parameters": [
+        {
+          "index": 12,
+          "name": "Feedback",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 13,
+          "name": "Freeze",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 20,
+          "name": "Dry/Wet",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    }
+  ]
+}

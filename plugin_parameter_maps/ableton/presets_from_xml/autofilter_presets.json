@@ -1,0 +1,1156 @@
+{
+  "device_class": "AutoFilter",
+  "preset_count": 25,
+  "presets": [
+    {
+      "preset_name": "Silicon Flooring (Legacy).adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Auto Filter Legacy/Silicon Flooring (Legacy).adv",
+      "device_class": "AutoFilter",
+      "plugin_name": "Auto Filter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Resonance",
+          "value": 0.7142857313,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Morph",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Slope",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Drive",
+          "value": 5.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 12,
+          "name": "LFO Amount",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Kick Drum Remover (Legacy).adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Auto Filter Legacy/Kick Drum Remover (Legacy).adv",
+      "device_class": "AutoFilter",
+      "plugin_name": "Auto Filter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Resonance",
+          "value": 0.1488095224,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Morph",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Slope",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Drive",
+          "value": 5.52380943,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 12,
+          "name": "LFO Amount",
+          "value": 1.66666663,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Tops Off & Crunch (Legacy).adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Auto Filter Legacy/Tops Off & Crunch (Legacy).adv",
+      "device_class": "AutoFilter",
+      "plugin_name": "Auto Filter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Resonance",
+          "value": 0.2260638177,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Morph",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Slope",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Drive",
+          "value": 6.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 12,
+          "name": "LFO Amount",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Kick Boom (Legacy).adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Auto Filter Legacy/Kick Boom (Legacy).adv",
+      "device_class": "AutoFilter",
+      "plugin_name": "Auto Filter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Resonance",
+          "value": 0.446428597,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Morph",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Slope",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Drive",
+          "value": 1.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 12,
+          "name": "LFO Amount",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Cut-O-Move H (Legacy).adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Auto Filter Legacy/Cut-O-Move H (Legacy).adv",
+      "device_class": "AutoFilter",
+      "plugin_name": "Auto Filter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Resonance",
+          "value": 0.4761904776,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Morph",
+          "value": 0.4920634925,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Slope",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Drive",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 12,
+          "name": "LFO Amount",
+          "value": 12.8571424,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Beat Mosaic (Legacy).adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Auto Filter Legacy/Beat Mosaic (Legacy).adv",
+      "device_class": "AutoFilter",
+      "plugin_name": "Auto Filter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Resonance",
+          "value": 0.9308511019,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Morph",
+          "value": 0.206349209,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Slope",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Drive",
+          "value": 8.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 12,
+          "name": "LFO Amount",
+          "value": 16.666666,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Snare Sizzle (Legacy).adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Auto Filter Legacy/Snare Sizzle (Legacy).adv",
+      "device_class": "AutoFilter",
+      "plugin_name": "Auto Filter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Resonance",
+          "value": 0.4992935658,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Morph",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Slope",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Drive",
+          "value": 1.50375521,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 12,
+          "name": "LFO Amount",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Only the good parts (Legacy).adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Auto Filter Legacy/Only the good parts (Legacy).adv",
+      "device_class": "AutoFilter",
+      "plugin_name": "Auto Filter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Resonance",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Morph",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Slope",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Drive",
+          "value": 5.90476179,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 12,
+          "name": "LFO Amount",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Rubber Flooring (Legacy).adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Auto Filter Legacy/Rubber Flooring (Legacy).adv",
+      "device_class": "AutoFilter",
+      "plugin_name": "Auto Filter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Resonance",
+          "value": 0.4255319238,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Morph",
+          "value": 0.206349209,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Slope",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Drive",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 12,
+          "name": "LFO Amount",
+          "value": 6.42857122,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Envelope Down (Legacy).adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Auto Filter Legacy/Envelope Down (Legacy).adv",
+      "device_class": "AutoFilter",
+      "plugin_name": "Auto Filter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Resonance",
+          "value": 0.4255319238,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Morph",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Slope",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Drive",
+          "value": 3.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 12,
+          "name": "LFO Amount",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Top Spreader (Legacy).adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Auto Filter Legacy/Top Spreader (Legacy).adv",
+      "device_class": "AutoFilter",
+      "plugin_name": "Auto Filter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Resonance",
+          "value": 0.4861111045,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Morph",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Slope",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Drive",
+          "value": 5.14285707,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 12,
+          "name": "LFO Amount",
+          "value": 15.9523811,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Thin Mover (Legacy).adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Auto Filter Legacy/Thin Mover (Legacy).adv",
+      "device_class": "AutoFilter",
+      "plugin_name": "Auto Filter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Resonance",
+          "value": 0.1884920597,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Morph",
+          "value": 0.206349209,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Slope",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Drive",
+          "value": 9.98999977,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 12,
+          "name": "LFO Amount",
+          "value": 7.76999998,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Auto Filter (Legacy).adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Auto Filter Legacy/Auto Filter (Legacy).adv",
+      "device_class": "AutoFilter",
+      "plugin_name": "Auto Filter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Resonance",
+          "value": 0.1379310191,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Morph",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Slope",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Drive",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 12,
+          "name": "LFO Amount",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Bandpass Spinner (Legacy).adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Auto Filter Legacy/Bandpass Spinner (Legacy).adv",
+      "device_class": "AutoFilter",
+      "plugin_name": "Auto Filter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Resonance",
+          "value": 0.7440476418,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Morph",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Slope",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Drive",
+          "value": 5.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 12,
+          "name": "LFO Amount",
+          "value": 9.52380943,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Crashing Waves (Legacy).adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Auto Filter Legacy/Crashing Waves (Legacy).adv",
+      "device_class": "AutoFilter",
+      "plugin_name": "Auto Filter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Resonance",
+          "value": 0.6448412538,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Morph",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Slope",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Drive",
+          "value": 5.90476179,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 12,
+          "name": "LFO Amount",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Notch Step (Legacy).adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Auto Filter Legacy/Notch Step (Legacy).adv",
+      "device_class": "AutoFilter",
+      "plugin_name": "Auto Filter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Resonance",
+          "value": 0.1785714328,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Morph",
+          "value": 0.75,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Slope",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Drive",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 12,
+          "name": "LFO Amount",
+          "value": 11.5748034,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Swirl (Legacy).adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Auto Filter Legacy/Swirl (Legacy).adv",
+      "device_class": "AutoFilter",
+      "plugin_name": "Auto Filter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Resonance",
+          "value": 0.6547619104,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Morph",
+          "value": 0.25,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Slope",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Drive",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 12,
+          "name": "LFO Amount",
+          "value": 17.3809528,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "BP Spreader (Legacy).adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Auto Filter Legacy/BP Spreader (Legacy).adv",
+      "device_class": "AutoFilter",
+      "plugin_name": "Auto Filter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Resonance",
+          "value": 0.1289682537,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Morph",
+          "value": 0.293650806,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Slope",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Drive",
+          "value": 24.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 12,
+          "name": "LFO Amount",
+          "value": 10.4761906,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Stereo Notch",
+      "rel_path": "Devices/Audio Effects/Legacy/Auto Filter Legacy/Stereo Notch (Legacy).adv",
+      "device_class": "AutoFilter",
+      "plugin_name": "Auto Filter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Resonance",
+          "value": 0.3802817166,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Morph",
+          "value": 0.75,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Slope",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Drive",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 12,
+          "name": "LFO Amount",
+          "value": 17.3809528,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Tranqed (Legacy).adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Auto Filter Legacy/Tranqed (Legacy).adv",
+      "device_class": "AutoFilter",
+      "plugin_name": "Auto Filter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Resonance",
+          "value": 0.277777791,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Morph",
+          "value": 0.293650806,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Slope",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Drive",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 12,
+          "name": "LFO Amount",
+          "value": 30.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Elastic Band (Legacy).adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Auto Filter Legacy/Elastic Band (Legacy).adv",
+      "device_class": "AutoFilter",
+      "plugin_name": "Auto Filter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Resonance",
+          "value": 0.2876984179,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Morph",
+          "value": 0.2539682686,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Slope",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Drive",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 12,
+          "name": "LFO Amount",
+          "value": 5.47619057,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Follow me (Legacy).adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Auto Filter Legacy/Follow me (Legacy).adv",
+      "device_class": "AutoFilter",
+      "plugin_name": "Auto Filter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Resonance",
+          "value": 0.5654761791,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Morph",
+          "value": 0.25,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Slope",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Drive",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 12,
+          "name": "LFO Amount",
+          "value": 0.4761904776,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Slide Away (Legacy).adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Auto Filter Legacy/Slide Away (Legacy).adv",
+      "device_class": "AutoFilter",
+      "plugin_name": "Auto Filter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Resonance",
+          "value": 0.6646825671,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Morph",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Slope",
+          "value": "false",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Drive",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 12,
+          "name": "LFO Amount",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Cut-O-Move L (Legacy).adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Auto Filter Legacy/Cut-O-Move L (Legacy).adv",
+      "device_class": "AutoFilter",
+      "plugin_name": "Auto Filter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Resonance",
+          "value": 0.4255874455,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Morph",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Slope",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Drive",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 12,
+          "name": "LFO Amount",
+          "value": 12.8571424,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "preset_name": "Nebulo (Legacy).adv",
+      "rel_path": "Devices/Audio Effects/Legacy/Auto Filter Legacy/Nebulo (Legacy).adv",
+      "device_class": "AutoFilter",
+      "plugin_name": "Auto Filter",
+      "plugin_type": "audio_effect",
+      "has_base_map": true,
+      "parameter_count": 5,
+      "parameters": [
+        {
+          "index": 2,
+          "name": "Resonance",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 3,
+          "name": "Morph",
+          "value": 0.7539682388,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 5,
+          "name": "Slope",
+          "value": "true",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 8,
+          "name": "Drive",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "index": 12,
+          "name": "LFO Amount",
+          "value": 6.19047642,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    }
+  ]
+}

@@ -7,13 +7,23 @@ Usage:
     python unified_mcp_bridge.py                    # Interactive mode
     python unified_mcp_bridge.py -c "set tempo 120" # Single command
 
+Progressive Disclosure Commands (Anthropic best practices):
+    - help                                 # Show command categories
+    - tools                                # List all tool names
+    - tools <category>                     # List tools in category
+    - tools <category> --full              # Full tool details
+    - search <query>                       # Search presets (limit 10)
+    - search <query> --limit 25            # Search with custom limit
+    - params <track> <device>              # Get device params
+    - params <track> <device> --changed    # Only changed from defaults
+    - params <track> <device> --names a,b  # Only specific params
+
 Ableton commands (via socket to port 9877):
-    - set_tempo <bpm>
-    - create_midi_track
-    - get_session_info
-    - load_browser_item <track_index> <uri>
-    - set_device_parameter <track> <device> <param> <value>
-    - ... (all existing MCP commands)
+    - tempo <bpm>
+    - session                              # Get session info
+    - create track                         # Create MIDI track
+    - device params <track> <device>       # Get all device params
+    - device set <track> <device> <param> <value>
 
 Universal VST commands (via OSC to port 9878):
     - vst register <slot> <plugin_path>    # Load plugin into slot 1-8
@@ -371,6 +381,184 @@ class UnifiedMCPBridge:
         })
 
     # =========================================================================
+    # PROGRESSIVE DISCLOSURE (Anthropic MCP Best Practices)
+    # These methods allow AI agents to explore available tools on-demand
+    # rather than loading all tool definitions upfront (150K → 2K tokens)
+    # =========================================================================
+
+    # Tool catalog organized by category
+    TOOL_CATALOG = {
+        "session": {
+            "description": "Session-level operations (tempo, playback, transport)",
+            "tools": {
+                "get_session_info": "Get session state (tracks, tempo, playing)",
+                "set_tempo": "Set session tempo in BPM",
+                "start_playback": "Start playback",
+                "stop_playback": "Stop playback",
+            }
+        },
+        "track": {
+            "description": "Track operations (create, modify, arm)",
+            "tools": {
+                "create_midi_track": "Create new MIDI track",
+                "create_audio_track": "Create new audio track",
+                "get_track_info": "Get track details (clips, devices, arm state)",
+                "set_track_name": "Rename a track",
+            }
+        },
+        "device": {
+            "description": "Device/plugin operations (load, parameters)",
+            "tools": {
+                "get_device_parameters": "Get all parameters for a device on a track",
+                "set_device_parameter": "Set a parameter value on a device",
+                "load_browser_item": "Load a device/preset from browser onto track",
+            }
+        },
+        "browser": {
+            "description": "Browser operations (explore presets, plugins)",
+            "tools": {
+                "get_browser_tree": "Get browser category structure",
+                "get_all_presets": "Get all presets in a category",
+                "search_presets": "Search presets by name (local filtering)",
+            }
+        },
+        "clip": {
+            "description": "Clip operations (create, add notes)",
+            "tools": {
+                "create_clip": "Create a MIDI clip in a slot",
+                "add_notes_to_clip": "Add MIDI notes to a clip",
+                "fire_clip": "Trigger a clip",
+                "stop_clip": "Stop a clip",
+            }
+        },
+        "vst": {
+            "description": "VST plugin operations (via Max for Live)",
+            "tools": {
+                "vst_register": "Load a VST plugin into a slot",
+                "vst_set_param": "Set a VST parameter",
+                "vst_list": "List registered VST plugins",
+                "vst_open": "Open VST plugin GUI",
+            }
+        },
+    }
+
+    def list_tools(self, category: str = None, detail: str = "name"):
+        """
+        Progressive disclosure: List available tools with configurable detail.
+
+        Args:
+            category: Optional category filter (session, track, device, browser, clip, vst)
+            detail: Level of detail - "name", "description", or "full"
+
+        Returns:
+            Tool information at requested detail level
+        """
+        result = {}
+
+        categories = [category] if category else self.TOOL_CATALOG.keys()
+
+        for cat in categories:
+            if cat not in self.TOOL_CATALOG:
+                continue
+
+            cat_info = self.TOOL_CATALOG[cat]
+
+            if detail == "name":
+                result[cat] = list(cat_info["tools"].keys())
+            elif detail == "description":
+                result[cat] = {
+                    "description": cat_info["description"],
+                    "tools": cat_info["tools"]
+                }
+            else:  # full
+                result[cat] = cat_info
+
+        return {"status": "success", "result": result}
+
+    def search_presets(self, query: str, category: str = "audio_effects", limit: int = 10):
+        """
+        Local preset search - filters data before returning to model.
+        Uses pre-parsed preset index for fast lookups.
+
+        Args:
+            query: Search term (case-insensitive)
+            category: Category to search in
+            limit: Max results to return (token efficiency)
+        """
+        import os
+        import json
+
+        # Load preset index
+        index_file = "plugin_parameter_maps/ableton/presets_from_xml/all_presets.json"
+        if not os.path.exists(index_file):
+            return {"status": "error", "message": "Preset index not found"}
+
+        with open(index_file, "r") as f:
+            data = json.load(f)
+
+        query_lower = query.lower()
+        matches = []
+
+        for preset in data["presets"]:
+            preset_name = preset.get("preset_name", "").lower()
+            preset_path = preset.get("rel_path", "").lower()
+
+            if query_lower in preset_name or query_lower in preset_path:
+                matches.append({
+                    "name": preset.get("preset_name"),
+                    "path": preset.get("rel_path"),
+                    "device_class": preset.get("device_class"),
+                    "has_parameters": preset.get("has_base_map", False)
+                })
+
+                if len(matches) >= limit:
+                    break
+
+        return {
+            "status": "success",
+            "result": {
+                "query": query,
+                "match_count": len(matches),
+                "matches": matches
+            }
+        }
+
+    def get_device_parameters_filtered(self, track_index: int, device_index: int,
+                                        changed_only: bool = False,
+                                        include_names: list = None):
+        """
+        Get device parameters with local filtering for token efficiency.
+
+        Args:
+            track_index: Track index
+            device_index: Device index on track
+            changed_only: Only return params that differ from defaults
+            include_names: List of param names to include (filter)
+        """
+        result = self.get_device_parameters(track_index, device_index)
+
+        if result.get("status") != "success":
+            return result
+
+        params = result.get("result", {}).get("parameters", [])
+
+        # Filter by name if specified
+        if include_names:
+            names_lower = [n.lower() for n in include_names]
+            params = [p for p in params if p.get("name", "").lower() in names_lower]
+
+        # Filter to changed-only if specified
+        if changed_only:
+            params = [p for p in params
+                     if p.get("value") != p.get("default_value", p.get("value"))]
+
+        result["result"]["parameters"] = params
+        result["result"]["parameter_count"] = len(params)
+        result["result"]["filtered"] = True
+
+        return result
+
+    # =========================================================================
     # NATURAL LANGUAGE PARSER (simple)
     # =========================================================================
 
@@ -642,6 +830,83 @@ class UnifiedMCPBridge:
                     return {"status": "error", "message": "Invalid indices or value"}
 
             return {"status": "error", "message": f"Unknown device command: {subcmd}"}
+
+        # =====================================================================
+        # PROGRESSIVE DISCLOSURE COMMANDS (Anthropic best practices)
+        # =====================================================================
+
+        # tools [category] [--full]
+        # Lists available tools with configurable detail level
+        if cmd == "tools":
+            category = None
+            detail = "name"
+
+            if len(parts) >= 2:
+                if parts[1] == "--full":
+                    detail = "full"
+                elif parts[1] == "--desc":
+                    detail = "description"
+                else:
+                    category = parts[1]
+                    if len(parts) >= 3 and parts[2] == "--full":
+                        detail = "full"
+                    elif len(parts) >= 3 and parts[2] == "--desc":
+                        detail = "description"
+
+            return self.list_tools(category, detail)
+
+        # search <query> [--limit N] [--category TYPE]
+        # Searches presets locally with filtering
+        if cmd == "search" and len(parts) >= 2:
+            query = parts[1]
+            limit = 10
+            category = "audio_effects"
+
+            i = 2
+            while i < len(parts):
+                if parts[i] == "--limit" and i + 1 < len(parts):
+                    try:
+                        limit = int(parts[i + 1])
+                    except ValueError:
+                        pass
+                    i += 2
+                elif parts[i] == "--category" and i + 1 < len(parts):
+                    category = parts[i + 1]
+                    i += 2
+                else:
+                    i += 1
+
+            return self.search_presets(query, category, limit)
+
+        # params <track> <device> [--changed] [--names name1,name2,...]
+        # Filtered parameter access for token efficiency
+        if cmd == "params" and len(parts) >= 3:
+            try:
+                track_idx = int(parts[1])
+                device_idx = int(parts[2])
+                changed_only = "--changed" in parts
+                include_names = None
+
+                for i, part in enumerate(parts):
+                    if part == "--names" and i + 1 < len(parts):
+                        include_names = parts[i + 1].split(",")
+                        break
+
+                return self.get_device_parameters_filtered(
+                    track_idx, device_idx, changed_only, include_names
+                )
+            except ValueError:
+                return {"status": "error", "message": "Invalid track or device index"}
+
+        # help - show available command categories
+        if cmd == "help":
+            return {
+                "status": "success",
+                "result": {
+                    "categories": list(self.TOOL_CATALOG.keys()),
+                    "hint": "Use 'tools <category>' for details, 'tools --full' for everything"
+                }
+            }
 
         return {"status": "error", "message": f"Unknown command: {text}"}
 

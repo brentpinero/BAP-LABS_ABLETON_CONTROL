@@ -54,7 +54,7 @@ class AgentStep(BaseModel):
 # ============================================================================
 
 # Default Qwen model - can be overridden
-DEFAULT_MODEL = "mlx-community/Qwen3-4B-4bit"
+DEFAULT_MODEL = "mlx-community/Qwen3-8B-4bit"
 
 # System prompt for the music production collaborator
 # Uses ReAct pattern with progressive disclosure
@@ -62,27 +62,47 @@ SYSTEM_PROMPT = """You are a music production AI with direct Ableton Live contro
 
 You operate in a Thought → Action → Observation loop until the task is complete.
 
-FORMAT (follow exactly):
-Thought: [your reasoning about what to do next]
+FORMAT (follow EXACTLY - no variations):
+Thought: [reasoning]
 Action: <tool_call>{"name": "tool_name", "arguments": {...}}</tool_call>
 
-When task is complete:
-Thought: [summary of what was accomplished]
-Final Answer: [response to user]
+When done:
+Thought: [summary]
+Final Answer: [response]
+
+STRICT RULES:
+- Action MUST use <tool_call></tool_call> tags, never emojis or other formats
+- Only give Final Answer AFTER you see successful Observations from tool calls
+- Never claim success without actually calling tools first
 
 DISCOVERY TOOLS (use these first when unsure):
 - list_tools: Get available tools. Args: {"category": "session|track|device|browser|clip"}
 - search_presets: Search Ableton presets. Args: {"query": "reverb", "limit": 5}
 
-EXAMPLE:
-User: Add reverb to track 0
+EXAMPLE - Creating a drum beat:
+Thought: Need to create track, load kit ON THAT TRACK, then add notes TO SAME TRACK.
+1. create_midi_track at index 0 → returns track_index
+2. search_presets for drum kit → get URI
+3. load_instrument_or_effect with SAME track_index and URI
+4. create_arrangement_clip on SAME track_index
+5. add_notes_to_arrangement_clip on SAME track_index (kick=36, snare=38, hat=42)
 
-Thought: I need to add a reverb effect to track 0. First, let me discover what device tools are available.
-Action: <tool_call>{"name": "list_tools", "arguments": {"category": "device"}}</tool_call>
+EXAMPLE - Adding to existing clip:
+Thought: User wants to add hihats. Check if clip exists first.
+1. get_arrangement_clips for the track → see existing clips
+2. add_notes_to_arrangement_clip with SAME track_index and clip_index (DON'T create new clip)
 
-[After observation, you'll continue with more Thought/Action cycles until done]
+CRITICAL RULES:
+- Instrument and notes MUST be on the SAME track_index
+- Before creating clips, CHECK if one already exists with get_arrangement_clips
+- To add more notes (hihats, etc), use add_notes_to_arrangement_clip on EXISTING clip
 
-IMPORTANT: Always call list_tools or search_presets first if you're unsure what tools exist or what presets are available."""
+MANDATORY WORKFLOW:
+1. For EACH new category of work, call list_tools FIRST to see exact tool names
+2. NEVER guess tool names - only use tools you've discovered via list_tools
+3. Categories: session, track, device, browser, clip
+
+FORMATTING: Use exactly <tool_call>{"name": "...", "arguments": {...}}</tool_call> for actions. No emojis."""
 
 
 # ============================================================================
@@ -216,7 +236,7 @@ TOOL_CATALOG = {
         "description": "Session-level operations (tempo, playback, transport)",
         "tools": {
             "get_session_info": "Get session state (tracks, tempo, playing status)",
-            "set_tempo": "Set session tempo - args: {bpm: number}",
+            "set_tempo": "Set session tempo - args: {tempo: number}",
             "start_playback": "Start playback",
             "stop_playback": "Stop playback",
         }
@@ -232,8 +252,7 @@ TOOL_CATALOG = {
     "device": {
         "description": "Load instruments/effects onto tracks",
         "tools": {
-            "load_instrument_or_effect": "Load instrument/effect - args: {track_index: number, uri: string}",
-            "load_drum_kit": "Load drum kit - args: {track_index: number, uri: string}",
+            "load_instrument_or_effect": "Load instrument/effect - args: {track_index: number, uri: string}. Use search_presets to find URIs.",
         }
     },
     "browser": {
@@ -244,13 +263,11 @@ TOOL_CATALOG = {
         }
     },
     "clip": {
-        "description": "Clip operations (create, add notes)",
+        "description": "Arrangement clips. ALWAYS check get_arrangement_clips FIRST before creating new clips. DRUM NOTES: kick=36, snare=38, hat=42.",
         "tools": {
-            "create_clip": "Create MIDI clip - args: {track_index: number, clip_slot_index: number, length: number}",
-            "add_notes_to_clip": "Add notes - args: {track_index: number, clip_slot_index: number, notes: array}",
-            "set_clip_name": "Name a clip - args: {track_index: number, clip_slot_index: number, name: string}",
-            "fire_clip": "Trigger clip - args: {track_index: number, clip_slot_index: number}",
-            "stop_clip": "Stop clip - args: {track_index: number, clip_slot_index: number}",
+            "get_arrangement_clips": "CHECK THIS FIRST - Get existing clips - args: {track_index}",
+            "add_notes_to_arrangement_clip": "Add notes to clip - args: {track_index, clip_index, notes: [{pitch, start_time, duration, velocity}]}",
+            "create_arrangement_clip": "Create NEW clip (only if none exists) - args: {track_index, start_time, length}",
         }
     },
 }
@@ -321,26 +338,94 @@ def handle_discovery_tool(name: str, arguments: dict) -> dict:
     if name == "search_presets":
         query = arguments.get("query", "").lower()
         limit = arguments.get("limit", 10)
-        category = arguments.get("category", "audio_effects")  # audio_effects, instruments, etc.
+        category = arguments.get("category", None)
+
+        # Drum kit keywords - machine types and genre styles
+        drum_keywords = ["drum", "kit", "kick", "snare", "hat", "808", "909", "707", "606", "percussion"]
+        genre_keywords = ["hip hop", "trap", "boom bap", "techno", "house", "dubstep", "dnb", "breaks",
+                         "rock", "jazz", "funk", "soul", "r&b", "pop", "edm", "lo-fi", "lofi"]
+
+        synth_keywords = ["synth", "pad", "lead", "piano", "keys", "organ", "strings", "pluck"]
+        bass_keywords = ["bass", "sub", "808 bass"]  # Separate bass from drums
+        effect_keywords = ["reverb", "delay", "chorus", "flanger", "phaser", "compressor", "eq", "filter", "distortion", "saturator"]
+
+        # Check if this is a drum kit query
+        is_drum_query = any(kw in query for kw in drum_keywords + genre_keywords)
+        is_bass_query = any(kw in query for kw in bass_keywords) and not any(kw in query for kw in ["kit", "drum"])
+
+        # Auto-detect category based on query if not specified
+        if category is None:
+            if is_drum_query and not is_bass_query:
+                category = "drums"  # CRITICAL: Use drums category for actual drum racks!
+            elif is_bass_query or any(kw in query for kw in synth_keywords):
+                category = "instruments"
+            elif any(kw in query for kw in effect_keywords):
+                category = "audio_effects"
+            else:
+                category = "instruments"  # default
 
         # Load presets from MCP (with proper URIs)
         presets = load_presets_from_mcp(category)
-        matches = []
+
+        # Split query into words for flexible matching
+        query_words = query.split()
+
+        # For drum kit queries, prioritize .adg files (Drum Racks) and match genre/style
+        drum_rack_matches = []  # Full drum rack kits (.adg files with "kit" in name)
+        classic_matches = []    # Classic drum machine kits (808, 909, etc)
+        other_matches = []
 
         for preset in presets:
             preset_name = preset.get("name", "").lower()
             preset_path = preset.get("path", "").lower()
 
-            if query in preset_name or query in preset_path:
-                matches.append({
-                    "name": preset.get("name"),
-                    "path": preset.get("path"),
-                    "uri": preset.get("uri"),  # This is the proper URI for load_browser_item!
-                })
-                if len(matches) >= limit:
-                    break
+            match_data = {
+                "name": preset.get("name"),
+                "path": preset.get("path"),
+                "uri": preset.get("uri"),
+            }
 
-        return {"query": query, "category": category, "matches": matches, "hint": "Use the 'uri' field with load_instrument_or_effect"}
+            # For drum queries, prioritize Drum Rack kits from the drums category
+            if is_drum_query:
+                is_drum_rack = preset_name.endswith('.adg')
+
+                # Classic drum machines (808, 909, etc) - highest priority if specifically requested
+                if is_drum_rack and any(kw in preset_name for kw in ["808", "909", "707", "606", "505"]):
+                    if any(kw in query for kw in ["808", "909", "707", "606", "505"]):
+                        classic_matches.insert(0, match_data)  # Put requested machine first
+                    else:
+                        classic_matches.append(match_data)
+
+                # Genre/style kits - check if query words match kit name
+                elif is_drum_rack and "kit" in preset_name:
+                    # Check for genre matches
+                    if any(word in preset_name for word in query_words) or any(genre in query for genre in genre_keywords if genre in preset_name):
+                        drum_rack_matches.insert(0, match_data)
+                    else:
+                        drum_rack_matches.append(match_data)
+
+                # Skip individual samples for kit queries
+                elif not is_drum_rack:
+                    continue
+            else:
+                # Non-drum queries: match by query words
+                if any(word in preset_name or word in preset_path for word in query_words):
+                    other_matches.append(match_data)
+
+        # Return results in priority order
+        if is_drum_query:
+            # If classic drum machine requested (808, 909), put those first
+            # Otherwise put genre matches first, then classic as fallback
+            if any(kw in query for kw in ["808", "909", "707", "606", "505"]):
+                matches = (classic_matches + drum_rack_matches)[:limit]
+            else:
+                matches = (drum_rack_matches + classic_matches)[:limit]
+            hint = "Drum Rack kits. Use 'uri' with load_instrument_or_effect. MIDI notes: kick=36 (C1), snare=38 (D1), hat=42 (F#1)."
+        else:
+            matches = other_matches[:limit]
+            hint = "Use the 'uri' field with load_instrument_or_effect."
+
+        return {"query": query, "category": category, "matches": matches, "hint": hint}
 
     return None  # Not a discovery tool
 
@@ -418,13 +503,17 @@ class MCPClient:
             result = self._send_command("get_session_info")
             if result.get("status") == "success":
                 print(f"Connected! Session has {result['result']['track_count']} tracks")
-                # Define available tools (these are what AbletonMCP_Extended supports)
+                # Define available tools (Arrangement View focused)
                 self.tools = [
-                    "get_session_info", "get_track_info", "create_midi_track",
-                    "set_track_name", "create_clip", "add_notes_to_clip",
-                    "set_clip_name", "set_tempo", "fire_clip", "stop_clip",
-                    "start_playback", "stop_playback", "get_browser_tree",
-                    "get_all_presets", "load_browser_item",
+                    # Session info
+                    "get_session_info", "set_tempo", "start_playback", "stop_playback",
+                    # Track operations
+                    "get_track_info", "create_midi_track", "set_track_name",
+                    # Browser/presets
+                    "get_browser_tree", "get_all_presets", "load_browser_item",
+                    # Arrangement View clips (NOT Session View)
+                    "create_arrangement_clip", "add_notes_to_arrangement_clip", "get_arrangement_clips",
+                    # Device parameters
                     "get_device_parameters", "set_device_parameter"
                 ]
                 print(f"Available tools ({len(self.tools)}): {', '.join(self.tools[:5])}...")
@@ -446,9 +535,11 @@ class MCPClient:
         # Special handling for load_browser_item (was load_instrument_or_effect)
         if name == "load_instrument_or_effect":
             cmd_type = "load_browser_item"
+            # Handle different field names the model might use
+            uri = arguments.get("uri") or arguments.get("preset_uri") or arguments.get("item_uri") or ""
             params = {
                 "track_index": arguments.get("track_index", 0),
-                "item_uri": arguments.get("uri", "")
+                "item_uri": uri
             }
 
         result = self._send_command(cmd_type, params)
@@ -538,7 +629,7 @@ class MLXMCPBridge:
             print(f"  ✗ {name}: {e}")
             return f"Error: {str(e)}"
 
-    async def process_message(self, user_message: str, max_iterations: int = 10) -> str:
+    async def process_message(self, user_message: str, max_iterations: int = 20) -> str:
         """
         Process a user message using ReAct loop.
 

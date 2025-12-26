@@ -280,6 +280,96 @@ The user wants to learn **architecture design from first principles**, not just 
 - ❌ Ableton stock plugins NOT mapped yet
 - ❌ MCP doesn't follow Anthropic best practices yet
 
+### ✅ Phase 1.6: LLM → MCP Bridges (COMPLETE - 2024-12-23)
+
+**Working Bridges**:
+| Bridge | Model | Status | Notes |
+|--------|-------|--------|-------|
+| `claude_mcp_bridge.py` | Claude Haiku 4.5 | ✅ Working | Extended thinking enabled, native tool use |
+| `gemini_native_bridge.py` | Gemini 3 Flash | ✅ Working | Native function calling with automatic execution |
+| `mlx_mcp_bridge.py` | Qwen3-4B/8B (local) | ✅ Working | ReAct pattern, runs locally on M4 Max |
+
+**Key Fix - Gemini 3 Flash Thought Signatures**:
+- **Problem**: Gemini 3 Flash requires `thought_signature` preservation during multi-turn function calling
+- **Root Cause**: Outdated `google-genai` SDK (v1.16.1) didn't handle this automatically
+- **Solution**: Upgrade to `google-genai>=1.56.0` (`pip install --upgrade google-genai`)
+- **References**: [LangChain Issue #1364](https://github.com/langchain-ai/langchain-google/issues/1364), [Agno Issue #5471](https://github.com/agno-agi/agno/issues/5471)
+
+**Pre-defined Drum Patterns** (in `gemini_native_bridge.py`):
+- `boom_bap` - Classic 90s hip hop with ~58% swing timing
+- `trap` - Modern trap with fast 16th note hihats
+- `four_on_floor` - House/techno kick pattern
+- `basic` - Simple kick on 1&3, snare on 2&4
+
+### ✅ Phase 1.7: Foundation Model Benchmark for Synthetic Data (COMPLETE - 2024-12-25)
+
+**Goal**: Find the best foundation model for generating high-quality synthetic training data to fine-tune Qwen3-4B.
+
+**Models Benchmarked**:
+| Model | Bridge/Runner | Model ID |
+|-------|---------------|----------|
+| Claude Haiku 4.5 | `run_claude()` | claude-haiku-4-5 |
+| Claude 4.5 Sonnet | `run_claude_sonnet()` | claude-sonnet-4-5 |
+| Claude 4.5 Opus | `run_claude_opus()` | claude-opus-4-5-20251101 |
+| Gemini 3 Flash | `run_gemini()` | gemini-3-flash-preview |
+| Gemini 3 Pro | `run_gemini_pro()` | gemini-3-pro-preview |
+| GPT-5.2 | `run_openai()` | gpt-5.2 |
+
+**Benchmark Infrastructure Built**:
+- `benchmark_midi_generation.py` - Full benchmark runner with all 6 models
+- `beat_similarity.py` - Drum pattern scoring against reference MIDI
+- `bassline_similarity.py` - Bassline scoring (density, pitch range, scale conformity, rhythm)
+- `reference_patterns/` - Genre-specific MIDI patterns for objective evaluation
+  - `boom_bap/Drum_MIDI/` - 4 patterns
+  - `trap/Drum_MIDI/` - 4 patterns (8th notes, triplets, quarter note hats)
+  - `trap/Bass_MIDI_Wook/` - 25+ wook bass patterns
+  - `house/Drum_MIDI/` - 3 patterns
+  - `dnb/Drum_MIDI/` - 3 patterns
+  - `dnb/Bass_MIDI/` - 30+ DnB bass patterns
+- Added `get_arrangement_clip_notes` MCP command for reading notes from Ableton
+
+**Benchmark Results - Drums Only**:
+| Model | Boom Bap | Trap | House | DnB | Average |
+|-------|----------|------|-------|-----|---------|
+| GPT-5.2 | 0.868 | 0.912 | 0.880 | 0.827 | 0.872 |
+| Claude Haiku | 0.860 | 0.912 | 0.885 | 0.830 | **0.872** |
+| Claude Sonnet | 0.847 | 0.910 | 0.885 | 0.829 | 0.868 |
+| Gemini Flash | 0.825 | 0.916 | 0.882 | 0.828 | 0.863 |
+| Gemini Pro | 0.810 | 0.914 | 0.880 | 0.828 | 0.858 |
+
+**Benchmark Results - Chord Progressions**:
+| Model | C Minor Progression | Notes |
+|-------|---------------------|-------|
+| **GPT-5.2** | **1.000** | Perfect score |
+| All Others | 0.750 | Acceptable |
+
+**Benchmark Results - Full Production (Drums + Bass with Track Naming)**:
+
+*Final benchmark (2024-12-25) with track naming requirement - models must create TWO tracks, name them appropriately, load instruments, and create patterns for both drums AND bass.*
+
+| Model | DnB Score | Wook Score | Average | Track Naming | Notes |
+|-------|-----------|------------|---------|--------------|-------|
+| **GPT-5.2** | **0.859** | **0.815** | **0.837** | ✅ Correct | Best overall, handles complex multi-step |
+| Claude Opus | 0.716 | 0.694 | 0.705 | ✅ Correct | Zero errors, slower (~90s), 10K thinking tokens |
+| Claude Sonnet | ~0.500 | ~0.500 | ~0.500 | ✅ Correct | Dropped with track naming complexity |
+| Gemini Pro | ~0.500 | ~0.500 | ~0.500 | ✅ Correct | Similar to Sonnet |
+| Claude Haiku | 0.477 | ~0.500 | ~0.477 | ✅ Correct | Best for drums-only tasks |
+| Gemini Flash | Low | ~0.600 | ~0.500 | ✅ Correct | Inconsistent - skipped instruments on DnB |
+
+**Model Selection Recommendations**:
+| Task Type | Recommended Model | Why |
+|-----------|-------------------|-----|
+| **Drums only** | Claude Haiku 4.5 | 0.872 avg on drum-only tests, 10x cheaper than GPT-5.2, fast |
+| **Chord progressions** | GPT-5.2 | Perfect 1.000 score, understands harmony |
+| **Basslines** | GPT-5.2 | Handles melodic content and multi-step tasks |
+| **Full production** | GPT-5.2 | 0.837 avg, most reliable on complex prompts |
+
+**Hybrid Strategy for Synthetic Data Generation (RECOMMENDED)**:
+- **Claude Haiku** → Drum patterns (~80% of drum data, cost-effective)
+- **GPT-5.2** → Chord progressions AND basslines (melodic/harmonic content)
+- **Rationale**: Haiku is competitive on simple drum patterns but struggles with complex multi-step tasks. GPT-5.2 excels at chords, basslines, and anything requiring harmonic reasoning or multiple sequential operations.
+- **Cost savings**: ~5-7x vs using GPT-5.2 for everything
+
 **Tasks**:
 
 #### Task 1: Map Ableton Stock Plugins

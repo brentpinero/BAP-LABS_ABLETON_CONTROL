@@ -196,6 +196,10 @@ class AbletonMCPExtended(ControlSurface):
             elif command_type == "get_arrangement_clips":
                 track_index = params.get("track_index", 0)
                 response["result"] = self._get_arrangement_clips(track_index)
+            elif command_type == "get_arrangement_clip_notes":
+                track_index = params.get("track_index", 0)
+                clip_index = params.get("clip_index", 0)
+                response["result"] = self._get_arrangement_clip_notes(track_index, clip_index)
 
             # Browser commands (read-only, don't need main thread)
             elif command_type == "get_browser_tree":
@@ -214,6 +218,10 @@ class AbletonMCPExtended(ControlSurface):
                 track_index = params.get("track_index", 0)
                 device_index = params.get("device_index", 0)
                 response["result"] = self._get_device_parameters(track_index, device_index)
+
+            # Single-call session summary for LLM context
+            elif command_type == "get_session_summary":
+                response["result"] = self._get_session_summary()
 
             # Commands that modify Live's state (scheduled on main thread)
             elif command_type in [
@@ -362,6 +370,49 @@ class AbletonMCPExtended(ControlSurface):
             return result
         except Exception as e:
             self.log_message("Error getting session info: " + str(e))
+            raise
+
+    def _get_session_summary(self):
+        """Get compact session summary in one call for LLM context.
+        Returns tracks with device type classification (drums/synth/bass/empty).
+        """
+        try:
+            tracks = []
+            for i, track in enumerate(self._song.tracks):
+                if not track.devices:
+                    continue  # Skip empty tracks
+
+                device = track.devices[0]
+                class_name = device.class_name if hasattr(device, 'class_name') else ""
+                device_name = device.name
+
+                # Categorize device
+                cat = "inst"
+                name_lower = device_name.lower()
+                class_lower = class_name.lower()
+
+                if "instrumentgroupdevice" in class_lower or "impulse" in class_lower:
+                    cat = "drums"
+                elif "bass" in name_lower:
+                    cat = "bass"
+                elif any(k in name_lower for k in ["pad", "lead", "synth", "keys"]):
+                    cat = "synth"
+                elif any(k in class_lower for k in ["analog", "drift", "wavetable", "operator"]):
+                    cat = "synth"
+
+                # Check if track has arrangement clips
+                has_clips = len(track.arrangement_clips) > 0 if hasattr(track, 'arrangement_clips') else False
+
+                tracks.append({
+                    "i": i,
+                    "cat": cat,
+                    "dev": device_name,
+                    "clips": has_clips
+                })
+
+            return {"tempo": int(self._song.tempo), "tracks": tracks}
+        except Exception as e:
+            self.log_message("Error getting session summary: " + str(e))
             raise
 
     def _get_track_info(self, track_index):
@@ -515,10 +566,11 @@ class AbletonMCPExtended(ControlSurface):
 
             live_notes = []
             for note in notes:
-                pitch = note.get("pitch", 60)
-                start_time = note.get("start_time", 0.0)
-                duration = note.get("duration", 0.25)
-                velocity = note.get("velocity", 100)
+                # Support multiple field name formats from LLM
+                pitch = note.get("pitch") or note.get("note") or 60
+                start_time = note.get("start_time") or note.get("time") or 0.0
+                duration = note.get("duration") or note.get("length") or 0.25
+                velocity = note.get("velocity") or note.get("vel") or 100
                 mute = note.get("mute", False)
 
                 # Create MidiNoteSpecification for Live 11+
@@ -675,6 +727,68 @@ class AbletonMCPExtended(ControlSurface):
             self.log_message("Error getting arrangement clips: " + str(e))
             raise
 
+    def _get_arrangement_clip_notes(self, track_index, clip_index):
+        """
+        Get all MIDI notes from an arrangement view clip.
+
+        Args:
+            track_index: Index of the track
+            clip_index: Index of the arrangement clip
+
+        Returns:
+            Dictionary with clip info and list of notes
+        """
+        try:
+            if track_index < 0 or track_index >= len(self._song.tracks):
+                raise IndexError("Track index out of range")
+
+            track = self._song.tracks[track_index]
+
+            if not hasattr(track, 'arrangement_clips'):
+                raise ValueError("Track has no arrangement clips")
+
+            arrangement_clips = list(track.arrangement_clips)
+            if clip_index < 0 or clip_index >= len(arrangement_clips):
+                raise IndexError("Clip index out of range")
+
+            clip = arrangement_clips[clip_index]
+
+            if not clip.is_midi_clip:
+                raise ValueError("Clip is not a MIDI clip")
+
+            # Get notes using get_notes_extended (Live 11+)
+            # Returns tuple of tuples: ((pitch, start, duration, velocity, mute), ...)
+            notes_data = clip.get_notes_extended(
+                from_time=0,
+                from_pitch=0,
+                time_span=clip.length,
+                pitch_span=128
+            )
+
+            notes = []
+            for note in notes_data:
+                notes.append({
+                    "pitch": note.pitch,
+                    "start_time": note.start_time,
+                    "duration": note.duration,
+                    "velocity": note.velocity,
+                    "mute": note.mute if hasattr(note, 'mute') else False
+                })
+
+            result = {
+                "track_index": track_index,
+                "track_name": track.name,
+                "clip_index": clip_index,
+                "clip_name": clip.name,
+                "clip_length": clip.length,
+                "note_count": len(notes),
+                "notes": notes
+            }
+            return result
+        except Exception as e:
+            self.log_message("Error getting arrangement clip notes: " + str(e))
+            raise
+
     def _duplicate_clip_to_arrangement(self, track_index, clip_index, position):
         """
         Duplicate a session view clip to arrangement view at specified position.
@@ -809,10 +923,11 @@ class AbletonMCPExtended(ControlSurface):
 
             live_notes = []
             for note in notes:
-                pitch = note.get("pitch", 60)
-                start_time = note.get("start_time", 0.0)
-                duration = note.get("duration", 0.25)
-                velocity = note.get("velocity", 100)
+                # Support multiple field name formats from LLM
+                pitch = note.get("pitch") or note.get("note") or 60
+                start_time = note.get("start_time") or note.get("time") or 0.0
+                duration = note.get("duration") or note.get("length") or 0.25
+                velocity = note.get("velocity") or note.get("vel") or 100
                 mute = note.get("mute", False)
 
                 # Create MidiNoteSpecification for Live 11+

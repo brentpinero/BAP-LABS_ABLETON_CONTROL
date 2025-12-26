@@ -64,11 +64,19 @@ Bass_Presets/
 
 # MIDI files
 MIDI/
+*.mid
+reference_patterns/
 
 # Temporary files
 *.tmp
 *.bak
 *.backup
+
+# Old/archived files (moved here per project conventions)
+old/
+
+# Benchmark results (regenerable)
+benchmark_results_*.json
 
 # Large PDFs
 *.pdf

@@ -474,10 +474,26 @@ class UnifiedMCPBridge:
                 "get_clip_warp_markers": "Get warp markers (Live 11+) - args: {track_index, clip_index}",
             }
         },
+        "transport": {
+            "description": "Transport and playhead control",
+            "tools": {
+                "get_current_position": "Get playhead position (beats), playing state, tempo",
+                "set_current_position": "Move playhead to beat position - args: {position}",
+                "start_playback": "Start playback",
+                "stop_playback": "Stop playback",
+            }
+        },
+        "selection": {
+            "description": "Track and clip selection (for programmatic editing)",
+            "tools": {
+                "select_track": "Select a track by index - args: {track_index}",
+                "select_clip": "Select arrangement clip - args: {track_index, clip_index}",
+            }
+        },
         "automator": {
             "description": "GUI automation for operations not in Live API (requires Ableton foreground)",
             "tools": {
-                "automator_split": "Split clip at cursor (Cmd+E)",
+                "automator_split": "Split clip at cursor (Cmd+E) - use with select_clip + set_current_position",
                 "automator_consolidate": "Consolidate selection (Cmd+J)",
                 "automator_undo": "Undo last action (Cmd+Z)",
                 "automator_redo": "Redo (Cmd+Shift+Z)",

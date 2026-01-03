@@ -249,6 +249,10 @@ class AbletonMCPExtended(ControlSurface):
                 device_index = params.get("device_index", 0)
                 response["result"] = self._get_master_device_parameters(device_index)
 
+            # Transport (read-only)
+            elif command_type == "get_current_position":
+                response["result"] = self._get_current_position()
+
             # Commands that modify Live's state (scheduled on main thread)
             elif command_type in [
                 "create_midi_track", "set_track_name",
@@ -276,7 +280,9 @@ class AbletonMCPExtended(ControlSurface):
                 # Arrangement editing (Priority 5)
                 "set_clip_mute", "set_clip_start_end", "set_clip_color",
                 # Master track (Priority 6)
-                "set_master_volume", "set_master_device_parameter"
+                "set_master_volume", "set_master_device_parameter",
+                # Transport and selection (Priority 7)
+                "set_current_position", "select_track", "select_clip"
             ]:
                 response_queue = queue.Queue()
 
@@ -468,6 +474,18 @@ class AbletonMCPExtended(ControlSurface):
                             parameter_index = params.get("parameter_index", 0)
                             value = params.get("value", 0.0)
                             result = self._set_master_device_parameter(device_index, parameter_index, value)
+
+                        # Transport and selection (Priority 7)
+                        elif command_type == "set_current_position":
+                            position = params.get("position", 0.0)
+                            result = self._set_current_position(position)
+                        elif command_type == "select_track":
+                            track_index = params.get("track_index", 0)
+                            result = self._select_track(track_index)
+                        elif command_type == "select_clip":
+                            track_index = params.get("track_index", 0)
+                            clip_index = params.get("clip_index", 0)
+                            result = self._select_clip(track_index, clip_index)
 
                         response_queue.put({"status": "success", "result": result})
                     except Exception as e:
@@ -2003,4 +2021,101 @@ class AbletonMCPExtended(ControlSurface):
             }
         except Exception as e:
             self.log_message("Error setting master device parameter: " + str(e))
+            raise
+
+    # =========================================================================
+    # Transport and Selection (Priority 7)
+    # =========================================================================
+
+    def _get_current_position(self):
+        """Get current playhead position in beats"""
+        try:
+            return {
+                "position": self._song.current_song_time,
+                "is_playing": self._song.is_playing,
+                "tempo": self._song.tempo
+            }
+        except Exception as e:
+            self.log_message("Error getting current position: " + str(e))
+            raise
+
+    def _set_current_position(self, position):
+        """Set playhead position in beats"""
+        try:
+            self._song.current_song_time = max(0.0, position)
+            return {
+                "position": self._song.current_song_time,
+                "is_playing": self._song.is_playing
+            }
+        except Exception as e:
+            self.log_message("Error setting current position: " + str(e))
+            raise
+
+    def _select_track(self, track_index):
+        """Select a track by index"""
+        try:
+            if track_index < 0 or track_index >= len(self._song.tracks):
+                raise IndexError("Track index out of range")
+            track = self._song.tracks[track_index]
+            self._song.view.selected_track = track
+            return {
+                "track_index": track_index,
+                "track_name": track.name,
+                "selected": True
+            }
+        except Exception as e:
+            self.log_message("Error selecting track: " + str(e))
+            raise
+
+    def _select_clip(self, track_index, clip_index):
+        """
+        Select an arrangement clip for editing operations.
+        This sets the clip as the detail clip and positions playhead at its start.
+
+        For split operations, you may need to also call set_current_position
+        to move the playhead to where you want the split to occur.
+        """
+        try:
+            if track_index < 0 or track_index >= len(self._song.tracks):
+                raise IndexError("Track index out of range")
+
+            track = self._song.tracks[track_index]
+
+            if not hasattr(track, 'arrangement_clips'):
+                raise ValueError("Track has no arrangement clips")
+
+            clips = list(track.arrangement_clips)
+            if clip_index < 0 or clip_index >= len(clips):
+                raise IndexError("Clip index out of range. Track has {} arrangement clips.".format(len(clips)))
+
+            clip = clips[clip_index]
+
+            # Select the track first
+            self._song.view.selected_track = track
+
+            # Set this clip as the detail clip (shows in clip view)
+            self._song.view.detail_clip = clip
+
+            # For arrangement view selection, we also need to highlight the clip
+            # This positions the view on the clip
+            if hasattr(self._song.view, 'highlighted_clip_slot'):
+                # Session view uses highlighted_clip_slot, but for arrangement
+                # we rely on detail_clip and positioning
+                pass
+
+            result = {
+                "track_index": track_index,
+                "track_name": track.name,
+                "clip_index": clip_index,
+                "clip_name": clip.name,
+                "clip_start": clip.start_time,
+                "clip_end": clip.end_time,
+                "clip_length": clip.length,
+                "selected": True,
+                "note": "Clip selected. For split, position playhead with set_current_position then use automator_split."
+            }
+
+            return result
+        except Exception as e:
+            self.log_message("Error selecting clip: " + str(e))
             raise

@@ -29,7 +29,8 @@ from typing import List, Tuple, Optional, Dict, Any
 class AbletonAutomatorBridge:
     """Execute Ableton operations via AppleScript System Events"""
 
-    ABLETON_APP_NAME = "Ableton Live 12 Suite"  # Adjust for your version
+    ABLETON_APP_NAME = "Ableton Live 12 Suite"  # App name for activation
+    ABLETON_PROCESS_NAME = "Live"  # Process name for System Events
     MAX_RETRIES = 3
     RETRY_DELAY = 0.5
     ACTIVATION_DELAY = 0.3
@@ -119,7 +120,7 @@ class AbletonAutomatorBridge:
         if key.lower() in self.KEY_CODES:
             script = f'''
             tell application "System Events"
-                tell process "{self.ABLETON_APP_NAME}"
+                tell process "{self.ABLETON_PROCESS_NAME}"
                     key code {self.KEY_CODES[key.lower()]}{modifier_str}
                 end tell
             end tell
@@ -127,7 +128,7 @@ class AbletonAutomatorBridge:
         else:
             script = f'''
             tell application "System Events"
-                tell process "{self.ABLETON_APP_NAME}"
+                tell process "{self.ABLETON_PROCESS_NAME}"
                     keystroke "{key}"{modifier_str}
                 end tell
             end tell
@@ -157,7 +158,7 @@ class AbletonAutomatorBridge:
 
         script = f'''
         tell application "System Events"
-            tell process "{self.ABLETON_APP_NAME}"
+            tell process "{self.ABLETON_PROCESS_NAME}"
                 click menu item "{menu_item}" of menu 1 of menu bar item "{menu_bar}" of menu bar 1
             end tell
         end tell
@@ -183,7 +184,7 @@ class AbletonAutomatorBridge:
         while time.time() - start < timeout:
             script = f'''
             tell application "System Events"
-                tell process "{self.ABLETON_APP_NAME}"
+                tell process "{self.ABLETON_PROCESS_NAME}"
                     return exists window "{dialog_title}"
                 end tell
             end tell
@@ -205,7 +206,7 @@ class AbletonAutomatorBridge:
         """
         script = f'''
         tell application "System Events"
-            tell process "{self.ABLETON_APP_NAME}"
+            tell process "{self.ABLETON_PROCESS_NAME}"
                 click button "{button_name}" of front window
             end tell
         end tell

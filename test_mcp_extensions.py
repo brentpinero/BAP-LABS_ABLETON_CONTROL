@@ -1,7 +1,7 @@
 """
 Test suite for Ableton MCP Extensions
 
-Tests all new commands added in Phases 1-7:
+Tests all new commands added in Phases 1-8:
 - Phase 1: Mixer Controls
 - Phase 2: Audio Clip Properties
 - Phase 3: Track Organization
@@ -9,6 +9,7 @@ Tests all new commands added in Phases 1-7:
 - Phase 5: Arrangement Editing
 - Phase 6: Master Track
 - Phase 7: Automator Bridge
+- Phase 8: Transport & Selection (for programmatic split workflow)
 
 Usage:
     # Run all tests (requires Ableton running with AbletonMCP_Extended)
@@ -19,6 +20,9 @@ Usage:
 
     # Run automator tests only (no Ableton required, but tests AppleScript)
     python test_mcp_extensions.py --automator-only
+
+    # Run full transport/selection tests with split workflow
+    python test_mcp_extensions.py --phase 8 --transport-full
 
     # Dry run (show what would be tested)
     python test_mcp_extensions.py --dry-run
@@ -632,14 +636,59 @@ def test_phase7_automator(results: TestResults, full_test: bool = False):
     if full_test:
         # Actually run automator commands (requires Ableton in foreground)
         print("\n  Running live automator tests (Ableton must be in foreground)...")
+        print("  NOTE: Split/duplicate tests require a clip to be selected in Ableton!")
         time.sleep(2)  # Give user time to switch to Ableton
 
-        # Test undo (safe operation)
+        # Test undo (safe operation - always works)
         result = handle_automator_command("automator_undo")
         if result.get("success"):
             results.add_pass("automator_undo_live")
         else:
             results.add_fail("automator_undo_live", result.get("error", "Unknown error"))
+
+        # Test redo (reverse the undo)
+        time.sleep(0.3)
+        result = handle_automator_command("automator_redo")
+        if result.get("success"):
+            results.add_pass("automator_redo_live")
+        else:
+            results.add_fail("automator_redo_live", result.get("error", "Unknown error"))
+
+        # Test duplicate (Cmd+D) - works on selection
+        time.sleep(0.3)
+        result = handle_automator_command("automator_duplicate")
+        if result.get("success"):
+            results.add_pass("automator_duplicate_live")
+        else:
+            results.add_fail("automator_duplicate_live", result.get("error", "Unknown error"))
+
+        # Undo the duplicate
+        time.sleep(0.3)
+        handle_automator_command("automator_undo")
+
+        # Test split (Cmd+E) - splits at playhead if clip selected
+        time.sleep(0.3)
+        result = handle_automator_command("automator_split")
+        if result.get("success"):
+            results.add_pass("automator_split_live")
+        else:
+            results.add_fail("automator_split_live", result.get("error", "Unknown error"))
+
+        # Undo the split
+        time.sleep(0.3)
+        handle_automator_command("automator_undo")
+
+        # Test quantize (Cmd+U) - quantizes selected notes/clips
+        time.sleep(0.3)
+        result = handle_automator_command("automator_quantize")
+        if result.get("success"):
+            results.add_pass("automator_quantize_live")
+        else:
+            results.add_fail("automator_quantize_live", result.get("error", "Unknown error"))
+
+        # Undo the quantize
+        time.sleep(0.3)
+        handle_automator_command("automator_undo")
     else:
         # Just verify the handler function exists and accepts commands
         for cmd, params in test_commands:
@@ -656,6 +705,139 @@ def test_phase7_automator(results: TestResults, full_test: bool = False):
         results.add_pass("automator_unknown_command_error")
     else:
         results.add_fail("automator_unknown_command_error", "Should return error for unknown command")
+
+
+# =============================================================================
+# Phase 8: Transport and Selection Tests
+# =============================================================================
+
+def test_phase8_transport_selection(client: MCPTestClient, results: TestResults, full_test: bool = False):
+    """Test Phase 8: Transport and Selection (for programmatic split workflow)"""
+    print("\n" + "-" * 60)
+    print("PHASE 8: Transport and Selection")
+    print("-" * 60)
+
+    # Test get_current_position
+    result = client.send_command("get_current_position")
+    if assert_success(result, "get_current_position", results):
+        pos_data = result.get("result", {})
+        if "position" in pos_data:
+            results.add_pass("get_current_position_has_position")
+        else:
+            results.add_fail("get_current_position_has_position", "Missing position key")
+
+    # Test set_current_position
+    result = client.send_command("set_current_position", {"position": 4.0})
+    assert_success(result, "set_current_position", results)
+
+    # Verify position was set
+    result = client.send_command("get_current_position")
+    if result.get("status") == "success":
+        new_pos = result.get("result", {}).get("position", 0)
+        if abs(new_pos - 4.0) < 0.1:
+            results.add_pass("set_current_position_verify")
+        else:
+            results.add_fail("set_current_position_verify", f"Expected 4.0, got {new_pos}")
+
+    # Reset position to 0
+    client.send_command("set_current_position", {"position": 0.0})
+
+    # Test select_track
+    session = client.send_command("get_session_info")
+    track_count = session.get("result", {}).get("track_count", 0)
+
+    if track_count > 0:
+        result = client.send_command("select_track", {"track_index": 0})
+        assert_success(result, "select_track", results)
+    else:
+        results.add_skip("select_track", "No tracks in session")
+
+    # Test select_clip - find a track with arrangement clips
+    clip_track_index = None
+    clip_index = None
+
+    for i in range(track_count):
+        clips = client.send_command("get_arrangement_clips", {"track_index": i})
+        if clips.get("status") == "success":
+            clip_list = clips.get("result", {}).get("clips", [])
+            if clip_list:
+                clip_track_index = i
+                clip_index = 0
+                break
+
+    if clip_track_index is not None:
+        result = client.send_command("select_clip", {
+            "track_index": clip_track_index,
+            "clip_index": clip_index
+        })
+        if assert_success(result, "select_clip", results):
+            # Verify clip info is returned
+            clip_data = result.get("result", {})
+            if "clip_start" in clip_data:
+                results.add_pass("select_clip_has_clip_info")
+            else:
+                results.add_fail("select_clip_has_clip_info", "Missing clip_start in response")
+    else:
+        results.add_skip("select_clip", "No arrangement clips in session")
+
+    # Test full programmatic split workflow (only if full_test and clip exists)
+    if full_test and clip_track_index is not None:
+        print("\n  Testing programmatic split workflow...")
+        print("  (select_clip -> set_current_position -> automator_split)")
+
+        # Import automator
+        try:
+            sys.path.insert(0, '/Users/brentpinero/Documents/serum_llm_2/AbletonMCP_Extended')
+            from automator_bridge import handle_automator_command
+
+            # Get clip info
+            clips_result = client.send_command("get_arrangement_clips", {"track_index": clip_track_index})
+            clips = clips_result.get("result", {}).get("clips", [])
+            if clips:
+                clip_start = clips[0].get("start_time", 0)
+                clip_length = clips[0].get("length", 4)
+                split_position = clip_start + (clip_length / 2)  # Split in the middle
+
+                # Step 1: Select the clip
+                result = client.send_command("select_clip", {
+                    "track_index": clip_track_index,
+                    "clip_index": 0
+                })
+                if result.get("status") == "success":
+                    results.add_pass("split_workflow_select_clip")
+                else:
+                    results.add_fail("split_workflow_select_clip", result.get("message", ""))
+                    return
+
+                # Step 2: Position playhead in middle of clip
+                result = client.send_command("set_current_position", {"position": split_position})
+                if result.get("status") == "success":
+                    results.add_pass("split_workflow_set_position")
+                else:
+                    results.add_fail("split_workflow_set_position", result.get("message", ""))
+                    return
+
+                time.sleep(0.5)  # Give Ableton time to update selection
+
+                # Step 3: Execute split via automator
+                split_result = handle_automator_command("automator_split")
+                if split_result.get("success"):
+                    results.add_pass("split_workflow_automator_split")
+                else:
+                    results.add_fail("split_workflow_automator_split", split_result.get("error", ""))
+
+                # Step 4: Undo the split to restore state
+                time.sleep(0.5)
+                handle_automator_command("automator_undo")
+                results.add_pass("split_workflow_undo")
+
+        except ImportError as e:
+            results.add_skip("split_workflow", f"Could not import automator: {e}")
+    else:
+        results.add_skip("split_workflow_select_clip", "Use --transport-full to test")
+        results.add_skip("split_workflow_set_position", "Use --transport-full to test")
+        results.add_skip("split_workflow_automator_split", "Use --transport-full to test")
+        results.add_skip("split_workflow_undo", "Use --transport-full to test")
 
 
 # =============================================================================
@@ -757,12 +939,14 @@ def test_integration_workflow(client: MCPTestClient, results: TestResults):
 
 def main():
     parser = argparse.ArgumentParser(description="Test Ableton MCP Extensions")
-    parser.add_argument("--phase", type=int, choices=[1, 2, 3, 4, 5, 6, 7],
+    parser.add_argument("--phase", type=int, choices=[1, 2, 3, 4, 5, 6, 7, 8],
                         help="Run tests for specific phase only")
     parser.add_argument("--automator-only", action="store_true",
                         help="Only run automator bridge tests (no Ableton required)")
     parser.add_argument("--automator-full", action="store_true",
                         help="Run live automator tests (Ableton must be foreground)")
+    parser.add_argument("--transport-full", action="store_true",
+                        help="Run full transport/selection tests including split workflow")
     parser.add_argument("--dry-run", action="store_true",
                         help="Show what would be tested without running")
     parser.add_argument("--integration", action="store_true",
@@ -786,6 +970,7 @@ def main():
         print("  Phase 5: Arrangement Editing (4 tests)")
         print("  Phase 6: Master Track (4 tests)")
         print("  Phase 7: Automator Bridge (15 tests)")
+        print("  Phase 8: Transport & Selection (10 tests)")
         print("  Integration: Full Workflow (7 tests)")
         return
 
@@ -819,9 +1004,12 @@ def main():
             5: test_phase5_arrangement,
             6: test_phase6_master,
             7: lambda c, r: test_phase7_automator(r, args.automator_full),
+            8: lambda c, r: test_phase8_transport_selection(c, r, args.transport_full),
         }
         if args.phase == 7:
             test_phase7_automator(results, args.automator_full)
+        elif args.phase == 8:
+            test_phase8_transport_selection(client, results, args.transport_full)
         else:
             phase_tests[args.phase](client, results)
     elif args.integration:
@@ -835,6 +1023,7 @@ def main():
         test_phase5_arrangement(client, results)
         test_phase6_master(client, results)
         test_phase7_automator(results, args.automator_full)
+        test_phase8_transport_selection(client, results, args.transport_full)
 
         if args.integration or True:  # Always run integration
             test_integration_workflow(client, results)

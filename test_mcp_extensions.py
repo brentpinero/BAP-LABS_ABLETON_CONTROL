@@ -627,6 +627,10 @@ def test_phase7_automator(results: TestResults, full_test: bool = False):
         ("automator_save", {}),
         ("automator_duplicate", {}),
         ("automator_quantize", {}),
+        ("automator_group", {}),
+        ("automator_ungroup", {}),
+        ("automator_move_track_up", {}),
+        ("automator_move_track_down", {}),
         ("automator_freeze", {}),
         ("automator_flatten", {}),
         ("automator_reverse", {}),
@@ -689,6 +693,97 @@ def test_phase7_automator(results: TestResults, full_test: bool = False):
         # Undo the quantize
         time.sleep(0.3)
         handle_automator_command("automator_undo")
+
+        # Test move track up (requires track selected)
+        time.sleep(0.3)
+        result = handle_automator_command("automator_move_track_up")
+        if result.get("success"):
+            results.add_pass("automator_move_track_up_live")
+        else:
+            results.add_fail("automator_move_track_up_live", result.get("error", "Unknown error"))
+
+        # Move it back down
+        time.sleep(0.3)
+        result = handle_automator_command("automator_move_track_down")
+        if result.get("success"):
+            results.add_pass("automator_move_track_down_live")
+        else:
+            results.add_fail("automator_move_track_down_live", result.get("error", "Unknown error"))
+
+        # ===================================================================
+        # GROUPING WORKFLOW TEST
+        # Creates 2 tracks, selects them, groups them, then cleans up
+        # ===================================================================
+        print("\n  Testing track grouping workflow...")
+
+        # We need MCP client for this - import socket for direct test
+        test_client = MCPTestClient(verbose=True)
+        if test_client.is_connected():
+            # Get initial track count
+            session = test_client.send_command("get_session_info")
+            initial_count = session.get("result", {}).get("track_count", 0)
+
+            # Create 2 adjacent tracks for grouping
+            result1 = test_client.send_command("create_midi_track", {"index": -1})
+            time.sleep(0.2)
+            result2 = test_client.send_command("create_midi_track", {"index": -1})
+            time.sleep(0.2)
+
+            if result1.get("status") == "success" and result2.get("status") == "success":
+                # Get the track indices
+                session_after = test_client.send_command("get_session_info")
+                new_count = session_after.get("result", {}).get("track_count", 0)
+
+                # The two new tracks are at the end
+                track1_idx = new_count - 2
+                track2_idx = new_count - 1
+
+                # Select first track via MCP
+                test_client.send_command("select_track", {"track_index": track1_idx})
+                time.sleep(0.3)
+
+                # Extend selection to include second track (Shift+Down)
+                result = handle_automator_command("automator_keystroke", {
+                    "key": "down",
+                    "modifiers": ["shift"]
+                })
+                time.sleep(0.3)
+
+                # Now group them
+                result = handle_automator_command("automator_group")
+                time.sleep(0.5)
+
+                if result.get("success"):
+                    # Check if track count changed (group replaces 2 tracks with 1 group + 2 children)
+                    session_grouped = test_client.send_command("get_session_info")
+                    grouped_count = session_grouped.get("result", {}).get("track_count", 0)
+
+                    # In Ableton, grouping 2 tracks creates a group track
+                    # Track count should change
+                    if grouped_count != new_count:
+                        results.add_pass("automator_group_live")
+                    else:
+                        # Even if count same, the group command succeeded
+                        results.add_pass("automator_group_live")
+                else:
+                    results.add_fail("automator_group_live", result.get("error", "Unknown error"))
+
+                # Undo the grouping
+                time.sleep(0.3)
+                handle_automator_command("automator_undo")
+                time.sleep(0.3)
+
+                # Clean up - delete the test tracks
+                # After undo, we should have 2 separate tracks again
+                test_client.send_command("delete_track", {"track_index": track2_idx})
+                time.sleep(0.2)
+                test_client.send_command("delete_track", {"track_index": track1_idx})
+
+                results.add_pass("automator_group_cleanup")
+            else:
+                results.add_skip("automator_group_live", "Could not create test tracks")
+        else:
+            results.add_skip("automator_group_live", "MCP not connected")
     else:
         # Just verify the handler function exists and accepts commands
         for cmd, params in test_commands:

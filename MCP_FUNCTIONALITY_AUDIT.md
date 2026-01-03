@@ -1,6 +1,6 @@
 # Ableton MCP Functionality Audit
 
-## Current Status: 54 MCP Commands + 19 Automator Commands
+## Current Status: 54 MCP Commands + 27 Automator Commands
 
 ---
 
@@ -31,6 +31,7 @@
 | **Clipboard** | copy, paste, cut, delete_selection, select_all |
 | **Undo/Redo** | undo (Cmd+Z), redo (Cmd+Shift+Z) |
 | **File** | save (Cmd+S), export_audio (Cmd+Shift+R) |
+| **Track Organization** | group_tracks (Cmd+G), ungroup_tracks (Cmd+Shift+G), move_track_up (Cmd+Up), move_track_down (Cmd+Down), select_tracks_range*, select_track_click* |
 | **Track Processing** | freeze_track, flatten_track, reverse_clip |
 | **View Toggles** | toggle_loop (Cmd+L), toggle_automation_mode, toggle_draw_mode |
 | **Navigation** | navigate (arrow keys) |
@@ -189,10 +190,56 @@ MISSING:
 
 ---
 
+## Vision-Based Workflow (TODO)
+
+### The Problem
+
+Click-based track selection (`select_tracks_range`, `select_track_click`) uses hardcoded pixel coordinates which are **brittle** because:
+- Track heights vary based on zoom level
+- Mixer position changes based on window layout
+- Group folders expand/collapse, shifting positions
+- Window size/position affects all coordinates
+
+### The Solution: Screenshot → Vision → Action
+
+A robust workflow would use vision analysis:
+
+```
+1. Take screenshot of Ableton
+2. Send to Claude/Vision model: "Find track headers for tracks X and Y, return click coordinates"
+3. Parse response for precise {x, y} coordinates
+4. Execute clicks at those coordinates
+5. Verify with another screenshot if needed
+```
+
+### Implementation Notes
+
+- `automator_bridge.py` already has `get_window_position()` and `click_at_position()`
+- Need to add `take_screenshot()` that returns image data
+- Vision analysis can identify:
+  - Track header positions (name labels)
+  - Mixer section boundaries
+  - Currently selected tracks (highlight color)
+  - Group folder expand/collapse state
+
+### Current State
+
+| Command | Status |
+|---------|--------|
+| `automator_group` | ✅ Works (Cmd+G) - requires tracks pre-selected |
+| `automator_ungroup` | ✅ Works (Cmd+Shift+G) |
+| `automator_move_track_up` | ✅ Works (Cmd+Up) - single track |
+| `automator_move_track_down` | ✅ Works (Cmd+Down) - single track |
+| `select_tracks_range` | ⚠️ Functional but brittle (needs vision) |
+| `select_track_click` | ⚠️ Functional but brittle (needs vision) |
+
+---
+
 ## Next Steps
 
-1. Add Priority 1 commands (transport, arming, clip movement)
-2. Add scene-related commands
-3. Add marker commands
-4. Expand test coverage for existing commands
-5. Document which operations require Automator vs MCP
+1. ~~Add Priority 1 commands (transport, arming, clip movement)~~ ✅ Done (transport, selection)
+2. **Implement vision-based click targeting** for reliable multi-track selection
+3. Add scene-related commands
+4. Add marker commands
+5. Add track arming commands
+6. Expand test coverage for existing commands

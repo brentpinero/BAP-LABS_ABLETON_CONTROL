@@ -398,20 +398,28 @@ class UnifiedMCPBridge:
             }
         },
         "track": {
-            "description": "Track operations (create, modify, arm)",
+            "description": "Track operations (create, modify, organize)",
             "tools": {
-                "create_midi_track": "Create new MIDI track",
-                "create_audio_track": "Create new audio track",
-                "get_track_info": "Get track details (clips, devices, arm state)",
-                "set_track_name": "Rename a track",
+                "create_midi_track": "Create new MIDI track - args: {index}",
+                "create_audio_track": "Create new audio track - args: {index}",
+                "delete_track": "Delete a track (DESTRUCTIVE) - args: {track_index}",
+                "get_track_info": "Get track details (clips, devices)",
+                "set_track_name": "Rename a track - args: {track_index, name}",
+                "set_track_color": "Set track color - args: {track_index, color_index}",
+                "get_track_routing": "Get I/O routing info - args: {track_index}",
+                "fold_track": "Fold/unfold group track - args: {track_index, fold}",
+                "create_return_track": "Create new return track",
             }
         },
         "device": {
-            "description": "Device/plugin operations (load, parameters)",
+            "description": "Device/plugin operations (load, parameters, chain)",
             "tools": {
-                "get_device_parameters": "Get all parameters for a device on a track",
-                "set_device_parameter": "Set a parameter value on a device",
-                "load_browser_item": "Load a device/preset from browser onto track",
+                "get_device_parameters": "Get all params - args: {track_index, device_index}",
+                "set_device_parameter": "Set param by index - args: {track_index, device_index, parameter_index, value}",
+                "set_device_parameter_by_name": "Set param by name (fuzzy) - args: {track_index, device_index, param_name, value}",
+                "set_device_enabled": "Enable/disable device - args: {track_index, device_index, enabled}",
+                "delete_device": "Remove device (DESTRUCTIVE) - args: {track_index, device_index}",
+                "load_browser_item": "Load preset from browser - args: {track_index, item_uri}",
             }
         },
         "browser": {
@@ -423,12 +431,64 @@ class UnifiedMCPBridge:
             }
         },
         "clip": {
-            "description": "Clip operations (create, add notes)",
+            "description": "Clip operations (create, edit, arrange)",
             "tools": {
-                "create_clip": "Create a MIDI clip in a slot",
-                "add_notes_to_clip": "Add MIDI notes to a clip",
-                "fire_clip": "Trigger a clip",
-                "stop_clip": "Stop a clip",
+                "create_clip": "Create a MIDI clip in slot - args: {track_index, clip_index, length}",
+                "add_notes_to_clip": "Add MIDI notes - args: {track_index, clip_index, notes}",
+                "fire_clip": "Trigger a clip - args: {track_index, clip_index}",
+                "stop_clip": "Stop a clip - args: {track_index, clip_index}",
+                "set_clip_mute": "Mute/unmute clip - args: {track_index, clip_index, muted}",
+                "set_clip_start_end": "Set clip markers - args: {track_index, clip_index, start_marker, end_marker}",
+                "set_clip_color": "Set clip color - args: {track_index, clip_index, color_index}",
+            }
+        },
+        "master": {
+            "description": "Master track operations (volume, devices)",
+            "tools": {
+                "get_master_track": "Get master track info (volume, pan, devices)",
+                "set_master_volume": "Set master volume (0-1) - args: {volume}",
+                "get_master_device_parameters": "Get master device params - args: {device_index}",
+                "set_master_device_parameter": "Set master device param - args: {device_index, parameter_index, value}",
+            }
+        },
+        "mixer": {
+            "description": "Mixer controls (volume, pan, sends, mute/solo)",
+            "tools": {
+                "set_track_volume": "Set track volume (0-1) - args: {track_index, volume}",
+                "set_track_pan": "Set pan (-1 to 1) - args: {track_index, pan}",
+                "set_send_level": "Set send level - args: {track_index, send_index, level}",
+                "set_track_mute": "Mute/unmute - args: {track_index, mute}",
+                "set_track_solo": "Solo/unsolo - args: {track_index, solo}",
+                "get_return_tracks": "Get return track info (volumes, devices)",
+                "set_return_track_volume": "Set return volume - args: {return_index, volume}",
+            }
+        },
+        "audio_clip": {
+            "description": "Audio clip properties (gain, pitch, warp, loop)",
+            "tools": {
+                "get_audio_clip_properties": "Get clip properties - args: {track_index, clip_index}",
+                "set_clip_gain": "Set gain (0-1) - args: {track_index, clip_index, gain}",
+                "set_clip_pitch": "Set pitch - args: {track_index, clip_index, semitones, cents}",
+                "set_clip_loop": "Set loop points - args: {track_index, clip_index, loop_start, loop_end, looping}",
+                "set_clip_warp_mode": "Set warp mode (0-5) - args: {track_index, clip_index, warp_mode}",
+                "get_clip_warp_markers": "Get warp markers (Live 11+) - args: {track_index, clip_index}",
+            }
+        },
+        "automator": {
+            "description": "GUI automation for operations not in Live API (requires Ableton foreground)",
+            "tools": {
+                "automator_split": "Split clip at cursor (Cmd+E)",
+                "automator_consolidate": "Consolidate selection (Cmd+J)",
+                "automator_undo": "Undo last action (Cmd+Z)",
+                "automator_redo": "Redo (Cmd+Shift+Z)",
+                "automator_export": "Open export dialog (Cmd+Shift+R)",
+                "automator_save": "Save project (Cmd+S)",
+                "automator_duplicate": "Duplicate selection (Cmd+D)",
+                "automator_quantize": "Quantize selection (Cmd+U)",
+                "automator_freeze": "Freeze track (menu)",
+                "automator_flatten": "Flatten track (menu)",
+                "automator_reverse": "Reverse clip (menu)",
+                "automator_keystroke": "Custom keystroke - args: {key, modifiers: []}",
             }
         },
         "vst": {

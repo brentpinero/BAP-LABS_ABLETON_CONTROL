@@ -223,6 +223,32 @@ class AbletonMCPExtended(ControlSurface):
             elif command_type == "get_session_summary":
                 response["result"] = self._get_session_summary()
 
+            # Mixer controls (read-only)
+            elif command_type == "get_return_tracks":
+                response["result"] = self._get_return_tracks()
+
+            # Audio clip properties (read-only)
+            elif command_type == "get_audio_clip_properties":
+                track_index = params.get("track_index", 0)
+                clip_index = params.get("clip_index", 0)
+                response["result"] = self._get_audio_clip_properties(track_index, clip_index)
+            elif command_type == "get_clip_warp_markers":
+                track_index = params.get("track_index", 0)
+                clip_index = params.get("clip_index", 0)
+                response["result"] = self._get_clip_warp_markers(track_index, clip_index)
+
+            # Track organization (read-only)
+            elif command_type == "get_track_routing":
+                track_index = params.get("track_index", 0)
+                response["result"] = self._get_track_routing(track_index)
+
+            # Master track (read-only)
+            elif command_type == "get_master_track":
+                response["result"] = self._get_master_track()
+            elif command_type == "get_master_device_parameters":
+                device_index = params.get("device_index", 0)
+                response["result"] = self._get_master_device_parameters(device_index)
+
             # Commands that modify Live's state (scheduled on main thread)
             elif command_type in [
                 "create_midi_track", "set_track_name",
@@ -236,7 +262,21 @@ class AbletonMCPExtended(ControlSurface):
                 "create_arrangement_clip",
                 "add_notes_to_arrangement_clip",
                 # Device parameter control
-                "set_device_parameter"
+                "set_device_parameter",
+                # Mixer controls (Priority 1)
+                "set_track_volume", "set_track_pan", "set_send_level",
+                "set_track_mute", "set_track_solo", "set_return_track_volume",
+                # Audio clip properties (Priority 2)
+                "set_clip_gain", "set_clip_pitch", "set_clip_loop", "set_clip_warp_mode",
+                # Track organization (Priority 3)
+                "create_audio_track", "delete_track", "create_return_track",
+                "set_track_color", "fold_track",
+                # Device chain (Priority 4)
+                "delete_device", "set_device_enabled", "set_device_parameter_by_name",
+                # Arrangement editing (Priority 5)
+                "set_clip_mute", "set_clip_start_end", "set_clip_color",
+                # Master track (Priority 6)
+                "set_master_volume", "set_master_device_parameter"
             ]:
                 response_queue = queue.Queue()
 
@@ -313,6 +353,121 @@ class AbletonMCPExtended(ControlSurface):
                             parameter_index = params.get("parameter_index", 0)
                             value = params.get("value", 0.0)
                             result = self._set_device_parameter(track_index, device_index, parameter_index, value)
+
+                        # Mixer controls (Priority 1)
+                        elif command_type == "set_track_volume":
+                            track_index = params.get("track_index", 0)
+                            volume = params.get("volume", 0.85)
+                            result = self._set_track_volume(track_index, volume)
+                        elif command_type == "set_track_pan":
+                            track_index = params.get("track_index", 0)
+                            pan = params.get("pan", 0.0)
+                            result = self._set_track_pan(track_index, pan)
+                        elif command_type == "set_send_level":
+                            track_index = params.get("track_index", 0)
+                            send_index = params.get("send_index", 0)
+                            level = params.get("level", 0.0)
+                            result = self._set_send_level(track_index, send_index, level)
+                        elif command_type == "set_track_mute":
+                            track_index = params.get("track_index", 0)
+                            mute = params.get("mute", False)
+                            result = self._set_track_mute(track_index, mute)
+                        elif command_type == "set_track_solo":
+                            track_index = params.get("track_index", 0)
+                            solo = params.get("solo", False)
+                            result = self._set_track_solo(track_index, solo)
+                        elif command_type == "set_return_track_volume":
+                            return_index = params.get("return_index", 0)
+                            volume = params.get("volume", 0.85)
+                            result = self._set_return_track_volume(return_index, volume)
+
+                        # Audio clip properties (Priority 2)
+                        elif command_type == "set_clip_gain":
+                            track_index = params.get("track_index", 0)
+                            clip_index = params.get("clip_index", 0)
+                            gain = params.get("gain", 1.0)
+                            result = self._set_clip_gain(track_index, clip_index, gain)
+                        elif command_type == "set_clip_pitch":
+                            track_index = params.get("track_index", 0)
+                            clip_index = params.get("clip_index", 0)
+                            semitones = params.get("semitones", 0)
+                            cents = params.get("cents", 0)
+                            result = self._set_clip_pitch(track_index, clip_index, semitones, cents)
+                        elif command_type == "set_clip_loop":
+                            track_index = params.get("track_index", 0)
+                            clip_index = params.get("clip_index", 0)
+                            loop_start = params.get("loop_start", None)
+                            loop_end = params.get("loop_end", None)
+                            looping = params.get("looping", None)
+                            result = self._set_clip_loop(track_index, clip_index, loop_start, loop_end, looping)
+                        elif command_type == "set_clip_warp_mode":
+                            track_index = params.get("track_index", 0)
+                            clip_index = params.get("clip_index", 0)
+                            warp_mode = params.get("warp_mode", 0)
+                            result = self._set_clip_warp_mode(track_index, clip_index, warp_mode)
+
+                        # Track organization (Priority 3)
+                        elif command_type == "create_audio_track":
+                            index = params.get("index", -1)
+                            result = self._create_audio_track(index)
+                        elif command_type == "delete_track":
+                            track_index = params.get("track_index", 0)
+                            result = self._delete_track(track_index)
+                        elif command_type == "create_return_track":
+                            result = self._create_return_track()
+                        elif command_type == "set_track_color":
+                            track_index = params.get("track_index", 0)
+                            color_index = params.get("color_index", 0)
+                            result = self._set_track_color(track_index, color_index)
+                        elif command_type == "fold_track":
+                            track_index = params.get("track_index", 0)
+                            fold = params.get("fold", True)
+                            result = self._fold_track(track_index, fold)
+
+                        # Device chain (Priority 4)
+                        elif command_type == "delete_device":
+                            track_index = params.get("track_index", 0)
+                            device_index = params.get("device_index", 0)
+                            result = self._delete_device(track_index, device_index)
+                        elif command_type == "set_device_enabled":
+                            track_index = params.get("track_index", 0)
+                            device_index = params.get("device_index", 0)
+                            enabled = params.get("enabled", True)
+                            result = self._set_device_enabled(track_index, device_index, enabled)
+                        elif command_type == "set_device_parameter_by_name":
+                            track_index = params.get("track_index", 0)
+                            device_index = params.get("device_index", 0)
+                            param_name = params.get("param_name", "")
+                            value = params.get("value", 0.0)
+                            result = self._set_device_parameter_by_name(track_index, device_index, param_name, value)
+
+                        # Arrangement editing (Priority 5)
+                        elif command_type == "set_clip_mute":
+                            track_index = params.get("track_index", 0)
+                            clip_index = params.get("clip_index", 0)
+                            muted = params.get("muted", True)
+                            result = self._set_clip_mute(track_index, clip_index, muted)
+                        elif command_type == "set_clip_start_end":
+                            track_index = params.get("track_index", 0)
+                            clip_index = params.get("clip_index", 0)
+                            start_marker = params.get("start_marker", None)
+                            end_marker = params.get("end_marker", None)
+                            result = self._set_clip_start_end(track_index, clip_index, start_marker, end_marker)
+                        elif command_type == "set_clip_color":
+                            track_index = params.get("track_index", 0)
+                            clip_index = params.get("clip_index", 0)
+                            color_index = params.get("color_index", 0)
+                            result = self._set_clip_color(track_index, clip_index, color_index)
+
+                        # Master track (Priority 6)
+                        elif command_type == "set_master_volume":
+                            volume = params.get("volume", 0.85)
+                            result = self._set_master_volume(volume)
+                        elif command_type == "set_master_device_parameter":
+                            device_index = params.get("device_index", 0)
+                            parameter_index = params.get("parameter_index", 0)
+                            value = params.get("value", 0.0)
+                            result = self._set_master_device_parameter(device_index, parameter_index, value)
 
                         response_queue.put({"status": "success", "result": result})
                     except Exception as e:
@@ -1292,4 +1447,560 @@ class AbletonMCPExtended(ControlSurface):
             }
         except Exception as e:
             self.log_message("Error setting device parameter: " + str(e))
+            raise
+
+    # =========================================================================
+    # Mixer Controls (Priority 1)
+    # =========================================================================
+
+    def _value_to_db(self, value):
+        """Convert 0-1 volume value to approximate dB for display"""
+        import math
+        if value <= 0:
+            return "-inf"
+        db = 20 * math.log10(value)
+        return round(db, 1)
+
+    def _set_track_volume(self, track_index, volume):
+        """Set track volume (0.0 to 1.0)"""
+        try:
+            if track_index < 0 or track_index >= len(self._song.tracks):
+                raise IndexError("Track index out of range")
+            track = self._song.tracks[track_index]
+            clamped = max(0.0, min(1.0, volume))
+            track.mixer_device.volume.value = clamped
+            return {
+                "track_index": track_index,
+                "volume": track.mixer_device.volume.value,
+                "volume_db": self._value_to_db(track.mixer_device.volume.value)
+            }
+        except Exception as e:
+            self.log_message("Error setting track volume: " + str(e))
+            raise
+
+    def _set_track_pan(self, track_index, pan):
+        """Set track pan (-1.0 left to 1.0 right)"""
+        try:
+            if track_index < 0 or track_index >= len(self._song.tracks):
+                raise IndexError("Track index out of range")
+            track = self._song.tracks[track_index]
+            clamped = max(-1.0, min(1.0, pan))
+            track.mixer_device.panning.value = clamped
+            return {
+                "track_index": track_index,
+                "pan": track.mixer_device.panning.value
+            }
+        except Exception as e:
+            self.log_message("Error setting track pan: " + str(e))
+            raise
+
+    def _set_send_level(self, track_index, send_index, level):
+        """Set send level to return track (0.0 to 1.0)"""
+        try:
+            if track_index < 0 or track_index >= len(self._song.tracks):
+                raise IndexError("Track index out of range")
+            track = self._song.tracks[track_index]
+            sends = track.mixer_device.sends
+            if send_index < 0 or send_index >= len(sends):
+                raise IndexError("Send index out of range. Track has {} sends.".format(len(sends)))
+            clamped = max(0.0, min(1.0, level))
+            sends[send_index].value = clamped
+            return {
+                "track_index": track_index,
+                "send_index": send_index,
+                "level": sends[send_index].value
+            }
+        except Exception as e:
+            self.log_message("Error setting send level: " + str(e))
+            raise
+
+    def _set_track_mute(self, track_index, mute):
+        """Set track mute state"""
+        try:
+            if track_index < 0 or track_index >= len(self._song.tracks):
+                raise IndexError("Track index out of range")
+            track = self._song.tracks[track_index]
+            track.mute = mute
+            return {"track_index": track_index, "mute": track.mute}
+        except Exception as e:
+            self.log_message("Error setting track mute: " + str(e))
+            raise
+
+    def _set_track_solo(self, track_index, solo):
+        """Set track solo state"""
+        try:
+            if track_index < 0 or track_index >= len(self._song.tracks):
+                raise IndexError("Track index out of range")
+            track = self._song.tracks[track_index]
+            track.solo = solo
+            return {"track_index": track_index, "solo": track.solo}
+        except Exception as e:
+            self.log_message("Error setting track solo: " + str(e))
+            raise
+
+    def _get_return_tracks(self):
+        """Get info about all return tracks"""
+        try:
+            returns = []
+            for i, track in enumerate(self._song.return_tracks):
+                devices = []
+                for d in track.devices:
+                    devices.append({"name": d.name, "class_name": d.class_name})
+                returns.append({
+                    "index": i,
+                    "name": track.name,
+                    "volume": track.mixer_device.volume.value,
+                    "pan": track.mixer_device.panning.value,
+                    "mute": track.mute,
+                    "solo": track.solo,
+                    "devices": devices
+                })
+            return {"return_tracks": returns, "count": len(returns)}
+        except Exception as e:
+            self.log_message("Error getting return tracks: " + str(e))
+            raise
+
+    def _set_return_track_volume(self, return_index, volume):
+        """Set return track volume (0.0 to 1.0)"""
+        try:
+            if return_index < 0 or return_index >= len(self._song.return_tracks):
+                raise IndexError("Return track index out of range")
+            track = self._song.return_tracks[return_index]
+            clamped = max(0.0, min(1.0, volume))
+            track.mixer_device.volume.value = clamped
+            return {
+                "return_index": return_index,
+                "volume": track.mixer_device.volume.value
+            }
+        except Exception as e:
+            self.log_message("Error setting return track volume: " + str(e))
+            raise
+
+    # =========================================================================
+    # Audio Clip Properties (Priority 2)
+    # =========================================================================
+
+    def _get_arrangement_clip_by_index(self, track_index, clip_index):
+        """Helper to get arrangement clip with validation"""
+        if track_index < 0 or track_index >= len(self._song.tracks):
+            raise IndexError("Track index out of range")
+        track = self._song.tracks[track_index]
+
+        if not hasattr(track, 'arrangement_clips'):
+            raise ValueError("Track has no arrangement clips")
+
+        clips = list(track.arrangement_clips)
+        if clip_index < 0 or clip_index >= len(clips):
+            raise IndexError("Clip index out of range")
+
+        return clips[clip_index]
+
+    def _get_audio_clip_properties(self, track_index, clip_index):
+        """Get comprehensive audio clip properties"""
+        try:
+            clip = self._get_arrangement_clip_by_index(track_index, clip_index)
+
+            if not clip.is_audio_clip:
+                raise ValueError("Not an audio clip")
+
+            result = {
+                "name": clip.name,
+                "gain": clip.gain,
+                "gain_display": clip.gain_display_string,
+                "pitch_coarse": clip.pitch_coarse,
+                "pitch_fine": clip.pitch_fine,
+                "warping": clip.warping,
+                "warp_mode": clip.warp_mode,
+                "loop_start": clip.loop_start,
+                "loop_end": clip.loop_end,
+                "looping": clip.looping,
+                "start_marker": clip.start_marker,
+                "end_marker": clip.end_marker,
+                "length": clip.length,
+                "muted": clip.muted,
+                "color_index": clip.color_index,
+            }
+
+            try:
+                result["file_path"] = clip.file_path
+            except:
+                pass
+
+            return result
+        except Exception as e:
+            self.log_message("Error getting audio clip properties: " + str(e))
+            raise
+
+    def _set_clip_gain(self, track_index, clip_index, gain):
+        """Set audio clip gain (0.0 to 1.0)"""
+        try:
+            clip = self._get_arrangement_clip_by_index(track_index, clip_index)
+            if not clip.is_audio_clip:
+                raise ValueError("Not an audio clip")
+
+            clamped = max(0.0, min(1.0, gain))
+            clip.gain = clamped
+
+            return {
+                "gain": clip.gain,
+                "gain_display": clip.gain_display_string
+            }
+        except Exception as e:
+            self.log_message("Error setting clip gain: " + str(e))
+            raise
+
+    def _set_clip_pitch(self, track_index, clip_index, semitones, cents):
+        """Set audio clip pitch shift (semitones: -48 to 48, cents: -50 to 49)"""
+        try:
+            clip = self._get_arrangement_clip_by_index(track_index, clip_index)
+            if not clip.is_audio_clip:
+                raise ValueError("Not an audio clip")
+
+            semitones = max(-48, min(48, semitones))
+            cents = max(-50, min(49, cents))
+
+            clip.pitch_coarse = semitones
+            clip.pitch_fine = cents
+
+            return {
+                "pitch_coarse": clip.pitch_coarse,
+                "pitch_fine": clip.pitch_fine
+            }
+        except Exception as e:
+            self.log_message("Error setting clip pitch: " + str(e))
+            raise
+
+    def _set_clip_loop(self, track_index, clip_index, loop_start, loop_end, looping):
+        """Set clip loop parameters"""
+        try:
+            clip = self._get_arrangement_clip_by_index(track_index, clip_index)
+
+            if looping is not None:
+                clip.looping = looping
+            if loop_start is not None:
+                clip.loop_start = loop_start
+            if loop_end is not None:
+                clip.loop_end = loop_end
+
+            return {
+                "looping": clip.looping,
+                "loop_start": clip.loop_start,
+                "loop_end": clip.loop_end
+            }
+        except Exception as e:
+            self.log_message("Error setting clip loop: " + str(e))
+            raise
+
+    def _set_clip_warp_mode(self, track_index, clip_index, warp_mode):
+        """Set audio clip warp mode (0=Beats, 1=Tones, 2=Texture, 3=Re-Pitch, 4=Complex, 5=Complex Pro)"""
+        try:
+            clip = self._get_arrangement_clip_by_index(track_index, clip_index)
+            if not clip.is_audio_clip:
+                raise ValueError("Not an audio clip")
+
+            clip.warp_mode = warp_mode
+            return {"warp_mode": clip.warp_mode}
+        except Exception as e:
+            self.log_message("Error setting clip warp mode: " + str(e))
+            raise
+
+    def _get_clip_warp_markers(self, track_index, clip_index):
+        """Get warp markers for audio clip (Live 11+)"""
+        try:
+            clip = self._get_arrangement_clip_by_index(track_index, clip_index)
+            if not clip.is_audio_clip:
+                raise ValueError("Not an audio clip")
+
+            try:
+                markers = clip.warp_markers
+                return {"warp_markers": markers}
+            except:
+                return {"warp_markers": [], "note": "Requires Live 11+"}
+        except Exception as e:
+            self.log_message("Error getting clip warp markers: " + str(e))
+            raise
+
+    # =========================================================================
+    # Track Organization (Priority 3)
+    # =========================================================================
+
+    def _create_audio_track(self, index):
+        """Create a new audio track"""
+        try:
+            self._song.create_audio_track(index)
+            new_index = len(self._song.tracks) - 1 if index == -1 else index
+            return {"index": new_index, "name": self._song.tracks[new_index].name}
+        except Exception as e:
+            self.log_message("Error creating audio track: " + str(e))
+            raise
+
+    def _delete_track(self, track_index):
+        """Delete a track (DESTRUCTIVE)"""
+        try:
+            if track_index < 0 or track_index >= len(self._song.tracks):
+                raise IndexError("Track index out of range")
+            self._song.delete_track(track_index)
+            return {
+                "deleted": True,
+                "track_index": track_index,
+                "warning": "Track deleted. Use automator_undo to revert if needed."
+            }
+        except Exception as e:
+            self.log_message("Error deleting track: " + str(e))
+            raise
+
+    def _create_return_track(self):
+        """Create a new return track"""
+        try:
+            self._song.create_return_track()
+            new_index = len(self._song.return_tracks) - 1
+            return {"index": new_index, "name": self._song.return_tracks[new_index].name}
+        except Exception as e:
+            self.log_message("Error creating return track: " + str(e))
+            raise
+
+    def _set_track_color(self, track_index, color_index):
+        """Set track color by index"""
+        try:
+            if track_index < 0 or track_index >= len(self._song.tracks):
+                raise IndexError("Track index out of range")
+            track = self._song.tracks[track_index]
+            track.color_index = color_index
+            return {"track_index": track_index, "color_index": track.color_index}
+        except Exception as e:
+            self.log_message("Error setting track color: " + str(e))
+            raise
+
+    def _get_track_routing(self, track_index):
+        """Get track input/output routing info"""
+        try:
+            if track_index < 0 or track_index >= len(self._song.tracks):
+                raise IndexError("Track index out of range")
+            track = self._song.tracks[track_index]
+            result = {}
+            if hasattr(track, 'input_routing_type') and hasattr(track.input_routing_type, 'display_name'):
+                result["input_routing_type"] = str(track.input_routing_type.display_name)
+            if hasattr(track, 'output_routing_type') and hasattr(track.output_routing_type, 'display_name'):
+                result["output_routing_type"] = str(track.output_routing_type.display_name)
+            return result
+        except Exception as e:
+            self.log_message("Error getting track routing: " + str(e))
+            raise
+
+    def _fold_track(self, track_index, fold):
+        """Fold/unfold a group track"""
+        try:
+            if track_index < 0 or track_index >= len(self._song.tracks):
+                raise IndexError("Track index out of range")
+            track = self._song.tracks[track_index]
+            if hasattr(track, 'fold_state'):
+                track.fold_state = 1 if fold else 0
+                return {"track_index": track_index, "fold_state": track.fold_state}
+            else:
+                raise ValueError("Track is not a group track")
+        except Exception as e:
+            self.log_message("Error folding track: " + str(e))
+            raise
+
+    # =========================================================================
+    # Device Chain Management (Priority 4)
+    # =========================================================================
+
+    def _delete_device(self, track_index, device_index):
+        """Delete a device from track (DESTRUCTIVE)"""
+        try:
+            if track_index < 0 or track_index >= len(self._song.tracks):
+                raise IndexError("Track index out of range")
+            track = self._song.tracks[track_index]
+            if device_index < 0 or device_index >= len(track.devices):
+                raise IndexError("Device index out of range")
+            device_name = track.devices[device_index].name
+            track.delete_device(device_index)
+            return {"deleted": device_name, "warning": "Device deleted. Use automator_undo to revert if needed."}
+        except Exception as e:
+            self.log_message("Error deleting device: " + str(e))
+            raise
+
+    def _set_device_enabled(self, track_index, device_index, enabled):
+        """Enable/disable a device"""
+        try:
+            if track_index < 0 or track_index >= len(self._song.tracks):
+                raise IndexError("Track index out of range")
+            track = self._song.tracks[track_index]
+            if device_index < 0 or device_index >= len(track.devices):
+                raise IndexError("Device index out of range")
+            device = track.devices[device_index]
+            for param in device.parameters:
+                if param.name == "Device On":
+                    param.value = 1.0 if enabled else 0.0
+                    return {"device_name": device.name, "enabled": param.value == 1.0}
+            raise ValueError("Device does not have on/off control")
+        except Exception as e:
+            self.log_message("Error setting device enabled: " + str(e))
+            raise
+
+    def _set_device_parameter_by_name(self, track_index, device_index, param_name, value):
+        """Set device parameter by name (fuzzy match)"""
+        try:
+            if track_index < 0 or track_index >= len(self._song.tracks):
+                raise IndexError("Track index out of range")
+            track = self._song.tracks[track_index]
+            if device_index < 0 or device_index >= len(track.devices):
+                raise IndexError("Device index out of range")
+            device = track.devices[device_index]
+
+            param_name_lower = param_name.lower()
+
+            # Try exact match first
+            for param in device.parameters:
+                if param.name.lower() == param_name_lower:
+                    clamped = max(param.min, min(param.max, value))
+                    param.value = clamped
+                    return {
+                        "parameter_name": param.name,
+                        "value": param.value,
+                        "min": param.min,
+                        "max": param.max
+                    }
+
+            # Try partial match
+            for param in device.parameters:
+                if param_name_lower in param.name.lower():
+                    clamped = max(param.min, min(param.max, value))
+                    param.value = clamped
+                    return {
+                        "parameter_name": param.name,
+                        "value": param.value,
+                        "min": param.min,
+                        "max": param.max,
+                        "note": "Partial match"
+                    }
+
+            raise ValueError("Parameter '{}' not found on device '{}'".format(param_name, device.name))
+        except Exception as e:
+            self.log_message("Error setting device parameter by name: " + str(e))
+            raise
+
+    # =========================================================================
+    # Arrangement Editing (Priority 5)
+    # =========================================================================
+
+    def _set_clip_mute(self, track_index, clip_index, muted):
+        """Mute/unmute a clip"""
+        try:
+            clip = self._get_arrangement_clip_by_index(track_index, clip_index)
+            clip.muted = muted
+            return {"muted": clip.muted}
+        except Exception as e:
+            self.log_message("Error setting clip mute: " + str(e))
+            raise
+
+    def _set_clip_start_end(self, track_index, clip_index, start_marker, end_marker):
+        """Set clip start/end markers"""
+        try:
+            clip = self._get_arrangement_clip_by_index(track_index, clip_index)
+            if start_marker is not None:
+                clip.start_marker = start_marker
+            if end_marker is not None:
+                clip.end_marker = end_marker
+            return {
+                "start_marker": clip.start_marker,
+                "end_marker": clip.end_marker
+            }
+        except Exception as e:
+            self.log_message("Error setting clip start/end: " + str(e))
+            raise
+
+    def _set_clip_color(self, track_index, clip_index, color_index):
+        """Set clip color"""
+        try:
+            clip = self._get_arrangement_clip_by_index(track_index, clip_index)
+            clip.color_index = color_index
+            return {"color_index": clip.color_index}
+        except Exception as e:
+            self.log_message("Error setting clip color: " + str(e))
+            raise
+
+    # =========================================================================
+    # Master Track (Priority 6)
+    # =========================================================================
+
+    def _get_master_track(self):
+        """Get master track info"""
+        try:
+            master = self._song.master_track
+            devices = []
+            for i, device in enumerate(master.devices):
+                devices.append({
+                    "index": i,
+                    "name": device.name,
+                    "class_name": device.class_name
+                })
+
+            return {
+                "volume": master.mixer_device.volume.value,
+                "pan": master.mixer_device.panning.value,
+                "devices": devices,
+                "device_count": len(devices)
+            }
+        except Exception as e:
+            self.log_message("Error getting master track: " + str(e))
+            raise
+
+    def _set_master_volume(self, volume):
+        """Set master track volume"""
+        try:
+            master = self._song.master_track
+            clamped = max(0.0, min(1.0, volume))
+            master.mixer_device.volume.value = clamped
+            return {"volume": master.mixer_device.volume.value}
+        except Exception as e:
+            self.log_message("Error setting master volume: " + str(e))
+            raise
+
+    def _get_master_device_parameters(self, device_index):
+        """Get parameters for a device on master track"""
+        try:
+            master = self._song.master_track
+            if device_index >= len(master.devices):
+                raise IndexError("Device index out of range")
+            device = master.devices[device_index]
+
+            parameters = []
+            for i, param in enumerate(device.parameters):
+                parameters.append({
+                    "index": i,
+                    "name": param.name,
+                    "value": param.value,
+                    "min": param.min,
+                    "max": param.max
+                })
+
+            return {
+                "device_name": device.name,
+                "parameters": parameters
+            }
+        except Exception as e:
+            self.log_message("Error getting master device parameters: " + str(e))
+            raise
+
+    def _set_master_device_parameter(self, device_index, parameter_index, value):
+        """Set a parameter on a master track device"""
+        try:
+            master = self._song.master_track
+            if device_index >= len(master.devices):
+                raise IndexError("Device index out of range")
+            device = master.devices[device_index]
+            if parameter_index >= len(device.parameters):
+                raise IndexError("Parameter index out of range")
+            param = device.parameters[parameter_index]
+            clamped = max(param.min, min(param.max, value))
+            param.value = clamped
+            return {
+                "device_name": device.name,
+                "parameter_name": param.name,
+                "value": param.value
+            }
+        except Exception as e:
+            self.log_message("Error setting master device parameter: " + str(e))
             raise

@@ -323,8 +323,104 @@ class UnifiedMCPBridge:
     # ABLETON COMMANDS
     # =========================================================================
 
-    def ableton_command(self, cmd_type: str, params: dict = None):
-        """Send a command to Ableton MCP"""
+    # Track name cache for name-based lookups (Anthropic MCP best practice)
+    _track_cache = None
+    _track_cache_time = 0
+    TRACK_CACHE_TTL = 5.0  # Refresh cache every 5 seconds
+
+    def get_all_tracks(self, force_refresh: bool = False) -> list:
+        """Get all track names/indices. Cached for performance.
+
+        Returns:
+            [{"index": 0, "name": "Drums", "type": "midi"}, ...]
+        """
+        import time
+        now = time.time()
+
+        # Return cached if fresh
+        if not force_refresh and self._track_cache and (now - self._track_cache_time) < self.TRACK_CACHE_TTL:
+            return self._track_cache
+
+        # Fetch fresh track list
+        session = self.ableton_command_raw("get_session_info")
+        if session.get("status") != "success":
+            return self._track_cache or []
+
+        track_count = session.get("result", {}).get("track_count", 0)
+        tracks = []
+
+        for i in range(track_count):
+            info = self.ableton_command_raw("get_track_info", {"track_index": i})
+            if info.get("status") == "success":
+                result = info["result"]
+                tracks.append({
+                    "index": i,
+                    "name": result.get("name", f"Track {i}"),
+                    "type": "audio" if result.get("is_audio_track") else "midi",
+                    "mute": result.get("mute", False),
+                    "solo": result.get("solo", False),
+                })
+
+        self._track_cache = tracks
+        self._track_cache_time = now
+        return tracks
+
+    def resolve_track(self, identifier) -> int:
+        """Resolve track name OR index to index. Enables name-based lookups.
+
+        Args:
+            identifier: Track name (str), partial name, or index (int)
+
+        Returns:
+            Track index (int), or -1 if not found
+
+        Examples:
+            resolve_track("Drums") → 2
+            resolve_track("drum") → 2 (partial match)
+            resolve_track(2) → 2 (passthrough)
+        """
+        # Already an index
+        if isinstance(identifier, int):
+            return identifier
+
+        # Try to parse as int string
+        if isinstance(identifier, str) and identifier.isdigit():
+            return int(identifier)
+
+        # Name-based lookup
+        tracks = self.get_all_tracks()
+        identifier_lower = str(identifier).lower()
+
+        # Exact match first
+        for track in tracks:
+            if track["name"].lower() == identifier_lower:
+                return track["index"]
+
+        # Partial match (contains)
+        for track in tracks:
+            if identifier_lower in track["name"].lower():
+                return track["index"]
+
+        return -1  # Not found
+
+    def resolve_tracks(self, identifiers: list) -> list:
+        """Resolve multiple track names/indices to indices.
+
+        Args:
+            identifiers: List of track names or indices
+
+        Returns:
+            List of resolved indices (excludes -1 for not found)
+        """
+        resolved = []
+        for ident in identifiers:
+            idx = self.resolve_track(ident)
+            if idx >= 0:
+                resolved.append(idx)
+        return resolved
+
+    def ableton_command_raw(self, cmd_type: str, params: dict = None):
+        """Send a raw command to Ableton MCP (no name resolution)."""
         if not self.ableton_socket:
             if not self.connect_ableton():
                 return {"status": "error", "message": "Not connected to Ableton"}
@@ -350,8 +446,42 @@ class UnifiedMCPBridge:
                     return {"status": "error", "message": str(e2)}
             return {"status": "error", "message": str(e)}
 
+    def ableton_command(self, cmd_type: str, params: dict = None):
+        """Send a command to Ableton MCP with automatic name-based resolution.
+
+        Any param containing 'track' in its name will be auto-resolved from
+        track name to index if a string is provided.
+        """
+        if params is None:
+            params = {}
+
+        # Auto-resolve track names to indices
+        resolved_params = {}
+        for key, value in params.items():
+            if "track" in key.lower() and isinstance(value, str) and not value.isdigit():
+                # This looks like a track name, resolve it
+                resolved = self.resolve_track(value)
+                if resolved < 0:
+                    return {"status": "error", "message": f"Track not found: {value}"}
+                resolved_params[key] = resolved
+            else:
+                resolved_params[key] = value
+
+        return self.ableton_command_raw(cmd_type, resolved_params)
+
     def get_session_info(self):
         return self.ableton_command("get_session_info")
+
+    def _get_automator_handler(self):
+        """Get handle_automator_command without triggering __init__.py imports."""
+        import importlib.util
+        import os
+        # Use absolute path
+        automator_path = os.path.join(os.path.dirname(__file__), 'AbletonMCP_Extended', 'automator_bridge.py')
+        spec = importlib.util.spec_from_file_location('automator_bridge', automator_path)
+        automator = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(automator)
+        return automator.handle_automator_command
 
     def set_tempo(self, tempo: float):
         return self.ableton_command("set_tempo", {"tempo": tempo})
@@ -387,39 +517,41 @@ class UnifiedMCPBridge:
     # =========================================================================
 
     # Tool catalog organized by category
+    # NOTE: All track commands accept NAMES or indices (e.g., "Drums" or 2)
     TOOL_CATALOG = {
         "session": {
             "description": "Session-level operations (tempo, playback, transport)",
             "tools": {
                 "get_session_info": "Get session state (tracks, tempo, playing)",
-                "set_tempo": "Set session tempo in BPM",
+                "get_all_tracks": "Get all track names/indices - returns: [{index, name, type}]",
+                "set_tempo": "Set session tempo in BPM - args: {tempo}",
                 "start_playback": "Start playback",
                 "stop_playback": "Stop playback",
             }
         },
         "track": {
-            "description": "Track operations (create, modify, organize)",
+            "description": "Track operations (accepts track NAME or index, e.g. 'Drums' or 2)",
             "tools": {
                 "create_midi_track": "Create new MIDI track - args: {index}",
                 "create_audio_track": "Create new audio track - args: {index}",
-                "delete_track": "Delete a track (DESTRUCTIVE) - args: {track_index}",
-                "get_track_info": "Get track details (clips, devices)",
-                "set_track_name": "Rename a track - args: {track_index, name}",
-                "set_track_color": "Set track color - args: {track_index, color_index}",
-                "get_track_routing": "Get I/O routing info - args: {track_index}",
-                "fold_track": "Fold/unfold group track - args: {track_index, fold}",
+                "delete_track": "Delete a track (DESTRUCTIVE) - args: {track_index: name|int}",
+                "get_track_info": "Get track details - args: {track_index: name|int}",
+                "set_track_name": "Rename a track - args: {track_index: name|int, name}",
+                "set_track_color": "Set track color - args: {track_index: name|int, color_index}",
+                "get_track_routing": "Get I/O routing - args: {track_index: name|int}",
+                "fold_track": "Fold/unfold group - args: {track_index: name|int, fold}",
                 "create_return_track": "Create new return track",
             }
         },
         "device": {
-            "description": "Device/plugin operations (load, parameters, chain)",
+            "description": "Device/plugin operations (track accepts NAME or index)",
             "tools": {
-                "get_device_parameters": "Get all params - args: {track_index, device_index}",
-                "set_device_parameter": "Set param by index - args: {track_index, device_index, parameter_index, value}",
-                "set_device_parameter_by_name": "Set param by name (fuzzy) - args: {track_index, device_index, param_name, value}",
-                "set_device_enabled": "Enable/disable device - args: {track_index, device_index, enabled}",
-                "delete_device": "Remove device (DESTRUCTIVE) - args: {track_index, device_index}",
-                "load_browser_item": "Load preset from browser - args: {track_index, item_uri}",
+                "get_device_parameters": "Get all params - args: {track_index: name|int, device_index}",
+                "set_device_parameter": "Set param by index - args: {track_index: name|int, device_index, parameter_index, value}",
+                "set_device_parameter_by_name": "Set param by name (fuzzy) - args: {track_index: name|int, device_index, param_name, value}",
+                "set_device_enabled": "Enable/disable device - args: {track_index: name|int, device_index, enabled}",
+                "delete_device": "Remove device - args: {track_index: name|int, device_index}",
+                "load_browser_item": "Load preset - args: {track_index: name|int, item_uri}",
             }
         },
         "browser": {
@@ -431,15 +563,15 @@ class UnifiedMCPBridge:
             }
         },
         "clip": {
-            "description": "Clip operations (create, edit, arrange)",
+            "description": "Clip operations (track accepts NAME or index)",
             "tools": {
-                "create_clip": "Create a MIDI clip in slot - args: {track_index, clip_index, length}",
-                "add_notes_to_clip": "Add MIDI notes - args: {track_index, clip_index, notes}",
-                "fire_clip": "Trigger a clip - args: {track_index, clip_index}",
-                "stop_clip": "Stop a clip - args: {track_index, clip_index}",
-                "set_clip_mute": "Mute/unmute clip - args: {track_index, clip_index, muted}",
-                "set_clip_start_end": "Set clip markers - args: {track_index, clip_index, start_marker, end_marker}",
-                "set_clip_color": "Set clip color - args: {track_index, clip_index, color_index}",
+                "create_clip": "Create MIDI clip - args: {track_index: name|int, clip_index, length}",
+                "add_notes_to_clip": "Add MIDI notes - args: {track_index: name|int, clip_index, notes}",
+                "fire_clip": "Trigger clip - args: {track_index: name|int, clip_index}",
+                "stop_clip": "Stop clip - args: {track_index: name|int, clip_index}",
+                "set_clip_mute": "Mute/unmute - args: {track_index: name|int, clip_index, muted}",
+                "set_clip_start_end": "Set markers - args: {track_index: name|int, clip_index, start, end}",
+                "set_clip_color": "Set color - args: {track_index: name|int, clip_index, color_index}",
             }
         },
         "master": {
@@ -452,61 +584,68 @@ class UnifiedMCPBridge:
             }
         },
         "mixer": {
-            "description": "Mixer controls (volume, pan, sends, mute/solo)",
+            "description": "Mixer controls (track accepts NAME or index, e.g. 'Bass' or 1)",
             "tools": {
-                "set_track_volume": "Set track volume (0-1) - args: {track_index, volume}",
-                "set_track_pan": "Set pan (-1 to 1) - args: {track_index, pan}",
-                "set_send_level": "Set send level - args: {track_index, send_index, level}",
-                "set_track_mute": "Mute/unmute - args: {track_index, mute}",
-                "set_track_solo": "Solo/unsolo - args: {track_index, solo}",
+                "set_track_volume": "Set volume (0-1) - args: {track_index: name|int, volume}",
+                "set_track_pan": "Set pan (-1 to 1) - args: {track_index: name|int, pan}",
+                "set_send_level": "Set send level - args: {track_index: name|int, send_index, level}",
+                "set_track_mute": "Mute/unmute - args: {track_index: name|int, mute: bool}",
+                "set_track_solo": "Solo/unsolo - args: {track_index: name|int, solo: bool}",
                 "get_return_tracks": "Get return track info (volumes, devices)",
                 "set_return_track_volume": "Set return volume - args: {return_index, volume}",
             }
         },
         "audio_clip": {
-            "description": "Audio clip properties (gain, pitch, warp, loop)",
+            "description": "Audio clip properties (track accepts NAME or index)",
             "tools": {
-                "get_audio_clip_properties": "Get clip properties - args: {track_index, clip_index}",
-                "set_clip_gain": "Set gain (0-1) - args: {track_index, clip_index, gain}",
-                "set_clip_pitch": "Set pitch - args: {track_index, clip_index, semitones, cents}",
-                "set_clip_loop": "Set loop points - args: {track_index, clip_index, loop_start, loop_end, looping}",
-                "set_clip_warp_mode": "Set warp mode (0-5) - args: {track_index, clip_index, warp_mode}",
-                "get_clip_warp_markers": "Get warp markers (Live 11+) - args: {track_index, clip_index}",
+                "get_audio_clip_properties": "Get clip properties - args: {track_index: name|int, clip_index}",
+                "set_clip_gain": "Set gain (0-1) - args: {track_index: name|int, clip_index, gain}",
+                "set_clip_pitch": "Set pitch - args: {track_index: name|int, clip_index, semitones, cents}",
+                "set_clip_loop": "Set loop - args: {track_index: name|int, clip_index, loop_start, loop_end, looping}",
+                "set_clip_warp_mode": "Set warp (0-5) - args: {track_index: name|int, clip_index, warp_mode}",
+                "get_clip_warp_markers": "Get warp markers - args: {track_index: name|int, clip_index}",
             }
         },
         "transport": {
             "description": "Transport and playhead control",
             "tools": {
                 "get_current_position": "Get playhead position (beats), playing state, tempo",
-                "set_current_position": "Move playhead to beat position - args: {position}",
+                "set_current_position": "Move playhead - args: {position: beats}",
                 "start_playback": "Start playback",
                 "stop_playback": "Stop playback",
             }
         },
         "selection": {
-            "description": "Track and clip selection (for programmatic editing)",
+            "description": "Track and clip selection (accepts NAME or index)",
             "tools": {
-                "select_track": "Select a track by index - args: {track_index}",
-                "select_clip": "Select arrangement clip - args: {track_index, clip_index}",
+                "select_track": "Select track - args: {track_index: name|int}",
+                "select_clip": "Select arrangement clip - args: {track_index: name|int, clip_index}",
+            }
+        },
+        "smart_select": {
+            "description": "Smart multi-track selection with name resolution + click automation",
+            "tools": {
+                "smart_select_tracks": "Select multiple tracks by name - args: {tracks: ['Drums', 'Bass'] or [0, 2]}",
+                "smart_group_tracks": "Select + group tracks - args: {tracks: ['Drums', 'Bass']}",
+                "calibrate_layout": "Adjust click positions if off - args: {track_height?, top_offset?, header_x?}",
+                "get_layout_config": "Get current layout configuration",
             }
         },
         "automator": {
-            "description": "GUI automation for operations not in Live API (requires Ableton foreground)",
+            "description": "GUI automation (requires Ableton foreground)",
             "tools": {
-                "automator_split": "Split clip at cursor (Cmd+E) - use with select_clip + set_current_position",
-                "automator_consolidate": "Consolidate selection (Cmd+J)",
-                "automator_undo": "Undo last action (Cmd+Z)",
+                "automator_split": "Split at cursor (Cmd+E)",
+                "automator_consolidate": "Consolidate (Cmd+J)",
+                "automator_undo": "Undo (Cmd+Z)",
                 "automator_redo": "Redo (Cmd+Shift+Z)",
-                "automator_export": "Open export dialog (Cmd+Shift+R)",
-                "automator_save": "Save project (Cmd+S)",
-                "automator_duplicate": "Duplicate selection (Cmd+D)",
-                "automator_quantize": "Quantize selection (Cmd+U)",
-                "automator_group": "Group selected tracks (Cmd+G) - requires multi-select first",
-                "automator_ungroup": "Ungroup selected group (Cmd+Shift+G)",
-                "automator_move_track_up": "Move selected track up (Cmd+Up)",
-                "automator_move_track_down": "Move selected track down (Cmd+Down)",
-                "automator_select_tracks_range": "Click+Shift+Click to select track range (BRITTLE - needs vision) - args: {start_track, end_track, track_height}",
-                "automator_select_track_click": "Click to select track (BRITTLE - needs vision) - args: {track_index, add_to_selection, track_height}",
+                "automator_export": "Export dialog (Cmd+Shift+R)",
+                "automator_save": "Save (Cmd+S)",
+                "automator_duplicate": "Duplicate (Cmd+D)",
+                "automator_quantize": "Quantize (Cmd+U)",
+                "automator_group": "Group selected (Cmd+G)",
+                "automator_ungroup": "Ungroup (Cmd+Shift+G)",
+                "automator_move_track_up": "Move track up (Cmd+Up)",
+                "automator_move_track_down": "Move track down (Cmd+Down)",
                 "automator_freeze": "Freeze track (menu)",
                 "automator_flatten": "Flatten track (menu)",
                 "automator_reverse": "Reverse clip (menu)",
@@ -516,10 +655,10 @@ class UnifiedMCPBridge:
         "vst": {
             "description": "VST plugin operations (via Max for Live)",
             "tools": {
-                "vst_register": "Load a VST plugin into a slot",
-                "vst_set_param": "Set a VST parameter",
+                "vst_register": "Load VST into slot - args: {slot, plugin_path}",
+                "vst_set_param": "Set VST parameter - args: {slot, index, value}",
                 "vst_list": "List registered VST plugins",
-                "vst_open": "Open VST plugin GUI",
+                "vst_open": "Open VST GUI - args: {slot}",
             }
         },
     }
@@ -989,6 +1128,74 @@ class UnifiedMCPBridge:
                     "hint": "Use 'tools <category>' for details, 'tools --full' for everything"
                 }
             }
+
+        # =====================================================================
+        # SMART SELECTION COMMANDS (name-based track selection + click automation)
+        # =====================================================================
+
+        # tracks - list all tracks with names (for discovery)
+        if cmd == "tracks":
+            tracks = self.get_all_tracks(force_refresh=True)
+            return {
+                "status": "success",
+                "result": {
+                    "track_count": len(tracks),
+                    "tracks": tracks
+                }
+            }
+
+        # select <track_name_or_index> [track2] [track3] ...
+        # Selects one or more tracks by name or index
+        if cmd == "select" and len(parts) >= 2:
+            handle_automator_command = self._get_automator_handler()
+            track_identifiers = parts[1:]
+            track_indices = self.resolve_tracks(track_identifiers)
+
+            if not track_indices:
+                return {"status": "error", "message": f"No tracks found matching: {track_identifiers}"}
+
+            result = handle_automator_command("smart_select_tracks", {"tracks": track_indices})
+            result["resolved"] = {
+                "input": track_identifiers,
+                "indices": track_indices
+            }
+            return result
+
+        # group <track1> <track2> [track3] ...
+        # Selects and groups tracks by name or index
+        if cmd == "group" and len(parts) >= 3:
+            handle_automator_command = self._get_automator_handler()
+            track_identifiers = parts[1:]
+            track_indices = self.resolve_tracks(track_identifiers)
+
+            if len(track_indices) < 2:
+                return {"status": "error", "message": "Need at least 2 tracks to group"}
+
+            result = handle_automator_command("smart_group_tracks", {"tracks": track_indices})
+            result["resolved"] = {
+                "input": track_identifiers,
+                "indices": track_indices
+            }
+            return result
+
+        # calibrate [track_height=N] [top_offset=N] [header_x=N]
+        # Adjust click position calculation
+        if cmd == "calibrate":
+            handle_automator_command = self._get_automator_handler()
+            params = {}
+            for part in parts[1:]:
+                if "=" in part:
+                    key, val = part.split("=", 1)
+                    try:
+                        params[key] = int(val)
+                    except ValueError:
+                        pass
+
+            if not params:
+                # Just get current config
+                return handle_automator_command("get_layout_config", {})
+
+            return handle_automator_command("calibrate_layout", params)
 
         return {"status": "error", "message": f"Unknown command: {text}"}
 

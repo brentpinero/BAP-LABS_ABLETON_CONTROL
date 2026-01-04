@@ -8,13 +8,18 @@ For operations not available via the Live Object Model API:
 - Undo/Redo (Cmd+Z, Cmd+Shift+Z)
 - Export audio (Cmd+Shift+R)
 - Freeze/Flatten/Reverse track (menu commands)
+- Smart multi-track selection via click automation
 
 Usage:
-    from automator_bridge import AbletonAutomatorBridge
+    from automator_bridge import AbletonAutomatorBridge, AbletonLayoutConfig
     bridge = AbletonAutomatorBridge()
     bridge.split_clip()
     bridge.consolidate()
     bridge.undo()
+
+    # Smart selection with calibrated layout
+    AbletonLayoutConfig.update_config(track_height=60)
+    bridge.smart_select_tracks([0, 2, 4])
 
 Security Note:
     Requires macOS Accessibility permissions for the Python environment.
@@ -24,6 +29,78 @@ Security Note:
 import subprocess
 import time
 from typing import List, Tuple, Optional, Dict, Any
+
+
+class AbletonLayoutConfig:
+    """Configurable Ableton UI layout parameters.
+
+    These can be adjusted at runtime via update_config() if clicks miss.
+    Values are class-level so they persist across bridge instances.
+
+    Usage:
+        # Adjust if clicks are landing in wrong positions
+        AbletonLayoutConfig.update_config(track_height=60, top_offset=140)
+
+        # Check current settings
+        config = AbletonLayoutConfig.get_config()
+    """
+    # Default values for Ableton Live 12 (Arrangement View)
+    TRACK_HEIGHT = 64          # Pixels per track row (adjustable based on zoom)
+    TOP_OFFSET = 150           # Y offset from window top to first track header
+    HEADER_X_OFFSET = 100      # X offset for track header clicks
+
+    # Session View (mixer) - tracks are horizontal columns
+    SESSION_TRACK_WIDTH = 80   # Width of each track column in session view
+    SESSION_HEADER_Y = 50      # Y offset for session view track headers
+
+    @classmethod
+    def get_config(cls) -> Dict[str, int]:
+        """Get current layout configuration."""
+        return {
+            "track_height": cls.TRACK_HEIGHT,
+            "top_offset": cls.TOP_OFFSET,
+            "header_x_offset": cls.HEADER_X_OFFSET,
+            "session_track_width": cls.SESSION_TRACK_WIDTH,
+            "session_header_y": cls.SESSION_HEADER_Y,
+        }
+
+    @classmethod
+    def update_config(cls, **kwargs) -> Dict[str, int]:
+        """Update layout configuration. Returns new config.
+
+        Args:
+            track_height: Pixels per track row in arrangement view
+            top_offset: Y offset from window top to first track
+            header_x_offset: X offset for track header clicks
+            session_track_width: Width of tracks in session view
+            session_header_y: Y offset for session view headers
+        """
+        if "track_height" in kwargs:
+            cls.TRACK_HEIGHT = int(kwargs["track_height"])
+        if "top_offset" in kwargs:
+            cls.TOP_OFFSET = int(kwargs["top_offset"])
+        if "header_x_offset" in kwargs:
+            cls.HEADER_X_OFFSET = int(kwargs["header_x_offset"])
+        if "session_track_width" in kwargs:
+            cls.SESSION_TRACK_WIDTH = int(kwargs["session_track_width"])
+        if "session_header_y" in kwargs:
+            cls.SESSION_HEADER_Y = int(kwargs["session_header_y"])
+        return cls.get_config()
+
+    @classmethod
+    def track_click_position(cls, track_index: int, window_pos: Dict[str, int]) -> Tuple[int, int]:
+        """Calculate click coordinates for a track by index (Arrangement View).
+
+        Args:
+            track_index: 0-based track index
+            window_pos: {"x": int, "y": int, "width": int, "height": int}
+
+        Returns:
+            (click_x, click_y) absolute screen coordinates
+        """
+        x = window_pos["x"] + cls.HEADER_X_OFFSET
+        y = window_pos["y"] + cls.TOP_OFFSET + (track_index * cls.TRACK_HEIGHT) + (cls.TRACK_HEIGHT // 2)
+        return (x, y)
 
 
 class AbletonAutomatorBridge:
@@ -475,6 +552,91 @@ class AbletonAutomatorBridge:
             "error": self.last_error if not success else None
         }
 
+    # =========================================================================
+    # SMART SELECTION (using AbletonLayoutConfig for calculated positions)
+    # =========================================================================
+
+    def smart_select_tracks(self, track_indices: List[int]) -> Dict[str, Any]:
+        """Select multiple tracks by clicking with calculated positions.
+
+        Uses AbletonLayoutConfig for position calculation. First track is
+        clicked normally, subsequent tracks are Shift+clicked.
+
+        Args:
+            track_indices: List of track indices to select (0-based)
+
+        Returns:
+            Result dict with success, positions clicked, and any errors
+        """
+        if not track_indices:
+            return {"success": False, "error": "No track indices provided"}
+
+        if not self.activate_ableton():
+            return {"success": False, "error": "Could not activate Ableton"}
+
+        # Get window position
+        win = self.get_window_position()
+        if not win:
+            return {"success": False, "error": "Could not get window position"}
+
+        # Click each track
+        positions = []
+        for i, idx in enumerate(track_indices):
+            x, y = AbletonLayoutConfig.track_click_position(idx, win)
+            modifiers = ["shift"] if i > 0 else None
+            success = self.click_at_position(x, y, modifiers)
+            positions.append({
+                "track_index": idx,
+                "x": x,
+                "y": y,
+                "shift": i > 0,
+                "clicked": success
+            })
+            if not success:
+                return {
+                    "success": False,
+                    "error": f"Failed to click track {idx}: {self.last_error}",
+                    "positions_attempted": positions
+                }
+            time.sleep(0.1)
+
+        return {
+            "success": True,
+            "operation": "smart_select_tracks",
+            "tracks_selected": len(track_indices),
+            "positions": positions,
+            "layout_config": AbletonLayoutConfig.get_config()
+        }
+
+    def smart_group_tracks(self, track_indices: List[int]) -> Dict[str, Any]:
+        """Select multiple tracks and group them (Cmd+G).
+
+        Combines smart_select_tracks + group_tracks for convenience.
+
+        Args:
+            track_indices: List of track indices to group
+
+        Returns:
+            Result dict with selection and grouping results
+        """
+        # Select tracks first
+        select_result = self.smart_select_tracks(track_indices)
+        if not select_result.get("success"):
+            return select_result
+
+        # Small delay before grouping
+        time.sleep(0.2)
+
+        # Group the selected tracks
+        group_result = self.group_tracks()
+
+        return {
+            "success": group_result.get("success", False),
+            "operation": "smart_group_tracks",
+            "select_result": select_result,
+            "group_result": group_result
+        }
+
     def get_window_position(self) -> Optional[Dict[str, int]]:
         """Get the position and size of Ableton's main window"""
         script = f'''
@@ -714,6 +876,26 @@ def handle_automator_command(command_type: str, params: dict = None) -> Dict[str
             "key": key,
             "modifiers": modifiers,
             "error": bridge.last_error if not success else None
+        }
+    # Smart selection commands (use AbletonLayoutConfig)
+    elif command_type == "smart_select_tracks":
+        track_indices = params.get("tracks", params.get("track_indices", []))
+        return bridge.smart_select_tracks(track_indices)
+    elif command_type == "smart_group_tracks":
+        track_indices = params.get("tracks", params.get("track_indices", []))
+        return bridge.smart_group_tracks(track_indices)
+    elif command_type == "calibrate_layout":
+        new_config = AbletonLayoutConfig.update_config(**params)
+        return {
+            "success": True,
+            "operation": "calibrate_layout",
+            "config": new_config
+        }
+    elif command_type == "get_layout_config":
+        return {
+            "success": True,
+            "operation": "get_layout_config",
+            "config": AbletonLayoutConfig.get_config()
         }
     else:
         return {

@@ -1,6 +1,6 @@
 # BAP Labs Ableton Sleeve for LLMs
 
-A comprehensive MCP bridge giving any LLM full control over Ableton Live — 70+ MCP tools across 13 categories, 500+ plugin parameter maps (111 Ableton native + 319 third-party VSTs), arrangement view GUI automation via AppleScript, and local-first inference on Apple Silicon via MLX. No cloud APIs required.
+A comprehensive MCP bridge giving any LLM full control over Ableton Live — 70+ MCP tools across 13 categories, 500+ plugin parameter maps (111 Ableton native + 319 third-party VSTs), arrangement view GUI automation via AppleScript, and local-first inference on Apple Silicon via MLX. Developed on macOS/Apple Silicon, with core MCP tools (57 of 70+) working cross-platform on Windows and Linux. No cloud APIs required.
 
 ## Architecture
 
@@ -13,7 +13,9 @@ User Input → Qwen3-4B (MLX local) → Unified MCP Bridge
 
 ## Quick Start
 
-**Prerequisites**: Python 3.10+, Ableton Live 12, macOS (Apple Silicon recommended)
+**Prerequisites**: Python 3.10+, Ableton Live 12
+
+### macOS (full feature set, Apple Silicon recommended)
 
 ```bash
 # Install dependencies
@@ -25,7 +27,7 @@ pip install mlx mlx-lm pythonosc pydantic librosa
 
 # Start Ableton Live (Remote Script connects on port 9877)
 
-# Interactive mode
+# Interactive mode (local Qwen3-4B via MLX)
 python mlx_mcp_bridge.py
 
 # Single command mode
@@ -35,12 +37,67 @@ python mlx_mcp_bridge.py -c "Set tempo to 128 and create a MIDI track called Dru
 python claude_mcp_bridge.py
 ```
 
+### Windows (core MCP tools, 57 of 70+)
+
+```bash
+# Install dependencies (no MLX — use PyTorch + CUDA instead)
+pip install torch pythonosc pydantic librosa anthropic
+
+# Install the Ableton Remote Script
+# Copy ableton-mcp-fork/ contents to:
+#   ~\Documents\Ableton\User Library\Remote Scripts\AbletonMCP\
+
+# Start Ableton Live (Remote Script connects on port 9877)
+
+# Claude API mode (recommended entry point on Windows)
+python claude_mcp_bridge.py
+
+# For local inference, use Ollama (see Windows Alternatives below)
+# ollama run qwen3:4b
+```
+
 **Example prompts:**
 - "Create a 4-bar drum pattern at 140 BPM"
 - "Mute the bass track and solo the vocals"
 - "Split the clip at bar 8 and consolidate bars 1-4"
 - "Load a Wavetable preset on track 3"
 - "Set the reverb send on the Drums track to 60%"
+
+## Platform Compatibility
+
+| Component | macOS | Windows | Notes |
+|-----------|:-----:|:-------:|-------|
+| Core MCP Bridge (`unified_mcp_bridge.py`) | ✅ | ✅ | Pure socket + OSC |
+| Claude API Bridge (`claude_mcp_bridge.py`) | ✅ | ✅ | Best Windows entry point |
+| MLX Local Inference (`mlx_mcp_bridge.py`) | ✅ | ❌ | Apple Silicon only |
+| GUI Automation — automator tools | ✅ | ❌ | AppleScript, see alternatives below |
+| GUI Automation — smart_select tools | ✅ | ❌ | Coordinate-based click automation |
+| Plugin Parameter Maps (500+) | ✅ | ✅ | Pure JSON |
+| Ableton Remote Script | ✅ | ✅ | Standard Ableton Remote Script |
+| LoRA Training (`train_llm_lora.py`) | ✅ | ✅ | PyTorch; CUDA recommended on Windows |
+| Audio Analysis modules | ✅ | ✅ | librosa is cross-platform |
+| Max/MSP Patches | ✅ | ⚠️ | VST3 mode works; AU references break |
+| VST Hub/FX Chain (OSC) | ✅ | ✅ | pythonosc is cross-platform |
+
+### Windows Alternatives
+
+**For MLX Local Inference → Ollama or llama.cpp:**
+- `ollama run qwen3:4b` gives you the same Qwen3-4B model on NVIDIA GPU
+- Or use `llama-cpp-python` with CUDA for programmatic access
+- Or use `claude_mcp_bridge.py` directly (cloud API, no local model needed)
+- NVIDIA TensorRT-LLM achieves up to 16x speedup for Qwen3-4B vs baseline
+
+**For AppleScript GUI Automation → pywinauto + pyautogui:**
+- `pywinauto` — Windows GUI automation library, can target Ableton by window title, send keystrokes (`send_keys('^e')` for Ctrl+E = Split), click menu items
+- `pyautogui` — Cross-platform mouse/keyboard control (click coordinates, hotkeys)
+- Ableton uses the same keyboard shortcuts on Windows (Ctrl instead of Cmd):
+  - Split: `Ctrl+E`, Consolidate: `Ctrl+J`, Group: `Ctrl+G`, etc.
+- A `automator_bridge_win.py` would need to be written using `pywinauto.keyboard.send_keys()` — the operation list is identical, just the automation backend changes
+- Note: requires Ableton to be in foreground (same constraint as macOS)
+
+**For AudioUnit Max patches → VST3:**
+- Change `"type": "AudioUnit"` to `"type": "VST3"` in Max patch JSON
+- Or load VST3 versions manually in Max on Windows
 
 ---
 
@@ -119,6 +176,8 @@ Our solution: **AppleScript GUI automation** via `AbletonMCP_Extended/automator_
 
 **Smart multi-track selection**: Click automation for non-contiguous track selection (e.g., select tracks "Drums", "Bass", "Vocals" simultaneously). Includes layout calibration for different screen sizes.
 
+> **Windows note**: Arrangement view automation is currently macOS only (AppleScript). Windows port planned using `pywinauto` — same keyboard shortcuts (Ctrl instead of Cmd), different automation backend. See [Platform Compatibility](#platform-compatibility).
+
 ## Built on Anthropic MCP Best Practices
 
 This project implements patterns recommended in Anthropic's [Building Effective Agents with MCP](https://www.anthropic.com/engineering/code-execution-with-mcp):
@@ -146,7 +205,7 @@ This project implements patterns recommended in Anthropic's [Building Effective 
 | Audio Clip Properties (warp/gain/pitch) | ✅ | ❌ | ❌ | ❌ | ❌ |
 | Mixer Controls (vol/pan/mute/solo/sends) | ✅ | ❌ | Partial | Partial | ✅ |
 | Master Track Control | ✅ | ❌ | ❌ | ❌ | ? |
-| macOS + Ableton 12 | ✅ | ✅ | ✅ | ✅ | Win/Ab11 only |
+| macOS (full) / Windows (core MCP) | ✅ | ✅ | ✅ | ✅ | Win/Ab11 only |
 
 **Key differentiators expanded:**
 
@@ -243,7 +302,7 @@ pytest test_mlx_integration.py -v
 
 ## Tech Stack
 
-Python 3.10 · MLX · Qwen3-4B · Ableton Live 12 · Max for Live · ahujasid/ableton-mcp (forked) · pythonosc · pydantic · librosa · Anthropic SDK
+Python 3.10 · MLX · Qwen3-4B · Ableton Live 12 · Max for Live · ahujasid/ableton-mcp (forked) · pythonosc · pydantic · librosa · Anthropic SDK · Ollama/llama.cpp (Windows alternative to MLX)
 
 ## Project Context
 

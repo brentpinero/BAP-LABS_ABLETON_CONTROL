@@ -1,0 +1,73 @@
+{
+  "eval_version": "1.0",
+  "eval_date": "2025-11-27T22:32:49.172041",
+  "models_tested": 4,
+  "results": {
+    "qwen2.5-3b": {
+      "total_score": 65,
+      "max_score": 240,
+      "percentage": 27.1,
+      "section_a_score": "25/30",
+      "section_b_score": "25/105",
+      "section_c_score": "15/75",
+      "section_d_score": "0/30"
+    },
+    "deepseek-r1-1.5b": {
+      "total_score": 22,
+      "max_score": 240,
+      "percentage": 9.2,
+      "section_a_score": "11/30",
+      "section_b_score": "9/105",
+      "section_c_score": "2/75",
+      "section_d_score": "0/30"
+    },
+    "qwen2.5-1.5b": {
+      "total_score": 51,
+      "max_score": 240,
+      "percentage": 21.2,
+      "section_a_score": "16/30",
+      "section_b_score": "25/105",
+      "section_c_score": "10/75",
+      "section_d_score": "0/30"
+    },
+    "gemma-2-2b": {
+      "total_score": 13,
+      "max_score": 240,
+      "percentage": 5.4,
+      "section_a_score": "3/30",
+      "section_b_score": "9/105",
+      "section_c_score": "1/75",
+      "section_d_score": "0/30"
+    }
+  },
+  "ranking": [
+    {
+      "model": "qwen2.5-3b",
+      "total_score": 65,
+      "max_score": 240,
+      "percentage": 27.1,
+      "rank": 1
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "total_score": 51,
+      "max_score": 240,
+      "percentage": 21.2,
+      "rank": 2
+    },
+    {
+      "model": "deepseek-r1-1.5b",
+      "total_score": 22,
+      "max_score": 240,
+      "percentage": 9.2,
+      "rank": 3
+    },
+    {
+      "model": "gemma-2-2b",
+      "total_score": 13,
+      "max_score": 240,
+      "percentage": 5.4,
+      "rank": 4
+    }
+  ]
+}

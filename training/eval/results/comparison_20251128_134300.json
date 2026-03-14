@@ -1,0 +1,25 @@
+{
+  "eval_version": "1.0",
+  "eval_date": "2025-11-28T13:42:54.908957",
+  "models_tested": 1,
+  "results": {
+    "qwen3-4b": {
+      "total_score": 28,
+      "max_score": 240,
+      "percentage": 11.7,
+      "section_a_score": "7/30",
+      "section_b_score": "1/105",
+      "section_c_score": "0/75",
+      "section_d_score": "20/30"
+    }
+  },
+  "ranking": [
+    {
+      "model": "qwen3-4b",
+      "total_score": 28,
+      "max_score": 240,
+      "percentage": 11.7,
+      "rank": 1
+    }
+  ]
+}

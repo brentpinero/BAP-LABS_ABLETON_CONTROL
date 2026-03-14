@@ -1,0 +1,89 @@
+{
+  "eval_version": "1.0",
+  "eval_date": "2025-11-27T21:55:09.693862",
+  "models_tested": 5,
+  "results": {
+    "qwen2.5-3b": {
+      "total_score": 9,
+      "max_score": 240,
+      "percentage": 3.8,
+      "section_a_score": "7/30",
+      "section_b_score": "0/105",
+      "section_c_score": "2/75",
+      "section_d_score": "0/30"
+    },
+    "deepseek-r1-1.5b": {
+      "total_score": 16,
+      "max_score": 240,
+      "percentage": 6.7,
+      "section_a_score": "12/30",
+      "section_b_score": "3/105",
+      "section_c_score": "1/75",
+      "section_d_score": "0/30"
+    },
+    "phi-3.5-mini": {
+      "total_score": 10,
+      "max_score": 240,
+      "percentage": 4.2,
+      "section_a_score": "9/30",
+      "section_b_score": "1/105",
+      "section_c_score": "0/75",
+      "section_d_score": "0/30"
+    },
+    "qwen2.5-1.5b": {
+      "total_score": 10,
+      "max_score": 240,
+      "percentage": 4.2,
+      "section_a_score": "7/30",
+      "section_b_score": "2/105",
+      "section_c_score": "1/75",
+      "section_d_score": "0/30"
+    },
+    "gemma-2-2b": {
+      "total_score": 13,
+      "max_score": 240,
+      "percentage": 5.4,
+      "section_a_score": "6/30",
+      "section_b_score": "7/105",
+      "section_c_score": "0/75",
+      "section_d_score": "0/30"
+    }
+  },
+  "ranking": [
+    {
+      "model": "deepseek-r1-1.5b",
+      "total_score": 16,
+      "max_score": 240,
+      "percentage": 6.7,
+      "rank": 1
+    },
+    {
+      "model": "gemma-2-2b",
+      "total_score": 13,
+      "max_score": 240,
+      "percentage": 5.4,
+      "rank": 2
+    },
+    {
+      "model": "phi-3.5-mini",
+      "total_score": 10,
+      "max_score": 240,
+      "percentage": 4.2,
+      "rank": 3
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "total_score": 10,
+      "max_score": 240,
+      "percentage": 4.2,
+      "rank": 4
+    },
+    {
+      "model": "qwen2.5-3b",
+      "total_score": 9,
+      "max_score": 240,
+      "percentage": 3.8,
+      "rank": 5
+    }
+  ]
+}

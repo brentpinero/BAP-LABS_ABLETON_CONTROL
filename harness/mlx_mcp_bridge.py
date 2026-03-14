@@ -57,12 +57,12 @@ class AgentStep(BaseModel):
 DEFAULT_MODEL = "mlx-community/Qwen3-8B-4bit"
 
 # System prompt for the music production collaborator
-# Uses ReAct pattern with progressive disclosure
+# Uses ReAct pattern with progressive disclosure + name-based track resolution
 SYSTEM_PROMPT = """You are a music production AI with direct Ableton Live control.
 
 You operate in a Thought → Action → Observation loop until the task is complete.
 
-FORMAT (follow EXACTLY - no variations):
+FORMAT (follow EXACTLY):
 Thought: [reasoning]
 Action: <tool_call>{"name": "tool_name", "arguments": {...}}</tool_call>
 
@@ -71,38 +71,40 @@ Thought: [summary]
 Final Answer: [response]
 
 STRICT RULES:
-- Action MUST use <tool_call></tool_call> tags, never emojis or other formats
-- Only give Final Answer AFTER you see successful Observations from tool calls
+- Action MUST use <tool_call></tool_call> tags
+- Only give Final Answer AFTER successful Observations
 - Never claim success without actually calling tools first
 
-DISCOVERY TOOLS (use these first when unsure):
-- list_tools: Get available tools. Args: {"category": "session|track|device|browser|clip"}
+NAME-BASED TRACK RESOLUTION:
+All track commands accept track NAMES or indices! Use names for clarity:
+- {"track_index": "Drums"} ← Use track name (preferred)
+- {"track_index": 0} ← Or use index
+- Partial matches work: "Bass" matches "1-Bass", "Drum" matches "Drums"
+
+DISCOVERY TOOLS (use first when unsure):
+- list_tools: Get tools by category. Args: {"category": "session|track|device|browser|clip|mixer|smart_select"}
+- get_all_tracks: Get all track names and indices
 - search_presets: Search Ableton presets. Args: {"query": "reverb", "limit": 5}
 
 EXAMPLE - Creating a drum beat:
-Thought: Need to create track, load kit ON THAT TRACK, then add notes TO SAME TRACK.
+Thought: Need to create track, load kit, then add notes to SAME track.
 1. create_midi_track at index 0 → returns track_index
 2. search_presets for drum kit → get URI
-3. load_instrument_or_effect with SAME track_index and URI
+3. load_browser_item with SAME track_index and item_uri
 4. create_arrangement_clip on SAME track_index
-5. add_notes_to_arrangement_clip on SAME track_index (kick=36, snare=38, hat=42)
+5. add_notes_to_arrangement_clip (kick=36, snare=38, hat=42)
 
-EXAMPLE - Adding to existing clip:
-Thought: User wants to add hihats. Check if clip exists first.
-1. get_arrangement_clips for the track → see existing clips
-2. add_notes_to_arrangement_clip with SAME track_index and clip_index (DON'T create new clip)
+EXAMPLE - Using track names:
+Thought: User wants to mute the bass track. I'll use the track name.
+Action: <tool_call>{"name": "set_track_mute", "arguments": {"track_index": "Bass", "mute": true}}</tool_call>
 
-CRITICAL RULES:
-- Instrument and notes MUST be on the SAME track_index
-- Before creating clips, CHECK if one already exists with get_arrangement_clips
-- To add more notes (hihats, etc), use add_notes_to_arrangement_clip on EXISTING clip
+EXAMPLE - Grouping tracks:
+Thought: User wants to group drums and bass. I'll use smart_group_tracks.
+Action: <tool_call>{"name": "smart_group_tracks", "arguments": {"tracks": ["Drums", "Bass"]}}</tool_call>
 
-MANDATORY WORKFLOW:
-1. For EACH new category of work, call list_tools FIRST to see exact tool names
-2. NEVER guess tool names - only use tools you've discovered via list_tools
-3. Categories: session, track, device, browser, clip
+CATEGORIES: session, track, device, browser, clip, mixer, transport, selection, smart_select, automator
 
-FORMATTING: Use exactly <tool_call>{"name": "...", "arguments": {...}}</tool_call> for actions. No emojis."""
+FORMATTING: Use exactly <tool_call>{"name": "...", "arguments": {...}}</tool_call> for actions."""
 
 
 # ============================================================================
@@ -229,45 +231,94 @@ def parse_tool_calls(response: str) -> list[dict]:
 # PROGRESSIVE DISCLOSURE - Local tool catalog (no MCP calls needed)
 # ============================================================================
 
-# NOTE: This catalog must match the actual ableton-mcp tools!
-# The upstream ableton-mcp (via uvx) has different tools than our AbletonMCP_Extended
+# Tool catalog synced with unified_mcp_bridge.py
+# Supports NAME-BASED track lookups (e.g., "Drums" instead of 0)
 TOOL_CATALOG = {
     "session": {
         "description": "Session-level operations (tempo, playback, transport)",
         "tools": {
-            "get_session_info": "Get session state (tracks, tempo, playing status)",
-            "set_tempo": "Set session tempo - args: {tempo: number}",
+            "get_session_info": "Get session state (tracks, tempo, playing)",
+            "get_all_tracks": "Get all track names/indices - returns: [{index, name, type}]",
+            "set_tempo": "Set session tempo in BPM - args: {tempo}",
             "start_playback": "Start playback",
             "stop_playback": "Stop playback",
         }
     },
     "track": {
-        "description": "Track operations (create, modify)",
+        "description": "Track operations (track_index accepts NAME or index, e.g. 'Drums' or 2)",
         "tools": {
-            "create_midi_track": "Create new MIDI track - args: {index: number}",
-            "get_track_info": "Get track details - args: {track_index: number}",
-            "set_track_name": "Rename track - args: {track_index: number, name: string}",
+            "create_midi_track": "Create new MIDI track - args: {index}",
+            "create_audio_track": "Create new audio track - args: {index}",
+            "delete_track": "Delete a track - args: {track_index: name|int}",
+            "get_track_info": "Get track details - args: {track_index: name|int}",
+            "set_track_name": "Rename a track - args: {track_index: name|int, name}",
         }
     },
     "device": {
-        "description": "Load instruments/effects onto tracks",
+        "description": "Device/plugin operations (track_index accepts NAME or index)",
         "tools": {
-            "load_instrument_or_effect": "Load instrument/effect - args: {track_index: number, uri: string}. Use search_presets to find URIs.",
+            "get_device_parameters": "Get all params - args: {track_index: name|int, device_index}",
+            "set_device_parameter": "Set param by index - args: {track_index: name|int, device_index, parameter_index, value}",
+            "load_browser_item": "Load preset - args: {track_index: name|int, item_uri}",
         }
     },
     "browser": {
         "description": "Browser operations (explore presets, plugins)",
         "tools": {
-            "get_browser_tree": "Get browser categories",
-            "get_browser_items_at_path": "Get items at path - args: {path: string}",
+            "get_browser_tree": "Get browser category structure",
+            "get_all_presets": "Get all presets in a category",
+            "search_presets": "Search presets by name (local filtering)",
         }
     },
     "clip": {
-        "description": "Arrangement clips. ALWAYS check get_arrangement_clips FIRST before creating new clips. DRUM NOTES: kick=36, snare=38, hat=42.",
+        "description": "Clip operations (track_index accepts NAME or index). DRUM NOTES: kick=36, snare=38, hat=42.",
         "tools": {
-            "get_arrangement_clips": "CHECK THIS FIRST - Get existing clips - args: {track_index}",
-            "add_notes_to_arrangement_clip": "Add notes to clip - args: {track_index, clip_index, notes: [{pitch, start_time, duration, velocity}]}",
-            "create_arrangement_clip": "Create NEW clip (only if none exists) - args: {track_index, start_time, length}",
+            "get_arrangement_clips": "Get existing clips - args: {track_index: name|int}",
+            "create_arrangement_clip": "Create clip - args: {track_index: name|int, start_time, length}",
+            "add_notes_to_arrangement_clip": "Add notes - args: {track_index: name|int, clip_index, notes: [{pitch, start_time, duration, velocity}]}",
+            "create_clip": "Create session clip - args: {track_index: name|int, clip_index, length}",
+            "add_notes_to_clip": "Add notes to session clip - args: {track_index: name|int, clip_index, notes}",
+        }
+    },
+    "mixer": {
+        "description": "Mixer controls (track_index accepts NAME or index)",
+        "tools": {
+            "set_track_volume": "Set volume (0-1) - args: {track_index: name|int, volume}",
+            "set_track_pan": "Set pan (-1 to 1) - args: {track_index: name|int, pan}",
+            "set_track_mute": "Mute/unmute - args: {track_index: name|int, mute: bool}",
+            "set_track_solo": "Solo/unsolo - args: {track_index: name|int, solo: bool}",
+        }
+    },
+    "transport": {
+        "description": "Transport and playhead control",
+        "tools": {
+            "get_current_position": "Get playhead position (beats), playing state, tempo",
+            "set_current_position": "Move playhead - args: {position: beats}",
+        }
+    },
+    "selection": {
+        "description": "Track and clip selection (accepts NAME or index)",
+        "tools": {
+            "select_track": "Select track - args: {track_index: name|int}",
+            "select_clip": "Select clip - args: {track_index: name|int, clip_index}",
+        }
+    },
+    "smart_select": {
+        "description": "Smart multi-track selection with name resolution + click automation",
+        "tools": {
+            "smart_select_tracks": "Select multiple tracks by name - args: {tracks: ['Drums', 'Bass'] or [0, 2]}",
+            "smart_group_tracks": "Select + group tracks - args: {tracks: ['Drums', 'Bass']}",
+            "calibrate_layout": "Adjust click positions - args: {track_height?, top_offset?, header_x?}",
+        }
+    },
+    "automator": {
+        "description": "GUI automation (requires Ableton foreground)",
+        "tools": {
+            "automator_split": "Split at cursor (Cmd+E)",
+            "automator_consolidate": "Consolidate (Cmd+J)",
+            "automator_undo": "Undo (Cmd+Z)",
+            "automator_group": "Group selected (Cmd+G)",
+            "automator_ungroup": "Ungroup (Cmd+Shift+G)",
         }
     },
 }
@@ -318,7 +369,7 @@ def load_presets_from_mcp(category_type: str = "audio_effects") -> list:
         print(f"Warning: Could not load presets from MCP: {e}")
         return []
 
-def handle_discovery_tool(name: str, arguments: dict) -> dict:
+def handle_discovery_tool(name: str, arguments: dict, mcp_client=None) -> dict:
     """Handle discovery tools locally without MCP call"""
 
     if name == "list_tools":
@@ -332,8 +383,19 @@ def handle_discovery_tool(name: str, arguments: dict) -> dict:
         else:
             return {
                 "categories": list(TOOL_CATALOG.keys()),
-                "hint": "Call list_tools with category: session|track|device|browser|clip"
+                "hint": "Call list_tools with category: " + "|".join(TOOL_CATALOG.keys())
             }
+
+    if name == "get_all_tracks":
+        # Get track list from MCP client if available
+        if mcp_client and hasattr(mcp_client, 'bridge'):
+            tracks = mcp_client.bridge.get_all_tracks()
+            return {
+                "track_count": len(tracks),
+                "tracks": tracks,
+                "hint": "Use track 'name' field with any track command, e.g. track_index: 'Drums'"
+            }
+        return {"error": "MCP client not available"}
 
     if name == "search_presets":
         query = arguments.get("query", "").lower()
@@ -450,99 +512,68 @@ def format_tools_for_prompt(tools: list) -> str:
 
 
 # ============================================================================
-# SOCKET MCP CLIENT (connects to AbletonMCP_Extended on port 9877)
+# MCP CLIENT (uses UnifiedMCPBridge for name-based resolution)
 # ============================================================================
 
 import socket
+from unified_mcp_bridge import UnifiedMCPBridge
 
 class MCPClient:
-    """Socket-based MCP Client that connects to AbletonMCP_Extended on port 9877"""
+    """MCP Client using UnifiedMCPBridge for name-based track resolution"""
 
-    def __init__(self, host: str = "localhost", port: int = 9877):
-        self.host = host
-        self.port = port
+    def __init__(self):
+        self.bridge = UnifiedMCPBridge()
         self.tools = []
 
-    def _send_command(self, cmd_type: str, params: dict = None) -> dict:
-        """Send a command to AbletonMCP and return response."""
-        if params is None:
-            params = {}
-
-        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        sock.settimeout(30)
-
-        try:
-            sock.connect((self.host, self.port))
-            command = {"type": cmd_type, "params": params}
-            sock.sendall(json.dumps(command).encode('utf-8'))
-
-            # Receive in chunks for large responses
-            chunks = []
-            while True:
-                chunk = sock.recv(65536)
-                if not chunk:
-                    break
-                chunks.append(chunk)
-                try:
-                    full_data = b''.join(chunks).decode('utf-8')
-                    json.loads(full_data)
-                    break
-                except:
-                    continue
-
-            return json.loads(b''.join(chunks).decode('utf-8'))
-        finally:
-            sock.close()
-
     async def connect(self):
-        """Connect to the AbletonMCP socket server"""
-        print(f"Connecting to AbletonMCP on {self.host}:{self.port}...")
+        """Connect to Ableton via UnifiedMCPBridge"""
+        print("Connecting to Ableton via UnifiedMCPBridge...")
 
-        # Test connection
         try:
-            result = self._send_command("get_session_info")
+            self.bridge.connect_ableton()
+            result = self.bridge.get_session_info()
             if result.get("status") == "success":
-                print(f"Connected! Session has {result['result']['track_count']} tracks")
-                # Define available tools (Arrangement View focused)
-                self.tools = [
-                    # Session info
-                    "get_session_info", "set_tempo", "start_playback", "stop_playback",
-                    # Track operations
-                    "get_track_info", "create_midi_track", "set_track_name",
-                    # Browser/presets
-                    "get_browser_tree", "get_all_presets", "load_browser_item",
-                    # Arrangement View clips (NOT Session View)
-                    "create_arrangement_clip", "add_notes_to_arrangement_clip", "get_arrangement_clips",
-                    # Device parameters
-                    "get_device_parameters", "set_device_parameter"
-                ]
-                print(f"Available tools ({len(self.tools)}): {', '.join(self.tools[:5])}...")
+                track_count = result.get("result", {}).get("track_count", 0)
+                print(f"Connected! Session has {track_count} tracks")
+
+                # Get track names for display
+                tracks = self.bridge.get_all_tracks()
+                if tracks:
+                    track_names = [t["name"] for t in tracks[:5]]
+                    print(f"Tracks: {track_names}{'...' if len(tracks) > 5 else ''}")
+
+                # Available tools (matching TOOL_CATALOG categories)
+                self.tools = list(TOOL_CATALOG.keys())
+                print(f"Categories: {', '.join(self.tools)}")
             else:
                 raise ConnectionError(f"Failed to connect: {result.get('message')}")
         except Exception as e:
             raise ConnectionError(f"Cannot connect to AbletonMCP: {e}")
 
     async def call_tool(self, name: str, arguments: dict) -> Any:
-        """Execute a tool call via socket"""
+        """Execute a tool call via UnifiedMCPBridge (supports name-based track resolution)"""
         print(f"Calling tool: {name} with args: {arguments}")
 
-        # Map tool names to command types
-        cmd_type = name
-
-        # Map arguments to params format expected by AbletonMCP
-        params = arguments
-
-        # Special handling for load_browser_item (was load_instrument_or_effect)
+        # Handle special tool mappings
         if name == "load_instrument_or_effect":
-            cmd_type = "load_browser_item"
-            # Handle different field names the model might use
+            name = "load_browser_item"
             uri = arguments.get("uri") or arguments.get("preset_uri") or arguments.get("item_uri") or ""
-            params = {
+            arguments = {
                 "track_index": arguments.get("track_index", 0),
                 "item_uri": uri
             }
 
-        result = self._send_command(cmd_type, params)
+        # Smart selection tools route through automator
+        if name in ["smart_select_tracks", "smart_group_tracks", "calibrate_layout", "get_layout_config"]:
+            handler = self.bridge._get_automator_handler()
+            result = handler(name, arguments)
+        # Automator tools
+        elif name.startswith("automator_"):
+            handler = self.bridge._get_automator_handler()
+            result = handler(name, arguments)
+        # Standard Ableton commands (with automatic name resolution!)
+        else:
+            result = self.bridge.ableton_command(name, arguments)
 
         # Wrap result in a format similar to MCP response
         class MockContent:
@@ -553,14 +584,17 @@ class MCPClient:
             def __init__(self, result_dict):
                 if result_dict.get("status") == "success":
                     self.content = [MockContent(json.dumps(result_dict.get("result", {})))]
+                elif result_dict.get("success"):  # Automator format
+                    self.content = [MockContent(json.dumps(result_dict))]
                 else:
-                    self.content = [MockContent(f"Error: {result_dict.get('message', 'Unknown error')}")]
+                    error_msg = result_dict.get("message") or result_dict.get("error") or "Unknown error"
+                    self.content = [MockContent(f"Error: {error_msg}")]
 
         return MockResult(result)
 
     async def cleanup(self):
-        """Clean up resources (nothing to clean for socket client)"""
-        pass
+        """Clean up resources"""
+        self.bridge.disconnect()
 
 
 # ============================================================================
@@ -606,7 +640,7 @@ class MLXMCPBridge:
 
         try:
             # Check if it's a discovery tool (handle locally, no MCP call)
-            discovery_result = handle_discovery_tool(name, arguments)
+            discovery_result = handle_discovery_tool(name, arguments, mcp_client=self.mcp)
 
             if discovery_result is not None:
                 result_text = json.dumps(discovery_result, indent=2)

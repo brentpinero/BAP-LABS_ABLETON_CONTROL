@@ -1,0 +1,59 @@
+{
+  "eval_version": "1.0",
+  "eval_date": "2025-11-28T15:22:13.791637",
+  "models_tested": 2,
+  "results": {
+    "qwen3-4b": {
+      "total_score": 100,
+      "max_score": 240,
+      "percentage": 41.7,
+      "section_a_score": "22/30",
+      "section_b_score": "42/105",
+      "section_c_score": "25/75",
+      "section_d_score": "11/30",
+      "total_cot_score": 110,
+      "max_cot_score": 210,
+      "cot_percentage": 52.4,
+      "section_b_cot": "61/105",
+      "section_c_cot": "32/75",
+      "section_d_cot": "17/30"
+    },
+    "phi-4-mini-reasoning": {
+      "total_score": 52,
+      "max_score": 240,
+      "percentage": 21.7,
+      "section_a_score": "3/30",
+      "section_b_score": "33/105",
+      "section_c_score": "13/75",
+      "section_d_score": "3/30",
+      "total_cot_score": 112,
+      "max_cot_score": 210,
+      "cot_percentage": 53.3,
+      "section_b_cot": "61/105",
+      "section_c_cot": "32/75",
+      "section_d_cot": "19/30"
+    }
+  },
+  "ranking": [
+    {
+      "model": "qwen3-4b",
+      "total_score": 100,
+      "max_score": 240,
+      "percentage": 41.7,
+      "cot_score": 110,
+      "max_cot_score": 210,
+      "cot_percentage": 52.4,
+      "rank": 1
+    },
+    {
+      "model": "phi-4-mini-reasoning",
+      "total_score": 52,
+      "max_score": 240,
+      "percentage": 21.7,
+      "cot_score": 112,
+      "max_cot_score": 210,
+      "cot_percentage": 53.3,
+      "rank": 2
+    }
+  ]
+}

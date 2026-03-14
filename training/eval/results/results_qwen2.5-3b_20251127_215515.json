@@ -1,0 +1,1387 @@
+{
+  "model": "qwen2.5-3b",
+  "model_info": {
+    "repo": "mlx-community/Qwen2.5-3B-Instruct-4bit",
+    "name": "Qwen2.5-3B-Instruct",
+    "size_gb": 2.0,
+    "description": "Primary candidate - strong reasoning, fast"
+  },
+  "timestamp": "2025-11-27T21:55:15.064287",
+  "eval_time_seconds": 5.370342969894409,
+  "summary": {
+    "total_score": 9,
+    "max_score": 240,
+    "percentage": 3.8,
+    "section_a_score": "7/30",
+    "section_b_score": "0/105",
+    "section_c_score": "2/75",
+    "section_d_score": "0/30"
+  },
+  "sections": {
+    "A": {
+      "section": "A",
+      "name": "Factual Knowledge",
+      "questions": [
+        {
+          "id": "A1-01",
+          "question": "Which waveform contains only odd harmonics and produces a hollow, clarinet-like tone?",
+          "correct_answer": "B",
+          "model_response": "B",
+          "is_correct": true,
+          "score": 1
+        },
+        {
+          "id": "A1-02",
+          "question": "In an ADSR envelope, which parameter controls how long it takes for the sound to reach full volume after a key is pressed?",
+          "correct_answer": "A",
+          "model_response": "B",
+          "is_correct": false,
+          "score": 0
+        },
+        {
+          "id": "A1-03",
+          "question": "A low-pass filter with resonance set to maximum at the cutoff frequency will:",
+          "correct_answer": "B",
+          "model_response": "A",
+          "is_correct": false,
+          "score": 0
+        },
+        {
+          "id": "A1-04",
+          "question": "What is the primary function of an LFO in synthesis?",
+          "correct_answer": "B",
+          "model_response": "A",
+          "is_correct": false,
+          "score": 0
+        },
+        {
+          "id": "A1-05",
+          "question": "In wavetable synthesis, what does 'wavetable position' control?",
+          "correct_answer": "B",
+          "model_response": "C",
+          "is_correct": false,
+          "score": 0
+        },
+        {
+          "id": "A1-06",
+          "question": "Unison mode in a synthesizer works by:",
+          "correct_answer": "A",
+          "model_response": "B",
+          "is_correct": false,
+          "score": 0
+        },
+        {
+          "id": "A1-07",
+          "question": "What happens when you route an envelope to filter cutoff with a positive modulation amount?",
+          "correct_answer": "A",
+          "model_response": "B",
+          "is_correct": false,
+          "score": 0
+        },
+        {
+          "id": "A1-08",
+          "question": "Which oscillator waveform has the richest harmonic content, containing all integer harmonics?",
+          "correct_answer": "C",
+          "model_response": "B",
+          "is_correct": false,
+          "score": 0
+        },
+        {
+          "id": "A1-09",
+          "question": "FM synthesis creates new timbres primarily by:",
+          "correct_answer": "B",
+          "model_response": "D",
+          "is_correct": false,
+          "score": 0
+        },
+        {
+          "id": "A1-10",
+          "question": "What is the purpose of a noise oscillator in sound design?",
+          "correct_answer": "B",
+          "model_response": "C",
+          "is_correct": false,
+          "score": 0
+        },
+        {
+          "id": "A2-01",
+          "question": "The 'mud' frequency range that often causes low-end problems in mixes is typically around:",
+          "correct_answer": "B",
+          "model_response": "C",
+          "is_correct": false,
+          "score": 0
+        },
+        {
+          "id": "A2-02",
+          "question": "What does a compressor's 'attack' parameter control?",
+          "correct_answer": "B",
+          "model_response": "B",
+          "is_correct": true,
+          "score": 1
+        },
+        {
+          "id": "A2-03",
+          "question": "LUFS is a measurement standard primarily used to measure:",
+          "correct_answer": "B",
+          "model_response": "C",
+          "is_correct": false,
+          "score": 0
+        },
+        {
+          "id": "A2-04",
+          "question": "When two sounds have overlapping frequencies and one makes the other harder to hear, this is called:",
+          "correct_answer": "B",
+          "model_response": "C",
+          "is_correct": false,
+          "score": 0
+        },
+        {
+          "id": "A2-05",
+          "question": "What is the primary purpose of high-passing (HPF) non-bass elements in a mix?",
+          "correct_answer": "B",
+          "model_response": "B",
+          "is_correct": true,
+          "score": 1
+        },
+        {
+          "id": "A2-06",
+          "question": "A compressor ratio of 4:1 means:",
+          "correct_answer": "B",
+          "model_response": "D",
+          "is_correct": false,
+          "score": 0
+        },
+        {
+          "id": "A2-07",
+          "question": "Why is it generally recommended to keep sub-bass frequencies in mono?",
+          "correct_answer": "B",
+          "model_response": "D",
+          "is_correct": false,
+          "score": 0
+        },
+        {
+          "id": "A2-08",
+          "question": "Sidechain compression is commonly used between kick and bass to:",
+          "correct_answer": "B",
+          "model_response": "B",
+          "is_correct": true,
+          "score": 1
+        },
+        {
+          "id": "A2-09",
+          "question": "What does a limiter primarily do in mastering?",
+          "correct_answer": "B",
+          "model_response": "A",
+          "is_correct": false,
+          "score": 0
+        },
+        {
+          "id": "A2-10",
+          "question": "The 'presence' frequency range that helps elements cut through a mix is typically around:",
+          "correct_answer": "C",
+          "model_response": "A",
+          "is_correct": false,
+          "score": 0
+        },
+        {
+          "id": "A3-01",
+          "question": "The 'sweet spot' for sub-bass fundamental frequencies that reproduce well on most systems is approximately:",
+          "correct_answer": "B",
+          "model_response": "C",
+          "is_correct": false,
+          "score": 0
+        },
+        {
+          "id": "A3-02",
+          "question": "If a track is in the key of C and you want a powerful sub bass, why might this be challenging?",
+          "correct_answer": "B",
+          "model_response": "A",
+          "is_correct": false,
+          "score": 0
+        },
+        {
+          "id": "A3-03",
+          "question": "What is an octave in terms of frequency?",
+          "correct_answer": "B",
+          "model_response": "B",
+          "is_correct": true,
+          "score": 1
+        },
+        {
+          "id": "A3-04",
+          "question": "The note E1 has a frequency of approximately:",
+          "correct_answer": "B",
+          "model_response": "B",
+          "is_correct": true,
+          "score": 1
+        },
+        {
+          "id": "A3-05",
+          "question": "In electronic music production, keys like F, F#, and G are often called 'bass-friendly' because:",
+          "correct_answer": "B",
+          "model_response": "A",
+          "is_correct": false,
+          "score": 0
+        },
+        {
+          "id": "A3-06",
+          "question": "The fundamental frequency of a kick drum typically sits around:",
+          "correct_answer": "B",
+          "model_response": "A",
+          "is_correct": false,
+          "score": 0
+        },
+        {
+          "id": "A3-07",
+          "question": "If your bass line has notes at both E1 (41 Hz) and A1 (55 Hz), why might you need to adjust your processing differently for each note?",
+          "correct_answer": "B",
+          "model_response": "B",
+          "is_correct": true,
+          "score": 1
+        },
+        {
+          "id": "A3-08",
+          "question": "Adding harmonics at 80 Hz, 120 Hz, and 160 Hz to a 40 Hz fundamental creates perceived loudness because:",
+          "correct_answer": "B",
+          "model_response": "A",
+          "is_correct": false,
+          "score": 0
+        },
+        {
+          "id": "A3-09",
+          "question": "Playing a minor 2nd interval (e.g., E and F together) in the sub-bass range will likely result in:",
+          "correct_answer": "B",
+          "model_response": "D",
+          "is_correct": false,
+          "score": 0
+        },
+        {
+          "id": "A3-10",
+          "question": "The standard concert pitch reference where A4 = 440 Hz means that middle C (C4) is approximately:",
+          "correct_answer": "B",
+          "model_response": "A",
+          "is_correct": false,
+          "score": 0
+        }
+      ],
+      "total_correct": 7,
+      "total_questions": 30
+    },
+    "B": {
+      "section": "B",
+      "name": "Applied Knowledge",
+      "questions": [
+        {
+          "id": "B1-01",
+          "question": "How would you create a 'wobble bass' effect commonly heard in dubstep? Describe the key synthesis elements and modulation routing.",
+          "model_response": "Consider using parallel compression to maintain dynamics while adding density. You can also layer sounds at different octaves and use saturation to add harmonics.",
+          "key_concepts": [
+            "LFO to filter cutoff",
+            "low-pass filter",
+            "tempo-synced modulation",
+            "harmonic-rich oscillator"
+          ],
+          "matched_concepts": [],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "B1-02",
+          "question": "Explain why a pluck sound requires a fast attack and fast decay on the amplitude envelope, and how the filter envelope typically differs.",
+          "model_response": "Consider using parallel compression to maintain dynamics while adding density. You can also layer sounds at different octaves and use saturation to add harmonics.",
+          "key_concepts": [
+            "fast attack for transient",
+            "quick decay",
+            "low sustain",
+            "filter follows brightness decay"
+          ],
+          "matched_concepts": [],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "B1-03",
+          "question": "What is the difference between chorus and unison in terms of how they create width and thickness? When would you use each?",
+          "model_response": "Consider using parallel compression to maintain dynamics while adding density. You can also layer sounds at different octaves and use saturation to add harmonics.",
+          "key_concepts": [
+            "unison is pre-processing",
+            "chorus is post-processing",
+            "phase coherence",
+            "use cases differ"
+          ],
+          "matched_concepts": [],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "B1-04",
+          "question": "Why might you layer a sine wave sub-bass underneath a more complex bass sound? What mixing considerations apply?",
+          "model_response": "To achieve this, you would use an LFO routed to the filter cutoff. Start with a sawtooth oscillator and apply a low-pass filter with moderate resonance. The modulation creates movement in the sound.",
+          "key_concepts": [
+            "pure fundamental foundation",
+            "phase alignment critical",
+            "frequency separation",
+            "volume balance"
+          ],
+          "matched_concepts": [],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "B1-05",
+          "question": "Describe what 'warp modes' or wavetable morphing do and why they're useful for evolving pad sounds.",
+          "model_response": "I would recommend starting by analyzing the frequency spectrum to identify problem areas. Then use surgical EQ to address specific issues while preserving the overall character.",
+          "key_concepts": [
+            "wavetable reading transformation",
+            "timbral movement",
+            "evolving harmonics",
+            "LFO/envelope modulation of position"
+          ],
+          "matched_concepts": [],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "B1-06",
+          "question": "How does the attack time on an amplitude envelope affect the perceived punch of a bass sound?",
+          "model_response": "This involves balancing the frequency content between elements. Use sidechain compression to create space, and consider EQ cuts in the low-mid range around 200-400Hz to reduce muddiness.",
+          "key_concepts": [
+            "transient control",
+            "zero attack = maximum punch",
+            "longer attack for kick clarity",
+            "trade-off awareness"
+          ],
+          "matched_concepts": [],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "B1-07",
+          "question": "Explain the concept of 'operator' in FM synthesis and how the carrier/modulator relationship creates complex timbres.",
+          "model_response": "The key is understanding the relationship between transients and sustain. A fast attack on the compressor will catch the transient, while adjusting the release affects the tail of the sound.",
+          "key_concepts": [
+            "carriers vs modulators",
+            "sidebands creation",
+            "modulation depth = complexity",
+            "frequency ratios determine harmonicity"
+          ],
+          "matched_concepts": [],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "B1-08",
+          "question": "Why is phase alignment important when layering bass sounds, and how would you check for phase issues?",
+          "model_response": "I would recommend starting by analyzing the frequency spectrum to identify problem areas. Then use surgical EQ to address specific issues while preserving the overall character.",
+          "key_concepts": [
+            "cancellation causes weak bass",
+            "mono sum test",
+            "phase correlation meter",
+            "waveform visual check",
+            "long wavelengths = sensitive to phase"
+          ],
+          "matched_concepts": [],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "B1-09",
+          "question": "What is the purpose of a noise oscillator layered with a synth lead, and how should it be mixed?",
+          "model_response": "Consider using parallel compression to maintain dynamics while adding density. You can also layer sounds at different octaves and use saturation to add harmonics.",
+          "key_concepts": [
+            "adds texture and presence",
+            "enhances transients",
+            "mix quietly",
+            "high-pass to focus on air",
+            "envelope shaping"
+          ],
+          "matched_concepts": [],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "B1-10",
+          "question": "How would you make a bass sound 'growl' or have an aggressive character without just adding distortion?",
+          "model_response": "I would recommend starting by analyzing the frequency spectrum to identify problem areas. Then use surgical EQ to address specific issues while preserving the overall character.",
+          "key_concepts": [
+            "mid-frequency movement",
+            "fast LFO to filter",
+            "FM/ring modulation",
+            "animated vs static harmonics"
+          ],
+          "matched_concepts": [],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "B1-11",
+          "question": "Explain how velocity sensitivity can make a synth sound more expressive and what parameters are typically mapped to velocity.",
+          "model_response": "I would recommend starting by analyzing the frequency spectrum to identify problem areas. Then use surgical EQ to address specific issues while preserving the overall character.",
+          "key_concepts": [
+            "human expression",
+            "amp level mapping",
+            "filter brightness mapping",
+            "attack time mapping",
+            "dynamic response"
+          ],
+          "matched_concepts": [],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "B1-12",
+          "question": "What is 'supersaw' and why is it a foundation of many trance and EDM leads?",
+          "model_response": "To achieve this, you would use an LFO routed to the filter cutoff. Start with a sawtooth oscillator and apply a low-pass filter with moderate resonance. The modulation creates movement in the sound.",
+          "key_concepts": [
+            "multiple detuned saws",
+            "phase interactions create shimmer",
+            "rich harmonics",
+            "inherent width",
+            "spectrum filling"
+          ],
+          "matched_concepts": [],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "B2-01",
+          "question": "A mix sounds 'muddy' in the low-mids. Describe your diagnostic process and potential solutions.",
+          "model_response": "I would recommend starting by analyzing the frequency spectrum to identify problem areas. Then use surgical EQ to address specific issues while preserving the overall character.",
+          "key_concepts": [
+            "solo to identify",
+            "200-400Hz focus",
+            "high-pass non-bass",
+            "surgical cuts",
+            "arrangement consideration"
+          ],
+          "matched_concepts": [
+            "surgical cuts"
+          ],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "B2-02",
+          "question": "When would you use a fast compressor attack versus a slow attack on a drum bus?",
+          "model_response": "I would recommend starting by analyzing the frequency spectrum to identify problem areas. Then use surgical EQ to address specific issues while preserving the overall character.",
+          "key_concepts": [
+            "fast = controlled, less punchy",
+            "slow = punchy, preserves transients",
+            "genre considerations",
+            "medium attack for balance"
+          ],
+          "matched_concepts": [],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "B2-03",
+          "question": "Explain the purpose of parallel compression and when you would use it on bass.",
+          "model_response": "I would recommend starting by analyzing the frequency spectrum to identify problem areas. Then use surgical EQ to address specific issues while preserving the overall character.",
+          "key_concepts": [
+            "blend compressed with dry",
+            "density without losing transients",
+            "consistent low-end presence",
+            "preserves attack",
+            "20-50% blend typical"
+          ],
+          "matched_concepts": [],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "B2-04",
+          "question": "How do you decide between using EQ to cut a frequency versus using sidechain compression to duck it dynamically?",
+          "model_response": "I would recommend starting by analyzing the frequency spectrum to identify problem areas. Then use surgical EQ to address specific issues while preserving the overall character.",
+          "key_concepts": [
+            "static EQ for constant problems",
+            "sidechain for momentary conflicts",
+            "preservation when no conflict",
+            "always vs sometimes"
+          ],
+          "matched_concepts": [],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "B2-05",
+          "question": "What is mid-side EQ and how would you use it to widen a mix without losing low-end focus?",
+          "model_response": "To achieve this, you would use an LFO routed to the filter cutoff. Start with a sawtooth oscillator and apply a low-pass filter with moderate resonance. The modulation creates movement in the sound.",
+          "key_concepts": [
+            "mid = center, side = edges",
+            "high-pass sides for mono bass",
+            "boost highs on sides for width",
+            "mono compatibility"
+          ],
+          "matched_concepts": [],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "B2-06",
+          "question": "How do you determine the right amount of headroom to leave before mastering?",
+          "model_response": "Consider using parallel compression to maintain dynamics while adding density. You can also layer sounds at different octaves and use saturation to add harmonics.",
+          "key_concepts": [
+            "3-6 dB headroom",
+            "peaks at -6 to -3 dBFS",
+            "room for mastering processing",
+            "-18 to -14 LUFS typical pre-master"
+          ],
+          "matched_concepts": [],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "B2-07",
+          "question": "Describe how you would use a reference track effectively during mixing.",
+          "model_response": "I would recommend starting by analyzing the frequency spectrum to identify problem areas. Then use surgical EQ to address specific issues while preserving the overall character.",
+          "key_concepts": [
+            "same genre tracks",
+            "level-match critical",
+            "A/B specific elements",
+            "calibration not copying",
+            "fresh ears"
+          ],
+          "matched_concepts": [],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "B2-08",
+          "question": "When and why would you use multiband compression on a mix bus?",
+          "model_response": "Consider using parallel compression to maintain dynamics while adding density. You can also layer sounds at different octaves and use saturation to add harmonics.",
+          "key_concepts": [
+            "independent band control",
+            "inconsistent bands",
+            "taming harshness without affecting body",
+            "avoid pumping",
+            "subtle settings"
+          ],
+          "matched_concepts": [],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "B2-09",
+          "question": "Explain why you might automate EQ throughout a song rather than using static settings.",
+          "model_response": "This involves balancing the frequency content between elements. Use sidechain compression to create space, and consider EQ cuts in the low-mid range around 200-400Hz to reduce muddiness.",
+          "key_concepts": [
+            "songs evolve",
+            "density changes need different EQ",
+            "match processing to context",
+            "consistent perceived balance",
+            "creative transitions"
+          ],
+          "matched_concepts": [],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "B2-10",
+          "question": "How do you prevent a reverb from making a mix sound washed out or muddy?",
+          "model_response": "Consider using parallel compression to maintain dynamics while adding density. You can also layer sounds at different octaves and use saturation to add harmonics.",
+          "key_concepts": [
+            "high-pass reverb",
+            "pre-delay for separation",
+            "shorter decay for busy mixes",
+            "less on bass",
+            "sidechain ducking option"
+          ],
+          "matched_concepts": [],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "B2-11",
+          "question": "What is gain staging and why does it matter in a modern DAW with floating-point processing?",
+          "model_response": "To achieve this, you would use an LFO routed to the filter cutoff. Start with a sawtooth oscillator and apply a low-pass filter with moderate resonance. The modulation creates movement in the sound.",
+          "key_concepts": [
+            "plugin sweet spots",
+            "analog modeled gear affected",
+            "meter accuracy",
+            "consistency aids decisions",
+            "-18dBFS average target"
+          ],
+          "matched_concepts": [],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "B2-12",
+          "question": "Describe the difference between peak and RMS metering and which you'd use for different tasks.",
+          "model_response": "The key is understanding the relationship between transients and sustain. A fast attack on the compressor will catch the transient, while adjusting the release affects the tail of the sound.",
+          "key_concepts": [
+            "peak = instantaneous maximum",
+            "RMS = average perceived",
+            "peak for clipping prevention",
+            "RMS/LUFS for loudness",
+            "both matter"
+          ],
+          "matched_concepts": [],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "B3-01",
+          "question": "A producer is writing in the key of C minor and wants heavy sub bass. What octave considerations and potential solutions would you suggest?",
+          "model_response": "This involves balancing the frequency content between elements. Use sidechain compression to create space, and consider EQ cuts in the low-mid range around 200-400Hz to reduce muddiness.",
+          "key_concepts": [
+            "C1 = 32.7 Hz too low",
+            "emphasize C2 at 65 Hz",
+            "add harmonics for small speakers",
+            "consider key change",
+            "accept system limitations"
+          ],
+          "matched_concepts": [],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "B3-02",
+          "question": "How does the genre (e.g., hip-hop vs. house vs. drum and bass) influence how you would approach the relationship between kick and bass?",
+          "model_response": "This involves balancing the frequency content between elements. Use sidechain compression to create space, and consider EQ cuts in the low-mid range around 200-400Hz to reduce muddiness.",
+          "key_concepts": [
+            "hip-hop: 808 = bass",
+            "house: separate elements, sidechain",
+            "DnB: EQ separation, fast tempo",
+            "genre expectations differ"
+          ],
+          "matched_concepts": [],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "B3-03",
+          "question": "What considerations affect how you'd process a lead synth differently in a sparse breakdown versus a dense drop section?",
+          "model_response": "This involves balancing the frequency content between elements. Use sidechain compression to create space, and consider EQ cuts in the low-mid range around 200-400Hz to reduce muddiness.",
+          "key_concepts": [
+            "sparse = wider, more effects, fuller",
+            "dense = narrower, drier, presence boost",
+            "automate between sections",
+            "don't compromise"
+          ],
+          "matched_concepts": [],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "B3-04",
+          "question": "Explain the trade-off between 'punch' and 'warmth' in bass sound design and how to balance them.",
+          "model_response": "This involves balancing the frequency content between elements. Use sidechain compression to create space, and consider EQ cuts in the low-mid range around 200-400Hz to reduce muddiness.",
+          "key_concepts": [
+            "punch = transients and upper harmonics",
+            "warmth = sustained low-mids, rounded",
+            "they can compete",
+            "layering or parallel processing",
+            "automate for context"
+          ],
+          "matched_concepts": [],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "B3-05",
+          "question": "How would you approach making a bass sound that 'fits' a mix you're given, without being able to change other elements?",
+          "model_response": "To achieve this, you would use an LFO routed to the filter cutoff. Start with a sawtooth oscillator and apply a low-pass filter with moderate resonance. The modulation creates movement in the sound.",
+          "key_concepts": [
+            "analyze existing mix first",
+            "identify kick frequency",
+            "find frequency holes",
+            "match energy level",
+            "complementary character design"
+          ],
+          "matched_concepts": [],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "B3-06",
+          "question": "When might aggressive frequency masking actually be desirable, and how would you use it intentionally?",
+          "model_response": "This involves balancing the frequency content between elements. Use sidechain compression to create space, and consider EQ cuts in the low-mid range around 200-400Hz to reduce muddiness.",
+          "key_concepts": [
+            "unified wall of sound",
+            "shoegaze/ambient intentional blur",
+            "massive perceived weight",
+            "overlapping by design",
+            "intention is key"
+          ],
+          "matched_concepts": [],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "B3-07",
+          "question": "Describe how tempo affects low-frequency mixing decisions, particularly with fast versus slow tempos.",
+          "model_response": "This involves balancing the frequency content between elements. Use sidechain compression to create space, and consider EQ cuts in the low-mid range around 200-400Hz to reduce muddiness.",
+          "key_concepts": [
+            "fast = tighter, shorter decay",
+            "slow = more sustain possible",
+            "sidechain pumping at fast tempo",
+            "decay time relative to tempo"
+          ],
+          "matched_concepts": [],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "B3-08",
+          "question": "How do loudness expectations differ between genres, and how does this affect mixing decisions?",
+          "model_response": "This involves balancing the frequency content between elements. Use sidechain compression to create space, and consider EQ cuts in the low-mid range around 200-400Hz to reduce muddiness.",
+          "key_concepts": [
+            "EDM/Pop = loud (-7 to -9 LUFS)",
+            "hip-hop = moderate",
+            "jazz/classical = dynamic",
+            "loud targets need managed dynamics",
+            "limiting reveals imbalances"
+          ],
+          "matched_concepts": [],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "B3-09",
+          "question": "Explain why you might choose a different bass sound for a verse versus a chorus, beyond just volume.",
+          "model_response": "Consider using parallel compression to maintain dynamics while adding density. You can also layer sounds at different octaves and use saturation to add harmonics.",
+          "key_concepts": [
+            "timbre changes",
+            "range changes",
+            "rhythmic activity changes",
+            "width changes",
+            "subtle contrast effective",
+            "subconscious impact"
+          ],
+          "matched_concepts": [],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "B3-10",
+          "question": "How would you handle a situation where the client says the bass 'doesn't hit hard enough' but the low end is already loud on the meters?",
+          "model_response": "To achieve this, you would use an LFO routed to the filter cutoff. Start with a sawtooth oscillator and apply a low-pass filter with moderate resonance. The modulation creates movement in the sound.",
+          "key_concepts": [
+            "perceived hardness \u2260 volume",
+            "transient definition",
+            "harmonic content for small speakers",
+            "kick/bass separation",
+            "compression approach",
+            "playback system matters"
+          ],
+          "matched_concepts": [],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "B3-11",
+          "question": "Describe the relationship between arrangement density and mixing headroom throughout a typical song structure.",
+          "model_response": "This involves balancing the frequency content between elements. Use sidechain compression to create space, and consider EQ cuts in the low-mid range around 200-400Hz to reduce muddiness.",
+          "key_concepts": [
+            "density inversely affects headroom",
+            "natural arrangement arc",
+            "cumulative level management",
+            "context-dependent EQ",
+            "automation essential"
+          ],
+          "matched_concepts": [],
+          "score": 0,
+          "max_score": 3
+        }
+      ],
+      "total_score": 0,
+      "max_score": 105
+    },
+    "C": {
+      "section": "C",
+      "name": "Task-Based Scenarios",
+      "scenarios": [
+        {
+          "id": "C1-01",
+          "scenario": "A producer asks you to make their bass sound 'more aggressive' without changing the notes or rhythm. The current bass is a simple sine-based sub with minimal harmonics.",
+          "model_response": "This involves balancing the frequency content between elements. Use sidechain compression to create space, and consider EQ cuts in the low-mid range around 200-400Hz to reduce muddiness.",
+          "evaluation_criteria": [
+            "identifies lack of harmonics as issue",
+            "suggests distortion/saturation",
+            "considers movement/modulation",
+            "preserves sub foundation",
+            "multiple solution options"
+          ],
+          "matched_criteria": [],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "C1-02",
+          "scenario": "The kick drum in a house track sounds weak and doesn't punch through the mix. The producer has already turned it up but it still feels lost.",
+          "model_response": "The key is understanding the relationship between transients and sustain. A fast attack on the compressor will catch the transient, while adjusting the release affects the tail of the sound.",
+          "evaluation_criteria": [
+            "doesn't just suggest turning up",
+            "considers kick/bass relationship",
+            "suggests transient enhancement",
+            "mentions sidechain or EQ carving",
+            "presence frequency awareness"
+          ],
+          "matched_criteria": [],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "C1-03",
+          "scenario": "A synth pad sounds thin and lifeless. It's a basic saw-based patch with some filtering. Make it sound fuller and more interesting.",
+          "model_response": "Consider using parallel compression to maintain dynamics while adding density. You can also layer sounds at different octaves and use saturation to add harmonics.",
+          "evaluation_criteria": [
+            "suggests unison/detuning",
+            "layering considerations",
+            "movement through modulation",
+            "effects for width/depth",
+            "balance awareness"
+          ],
+          "matched_criteria": [],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "C1-04",
+          "scenario": "The hi-hats in a track are too harsh and fatiguing to listen to over time. How would you address this?",
+          "model_response": "I would recommend starting by analyzing the frequency spectrum to identify problem areas. Then use surgical EQ to address specific issues while preserving the overall character.",
+          "evaluation_criteria": [
+            "identifies high-frequency issue",
+            "suggests filtering or dynamic EQ",
+            "resonance consideration",
+            "volume relationship to perceived harshness",
+            "preserve presence while reducing fatigue"
+          ],
+          "matched_criteria": [],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "C1-05",
+          "scenario": "A vocal recording has an annoying room resonance around 300Hz that makes it sound boxy. How do you fix this?",
+          "model_response": "I would recommend starting by analyzing the frequency spectrum to identify problem areas. Then use surgical EQ to address specific issues while preserving the overall character.",
+          "evaluation_criteria": [
+            "identifies surgical EQ need",
+            "high Q narrow cut",
+            "sweep to find frequency",
+            "dynamic option for inconsistent issues",
+            "warns against over-cutting"
+          ],
+          "matched_criteria": [
+            "identifies surgical EQ need",
+            "sweep to find frequency"
+          ],
+          "score": 1,
+          "max_score": 3
+        },
+        {
+          "id": "C1-06",
+          "scenario": "The producer wants the snare to have more 'crack' and cut through a dense arrangement. Currently it sounds dull and buried.",
+          "model_response": "This involves balancing the frequency content between elements. Use sidechain compression to create space, and consider EQ cuts in the low-mid range around 200-400Hz to reduce muddiness.",
+          "evaluation_criteria": [
+            "presence frequency boost",
+            "transient enhancement",
+            "parallel compression option",
+            "masking awareness",
+            "layering as option"
+          ],
+          "matched_criteria": [],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "C1-07",
+          "scenario": "A bass sound has inconsistent volume - some notes are much louder than others. The MIDI velocity is already consistent.",
+          "model_response": "This involves balancing the frequency content between elements. Use sidechain compression to create space, and consider EQ cuts in the low-mid range around 200-400Hz to reduce muddiness.",
+          "evaluation_criteria": [
+            "identifies non-velocity causes",
+            "compression for evening out",
+            "multiband for frequency-specific issues",
+            "filter resonance consideration",
+            "automation as option"
+          ],
+          "matched_criteria": [
+            "compression for evening out"
+          ],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "C1-08",
+          "scenario": "Create a riser/build-up effect to transition from a breakdown into a drop. Describe the synthesis and automation approach.",
+          "model_response": "Consider using parallel compression to maintain dynamics while adding density. You can also layer sounds at different octaves and use saturation to add harmonics.",
+          "evaluation_criteria": [
+            "pitch automation",
+            "filter automation",
+            "volume build",
+            "reverb for space",
+            "considers full mix context",
+            "tension/release understanding"
+          ],
+          "matched_criteria": [],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "C2-01",
+          "scenario": "The kick and bass are fighting each other - when one sounds good, the other sounds weak. They're both in the 50-80Hz range. The track is in F minor at 128 BPM.",
+          "model_response": "This involves balancing the frequency content between elements. Use sidechain compression to create space, and consider EQ cuts in the low-mid range around 200-400Hz to reduce muddiness.",
+          "evaluation_criteria": [
+            "sidechain as primary solution for house",
+            "frequency carving approach",
+            "considers key/tuning",
+            "tempo-aware suggestions",
+            "multiple options presented"
+          ],
+          "matched_criteria": [],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "C2-02",
+          "scenario": "The mix sounds good in the studio but falls apart when played on laptop speakers or phone - the bass disappears and the overall balance shifts dramatically.",
+          "model_response": "I would recommend starting by analyzing the frequency spectrum to identify problem areas. Then use surgical EQ to address specific issues while preserving the overall character.",
+          "evaluation_criteria": [
+            "identifies small speaker limitation",
+            "harmonic enhancement solution",
+            "layering for translation",
+            "multiple system checking",
+            "mid-range importance on small speakers"
+          ],
+          "matched_criteria": [],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "C2-03",
+          "scenario": "Multiple synth layers are creating a wall of sound but the mix sounds cluttered and undefined. Each synth sounds good in solo but together they're muddy.",
+          "model_response": "This involves balancing the frequency content between elements. Use sidechain compression to create space, and consider EQ cuts in the low-mid range around 200-400Hz to reduce muddiness.",
+          "evaluation_criteria": [
+            "frequency separation strategy",
+            "stereo placement",
+            "arrangement/editing consideration",
+            "volume automation for focus",
+            "redundancy check",
+            "high-pass non-bass elements"
+          ],
+          "matched_criteria": [],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "C2-04",
+          "scenario": "The vocals are getting lost in the mix during the chorus when all instruments are playing, but they sound too loud during the sparse verses.",
+          "model_response": "The key is understanding the relationship between transients and sustain. A fast attack on the compressor will catch the transient, while adjusting the release affects the tail of the sound.",
+          "evaluation_criteria": [
+            "automation as key solution",
+            "compression for consistency",
+            "sidechain/ducking option",
+            "EQ on competing elements",
+            "different processing per section",
+            "perceived consistency goal"
+          ],
+          "matched_criteria": [],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "C2-05",
+          "scenario": "A track has good elements but feels 'flat' and lacks energy compared to reference tracks in the same genre. The loudness is similar but it doesn't have the same excitement.",
+          "model_response": "This involves balancing the frequency content between elements. Use sidechain compression to create space, and consider EQ cuts in the low-mid range around 200-400Hz to reduce muddiness.",
+          "evaluation_criteria": [
+            "dynamics not just loudness",
+            "movement and automation",
+            "high-frequency presence",
+            "groove/punch importance",
+            "stereo width",
+            "arrangement consideration",
+            "saturation for warmth"
+          ],
+          "matched_criteria": [],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "C2-06",
+          "scenario": "The producer wants the drop to hit harder. Currently it's at the same level as the build-up and doesn't feel impactful.",
+          "model_response": "Consider using parallel compression to maintain dynamics while adding density. You can also layer sounds at different octaves and use saturation to add harmonics.",
+          "evaluation_criteria": [
+            "contrast is key",
+            "reduce build-up elements",
+            "silence/reduction before drop",
+            "kick/bass alignment",
+            "processing contrast",
+            "impact sound layer option"
+          ],
+          "matched_criteria": [
+            "impact sound layer option"
+          ],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "C2-07",
+          "scenario": "Create a smooth transition from a section with a busy 16th-note hi-hat pattern to a half-time feel breakdown.",
+          "model_response": "The key is understanding the relationship between transients and sustain. A fast attack on the compressor will catch the transient, while adjusting the release affects the tail of the sound.",
+          "evaluation_criteria": [
+            "gradual element reduction",
+            "filter for smoothing",
+            "reverb for blur",
+            "fill/break to mark change",
+            "overlap of sections",
+            "preparation before switch"
+          ],
+          "matched_criteria": [],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "C2-08",
+          "scenario": "The low end sounds different on every playback system - boomy on some, thin on others. How do you create more consistent low end?",
+          "model_response": "Consider using parallel compression to maintain dynamics while adding density. You can also layer sounds at different octaves and use saturation to add harmonics.",
+          "evaluation_criteria": [
+            "multiple system checking",
+            "reference tracks",
+            "high-pass subsonic",
+            "mono sub bass",
+            "harmonic content for small speakers",
+            "avoid narrow peaks",
+            "room/headphone verification"
+          ],
+          "matched_criteria": [
+            "mono sub bass"
+          ],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "C2-09",
+          "scenario": "A track needs to work both in clubs (big systems) and on streaming (normalized loudness). How do you balance these requirements?",
+          "model_response": "The key is understanding the relationship between transients and sustain. A fast attack on the compressor will catch the transient, while adjusting the release affects the tail of the sound.",
+          "evaluation_criteria": [
+            "clean focused sub",
+            "dynamic range for streaming",
+            "harmonics for translation",
+            "appropriate loudness target",
+            "mono compatibility",
+            "transients over pure sub"
+          ],
+          "matched_criteria": [
+            "transients over pure sub"
+          ],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "C3-01",
+          "scenario": "A client sends a rough mix and says 'it doesn't sound professional yet but I don't know what's wrong.' After listening, you notice: muddy low-mids, harsh high frequencies, narrow stereo image, and inconsistent vocal levels.",
+          "model_response": "I would recommend starting by analyzing the frequency spectrum to identify problem areas. Then use surgical EQ to address specific issues while preserving the overall character.",
+          "evaluation_criteria": [
+            "systematic approach",
+            "priority ordering",
+            "low-mid mud first",
+            "multiple specific solutions",
+            "reference track usage",
+            "explains reasoning for order"
+          ],
+          "matched_criteria": [],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "C3-02",
+          "scenario": "You're asked to design the bass and kick relationship for a new hip-hop track. The beat is 85 BPM with a heavy 808 style. The producer wants maximum low-end impact.",
+          "model_response": "This involves balancing the frequency content between elements. Use sidechain compression to create space, and consider EQ cuts in the low-mid range around 200-400Hz to reduce muddiness.",
+          "evaluation_criteria": [
+            "808 tuning importance",
+            "kick/808 frequency division",
+            "click vs sub separation",
+            "sidechain for cohesion",
+            "tempo-aware tail management",
+            "harmonics for translation",
+            "mono compatibility"
+          ],
+          "matched_criteria": [
+            "sidechain for cohesion"
+          ],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "C3-03",
+          "scenario": "A producer is frustrated because their mixes sound great in their bedroom studio but fall apart in other environments. How do you diagnose and solve this?",
+          "model_response": "This involves balancing the frequency content between elements. Use sidechain compression to create space, and consider EQ cuts in the low-mid range around 200-400Hz to reduce muddiness.",
+          "evaluation_criteria": [
+            "identifies room acoustics as cause",
+            "bass build-up common issue",
+            "multiple reference points",
+            "room treatment recommendation",
+            "reference track calibration",
+            "objective tools (analyzer)",
+            "translation checking"
+          ],
+          "matched_criteria": [],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "C3-04",
+          "scenario": "Design a complete synth bass sound for a dubstep track in the key of F. It needs to have a clean sub layer, aggressive mid-range growl, and work well with a punchy kick at 72Hz.",
+          "model_response": "This involves balancing the frequency content between elements. Use sidechain compression to create space, and consider EQ cuts in the low-mid range around 200-400Hz to reduce muddiness.",
+          "evaluation_criteria": [
+            "identifies F1 = 43.6Hz",
+            "layered approach",
+            "sub = sine mono",
+            "mid = growl movement",
+            "frequency separation between layers",
+            "kick relationship at 72Hz",
+            "sidechain for clarity"
+          ],
+          "matched_criteria": [
+            "sub = sine mono",
+            "frequency separation between layers",
+            "sidechain for clarity"
+          ],
+          "score": 1,
+          "max_score": 3
+        },
+        {
+          "id": "C3-05",
+          "scenario": "A track sounds 'demo quality' not 'release quality' but has good songwriting. Identify the technical differences that typically separate demo and professional quality mixes.",
+          "model_response": "This involves balancing the frequency content between elements. Use sidechain compression to create space, and consider EQ cuts in the low-mid range around 200-400Hz to reduce muddiness.",
+          "evaluation_criteria": [
+            "low-end clarity",
+            "frequency balance",
+            "dynamic control",
+            "depth/space usage",
+            "stereo image quality",
+            "detail and polish",
+            "translation checking",
+            "systematic comparison"
+          ],
+          "matched_criteria": [
+            "frequency balance"
+          ],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "C3-06",
+          "scenario": "You need to fit a new bass synth into an existing dense mix that already has: kick (fundamental 60Hz), 808 (tuned to E, fundamental 41Hz), synth pad (full frequency), and lead synth. The mix is already quite full.",
+          "model_response": "This involves balancing the frequency content between elements. Use sidechain compression to create space, and consider EQ cuts in the low-mid range around 200-400Hz to reduce muddiness.",
+          "evaluation_criteria": [
+            "analyzes existing frequency occupation",
+            "finds unused frequency space",
+            "considers removing/reducing existing elements",
+            "rhythmic/temporal separation",
+            "curate not stack philosophy",
+            "realistic about limitations"
+          ],
+          "matched_criteria": [
+            "finds unused frequency space"
+          ],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "C3-07",
+          "scenario": "A client wants you to achieve a specific reference track's bass sound. How do you analyze the reference and recreate the key characteristics?",
+          "model_response": "The key is understanding the relationship between transients and sustain. A fast attack on the compressor will catch the transient, while adjusting the release affects the tail of the sound.",
+          "evaluation_criteria": [
+            "systematic analysis process",
+            "spectrum analyzer for fundamental",
+            "harmonic content identification",
+            "movement/modulation analysis",
+            "stereo width checking",
+            "dynamics assessment",
+            "constant A/B comparison",
+            "level matching"
+          ],
+          "matched_criteria": [],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "C3-08",
+          "scenario": "The producer wants the final master to be competitive in loudness with commercial releases but also wants to maintain dynamics for a more 'organic' feel. How do you balance these competing goals?",
+          "model_response": "The key is understanding the relationship between transients and sustain. A fast attack on the compressor will catch the transient, while adjusting the release affects the tail of the sound.",
+          "evaluation_criteria": [
+            "-9 to -11 LUFS target",
+            "multiband limiting",
+            "macro vs micro dynamics",
+            "saturation before limiting",
+            "transient preservation",
+            "frequency balance for perceived loudness",
+            "illusion of dynamics concept"
+          ],
+          "matched_criteria": [
+            "transient preservation"
+          ],
+          "score": 0,
+          "max_score": 3
+        }
+      ],
+      "total_score": 2,
+      "max_score": 75
+    },
+    "D": {
+      "section": "D",
+      "name": "Collaboration & Iteration",
+      "dialogues": [
+        {
+          "id": "D1-01",
+          "name": "Ambiguous Request Handling",
+          "setup": "User: 'The bass needs to be better.'",
+          "model_response": "This involves balancing the frequency content between elements. Use sidechain compression to create space, and consider EQ cuts in the low-mid range around 200-400Hz to reduce muddiness.",
+          "evaluation_criteria": [
+            "asks clarifying questions",
+            "doesn't assume meaning of 'better'",
+            "explores multiple possibilities",
+            "polite and helpful tone"
+          ],
+          "matched_criteria": [],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "D1-02",
+          "name": "Clarification on Technical Request",
+          "setup": "User: 'Add some warmth to this.'",
+          "model_response": "Consider using parallel compression to maintain dynamics while adding density. You can also layer sounds at different octaves and use saturation to add harmonics.",
+          "evaluation_criteria": [
+            "recognizes ambiguity",
+            "offers specific interpretations",
+            "waits for clarification before acting",
+            "educational about options"
+          ],
+          "matched_criteria": [],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "D1-03",
+          "name": "User Provides Unexpected Constraint",
+          "setup": "After suggesting sidechain compression for kick/bass, user responds: 'I don't want any pumping effect, it doesn't fit the genre.'",
+          "model_response": "To achieve this, you would use an LFO routed to the filter cutoff. Start with a sawtooth oscillator and apply a low-pass filter with moderate resonance. The modulation creates movement in the sound.",
+          "evaluation_criteria": [
+            "accepts constraint gracefully",
+            "offers alternative solutions",
+            "doesn't defend original suggestion",
+            "acknowledges genre considerations"
+          ],
+          "matched_criteria": [],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "D2-01",
+          "name": "Iterative Refinement - First Attempt Not Right",
+          "setup": "User: 'I tried your EQ suggestion but it made the bass sound thin.'",
+          "model_response": "I would recommend starting by analyzing the frequency spectrum to identify problem areas. Then use surgical EQ to address specific issues while preserving the overall character.",
+          "evaluation_criteria": [
+            "no blame on user",
+            "asks for specifics",
+            "offers adjusted approach",
+            "explains the relationship",
+            "willing to try different approach"
+          ],
+          "matched_criteria": [],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "D2-02",
+          "name": "Handling Conflicting Feedback",
+          "setup": "User: 'I want the bass to be more aggressive, but the client also says it needs to be smoother.'",
+          "model_response": "This involves balancing the frequency content between elements. Use sidechain compression to create space, and consider EQ cuts in the low-mid range around 200-400Hz to reduce muddiness.",
+          "evaluation_criteria": [
+            "doesn't say it's impossible",
+            "finds creative interpretation",
+            "layered approach solution",
+            "asks for references",
+            "bridges apparently conflicting goals"
+          ],
+          "matched_criteria": [],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "D2-03",
+          "name": "Progressive Problem Solving",
+          "setup": "A three-turn conversation where initial suggestion improves but doesn't fully solve the problem.",
+          "model_response": "I would recommend starting by analyzing the frequency spectrum to identify problem areas. Then use surgical EQ to address specific issues while preserving the overall character.",
+          "evaluation_criteria": [
+            "builds on previous context",
+            "gets more specific as problem clarifies",
+            "offers multiple options at each stage",
+            "connects user feedback to refined solutions"
+          ],
+          "matched_criteria": [
+            "gets more specific as problem clarifies"
+          ],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "D2-04",
+          "name": "Respecting Creative Intent",
+          "setup": "User: 'I want to keep this heavily distorted bass even though it's causing some low-end issues.'",
+          "model_response": "The key is understanding the relationship between transients and sustain. A fast attack on the compressor will catch the transient, while adjusting the release affects the tail of the sound.",
+          "evaluation_criteria": [
+            "respects creative choice",
+            "doesn't try to change artistic intent",
+            "offers solutions within constraints",
+            "works with not against user vision"
+          ],
+          "matched_criteria": [],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "D3-01",
+          "name": "Creative Partnership - Open-Ended Request",
+          "setup": "User: 'I want the bass to do something interesting in the breakdown. Any ideas?'",
+          "model_response": "To achieve this, you would use an LFO routed to the filter cutoff. Start with a sawtooth oscillator and apply a low-pass filter with moderate resonance. The modulation creates movement in the sound.",
+          "evaluation_criteria": [
+            "multiple creative options",
+            "asks about emotional intent",
+            "doesn't impose single 'correct' answer",
+            "inspires rather than prescribes"
+          ],
+          "matched_criteria": [],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "D3-02",
+          "name": "Suggesting Alternatives to User's Approach",
+          "setup": "User: 'I'm going to fix this muddy mix by high-passing everything at 200Hz.'",
+          "model_response": "To achieve this, you would use an LFO routed to the filter cutoff. Start with a sawtooth oscillator and apply a low-pass filter with moderate resonance. The modulation creates movement in the sound.",
+          "evaluation_criteria": [
+            "politely suggests alternative",
+            "explains potential downsides",
+            "offers refined version of their approach",
+            "educational without condescending",
+            "respects underlying goal"
+          ],
+          "matched_criteria": [],
+          "score": 0,
+          "max_score": 3
+        },
+        {
+          "id": "D3-03",
+          "name": "Handling 'It's Done' Feedback",
+          "setup": "After making suggested changes, user says: 'Perfect! That's exactly what I wanted.'",
+          "model_response": "I would recommend starting by analyzing the frequency spectrum to identify problem areas. Then use surgical EQ to address specific issues while preserving the overall character.",
+          "evaluation_criteria": [
+            "accepts positive feedback appropriately",
+            "doesn't over-suggest when user is satisfied",
+            "optional documentation offer",
+            "knows when to stop"
+          ],
+          "matched_criteria": [],
+          "score": 0,
+          "max_score": 3
+        }
+      ],
+      "total_score": 0,
+      "max_score": 30
+    }
+  }
+}

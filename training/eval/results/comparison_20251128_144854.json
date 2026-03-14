@@ -1,0 +1,41 @@
+{
+  "eval_version": "1.0",
+  "eval_date": "2025-11-28T14:34:20.500728",
+  "models_tested": 2,
+  "results": {
+    "qwen3-4b": {
+      "total_score": 78,
+      "max_score": 240,
+      "percentage": 32.5,
+      "section_a_score": "19/30",
+      "section_b_score": "29/105",
+      "section_c_score": "19/75",
+      "section_d_score": "11/30"
+    },
+    "phi-4-mini-reasoning": {
+      "total_score": 63,
+      "max_score": 240,
+      "percentage": 26.2,
+      "section_a_score": "3/30",
+      "section_b_score": "30/105",
+      "section_c_score": "19/75",
+      "section_d_score": "11/30"
+    }
+  },
+  "ranking": [
+    {
+      "model": "qwen3-4b",
+      "total_score": 78,
+      "max_score": 240,
+      "percentage": 32.5,
+      "rank": 1
+    },
+    {
+      "model": "phi-4-mini-reasoning",
+      "total_score": 63,
+      "max_score": 240,
+      "percentage": 26.2,
+      "rank": 2
+    }
+  ]
+}

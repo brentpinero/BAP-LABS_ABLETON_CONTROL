@@ -1,0 +1,25 @@
+{
+  "eval_version": "1.0",
+  "eval_date": "2025-11-27T21:58:48.446874",
+  "models_tested": 5,
+  "results": {
+    "phi-3.5-mini": {
+      "total_score": 84,
+      "max_score": 240,
+      "percentage": 35.0,
+      "section_a_score": "21/30",
+      "section_b_score": "42/105",
+      "section_c_score": "21/75",
+      "section_d_score": "0/30"
+    }
+  },
+  "ranking": [
+    {
+      "model": "phi-3.5-mini",
+      "total_score": 84,
+      "max_score": 240,
+      "percentage": 35.0,
+      "rank": 1
+    }
+  ]
+}

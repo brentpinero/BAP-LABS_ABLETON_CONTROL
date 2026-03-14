@@ -595,7 +595,7 @@ def test_phase7_automator(results: TestResults, full_test: bool = False):
 
     try:
         # Import automator bridge
-        sys.path.insert(0, '/Users/brentpinero/Documents/serum_llm_2/AbletonMCP_Extended')
+        sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'AbletonMCP_Extended'))
         from automator_bridge import AbletonAutomatorBridge, handle_automator_command
         results.add_pass("automator_bridge_import")
     except ImportError as e:
@@ -882,7 +882,7 @@ def test_phase8_transport_selection(client: MCPTestClient, results: TestResults,
 
         # Import automator
         try:
-            sys.path.insert(0, '/Users/brentpinero/Documents/serum_llm_2/AbletonMCP_Extended')
+            sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'AbletonMCP_Extended'))
             from automator_bridge import handle_automator_command
 
             # Get clip info

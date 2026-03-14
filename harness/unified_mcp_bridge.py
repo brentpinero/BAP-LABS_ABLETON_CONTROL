@@ -710,7 +710,7 @@ class UnifiedMCPBridge:
         import json
 
         # Load preset index
-        index_file = "plugin_parameter_maps/ableton/presets_from_xml/all_presets.json"
+        index_file = os.path.join(os.path.dirname(__file__), "plugin_parameter_maps", "ableton", "presets_from_xml", "all_presets.json")
         if not os.path.exists(index_file):
             return {"status": "error", "message": "Preset index not found"}
 

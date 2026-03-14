@@ -276,7 +276,7 @@ The user wants to learn **architecture design from first principles**, not just 
 **Current State**:
 - ✅ Third-party VST plugins mapped (319 plugins in `plugin_parameter_maps/`)
 - ✅ MCP controls BAP Labs VST Synth Controller (port 9878) and FX Chain (port 9879)
-- ✅ MCP controls Ableton via ahujasid/ableton-mcp (port 9877)
+- ✅ MCP controls Ableton via AbletonMCP_Extended Remote Script (port 9877)
 - ❌ Ableton stock plugins NOT mapped yet
 - ❌ MCP doesn't follow Anthropic best practices yet
 

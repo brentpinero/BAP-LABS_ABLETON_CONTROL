@@ -415,7 +415,7 @@ def extract_dynamics_features(audio, sample_rate=44100, frame_size=2048):
 | **VSX Rendering** | AVAudioEngine | macOS AU hosting | Apple Framework |
 | **Effect Embeddings** | FxNorm-automix | MEGAMI-style embeddings | [GitHub](https://github.com/sony/FxNorm-automix) |
 | **Spectral Features** | Librosa | MFCC, spectral analysis | [librosa.org](https://librosa.org) |
-| **Ableton State** | Ableton MCP | Parameter export | [GitHub](https://github.com/ahujasid/ableton-mcp) |
+| **Ableton State** | AbletonMCP_Extended | Parameter export | Local Remote Script |
 | **Reasoning Gen** | GPT-4/Claude | Analysis chain generation | OpenAI/Anthropic |
 
 ---

@@ -22,19 +22,25 @@ User Input → Qwen3-4B (MLX local) → Unified MCP Bridge
 pip install mlx mlx-lm pythonosc pydantic librosa
 
 # Install the Ableton Remote Script
-# Copy ableton-mcp-fork/ contents to:
+# Copy harness/AbletonMCP_Extended/ contents to:
 #   ~/Music/Ableton/User Library/Remote Scripts/AbletonMCP/
 
 # Start Ableton Live (Remote Script connects on port 9877)
 
 # Interactive mode (local Qwen3-4B via MLX)
-python mlx_mcp_bridge.py
+python run_harness.py mlx
 
 # Single command mode
-python mlx_mcp_bridge.py -c "Set tempo to 128 and create a MIDI track called Drums"
+python run_harness.py mlx -c "Set tempo to 128 and create a MIDI track called Drums"
 
 # Claude API mode (requires ANTHROPIC_API_KEY)
-python claude_mcp_bridge.py
+python run_harness.py claude
+
+# Gemini API mode (requires GOOGLE_API_KEY)
+python run_harness.py gemini
+
+# Mix assistant mode (MLX + real-time audio analysis)
+python run_harness.py mix
 ```
 
 ### Windows (core MCP tools, 57 of 70+)
@@ -44,13 +50,13 @@ python claude_mcp_bridge.py
 pip install torch pythonosc pydantic librosa anthropic
 
 # Install the Ableton Remote Script
-# Copy ableton-mcp-fork/ contents to:
+# Copy harness/AbletonMCP_Extended/ contents to:
 #   ~\Documents\Ableton\User Library\Remote Scripts\AbletonMCP\
 
 # Start Ableton Live (Remote Script connects on port 9877)
 
 # Claude API mode (recommended entry point on Windows)
-python claude_mcp_bridge.py
+python run_harness.py claude
 
 # For local inference, use Ollama (see Windows Alternatives below)
 # ollama run qwen3:4b
@@ -67,14 +73,16 @@ python claude_mcp_bridge.py
 
 | Component | macOS | Windows | Notes |
 |-----------|:-----:|:-------:|-------|
-| Core MCP Bridge (`unified_mcp_bridge.py`) | ✅ | ✅ | Pure socket + OSC |
-| Claude API Bridge (`claude_mcp_bridge.py`) | ✅ | ✅ | Best Windows entry point |
-| MLX Local Inference (`mlx_mcp_bridge.py`) | ✅ | ❌ | Apple Silicon only |
+| Core MCP Bridge (`harness/unified_mcp_bridge.py`) | ✅ | ✅ | Pure socket + OSC |
+| Claude API Bridge (`harness/claude_mcp_bridge.py`) | ✅ | ✅ | Best Windows entry point |
+| Gemini API Bridge (`harness/gemini_native_bridge.py`) | ✅ | ✅ | Google Gemini with native function calling |
+| MLX Local Inference (`harness/mlx_mcp_bridge.py`) | ✅ | ❌ | Apple Silicon only |
+| Mix Assistant (`harness/mix_assistant_bridge.py`) | ✅ | ❌ | MLX + real-time audio analysis |
 | GUI Automation — automator tools | ✅ | ❌ | AppleScript, see alternatives below |
 | GUI Automation — smart_select tools | ✅ | ❌ | Coordinate-based click automation |
 | Plugin Parameter Maps (500+) | ✅ | ✅ | Pure JSON |
 | Ableton Remote Script | ✅ | ✅ | Standard Ableton Remote Script |
-| LoRA Training (`train_llm_lora.py`) | ✅ | ✅ | PyTorch; CUDA recommended on Windows |
+| LoRA Training (`training/train_llm_lora.py`) | ✅ | ✅ | PyTorch; CUDA recommended on Windows |
 | Audio Analysis modules | ✅ | ✅ | librosa is cross-platform |
 | Max/MSP Patches | ✅ | ⚠️ | VST3 mode works; AU references break |
 | VST Hub/FX Chain (OSC) | ✅ | ✅ | pythonosc is cross-platform |
@@ -84,7 +92,7 @@ python claude_mcp_bridge.py
 **For MLX Local Inference → Ollama or llama.cpp:**
 - `ollama run qwen3:4b` gives you the same Qwen3-4B model on NVIDIA GPU
 - Or use `llama-cpp-python` with CUDA for programmatic access
-- Or use `claude_mcp_bridge.py` directly (cloud API, no local model needed)
+- Or use `run_harness.py claude` directly (cloud API, no local model needed)
 - NVIDIA TensorRT-LLM achieves up to 16x speedup for Qwen3-4B vs baseline
 
 **For AppleScript GUI Automation → pywinauto + pyautogui:**
@@ -103,13 +111,16 @@ python claude_mcp_bridge.py
 
 # Section 1: LLM Ableton Harness & MCP
 
-## Core MCP Bridge Files
+## Core Bridge Files
 
 | File | Description |
 |------|-------------|
-| **`mlx_mcp_bridge.py`** | Primary entry point. Connects Qwen3-4B (MLX) to Ableton via ReAct reasoning loop. Handles streaming inference, tool call parsing, and progressive tool disclosure. |
-| **`unified_mcp_bridge.py`** | Universal bridge layer. All Ableton commands route through here. Provides name-based track resolution, dual VST control (synth hub + FX chain via OSC), and the full TOOL_CATALOG (13 categories). Single source of truth for all DAW control. |
-| **`claude_mcp_bridge.py`** | Alternative bridge using Anthropic's Claude API SDK with native tool calling. Supports extended thinking. Imports `unified_mcp_bridge` for all Ableton operations. |
+| **`harness/mlx_mcp_bridge.py`** | Primary entry point. Connects Qwen3-4B (MLX) to Ableton via ReAct reasoning loop. Handles streaming inference, tool call parsing, and progressive tool disclosure. |
+| **`harness/unified_mcp_bridge.py`** | Universal bridge layer. All Ableton commands route through here. Provides name-based track resolution, dual VST control (synth hub + FX chain via OSC), and the full TOOL_CATALOG (13 categories). Single source of truth for all DAW control. |
+| **`harness/claude_mcp_bridge.py`** | Alternative bridge using Anthropic's Claude API SDK with native tool calling. Supports extended thinking. Imports `unified_mcp_bridge` for all Ableton operations. |
+| **`harness/gemini_native_bridge.py`** | Google Gemini API bridge with native function calling. Imports `unified_mcp_bridge` for all Ableton operations. |
+| **`harness/mix_analysis_bridge.py`** | OSC receiver for real-time audio analysis from Mix Analysis Hub M4L device (OSC port 9880). |
+| **`harness/mix_assistant_bridge.py`** | Integrated bridge combining MLX inference + real-time audio analysis + MCP. Full mix assistant with live metering feedback. |
 
 ## MCP Tool Categories (70+ tools)
 
@@ -133,12 +144,12 @@ All tools accept **track names or indices** (e.g., `"track_index": "Drums"` or `
 
 ## Plugin Parameter Maps (500+ plugins)
 
-**111 Ableton native devices** (`plugin_parameter_maps/ableton/`):
+**111 Ableton native devices** (`harness/plugin_parameter_maps/ableton/`):
 - Instruments: Analog, Collision, Drift, Electric, Emit, Granulator III, Meld, Operator, Sampler, Simpler, Tension, Wavetable
 - Effects: EQ Eight, Compressor, Echo, Hybrid Reverb, Roar, Saturator, Chorus-Ensemble, Phaser-Flanger, and all stock effects
 - DS drums, CV devices, and more
 
-**319 third-party VSTs** (`plugin_parameter_maps/`):
+**319 third-party VSTs** (`harness/plugin_parameter_maps/`):
 - **Xfer**: Serum, Serum 2
 - **FabFilter**: Pro-Q 3, Pro-L 2, Saturn 2, Pro-C 2, Pro-R, Pro-DS, Pro-MB, Pro-G, Timeless 3, Volcano 3, Simplon, Twin 3, Micro
 - **Waves**: SSL E/G Channel, OneKnob series, H-Delay, CLA-76, dbx 160, L1/L2, Renaissance series, and dozens more
@@ -154,7 +165,7 @@ All tools accept **track names or indices** (e.g., `"track_index": "Drums"` or `
 
 > **This is the key differentiator.** The Ableton Live Object Model (LOM) does NOT expose split, consolidate, group, freeze, flatten, or reverse operations. Every other Ableton MCP is limited by this.
 
-Our solution: **AppleScript GUI automation** via `AbletonMCP_Extended/automator_bridge.py`.
+Our solution: **AppleScript GUI automation** via `harness/AbletonMCP_Extended/automator_bridge.py`.
 
 **Full operation list:**
 
@@ -178,70 +189,69 @@ Our solution: **AppleScript GUI automation** via `AbletonMCP_Extended/automator_
 
 > **Windows note**: Arrangement view automation is currently macOS only (AppleScript). Windows port planned using `pywinauto` — same keyboard shortcuts (Ctrl instead of Cmd), different automation backend. See [Platform Compatibility](#platform-compatibility).
 
-## Built on Anthropic MCP Best Practices
+## Design Principles
 
-This project implements patterns recommended in Anthropic's [Building Effective Agents with MCP](https://www.anthropic.com/engineering/code-execution-with-mcp):
+1. **Progressive Tool Disclosure** — Instead of dumping 70+ tool definitions into the LLM context (which costs ~150K tokens), the bridge exposes `list_tools(category)` and `search_presets(query)` so the model discovers tools on-demand. This achieves ~98% token savings on tool definitions.
 
-1. **Progressive Tool Disclosure** — Instead of dumping 70+ tool definitions into the LLM context (which costs ~150K tokens), the bridge exposes `list_tools(category)` and `search_presets(query)` so the model discovers tools on-demand. This mirrors Anthropic's "filesystem navigation" pattern — achieving ~98% token savings on tool definitions.
+2. **Categorical Tool Organization** — Tools are organized into 13 semantic categories (session, track, mixer, device, browser, clip, audio_clip, master, transport, selection, smart_select, automator, vst). Models explore categories first, then drill into specific tools.
 
-2. **Categorical Tool Organization** — Tools are organized into 13 semantic categories (session, track, mixer, device, browser, clip, audio_clip, master, transport, selection, smart_select, automator, vst) following Anthropic's file-tree structure recommendation. Models explore categories first, then drill into specific tools.
+3. **Local Execution Environment** — All inference runs on-device via MLX. Intermediate results (track resolution, parameter filtering) are processed in the bridge layer before returning to the model, minimizing token round-trips.
 
-3. **Local Execution Environment** — Following the article's emphasis on keeping processing local, all inference runs on-device via MLX. Intermediate results (track resolution, parameter filtering) are processed in the bridge layer before returning to the model, minimizing token round-trips.
-
-4. **Detail Levels** — `list_tools` supports `detail="names"`, `"brief"`, or `"full"` — matching Anthropic's recommendation for customizable detail levels so models can get just tool names for orientation or full schemas when needed.
+4. **Detail Levels** — `list_tools` supports `detail="names"`, `"brief"`, or `"full"` — so models can get just tool names for orientation or full schemas when needed.
 
 ## How This Compares to Other Ableton MCPs
 
-| Feature | BAP Labs Sleeve | ahujasid (base) | ableton-copilot | mcp-extended | cafeTechne |
-|---------|:---:|:---:|:---:|:---:|:---:|
-| Total MCP Tools | 70+ | ~16 | ~25 | ~20 | 220+ |
-| Plugin Parameter Maps | 500+ | 0 | 0 | 0 | 0 |
-| Arrangement View Editing | ✅ | ❌ | Partial | ❌ | ❌ |
-| GUI Automation (Split/Consolidate/Group) | ✅ | ❌ | ❌ | ❌ | ❌ |
-| Name-Based Track Resolution | ✅ | ❌ | ❌ | ❌ | Partial |
-| Progressive Tool Disclosure | ✅ | ❌ | ❌ | ❌ | ❌ |
-| Local LLM (no cloud) | ✅ | ❌ | ❌ | ❌ | ❌ |
-| Dual VST Control (synth + FX) | ✅ | ❌ | ❌ | ❌ | ❌ |
-| Audio Clip Properties (warp/gain/pitch) | ✅ | ❌ | ❌ | ❌ | ❌ |
-| Mixer Controls (vol/pan/mute/solo/sends) | ✅ | ❌ | Partial | Partial | ✅ |
-| Master Track Control | ✅ | ❌ | ❌ | ❌ | ? |
-| macOS (full) / Windows (core MCP) | ✅ | ✅ | ✅ | ✅ | Win/Ab11 only |
+| Feature | BAP Labs Sleeve | Other Ableton MCPs |
+|---------|:---:|:---:|
+| Total MCP Tools | 70+ | 16–220 |
+| Plugin Parameter Maps | 500+ | None |
+| Arrangement View Editing | ✅ | Partial or none |
+| GUI Automation (Split/Consolidate/Group) | ✅ | ❌ |
+| Name-Based Track Resolution | ✅ | Rare |
+| Progressive Tool Disclosure | ✅ | ❌ |
+| Local LLM (no cloud) | ✅ | ❌ |
+| Dual VST Control (synth + FX) | ✅ | ❌ |
+| Audio Clip Properties (warp/gain/pitch) | ✅ | ❌ |
+| Mixer Controls (vol/pan/mute/solo/sends) | ✅ | Partial in some |
+| Cross-Platform | macOS (full) / Windows (core) | Varies |
 
 **Key differentiators expanded:**
 
 - **Plugin Parameter Maps**: No other MCP knows what parameters a plugin has. Our 500+ JSON maps let the LLM set "Filter Cutoff" on Serum by name instead of guessing parameter indices.
 - **Arrangement View**: Operations like split, consolidate, group, freeze, and reverse are impossible through the LOM API. We bypass this with AppleScript GUI automation — the only MCP that can do this.
 - **Name-Based Track Resolution**: Say `"track_index": "Drums"` instead of remembering that Drums is track 3. The bridge resolves names to indices automatically.
-- **Progressive Disclosure**: Other MCPs dump all tool definitions upfront, consuming context window. We let the model discover tools categorically, following Anthropic's recommended pattern.
+- **Progressive Disclosure**: Other MCPs dump all tool definitions upfront, consuming context window. We let the model discover tools categorically.
 - **Local LLM**: Runs Qwen3-4B on Apple Silicon via MLX — no API keys, no latency, no cost.
 
-## Key Ableton Integration Files
+## Key Integration Files
 
 | File/Directory | Description |
 |----------------|-------------|
-| `ableton-mcp-fork/` | Forked ahujasid/ableton-mcp Remote Script (Ableton ↔ socket) |
-| `AbletonMCP_Extended/automator_bridge.py` | AppleScript GUI automation (27 operations) |
-| `plugin_parameter_maps/` | 500+ JSON parameter maps for VSTs and Ableton devices |
+| `harness/AbletonMCP_Extended/` | Extended Remote Script + AppleScript GUI automation (27 operations) |
+| `harness/plugin_parameter_maps/` | 500+ JSON parameter maps for VSTs and Ableton devices |
+| `harness/system_prompts/` | LLM system prompts for bridge modes |
 
 ## Max/MSP Integration
 
 | File | Description |
 |------|-------------|
-| `BAP Labs VST Hub.maxpat` | 8-slot synth VST control (OSC port 9878) |
-| `BAP Labs VST FX Chain.maxpat` | 8-slot FX control (OSC port 9879) |
-| `universal_vst_controller.js` | JavaScript controller for Max patches |
-| `BAP Labs Serum Control.amxd` | Max for Live Serum device |
+| `harness/BAP Labs VST Hub.maxpat` | 8-slot synth VST control (OSC port 9878) |
+| `harness/BAP Labs VST FX Chain.maxpat` | 8-slot FX control (OSC port 9879) |
+| `harness/Mix Analysis Hub.maxpat` | Real-time mix analysis Max for Live device (OSC port 9880) |
+| `harness/universal_vst_control.maxpat` | Generic VST control patch |
+| `harness/universal_vst_controller.js` | JavaScript controller for Max patches |
+| `harness/BAP Labs Serum Control.amxd` | Max for Live Serum device |
 
 ## Tests
 
 | File | Description |
 |------|-------------|
-| `test_mcp_extensions.py` | 8-phase MCP command validation (1000+ lines) |
-| `test_mlx_integration.py` | End-to-end MLX bridge integration test |
-| `test_mcp_connection.py` | Basic MCP connectivity check |
+| `harness/test_mcp_extensions.py` | 8-phase MCP command validation (1000+ lines) |
+| `harness/test_mlx_integration.py` | End-to-end MLX bridge integration test |
+| `harness/test_mcp_connection.py` | Basic MCP connectivity check |
 
 ```bash
-pytest test_mlx_integration.py -v
+cd harness && pytest test_mlx_integration.py -v
 ```
 
 ---
@@ -252,9 +262,12 @@ pytest test_mlx_integration.py -v
 
 | File | Description |
 |------|-------------|
-| `train_llm_lora.py` | LoRA fine-tuning for Qwen3-4B with audio embeddings |
+| `training/train_llm_lora.py` | LoRA fine-tuning for Qwen3-4B with audio embeddings |
+| `training/generate_qa_with_llm.py` | LLM-powered Q&A dataset generation using Claude batch API |
+| `training/ultimate_preset_converter.py` | Converts .fxp/.SerumPreset files to unified training JSON |
+| `training/ultimate_dataset_expander.py` | Deduplicates and expands training dataset |
 
-**Training data** (`data/llm_training/`):
+**Training data** (`training/data/llm_training/`):
 
 | Dataset | Lines | Description |
 |---------|------:|-------------|
@@ -265,22 +278,23 @@ pytest test_mlx_integration.py -v
 | `val.jsonl` | 1,619 | Validation set |
 
 - 7,583 Serum presets parsed (2,397 parameters each)
-- Checkpoints saved to `checkpoints/`
+- Checkpoints saved to `training/checkpoints/`
 
 ## Audio Analysis
 
 | File | Description |
 |------|-------------|
-| `structure_detector.py` | Song structure detection (librosa) |
-| `beat_similarity.py` | Rhythm pattern evaluation |
-| `bassline_similarity.py` | Bassline analysis |
-| `mix_encoder.py` | CLAP-based audio encoding |
-| `benchmark_midi_generation.py` | LLM MIDI generation benchmarks |
+| `training/structure_detector.py` | Song structure detection (librosa) |
+| `training/beat_similarity.py` | Rhythm pattern evaluation |
+| `training/bassline_similarity.py` | Bassline analysis |
+| `training/mix_encoder.py` | CLAP-based audio encoding |
+| `training/llm_projector.py` | Projects CLAP audio embeddings (512d) into Qwen3 LLM space (2560d) for audio-language fusion |
+| `training/benchmark_midi_generation.py` | LLM MIDI generation benchmarks |
 
 ## Evaluation
 
-- `eval/` — Evaluation scripts and results
-- `benchmark_midi_generation.py` — Multi-task LLM benchmarking
+- `training/eval/` — Evaluation scripts and results
+- `training/benchmark_midi_generation.py` — Multi-task LLM benchmarking
 
 ---
 
@@ -302,7 +316,7 @@ pytest test_mlx_integration.py -v
 
 ## Tech Stack
 
-Python 3.10 · MLX · Qwen3-4B · Ableton Live 12 · Max for Live · ahujasid/ableton-mcp (forked) · pythonosc · pydantic · librosa · Anthropic SDK · Ollama/llama.cpp (Windows alternative to MLX)
+Python 3.10 · MLX · Qwen3-4B · Ableton Live 12 · Max for Live · pythonosc · pydantic · librosa · Anthropic SDK · Google Gemini SDK · Ollama/llama.cpp (Windows alternative to MLX)
 
 ## Project Context
 

@@ -1,6 +1,6 @@
 # AbletonMCP_Extended/__init__.py
 # Extended version of AbletonMCP with Arrangement View support
-# Based on ahujasid/ableton-mcp with additions for:
+# Extended Remote Script with additions for:
 # - duplicate_clip_to_arrangement
 # - create_arrangement_clip
 # - get_arrangement_clips

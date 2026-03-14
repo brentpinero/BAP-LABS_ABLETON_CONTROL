@@ -124,9 +124,9 @@ For ML-specific context, architecture decisions, and learning roadmap, see:
 - ✅ MLX LoRA training pipeline (text → parameters)
 - ✅ Max for Live integration (partial)
 - ✅ **Ableton MCP Integration** - Local Qwen3-4B → MCP → Ableton control working!
-  - `mlx_mcp_bridge.py` - Main bridge connecting MLX inference to MCP
-  - `test_mcp_connection.py` - Connection tester
-  - Uses `ahujasid/ableton-mcp` Remote Script
+  - `harness/mlx_mcp_bridge.py` - Main bridge connecting MLX inference to MCP
+  - `harness/test_mcp_connection.py` - Connection tester
+  - Uses `harness/AbletonMCP_Extended/` Remote Script
   - Session View operations working (create tracks, clips, add notes, control playback, set tempo)
   - Arrangement View requires manual drag or recording workflow (MCP limitation)
 - ❌ No rendered audio yet (Phase 1 priority)
@@ -136,7 +136,7 @@ For ML-specific context, architecture decisions, and learning roadmap, see:
 ### MCP Integration Details
 **Architecture:**
 ```
-User Input → Qwen3-4B (MLX local) → Parse Tool Calls → MCP Client → ableton-mcp → Ableton Live
+User Input → Qwen3-4B (MLX local) → Parse Tool Calls → MCP Client → AbletonMCP_Extended → Ableton Live
 ```
 
 **Working Commands:**
@@ -151,11 +151,44 @@ User Input → Qwen3-4B (MLX local) → Parse Tool Calls → MCP Client → able
 **Usage:**
 ```bash
 # Interactive mode
-python mlx_mcp_bridge.py
+python run_harness.py mlx
 
 # Single command mode
-python mlx_mcp_bridge.py -c "Set tempo to 128"
-python mlx_mcp_bridge.py -c "Create a new MIDI track"
+python run_harness.py mlx -c "Set tempo to 128"
+python run_harness.py mlx -c "Create a new MIDI track"
 ```
 
 **See `.claude/PROJECT_CONTEXT_FOR_CLAUDE_CODE.md` for full phase breakdown and architecture details.**
+
+### Latest Session Status - MLX MCP Integration (Jan 2025)
+
+**Completed:**
+1. Committed smart selection changes (commit `9e087cf`)
+2. Synced TOOL_CATALOG between `harness/mlx_mcp_bridge.py` and `harness/unified_mcp_bridge.py`
+3. Refactored MCPClient to use `UnifiedMCPBridge` instead of raw sockets
+   - Now gets automatic name-based track resolution for ALL commands
+4. Updated system prompt with name-based resolution examples
+5. Added `get_all_tracks` to discovery tools
+6. Created `test_mlx_integration.py` - ALL TESTS PASSED
+
+**Key Files Modified:**
+- `harness/mlx_mcp_bridge.py` - Now uses UnifiedMCPBridge, updated TOOL_CATALOG
+- `harness/unified_mcp_bridge.py` - Has name resolution (resolve_track, resolve_tracks)
+- `harness/test_mlx_integration.py` - Integration test (passing)
+
+**Next Step:**
+Test Qwen3-4B with the extended MCP commands:
+```bash
+python run_harness.py mlx
+```
+
+Try commands like:
+- "Mute the MIDI track"
+- "Set the bass track volume to 50%"
+- "Group tracks MIDI and 2-Audio"
+- "Get all track names"
+
+**What We're Validating:**
+- LLM correctly uses name-based track resolution (e.g., `"track_index": "MIDI"`)
+- LLM discovers tools via `list_tools` and `get_all_tracks`
+- Smart selection/grouping works end-to-end

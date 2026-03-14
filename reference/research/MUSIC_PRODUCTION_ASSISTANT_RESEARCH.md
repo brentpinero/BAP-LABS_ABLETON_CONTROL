@@ -91,11 +91,11 @@ representation = {
 
 ### 2.1 Ableton MCP (Model Context Protocol)
 
-**Primary Implementation**: ahujasid/ableton-mcp (2,000+ GitHub stars)
+**Primary Implementation**: AbletonMCP_Extended Remote Script
 
 **Installation**:
 ```bash
-npx -y @smithery/cli install @ahujasid/ableton-mcp --client claude
+# Copy harness/AbletonMCP_Extended/ to Ableton Remote Scripts directory
 ```
 
 **Architecture**:
@@ -263,7 +263,7 @@ Phase 4: Distributional rewards matching professional mix distributions
 ### Phase 1: Control Harness Integration (Week 1-2)
 
 **Objectives**:
-- Fork ahujasid/ableton-mcp, extend with training-specific functionality
+- Extend AbletonMCP_Extended with training-specific functionality
 - Parameter enumeration, systematic sweeps, state serialization
 - Custom Max for Live device for internal audio capture
 - Integrate AbletonOSC for comprehensive parameter access
@@ -717,7 +717,7 @@ Audio Input → Audio Encoder (Spatial-AST/MEGAMI-style) → Projection Layer
 - **Project Website**: https://mclemcrew.github.io/mixassist-website/
 
 ### Code & Tools
-- **Ableton MCP**: https://github.com/ahujasid/ableton-mcp
+- **AbletonMCP_Extended**: Local Remote Script (see `harness/AbletonMCP_Extended/`)
 - **AbletonOSC**: https://github.com/ideoforms/AbletonOSC
 - **PyLive**: https://github.com/ideoforms/pylive
 - **MixologyDB Annotation Tool**: https://github.com/mclemcrew/MixologyDB

@@ -1135,7 +1135,7 @@ class PreScanManager:
                                    ▼
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                       ABLETON LIVE (via Remote Script)                       │
-│                    ahujasid/ableton-mcp Remote Script                        │
+│                    AbletonMCP_Extended Remote Script                          │
 │                                                                              │
 │             ← CHANGES REFLECTED IN REAL-TIME ←                              │
 └─────────────────────────────────────────────────────────────────────────────┘

@@ -10,6 +10,11 @@ Usage:
     Then in Ableton: Settings → Link, Tempo & MIDI → Control Surface: AbletonMCP
 """
 
+import sys
+import os
+# Ensure sibling imports work regardless of how this script is invoked
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
 import asyncio
 import json
 import re

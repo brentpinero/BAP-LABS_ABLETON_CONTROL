@@ -13,7 +13,10 @@ Run: python test_mlx_integration.py
 
 import asyncio
 import json
+import os
 import sys
+# Ensure sibling imports work regardless of how this script is invoked
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 def test_unified_bridge():
     """Test UnifiedMCPBridge directly"""

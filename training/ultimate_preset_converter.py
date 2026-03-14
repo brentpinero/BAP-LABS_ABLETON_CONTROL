@@ -436,10 +436,12 @@ def main():
         converter = UltimatePresetConverter()
 
         # Convert everything
+        _dir = os.path.dirname(os.path.abspath(__file__))
+        _root = os.path.dirname(_dir)
         presets, stats = converter.convert_preset_library(
-            serum1_dir="/Users/brentpinero/Documents/serum_llm_2/Serum_1_Presets",
-            serum2_dir="/Users/brentpinero/Documents/serum_llm_2/Serum_2_Presets",
-            output_dir="/Users/brentpinero/Documents/serum_llm_2/ultimate_training_dataset",
+            serum1_dir=os.path.join(_root, "Serum_1_Presets"),
+            serum2_dir=os.path.join(_root, "Serum_2_Presets"),
+            output_dir=os.path.join(_root, "ultimate_training_dataset"),
             max_files=None  # Convert ALL files
         )
 

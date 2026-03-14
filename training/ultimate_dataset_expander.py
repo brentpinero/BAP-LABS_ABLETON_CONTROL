@@ -230,23 +230,27 @@ def main():
 
     expander = UltimateDatasetExpander()
 
+    # Resolve paths relative to this script's directory
+    _dir = os.path.dirname(os.path.abspath(__file__))
+    _root = os.path.dirname(_dir)
+
     # Load duplicate files list
-    duplicate_list_path = "/Users/brentpinero/Documents/serum_llm_2/duplicate_analysis/duplicate_files_to_skip.txt"
+    duplicate_list_path = os.path.join(_root, "duplicate_analysis", "duplicate_files_to_skip.txt")
     expander.load_duplicate_list(duplicate_list_path)
 
     # Load existing dataset
-    existing_dataset_path = "/Users/brentpinero/Documents/serum_llm_2/ultimate_training_dataset/ultimate_serum_dataset.json"
+    existing_dataset_path = os.path.join(_root, "ultimate_training_dataset", "ultimate_serum_dataset.json")
     existing_dataset = expander.load_existing_dataset(existing_dataset_path)
 
     # Process new directory with filtering
-    new_preset_dir = "/Users/brentpinero/Documents/serum_llm_2/DT_Serum_Presets"
+    new_preset_dir = os.path.join(_root, "DT_Serum_Presets")
     new_presets = expander.process_new_directory_filtered(new_preset_dir)
 
     # Merge datasets
     merged_dataset = expander.merge_datasets(existing_dataset, new_presets)
 
     # Save expanded dataset
-    output_dir = "/Users/brentpinero/Documents/serum_llm_2/ultimate_training_dataset"
+    output_dir = os.path.join(_root, "ultimate_training_dataset")
     final_stats = expander.save_expanded_dataset(merged_dataset, output_dir)
 
     print(f"\\n🎉 ULTIMATE DATASET EXPANSION COMPLETE!")

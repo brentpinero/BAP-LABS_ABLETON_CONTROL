@@ -55,10 +55,16 @@ from peft import (
 )
 from tqdm import tqdm
 
-# Local imports
-from cnn_audio_encoder import SerumAudioEncoder
-from audio_llm_projector import AudioLLMBridge, AudioToLLMProjector
-from serum_params import CNN_PARAMS, LLM_PARAMS, PARAM_DESCRIPTIONS
+# Local imports (optional — these modules are not yet implemented)
+try:
+    from cnn_audio_encoder import SerumAudioEncoder
+    from audio_llm_projector import AudioLLMBridge, AudioToLLMProjector
+    from serum_params import CNN_PARAMS, LLM_PARAMS, PARAM_DESCRIPTIONS
+except ImportError:
+    SerumAudioEncoder = None
+    AudioLLMBridge = None
+    AudioToLLMProjector = None
+    CNN_PARAMS = LLM_PARAMS = PARAM_DESCRIPTIONS = None
 
 
 # =============================================================================

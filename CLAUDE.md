@@ -160,23 +160,53 @@ python run_harness.py mlx -c "Create a new MIDI track"
 
 **See `.claude/PROJECT_CONTEXT_FOR_CLAUDE_CODE.md` for full phase breakdown and architecture details.**
 
-### Latest Session Status - MLX MCP Integration (Jan 2025)
+### Latest Session Status - Repo Restructure (Mar 2025)
 
 **Completed:**
-1. Committed smart selection changes (commit `9e087cf`)
-2. Synced TOOL_CATALOG between `harness/mlx_mcp_bridge.py` and `harness/unified_mcp_bridge.py`
-3. Refactored MCPClient to use `UnifiedMCPBridge` instead of raw sockets
-   - Now gets automatic name-based track resolution for ALL commands
-4. Updated system prompt with name-based resolution examples
-5. Added `get_all_tracks` to discovery tools
-6. Created `test_mlx_integration.py` - ALL TESTS PASSED
+1. Repo restructured into `harness/`, `training/`, `reference/` directories
+2. Fixed gitignore — `old/` fully untracked (was 84 tracked files)
+3. Archived unused fork into `old/`
+4. Created `run_harness.py` entry point with subcommands (mlx, claude, gemini, mix)
+5. Fixed CWD-relative path bug in `harness/unified_mcp_bridge.py` (plugin_parameter_maps)
+6. Fixed hardcoded absolute paths in `harness/test_mcp_extensions.py`
+7. Replaced hardcoded `/Users/brentpinero` paths in training scripts
+8. Added `sys.path` fix to `harness/mlx_mcp_bridge.py` and `harness/test_mlx_integration.py` so they work when invoked from any CWD
+9. Scrubbed all external repo/competitor references from entire codebase
+10. README fully rewritten — all 11 previously undocumented files added, comparison table anonymized
 
-**Key Files Modified:**
-- `harness/mlx_mcp_bridge.py` - Now uses UnifiedMCPBridge, updated TOOL_CATALOG
-- `harness/unified_mcp_bridge.py` - Has name resolution (resolve_track, resolve_tracks)
-- `harness/test_mlx_integration.py` - Integration test (passing)
+### Priority: Smoke Test in Ableton
 
-**Next Step:**
+**The restructure moved every file. Before merging, verify nothing broke end-to-end in Ableton.**
+
+Run through this checklist with Ableton Live open:
+
+```bash
+# 1. Basic bridge startup (does it connect to port 9877?)
+python run_harness.py mlx
+
+# 2. Also verify direct invocation works
+python harness/mlx_mcp_bridge.py
+```
+
+**Commands to test (cover each MCP category):**
+- `"Get session info"` — session tools, basic connectivity
+- `"Set tempo to 120"` — transport write
+- `"Create a MIDI track called Test"` — track creation
+- `"Get all track names"` — discovery tools
+- `"Mute the Test track"` — name-based track resolution + mixer
+- `"Set the Test track volume to 50%"` — mixer control
+- `"Load a Wavetable preset on Test"` — device/browser
+- `"Create a 2-bar clip on Test"` — clip creation
+- `"Split the clip at bar 2"` — automator (GUI automation)
+- `"Group tracks"` — smart_select + automator
+
+**Also verify:**
+- `plugin_parameter_maps/` loads correctly (the path bug we fixed)
+- `AbletonMCP_Extended/automator_bridge.py` imports correctly from `test_mcp_extensions.py`
+- Claude bridge: `python run_harness.py claude` starts without import errors
+- Gemini bridge: `python run_harness.py gemini` starts without import errors
+
+### Next Step (after smoke test passes):
 Test Qwen3-4B with the extended MCP commands:
 ```bash
 python run_harness.py mlx

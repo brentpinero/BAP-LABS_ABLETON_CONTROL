@@ -1638,6 +1638,13 @@ try:
 except Exception as e:  # pragma: no cover - defensive
     logger.warning(f"Sandbox tools unavailable: {e}")
 
+try:
+    from live_ears import register_live_ear_tools
+    register_live_ear_tools(mcp, {"ok": _ok, "err": _err})
+    logger.info("Live-ears tools registered (real-session listening)")
+except Exception as e:  # pragma: no cover - defensive
+    logger.warning(f"Live-ears tools unavailable: {e}")
+
 
 def main():
     """Run the MCP server over stdio."""

@@ -23,6 +23,10 @@ if __name__ == '__main__':
     elif mode == 'mix':
         from mix_assistant_bridge import main
         asyncio.run(main())
+    elif mode == 'ears':
+        # live-Ableton listening daemon: OSC 9880 -> snapshot JSON for MCP tools
+        from live_ears import main
+        asyncio.run(main())
     else:
-        print(f"Unknown mode: {mode}. Use: mlx, claude, gemini, mix")
+        print(f"Unknown mode: {mode}. Use: mlx, claude, gemini, mix, ears")
         sys.exit(1)

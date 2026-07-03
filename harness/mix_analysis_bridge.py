@@ -136,6 +136,7 @@ class MixAnalysisBridge:
             self.current_analysis.peak_r = args[3]
             self.current_analysis.mid_energy = args[4]
             self.current_analysis.side_energy = args[5]
+            self.sample_count += 1  # each levels frame = one ~33ms sample of the bar
             self.messages_received += 1
             self.last_message_time = time.time()
 
@@ -162,9 +163,11 @@ class MixAnalysisBridge:
             new_bar = int(args[2])
             self.current_beat = float(args[3])
 
-            # Bar changed - save current and start new
-            if new_bar != self.current_bar and self.sample_count > 0:
-                self.finalize_current_bar()
+            # Bar changed - save current and start new (don't finalize the
+            # startup None-bar; only bars that actually collected samples)
+            if new_bar != self.current_bar:
+                if self.current_bar is not None and self.sample_count > 0:
+                    self.finalize_current_bar()
                 self.current_bar = new_bar
                 self.current_analysis = BarAnalysis(
                     bar_number=new_bar,

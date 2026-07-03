@@ -181,13 +181,15 @@ def summarize(pairs):
     errors = {arm: sum(1 for p in pairs if "error" in p.get(arm, {}))
               for arm in ("guided", "unguided")}
 
-    # which metric families move (mean guided-minus-unguided per metric name)
+    # which metric families move (mean guided-minus-unguided per metric name);
+    # parse-failure arms carry a score (0.0) but no metrics — skip those here
     fam: dict = {}
     for p in scored:
-        for name, g in p["guided"]["metrics"].items():
-            u = p["unguided"]["metrics"].get(name)
-            if u is not None:
-                fam.setdefault(name, []).append(g - u)
+        gm = p["guided"].get("metrics") or {}
+        um = p["unguided"].get("metrics") or {}
+        for name, g in gm.items():
+            if name in um:
+                fam.setdefault(name, []).append(g - um[name])
     fam_delta = {k: round(sum(v) / len(v), 4) for k, v in sorted(fam.items())}
 
     by_role: dict = {}
@@ -206,15 +208,32 @@ def summarize(pairs):
     }
 
 
+def _load_env_file(path: Path) -> None:
+    """Minimal .env loader (no new dep): KEY=VALUE lines -> os.environ (no overwrite)."""
+    import os
+    if not path.exists():
+        return
+    for line in path.read_text().splitlines():
+        line = line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        k, _, v = line.partition("=")
+        os.environ.setdefault(k.strip(), v.strip().strip("'\""))
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--genres", default=",".join(K.GENRES))
     ap.add_argument("--roles", default=",".join(ROLES))
     ap.add_argument("--seeds", type=int, default=3)
     ap.add_argument("--workers", type=int, default=8)
+    ap.add_argument("--env-file", default=str(_ROOT / ".env"),
+                    help="path to a .env providing ANTHROPIC_API_KEY (default: repo root .env)")
     ap.add_argument("--dry-run", action="store_true",
                     help="no API calls; canned compositions exercise the pipeline")
     args = ap.parse_args()
+
+    _load_env_file(Path(args.env_file))
 
     genres = [g.strip() for g in args.genres.split(",") if g.strip()]
     roles = [r.strip() for r in args.roles.split(",") if r.strip()]
@@ -234,10 +253,13 @@ def main():
         pairs = [f.result() for f in futures]
     dt = time.monotonic() - t0
 
-    summary = summarize(pairs)
-    summary["wall_seconds"] = round(dt, 1)
+    # crash-safe: persist raw pairs BEFORE any summary math can fail
     RESULTS_DIR.mkdir(parents=True, exist_ok=True)
     out_path = RESULTS_DIR / f"style_guide_ab_{int(time.time())}.json"
+    out_path.write_text(json.dumps({"summary": None, "pairs": pairs}, indent=1))
+
+    summary = summarize(pairs)
+    summary["wall_seconds"] = round(dt, 1)
     out_path.write_text(json.dumps({"summary": summary, "pairs": pairs}, indent=1))
 
     print(json.dumps(summary, indent=2))

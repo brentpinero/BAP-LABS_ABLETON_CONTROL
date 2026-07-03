@@ -109,7 +109,8 @@ def _notes_to_midi_messages(notes: list[dict], bpm: float):
 
 def render_midi(notes: list[dict], bpm: float, instrument: str, sr: int,
                 bars: float | None = None, tail_seconds: float = 1.0,
-                params: dict | None = None) -> np.ndarray:
+                params: dict | None = None,
+                raw_component_state: bytes | None = None) -> np.ndarray:
     """Render note dicts through an instrument spec. Returns float32 audio
     (mono for fallback, stereo [n,2] for plugins)."""
     if instrument.startswith("fallback:"):
@@ -121,14 +122,27 @@ def render_midi(notes: list[dict], bpm: float, instrument: str, sr: int,
     if kind not in ("vst", "au"):
         raise ValueError(f"unknown instrument spec: {instrument!r} "
                          "(want fallback:<role>, vst:<path>[::preset], au:<path>[::preset])")
-    plug_path, _, preset = rest.partition("::")
-    plug = _pb().load_plugin(plug_path)
+    plug_path, _, extra = rest.partition("::")
+    preset, plugin_name = "", None
+    if extra.startswith("name="):
+        plugin_name = extra[5:]
+    elif extra:
+        preset = extra
+    plug = (_pb().load_plugin(plug_path, plugin_name=plugin_name)
+            if plugin_name else _pb().load_plugin(plug_path))
     if preset:
         try:
             plug.load_preset(preset)
         except Exception as e:  # noqa: BLE001 — preset failure shouldn't kill the render
             print(f"warning: preset load failed ({e}); rendering with default state",
                   file=sys.stderr)
+
+    # native component-state transplant (e.g. a patch captured from a Live
+    # project's .als ProcessorState) — the exact-state path; see juce_state.py
+    if raw_component_state:
+        import juce_state
+        plug.raw_state = juce_state.swap_component(bytes(plug.raw_state),
+                                                   raw_component_state)
 
     # named-param state transfer (same hasattr/setattr pattern as build_board);
     # this is the primary state mechanism — .fxp load_preset is unreliable (see
@@ -169,6 +183,8 @@ def main(argv: list[str] | None = None) -> int:
                     help="silence/decay tail appended after the last bar")
     ap.add_argument("--params", default="",
                     help="named plugin-param dict as JSON string or path (state transfer)")
+    ap.add_argument("--raw-state", default="",
+                    help="path to a native component-state file (e.g. .als ProcessorState bytes)")
     args = ap.parse_args(argv)
 
     chain = json.loads(_read_maybe_file(args.chain))
@@ -176,9 +192,11 @@ def main(argv: list[str] | None = None) -> int:
     if args.midi:
         notes, bars_from_file = _load_notes(args.midi)
         params = json.loads(_read_maybe_file(args.params)) if args.params else None
+        raw_cs = open(args.raw_state, "rb").read() if args.raw_state else None
         audio = render_midi(notes, args.bpm, args.instrument, args.sr,
                             bars=args.bars if args.bars is not None else bars_from_file,
-                            tail_seconds=args.tail_seconds, params=params)
+                            tail_seconds=args.tail_seconds, params=params,
+                            raw_component_state=raw_cs)
         sr = args.sr
     elif args.inp == "sine":
         audio, sr = _sine(args.sr), args.sr

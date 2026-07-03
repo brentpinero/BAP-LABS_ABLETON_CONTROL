@@ -98,6 +98,20 @@ def capture_device_state(track_index: int, device_index: int = 0,
             c.close()
 
 
+def _delete_tagged_track(client: LiveClient, tag: str) -> None:
+    """Delete the temp track whose name == tag, re-scanning by name (robust to
+    index shifts). Only deletes an EXACT tag match — never a user track."""
+    n = int(client.send("get_session_info").get("track_count", 0))
+    for i in range(n - 1, -1, -1):
+        try:
+            ti = client.send("get_track_info", {"track_index": i})
+        except LiveError:
+            continue  # main/group/return
+        if ti.get("name") == tag:
+            client.send("delete_track", {"track_index": i})
+            return
+
+
 def freeze_render(notes: List[Dict[str, Any]], bpm: float, bars: int,
                   device_query: str, project_dir: str | Path,
                   params: Optional[Dict[str, float]] = None,
@@ -107,9 +121,11 @@ def freeze_render(notes: List[Dict[str, Any]], bpm: float, bars: int,
     freeze_dir = find_freeze_dir(project_dir)
     client = LiveClient().connect()
     track_index = None
+    orig_tempo = None
     try:
-        client.send("set_tempo", {"tempo": bpm})
         info = client.send("get_session_info")
+        orig_tempo = info.get("tempo")  # ALWAYS restored in finally (bug fix:
+        client.send("set_tempo", {"tempo": bpm})  # first calibration left 100 BPM behind)
         client.send("create_midi_track", {"index": -1})
         track_index = int(client.send("get_session_info").get("track_count", 1)) - 1
         tag = f"FID_{int(time.time()) % 100000}"
@@ -142,13 +158,17 @@ def freeze_render(notes: List[Dict[str, Any]], bpm: float, bars: int,
         shutil.copy2(wav, dest)  # freeze files vanish on unfreeze — copy first
         return dest
     finally:
-        try:
-            automator("automator_undo")  # unfreeze
-        except Exception:
-            pass
+        if orig_tempo is not None:
+            try:
+                client.send("set_tempo", {"tempo": orig_tempo})
+            except Exception:
+                pass
+        # delete the temp track by re-finding its unique tag (index may shift);
+        # deleting removes it whether frozen or not -> no automator undo needed,
+        # so the user's real undo history stays clean.
         if track_index is not None:
             try:
-                client.send("delete_track", {"track_index": track_index})
+                _delete_tagged_track(client, tag)
             except Exception:
                 pass
         client.close()

@@ -30,5 +30,18 @@
    "live": "/Users/brentpinero/Documents/serum_llm_2/sandbox_sessions/_fidelity/serum:2b7848967e03/live.wav"
   },
   "measured_at": "2026-07-03T13:15:32"
+ },
+ "serum2:track66_realpatch": {
+  "plugin": "Serum 2 (track 66 patch)",
+  "path": "/Library/Audio/Plug-Ins/VST3/Serum2.vst3",
+  "format": "vst3",
+  "preset": "suicide boys v5 / 67-Serum 2",
+  "params_hash": "als-state",
+  "results": {},
+  "label": "awaiting-live",
+  "audio_pair": {
+   "headless": "/Users/brentpinero/Documents/serum_llm_2/sandbox_sessions/_fidelity/serum2_track66_realpatch/headless.wav"
+  },
+  "measured_at": "pending"
  }
 }

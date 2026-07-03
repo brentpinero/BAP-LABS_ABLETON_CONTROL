@@ -279,22 +279,28 @@ Control Ableton Live and MAKE MUSIC THAT ACTUALLY PLAYS. Prefer the high-level
 WORKFLOW tools — they encode genre best-practices and pick the right instruments,
 so you don't have to. Only drop to low-level tools for precise edits.
 
-FOR ANY CREATIVE REQUEST ("make a boom bap beat", "write a lofi loop", "add a bassline"):
-  1. Call production_guide(genre) first — it returns the recipe (tempo, key, feel,
-     instrument palette, structure) AND the exact next calls. This is your fast path.
-  2. Then either:
-       - make_song(genre, key?, bars?, parts?)  -> a full multi-track section in ONE call, or
-       - add_part(role, genre, key?, bars?)      -> one part (role: drums|bass|chords|
-         keys|melody|lead|pad). Repeat for each part.
-     Both auto-load the RIGHT instrument for the style (e.g. boom bap keys = Electric/
-     Rhodes, drums = a dusty KIT with samples — NEVER an empty Drum Rack or a generic
-     default), build in the ARRANGEMENT, and self-verify.
-  3. Finish: balance_mix(), then get_playability_report(). If parts_with_issues > 0,
-     fix (usually a missing instrument) before telling the user it's done.
+YOU are the composer. These tools do NOT generate MIDI for you — they set up the
+session with the right instruments and hand you STYLE knowledge; you write the notes.
 
-INSTRUMENT CHOICE MATTERS: do NOT default every track to the same synth. Use
-suggest_instruments(role, genre) or trust the workflow tools' palette. A MIDI track
-with no instrument is SILENT.
+FOR ANY CREATIVE REQUEST ("make a boom bap beat", "write a lofi loop", "add a bassline"):
+  1. style_guide(genre) — how the genre is actually played: feel/groove, the drum-map +
+     where each hit sits, harmony (scale + progression), bass/melody approach, reference
+     artists, and what to avoid. (production_guide(genre) gives the short recipe + steps.)
+  2. scaffold_song(genre, bars, parts) — ONE call creates a track per part, loads the RIGHT
+     instrument for the style (boom bap keys = Electric/Rhodes, drums = a dusty KIT with
+     samples — NEVER an empty Drum Rack or a generic default), and makes an EMPTY arrangement
+     clip for each. It returns {role, track, clip_index} per part + the style guide.
+     (Or add_part(role, genre) for one part at a time.)
+  3. COMPOSE the MIDI yourself from the style guide and write it per clip with
+     add_notes_to_arrangement_clip(track, clip_index, notes). notes are
+     [{pitch,start_time,duration,velocity}] with times in BEATS (1 bar of 4/4 = 4 beats).
+     Humanize velocity/timing where the feel calls for it.
+  4. Finish: balance_mix(), then get_playability_report(). If any track is SILENT (no
+     instrument) fix it before telling the user it's done.
+
+INSTRUMENT CHOICE MATTERS: do NOT default every track to the same synth — the scaffold
+tools pick a genre-appropriate palette. Use suggest_instruments(role, genre) to compare.
+A MIDI track with no instrument is SILENT.
 
 LOW-LEVEL CONTROL: call browse_tools() to discover the ~80 primitives by category
 (mixer, device, arrangement, browser, automator, ...). Build songs in the ARRANGEMENT
@@ -1198,13 +1204,14 @@ def _arr_clip_index_near(track_index: int, start_beat: float) -> int:
     return min(clips, key=lambda c: abs(c.get("start_time", 0) - start_beat)).get("index", clips[-1]["index"])
 
 
-def _do_add_part(role: str, genre: str, key: Optional[str], bars: int,
-                 start_bar: int, track, set_bpm: bool) -> Dict[str, Any]:
-    """Cluster: (track) -> instrument -> arrangement clip -> genre-correct notes -> verify."""
+def _do_add_part(role: str, genre: str, bars: int, start_bar: int, track,
+                 notes: Optional[List[Dict[str, Any]]], set_bpm: bool) -> Dict[str, Any]:
+    """Cluster: (track) -> genre-appropriate instrument -> EMPTY arrangement clip.
+    Writes notes only if the caller (the model) supplies them — this module does NOT
+    generate MIDI; the model composes it from the style guide."""
     if K is None:
         raise Exception(f"knowledge base unavailable: {_KB_ERR}")
     prof = K.genre_profile(genre)
-    key = key or prof.get("key")
     if set_bpm:
         _cmd("set_tempo", {"tempo": prof.get("bpm", 120)})
     if track is None or track == "":
@@ -1216,13 +1223,14 @@ def _do_add_part(role: str, genre: str, key: Optional[str], bars: int,
     start_beat = start_bar * 4.0
     _cmd("create_arrangement_clip", {"track_index": ti, "start_time": start_beat, "length": bars * 4.0})
     cidx = _arr_clip_index_near(ti, start_beat)
-    notes = K.generate(role, genre, key, bars)
+    written = 0
     if notes:
         _cmd("add_notes_to_arrangement_clip", {"track_index": ti, "clip_index": cidx, "notes": notes})
+        written = len(notes)
     rec = _analyze_track(_cmd("get_track_info", {"track_index": ti}))
     return {"role": role, "track": ti, "track_name": rec.get("name"),
-            "instrument": ins.get("loaded"), "notes": len(notes),
-            "ready_to_play": rec.get("ready_to_play"), "warnings": rec.get("warnings")}
+            "instrument": ins.get("loaded"), "clip_index": cidx,
+            "notes_written": written, "has_instrument": rec.get("has_instrument")}
 
 
 @mcp.tool()
@@ -1238,26 +1246,43 @@ def production_guide(genre: str = "") -> str:
                 "genres": [{"name": k.replace("_", " "), "bpm": v["bpm"], "vibe": v.get("tips", "")}
                            for k, v in K.GENRES.items()],
                 "roles": K.ROLES,
-                "fastest_path": "make_song(genre, key?, bars?, parts?) builds a full multi-track section in ONE call. "
-                                "add_part(role, genre) builds one part. Both auto-pick the right instrument, build in "
-                                "the arrangement, and self-verify. suggest_instruments(role, genre) shows sound options. "
-                                "browse_tools() reveals low-level control.",
+                "fastest_path": "1) style_guide(genre) for how the genre is actually played. "
+                                "2) scaffold_song(genre, bars, parts) creates tracks + the RIGHT instruments + "
+                                "empty arrangement clips in one call. 3) YOU compose genre-correct MIDI for each "
+                                "clip and write it with add_notes_to_arrangement_clip. 4) balance_mix() + "
+                                "get_playability_report(). suggest_instruments(role, genre) shows sound options.",
             })
         prof = K.genre_profile(genre)
         gkey = prof["_key"]
+        sg = K.style_guide(genre)
         return _ok({
-            "genre": gkey.replace("_", " "), "bpm": prof["bpm"], "key": prof["key"],
-            "feel": prof.get("feel"), "swing": prof.get("swing"),
+            "genre": gkey.replace("_", " "), "bpm": prof["bpm"], "bpm_range": prof.get("bpm_range"),
+            "key": prof["key"], "feel": sg.get("feel"), "swing": prof.get("swing"),
             "instrument_palette": prof.get("palette"), "song_structure": prof.get("structure"),
-            "tips": prof.get("tips"),
+            "reference_artists": sg.get("reference_artists"),
             "next_steps": [
-                f"make_song(genre='{gkey}', key='{prof['key']}', bars=16, parts=['drums','bass','chords','melody'])",
-                f"…or piece by piece: add_part('drums','{gkey}'), add_part('bass','{gkey}'), add_part('chords','{gkey}')",
+                f"style_guide('{gkey}')  # full how-to-play reference before you compose",
+                f"scaffold_song(genre='{gkey}', bars=16, parts=['drums','bass','chords','melody'])  # tracks+instruments+empty clips",
+                "compose MIDI for each clip yourself and write it with add_notes_to_arrangement_clip(track, clip_index, notes)",
                 "then balance_mix(), then get_playability_report() to confirm it plays",
             ],
         })
     except Exception as e:
         return _err("building production guide", e)
+
+
+@mcp.tool()
+def style_guide(genre: str, role: str = "") -> str:
+    """The genre STYLE reference for COMPOSING (you write the MIDI, this returns knowledge not notes). Returns
+    feel/groove, the drum-map + where each hit goes, harmony (scale + suggested progression), bass & melody
+    approach, arrangement, REFERENCE ARTISTS, and what to avoid. Pass role to focus (drums|bass|chords|keys|
+    melody|lead|pad). genre: boom bap|lofi|trap|house|techno|dnb|rnb|ambient|pop. Read this before composing."""
+    if K is None:
+        return f"Error: knowledge base unavailable: {_KB_ERR}"
+    try:
+        return _ok(K.style_guide(genre, role))
+    except Exception as e:
+        return _err("building style guide", e)
 
 
 @mcp.tool()
@@ -1295,47 +1320,55 @@ def setup_track(role: str, genre: str = "boom bap", name: str = "") -> str:
 
 
 @mcp.tool()
-def add_part(role: str, genre: str = "boom bap", key: str = "", bars: int = 8,
-             start_bar: int = 0, track: Union[int, str, None] = None) -> str:
-    """Build ONE complete musical part end-to-end: makes/uses a track, loads the right instrument, and writes a
-    genre-correct pattern into the ARRANGEMENT, then verifies it plays. role: drums|bass|chords|keys|melody|lead|pad.
-    genre picks tempo/feel/instruments; key defaults to the genre's key. Pass track to target an existing track,
-    start_bar to place it later in the timeline. Adding 'drums' also sets the genre tempo."""
+def add_part(role: str, genre: str = "boom bap", bars: int = 8, start_bar: int = 0,
+             track: Union[int, str, None] = None, notes: List[Dict[str, Any]] = None) -> str:
+    """Scaffold ONE part: make/target a track, load the genre-appropriate instrument, and create an EMPTY
+    ARRANGEMENT clip ready for MIDI. role: drums|bass|chords|keys|melody|lead|pad.
+    - If you pass `notes` (YOUR composed MIDI, [{pitch,start_time,duration,velocity}] in beats), they're written
+      and the track is verified.
+    - If you OMIT notes, it returns the clip reference + the STYLE guide for this role so you compose the MIDI,
+      then call add_notes_to_arrangement_clip(track, clip_index, notes).
+    Adding 'drums' also sets the genre tempo. start_bar places the clip later in the timeline."""
     if K is None:
         return f"Error: knowledge base unavailable: {_KB_ERR}"
     try:
-        res = _do_add_part(role, genre, key or None, bars, start_bar, track, set_bpm=(role.lower() == "drums"))
+        res = _do_add_part(role, genre, bars, start_bar, track, notes, set_bpm=(role.lower() == "drums"))
+        if not res["notes_written"]:
+            res["style"] = K.style_guide(genre, role)
+            res["next"] = (f"Compose {role} MIDI following 'style', then "
+                           f"add_notes_to_arrangement_clip(track={res['track']}, clip_index={res['clip_index']}, notes=[...]).")
         return _ok(res)
     except Exception as e:
         return _err("adding part", e)
 
 
 @mcp.tool()
-def make_song(genre: str = "boom bap", key: str = "", bars: int = 16,
-              parts: List[str] = None) -> str:
-    """Build a full multi-track section in ONE call — the fastest path from a prompt to music. Sets tempo, then for
-    each part creates a track, loads the genre-appropriate instrument, writes a genre-correct pattern in the
-    arrangement, and verifies. parts defaults to ['drums','bass','chords','melody']. genre: boom bap|lofi|trap|house|
-    techno|dnb|rnb|ambient|pop. Returns a per-part report + overall playability."""
+def scaffold_song(genre: str = "boom bap", bars: int = 16, parts: List[str] = None) -> str:
+    """Fast path from a prompt to a ready-to-compose session: sets the genre tempo, then for EACH part creates a
+    track, loads the RIGHT instrument for the style, and makes an EMPTY arrangement clip. Returns the STYLE guide
+    plus a map of {role, track, clip_index} for every part. YOU then compose genre-correct MIDI for each clip and
+    write it with add_notes_to_arrangement_clip(track, clip_index, notes). parts defaults to
+    ['drums','bass','chords','melody']. genre: boom bap|lofi|trap|house|techno|dnb|rnb|ambient|pop.
+    This module does NOT generate notes — you compose them from the style guide (you're the better composer)."""
     if K is None:
         return f"Error: knowledge base unavailable: {_KB_ERR}"
     try:
         prof = K.genre_profile(genre)
-        key = key or prof.get("key")
         parts = parts or ["drums", "bass", "chords", "melody"]
         _cmd("set_tempo", {"tempo": prof.get("bpm", 120)})
-        results = [_do_add_part(r, genre, key, bars, 0, None, set_bpm=False) for r in parts]
-        issues = [r for r in results if r.get("warnings")]
+        slots = [_do_add_part(r, genre, bars, 0, None, None, set_bpm=False) for r in parts]
         return _ok({
-            "genre": prof["_key"].replace("_", " "), "key": key, "tempo": prof.get("bpm"),
-            "bars": bars, "feel": prof.get("feel"),
-            "parts": results,
-            "all_ready": all(r.get("ready_to_play") for r in results),
-            "parts_with_issues": len(issues),
-            "next": "Call balance_mix() to rough the levels, then start_playback to hear it.",
+            "genre": prof["_key"].replace("_", " "), "key": prof.get("key"), "tempo": prof.get("bpm"),
+            "bars": bars,
+            "tracks": [{"role": s["role"], "track": s["track"], "clip_index": s["clip_index"],
+                        "instrument": s["instrument"]} for s in slots],
+            "style": K.style_guide(genre),
+            "next": ("For EACH track above, compose genre-correct MIDI following 'style' and write it with "
+                     "add_notes_to_arrangement_clip(track, clip_index, notes). Times in beats (1 bar = 4). "
+                     "Then balance_mix() and get_playability_report()."),
         })
     except Exception as e:
-        return _err("making song", e)
+        return _err("scaffolding song", e)
 
 
 # rough per-role mix targets: (volume 0-1, pan -1..1)
@@ -1379,8 +1412,9 @@ def balance_mix() -> str:
 TOOL_CATALOG: Dict[str, Dict[str, Any]] = {
     "workflow": {"description": "High-level producer actions (START HERE)",
                  "tools": {"production_guide": "genre recipe + next steps",
-                           "make_song": "full section in one call",
-                           "add_part": "one part end-to-end (role, genre)",
+                           "style_guide": "how to PLAY a genre (you compose the MIDI)",
+                           "scaffold_song": "tracks+instruments+empty clips for a section",
+                           "add_part": "scaffold one part (+optional your notes)",
                            "setup_track": "track + instrument, no notes",
                            "suggest_instruments": "best instrument per role+genre",
                            "load_instrument": "load a specific/role instrument",

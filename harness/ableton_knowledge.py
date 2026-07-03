@@ -1,27 +1,23 @@
 """
 ableton_knowledge.py — the "producer brain" for the Ableton MCP server.
 
-Pure data + generators, NO MCP / socket dependencies (so it is unit-testable on
-its own). The MCP server imports this to turn a genre + role into:
-  - the RIGHT Ableton 12 instrument (boom bap keys => Electric/Rhodes, not Wavetable)
-  - a genre-correct drum/bass/chord/melody/pad pattern in the right key & feel
+Pure data + light helpers, NO MCP / socket dependencies (unit-testable on its own).
 
-Design goals:
-  - Encode production quality as DATA so the model doesn't have to improvise it.
-  - Be EXTENSIBLE: adding a genre = adding one GENRES entry; adding an instrument
-    = one INSTRUMENTS entry. Generators read the genre profile, not hard-coded cases.
+Philosophy: this module does NOT generate MIDI. A capable model composes far better
+MIDI than a hard-coded generator, and pre-baked notes just give it something to review
+and redo. Instead this is a STYLE REFERENCE + INSTRUMENT PICKER: it tells the model how
+a genre actually works (feel, drum placement, harmony, bass/melody approach, structure,
+reference artists) and which Ableton 12 instrument fits each role, then the model writes
+the notes itself via the MCP note tools.
 
-References: Ableton Live 12 instrument reference; genre BPM/feel conventions.
+Extensible: add a genre = one GENRES entry + one STYLE entry; add an instrument = one
+INSTRUMENTS entry.
 """
 
 from typing import Dict, List, Any, Tuple, Optional
 
 # ---------------------------------------------------------------------------
-# 1) ABLETON 12 INSTRUMENT CATALOG
-#    role  = musical job it does well
-#    load  = ordered browser targets to try. "Instruments/<Name>" loads a preset
-#            from that device's folder (audible, in-character); a bare device name
-#            is the fallback. Drum kits are resolved from the "Drums" folder.
+# 1) ABLETON 12 INSTRUMENT CATALOG   (role = the job it does well)
 # ---------------------------------------------------------------------------
 INSTRUMENTS: Dict[str, Dict[str, Any]] = {
     "Electric":   {"desc": "Rhodes/Wurlitzer electric pianos — warm, vintage keys",
@@ -74,11 +70,12 @@ KIT_HINTS: Dict[str, Dict[str, List[str]]] = {
 }
 
 # ---------------------------------------------------------------------------
-# 2) MUSIC THEORY
+# 2) LIGHT MUSIC-THEORY REFERENCE (for display in the style guide, not generation)
 # ---------------------------------------------------------------------------
 _NOTE_PC = {"c": 0, "c#": 1, "db": 1, "d": 2, "d#": 3, "eb": 3, "e": 4, "fb": 4,
             "e#": 5, "f": 5, "f#": 6, "gb": 6, "g": 7, "g#": 8, "ab": 8,
             "a": 9, "a#": 10, "bb": 10, "b": 11, "cb": 11}
+_PC_NAME = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"]
 
 SCALES: Dict[str, List[int]] = {
     "major": [0, 2, 4, 5, 7, 9, 11],
@@ -91,21 +88,25 @@ SCALES: Dict[str, List[int]] = {
     "harmonic_minor": [0, 2, 3, 5, 7, 8, 11],
 }
 
-# diatonic 7th-chord qualities per scale degree (semitone stacks from the degree root)
-_SEVENTH = {
-    "minor":  [[0, 3, 7, 10], [0, 3, 6, 9], [0, 4, 7, 11], [0, 3, 7, 10],
-               [0, 3, 7, 10], [0, 4, 7, 11], [0, 4, 8, 10]],
-    "dorian": [[0, 3, 7, 10], [0, 3, 7, 10], [0, 4, 7, 10], [0, 4, 7, 10],
-               [0, 3, 7, 10], [0, 3, 6, 9], [0, 4, 7, 11]],
-    "major":  [[0, 4, 7, 11], [0, 3, 7, 10], [0, 3, 7, 10], [0, 4, 7, 11],
-               [0, 4, 7, 10], [0, 3, 7, 10], [0, 3, 6, 9]],
+# Ableton Drum Rack / General-MIDI note reference (C3 = 60 convention)
+DRUM_MAP = {
+    "kick": 36, "rimshot": 37, "snare": 38, "clap": 39,
+    "closed_hat": 42, "open_hat": 46, "low_tom": 45, "mid_tom": 47,
+    "hi_tom": 50, "crash": 49, "ride": 51, "shaker": 70, "tambourine": 54,
+}
+
+# roman numerals per heptatonic scale degree
+_ROMAN = {
+    "minor":  ["i", "ii°", "III", "iv", "v", "VI", "VII"],
+    "dorian": ["i", "ii", "III", "IV", "v", "vi°", "VII"],
+    "major":  ["I", "ii", "iii", "IV", "V", "vi", "vii°"],
 }
 
 
 def parse_key(key: str) -> Tuple[int, str]:
-    """'A minor' -> (9, 'minor'); 'F# dorian' -> (6,'dorian'); default C minor."""
+    """'A minor' -> (9, 'minor'); 'F# dorian' -> (6,'dorian'); default A minor."""
     if not key:
-        return 9, "minor"  # A minor default — friendly for pentatonic melodies
+        return 9, "minor"
     parts = str(key).strip().split()
     root = _NOTE_PC.get(parts[0].lower(), 0) if parts else 0
     scale = "minor"
@@ -118,136 +119,104 @@ def parse_key(key: str) -> Tuple[int, str]:
     return root, scale
 
 
-def note_name_to_midi(name: str) -> int:
-    """'C1' -> 36 (Ableton convention: C3=60)."""
-    name = name.strip()
-    i = 1 if name[1:2] in ("#", "b") else 0
-    pc = _NOTE_PC.get(name[: i + 1].lower(), 0)
-    octave = int(name[i + 1:]) if name[i + 1:] else 3
-    return pc + (octave + 2) * 12  # C3 = 60 => octave+2
-
-
-def scale_midi(root_pc: int, scale: str, lo: int = 48, hi: int = 84) -> List[int]:
-    """All midi pitches in [lo,hi] belonging to the scale."""
+def scale_note_names(root_pc: int, scale: str) -> List[str]:
+    """Note names of one octave of a scale (for the style guide)."""
     ivals = SCALES.get(scale, SCALES["minor"])
-    out = []
-    for m in range(lo, hi + 1):
-        if (m - root_pc) % 12 in ivals:
-            out.append(m)
-    return out
+    return [_PC_NAME[(root_pc + i) % 12] for i in ivals]
 
 
-def degree_chord(root_pc: int, scale: str, degree: int, octave: int = 4) -> List[int]:
-    """Diatonic 7th chord on a scale degree (0-indexed). Falls back to minor table."""
-    ivals = SCALES.get(scale, SCALES["minor"])
-    heptatonic = ivals if len(ivals) == 7 else SCALES["minor"]
-    table = _SEVENTH.get(scale, _SEVENTH["minor"])
-    d = degree % 7
-    chord_root = root_pc + (octave + 2) * 12 + heptatonic[d]
-    stack = table[d]
-    return [chord_root + s for s in stack]
+def progression_roman(prof: Dict[str, Any]) -> Dict[str, Any]:
+    """Render a genre's suggested progression as roman numerals + chord roots."""
+    root_pc, _ = parse_key(prof.get("key", "A minor"))
+    scale = prof.get("chord_scale", "minor")
+    hept = SCALES.get(scale, SCALES["minor"])
+    hept = hept if len(hept) == 7 else SCALES["minor"]
+    roman = _ROMAN.get(scale, _ROMAN["minor"])
+    prog = prof.get("progression", [0, 3, 4, 3])
+    rn = [roman[d % 7] for d in prog]
+    roots = [_PC_NAME[(root_pc + hept[d % 7]) % 12] for d in prog]
+    return {"roman": " - ".join(rn), "chord_roots": roots, "scale": scale}
 
 
 # ---------------------------------------------------------------------------
-# 3) GENRE PROFILES  (extensible: add an entry to support a new genre)
-#    feel drives the pattern generators; palette maps role -> instrument.
+# 3) GENRE PROFILES  (tempo/key/palette/structure — extensible)
 # ---------------------------------------------------------------------------
 GENRES: Dict[str, Dict[str, Any]] = {
     "boom_bap": {
         "aka": ["boom bap", "boombap", "hip hop", "hiphop", "90s hip hop", "east coast"],
-        "bpm": 88, "swing": 0.06, "key": "A minor", "scale": "minor_pentatonic",
-        "chord_scale": "dorian", "feel": "boom_bap", "bass_feel": "root_hits",
-        "progression": [0, 3, 4, 3],   # i - iv - v - iv (jazzy dorian)
+        "bpm": 88, "bpm_range": "85-92", "swing": 0.06, "key": "A minor",
+        "scale": "minor_pentatonic", "chord_scale": "dorian", "progression": [0, 3, 4, 3],
         "palette": {"drums": "kit", "bass": "Operator", "keys": "Electric",
                     "chords": "Electric", "melody": "Electric", "pad": "Drift"},
         "structure": ["intro:4", "verse:16", "hook:8", "verse:16", "hook:8", "outro:4"],
-        "tips": "Dusty swung drums, Rhodes keys, upright/electric bass on the kick, minor/dorian.",
     },
     "lofi": {
         "aka": ["lo-fi", "lo fi", "chillhop", "study beats"],
-        "bpm": 80, "swing": 0.08, "key": "F major", "scale": "major_pentatonic",
-        "chord_scale": "major", "feel": "boom_bap", "bass_feel": "root_hits",
-        "progression": [1, 4, 0, 5],   # ii - V - I - vi-ish, jazzy/warm
+        "bpm": 80, "bpm_range": "70-85", "swing": 0.08, "key": "F major",
+        "scale": "major_pentatonic", "chord_scale": "major", "progression": [1, 4, 0, 5],
         "palette": {"drums": "kit", "bass": "Operator", "keys": "Electric",
                     "chords": "Electric", "melody": "Collision", "pad": "Drift"},
         "structure": ["intro:4", "loop:16", "loop:16", "outro:4"],
-        "tips": "Slow swung drums, warm Rhodes 7th chords, soft mallet melody, mellow.",
     },
     "trap": {
         "aka": ["trap beat", "drill"],
-        "bpm": 140, "swing": 0.0, "key": "C minor", "scale": "minor",
-        "chord_scale": "minor", "feel": "trap", "bass_feel": "eight_oh_eight",
-        "progression": [0, 5, 3, 4],
+        "bpm": 140, "bpm_range": "130-150 (half-time feel ~70)", "swing": 0.0, "key": "C minor",
+        "scale": "minor", "chord_scale": "minor", "progression": [0, 5, 3, 4],
         "palette": {"drums": "kit", "bass": "Operator", "keys": "Operator",
                     "chords": "Wavetable", "melody": "Wavetable", "pad": "Wavetable"},
         "structure": ["intro:4", "verse:16", "hook:8", "verse:16", "hook:8"],
-        "tips": "Booming 808 glides, fast hat rolls, dark minor bells/plucks. Half-time feel.",
     },
     "house": {
         "aka": ["deep house", "tech house", "4x4"],
-        "bpm": 124, "swing": 0.0, "key": "A minor", "scale": "minor",
-        "chord_scale": "minor", "feel": "four_on_floor", "bass_feel": "offbeat",
-        "progression": [0, 5, 3, 4],
+        "bpm": 124, "bpm_range": "120-126", "swing": 0.0, "key": "A minor",
+        "scale": "minor", "chord_scale": "minor", "progression": [0, 5, 3, 4],
         "palette": {"drums": "kit", "bass": "Analog", "keys": "Operator",
                     "chords": "Analog", "melody": "Operator", "pad": "Drift"},
         "structure": ["intro:8", "build:8", "drop:16", "break:8", "drop:16", "outro:8"],
-        "tips": "Four-on-the-floor kick, offbeat bass & open hats, stabby chords.",
     },
     "techno": {
         "aka": ["melodic techno", "peak time"],
-        "bpm": 130, "swing": 0.0, "key": "F minor", "scale": "minor",
-        "chord_scale": "minor", "feel": "four_on_floor", "bass_feel": "offbeat",
-        "progression": [0, 0, 5, 5],
+        "bpm": 130, "bpm_range": "125-135", "swing": 0.0, "key": "F minor",
+        "scale": "minor", "chord_scale": "minor", "progression": [0, 0, 5, 5],
         "palette": {"drums": "kit", "bass": "Analog", "keys": "Meld",
                     "chords": "Meld", "melody": "Wavetable", "pad": "Meld"},
         "structure": ["intro:16", "build:16", "drop:32", "break:16", "drop:32"],
-        "tips": "Driving kick, hypnotic offbeat bass, dark evolving pads.",
     },
     "dnb": {
         "aka": ["drum and bass", "drum & bass", "jungle", "liquid"],
-        "bpm": 174, "swing": 0.0, "key": "D minor", "scale": "minor",
-        "chord_scale": "minor", "feel": "dnb", "bass_feel": "root_hits",
-        "progression": [0, 3, 4, 3],
+        "bpm": 174, "bpm_range": "170-176", "swing": 0.0, "key": "D minor",
+        "scale": "minor", "chord_scale": "minor", "progression": [0, 3, 4, 3],
         "palette": {"drums": "kit", "bass": "Operator", "keys": "Electric",
                     "chords": "Drift", "melody": "Wavetable", "pad": "Drift"},
         "structure": ["intro:16", "drop:32", "break:16", "drop:32", "outro:16"],
-        "tips": "Fast breakbeat, sub-heavy bass, lush pads (liquid) or gnarly (neuro).",
     },
     "rnb": {
         "aka": ["r&b", "rnb", "neo soul", "soul"],
-        "bpm": 72, "swing": 0.05, "key": "D minor", "scale": "minor_pentatonic",
-        "chord_scale": "dorian", "feel": "boom_bap", "bass_feel": "root_hits",
-        "progression": [0, 3, 1, 4],
+        "bpm": 72, "bpm_range": "60-75", "swing": 0.05, "key": "D minor",
+        "scale": "minor_pentatonic", "chord_scale": "dorian", "progression": [0, 3, 1, 4],
         "palette": {"drums": "kit", "bass": "Operator", "keys": "Electric",
                     "chords": "Electric", "melody": "Electric", "pad": "Drift"},
         "structure": ["intro:4", "verse:16", "chorus:8", "verse:16", "chorus:8", "outro:4"],
-        "tips": "Laid-back swung drums, lush Rhodes 7ths, smooth bass, sparse melody.",
     },
     "ambient": {
         "aka": ["ambient", "cinematic", "drone", "soundscape"],
-        "bpm": 70, "swing": 0.0, "key": "C major", "scale": "major_pentatonic",
-        "chord_scale": "major", "feel": "none", "bass_feel": "sustained",
-        "progression": [0, 5, 3, 4],
+        "bpm": 70, "bpm_range": "60-80 or free", "swing": 0.0, "key": "C major",
+        "scale": "major_pentatonic", "chord_scale": "major", "progression": [0, 5, 3, 4],
         "palette": {"drums": "kit", "bass": "Drift", "keys": "Tension",
                     "chords": "Meld", "melody": "Tension", "pad": "Meld"},
         "structure": ["intro:16", "swell:32", "peak:16", "fade:16"],
-        "tips": "Often no drums. Long evolving pads, sparse bell/string motifs.",
     },
     "pop": {
         "aka": ["pop", "dance pop", "synth pop"],
-        "bpm": 118, "swing": 0.0, "key": "C major", "scale": "major_pentatonic",
-        "chord_scale": "major", "feel": "four_on_floor", "bass_feel": "root_hits",
-        "progression": [0, 4, 5, 3],   # I - V - vi - IV
+        "bpm": 118, "bpm_range": "100-125", "swing": 0.0, "key": "C major",
+        "scale": "major_pentatonic", "chord_scale": "major", "progression": [0, 4, 5, 3],
         "palette": {"drums": "kit", "bass": "Operator", "keys": "Electric",
                     "chords": "Analog", "melody": "Wavetable", "pad": "Drift"},
         "structure": ["intro:4", "verse:16", "chorus:8", "verse:16", "chorus:8", "bridge:8", "chorus:8"],
-        "tips": "Punchy four-on-floor, bright chords, catchy synth/vocal-style melody.",
     },
 }
 
-# Drum map (Ableton Drum Rack / GM)
-KICK, SNARE, CH, OH, RIM, CLAP, RIDE = 36, 38, 42, 46, 37, 39, 51
-BEATS_PER_BAR = 4
+ROLES = ["drums", "bass", "chords", "keys", "melody", "lead", "pad"]
 
 
 def resolve_genre(name: str) -> str:
@@ -272,208 +241,156 @@ def genre_profile(name: str) -> Dict[str, Any]:
 
 
 # ---------------------------------------------------------------------------
-# 4) PATTERN GENERATORS  (return list of note dicts for the MCP note tools)
-#    note = {pitch, start_time (beats), duration (beats), velocity}
+# 4) STYLE REFERENCE — how each genre actually works, in words. The model reads
+#    this and composes its OWN MIDI. Reference artists are baked in as knowledge.
 # ---------------------------------------------------------------------------
-def _n(pitch, start, dur, vel):
-    return {"pitch": int(pitch), "start_time": round(float(start), 4),
-            "duration": round(float(dur), 4), "velocity": int(max(1, min(127, vel)))}
-
-
-def drum_pattern(genre: str, bars: int = 8) -> List[Dict[str, Any]]:
-    prof = genre_profile(genre)
-    feel = prof.get("feel", "boom_bap")
-    swing = prof.get("swing", 0.0)
-    notes: List[Dict[str, Any]] = []
-
-    for bar in range(bars):
-        b = bar * BEATS_PER_BAR
-        if feel == "boom_bap":
-            for t in (0.0, 2.5):
-                notes.append(_n(KICK, b + t, 0.5, 118))
-            for t in (1.0, 3.0):
-                notes.append(_n(SNARE, b + t, 0.5, 112))
-            for i, t in enumerate([0, .5, 1, 1.5, 2, 2.5, 3, 3.5]):
-                sw = swing if (i % 2 == 1) else 0.0
-                notes.append(_n(CH, b + t + sw, 0.25, 92 if t == int(t) else 64))
-            if bar % 4 == 3:
-                notes.append(_n(OH, b + 3.5, 0.5, 100))
-        elif feel == "four_on_floor":
-            for t in (0, 1, 2, 3):
-                notes.append(_n(KICK, b + t, 0.5, 116))
-            for t in (1, 3):
-                notes.append(_n(CLAP, b + t, 0.25, 104))
-            for t in (0.5, 1.5, 2.5, 3.5):
-                notes.append(_n(OH, b + t, 0.25, 80))
-        elif feel == "trap":
-            for t in (0.0, 0.75, 2.0):     # syncopated kick
-                notes.append(_n(KICK, b + t, 0.5, 118))
-            notes.append(_n(SNARE, b + 2.0, 0.5, 110))  # half-time snare on 3
-            # rolling hats: 16ths with occasional 32nd rolls
-            step = 0.25
-            t = 0.0
-            while t < 4.0:
-                roll = (bar % 2 == 1 and 3.0 <= t < 3.5)
-                if roll:
-                    for k in range(4):
-                        notes.append(_n(CH, b + t + k * 0.125, 0.1, 70))
-                else:
-                    notes.append(_n(CH, b + t, 0.2, 88 if t == int(t) else 60))
-                t += step
-        elif feel == "dnb":
-            notes.append(_n(KICK, b + 0.0, 0.4, 118))
-            notes.append(_n(KICK, b + 2.5, 0.4, 110))
-            for t in (1.0, 3.0):
-                notes.append(_n(SNARE, b + t, 0.4, 114))
-            for t in [x * 0.5 for x in range(8)]:
-                notes.append(_n(CH, b + t, 0.2, 84 if t == int(t) else 58))
-        elif feel == "none":
-            continue  # ambient: no drums
-        else:
-            for t in (0.0, 2.0):
-                notes.append(_n(KICK, b + t, 0.5, 112))
-            for t in (1.0, 3.0):
-                notes.append(_n(SNARE, b + t, 0.5, 108))
-    return notes
-
-
-def _prog_roots(prof: Dict[str, Any], bars: int) -> List[Tuple[int, int]]:
-    """Return [(bar, chord_root_pc_relative_degree)] one chord per bar following progression."""
-    root_pc, _ = parse_key(prof.get("key", "A minor"))
-    scale = prof.get("chord_scale", "minor")
-    heptatonic = SCALES.get(scale, SCALES["minor"])
-    heptatonic = heptatonic if len(heptatonic) == 7 else SCALES["minor"]
-    prog = prof.get("progression", [0, 3, 4, 3])
-    out = []
-    for bar in range(bars):
-        deg = prog[bar % len(prog)]
-        out.append((bar, deg))
-    return out
-
-
-def chord_pattern(genre: str, key: Optional[str] = None, bars: int = 8) -> List[Dict[str, Any]]:
-    prof = genre_profile(genre)
-    if key:
-        prof["key"] = key
-    root_pc, _ = parse_key(prof.get("key", "A minor"))
-    scale = prof.get("chord_scale", "minor")
-    feel = prof.get("feel", "boom_bap")
-    notes = []
-    for bar, deg in _prog_roots(prof, bars):
-        b = bar * BEATS_PER_BAR
-        chord = degree_chord(root_pc, scale, deg, octave=2)  # warm low-mid comp register
-        if feel == "four_on_floor":     # offbeat stabs
-            for t in (0.5, 1.5, 2.5, 3.5):
-                for p in chord:
-                    notes.append(_n(p, b + t, 0.25, 82))
-        elif feel == "trap":            # sparse held on beat 1
-            for p in chord:
-                notes.append(_n(p, b, 4.0, 74))
-        else:                            # boom_bap / rnb / lofi: held 7th on the "and" of 1
-            for p in chord:
-                notes.append(_n(p, b, 3.5, 84))
-    return notes
-
-
-def bass_pattern(genre: str, key: Optional[str] = None, bars: int = 8) -> List[Dict[str, Any]]:
-    prof = genre_profile(genre)
-    if key:
-        prof["key"] = key
-    root_pc, _ = parse_key(prof.get("key", "A minor"))
-    scale = prof.get("chord_scale", "minor")
-    heptatonic = SCALES.get(scale, SCALES["minor"])
-    heptatonic = heptatonic if len(heptatonic) == 7 else SCALES["minor"]
-    bass_feel = prof.get("bass_feel", "root_hits")
-    notes = []
-    for bar, deg in _prog_roots(prof, bars):
-        b = bar * BEATS_PER_BAR
-        root = root_pc + (1 + 2) * 12 + heptatonic[deg % 7]  # octave 1 (C1=36 area)
-        if bass_feel == "root_hits":        # follow the kick: 1 and the "and" of 3
-            notes.append(_n(root, b + 0.0, 1.0, 108))
-            notes.append(_n(root, b + 2.5, 0.75, 96))
-        elif bass_feel == "offbeat":        # house/techno offbeat 8ths
-            for t in (0.5, 1.5, 2.5, 3.5):
-                notes.append(_n(root, b + t, 0.4, 100))
-        elif bass_feel == "eight_oh_eight":  # long 808 glide per bar
-            notes.append(_n(root, b + 0.0, 3.5, 112))
-        elif bass_feel == "sustained":       # ambient drone
-            notes.append(_n(root, b + 0.0, 4.0, 80))
-        else:
-            notes.append(_n(root, b + 0.0, 1.0, 100))
-    return notes
-
-
-def melody_pattern(genre: str, key: Optional[str] = None, bars: int = 8) -> List[Dict[str, Any]]:
-    prof = genre_profile(genre)
-    if key:
-        prof["key"] = key
-    root_pc, scale_name = parse_key(prof.get("key", "A minor"))
-    scale = prof.get("scale", "minor_pentatonic")
-    pitches = scale_midi(root_pc, scale, lo=60, hi=79)  # C4..G5 range
-    if not pitches:
-        pitches = scale_midi(root_pc, "minor_pentatonic", 60, 79)
-    # deterministic, musical-ish contour (no RNG so results are reproducible)
-    contour = [0, 2, 1, 3, 2, 4, 3, 1, 4, 5, 3, 2, 1, 0, 2, 1]
-    rhythm = [1.0, 0.5, 0.5, 1.0, 1.0, 0.5, 0.5, 2.0]  # beats within a 2-bar phrase-ish
-    notes = []
-    phrase_len = 4  # bars per phrase
-    for bar in range(bars):
-        b = bar * BEATS_PER_BAR
-        # play on phrase-leading bars, rest on others for space
-        if bar % 2 == 1 and prof.get("feel") in ("boom_bap", "trap"):
-            continue
-        t = 0.0
-        ri = bar
-        while t < 4.0:
-            idx = contour[(bar * 3 + int(t * 2)) % len(contour)]
-            pitch = pitches[idx % len(pitches)]
-            dur = rhythm[(ri) % len(rhythm)]
-            dur = min(dur, 4.0 - t)
-            vel = 96 if t == int(t) else 84
-            notes.append(_n(pitch, b + t, max(0.25, dur * 0.9), vel))
-            t += dur
-            ri += 1
-    return notes
-
-
-def pad_pattern(genre: str, key: Optional[str] = None, bars: int = 8) -> List[Dict[str, Any]]:
-    """Sustained chords, one per bar (long)."""
-    prof = genre_profile(genre)
-    if key:
-        prof["key"] = key
-    root_pc, _ = parse_key(prof.get("key", "A minor"))
-    scale = prof.get("chord_scale", "minor")
-    notes = []
-    for bar, deg in _prog_roots(prof, bars):
-        b = bar * BEATS_PER_BAR
-        chord = degree_chord(root_pc, scale, deg, octave=3)  # airier register above the comp
-        for p in chord:
-            notes.append(_n(p, b, 4.0, 70))
-    return notes
-
-
-GENERATORS = {
-    "drums": lambda g, k, bars: drum_pattern(g, bars),
-    "bass": bass_pattern,
-    "chords": chord_pattern,
-    "keys": chord_pattern,   # "keys" = comping chords by default
-    "melody": melody_pattern,
-    "lead": melody_pattern,
-    "pad": pad_pattern,
+STYLE: Dict[str, Dict[str, Any]] = {
+    "boom_bap": {
+        "feel": "Laid-back and dusty. Play slightly BEHIND the beat; humanize velocities and "
+                "micro-timing (don't hard-quantize). Swing the 8ths/16ths a little.",
+        "drums": "Kick (36) on beat 1 and loosely around the 'and' of 2 or of 3 — syncopated, not "
+                 "rigid. Snare (38) HARD on beats 2 and 4 (the backbeat). Closed hats (42) as swung "
+                 "8ths with real velocity variation; drop an open hat (46) occasionally as a lift. "
+                 "Add quiet ghost snares between backbeats. Sampled/dusty character.",
+        "harmony": "Minor or Dorian. Jazzy 7th/9th chords (min7, dom7, min9) voiced on Rhodes in a "
+                   "low-mid register. Short 2-4 bar loops. Movement like i-iv or ii-V-i.",
+        "bass": "Upright or electric bass locked to the kick. Mostly roots with occasional walking "
+                "passing tones. Simple, in the pocket, leaves space.",
+        "melody": "Sparse and soulful, minor pentatonic / Dorian. Leave gaps; answer the chords. "
+                  "Think a chopped soul-sample line, not a busy solo.",
+        "references": ["DJ Premier (Gang Starr)", "Pete Rock", "J Dilla", "Nujabes", "Madlib",
+                       "A Tribe Called Quest", "Wu-Tang / RZA"],
+        "avoid": "Rigid quantization, trap 808 kicks/hats, over-busy melodies, bright EDM sounds.",
+    },
+    "lofi": {
+        "feel": "Slow, hazy, heavily swung. Loose timing, soft dynamics, a sleepy pocket.",
+        "drums": "Same skeleton as boom bap but softer and lazier: kick (36) on 1 and near the 'and' "
+                 "of 3, snare/rimshot (38/37) on 2 and 4 with low velocity, gently swung hats (42). "
+                 "Sparse. Vinyl-dust feel.",
+        "harmony": "Warm jazzy 7th/9th and maj7 chords, often Dorian or major. Detuned, mellow. "
+                   "ii-V-I and vi-based loops.",
+        "bass": "Round, soft bass following roots on the kick. Very simple.",
+        "melody": "Gentle, wandering, pentatonic. Mallet/Rhodes lines with lots of space.",
+        "references": ["Nujabes", "J Dilla", "idealism", "Tomppabeats", "Jinsang"],
+        "avoid": "Loud/hard drums, aggressive synths, dense arrangements.",
+    },
+    "trap": {
+        "feel": "Half-time feel: the beat reads slow (~70) though the grid is ~140. Dark and spacious.",
+        "drums": "Booming tuned 808 kick (36) syncopated. Snare or clap (38/39) on beat 3 (half-time "
+                 "backbeat). Fast hi-hats (42) as 16ths with bursts of triplet/32nd ROLLS and velocity "
+                 "ramps. Occasional open hat (46).",
+        "harmony": "Dark minor. Sparse — one held minor chord or a simple i-VI-III-VII loop. Often just "
+                   "a bell/pluck riff over the 808.",
+        "bass": "The 808 IS the bass: long gliding notes tuned to the key root, sliding between chord "
+                "roots. Sits low and loud.",
+        "melody": "Dark bell/pluck motif, minor scale, lots of repetition and space.",
+        "references": ["Metro Boomin", "Southside (808 Mafia)", "Zaytoven", "Wheezy", "Pierre Bourne"],
+        "avoid": "Jazzy chords, acoustic kits, busy basslines competing with the 808.",
+    },
+    "house": {
+        "feel": "Four-on-the-floor, steady and danceable, driving forward.",
+        "drums": "Kick (36) on EVERY beat (1,2,3,4). Clap/snare (39/38) on 2 and 4. Open hat (46) on "
+                 "the offbeats (the 'ands') for the classic bounce. Closed hats fill 16ths lightly.",
+        "harmony": "Minor. Stabby 7th/9th chords on the offbeats, or sustained pads. Simple i-VI-III-VII.",
+        "bass": "Offbeat bass — notes on the 'ands', bouncing with the open hats. Rolling and hypnotic.",
+        "melody": "Simple hooky riff or plucky arp; repetition is the point.",
+        "references": ["Disclosure", "Kerri Chandler", "MK", "Duke Dumont", "Kaytranada (soulful)"],
+        "avoid": "Swung hip-hop drums, sparse/half-time feel, over-complex chords.",
+    },
+    "techno": {
+        "feel": "Hypnotic, driving, minimal. Repetition + slow evolution over many bars.",
+        "drums": "Relentless four-on-the-floor kick (36). Offbeat open hats (46). Sparse claps/rims; "
+                 "percussion loops for groove. Less is more.",
+        "harmony": "Dark minor. One or two chords, held or pulsing. Tension from filters/texture, not "
+                   "changes.",
+        "bass": "Offbeat or rolling 16th sub bass on the root, hypnotic and relentless.",
+        "melody": "Minimal dark motif or arpeggio that slowly evolves; often no traditional melody.",
+        "references": ["Charlotte de Witte", "Tale of Us", "Adam Beyer", "Boris Brejcha", "Amelie Lens"],
+        "avoid": "Busy chord changes, bright/happy tones, swung drums.",
+    },
+    "dnb": {
+        "feel": "Fast (~174) but the bassline reads half-time. Rolling breakbeat energy.",
+        "drums": "Breakbeat: kick (36) on beat 1 and around the 'and' of 3; snare (38) on 2 and 4; "
+                 "busy syncopated ghost kicks/snares and fast hats. Think a chopped Amen break.",
+        "harmony": "Minor. Lush pads (liquid) or minimal/dark (neuro). Simple loops.",
+        "bass": "Deep sub or reese bass, long notes on chord roots (half-time), the anchor under the "
+                "fast drums.",
+        "melody": "Liquid: soulful Rhodes/vocal chops. Neuro: gnarly modulated stabs. Sparse.",
+        "references": ["LTJ Bukem (liquid)", "Netsky", "Calibre", "Noisia (neuro)", "Sub Focus"],
+        "avoid": "Slow four-on-floor kicks, dense mid-range clutter under the drums.",
+    },
+    "rnb": {
+        "feel": "Slow, smooth, deeply swung and behind-the-beat. Silky and intimate.",
+        "drums": "Laid-back kit: kick (36) syncopated and soft, crisp snare/rim (38/37) on 2 and 4, "
+                 "gently swung hats (42), tasteful ghost notes. Groove over power.",
+        "harmony": "Lush extended chords — min9, maj9, 11ths — on Rhodes, Dorian/minor. Smooth voice "
+                   "leading, ii-V movement.",
+        "bass": "Smooth electric/sub bass, melodic but supportive, syncopated with the kick.",
+        "melody": "Sparse, soulful, vocal-like phrases with space for a topline.",
+        "references": ["D'Angelo", "Erykah Badu", "H.E.R.", "SZA", "Steve Lacy", "Brent Faiyaz"],
+        "avoid": "Stiff quantization, harsh/bright synths, cluttered arrangements.",
+    },
+    "ambient": {
+        "feel": "Slow or beatless, spacious, evolving. Time feels suspended.",
+        "drums": "Often NONE. If used: sparse soft percussion, mallets, or a distant heartbeat pulse.",
+        "harmony": "Long sustained pads, open voicings (add9, sus), slow changes. Major or modal, "
+                   "consonant and warm.",
+        "bass": "Deep sustained drone on the root, or none — let the pad hold the low end.",
+        "melody": "Very sparse — a few long bell/string notes, motifs that drift and repeat.",
+        "references": ["Brian Eno", "Nils Frahm", "Stars of the Lid", "Tim Hecker", "Jon Hopkins"],
+        "avoid": "Rhythmic drums, busy notes, hard transients, fast changes.",
+    },
+    "pop": {
+        "feel": "Bright, catchy, tight. Clear hook and strong groove.",
+        "drums": "Four-on-the-floor OR a punchy backbeat (snare on 2 and 4, kick on 1 and 3). Clean, "
+                 "consistent hats, a clap layered on the snare.",
+        "harmony": "Bright diatonic major chords — classic I-V-vi-IV and friends. Clear, singable.",
+        "bass": "Root-driven, locked to the kick, simple and supportive.",
+        "melody": "Strong, catchy, singable hook. Repetition + a memorable rhythmic motif.",
+        "references": ["Max Martin productions", "Dua Lipa", "The Weeknd", "Doja Cat", "Charli XCX"],
+        "avoid": "Muddy low end, wandering non-hooky melodies, overly complex harmony.",
+    },
 }
-ROLES = list(GENERATORS.keys())
 
 
-def generate(role: str, genre: str, key: Optional[str] = None, bars: int = 8) -> List[Dict[str, Any]]:
-    role = (role or "").lower()
-    gen = GENERATORS.get(role)
-    if gen is None:
-        return []
-    if role == "drums":
-        return drum_pattern(genre, bars)
-    return gen(genre, key, bars)
+def style_guide(genre: str, role: str = "") -> Dict[str, Any]:
+    """Return rich, composable STYLE guidance for a genre (optionally focused on one role).
+    The model uses this to write its OWN MIDI — this returns knowledge, not notes."""
+    prof = genre_profile(genre)
+    gkey = prof["_key"]
+    st = STYLE.get(gkey, STYLE["boom_bap"])
+    root_pc, _ = parse_key(prof.get("key", "A minor"))
+    guide: Dict[str, Any] = {
+        "genre": gkey.replace("_", " "),
+        "bpm": prof["bpm"], "bpm_range": prof.get("bpm_range"),
+        "key": prof["key"], "swing": prof.get("swing"),
+        "feel": st["feel"],
+        "scale_notes": scale_note_names(root_pc, prof.get("scale", "minor")),
+        "suggested_progression": progression_roman(prof),
+        "drum_map": DRUM_MAP,
+        "drums": st["drums"], "harmony": st["harmony"], "bass": st["bass"], "melody": st["melody"],
+        "arrangement": prof.get("structure"),
+        "instrument_palette": prof.get("palette"),
+        "reference_artists": st["references"],
+        "avoid": st["avoid"],
+        "how_to_use": ("Compose the MIDI yourself following this guidance and write it with "
+                       "add_notes_to_arrangement_clip. Times are in BEATS (1 bar of 4/4 = 4 beats). "
+                       "Humanize velocity/timing where the feel calls for it."),
+    }
+    if role:
+        r = role.lower()
+        focus = {"drums": st["drums"], "bass": st["bass"], "pad": st["harmony"],
+                 "chords": st["harmony"], "keys": st["harmony"],
+                 "melody": st["melody"], "lead": st["melody"]}.get(r)
+        if focus:
+            guide["focus_role"] = role
+            guide["focus"] = focus
+    return guide
 
 
+# ---------------------------------------------------------------------------
+# 5) INSTRUMENT SELECTION
+# ---------------------------------------------------------------------------
 def instrument_for(role: str, genre: str) -> str:
     """Return the instrument NAME (or 'kit') the palette wants for this role+genre."""
     prof = genre_profile(genre)
@@ -481,7 +398,6 @@ def instrument_for(role: str, genre: str) -> str:
     palette = prof.get("palette", {})
     if role in palette:
         return palette[role]
-    # fall back by role affinity across the catalog
     for name, info in INSTRUMENTS.items():
         if role in info.get("roles", []) and prof["_key"] in info.get("genres", []):
             return name

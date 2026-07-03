@@ -46,6 +46,16 @@ def _mono(x: np.ndarray) -> np.ndarray:
     return x.mean(axis=1) if x.ndim == 2 else x
 
 
+def stereo_width(x: np.ndarray) -> float:
+    """side/mid RMS ratio (0 = mono, ~1 = fully decorrelated L/R)."""
+    if x.ndim != 2 or x.shape[1] < 2:
+        return 0.0
+    mid = (x[:, 0] + x[:, 1]) / 2
+    side = (x[:, 0] - x[:, 1]) / 2
+    rm = float(np.sqrt(np.mean(mid ** 2)))
+    return float(np.sqrt(np.mean(side ** 2)) / rm) if rm > 1e-9 else 0.0
+
+
 def normalize(audio: np.ndarray, sr: int, target_sr: int) -> tuple[np.ndarray, bool]:
     """Mono float64 at target_sr. Returns (audio, resampled_flag)."""
     mono = _mono(np.asarray(audio, dtype="float64"))
@@ -162,6 +172,9 @@ def compare(headless_wav: str | Path, live_wav: str | Path,
     """Full comparison of two renders of the same material."""
     ha, hsr = sf.read(str(headless_wav), dtype="float64", always_2d=False)
     la, lsr = sf.read(str(live_wav), dtype="float64", always_2d=False)
+    ch_a = ha.shape[1] if ha.ndim == 2 else 1
+    ch_b = la.shape[1] if la.ndim == 2 else 1
+    width_a, width_b = stereo_width(ha), stereo_width(la)
     a, ra = normalize(ha, hsr, target_sr)
     b, rb = normalize(la, lsr, target_sr)
     resampled = ra or rb
@@ -171,6 +184,15 @@ def compare(headless_wav: str | Path, live_wav: str | Path,
     nd = null_depth_db(a, b_matched)
     bands = band_rms_diff(a, b_matched, target_sr)
     ld = lufs_delta(a, b_matched, target_sr)
+    label = label_for(nd, resampled, band_diff_db=bands, lufs_delta=ld)
+    # a stereo-vs-mono signal path (e.g. a wide instrument mono'd on the track)
+    # summs differently — flag it so a width difference isn't read as a bad patch
+    channel_mismatch = (ch_a != ch_b) or abs(width_a - width_b) > 0.3
+    if label == "diverged" and channel_mismatch:
+        # tonal check on the mid channel only (removes the width variable)
+        mid_nd = null_depth_db(a, b_matched)  # a,b already mono (mid) here
+        if max(abs(x) for x in bands[3:]) <= 4.0 and (ld is None or abs(ld) <= 2.0):
+            label = "channel-mismatch"
     return {
         "null_depth_db": round(nd, 2),
         "latency_samples": lag,
@@ -178,8 +200,10 @@ def compare(headless_wav: str | Path, live_wav: str | Path,
         "band_diff_db": bands,
         "lufs_delta": ld,
         "resampled": resampled,
+        "channels": [ch_a, ch_b],
+        "stereo_width": [round(width_a, 3), round(width_b, 3)],
         "duration_s": round(min(len(a), len(b_matched)) / target_sr, 2),
-        "label": label_for(nd, resampled, band_diff_db=bands, lufs_delta=ld),
+        "label": label,
     }
 
 

@@ -133,6 +133,8 @@ def fidelity_registry():
     return {"registry": fidelity.Registry().data,
             "guide": {"measured-identical": ">=40 dB null — headless render is the Ableton sound",
                       "measured-close": "20-40 dB — minor state/latency differences",
+                      "channel-mismatch": "same tone, but stereo width differs (e.g. a wide instrument "
+                                          "mono'd on the track) — the render is faithful; the signal path isn't",
                       "spectral-match": "spectrum + loudness agree but waveforms don't cancel — "
                                         "phase-randomized synth (Serum unison etc.); trust your ears on the A/B",
                       "diverged": "<20 dB — state transfer failed or genuinely different sound",

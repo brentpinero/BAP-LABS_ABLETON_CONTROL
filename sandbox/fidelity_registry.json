@@ -37,10 +37,37 @@
   "format": "vst3",
   "preset": "suicide boys v5 / 67-Serum 2",
   "params_hash": "als-state",
-  "results": {},
-  "label": "awaiting-live",
+  "results": {
+   "null_depth_db": -3.27,
+   "latency_samples": 22,
+   "gain_delta_db": 0.0,
+   "band_diff_db": [
+    5.28,
+    12.58,
+    7.6,
+    2.69,
+    -1.03,
+    -1.35,
+    1.66,
+    -2.09
+   ],
+   "lufs_delta": -0.217,
+   "resampled": true,
+   "channels": [
+    2,
+    1
+   ],
+   "stereo_width": [
+    1.002,
+    0.0
+   ],
+   "duration_s": 10.6,
+   "label": "channel-mismatch"
+  },
+  "label": "channel-mismatch",
   "audio_pair": {
-   "headless": "/Users/brentpinero/Documents/serum_llm_2/sandbox_sessions/_fidelity/serum2_track66_realpatch/headless.wav"
+   "headless": "/Users/brentpinero/Documents/serum_llm_2/sandbox_sessions/_fidelity/serum2_track66_realpatch/headless.wav",
+   "live": "/private/tmp/claude-501/-Users-brentpinero-Documents-serum-llm-2/d952395b-0c31-4f1b-bb85-d555f591cbcb/scratchpad/t66_live_slice.wav"
   },
   "measured_at": "pending"
  }

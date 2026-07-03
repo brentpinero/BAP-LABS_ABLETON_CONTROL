@@ -43,13 +43,60 @@ def _engine(session_id: str) -> SandboxEngine:
     return eng
 
 
+def _verify_committed_in_live(session, iteration_rec, placed: list) -> Dict[str, Any]:
+    """Opt-in post-commit verification: freeze each just-committed track in Live,
+    copy the EXACT rendered audio into the session, undo the freeze. Rides the
+    user-approved commit moment — never interrupts the loop."""
+    try:
+        from live_client import LiveClient, automator
+    except Exception as e:  # pragma: no cover
+        return {"error": f"live client unavailable: {e}"}
+    from config import cfg
+    project_dir = cfg(session, "fidelity.live_project_dir")
+    if not project_dir:
+        return {"error": "set fidelity.live_project_dir via sandbox_config overrides first "
+                         "(the OPEN Live project folder) — then re-commit with verify_in_live"}
+    from live_freeze import find_freeze_dir, _wait_for_new_wav
+    final_dir = session.dir() / "iterations" / "final"
+    final_dir.mkdir(parents=True, exist_ok=True)
+    verified = {}
+    client = LiveClient().connect()
+    try:
+        for res in placed:
+            ti = res.get("track")
+            role = res.get("role", f"track{ti}")
+            if ti is None:
+                continue
+            try:
+                client.send("select_track", {"track_index": ti})
+                freeze_dir = find_freeze_dir(project_dir)
+                before = set(freeze_dir.glob("*.wav")) if freeze_dir.exists() else set()
+                if not automator("automator_freeze").get("success"):
+                    verified[role] = "freeze automation failed"
+                    continue
+                wav = _wait_for_new_wav(freeze_dir, before,
+                                        cfg(session, "fidelity.freeze_timeout_s"))
+                import shutil
+                dest = final_dir / f"{role}_live.wav"
+                shutil.copy2(wav, dest)
+                automator("automator_undo")
+                verified[role] = str(dest)
+            except Exception as e:  # noqa: BLE001 — verify best-effort per track
+                verified[role] = f"failed: {e}"
+        return {"verified": verified,
+                "note": "Exact Ableton-rendered audio per committed track — audition in the review UI."}
+    finally:
+        client.close()
+
+
 def register_sandbox_tools(mcp, deps: Dict[str, Any]) -> None:
     _ok, _err = deps["ok"], deps["err"]
     do_add_part = deps["do_add_part"]
 
     @mcp.tool()
     def sandbox_start(genre: str = "boom bap", parts: List[str] = None, bars: int = 8,
-                      autonomy: str = "checkpoint", instruments: str = "fallback") -> str:
+                      autonomy: str = "checkpoint", instruments: str = "fallback",
+                      task: str = "compose") -> str:
         """Start a headless COMPOSE-LISTEN-REVISE session: you compose MIDI, the sandbox renders it
         offline, scores it (groove/harmony/genre metrics), and critiques — iterate until it's good,
         THEN commit to Ableton. Nothing touches Ableton until sandbox_commit. Returns the PLAN brief
@@ -58,10 +105,16 @@ def register_sandbox_tools(mcp, deps: Dict[str, Any]) -> None:
         instruments: fallback (fast proxy synths — validates composition, not final sound) | plugins
         (your VST/AU via track instrument_spec). parts default: drums,bass,chords,melody."""
         try:
+            cfg_extra = {}
+            if task == "sound_design":
+                # single-role, real-VST, CLAP-at-full-weight preset: judge TIMBRE
+                parts = parts or ["lead"]
+                instruments = "plugins"
+                cfg_extra = {"clap_enabled": True}
             eng = SandboxEngine.start(genre, parts, bars=bars, autonomy=autonomy,
                                       instruments=instruments,
                                       renderer=sandbox_renderer.render_iteration,
-                                      audio_scorer=_AUDIO_SCORER)
+                                      audio_scorer=_AUDIO_SCORER, **cfg_extra)
             _ENGINES[eng.s.id] = eng
             out = {"session_id": eng.s.id, "genre": eng.s.genre, "bpm": eng.s.bpm,
                    "key": eng.s.key, "bars": bars, **eng.briefs()}
@@ -171,7 +224,8 @@ def register_sandbox_tools(mcp, deps: Dict[str, Any]) -> None:
             return _err("responding to checkpoint", e)
 
     @mcp.tool()
-    def sandbox_commit(session_id: str, iteration: int = 0, start_bar: int = 0) -> str:
+    def sandbox_commit(session_id: str, iteration: int = 0, start_bar: int = 0,
+                       verify_in_live: bool = False) -> str:
         """Place a finished sandbox iteration into Ableton: per role, creates a track, loads the
         REAL genre-appropriate instrument, writes the (grooved) notes into the arrangement.
         iteration 0 = the best-scoring one. REFUSES while an approve checkpoint is pending — ask
@@ -179,6 +233,14 @@ def register_sandbox_tools(mcp, deps: Dict[str, Any]) -> None:
         try:
             eng = _engine(session_id)
             s = eng.s
+            approvals_f = s.dir() / "approvals.json"
+            if approvals_f.exists():
+                log = json.loads(approvals_f.read_text())
+                final = [a for a in log if a.get("stage") == "final"]
+                if final and final[-1].get("verdict") == "rejected":
+                    return _ok({"refused": "final stage REJECTED in the review UI",
+                                "notes": final[-1].get("notes", ""),
+                                "next": "Address the feedback, resubmit, and approve FINAL in the review UI."})
             cp = s.pending_checkpoint()
             if cp is not None:
                 return _ok({"refused": "checkpoint pending", "checkpoint": {
@@ -197,12 +259,41 @@ def register_sandbox_tools(mcp, deps: Dict[str, Any]) -> None:
                 res = do_add_part(role, s.genre, s.config.bars, start_bar, None, notes,
                                   set_bpm=(role == s.parts[0]))
                 placed.append(res)
-            return _ok({"committed_iteration": it.index, "score": it.scores.get("overall"),
-                        "placed": placed,
-                        "next": "Call balance_mix() then get_playability_report(); "
-                                "then start_playback to hear it in Ableton."})
+            out = {"committed_iteration": it.index, "score": it.scores.get("overall"),
+                   "placed": placed,
+                   "next": "Call balance_mix() then get_playability_report(); "
+                           "then start_playback to hear it in Ableton."}
+            if verify_in_live:
+                out["live_verification"] = _verify_committed_in_live(s, it, placed)
+            return _ok(out)
         except Exception as e:
             return _err("committing sandbox iteration", e)
+
+    @mcp.tool()
+    def sandbox_set_track_sound(session_id: str, role: str, instrument_spec: str = "",
+                                preset_path: str = "", params: Dict[str, float] = None) -> str:
+        """Set a sandbox track's SOUND: instrument_spec ('vst:/path.vst3' | 'au:/path' |
+        'fallback:<role>'), a preset label, and/or a named-param dict (e.g. Serum params from
+        xfer_serum.json names, or captured from Live via calibration's capture_device_state).
+        Params transfer to the headless render — this is how sound design gets validated on the
+        REAL plugin timbre. Changed sounds re-render on next submit (cache keys include params)."""
+        try:
+            s_ = _engine(session_id).s
+            if role not in s_.tracks:
+                return _ok({"error": f"unknown role {role}", "roles": s_.parts})
+            trk = s_.tracks[role]
+            if instrument_spec:
+                trk.instrument_spec = instrument_spec
+            if preset_path:
+                trk.preset_path = preset_path
+            if params:
+                trk.params = dict(params)
+            s_.save()
+            return _ok({"role": role, "instrument_spec": trk.instrument_spec,
+                        "preset_path": trk.preset_path, "param_count": len(trk.params),
+                        "next": "sandbox_submit revised parts (or resubmit same notes) to hear the new sound."})
+        except Exception as e:
+            return _err("setting track sound", e)
 
     @mcp.tool()
     def sandbox_config(session_id: str, max_iterations: int = None, pass_threshold: float = None,

@@ -25,3 +25,7 @@ pedalboard>=0.7.4
 
 # --- optional (future master_pass task: reference-based match-EQ/loudness) ---
 # matchering
+
+# --- review UI (local approval workflow) ---
+fastapi
+uvicorn

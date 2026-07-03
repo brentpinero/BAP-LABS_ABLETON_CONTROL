@@ -28,6 +28,11 @@ if __name__ == '__main__':
         sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'sandbox'))
         from eval_fidelity import main as cal_main
         sys.exit(cal_main())
+    elif mode == 'review':
+        # local approval-workflow UI (http://127.0.0.1:8765)
+        sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'sandbox'))
+        from review_ui import main
+        main()
     elif mode == 'ears':
         # live-Ableton listening daemon: OSC 9880 -> snapshot JSON for MCP tools
         from live_ears import main

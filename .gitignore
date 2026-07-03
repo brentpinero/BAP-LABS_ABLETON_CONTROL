@@ -89,3 +89,7 @@ test_renders/
 
 # Eval results (regenerable)
 eval/results/
+
+# sandbox loop session artifacts (wavs, iteration state)
+sandbox_sessions/
+sandbox_references/

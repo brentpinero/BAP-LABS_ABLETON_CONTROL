@@ -48,44 +48,38 @@ def _wait_for_new_wav(freeze_dir: Path, before: set, timeout_s: float,
         f"(3) the track isn't receiving routing that blocks Freeze.")
 
 
-def _load_device(client: LiveClient, track_index: int, device_query: str) -> None:
-    """Load a plugin/device onto the track by browser search (Plug-Ins or Instruments)."""
-    for category in ("plugins", "instruments", "audio_effects"):
-        try:
-            tree = client.send("get_browser_items_at_path", {"path": device_query})
-            if tree.get("uri"):
-                client.send("load_browser_item",
-                            {"track_index": track_index, "item_uri": tree["uri"]})
-                return
-        except LiveError:
-            pass
-    # fallback: walk Plug-Ins root for a name match
+def _load_device(client: LiveClient, track_index: int, device_query: str,
+                 max_depth: int = 3) -> None:
+    """Find a loadable browser item matching device_query and load it onto the
+    track. Bounded BFS through Plug-Ins (vendor folders!) then Instruments."""
+    q = device_query.lower()
+    from collections import deque
     for root in ("Plug-Ins", "Instruments"):
-        try:
-            items = client.send("get_browser_items_at_path", {"path": root}).get("items", [])
-        except LiveError:
-            continue
-        hit = next((it for it in items
-                    if device_query.lower() in it.get("name", "").lower()
-                    and it.get("is_loadable")), None)
-        if hit:
-            client.send("load_browser_item",
-                        {"track_index": track_index, "item_uri": hit["uri"]})
-            return
-        # one level deep (folders like "Plug-Ins/VST3")
-        for folder in (it for it in items if it.get("is_folder")):
+        queue = deque([(root, 0)])
+        while queue:
+            path, depth = queue.popleft()
             try:
-                sub = client.send("get_browser_items_at_path",
-                                  {"path": f"{root}/{folder['name']}"}).get("items", [])
+                items = client.send("get_browser_items_at_path", {"path": path}).get("items", [])
             except LiveError:
                 continue
-            hit = next((it for it in sub
-                        if device_query.lower() in it.get("name", "").lower()
-                        and it.get("is_loadable")), None)
-            if hit:
-                client.send("load_browser_item",
-                            {"track_index": track_index, "item_uri": hit["uri"]})
-                return
+            # exact name match first at this level, then substring
+            for match_exact in (True, False):
+                for it in items:
+                    name = it.get("name", "")
+                    ok = (name.lower() == q) if match_exact else (q in name.lower())
+                    if ok and it.get("is_loadable"):
+                        client.send("load_browser_item",
+                                    {"track_index": track_index, "item_uri": it["uri"]})
+                        return
+            if depth < max_depth:
+                for it in items:
+                    if it.get("is_folder"):
+                        # prioritize folders whose name hints at the query (vendor match)
+                        entry = (f"{path}/{it['name']}", depth + 1)
+                        if q.split()[0] in it["name"].lower():
+                            queue.appendleft(entry)
+                        else:
+                            queue.append(entry)
     raise FreezeFailed(f"Could not find loadable device matching {device_query!r} in the browser")
 
 

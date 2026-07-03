@@ -1164,6 +1164,7 @@ class AbletonMCPExtended(ControlSurface):
                 "drums": ("Drums", "drums"),
                 "audio_effects": ("Audio Effects", "audio_effects"),
                 "midi_effects": ("MIDI Effects", "midi_effects"),
+                "plugins": ("Plug-Ins", "plugins"),
             }
 
             for key, (display_name, attr_name) in categories_map.items():
@@ -1210,6 +1211,8 @@ class AbletonMCPExtended(ControlSurface):
                 "drums": "drums",
                 "audio_effects": "audio_effects",
                 "midi_effects": "midi_effects",
+                "plugins": "plugins",
+                "plug-ins": "plugins",
             }
 
             if root_category in category_map and hasattr(app.browser, category_map[root_category]):
@@ -1270,6 +1273,8 @@ class AbletonMCPExtended(ControlSurface):
                 "drums": "drums",
                 "audio_effects": "audio_effects",
                 "midi_effects": "midi_effects",
+                "plugins": "plugins",
+                "plug-ins": "plugins",
             }
 
             if category_type not in category_map:
@@ -1361,7 +1366,8 @@ class AbletonMCPExtended(ControlSurface):
             if hasattr(browser_or_item, 'instruments'):
                 for category in [browser_or_item.instruments, browser_or_item.sounds,
                                 browser_or_item.drums, browser_or_item.audio_effects,
-                                browser_or_item.midi_effects]:
+                                browser_or_item.midi_effects,
+                                browser_or_item.plugins]:
                     item = self._find_browser_item_by_uri(category, uri, max_depth, current_depth + 1)
                     if item:
                         return item

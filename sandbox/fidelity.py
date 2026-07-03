@@ -136,14 +136,24 @@ def lufs_delta(a: np.ndarray, b: np.ndarray, sr: int) -> Optional[float]:
         return None
 
 
-def label_for(null_db: float, resampled: bool) -> str:
-    """Descriptive label — evidence, not policy."""
+def label_for(null_db: float, resampled: bool,
+              band_diff_db: list | None = None,
+              lufs_delta: float | None = None) -> str:
+    """Descriptive label — evidence, not policy.
+
+    Synths with RANDOM oscillator/unison phase (Serum init, most supersaws)
+    never null even against themselves in Ableton — waveform cancellation is
+    the wrong lens there. When the null fails but the spectrum and loudness
+    agree, the honest verdict is spectral-match, not diverged."""
     cap = 38.0 if resampled else 120.0  # resampling caps honest identity claims
     nd = min(null_db, cap)
     if nd >= 40.0:
         return "measured-identical"
     if nd >= 20.0:
         return "measured-close"
+    if band_diff_db is not None and lufs_delta is not None:
+        if max(abs(b) for b in band_diff_db) <= 3.0 and abs(lufs_delta) <= 1.5:
+            return "spectral-match"
     return "diverged"
 
 
@@ -159,15 +169,17 @@ def compare(headless_wav: str | Path, live_wav: str | Path,
     lag, b_al = align(a, b, target_sr)
     gain_db, b_matched = gain_match(a, b_al)
     nd = null_depth_db(a, b_matched)
+    bands = band_rms_diff(a, b_matched, target_sr)
+    ld = lufs_delta(a, b_matched, target_sr)
     return {
         "null_depth_db": round(nd, 2),
         "latency_samples": lag,
         "gain_delta_db": round(gain_db, 3),
-        "band_diff_db": band_rms_diff(a, b_matched, target_sr),
-        "lufs_delta": lufs_delta(a, b_matched, target_sr),
+        "band_diff_db": bands,
+        "lufs_delta": ld,
         "resampled": resampled,
         "duration_s": round(min(len(a), len(b_matched)) / target_sr, 2),
-        "label": label_for(nd, resampled),
+        "label": label_for(nd, resampled, band_diff_db=bands, lufs_delta=ld),
     }
 
 

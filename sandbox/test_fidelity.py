@@ -59,17 +59,36 @@ def test_known_filter_and_gain():
                                _wav(Path(d) / "b.wav", b))
     assert abs(res["gain_delta_db"] + 6.02) < 1.0, res  # b louder -> match REDUCES it
     assert 3 < res["null_depth_db"] < 40, res           # close but audibly filtered
-    assert res["label"] in ("measured-close", "diverged")
+    # mild FIR on a sine-dominated signal is spectrally close — smart label applies
+    assert res["label"] in ("measured-close", "spectral-match")
 
 
 def test_unrelated_signals_null_near_zero():
+    # different seed AND different spectral content (else the smart label
+    # correctly calls two same-recipe noises a spectral-match)
     a = _signal(seed=1)
-    b = _signal(seed=99) * 0.9
+    rng = np.random.default_rng(99)
+    n = len(a)
+    t = np.arange(n) / SR
+    b = (0.5 * np.sin(2 * np.pi * 90 * t) + 0.1 * rng.standard_normal(n)) * 0.9
     with tempfile.TemporaryDirectory() as d:
         res = fidelity.compare(_wav(Path(d) / "a.wav", a),
                                _wav(Path(d) / "b.wav", b))
     assert res["null_depth_db"] < 6, res
     assert res["label"] == "diverged"
+
+
+def test_spectral_match_label_for_phase_randomized():
+    # same spectrum, decorrelated phase (the Serum-unison situation)
+    rng1, rng2 = np.random.default_rng(1), np.random.default_rng(2)
+    n = SR * 3
+    a = rng1.standard_normal(n) * 0.2
+    b = rng2.standard_normal(n) * 0.2  # identical spectrum, uncorrelated waveform
+    with tempfile.TemporaryDirectory() as d:
+        res = fidelity.compare(_wav(Path(d) / "a.wav", a),
+                               _wav(Path(d) / "b.wav", b))
+    assert res["null_depth_db"] < 10, res
+    assert res["label"] == "spectral-match", res
 
 
 def test_sr_mismatch_resample_path():
@@ -84,7 +103,7 @@ def test_sr_mismatch_resample_path():
     # resampling full-band noise is audibly close but NOT exact (~15-25 dB null) —
     # exactly why the resampled flag exists and caps identity claims
     assert res["null_depth_db"] > 12, res
-    assert res["label"] in ("measured-close", "diverged")
+    assert res["label"] in ("measured-close", "spectral-match")
 
 
 def test_band_diff_reports_filter_shape():

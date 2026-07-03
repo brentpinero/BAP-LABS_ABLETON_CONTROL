@@ -192,6 +192,73 @@ def test_persistence_roundtrip():
     assert loaded.state == "DONE" and loaded.best_iteration().index == 1
 
 
+
+
+# --- Phase C regressions: bug fixes + config layer -------------------------
+def test_empty_partial_submit_keeps_prior_notes():
+    eng = _fresh_engine(pass_threshold=0.999, max_iterations=10)
+    eng.submit(parts=_full_parts())
+    r = eng.submit(parts={"drums": []})  # accidental empty must NOT wipe drums
+    assert eng.s.iterations[-1].notes.get("drums"), "empty list wiped prior notes"
+    assert "warning" in r and "EMPTY" in r["warning"]
+
+
+def test_iterations_left_populated():
+    eng = _fresh_engine(pass_threshold=0.999, max_iterations=7)
+    r = eng.submit(parts=_full_parts())
+    assert eng.s.iterations[-1].scores.get("iterations_left") == 6
+    assert "6 iterations left" in r["next"]
+
+
+def test_session_ids_unique_same_second():
+    a = SandboxSession("boom bap", ["drums"], SandboxConfig())
+    b = SandboxSession("boom bap", ["drums"], SandboxConfig())
+    assert a.id != b.id
+
+
+def test_config_override_changes_verdict():
+    # role floor raised to impossible level -> even great parts can't pass
+    eng = _fresh_engine(pass_threshold=0.5)
+    eng.s.config.overrides = {"loop.role_floor": 0.999}
+    r = eng.submit(parts=_full_parts())
+    assert r["verdict"] != "pass", r["scores"]
+    # and overrides survive persistence
+    loaded = SandboxSession.load(eng.s.id)
+    assert loaded.config.overrides["loop.role_floor"] == 0.999
+
+
+def test_config_rejects_unknown_key():
+    import config as sbx_config
+    try:
+        sbx_config.validate_overrides({"loop.nonexistent": 1})
+        assert False, "should have raised"
+    except KeyError:
+        pass
+
+
+def test_trap_backbeat_credited():
+    import midi_metrics
+    class _TrapP:
+        genre, key, plan = "trap", "C minor", {}
+    # half-time trap: snare ONLY on beat 3 (pos 2.0) each bar
+    notes = []
+    for bar in range(4):
+        b = bar * 4
+        notes.append({"pitch": 36, "start_time": b, "duration": 0.5, "velocity": 115})
+        notes.append({"pitch": 38, "start_time": b + 2.0, "duration": 0.5, "velocity": 112})
+        notes += [{"pitch": 42, "start_time": b + i * 0.25, "duration": 0.1,
+                   "velocity": 80 if i % 4 == 0 else 55} for i in range(16)]
+    detail = midi_metrics.score_role("drums", notes, _TrapP, 4)
+    bb = next(m for m in detail["metrics"] if m["name"] == "backbeat")
+    assert bb["score"] > 0.9, f"trap half-time backbeat not credited: {bb}"
+
+
+def test_parse_key_consistent_defaults():
+    from project_state import K
+    assert K.parse_key("") == (9, "minor")
+    assert K.parse_key("Zz lydian") == (9, "minor")  # junk == empty == A minor
+
+
 def _run_all():
     fns = [v for k, v in sorted(globals().items()) if k.startswith("test_") and callable(v)]
     try:

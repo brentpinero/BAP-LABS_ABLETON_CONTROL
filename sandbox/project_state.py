@@ -46,6 +46,7 @@ class SandboxConfig:
     render_enabled: bool = True
     render_budget_s: float = 300.0
     bars: int = 8
+    overrides: Dict[str, Any] = field(default_factory=dict)  # namespaced config (see config.py)
 
 
 @dataclass
@@ -76,7 +77,8 @@ class SandboxSession:
 
     def __init__(self, genre: str, parts: List[str], config: SandboxConfig,
                  instruments: str = "fallback", session_id: Optional[str] = None):
-        self.id = session_id or f"sbx_{int(time.time()) % 100000:05d}"
+        import secrets
+        self.id = session_id or f"sbx_{int(time.time()) % 100000:05d}_{secrets.token_hex(2)}"
         prof = K.genre_profile(genre)
         self.genre = prof["_key"]
         self.bpm = prof["bpm"]

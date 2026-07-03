@@ -65,7 +65,7 @@ def build_report(session, record, verdict: str, prev_best: float | None) -> Dict
         revise = sorted(per_role_notes) or session.parts
         nxt = (f"Revise ONLY {', '.join(revise[:2])} per the priorities, then call "
                f"sandbox_submit(session_id='{session.id}', parts={{...only revised roles...}}). "
-               f"{record.scores.get('iterations_left', '')}")
+               f"({record.scores.get('iterations_left', '?')} iterations left in budget)")
 
     return {
         "session_id": session.id,

@@ -22,6 +22,8 @@ if str(_ROOT / "daw_translation") not in sys.path:
 
 import render_pool  # noqa: E402
 
+from config import cfg  # noqa: E402
+
 SR = 44100
 TAIL_SECONDS = 1.0
 
@@ -29,6 +31,8 @@ TAIL_SECONDS = 1.0
 def render_iteration(session, record) -> Dict[str, Any]:
     """Render every role's grooved notes to stems + a summed master.
     Returns {"audio": {role: wav_path, ..., "master": wav_path}, "pool": results}."""
+    sr = cfg(session, "audio.sr")
+    tail = cfg(session, "audio.tail_seconds")
     it_dir = session.dir() / "iterations" / f"{record.index:03d}"
     it_dir.mkdir(parents=True, exist_ok=True)
     cache = session.dir() / ".render_cache"
@@ -42,8 +46,8 @@ def render_iteration(session, record) -> Dict[str, Any]:
         jobs.append({
             "midi": str(notes_path), "bpm": session.bpm,
             "instrument": session.tracks[role].instrument_spec,
-            "output": str(it_dir / f"{role}.wav"), "sr": SR,
-            "bars": session.config.bars, "tail_seconds": TAIL_SECONDS,
+            "output": str(it_dir / f"{role}.wav"), "sr": sr,
+            "bars": session.config.bars, "tail_seconds": tail,
         })
         roles.append(role)
 
@@ -67,11 +71,12 @@ def render_iteration(session, record) -> Dict[str, Any]:
             st = np.repeat(s, 2, axis=1) if s.shape[1] == 1 else s[:, :2]
             master[: st.shape[0], 0] += st[:, 0] * l_gain * np.sqrt(2)
             master[: st.shape[0], 1] += st[:, 1] * r_gain * np.sqrt(2)
+        norm = cfg(session, "audio.normalize_peak")
         peak = float(np.max(np.abs(master))) or 1.0
-        if peak > 0.98:
-            master *= 0.98 / peak
+        if peak > norm:
+            master *= norm / peak
         master_path = it_dir / "master.wav"
-        sf.write(master_path, master.astype("float32"), SR)
+        sf.write(master_path, master.astype("float32"), sr)
         audio["master"] = str(master_path)
 
     return {"audio": audio, "pool": results}

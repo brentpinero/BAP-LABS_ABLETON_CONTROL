@@ -108,7 +108,9 @@ def parse_key(key: str) -> Tuple[int, str]:
     if not key:
         return 9, "minor"
     parts = str(key).strip().split()
-    root = _NOTE_PC.get(parts[0].lower(), 0) if parts else 0
+    if not parts or parts[0].lower() not in _NOTE_PC:
+        return 9, "minor"  # consistent default: unparseable == empty == A minor
+    root = _NOTE_PC[parts[0].lower()]
     scale = "minor"
     if len(parts) > 1:
         s = "_".join(parts[1:]).lower()
@@ -246,12 +248,13 @@ def genre_profile(name: str) -> Dict[str, Any]:
 # ---------------------------------------------------------------------------
 STYLE: Dict[str, Dict[str, Any]] = {
     "boom_bap": {
-        "feel": "Laid-back and dusty. Play slightly BEHIND the beat; humanize velocities and "
-                "micro-timing (don't hard-quantize). Swing the 8ths/16ths a little.",
-        "drums": "Kick (36) on beat 1 and loosely around the 'and' of 2 or of 3 — syncopated, not "
-                 "rigid. Snare (38) HARD on beats 2 and 4 (the backbeat). Closed hats (42) as swung "
-                 "8ths with real velocity variation; drop an open hat (46) occasionally as a lift. "
-                 "Add quiet ghost snares between backbeats. Sampled/dusty character.",
+        "feel": "Laid-back and dusty. Compose ON-GRID - the engine applies the swing and "
+                "behind-the-beat feel for you. Your job is PLACEMENT and note choice.",
+        "drums": "Kick (36) ON beat 1 of every bar, plus ONE syncopated kick per bar at the 'and' "
+                 "of 2 or of 3 (grid position 1.5 or 2.5). Snare (38) exactly ON beats 2 and 4, velocity "
+                 "100+. Closed hats (42) as straight on-grid 8ths, velocity varied 60-95 (engine swings "
+                 "them). Open hat (46) once every 2-4 bars as a lift. Quiet ghost snares (vel 20-40) "
+                 "between backbeats.",
         "harmony": "Minor or Dorian. Jazzy 7th/9th chords (min7, dom7, min9) voiced on Rhodes in a "
                    "low-mid register. Short 2-4 bar loops. Movement like i-iv or ii-V-i.",
         "bass": "Upright or electric bass locked to the kick. Mostly roots with occasional walking "
@@ -263,10 +266,11 @@ STYLE: Dict[str, Dict[str, Any]] = {
         "avoid": "Rigid quantization, trap 808 kicks/hats, over-busy melodies, bright EDM sounds.",
     },
     "lofi": {
-        "feel": "Slow, hazy, heavily swung. Loose timing, soft dynamics, a sleepy pocket.",
-        "drums": "Same skeleton as boom bap but softer and lazier: kick (36) on 1 and near the 'and' "
-                 "of 3, snare/rimshot (38/37) on 2 and 4 with low velocity, gently swung hats (42). "
-                 "Sparse. Vinyl-dust feel.",
+        "feel": "Slow, hazy, soft dynamics. Compose ON-GRID - the engine applies the heavy swing "
+                "and lazy feel. Focus on sparse placement and warm note choice.",
+        "drums": "Kick (36) ON beat 1 and at grid position 2.5 ('and' of 3). Snare/rimshot (38/37) "
+                 "exactly ON beats 2 and 4, velocity 70-90. Hats (42) as on-grid 8ths, sparse (skip some), "
+                 "velocity 50-80. The engine adds the lazy swing.",
         "harmony": "Warm jazzy 7th/9th and maj7 chords, often Dorian or major. Detuned, mellow. "
                    "ii-V-I and vi-based loops.",
         "bass": "Round, soft bass following roots on the kick. Very simple.",
@@ -320,9 +324,11 @@ STYLE: Dict[str, Dict[str, Any]] = {
         "avoid": "Slow four-on-floor kicks, dense mid-range clutter under the drums.",
     },
     "rnb": {
-        "feel": "Slow, smooth, deeply swung and behind-the-beat. Silky and intimate.",
-        "drums": "Laid-back kit: kick (36) syncopated and soft, crisp snare/rim (38/37) on 2 and 4, "
-                 "gently swung hats (42), tasteful ghost notes. Groove over power.",
+        "feel": "Slow, smooth, silky, intimate. Compose ON-GRID - the engine adds the deep swing "
+                "and behind-the-beat lean. Focus on lush harmony and space.",
+        "drums": "Kick (36) ON beat 1 plus one syncopated grid hit per bar (position 1.75 or 2.5). "
+                 "Crisp snare/rim (38/37) exactly ON beats 2 and 4. Hats (42) on-grid 8ths, velocity 55-85. "
+                 "Ghost snares vel 20-40. Groove over power - the engine supplies the swing.",
         "harmony": "Lush extended chords — min9, maj9, 11ths — on Rhodes, Dorian/minor. Smooth voice "
                    "leading, ii-V movement.",
         "bass": "Smooth electric/sub bass, melodic but supportive, syncopated with the kick.",

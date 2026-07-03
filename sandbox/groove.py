@@ -54,10 +54,15 @@ def apply_groove(notes: List[Dict[str, Any]], genre: str, role: str,
         t = float(n.get("start_time", 0.0))
         vel = float(n.get("velocity", 100))
 
-        # swing: delay offbeat 8ths (position .5 within the beat) by swing * 0.5 beats
+        # swing: delay offbeat 8ths (position ~.5 in the beat) by swing * 0.5 beats,
+        # and offbeat 16ths (~.25/.75) by half that — tolerant of slightly
+        # off-grid input (bug fix: exact-equality missed jittered notes)
         frac = t % 1.0
-        if abs(frac - 0.5) < 1e-3 and p["swing"] > 0:
-            t += p["swing"] * 0.5
+        if p["swing"] > 0:
+            if abs(frac - 0.5) < 0.06:
+                t += p["swing"] * 0.5
+            elif abs(frac - 0.25) < 0.06 or abs(frac - 0.75) < 0.06:
+                t += p["swing"] * 0.25
 
         # behind-the-beat push (skip bar downbeats so the '1' stays anchored)
         if p["push"] > 0 and (t % 4.0) > 1e-3:

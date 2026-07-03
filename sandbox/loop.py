@@ -16,6 +16,7 @@ from typing import Any, Callable, Dict, List, Optional
 import critic
 import groove
 import midi_metrics
+from config import cfg
 from project_state import (K, IterationRecord, SandboxConfig, SandboxSession)
 
 TIER_WEIGHTS = {"midi": 0.40, "audio": 0.35, "clap": 0.25}
@@ -65,7 +66,7 @@ def _role_brief(session: SandboxSession, role: str) -> Dict[str, Any]:
         last = session.iterations[-1]
         comp = last.notes.get("chords") or last.notes.get("keys")
     if comp and role in ("bass", "melody", "lead", "pad"):
-        brief["chord_track"] = comp[:64]
+        brief["chord_track"] = comp[:cfg(session, "loop.chord_track_limit")]
         brief["conditioning"] = "Compose AGAINST this chord track — agree with it on strong beats."
     return brief
 
@@ -163,10 +164,14 @@ class SandboxEngine:
             return {"error": "submit parts={role: [notes]} (or plan={...} first)",
                     **self.briefs()}
 
-        # merge partial submits over the previous iteration's notes
+        # merge partial submits over the previous iteration's notes.
+        # Empty lists are IGNORED (bug fix: an accidental [] must not wipe a
+        # role's prior good notes) — dropping a role isn't a compose action.
         prev_notes = dict(self.s.iterations[-1].notes) if self.s.iterations else {}
-        merged = {**prev_notes, **{r: n for r, n in parts.items() if r in self.s.tracks}}
+        merged = {**prev_notes, **{r: n for r, n in parts.items()
+                                   if r in self.s.tracks and n}}
         unknown = [r for r in parts if r not in self.s.tracks]
+        ignored_empty = [r for r in parts if r in self.s.tracks and not parts[r]]
 
         rec = IterationRecord(index=len(self.s.iterations) + 1, notes=merged,
                               groove_params=groove_params or {})
@@ -202,10 +207,12 @@ class SandboxEngine:
         tiers["midi"] = round(sum(role_scores) / len(role_scores), 4)
 
         # weighted overall (renormalize over present tiers; clap halved on fallback synth)
+        tier_weights = cfg(self.s, "loop.tier_weights")
+        clap_fb = cfg(self.s, "loop.clap_fallback_weight")
         weights = {}
-        for tier, w in TIER_WEIGHTS.items():
+        for tier, w in tier_weights.items():
             if tier in tiers:
-                weights[tier] = w * (0.5 if tier == "clap" and self.s.instrument_mode == "fallback" else 1.0)
+                weights[tier] = w * (clap_fb if tier == "clap" and self.s.instrument_mode == "fallback" else 1.0)
         wsum = sum(weights.values())
         overall = round(sum(tiers[t] * w for t, w in weights.items()) / wsum, 4)
 
@@ -214,13 +221,19 @@ class SandboxEngine:
         rec.scores = {"overall": overall, "tiers": tiers,
                       "per_role_detail": per_role_detail, "global_detail": global_detail,
                       "audio_detail": audio_detail,
+                      "iterations_left": max(0, self.s.config.max_iterations - rec.index),
                       "per_role": {r: d["score"] for r, d in per_role_detail.items()}}
         self.s.iterations.append(rec)
 
         verdict = self._verdict(overall)
         report = critic.build_report(self.s, rec, verdict, prev_best_score)
+        warnings = []
         if unknown:
-            report["warning"] = f"ignored unknown roles: {unknown}"
+            warnings.append(f"ignored unknown roles: {unknown}")
+        if ignored_empty:
+            warnings.append(f"ignored EMPTY note lists for {ignored_empty} (kept prior notes)")
+        if warnings:
+            report["warning"] = "; ".join(warnings)
         rec.report = {k: report[k] for k in ("verdict", "scores", "critique")}
 
         # checkpoints by autonomy
@@ -247,13 +260,11 @@ class SandboxEngine:
         self.s.save()
         return report
 
-    ROLE_FLOOR = 0.60  # pass requires EVERY role above this — a great average
-                       # must not smuggle one broken part through
-
     def _verdict(self, overall: float) -> str:
         rec = self.s.iterations[-1]
         role_scores = rec.scores.get("per_role", {})
-        floor_ok = all(v >= self.ROLE_FLOOR for v in role_scores.values()) if role_scores else True
+        role_floor = cfg(self.s, "loop.role_floor")  # a great average must not
+        floor_ok = all(v >= role_floor for v in role_scores.values()) if role_scores else True  # smuggle a broken part
         if overall >= self.s.config.pass_threshold and floor_ok:
             return "pass"
         n = len(self.s.iterations)
@@ -261,10 +272,10 @@ class SandboxEngine:
             return "budget"
         if self.s.render_seconds_total > self.s.config.render_budget_s:
             return "budget"
-        if n >= PLATEAU_AFTER:
+        if n >= cfg(self.s, 'loop.plateau_after'):
             scores = [it.scores["overall"] for it in self.s.iterations]
             best_now = max(scores)
             best_before = max(scores[:-2]) if len(scores) > 2 else 0.0
-            if best_now - best_before < PLATEAU_EPS:
+            if best_now - best_before < cfg(self.s, 'loop.plateau_eps'):
                 return "plateau"
         return "revise"

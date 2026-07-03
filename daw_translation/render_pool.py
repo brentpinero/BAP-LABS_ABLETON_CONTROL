@@ -49,7 +49,8 @@ def _job_key(job: dict) -> str:
         except OSError:
             h.update(str(job["midi"]).encode())
         h.update(f"|{job.get('bpm', 120)}|{job.get('instrument', 'fallback:keys')}"
-                 f"|{job.get('bars', '')}|{job.get('tail_seconds', '')}".encode())
+                 f"|{job.get('bars', '')}|{job.get('tail_seconds', '')}"
+                 f"|{job.get('sr', 44100)}".encode())
     else:
         inp = job["input"]
         if inp != "sine" and os.path.exists(inp):
@@ -57,6 +58,7 @@ def _job_key(job: dict) -> str:
             h.update(f"{inp}:{st.st_size}:{int(st.st_mtime)}".encode())
         else:
             h.update(str(inp).encode())
+        h.update(f"|sr={job.get('sr', 44100)}".encode())
     h.update(json.dumps(job.get("chain", []), sort_keys=True).encode())
     return h.hexdigest()[:16]
 

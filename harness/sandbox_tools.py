@@ -206,13 +206,22 @@ def register_sandbox_tools(mcp, deps: Dict[str, Any]) -> None:
 
     @mcp.tool()
     def sandbox_config(session_id: str, max_iterations: int = None, pass_threshold: float = None,
-                       autonomy: str = None, render_enabled: bool = None) -> str:
-        """Adjust a running session's budget/threshold/autonomy ('full'|'checkpoint'|'collab')."""
+                       autonomy: str = None, render_enabled: bool = None, bars: int = None,
+                       clap_enabled: bool = None, render_budget_s: float = None,
+                       overrides: Dict[str, Any] = None) -> str:
+        """Adjust a running session: budgets/threshold/autonomy plus namespaced engine overrides
+        (see sandbox/config.py DEFAULTS — e.g. {"loop.role_floor": 0.5, "audio.sr": 48000}).
+        Unknown override keys are rejected with the list of valid ones."""
         try:
             s = _engine(session_id).s
+            if overrides:
+                from config import validate_overrides
+                s.config.overrides.update(validate_overrides(overrides))
             for name, val in (("max_iterations", max_iterations),
                               ("pass_threshold", pass_threshold),
-                              ("autonomy", autonomy), ("render_enabled", render_enabled)):
+                              ("autonomy", autonomy), ("render_enabled", render_enabled),
+                              ("bars", bars), ("clap_enabled", clap_enabled),
+                              ("render_budget_s", render_budget_s)):
                 if val is not None:
                     setattr(s.config, name, val)
             s.save()

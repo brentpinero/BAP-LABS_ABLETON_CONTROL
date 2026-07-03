@@ -118,12 +118,14 @@ def _drum_metrics(notes, project, bars) -> List[Dict]:
     out.append(_m("kick_downbeat", kd, min(1.0, kd), "kick on beat 1 of most bars",
                   "Anchor the groove: a kick on (or very near) beat 1 each bar."))
 
-    strong = {1.0, 3.0} if prof.get("bpm", 120) < 160 else {1.0, 3.0}
+    # half-time genres (trap/drill): the backbeat snare lands on beat 3 (pos 2.0);
+    # straight genres: beats 2 and 4 (pos 1.0 / 3.0)
+    strong = {2.0} if prof["_key"] in ("trap",) else {1.0, 3.0}
     hits = sum(1 for s in snares if any(abs((float(s["start_time"]) % 4.0) - b) < 0.3 for b in strong))
     # loud snares only (ghosts don't count as the backbeat)
     loud = sum(1 for s in snares if int(s.get("velocity", 100)) >= 80 and
                any(abs((float(s["start_time"]) % 4.0) - b) < 0.3 for b in strong))
-    bb = loud / max(1, bars * 2)
+    bb = loud / max(1, bars * len(strong))  # half-time genres have 1 backbeat/bar
     out.append(_m("backbeat", bb, min(1.0, bb), "strong snare/clap on 2 and 4",
                   "The backbeat carries the style — snare beats 2 & 4, velocity 100+."))
 
@@ -220,7 +222,7 @@ def _chords_metrics(notes, project, bars) -> List[Dict]:
         sevenths = sum(1 for s in poly_stacks
                        if any((p - min(s)) % 12 in (10, 11) for p in s)) / len(poly_stacks)
         prof_key = K.genre_profile(project.genre)["_key"]
-        if prof_key in ("boom_bap", "lofi", "rnb", "jazz"):
+        if prof_key in ("boom_bap", "lofi", "rnb"):
             out.append(_m("seventh_color", sevenths, sevenths, "7th/9th voicings",
                           "This style wants jazzy 7ths/9ths, not plain triads."))
     return out

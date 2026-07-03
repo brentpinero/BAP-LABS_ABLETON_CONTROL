@@ -1,0 +1,27 @@
+# serum_llm_2 — audio/sandbox dependency tiers (single venv; the GPL isolation
+# for pedalboard is a PROCESS boundary — daw_translation/render_worker.py runs
+# as a subprocess — not an environment boundary).
+
+# --- core (MCP server, sandbox engine, MIDI handling) ---
+numpy
+scipy
+mido
+soundfile
+python-osc
+mcp[cli]>=1.3.0
+
+# --- ears (tier-1 audio analysis) ---
+librosa
+pyloudnorm
+
+# --- render worker (GPLv3 — imported ONLY by daw_translation/render_worker.py,
+#     which the pool invokes as a subprocess) ---
+pedalboard>=0.7.4
+
+# --- optional / heavy (tier-2 CLAP genre-similarity; ~1.7GB model on first use,
+#     cached locally by HuggingFace — stays on-device) ---
+# torch
+# transformers
+
+# --- optional (future master_pass task: reference-based match-EQ/loudness) ---
+# matchering

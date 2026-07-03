@@ -1,7 +1,7 @@
 #!/usr/bin/env -S uv run --script
 # /// script
 # requires-python = ">=3.10"
-# dependencies = ["mcp[cli]>=1.3.0", "numpy", "scipy", "soundfile", "mido"]
+# dependencies = ["mcp[cli]>=1.3.0", "numpy", "scipy", "soundfile", "mido", "pyloudnorm"]
 # ///
 """
 ableton_mcp_server.py — Extended Ableton Live stdio MCP server.

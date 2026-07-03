@@ -29,6 +29,9 @@ def build_report(session, record, verdict: str, prev_best: float | None) -> Dict
             ranked.append((m["score"], role, m))
     for m in _failing(record.scores.get("global_detail", {}).get("metrics", [])):
         ranked.append((m["score"], "global", m))
+    audio_detail = record.scores.get("audio_detail") or {}
+    for m in _failing(audio_detail.get("metrics", [])):
+        ranked.append((m["score"], "mix", m))
     ranked.sort(key=lambda x: x[0])
     priorities = [_line(role, m) for _, role, m in ranked[:3]]
 

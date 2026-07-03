@@ -24,6 +24,12 @@ from loop import SandboxEngine  # noqa: E402
 from project_state import SandboxSession  # noqa: E402
 import renderer as sandbox_renderer  # noqa: E402
 
+try:  # Tier 1/2 ears are optional — engine renormalizes weights without them
+    import audio_metrics as sandbox_ears
+    _AUDIO_SCORER = sandbox_ears.audio_scorer
+except Exception:  # pragma: no cover
+    _AUDIO_SCORER = None
+
 _ENGINES: Dict[str, SandboxEngine] = {}
 
 
@@ -31,7 +37,8 @@ def _engine(session_id: str) -> SandboxEngine:
     if session_id in _ENGINES:
         return _ENGINES[session_id]
     eng = SandboxEngine(SandboxSession.load(session_id),
-                        renderer=sandbox_renderer.render_iteration)
+                        renderer=sandbox_renderer.render_iteration,
+                        audio_scorer=_AUDIO_SCORER)
     _ENGINES[session_id] = eng
     return eng
 
@@ -53,7 +60,8 @@ def register_sandbox_tools(mcp, deps: Dict[str, Any]) -> None:
         try:
             eng = SandboxEngine.start(genre, parts, bars=bars, autonomy=autonomy,
                                       instruments=instruments,
-                                      renderer=sandbox_renderer.render_iteration)
+                                      renderer=sandbox_renderer.render_iteration,
+                                      audio_scorer=_AUDIO_SCORER)
             _ENGINES[eng.s.id] = eng
             out = {"session_id": eng.s.id, "genre": eng.s.genre, "bpm": eng.s.bpm,
                    "key": eng.s.key, "bars": bars, **eng.briefs()}

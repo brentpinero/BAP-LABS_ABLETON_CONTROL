@@ -182,10 +182,12 @@ class SandboxEngine:
             rec.render_seconds = round(time.monotonic() - t0, 2)
             self.s.render_seconds_total += rec.render_seconds
             rec.audio = render_out.get("audio", {})
+        audio_detail = None
         if self.audio_scorer and rec.audio:
             audio_scores = self.audio_scorer(self.s, rec) or {}
             if "audio" in audio_scores:
                 tiers["audio"] = audio_scores["audio"]
+                audio_detail = audio_scores.get("audio_detail")
             if "clap" in audio_scores:
                 tiers["clap"] = audio_scores["clap"]
 
@@ -211,6 +213,7 @@ class SandboxEngine:
         prev_best_score = prev_best.scores["overall"] if prev_best else None
         rec.scores = {"overall": overall, "tiers": tiers,
                       "per_role_detail": per_role_detail, "global_detail": global_detail,
+                      "audio_detail": audio_detail,
                       "per_role": {r: d["score"] for r, d in per_role_detail.items()}}
         self.s.iterations.append(rec)
 

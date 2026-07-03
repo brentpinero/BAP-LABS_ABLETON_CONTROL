@@ -108,7 +108,8 @@ def _notes_to_midi_messages(notes: list[dict], bpm: float):
 
 
 def render_midi(notes: list[dict], bpm: float, instrument: str, sr: int,
-                bars: float | None = None, tail_seconds: float = 1.0) -> np.ndarray:
+                bars: float | None = None, tail_seconds: float = 1.0,
+                params: dict | None = None) -> np.ndarray:
     """Render note dicts through an instrument spec. Returns float32 audio
     (mono for fallback, stereo [n,2] for plugins)."""
     if instrument.startswith("fallback:"):
@@ -128,6 +129,16 @@ def render_midi(notes: list[dict], bpm: float, instrument: str, sr: int,
         except Exception as e:  # noqa: BLE001 — preset failure shouldn't kill the render
             print(f"warning: preset load failed ({e}); rendering with default state",
                   file=sys.stderr)
+
+    # named-param state transfer (same hasattr/setattr pattern as build_board);
+    # this is the primary state mechanism — .fxp load_preset is unreliable (see
+    # docs/fidelity_preflight.md)
+    for name, value in (params or {}).items():
+        if hasattr(plug, name):
+            try:
+                setattr(plug, name, value)
+            except Exception:  # noqa: BLE001 — read-only/range params skipped
+                pass
 
     msgs = _notes_to_midi_messages(notes, bpm)
     spb = 60.0 / max(1e-3, bpm)
@@ -156,15 +167,18 @@ def main(argv: list[str] | None = None) -> int:
                     help="fix the musical length in bars (else derived from last note)")
     ap.add_argument("--tail-seconds", type=float, default=1.0,
                     help="silence/decay tail appended after the last bar")
+    ap.add_argument("--params", default="",
+                    help="named plugin-param dict as JSON string or path (state transfer)")
     args = ap.parse_args(argv)
 
     chain = json.loads(_read_maybe_file(args.chain))
 
     if args.midi:
         notes, bars_from_file = _load_notes(args.midi)
+        params = json.loads(_read_maybe_file(args.params)) if args.params else None
         audio = render_midi(notes, args.bpm, args.instrument, args.sr,
                             bars=args.bars if args.bars is not None else bars_from_file,
-                            tail_seconds=args.tail_seconds)
+                            tail_seconds=args.tail_seconds, params=params)
         sr = args.sr
     elif args.inp == "sine":
         audio, sr = _sine(args.sr), args.sr

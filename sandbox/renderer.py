@@ -46,6 +46,7 @@ def render_iteration(session, record) -> Dict[str, Any]:
         jobs.append({
             "midi": str(notes_path), "bpm": session.bpm,
             "instrument": session.tracks[role].instrument_spec,
+            "params": session.tracks[role].params or None,
             "output": str(it_dir / f"{role}.wav"), "sr": sr,
             "bars": session.config.bars, "tail_seconds": tail,
         })

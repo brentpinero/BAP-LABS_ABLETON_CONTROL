@@ -33,6 +33,8 @@ class SandboxTrack:
     name: str
     notes: List[Dict[str, Any]] = field(default_factory=list)
     instrument_spec: str = "fallback:keys"   # see render_worker instrument grammar
+    preset_path: str = ""                      # label/provenance for the sound
+    params: Dict[str, float] = field(default_factory=dict)  # named-param state (headless transferable)
     gain_db: float = 0.0
     pan: float = 0.0                          # -1..1
 

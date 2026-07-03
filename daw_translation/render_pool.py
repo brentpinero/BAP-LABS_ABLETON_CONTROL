@@ -51,6 +51,7 @@ def _job_key(job: dict) -> str:
         h.update(f"|{job.get('bpm', 120)}|{job.get('instrument', 'fallback:keys')}"
                  f"|{job.get('bars', '')}|{job.get('tail_seconds', '')}"
                  f"|{job.get('sr', 44100)}".encode())
+        h.update(json.dumps(job.get("params") or {}, sort_keys=True).encode())
     else:
         inp = job["input"]
         if inp != "sine" and os.path.exists(inp):
@@ -73,6 +74,8 @@ def _build_cmd(job: dict) -> list[str]:
             cmd += ["--bars", str(job["bars"])]
         if job.get("tail_seconds") is not None:
             cmd += ["--tail-seconds", str(job["tail_seconds"])]
+        if job.get("params"):
+            cmd += ["--params", json.dumps(job["params"])]
     else:
         cmd += ["--in", job["input"]]
     if "sr" in job:

@@ -23,10 +23,15 @@ if __name__ == '__main__':
     elif mode == 'mix':
         from mix_assistant_bridge import main
         asyncio.run(main())
+    elif mode == 'calibrate':
+        # fidelity calibration: measures headless-vs-Live parity (drives open Live!)
+        sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'sandbox'))
+        from eval_fidelity import main as cal_main
+        sys.exit(cal_main())
     elif mode == 'ears':
         # live-Ableton listening daemon: OSC 9880 -> snapshot JSON for MCP tools
         from live_ears import main
         asyncio.run(main())
     else:
-        print(f"Unknown mode: {mode}. Use: mlx, claude, gemini, mix, ears")
+        print(f"Unknown mode: {mode}. Use: mlx, claude, gemini, mix, ears, calibrate, review")
         sys.exit(1)

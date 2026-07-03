@@ -1,0 +1,160 @@
+"""
+live_freeze.py — automated Ableton Freeze rendering (calibration ground truth).
+
+freeze_render() drives the OPEN Live set: creates a temp track, loads the
+device, applies state, writes the clip, freezes (Live renders the exact 32-bit
+audio with the full chain), copies the freeze wav out, then undoes/cleans up.
+ONLY used during explicit user-initiated calibration or opt-in post-commit
+verification — never inside the sandbox loop.
+
+Freeze files land in <Project>/Samples/Processed/Freeze/. Live must be open on
+a SAVED project (freeze needs a project folder).
+"""
+from __future__ import annotations
+
+import shutil
+import time
+from pathlib import Path
+from typing import Any, Dict, List, Optional
+
+from live_client import LiveClient, LiveError, automator
+
+
+class FreezeFailed(Exception):
+    pass
+
+
+def find_freeze_dir(project_dir: str | Path) -> Path:
+    return Path(project_dir) / "Samples" / "Processed" / "Freeze"
+
+
+def _wait_for_new_wav(freeze_dir: Path, before: set, timeout_s: float,
+                      poll_s: float = 0.5) -> Path:
+    """Poll for a NEW size-stable wav in the freeze folder."""
+    deadline = time.monotonic() + timeout_s
+    last_size: Dict[Path, int] = {}
+    while time.monotonic() < deadline:
+        now = set(freeze_dir.glob("*.wav")) if freeze_dir.exists() else set()
+        fresh = sorted(now - before, key=lambda p: p.stat().st_mtime)
+        for f in fresh:
+            size = f.stat().st_size
+            if size > 1000 and last_size.get(f) == size:  # stable across two polls
+                return f
+            last_size[f] = size
+        time.sleep(poll_s)
+    raise FreezeFailed(
+        f"No new freeze wav appeared in {freeze_dir} within {timeout_s}s. Check: "
+        f"(1) Live has a SAVED project, (2) Accessibility permission for automation, "
+        f"(3) the track isn't receiving routing that blocks Freeze.")
+
+
+def _load_device(client: LiveClient, track_index: int, device_query: str) -> None:
+    """Load a plugin/device onto the track by browser search (Plug-Ins or Instruments)."""
+    for category in ("plugins", "instruments", "audio_effects"):
+        try:
+            tree = client.send("get_browser_items_at_path", {"path": device_query})
+            if tree.get("uri"):
+                client.send("load_browser_item",
+                            {"track_index": track_index, "item_uri": tree["uri"]})
+                return
+        except LiveError:
+            pass
+    # fallback: walk Plug-Ins root for a name match
+    for root in ("Plug-Ins", "Instruments"):
+        try:
+            items = client.send("get_browser_items_at_path", {"path": root}).get("items", [])
+        except LiveError:
+            continue
+        hit = next((it for it in items
+                    if device_query.lower() in it.get("name", "").lower()
+                    and it.get("is_loadable")), None)
+        if hit:
+            client.send("load_browser_item",
+                        {"track_index": track_index, "item_uri": hit["uri"]})
+            return
+        # one level deep (folders like "Plug-Ins/VST3")
+        for folder in (it for it in items if it.get("is_folder")):
+            try:
+                sub = client.send("get_browser_items_at_path",
+                                  {"path": f"{root}/{folder['name']}"}).get("items", [])
+            except LiveError:
+                continue
+            hit = next((it for it in sub
+                        if device_query.lower() in it.get("name", "").lower()
+                        and it.get("is_loadable")), None)
+            if hit:
+                client.send("load_browser_item",
+                            {"track_index": track_index, "item_uri": hit["uri"]})
+                return
+    raise FreezeFailed(f"Could not find loadable device matching {device_query!r} in the browser")
+
+
+def capture_device_state(track_index: int, device_index: int = 0,
+                         client: Optional[LiveClient] = None) -> Dict[str, float]:
+    """Snapshot a device's named params from Live — the bridge from a user-designed
+    patch to a headless-renderable param dict."""
+    own = client is None
+    c = client or LiveClient().connect()
+    try:
+        res = c.send("get_device_parameters",
+                     {"track_index": track_index, "device_index": device_index})
+        return {p["name"]: p["value"] for p in res.get("parameters", [])}
+    finally:
+        if own:
+            c.close()
+
+
+def freeze_render(notes: List[Dict[str, Any]], bpm: float, bars: int,
+                  device_query: str, project_dir: str | Path,
+                  params: Optional[Dict[str, float]] = None,
+                  timeout_s: float = 120.0, out_path: Optional[Path] = None) -> Path:
+    """Render notes through a device in LIVE via Freeze; return the copied wav path.
+    The temp track is undone/removed no matter what (cleanup in finally)."""
+    freeze_dir = find_freeze_dir(project_dir)
+    client = LiveClient().connect()
+    track_index = None
+    try:
+        client.send("set_tempo", {"tempo": bpm})
+        info = client.send("get_session_info")
+        client.send("create_midi_track", {"index": -1})
+        track_index = int(client.send("get_session_info").get("track_count", 1)) - 1
+        tag = f"FID_{int(time.time()) % 100000}"
+        client.send("set_track_name", {"track_index": track_index, "name": tag})
+
+        _load_device(client, track_index, device_query)
+        if params:
+            for name, value in params.items():
+                try:
+                    client.send("set_device_parameter_by_name",
+                                {"track_index": track_index, "device_index": 0,
+                                 "param_name": name, "value": value})
+                except LiveError:
+                    pass  # unknown/readonly params skipped, mirroring headless setattr
+
+        client.send("create_clip", {"track_index": track_index, "clip_index": 0,
+                                    "length": bars * 4.0})
+        client.send("add_notes_to_clip", {"track_index": track_index, "clip_index": 0,
+                                          "notes": notes})
+        client.send("select_track", {"track_index": track_index})
+
+        before = set(freeze_dir.glob("*.wav")) if freeze_dir.exists() else set()
+        res = automator("automator_freeze")
+        if not res.get("success", False):
+            raise FreezeFailed(f"Freeze menu automation failed: {res}")
+        wav = _wait_for_new_wav(freeze_dir, before, timeout_s)
+
+        dest = Path(out_path) if out_path else Path(project_dir) / f"{tag}.wav"
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(wav, dest)  # freeze files vanish on unfreeze — copy first
+        return dest
+    finally:
+        try:
+            automator("automator_undo")  # unfreeze
+        except Exception:
+            pass
+        if track_index is not None:
+            try:
+                client.send("delete_track", {"track_index": track_index})
+            except Exception:
+                pass
+        client.close()

@@ -30,23 +30,33 @@ import sys
 
 import numpy as np
 import soundfile as sf
-import pedalboard
-from pedalboard import Pedalboard
 
 import midi_synth  # sibling module, numpy-only (no license concern)
 
+# pedalboard (GPLv3) is imported LAZILY: fallback-synth renders with an empty FX
+# chain never touch it, so they work in minimal environments too.
+_pedalboard = None
 
-def build_board(chain: list[dict]) -> Pedalboard:
+
+def _pb():
+    global _pedalboard
+    if _pedalboard is None:
+        import pedalboard as _pedalboard_mod
+        _pedalboard = _pedalboard_mod
+    return _pedalboard
+
+
+def build_board(chain: list[dict]):
     """Turn a chain spec into a pedalboard.Pedalboard. Unknown params are skipped."""
     plugins = []
     for step in chain:
         if "builtin" in step:
-            cls = getattr(pedalboard, step["builtin"], None)
+            cls = getattr(_pb(), step["builtin"], None)
             if cls is None:
                 raise ValueError(f"unknown builtin effect: {step['builtin']}")
             plugins.append(cls(**step.get("params", {})))
         elif "plugin" in step:
-            plug = pedalboard.load_plugin(step["plugin"])
+            plug = _pb().load_plugin(step["plugin"])
             for name, value in step.get("params", {}).items():
                 if hasattr(plug, name):
                     try:
@@ -56,7 +66,7 @@ def build_board(chain: list[dict]) -> Pedalboard:
             plugins.append(plug)
         else:
             raise ValueError(f"chain step needs 'builtin' or 'plugin': {step}")
-    return Pedalboard(plugins)
+    return _pb().Pedalboard(plugins)
 
 
 def render_chain(audio: np.ndarray, sample_rate: int, chain: list[dict]) -> np.ndarray:
@@ -111,7 +121,7 @@ def render_midi(notes: list[dict], bpm: float, instrument: str, sr: int,
         raise ValueError(f"unknown instrument spec: {instrument!r} "
                          "(want fallback:<role>, vst:<path>[::preset], au:<path>[::preset])")
     plug_path, _, preset = rest.partition("::")
-    plug = pedalboard.load_plugin(plug_path)
+    plug = _pb().load_plugin(plug_path)
     if preset:
         try:
             plug.load_preset(preset)

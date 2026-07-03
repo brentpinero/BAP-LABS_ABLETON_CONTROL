@@ -1,7 +1,7 @@
 #!/usr/bin/env -S uv run --script
 # /// script
 # requires-python = ">=3.10"
-# dependencies = ["mcp[cli]>=1.3.0"]
+# dependencies = ["mcp[cli]>=1.3.0", "numpy", "scipy", "soundfile", "mido"]
 # ///
 """
 ableton_mcp_server.py — Extended Ableton Live stdio MCP server.
@@ -1625,6 +1625,18 @@ def calibrate_layout(track_height: Optional[int] = None, top_offset: Optional[in
 def get_layout_config() -> str:
     """GUI: read the current click-layout config used for smart selection/grouping."""
     return _automator("get_layout_config")
+
+
+# ===========================================================================
+# SANDBOX — headless compose→render→listen→critique loop (sandbox/ package).
+# Guarded like the knowledge module: sandbox unavailable ≠ server down.
+# ===========================================================================
+try:
+    from sandbox_tools import register_sandbox_tools
+    register_sandbox_tools(mcp, {"ok": _ok, "err": _err, "do_add_part": _do_add_part})
+    logger.info("Sandbox tools registered (headless compose/listen loop available)")
+except Exception as e:  # pragma: no cover - defensive
+    logger.warning(f"Sandbox tools unavailable: {e}")
 
 
 def main():

@@ -244,8 +244,14 @@ class SandboxEngine:
         self.s.save()
         return report
 
+    ROLE_FLOOR = 0.60  # pass requires EVERY role above this — a great average
+                       # must not smuggle one broken part through
+
     def _verdict(self, overall: float) -> str:
-        if overall >= self.s.config.pass_threshold:
+        rec = self.s.iterations[-1]
+        role_scores = rec.scores.get("per_role", {})
+        floor_ok = all(v >= self.ROLE_FLOOR for v in role_scores.values()) if role_scores else True
+        if overall >= self.s.config.pass_threshold and floor_ok:
             return "pass"
         n = len(self.s.iterations)
         if n >= self.s.config.max_iterations:

@@ -83,7 +83,25 @@ def _build_cmd(job: dict) -> list[str]:
     return cmd
 
 
-def _run_one(job: dict, cache_dir: Path | None) -> dict:
+# Module-global warm-host pool: persists across render_jobs() calls (i.e. across
+# sandbox loop iterations) so plugins stay loaded. Created lazily on first use.
+_WARM_POOL = None
+_WARM_LOCK = None
+
+
+def _warm_pool():
+    global _WARM_POOL, _WARM_LOCK
+    if _WARM_LOCK is None:
+        import threading
+        _WARM_LOCK = threading.Lock()
+    with _WARM_LOCK:
+        if _WARM_POOL is None:
+            from render_host import WarmHostPool
+            _WARM_POOL = WarmHostPool()
+        return _WARM_POOL
+
+
+def _run_one(job: dict, cache_dir: Path | None, use_warm_host: bool = False) -> dict:
     out = job["output"]
     key = _job_key(job)
 
@@ -92,6 +110,23 @@ def _run_one(job: dict, cache_dir: Path | None) -> dict:
         marker = cache_dir / f"{key}.done"
         if marker.exists() and os.path.exists(out):
             return {"output": out, "status": "cached", "key": key, "seconds": 0.0}
+
+    # Warm-host fast path: only MIDI jobs (they carry the plugin-load cost). A
+    # warm-host fault falls through to the cold subprocess below — it can never
+    # break a render, only make it slower.
+    if use_warm_host and "midi" in job:
+        t0 = time.monotonic()
+        try:
+            resp = _warm_pool().render(job, timeout=job.get("timeout", DEFAULT_TIMEOUT_S))
+            if resp.get("status") == "rendered" and os.path.exists(out):
+                if cache_dir is not None:
+                    cache_dir.mkdir(parents=True, exist_ok=True)
+                    (cache_dir / f"{key}.done").write_text("ok")
+                return {"output": out, "status": "rendered", "key": key,
+                        "seconds": round(time.monotonic() - t0, 3), "warm": True}
+            # host reported an error → fall back to a cold subprocess render
+        except Exception:  # noqa: BLE001 — host down/timeout/etc → cold fallback
+            pass
 
     t0 = time.monotonic()
     try:
@@ -113,13 +148,17 @@ def _run_one(job: dict, cache_dir: Path | None) -> dict:
 
 
 def render_jobs(jobs: list[dict], max_workers: int | None = None,
-                cache_dir: str | os.PathLike | None = None) -> list[dict]:
+                cache_dir: str | os.PathLike | None = None,
+                use_warm_host: bool = False) -> list[dict]:
     """Render many jobs in parallel.
 
     Audio job: {"input": path|'sine', "chain": [...], "output": path, "sr"?: int}
     MIDI job:  {"midi": notes.json path, "bpm": float, "instrument": spec,
                 "chain"?: [...], "output": path, "sr"?: int, "bars"?: float,
                 "tail_seconds"?: float, "timeout"?: int}
+    `use_warm_host` routes MIDI jobs through a persistent warm plugin host (keeps
+    the instrument loaded across calls); it falls back to a cold subprocess per
+    job on any host fault, so it only ever changes speed, never correctness.
     Returns one result dict per job (order preserved). Statuses: rendered|cached|error|timeout.
     """
     workers = max_workers or default_workers()
@@ -127,7 +166,8 @@ def render_jobs(jobs: list[dict], max_workers: int | None = None,
     results: list[dict] = [None] * len(jobs)  # type: ignore[list-item]
 
     with cf.ThreadPoolExecutor(max_workers=workers) as pool:
-        futures = {pool.submit(_run_one, job, cdir): i for i, job in enumerate(jobs)}
+        futures = {pool.submit(_run_one, job, cdir, use_warm_host): i
+                   for i, job in enumerate(jobs)}
         for fut in cf.as_completed(futures):
             results[futures[fut]] = fut.result()
     return results

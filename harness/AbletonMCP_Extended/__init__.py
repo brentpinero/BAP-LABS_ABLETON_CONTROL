@@ -241,6 +241,9 @@ class AbletonMCPExtended(ControlSurface):
             elif command_type == "get_track_routing":
                 track_index = params.get("track_index", 0)
                 response["result"] = self._get_track_routing(track_index)
+            elif command_type == "get_track_input_routing":
+                track_index = params.get("track_index", 0)
+                response["result"] = self._get_track_input_routing(track_index)
 
             # Master track (read-only)
             elif command_type == "get_master_track":
@@ -282,7 +285,10 @@ class AbletonMCPExtended(ControlSurface):
                 # Master track (Priority 6)
                 "set_master_volume", "set_master_device_parameter",
                 # Transport and selection (Priority 7)
-                "set_current_position", "select_track", "select_clip"
+                "set_current_position", "select_track", "select_clip",
+                # Real-time resampling render path (Priority 8): arm + input routing
+                # + record mode let the render node capture stems over the LOM, no GUI.
+                "set_track_arm", "set_track_input_routing", "set_record_mode"
             ]:
                 response_queue = queue.Queue()
 
@@ -486,6 +492,20 @@ class AbletonMCPExtended(ControlSurface):
                             track_index = params.get("track_index", 0)
                             clip_index = params.get("clip_index", 0)
                             result = self._select_clip(track_index, clip_index)
+
+                        # Real-time resampling render path (Priority 8)
+                        elif command_type == "set_track_arm":
+                            track_index = params.get("track_index", 0)
+                            arm = params.get("arm", True)
+                            result = self._set_track_arm(track_index, arm)
+                        elif command_type == "set_track_input_routing":
+                            track_index = params.get("track_index", 0)
+                            source_name = params.get("source_name", "")
+                            channel = params.get("channel", None)
+                            result = self._set_track_input_routing(track_index, source_name, channel)
+                        elif command_type == "set_record_mode":
+                            mode = params.get("mode", 0)
+                            result = self._set_record_mode(mode)
 
                         response_queue.put({"status": "success", "result": result})
                     except Exception as e:
@@ -1809,6 +1829,93 @@ class AbletonMCPExtended(ControlSurface):
             return result
         except Exception as e:
             self.log_message("Error getting track routing: " + str(e))
+            raise
+
+    def _get_track_input_routing(self, track_index):
+        """Read a track's input routing + the AVAILABLE options (routing an audio
+        track's input to a source track is how the resampling render path captures
+        each stem). Read-only — safe to call for validation."""
+        try:
+            if track_index < 0 or track_index >= len(self._song.tracks):
+                raise IndexError("Track index out of range")
+            track = self._song.tracks[track_index]
+            result = {"track_index": track_index, "track_name": track.name}
+            if hasattr(track, 'input_routing_type') and track.input_routing_type is not None:
+                result["input_routing_type"] = str(track.input_routing_type.display_name)
+            if hasattr(track, 'available_input_routing_types'):
+                result["available_input_routing_types"] = [
+                    str(rt.display_name) for rt in track.available_input_routing_types]
+            if hasattr(track, 'input_routing_channel') and track.input_routing_channel is not None:
+                result["input_routing_channel"] = str(track.input_routing_channel.display_name)
+            if hasattr(track, 'available_input_routing_channels'):
+                result["available_input_routing_channels"] = [
+                    str(ch.display_name) for ch in track.available_input_routing_channels]
+            return result
+        except Exception as e:
+            self.log_message("Error getting track input routing: " + str(e))
+            raise
+
+    def _set_track_input_routing(self, track_index, source_name, channel=None):
+        """Point a track's input at `source_name` (a source track's name, or
+        'Resampling'), optionally selecting the channel (e.g. 'Post FX'). Matches
+        by display_name (exact, then substring). Used to wire capture->source."""
+        try:
+            if track_index < 0 or track_index >= len(self._song.tracks):
+                raise IndexError("Track index out of range")
+            track = self._song.tracks[track_index]
+            if not hasattr(track, 'available_input_routing_types'):
+                raise ValueError("Track has no input routing (master/return?)")
+
+            def _pick(options, name):
+                for o in options:
+                    if str(o.display_name) == name:
+                        return o
+                for o in options:
+                    if name.lower() in str(o.display_name).lower():
+                        return o
+                return None
+
+            chosen = _pick(track.available_input_routing_types, source_name)
+            if chosen is None:
+                avail = [str(rt.display_name) for rt in track.available_input_routing_types]
+                raise ValueError("No input routing '%s'; available: %s" % (source_name, avail))
+            track.input_routing_type = chosen
+            result = {"track_index": track_index,
+                      "input_routing_type": str(track.input_routing_type.display_name)}
+            if channel is not None and hasattr(track, 'available_input_routing_channels'):
+                ch = _pick(track.available_input_routing_channels, channel)
+                if ch is not None:
+                    track.input_routing_channel = ch
+                    result["input_routing_channel"] = str(track.input_routing_channel.display_name)
+            return result
+        except Exception as e:
+            self.log_message("Error setting track input routing: " + str(e))
+            raise
+
+    def _set_track_arm(self, track_index, arm):
+        """Arm/disarm a track for recording (resampling capture tracks are armed)."""
+        try:
+            if track_index < 0 or track_index >= len(self._song.tracks):
+                raise IndexError("Track index out of range")
+            track = self._song.tracks[track_index]
+            if hasattr(track, 'can_be_armed') and not track.can_be_armed:
+                raise ValueError("Track cannot be armed (group/master/return?)")
+            if not hasattr(track, 'arm'):
+                raise ValueError("Track has no arm property")
+            track.arm = bool(arm)
+            return {"track_index": track_index, "arm": bool(track.arm)}
+        except Exception as e:
+            self.log_message("Error setting track arm: " + str(e))
+            raise
+
+    def _set_record_mode(self, mode):
+        """Set Song.record_mode (1 = arrangement record on, 0 = off). With capture
+        tracks armed, record_mode=1 + start_playback records each stem in one pass."""
+        try:
+            self._song.record_mode = int(mode)
+            return {"record_mode": int(self._song.record_mode)}
+        except Exception as e:
+            self.log_message("Error setting record mode: " + str(e))
             raise
 
     def _fold_track(self, track_index, fold):

@@ -409,13 +409,22 @@ class AbletonAutomatorBridge:
         }
 
     def export_audio(self) -> Dict[str, Any]:
-        """Open Export Audio dialog (Cmd+Shift+R)"""
+        """Open Export Audio dialog (Cmd+Shift+R).
+
+        NOTE: full export automation is NOT viable — a live GUI probe (2026-07-04)
+        proved Ableton's export "Rendered Track" popup is drawn in a custom
+        framework that exposes ZERO menu items to macOS Accessibility, so the
+        stem-selection can be read but never set. The render node instead captures
+        stems via LOM-native real-time resampling (see sandbox/renderer_live.py),
+        which needs no GUI automation at all. This stub remains only for manual use.
+        """
         success = self._with_retry(lambda: self.send_keystroke("r", ["command", "shift"]))
         return {
             "success": success,
             "operation": "export",
             "shortcut": "Cmd+Shift+R",
-            "note": "Opens export dialog - use wait_for_dialog and click_dialog_button to complete",
+            "note": "Opens export dialog only; stem selection is not Accessibility-settable. "
+                    "Use the LOM resampling render path, not GUI export.",
             "error": self.last_error if not success else None
         }
 

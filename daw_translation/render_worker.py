@@ -107,21 +107,15 @@ def _notes_to_midi_messages(notes: list[dict], bpm: float):
     return msgs
 
 
-def render_midi(notes: list[dict], bpm: float, instrument: str, sr: int,
-                bars: float | None = None, tail_seconds: float = 1.0,
-                params: dict | None = None,
-                raw_component_state: bytes | None = None) -> np.ndarray:
-    """Render note dicts through an instrument spec. Returns float32 audio
-    (mono for fallback, stereo [n,2] for plugins)."""
-    if instrument.startswith("fallback:"):
-        role = instrument.split(":", 1)[1] or "keys"
-        return midi_synth.render_notes(notes, bpm, role=role, sr=sr,
-                                       bars=bars, tail_seconds=tail_seconds)
-
+def load_instrument(instrument: str):
+    """Load a vst/au instrument plugin (with optional ::name= or ::preset) and
+    return it. State (raw_state / named params) is applied per-render by
+    render_with_plug, NOT here — so a caller can load once and reuse the plugin
+    warm across many renders (see render_host.py)."""
     kind, _, rest = instrument.partition(":")
     if kind not in ("vst", "au"):
         raise ValueError(f"unknown instrument spec: {instrument!r} "
-                         "(want fallback:<role>, vst:<path>[::preset], au:<path>[::preset])")
+                         "(want fallback:<role>, vst:<path>[::preset|::name=], au:<path>[::preset|::name=])")
     plug_path, _, extra = rest.partition("::")
     preset, plugin_name = "", None
     if extra.startswith("name="):
@@ -136,7 +130,17 @@ def render_midi(notes: list[dict], bpm: float, instrument: str, sr: int,
         except Exception as e:  # noqa: BLE001 — preset failure shouldn't kill the render
             print(f"warning: preset load failed ({e}); rendering with default state",
                   file=sys.stderr)
+    return plug
 
+
+def render_with_plug(plug, notes: list[dict], bpm: float, sr: int,
+                     bars: float | None = None, tail_seconds: float = 1.0,
+                     params: dict | None = None,
+                     raw_component_state: bytes | None = None) -> np.ndarray:
+    """Render notes through an ALREADY-LOADED plugin. Applies the optional native
+    component-state transplant, then named params, then renders. Shared by the
+    cold path (render_midi) and the warm host so their output stays byte-identical
+    — any change to state/duration/stereo handling lives here, in one place."""
     # native component-state transplant (e.g. a patch captured from a Live
     # project's .als ProcessorState) — the exact-state path; see juce_state.py
     if raw_component_state:
@@ -158,9 +162,24 @@ def render_midi(notes: list[dict], bpm: float, instrument: str, sr: int,
     spb = 60.0 / max(1e-3, bpm)
     musical_end = (bars * 4.0 * spb) if bars is not None else (
         max((m.time for m in msgs), default=1.0))
-    duration = musical_end + tail_seconds
-    audio = plug(msgs, duration=duration, sample_rate=sr)
-    return np.asarray(audio, dtype="float32").T if np.asarray(audio).ndim == 2 else np.asarray(audio, dtype="float32")
+    audio = np.asarray(plug(msgs, duration=musical_end + tail_seconds, sample_rate=sr),
+                       dtype="float32")
+    return audio.T if audio.ndim == 2 else audio
+
+
+def render_midi(notes: list[dict], bpm: float, instrument: str, sr: int,
+                bars: float | None = None, tail_seconds: float = 1.0,
+                params: dict | None = None,
+                raw_component_state: bytes | None = None) -> np.ndarray:
+    """Render note dicts through an instrument spec. Returns float32 audio
+    (mono for fallback, stereo [n,2] for plugins)."""
+    if instrument.startswith("fallback:"):
+        role = instrument.split(":", 1)[1] or "keys"
+        return midi_synth.render_notes(notes, bpm, role=role, sr=sr,
+                                       bars=bars, tail_seconds=tail_seconds)
+    plug = load_instrument(instrument)
+    return render_with_plug(plug, notes, bpm, sr, bars=bars, tail_seconds=tail_seconds,
+                            params=params, raw_component_state=raw_component_state)
 
 
 def main(argv: list[str] | None = None) -> int:

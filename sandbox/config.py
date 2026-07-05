@@ -53,6 +53,33 @@ DEFAULTS: Dict[str, Any] = {
     # --- fidelity / calibration ---
     "fidelity.live_project_dir": "",      # path to the open Live project (calibration)
     "fidelity.freeze_timeout_s": 120,
+
+    # --- render backend (fast tier vs isolated Ableton render node) ---
+    # backend: pedalboard (fast, headless — composition only) | dawdreamer (fast,
+    # offline+automation-aware) | ableton (TRUTH — an ISOLATED render-node Ableton
+    # the user never touches, driven over the socket + node automator daemon).
+    "render.backend": "pedalboard",
+    "render.node_host": "127.0.0.1",      # render-node address (VM/2nd machine/cloud); localhost = same-Mac stand-in
+    "render.node_port": 9877,             # node Remote Script control socket
+    "render.node_agent_port": 9878,       # node automator daemon (freeze/export GUI automation runs ON the node)
+    "render.node_project_dir": "",        # SAVED Live project folder on the node (freeze wavs land here)
+    "render.warm_host": True,             # fast tier keeps the plugin loaded across iterations (kills the per-render load tax)
+    # node truth-tier render mode: "resample" = LOM-native real-time resampling
+    # (robust, no GUI/Accessibility, all stems in one real-time pass — the verified
+    # path, since Live's API exposes NO export/render/freeze); "freeze" = per-role
+    # GUI Freeze (faster-than-realtime but serial + Accessibility-dependent).
+    "render.node_render_mode": "resample",
+    "render.node_record_tail_s": 0.5,     # extra seconds recorded after the musical length
+}
+
+
+# String-enum keys: values outside these sets pass type-checking but silently take
+# a wrong branch (e.g. a node_render_mode typo → the fragile freeze path), so they
+# get an explicit membership check in validate_overrides.
+_ENUMS: Dict[str, set] = {
+    "render.backend": {"pedalboard", "dawdreamer", "ableton"},
+    "render.node_render_mode": {"resample", "freeze"},
+    "clap.schedule": {"first_and_final", "every", "never"},
 }
 
 
@@ -74,5 +101,7 @@ def validate_overrides(overrides: Dict[str, Any]) -> Dict[str, Any]:
         if d is not None and v is not None and not isinstance(v, type(d)) \
                 and not (isinstance(d, float) and isinstance(v, (int, float))):
             raise TypeError(f"{k}: expected {type(d).__name__}, got {type(v).__name__}")
+        if k in _ENUMS and v not in _ENUMS[k]:
+            raise ValueError(f"{k}: {v!r} not one of {sorted(_ENUMS[k])}")
         clean[k] = v
     return clean

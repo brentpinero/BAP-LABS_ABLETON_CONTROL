@@ -37,7 +37,7 @@ def _engine(session_id: str) -> SandboxEngine:
     if session_id in _ENGINES:
         return _ENGINES[session_id]
     eng = SandboxEngine(SandboxSession.load(session_id),
-                        renderer=sandbox_renderer.render_iteration,
+                        renderer=sandbox_renderer.render_iteration_dispatch,
                         audio_scorer=_AUDIO_SCORER)
     _ENGINES[session_id] = eng
     return eng
@@ -113,7 +113,7 @@ def register_sandbox_tools(mcp, deps: Dict[str, Any]) -> None:
                 cfg_extra = {"clap_enabled": True}
             eng = SandboxEngine.start(genre, parts, bars=bars, autonomy=autonomy,
                                       instruments=instruments,
-                                      renderer=sandbox_renderer.render_iteration,
+                                      renderer=sandbox_renderer.render_iteration_dispatch,
                                       audio_scorer=_AUDIO_SCORER, **cfg_extra)
             _ENGINES[eng.s.id] = eng
             out = {"session_id": eng.s.id, "genre": eng.s.genre, "bpm": eng.s.bpm,

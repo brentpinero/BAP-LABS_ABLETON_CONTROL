@@ -32,42 +32,55 @@
   "measured_at": "2026-07-03T13:15:32"
  },
  "serum2:track66_realpatch": {
-  "plugin": "Serum 2 (track 66 patch)",
-  "path": "/Library/Audio/Plug-Ins/VST3/Serum2.vst3",
+  "plugin": "Serum 2 (track 66 \u2014 real patch, corrected test)",
+  "path": "",
   "format": "vst3",
-  "preset": "suicide boys v5 / 67-Serum 2",
-  "params_hash": "als-state",
+  "preset": "suicide boys v5 / 67-Serum 2 | headless VST3 vs Ableton freeze, both stereo, 100bpm, exact note",
+  "params_hash": "als",
   "results": {
    "null_depth_db": -3.27,
-   "latency_samples": 22,
+   "latency_samples": 23,
    "gain_delta_db": 0.0,
    "band_diff_db": [
-    5.28,
-    12.58,
-    7.6,
-    2.69,
-    -1.03,
-    -1.35,
-    1.66,
-    -2.09
+    5.96,
+    14.24,
+    6.87,
+    2.08,
+    -1.24,
+    -0.97,
+    1.51,
+    -2.21
    ],
    "lufs_delta": -0.217,
-   "resampled": true,
+   "resampled": false,
    "channels": [
     2,
-    1
+    2
    ],
    "stereo_width": [
     1.002,
-    0.0
+    0.982
    ],
-   "duration_s": 10.6,
-   "label": "channel-mismatch"
+   "duration_s": 12.0,
+   "label": "diverged"
   },
-  "label": "channel-mismatch",
+  "label": "diverged",
   "audio_pair": {
    "headless": "/Users/brentpinero/Documents/serum_llm_2/sandbox_sessions/_fidelity/serum2_track66_realpatch/headless.wav",
-   "live": "/private/tmp/claude-501/-Users-brentpinero-Documents-serum-llm-2/d952395b-0c31-4f1b-bb85-d555f591cbcb/scratchpad/t66_live_slice.wav"
+   "live": "/Users/brentpinero/Documents/serum_llm_2/sandbox_sessions/_fidelity/serum2_track66_realpatch/live.wav"
+  },
+  "measured_at": "2026-07-03"
+ },
+ "serum2:track106_fxboundary": {
+  "plugin": "Serum 2 (track 106, FX-boundary)",
+  "path": "",
+  "format": "vst3",
+  "preset": "suicide boys v5 / 107-Serum 2 (+ Saturator/Roar/etc \u2014 stock FX NOT in headless)",
+  "params_hash": "als",
+  "results": {},
+  "label": "awaiting-live",
+  "audio_pair": {
+   "headless": "/Users/brentpinero/Documents/serum_llm_2/sandbox_sessions/_fidelity/serum2_track106_fxboundary/headless.wav"
   },
   "measured_at": "pending"
  }

@@ -260,21 +260,27 @@ def _render_pending_via_resample(client, node, session, bars: int,
             src_tag = f"SBXSRC_{role}_{stamp}_{i}"
             cap_tag = f"SBXCAP_{role}_{stamp}_{i}"
 
-            # source MIDI track: instrument + params + an ARRANGEMENT clip of the notes
+            # source MIDI track: instrument + params + an ARRANGEMENT clip of the
+            # notes. DISARM it — Live auto-arms a new MIDI track, and an armed
+            # source punch-records over its own clip instead of PLAYING it, so the
+            # capture would record silence.
             src_idx = _build_src_track(client, src_tag, device_query, trk.params)
+            client.send("set_track_arm", {"track_index": src_idx, "arm": False})
             client.send("create_arrangement_clip",
                         {"track_index": src_idx, "start_time": 0.0, "length": length_beats})
             client.send("add_notes_to_arrangement_clip",
                         {"track_index": src_idx, "clip_index": 0, "notes": notes})
 
-            # capture audio track: input routed from the source (post-FX), armed.
-            # The create command returns the new index, so no rescan is needed —
-            # no tracks are deleted before retrieval, so the index stays valid.
+            # capture audio track: input routed from the source (post-FX), armed,
+            # and Monitor="In" so the routed signal is actually recorded (a fresh
+            # audio track otherwise records silence). The create command returns the
+            # new index — no rescan needed since nothing is deleted before retrieval.
             cap_idx = int(client.send("create_audio_track", {"index": -1})["index"])
             client.send("set_track_name", {"track_index": cap_idx, "name": cap_tag})
             client.send("set_track_input_routing",
                         {"track_index": cap_idx, "source_name": src_tag, "channel": "Post FX"})
             client.send("set_track_arm", {"track_index": cap_idx, "arm": True})
+            client.send("set_track_monitor", {"track_index": cap_idx, "state": 0})  # 0 = In
             built.append(_Built(role, src_tag, cap_tag, cap_idx, out_wav, cached))
 
         # ONE real-time record pass captures every armed capture track at once

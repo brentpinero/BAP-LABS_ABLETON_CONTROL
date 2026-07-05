@@ -211,6 +211,8 @@ class _FakeLiveClientResample:
         self._tmp = Path(tempfile.mkdtemp(prefix="resample_"))
         self.record_calls = 0
         self.armed: list = []
+        self.disarmed: list = []
+        self.monitored: list = []
         self.routed: dict = {}
 
     def connect(self):
@@ -231,8 +233,10 @@ class _FakeLiveClientResample:
             if 0 <= i < len(self.names):
                 return {"name": self.names[i]}
             raise RuntimeError("no such track")
-        if cmd == "set_track_arm" and params.get("arm"):
-            self.armed.append(self.names[params["track_index"]])
+        if cmd == "set_track_arm":
+            (self.armed if params.get("arm") else self.disarmed).append(self.names[params["track_index"]])
+        if cmd == "set_track_monitor":
+            self.monitored.append((self.names[params["track_index"]], params.get("state")))
         if cmd == "set_track_input_routing":
             self.routed[self.names[params["track_index"]]] = params.get("source_name")
         if cmd == "set_record_mode" and params.get("mode") == 1:
@@ -293,8 +297,13 @@ def test_render_iteration_live_resample_one_pass():
             restore()
 
         audio, pool = out["audio"], {r["role"]: r for r in out["pool"]}
-        assert client_holder["c"].record_calls == 1       # ONE record pass for BOTH real roles
-        assert len(client_holder["c"].armed) == 2         # both capture tracks armed
+        cli = client_holder["c"]
+        assert cli.record_calls == 1                       # ONE record pass for BOTH real roles
+        assert len(cli.armed) == 2                         # both capture tracks armed
+        # the fix: each source is disarmed (else it records over itself) and each
+        # capture is set to Monitor="In" (else it records silence)
+        assert sum(nm.startswith("SBXSRC_") for nm in cli.disarmed) == 2
+        assert sum(state == 0 for _nm, state in cli.monitored) == 2
         assert pool["lead"]["status"] == "rendered"
         assert pool["sub"]["status"] == "rendered"
         assert pool["drums"]["status"] == "skipped"

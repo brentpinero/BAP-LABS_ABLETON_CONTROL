@@ -288,7 +288,8 @@ class AbletonMCPExtended(ControlSurface):
                 "set_current_position", "select_track", "select_clip",
                 # Real-time resampling render path (Priority 8): arm + input routing
                 # + record mode let the render node capture stems over the LOM, no GUI.
-                "set_track_arm", "set_track_input_routing", "set_record_mode"
+                "set_track_arm", "set_track_input_routing", "set_record_mode",
+                "set_track_monitor"
             ]:
                 response_queue = queue.Queue()
 
@@ -506,6 +507,10 @@ class AbletonMCPExtended(ControlSurface):
                         elif command_type == "set_record_mode":
                             mode = params.get("mode", 0)
                             result = self._set_record_mode(mode)
+                        elif command_type == "set_track_monitor":
+                            track_index = params.get("track_index", 0)
+                            state = params.get("state", 0)
+                            result = self._set_track_monitor(track_index, state)
 
                         response_queue.put({"status": "success", "result": result})
                     except Exception as e:
@@ -1840,6 +1845,8 @@ class AbletonMCPExtended(ControlSurface):
                 raise IndexError("Track index out of range")
             track = self._song.tracks[track_index]
             result = {"track_index": track_index, "track_name": track.name}
+            if hasattr(track, 'current_monitoring_state'):
+                result["current_monitoring_state"] = int(track.current_monitoring_state)
             if hasattr(track, 'input_routing_type') and track.input_routing_type is not None:
                 result["input_routing_type"] = str(track.input_routing_type.display_name)
             if hasattr(track, 'available_input_routing_types'):
@@ -1906,6 +1913,24 @@ class AbletonMCPExtended(ControlSurface):
             return {"track_index": track_index, "arm": bool(track.arm)}
         except Exception as e:
             self.log_message("Error setting track arm: " + str(e))
+            raise
+
+    def _set_track_monitor(self, track_index, state):
+        """Set a track's input monitoring (current_monitoring_state: 0=In, 1=Auto,
+        2=Off). Resampling capture tracks need "In" (0) so the routed source signal
+        is actually recorded — a new audio track can default to a state that
+        records silence."""
+        try:
+            if track_index < 0 or track_index >= len(self._song.tracks):
+                raise IndexError("Track index out of range")
+            track = self._song.tracks[track_index]
+            if not hasattr(track, 'current_monitoring_state'):
+                raise ValueError("Track has no monitoring state (master/return?)")
+            track.current_monitoring_state = int(state)
+            return {"track_index": track_index,
+                    "current_monitoring_state": int(track.current_monitoring_state)}
+        except Exception as e:
+            self.log_message("Error setting track monitor: " + str(e))
             raise
 
     def _set_record_mode(self, mode):

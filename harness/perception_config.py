@@ -58,6 +58,12 @@ DEFAULTS: dict[str, Any] = {
     "event.level_jump_win_s": 0.5,
 
     "focus_listeners": True,
+
+    # adaptive provisioning (Phase 3): which nodes get instrumented + fed to masking.
+    "aggregator_channels": 32,                 # input pairs per aggregator device (64ch)
+    "select_capacity": 32,                     # total nodes to instrument (channel budget)
+    "select_energy_db": -40.0,                 # a leaf track above this counts as "loud"
+    "agg_osc_port": 9886,                       # aggregator per-channel spectrum OSC
 }
 
 

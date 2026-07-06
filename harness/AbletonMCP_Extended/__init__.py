@@ -244,6 +244,9 @@ class AbletonMCPExtended(ControlSurface):
             elif command_type == "get_track_input_routing":
                 track_index = params.get("track_index", 0)
                 response["result"] = self._get_track_input_routing(track_index)
+            elif command_type == "get_track_output_routing":
+                track_index = params.get("track_index", 0)
+                response["result"] = self._get_track_output_routing(track_index)
 
             # Master track (read-only)
             elif command_type == "get_master_track":
@@ -288,7 +291,8 @@ class AbletonMCPExtended(ControlSurface):
                 "set_current_position", "select_track", "select_clip",
                 # Real-time resampling render path (Priority 8): arm + input routing
                 # + record mode let the render node capture stems over the LOM, no GUI.
-                "set_track_arm", "set_track_input_routing", "set_record_mode",
+                "set_track_arm", "set_track_input_routing", "set_track_output_routing",
+                "set_record_mode",
                 "set_track_monitor", "set_song_loop", "delete_arrangement_clip"
             ]:
                 response_queue = queue.Queue()
@@ -504,6 +508,11 @@ class AbletonMCPExtended(ControlSurface):
                             source_name = params.get("source_name", "")
                             channel = params.get("channel", None)
                             result = self._set_track_input_routing(track_index, source_name, channel)
+                        elif command_type == "set_track_output_routing":
+                            track_index = params.get("track_index", 0)
+                            dest_name = params.get("dest_name", "")
+                            channel = params.get("channel", None)
+                            result = self._set_track_output_routing(track_index, dest_name, channel)
                         elif command_type == "set_record_mode":
                             mode = params.get("mode", 0)
                             result = self._set_record_mode(mode)
@@ -620,57 +629,68 @@ class AbletonMCPExtended(ControlSurface):
             self.log_message("Error getting session summary: " + str(e))
             raise
 
-    def _resolve_track(self, ref):
-        """Resolve a track reference to a Live track across ALL collections.
+    def _resolve_with_kind(self, ref):
+        """Resolve a track reference to (track, kind) across ALL collections.
 
         Accepts: an int index into song.tracks (regular + group tracks live here);
         -1 for the master; or strings 'master'/'main', 'return:N' (or 'r:N') or a
-        return's name, or any track's name. This is the single resolver that every
-        device / mixer / track handler routes through, so group / return / master
-        nodes are reachable uniformly (they were previously unreachable because the
-        old inline guard rejected any track_index < 0 and never consulted
-        song.master_track / song.return_tracks)."""
+        return's name, or any track's name. This is the single resolver every
+        device/mixer/track handler routes through, so group/return/master nodes are
+        reachable uniformly (previously unreachable: the old guard rejected any
+        track_index < 0 and never consulted master_track/return_tracks).
+
+        `kind` is derived from WHICH collection the track came from — identity-safe:
+        `track is song.master_track` FAILS because re-accessing the LOM property
+        returns a different Python wrapper for the same underlying object."""
         song = self._song
         if isinstance(ref, bool):
             raise TypeError("track reference cannot be a bool")
         if isinstance(ref, int):
             if ref == -1:
-                return song.master_track
+                return song.master_track, "master"
             if 0 <= ref < len(song.tracks):
-                return song.tracks[ref]
+                t = song.tracks[ref]
+                return t, ("group" if getattr(t, "is_foldable", False) else "regular")
             raise IndexError("Track index out of range")
         s = str(ref).strip()
         low = s.lower()
         if low in ("master", "main", "-1"):
-            return song.master_track
+            return song.master_track, "master"
         if low.startswith("return:") or low.startswith("r:"):
             j = int(s.split(":", 1)[1])
             if 0 <= j < len(song.return_tracks):
-                return song.return_tracks[j]
+                return song.return_tracks[j], "return"
             raise IndexError("Return track index out of range")
         if low.lstrip("-").isdigit():
-            return self._resolve_track(int(s))
+            return self._resolve_with_kind(int(s))
         for t in song.tracks:
             if t.name == s:
-                return t
+                return t, ("group" if getattr(t, "is_foldable", False) else "regular")
         for t in song.return_tracks:
             if t.name == s:
-                return t
+                return t, "return"
         if song.master_track.name == s:
-            return song.master_track
+            return song.master_track, "master"
         raise KeyError("No track named %r" % s)
 
+    def _resolve_track(self, ref):
+        """Resolve any node reference to a Live track (kind discarded). See
+        _resolve_with_kind for the accepted reference forms."""
+        return self._resolve_with_kind(ref)[0]
+
     def _track_kind(self, track):
-        """Classify a resolved track: 'master' | 'return' | 'group' | 'regular'."""
+        """Best-effort kind for a bare track object (prefer _resolve_with_kind when
+        you have the ref). Uses == (not identity) and falls back on foldable-ness."""
         song = self._song
-        if track is song.master_track:
-            return "master"
-        for rt in song.return_tracks:
-            if track is rt:
-                return "return"
-        if getattr(track, "is_foldable", False):
-            return "group"
-        return "regular"
+        try:
+            if track == song.master_track:
+                return "master"
+            for rt in song.return_tracks:
+                if track == rt:
+                    return "return"
+        except Exception:
+            pass
+        return "group" if getattr(track, "is_foldable", False) else "regular"
 
     def _get_track_info(self, track_index):
         """Info about ANY track (regular/group/return/master), always incl. devices.
@@ -680,8 +700,7 @@ class AbletonMCPExtended(ControlSurface):
         group/return/master); type-specific attrs (arm/solo/mute) are getattr-guarded
         since master/returns lack some."""
         try:
-            track = self._resolve_track(track_index)
-            kind = self._track_kind(track)
+            track, kind = self._resolve_with_kind(track_index)
 
             # Devices — universally available on every track kind, never skipped.
             devices = []
@@ -1958,6 +1977,67 @@ class AbletonMCPExtended(ControlSurface):
             return result
         except Exception as e:
             self.log_message("Error setting track input routing: " + str(e))
+            raise
+
+    def _get_track_output_routing(self, track_index):
+        """Read a track's output routing + AVAILABLE types/channels. Selecting a
+        multi-input M4L device's plugin~ input PAIR as an output channel is how the
+        multichannel analysis aggregator gets fed. Read-only; works on any node kind."""
+        try:
+            track = self._resolve_track(track_index)
+            result = {"track_index": track_index, "track_name": track.name}
+            if getattr(track, "output_routing_type", None) is not None:
+                result["output_routing_type"] = str(track.output_routing_type.display_name)
+            if hasattr(track, "available_output_routing_types"):
+                result["available_output_routing_types"] = [
+                    str(rt.display_name) for rt in track.available_output_routing_types]
+            if getattr(track, "output_routing_channel", None) is not None:
+                result["output_routing_channel"] = str(track.output_routing_channel.display_name)
+            if hasattr(track, "available_output_routing_channels"):
+                result["available_output_routing_channels"] = [
+                    str(ch.display_name) for ch in track.available_output_routing_channels]
+            return result
+        except Exception as e:
+            self.log_message("Error getting track output routing: " + str(e))
+            raise
+
+    def _set_track_output_routing(self, track_index, dest_name, channel=None):
+        """Point a track's output at `dest_name` (a destination track/device name),
+        optionally selecting `channel` (e.g. a specific input pair of a multi-input
+        M4L device). Matches by display_name (exact, then substring). This is the
+        command the aggregator-routing probe validates."""
+        try:
+            track = self._resolve_track(track_index)
+            if not hasattr(track, "available_output_routing_types"):
+                raise ValueError("Track has no output routing")
+
+            def _pick(options, name):
+                for o in options:
+                    if str(o.display_name) == name:
+                        return o
+                for o in options:
+                    if name.lower() in str(o.display_name).lower():
+                        return o
+                return None
+
+            chosen = _pick(track.available_output_routing_types, dest_name)
+            if chosen is None:
+                avail = [str(rt.display_name) for rt in track.available_output_routing_types]
+                raise ValueError("No output routing '%s'; available: %s" % (dest_name, avail))
+            track.output_routing_type = chosen
+            result = {"track_index": track_index,
+                      "output_routing_type": str(track.output_routing_type.display_name)}
+            if channel is not None and hasattr(track, "available_output_routing_channels"):
+                ch = _pick(track.available_output_routing_channels, str(channel))
+                if ch is not None:
+                    track.output_routing_channel = ch
+                    result["output_routing_channel"] = str(track.output_routing_channel.display_name)
+                else:
+                    result["available_output_routing_channels"] = [
+                        str(c.display_name) for c in track.available_output_routing_channels]
+            return result
+        except Exception as e:
+            self.log_message("Error setting track output routing: " + str(e))
             raise
 
     def _set_track_arm(self, track_index, arm):

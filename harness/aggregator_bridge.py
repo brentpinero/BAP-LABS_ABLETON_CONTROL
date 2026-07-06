@@ -28,18 +28,27 @@ from perception_config import cfg
 SILENCE_DB = -120.0
 
 
-def derive(raw_bands):
+def derive(raw_bands, gate_db=None):
     """Raw per-band RMS (linear) -> (energy fractions summing ~1, overall rms_db, overall linear).
 
     Band signals partition the spectrum, so total power ~ sum(band_rms^2) and the
-    overall RMS ~ sqrt of that — a loudness estimate without extra DSP in the device."""
+    overall RMS ~ sqrt of that — a loudness estimate without extra DSP in the device.
+
+    Below `gate_db` the channel is effectively silent and its normalized spectrum is
+    just noise-floor shape (quiet channels read garbage after L1 normalization), so the
+    fractions are zeroed — the node then contributes nothing to masking (correct) instead
+    of injecting a bogus spectrum."""
+    if gate_db is None:
+        gate_db = float(cfg("agg_gate_db"))
     powers = [float(b) * float(b) for b in raw_bands]
     tot = sum(powers)
     if tot <= 1e-18:
         return [0.0] * len(raw_bands), SILENCE_DB, 0.0
-    fracs = [p / tot for p in powers]
     lin = math.sqrt(tot)
     rms_db = 20.0 * math.log10(lin) if lin > 1e-9 else SILENCE_DB
+    if rms_db < gate_db:
+        return [0.0] * len(raw_bands), rms_db, lin      # gated: silent -> no spectrum
+    fracs = [p / tot for p in powers]
     return fracs, rms_db, lin
 
 

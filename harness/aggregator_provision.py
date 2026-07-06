@@ -46,21 +46,41 @@ def _snapshot():
         return None
 
 
-def plan(c, max_pairs=7):
-    """Assign selected non-master nodes to aggregator input pairs (1..max_pairs)."""
+def plan(c, max_pairs=31):
+    """Assign selected non-master nodes to aggregator input pairs (1..max_pairs).
+    max_pairs default 31 = a 32-pair device with pair 0 reserved for its own input.
+
+    Leaf tracks with a DUPLICATE name are skipped: input routing picks a source by
+    display_name, so duplicates (e.g. 26x 'Serum 2') would misroute — until index/id
+    routing lands, we skip them rather than feed the wrong audio to a node's id.
+    Groups/returns have unique names and route fine."""
     nodes = gather_nodes(c, _snapshot())
     sel = select_nodes(nodes)
-    routable = [s for s in sel if s.get("kind") != "master"][:max_pairs]
-    items = []
-    for i, node in enumerate(routable):
-        pair = i + 1                       # pair 0 reserved for the AGG track's own input
+    # count EXACT (case-sensitive) names — that's how input routing's exact-match
+    # disambiguates, so 'SUB' (leaf) and 'Sub' (group) are distinct, not duplicates.
+    name_counts = {}
+    for n in nodes:
+        nm = n.get("name") or ""
+        name_counts[nm] = name_counts.get(nm, 0) + 1
+
+    items, skipped = [], []
+    for node in sel:
+        if node.get("kind") == "master":
+            continue                       # master keeps its own device
+        nm = node.get("name") or ""
+        if node.get("kind") not in ("group", "return") and name_counts.get(nm, 0) > 1:
+            skipped.append(node)
+            continue
+        if len(items) >= max_pairs:
+            break
+        pair = len(items) + 1              # pair 0 reserved for the AGG track's own input
         items.append({
             "ref": node["ref"], "name": node["name"], "kind": node["kind"],
             "group_id": str(node.get("group_id", "-1")),
             "pair": pair, "channel": "%d/%d" % (2 * pair + 1, 2 * pair + 2),
             "osc_channel": pair, "reasons": node["reasons"],
         })
-    return items, sel
+    return items, sel, skipped
 
 
 def _ensure_aggregator(c, uri):
@@ -123,12 +143,15 @@ def main(argv):
     with LiveClient(timeout=40) as c:
         if mode == "--teardown":
             teardown(c); return 0
-        items, sel = plan(c)
+        items, sel, skipped = plan(c)
         print(f"selection: {len(sel)} nodes ({selection_summary(sel)}); "
               f"routing {len(items)} to the aggregator (master keeps its own device):\n")
         for it in items:
-            print(f"  pair {it['pair']}  ch {it['channel']:5s}  {it['name'][:26]:26s} "
+            print(f"  pair {it['pair']:2d}  ch {it['channel']:6s} {it['name'][:26]:26s} "
                   f"{it['kind']:7s} {it['reasons']}")
+        if skipped:
+            print(f"\n  skipped {len(skipped)} duplicate-named leaves (would misroute): "
+                  + ", ".join(str(s['name'])[:14] for s in skipped[:10]))
         if mode == "--dry-run":
             print("\ndry-run. Re-run with --apply to create capture tracks + route.")
             return 0

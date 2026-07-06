@@ -64,6 +64,8 @@ DEFAULTS: dict[str, Any] = {
     "select_capacity": 32,                     # total nodes to instrument (channel budget)
     "select_energy_db": -40.0,                 # a leaf track above this counts as "loud"
     "agg_osc_port": 9886,                       # aggregator per-channel spectrum OSC
+    "agg_gate_db": -70.0,                        # below this a channel is silence; its
+                                                # normalized spectrum is noise -> zero it
 }
 
 

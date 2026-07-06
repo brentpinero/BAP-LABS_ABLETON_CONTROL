@@ -38,6 +38,17 @@ class TestDerive(unittest.TestCase):
         self.assertEqual(rms, -120.0)
         self.assertEqual(lin, 0.0)
 
+    def test_low_level_gate_zeros_spectrum(self):
+        # a quiet channel (well below the gate) -> spectrum zeroed, not noise-shaped
+        quiet = [0.00002] * 7                          # ~ -94 dB overall, below -70 gate
+        fr, rms, _ = derive(quiet)
+        self.assertLess(rms, -70.0)
+        self.assertEqual(sum(fr), 0.0)
+        # a loud channel is unaffected
+        fr2, rms2, _ = derive([0.0, 0.5, 0.0, 0.1, 0.0, 0.0, 0.0])
+        self.assertGreater(rms2, -70.0)
+        self.assertAlmostEqual(sum(fr2), 1.0, places=5)
+
 
 class TestMessages(unittest.TestCase):
     def test_message_shapes(self):

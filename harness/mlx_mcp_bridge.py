@@ -81,9 +81,11 @@ STRICT RULES:
 - Never claim success without actually calling tools first
 
 NAME-BASED TRACK RESOLUTION:
-All track commands accept track NAMES or indices! Use names for clarity:
-- {"track_index": "Drums"} ← Use track name (preferred)
-- {"track_index": 0} ← Or use index
+All track commands accept track NAMES or indices, across EVERY node type:
+- {"track_index": "Drums"} ← track or group name (preferred)
+- {"track_index": 0} ← regular/group track index
+- {"track_index": "Master"} or {"track_index": -1} ← the master bus
+- {"track_index": "A-Reverb"} or {"track_index": "return:0"} ← a return track
 - Partial matches work: "Bass" matches "1-Bass", "Drum" matches "Drums"
 
 DISCOVERY TOOLS (use first when unsure):
@@ -631,6 +633,19 @@ class MLXMCPBridge:
             role = msg["role"]
             content = msg["content"]
             prompt += f"<|im_start|>{role}\n{content}<|im_end|>\n"
+
+        # Inject the live perception block as an EPHEMERAL system turn (push-emulation:
+        # the model always sees the current mix + focus WITHOUT calling a tool). Not
+        # stored in conversation_history; a dead perception stream degrades to nothing.
+        try:
+            from perception_config import cfg as _pcfg
+            if _pcfg("inject_live_block"):
+                import perception_context
+                block = perception_context.build_live_mix_block()
+                if block:
+                    prompt += f"<|im_start|>system\n{block}<|im_end|>\n"
+        except Exception:  # noqa: BLE001 — perception is best-effort, never break a turn
+            pass
 
         # Add current user message
         prompt += f"<|im_start|>user\n{user_message}<|im_end|>\n"

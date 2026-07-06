@@ -47,6 +47,8 @@ async def _snapshot_writer(bridge) -> None:
             "status": bridge.get_status(),
             "recent_bars": recent[-16:],
             "context_32bar": bridge.build_32bar_context() if recent else {},
+            # per-track/group/master live state + group-vs-group masking (v2)
+            "per_track": bridge.build_tracks_snapshot(),
         }
         tmp = SNAPSHOT_PATH.with_suffix(".tmp")
         tmp.write_text(json.dumps(snap))
@@ -55,13 +57,31 @@ async def _snapshot_writer(bridge) -> None:
 
 
 async def main() -> None:
-    """Entry point for `python run_harness.py ears`."""
+    """Entry point for `python run_harness.py ears`.
+
+    Runs the master-bus snapshot writer (pull path) AND the streaming perception
+    FrameEmitter (push path: OSC frames + events + perception_stream.json)
+    concurrently over the one bridge that owns OSC 9880.
+    """
     from mix_analysis_bridge import MixAnalysisBridge
+    from perception_stream import FrameEmitter
+    from perception_config import cfg
+
     bridge = MixAnalysisBridge(port=9880)
     transport = await bridge.start()
-    print(f"[EARS] snapshotting to {SNAPSHOT_PATH} every {WRITE_INTERVAL_S}s (Ctrl-C to stop)")
+    emitter = FrameEmitter(bridge)
+    # expose for the focus lane (sets current focus) and future in-process consumers
+    main.emitter = emitter  # type: ignore[attr-defined]
+
+    print(f"[EARS] snapshotting to {SNAPSHOT_PATH} every {WRITE_INTERVAL_S}s")
+    print(f"[EARS] perception push @ {cfg('frame_rate_hz')}Hz -> OSC "
+          f"{cfg('push_host')}:{cfg('push_port')} + {emitter.snapshot_path} (Ctrl-C to stop)")
     try:
-        await _snapshot_writer(bridge)
+        await asyncio.gather(
+            _snapshot_writer(bridge),
+            emitter.run(),
+            emitter.snapshot_writer(),
+        )
     finally:
         transport.close()
 
@@ -139,6 +159,30 @@ def register_live_ear_tools(mcp, deps: Dict[str, Any]) -> None:
                         "next": "Make your change, let a few bars play, then call get_mix_analysis again."})
         except Exception as e:
             return _err("analyzing live mix", e)
+
+    @mcp.tool()
+    def get_masking_report() -> str:
+        """LISTEN for frequency clashes across the mix: which GROUPS are masking each
+        other and in which bands (kick vs bass, synth vs hi-hats), plus which bands are
+        crowded on the master. Group-vs-group + master view. Requires per-track Mix
+        Analysis Hub devices + the ears daemon (see get_live_ears_status)."""
+        try:
+            snap = _read_snapshot()
+            if "error" in snap:
+                return _ok(snap)
+            pt = snap.get("per_track", {})
+            masking = pt.get("masking", {})
+            return _ok({
+                "summary": masking.get("summary", "No per-track spectra yet — load a Mix "
+                           "Analysis Hub device on each group + the master, and press play."),
+                "clashes": masking.get("pairs", []),
+                "master_congestion": masking.get("master_congestion", []),
+                "band_scheme": pt.get("band_scheme"),
+                "tracks_live": len(pt.get("tracks", {})),
+                "next": "Adjust EQ/level on a clashing group, let a few bars play, call again.",
+            })
+        except Exception as e:
+            return _err("reading masking report", e)
 
     @mcp.tool()
     def get_bar_history(start_bar: int, end_bar: int) -> str:

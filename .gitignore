@@ -93,3 +93,9 @@ eval/results/
 # sandbox loop session artifacts (wavs, iteration state)
 sandbox_sessions/
 sandbox_references/
+
+# vendored beta SDK (not for repo)
+extensions-sdk-1.0.0-beta.0/
+# remote-script + source backups
+*.bak
+*.bak-*

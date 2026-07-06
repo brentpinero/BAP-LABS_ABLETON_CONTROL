@@ -289,7 +289,7 @@ class AbletonMCPExtended(ControlSurface):
                 # Real-time resampling render path (Priority 8): arm + input routing
                 # + record mode let the render node capture stems over the LOM, no GUI.
                 "set_track_arm", "set_track_input_routing", "set_record_mode",
-                "set_track_monitor"
+                "set_track_monitor", "set_song_loop", "delete_arrangement_clip"
             ]:
                 response_queue = queue.Queue()
 
@@ -511,6 +511,13 @@ class AbletonMCPExtended(ControlSurface):
                             track_index = params.get("track_index", 0)
                             state = params.get("state", 0)
                             result = self._set_track_monitor(track_index, state)
+                        elif command_type == "set_song_loop":
+                            loop = params.get("loop", False)
+                            result = self._set_song_loop(loop)
+                        elif command_type == "delete_arrangement_clip":
+                            track_index = params.get("track_index", 0)
+                            clip_index = params.get("clip_index", 0)
+                            result = self._delete_arrangement_clip(track_index, clip_index)
 
                         response_queue.put({"status": "success", "result": result})
                     except Exception as e:
@@ -613,47 +620,70 @@ class AbletonMCPExtended(ControlSurface):
             self.log_message("Error getting session summary: " + str(e))
             raise
 
+    def _resolve_track(self, ref):
+        """Resolve a track reference to a Live track across ALL collections.
+
+        Accepts: an int index into song.tracks (regular + group tracks live here);
+        -1 for the master; or strings 'master'/'main', 'return:N' (or 'r:N') or a
+        return's name, or any track's name. This is the single resolver that every
+        device / mixer / track handler routes through, so group / return / master
+        nodes are reachable uniformly (they were previously unreachable because the
+        old inline guard rejected any track_index < 0 and never consulted
+        song.master_track / song.return_tracks)."""
+        song = self._song
+        if isinstance(ref, bool):
+            raise TypeError("track reference cannot be a bool")
+        if isinstance(ref, int):
+            if ref == -1:
+                return song.master_track
+            if 0 <= ref < len(song.tracks):
+                return song.tracks[ref]
+            raise IndexError("Track index out of range")
+        s = str(ref).strip()
+        low = s.lower()
+        if low in ("master", "main", "-1"):
+            return song.master_track
+        if low.startswith("return:") or low.startswith("r:"):
+            j = int(s.split(":", 1)[1])
+            if 0 <= j < len(song.return_tracks):
+                return song.return_tracks[j]
+            raise IndexError("Return track index out of range")
+        if low.lstrip("-").isdigit():
+            return self._resolve_track(int(s))
+        for t in song.tracks:
+            if t.name == s:
+                return t
+        for t in song.return_tracks:
+            if t.name == s:
+                return t
+        if song.master_track.name == s:
+            return song.master_track
+        raise KeyError("No track named %r" % s)
+
+    def _track_kind(self, track):
+        """Classify a resolved track: 'master' | 'return' | 'group' | 'regular'."""
+        song = self._song
+        if track is song.master_track:
+            return "master"
+        for rt in song.return_tracks:
+            if track is rt:
+                return "return"
+        if getattr(track, "is_foldable", False):
+            return "group"
+        return "regular"
+
     def _get_track_info(self, track_index):
-        """Get information about a track including arrangement clips"""
+        """Info about ANY track (regular/group/return/master), always incl. devices.
+
+        Devices are gathered first so the device list is always returned; clips are
+        best-effort and only read on regular tracks (Live raises on clip access for
+        group/return/master); type-specific attrs (arm/solo/mute) are getattr-guarded
+        since master/returns lack some."""
         try:
-            if track_index < 0 or track_index >= len(self._song.tracks):
-                raise IndexError("Track index out of range")
+            track = self._resolve_track(track_index)
+            kind = self._track_kind(track)
 
-            track = self._song.tracks[track_index]
-
-            # Get session clip slots
-            clip_slots = []
-            for slot_index, slot in enumerate(track.clip_slots[:8]):  # Limit to first 8
-                clip_info = None
-                if slot.has_clip:
-                    clip = slot.clip
-                    clip_info = {
-                        "name": clip.name,
-                        "length": clip.length,
-                        "is_playing": clip.is_playing,
-                        "is_recording": clip.is_recording
-                    }
-
-                clip_slots.append({
-                    "index": slot_index,
-                    "has_clip": slot.has_clip,
-                    "clip": clip_info
-                })
-
-            # Get arrangement clips (Live 11+)
-            arrangement_clips = []
-            if hasattr(track, 'arrangement_clips'):
-                for i, clip in enumerate(track.arrangement_clips[:20]):  # Limit to 20
-                    arrangement_clips.append({
-                        "index": i,
-                        "name": clip.name,
-                        "start_time": clip.start_time,
-                        "end_time": clip.end_time,
-                        "length": clip.length,
-                        "is_playing": clip.is_playing
-                    })
-
-            # Get devices on the track
+            # Devices — universally available on every track kind, never skipped.
             devices = []
             for device_index, device in enumerate(track.devices):
                 devices.append({
@@ -662,23 +692,67 @@ class AbletonMCPExtended(ControlSurface):
                     "class_name": device.class_name
                 })
 
-            result = {
+            # Clips exist only on regular tracks; guard so non-regular never throws.
+            clip_slots = []
+            arrangement_clips = []
+            if kind == "regular":
+                try:
+                    for slot_index, slot in enumerate(track.clip_slots[:8]):
+                        clip_info = None
+                        if slot.has_clip:
+                            clip = slot.clip
+                            clip_info = {
+                                "name": clip.name,
+                                "length": clip.length,
+                                "is_playing": clip.is_playing,
+                                "is_recording": clip.is_recording
+                            }
+                        clip_slots.append({
+                            "index": slot_index,
+                            "has_clip": slot.has_clip,
+                            "clip": clip_info
+                        })
+                except (RuntimeError, AttributeError):
+                    pass
+                try:
+                    for i, clip in enumerate(track.arrangement_clips[:20]):
+                        arrangement_clips.append({
+                            "index": i,
+                            "name": clip.name,
+                            "start_time": clip.start_time,
+                            "end_time": clip.end_time,
+                            "length": clip.length,
+                            "is_playing": clip.is_playing
+                        })
+                except (RuntimeError, AttributeError):
+                    pass
+
+            # Live raises NON-AttributeError errors when you access mute/solo/arm/etc
+            # on master/return/group tracks ("Main track has no 'mute' property!"), so
+            # plain getattr(..., default) does NOT catch them — each needs try/except.
+            def _safe(getter, default=None):
+                try:
+                    return getter()
+                except Exception:
+                    return default
+
+            return {
                 "index": track_index,
                 "name": track.name,
-                "is_audio_track": track.has_audio_input,
-                "is_midi_track": track.has_midi_input,
-                "mute": track.mute,
-                "solo": track.solo,
-                "arm": track.arm,
-                "volume": track.mixer_device.volume.value,
-                "panning": track.mixer_device.panning.value,
+                "kind": kind,
+                "is_audio_track": _safe(lambda: track.has_audio_input, False),
+                "is_midi_track": _safe(lambda: track.has_midi_input, False),
+                "mute": _safe(lambda: track.mute),
+                "solo": _safe(lambda: track.solo),
+                "arm": _safe(lambda: track.arm),
+                "volume": _safe(lambda: track.mixer_device.volume.value),
+                "panning": _safe(lambda: track.mixer_device.panning.value),
                 "clip_slots": clip_slots,
                 "arrangement_clips": arrangement_clips,
                 "arrangement_clip_count": len(arrangement_clips),
                 "devices": devices,
                 "device_count": len(devices)
             }
-            return result
         except Exception as e:
             self.log_message("Error getting track info: " + str(e))
             raise
@@ -1238,6 +1312,7 @@ class AbletonMCPExtended(ControlSurface):
                 "midi_effects": "midi_effects",
                 "plugins": "plugins",
                 "plug-ins": "plugins",
+                "user_library": "user_library",
             }
 
             if root_category in category_map and hasattr(app.browser, category_map[root_category]):
@@ -1300,6 +1375,7 @@ class AbletonMCPExtended(ControlSurface):
                 "midi_effects": "midi_effects",
                 "plugins": "plugins",
                 "plug-ins": "plugins",
+                "user_library": "user_library",
             }
 
             if category_type not in category_map:
@@ -1346,12 +1422,10 @@ class AbletonMCPExtended(ControlSurface):
             raise
 
     def _load_browser_item(self, track_index, item_uri):
-        """Load a browser item onto a track by its URI."""
+        """Load a browser item onto a track by its URI.
+        track_index == -1 targets the master track (not in song.tracks)."""
         try:
-            if track_index < 0 or track_index >= len(self._song.tracks):
-                raise IndexError("Track index out of range")
-
-            track = self._song.tracks[track_index]
+            track = self._resolve_track(track_index)
             app = self.application()
 
             # Find the browser item by URI
@@ -1389,10 +1463,13 @@ class AbletonMCPExtended(ControlSurface):
 
             # Check root categories if this is the browser
             if hasattr(browser_or_item, 'instruments'):
-                for category in [browser_or_item.instruments, browser_or_item.sounds,
-                                browser_or_item.drums, browser_or_item.audio_effects,
-                                browser_or_item.midi_effects,
-                                browser_or_item.plugins]:
+                categories = [browser_or_item.instruments, browser_or_item.sounds,
+                              browser_or_item.drums, browser_or_item.audio_effects,
+                              browser_or_item.midi_effects,
+                              browser_or_item.plugins]
+                if hasattr(browser_or_item, 'user_library'):
+                    categories.append(browser_or_item.user_library)   # user .amxd devices live here
+                for category in categories:
                     item = self._find_browser_item_by_uri(category, uri, max_depth, current_depth + 1)
                     if item:
                         return item
@@ -1417,10 +1494,7 @@ class AbletonMCPExtended(ControlSurface):
     def _get_device_parameters(self, track_index, device_index):
         """Get all parameters for a device on a track."""
         try:
-            if track_index < 0 or track_index >= len(self._song.tracks):
-                raise IndexError("Track index out of range")
-
-            track = self._song.tracks[track_index]
+            track = self._resolve_track(track_index)
 
             if device_index < 0 or device_index >= len(track.devices):
                 raise IndexError("Device index out of range. Track has {} devices.".format(len(track.devices)))
@@ -1462,10 +1536,7 @@ class AbletonMCPExtended(ControlSurface):
     def _set_device_parameter(self, track_index, device_index, parameter_index, value):
         """Set a parameter value on a device."""
         try:
-            if track_index < 0 or track_index >= len(self._song.tracks):
-                raise IndexError("Track index out of range")
-
-            track = self._song.tracks[track_index]
+            track = self._resolve_track(track_index)
 
             if device_index < 0 or device_index >= len(track.devices):
                 raise IndexError("Device index out of range. Track has {} devices.".format(len(track.devices)))
@@ -1513,9 +1584,7 @@ class AbletonMCPExtended(ControlSurface):
     def _set_track_volume(self, track_index, volume):
         """Set track volume (0.0 to 1.0)"""
         try:
-            if track_index < 0 or track_index >= len(self._song.tracks):
-                raise IndexError("Track index out of range")
-            track = self._song.tracks[track_index]
+            track = self._resolve_track(track_index)
             clamped = max(0.0, min(1.0, volume))
             track.mixer_device.volume.value = clamped
             return {
@@ -1530,9 +1599,7 @@ class AbletonMCPExtended(ControlSurface):
     def _set_track_pan(self, track_index, pan):
         """Set track pan (-1.0 left to 1.0 right)"""
         try:
-            if track_index < 0 or track_index >= len(self._song.tracks):
-                raise IndexError("Track index out of range")
-            track = self._song.tracks[track_index]
+            track = self._resolve_track(track_index)
             clamped = max(-1.0, min(1.0, pan))
             track.mixer_device.panning.value = clamped
             return {
@@ -1546,9 +1613,7 @@ class AbletonMCPExtended(ControlSurface):
     def _set_send_level(self, track_index, send_index, level):
         """Set send level to return track (0.0 to 1.0)"""
         try:
-            if track_index < 0 or track_index >= len(self._song.tracks):
-                raise IndexError("Track index out of range")
-            track = self._song.tracks[track_index]
+            track = self._resolve_track(track_index)
             sends = track.mixer_device.sends
             if send_index < 0 or send_index >= len(sends):
                 raise IndexError("Send index out of range. Track has {} sends.".format(len(sends)))
@@ -1566,9 +1631,7 @@ class AbletonMCPExtended(ControlSurface):
     def _set_track_mute(self, track_index, mute):
         """Set track mute state"""
         try:
-            if track_index < 0 or track_index >= len(self._song.tracks):
-                raise IndexError("Track index out of range")
-            track = self._song.tracks[track_index]
+            track = self._resolve_track(track_index)
             track.mute = mute
             return {"track_index": track_index, "mute": track.mute}
         except Exception as e:
@@ -1578,9 +1641,7 @@ class AbletonMCPExtended(ControlSurface):
     def _set_track_solo(self, track_index, solo):
         """Set track solo state"""
         try:
-            if track_index < 0 or track_index >= len(self._song.tracks):
-                raise IndexError("Track index out of range")
-            track = self._song.tracks[track_index]
+            track = self._resolve_track(track_index)
             track.solo = solo
             return {"track_index": track_index, "solo": track.solo}
         except Exception as e:
@@ -1933,6 +1994,36 @@ class AbletonMCPExtended(ControlSurface):
             self.log_message("Error setting track monitor: " + str(e))
             raise
 
+    def _set_song_loop(self, loop):
+        """Enable/disable the arrangement loop. Returns the previous state so
+        callers can restore it. The resampling render disables the loop before
+        recording — with it on, record starts from the LOOP point, not the
+        playhead, and captures the wrong region."""
+        try:
+            prev = bool(self._song.loop)
+            self._song.loop = bool(loop)
+            return {"loop": bool(self._song.loop), "previous": prev}
+        except Exception as e:
+            self.log_message("Error setting song loop: " + str(e))
+            raise
+
+    def _delete_arrangement_clip(self, track_index, clip_index):
+        """Delete one arrangement clip from a track (persistent resampling tracks
+        clear last iteration's clips before writing new ones)."""
+        try:
+            if track_index < 0 or track_index >= len(self._song.tracks):
+                raise IndexError("Track index out of range")
+            track = self._song.tracks[track_index]
+            clips = list(track.arrangement_clips)
+            if clip_index < 0 or clip_index >= len(clips):
+                raise IndexError("Arrangement clip index out of range")
+            track.delete_clip(clips[clip_index])
+            return {"deleted": True, "track_index": track_index,
+                    "remaining": len(list(track.arrangement_clips))}
+        except Exception as e:
+            self.log_message("Error deleting arrangement clip: " + str(e))
+            raise
+
     def _set_record_mode(self, mode):
         """Set Song.record_mode (1 = arrangement record on, 0 = off). With capture
         tracks armed, record_mode=1 + start_playback records each stem in one pass."""
@@ -1965,9 +2056,7 @@ class AbletonMCPExtended(ControlSurface):
     def _delete_device(self, track_index, device_index):
         """Delete a device from track (DESTRUCTIVE)"""
         try:
-            if track_index < 0 or track_index >= len(self._song.tracks):
-                raise IndexError("Track index out of range")
-            track = self._song.tracks[track_index]
+            track = self._resolve_track(track_index)
             if device_index < 0 or device_index >= len(track.devices):
                 raise IndexError("Device index out of range")
             device_name = track.devices[device_index].name
@@ -1980,9 +2069,7 @@ class AbletonMCPExtended(ControlSurface):
     def _set_device_enabled(self, track_index, device_index, enabled):
         """Enable/disable a device"""
         try:
-            if track_index < 0 or track_index >= len(self._song.tracks):
-                raise IndexError("Track index out of range")
-            track = self._song.tracks[track_index]
+            track = self._resolve_track(track_index)
             if device_index < 0 or device_index >= len(track.devices):
                 raise IndexError("Device index out of range")
             device = track.devices[device_index]
@@ -1998,9 +2085,7 @@ class AbletonMCPExtended(ControlSurface):
     def _set_device_parameter_by_name(self, track_index, device_index, param_name, value):
         """Set device parameter by name (fuzzy match)"""
         try:
-            if track_index < 0 or track_index >= len(self._song.tracks):
-                raise IndexError("Track index out of range")
-            track = self._song.tracks[track_index]
+            track = self._resolve_track(track_index)
             if device_index < 0 or device_index >= len(track.devices):
                 raise IndexError("Device index out of range")
             device = track.devices[device_index]

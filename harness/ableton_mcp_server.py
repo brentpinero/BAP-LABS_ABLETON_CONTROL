@@ -352,7 +352,9 @@ _track_cache: Dict[str, Any] = {"t": 0.0, "names": []}
 
 
 def _track_names() -> List:
-    """Cached (index, name) list; only rebuilt when a name lookup is needed."""
+    """Cached (ref, name) list, rebuilt only on lookup. Covers ALL node types:
+    regular/group tracks (int index), master (-1), and returns ("return:N") — the
+    Remote Script's resolver now introspects every kind, so name lookup spans them."""
     now = time.time()
     if now - _track_cache["t"] < 3.0 and _track_cache["names"]:
         return _track_cache["names"]
@@ -365,32 +367,48 @@ def _track_names() -> List:
             names.append((i, ti.get("name", f"Track {i}")))
         except Exception:
             names.append((i, f"Track {i}"))
+    try:                                          # master (index -1)
+        mi = _cmd("get_track_info", {"track_index": -1})
+        names.append((-1, mi.get("name", "Master")))
+    except Exception:
+        names.append((-1, "Master"))
+    try:                                          # return tracks ("return:N")
+        for k, r in enumerate(_cmd("get_return_tracks").get("return_tracks", [])):
+            names.append((f"return:{k}", r.get("name", f"Return {k}")))
+    except Exception:
+        pass
     _track_cache.update(t=now, names=names)
     return names
 
 
-def _resolve_track(track: Union[int, str]) -> int:
-    """Accept a track index (int/numeric string) or a track NAME and return the index."""
+def _resolve_track(track: Union[int, str]) -> Union[int, str]:
+    """Resolve a track index/name to a ref the Remote Script understands: an int
+    index, -1 for master, or 'return:N'. Names are matched across every node type;
+    'master'/'main' and 'return:N' refs pass straight through to the server resolver."""
     if isinstance(track, bool):  # guard: bool is a subclass of int
         raise Exception(f"Invalid track reference: {track}")
     if isinstance(track, int):
         return track
     s = str(track).strip()
+    low = s.lower()
     if s.lstrip("-").isdigit():
         return int(s)
+    if low in ("master", "main"):
+        return -1
+    if low.startswith("return:") or low.startswith("r:"):
+        return s                                  # server resolves 'return:N'
     names = _track_names()
-    low = s.lower()
-    for i, n in names:  # exact (case-insensitive)
+    for ref, n in names:  # exact (case-insensitive)
         if n.lower() == low:
-            return i
-    for i, n in names:  # partial
+            return ref
+    for ref, n in names:  # partial
         if low in n.lower():
-            return i
-    available = ", ".join(f"{i}:{n}" for i, n in names) or "(none)"
+            return ref
+    available = ", ".join(f"{ref}:{n}" for ref, n in names) or "(none)"
     raise Exception(f"No track matching '{s}'. Available -> {available}")
 
 
-def _resolve_tracks(tracks: List[Union[int, str]]) -> List[int]:
+def _resolve_tracks(tracks: List[Union[int, str]]) -> List[Union[int, str]]:
     return [_resolve_track(t) for t in tracks]
 
 

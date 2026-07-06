@@ -356,52 +356,58 @@ class UnifiedMCPBridge:
                 tracks.append({
                     "index": i,
                     "name": result.get("name", f"Track {i}"),
-                    "type": "audio" if result.get("is_audio_track") else "midi",
+                    "type": result.get("kind", "audio" if result.get("is_audio_track") else "midi"),
                     "mute": result.get("mute", False),
                     "solo": result.get("solo", False),
                 })
+
+        # master (-1) + returns ("return:N") so name/ref resolution spans every kind
+        mi = self.ableton_command_raw("get_track_info", {"track_index": -1})
+        if mi.get("status") == "success":
+            tracks.append({"index": -1, "name": mi["result"].get("name", "Master"),
+                           "type": "master", "mute": False, "solo": False})
+        rt = self.ableton_command_raw("get_return_tracks")
+        if rt.get("status") == "success":
+            for k, r in enumerate(rt["result"].get("return_tracks", [])):
+                tracks.append({"index": f"return:{k}", "name": r.get("name", f"Return {k}"),
+                               "type": "return", "mute": r.get("mute", False), "solo": r.get("solo", False)})
 
         self._track_cache = tracks
         self._track_cache_time = now
         return tracks
 
-    def resolve_track(self, identifier) -> int:
-        """Resolve track name OR index to index. Enables name-based lookups.
+    def resolve_track(self, identifier):
+        """Resolve a track name/index to a ref the Remote Script understands: an int
+        index, -1 for master, or 'return:N'. Returns None if not found.
 
-        Args:
-            identifier: Track name (str), partial name, or index (int)
-
-        Returns:
-            Track index (int), or -1 if not found
+        NOTE: not-found is None (was -1, which collided with the master convention).
 
         Examples:
-            resolve_track("Drums") → 2
-            resolve_track("drum") → 2 (partial match)
-            resolve_track(2) → 2 (passthrough)
+            resolve_track("Drums") → 2 ;  resolve_track("Master") → -1
+            resolve_track("A-Reverb") → "return:0" ;  resolve_track(2) → 2
         """
-        # Already an index
+        if isinstance(identifier, bool):
+            return None
         if isinstance(identifier, int):
             return identifier
+        s = str(identifier).strip()
+        low = s.lower()
+        if s.lstrip("-").isdigit():
+            return int(s)
+        if low in ("master", "main"):
+            return -1
+        if low.startswith("return:") or low.startswith("r:"):
+            return s                              # server resolves 'return:N'
 
-        # Try to parse as int string
-        if isinstance(identifier, str) and identifier.isdigit():
-            return int(identifier)
-
-        # Name-based lookup
         tracks = self.get_all_tracks()
-        identifier_lower = str(identifier).lower()
-
-        # Exact match first
-        for track in tracks:
-            if track["name"].lower() == identifier_lower:
+        for track in tracks:                      # exact match first
+            if track["name"].lower() == low:
+                return track["index"]
+        for track in tracks:                      # partial match (contains)
+            if low in track["name"].lower():
                 return track["index"]
 
-        # Partial match (contains)
-        for track in tracks:
-            if identifier_lower in track["name"].lower():
-                return track["index"]
-
-        return -1  # Not found
+        return None  # Not found
 
     def resolve_tracks(self, identifiers: list) -> list:
         """Resolve multiple track names/indices to indices.
@@ -415,7 +421,7 @@ class UnifiedMCPBridge:
         resolved = []
         for ident in identifiers:
             idx = self.resolve_track(ident)
-            if idx >= 0:
+            if idx is not None:                   # None = not found (-1 is master)
                 resolved.append(idx)
         return resolved
 
@@ -458,10 +464,10 @@ class UnifiedMCPBridge:
         # Auto-resolve track names to indices
         resolved_params = {}
         for key, value in params.items():
-            if "track" in key.lower() and isinstance(value, str) and not value.isdigit():
-                # This looks like a track name, resolve it
+            if "track" in key.lower() and isinstance(value, str) and not value.lstrip("-").isdigit():
+                # Looks like a track name/ref, resolve it (may yield int, -1, or 'return:N')
                 resolved = self.resolve_track(value)
-                if resolved < 0:
+                if resolved is None:
                     return {"status": "error", "message": f"Track not found: {value}"}
                 resolved_params[key] = resolved
             else:

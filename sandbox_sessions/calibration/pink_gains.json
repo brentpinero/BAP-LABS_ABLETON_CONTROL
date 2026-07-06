@@ -1,0 +1,14 @@
+{
+  "band_scheme": "v1_7band",
+  "FS": 44100,
+  "source": "live pink_fullband on CalTone-Mid, g_i=sqrt(fft_i/biquad_i) norm max=1",
+  "gains": [
+    0.855574,
+    0.671861,
+    0.53008,
+    0.647519,
+    0.6391,
+    0.683796,
+    1.0
+  ]
+}

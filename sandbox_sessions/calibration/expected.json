@@ -1,0 +1,111 @@
+{
+  "scheme": "v1_7band",
+  "sr": 44100,
+  "band_names": [
+    "sub",
+    "low",
+    "low_mid",
+    "mid",
+    "hi_mid",
+    "presence",
+    "air"
+  ],
+  "tones": {
+    "sine_40hz": {
+      "kind": "sine",
+      "arg_hz": 40.0,
+      "dbfs": -12.0,
+      "wav": "sine_40hz.wav",
+      "fractions": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "dominant_band": "sub"
+    },
+    "sine_90hz": {
+      "kind": "sine",
+      "arg_hz": 90.0,
+      "dbfs": -12.0,
+      "wav": "sine_90hz.wav",
+      "fractions": [
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "dominant_band": "low"
+    },
+    "sine_1khz": {
+      "kind": "sine",
+      "arg_hz": 1000.0,
+      "dbfs": -12.0,
+      "wav": "sine_1khz.wav",
+      "fractions": [
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "dominant_band": "mid"
+    },
+    "sine_4khz": {
+      "kind": "sine",
+      "arg_hz": 4000.0,
+      "dbfs": -12.0,
+      "wav": "sine_4khz.wav",
+      "fractions": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "dominant_band": "hi_mid"
+    },
+    "sine_8khz": {
+      "kind": "sine",
+      "arg_hz": 8000.0,
+      "dbfs": -12.0,
+      "wav": "sine_8khz.wav",
+      "fractions": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      "dominant_band": "presence"
+    },
+    "pink_fullband": {
+      "kind": "pink",
+      "arg_hz": 0.0,
+      "dbfs": -18.0,
+      "wav": "pink_fullband.wav",
+      "fractions": [
+        0.177221,
+        0.11735,
+        0.143819,
+        0.245275,
+        0.149015,
+        0.096052,
+        0.071268
+      ],
+      "dominant_band": "mid"
+    }
+  }
+}

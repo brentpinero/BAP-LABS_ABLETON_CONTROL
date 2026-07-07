@@ -8,8 +8,12 @@ plugin~ input pairs are scriptable output-routing channels, so N source tracks a
 fed in via thin capture tracks under script control.
 
 Per pair k (0..N-1):
-  plugin~(2k+1)+plugin~(2k+2) -> +~ (mono) -> 7x biquad~ <calibrated coeffs+gains>
-  -> average~ RMS -> snapshot~ -> pak(7) -> prepend /agg/ch/<k>/spectrum -> udpsend 9886
+  mid = L+R -> 7x biquad~ <calibrated coeffs+gains> -> average~ RMS -> snapshot~ ]
+  side = L-R -> average~ RMS -> snapshot~                                        ] -> pak(7+1)
+  -> prepend /agg/ch/<k>/spectrum -> udpsend 9886   (7 band RMS + 1 side RMS)
+
+The side RMS lets the bridge derive stereo width + correlation (mid/side), so the
+aggregator reaches full parity with a per-track device (spectrum + level + stereo).
 
 Raw per-band RMS per channel goes to :9886; a Python receiver maps channel->track-id
 (the provisioning map) + normalizes (v^2/total, same as track_ears) into the existing
@@ -65,13 +69,24 @@ def main(n_pairs=8):
         pl_lo, pl_hi = "p%d" % lo_ch, "p%d" % hi_ch
         boxes.append(box(pl_lo, "plugin~ %d" % lo_ch, x0, y0, 0, 1, ["signal"]))
         boxes.append(box(pl_hi, "plugin~ %d" % hi_ch, x0, y0 + 20, 0, 1, ["signal"]))
-        summ = "sum%d" % k
+        summ = "sum%d" % k                        # mid = L+R (spectrum + level)
         boxes.append(box(summ, "+~", x0 + 100, y0, 2, 1, ["signal"]))
         lines.append(line(pl_lo, 0, summ, 0))
         lines.append(line(pl_hi, 0, summ, 1))
-        # per-band biquad -> rms -> snapshot -> pak
+        # side = L-R -> RMS -> the extra pak inlet (bridge derives width + correlation)
+        side = "side%d" % k
+        boxes.append(box(side, "-~", x0 + 100, y0 + 24, 2, 1, ["signal"]))
+        lines.append(line(pl_lo, 0, side, 0))
+        lines.append(line(pl_hi, 0, side, 1))
+        sav, ssn = "sideav%d" % k, "sidesn%d" % k
+        boxes.append(box(sav, "average~ 1024 @mode rms", x0 + 200, y0 + 24, 150, 1, ["signal"]))
+        boxes.append(box(ssn, "snapshot~ 60", x0 + 260, y0 + 24, 90, 1, [""]))
+        lines.append(line(side, 0, sav, 0))
+        lines.append(line(sav, 0, ssn, 0))
+        # per-band biquad -> rms -> snapshot -> pak; +1 inlet for side RMS
         pak = "obj-pak%d" % k
-        boxes.append(box(pak, "pak " + " ".join(["0."] * nb), x0 + 100, y0 + 200, nb, 1, [""]))
+        boxes.append(box(pak, "pak " + " ".join(["0."] * (nb + 1)), x0 + 100, y0 + 200, nb + 1, 1, [""]))
+        lines.append(line(ssn, 0, pak, nb))       # side RMS -> last pak inlet
         prep = "obj-prep%d" % k
         boxes.append(box(prep, "prepend /agg/ch/%d/spectrum" % k, x0 + 100, y0 + 224, 1, 1, [""]))
         lines.append(line(pak, 0, prep, 0))

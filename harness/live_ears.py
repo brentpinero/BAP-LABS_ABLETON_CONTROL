@@ -66,6 +66,7 @@ async def main() -> None:
     from mix_analysis_bridge import MixAnalysisBridge
     from perception_stream import FrameEmitter
     from perception_config import cfg
+    from aggregator_bridge import AggregatorBridge
 
     bridge = MixAnalysisBridge(port=9880)
     transport = await bridge.start()
@@ -73,17 +74,45 @@ async def main() -> None:
     # expose for the focus lane (sets current focus) and future in-process consumers
     main.emitter = emitter  # type: ignore[attr-defined]
 
+    # multichannel aggregator translator: /agg/ch/<k> (:9886) -> /track/<id> (:9880),
+    # so aggregated nodes feed the SAME bridge as per-track devices. Map is hot-loaded
+    # from the provisioning state so re-provisioning takes effect without a restart.
+    agg_bridge = AggregatorBridge()
+    main.agg_bridge = agg_bridge  # type: ignore[attr-defined]
+
     print(f"[EARS] snapshotting to {SNAPSHOT_PATH} every {WRITE_INTERVAL_S}s")
     print(f"[EARS] perception push @ {cfg('frame_rate_hz')}Hz -> OSC "
-          f"{cfg('push_host')}:{cfg('push_port')} + {emitter.snapshot_path} (Ctrl-C to stop)")
+          f"{cfg('push_host')}:{cfg('push_port')} + {emitter.snapshot_path}")
+    print(f"[EARS] aggregator bridge on :{agg_bridge.recv_port} -> :9880 (Ctrl-C to stop)")
     try:
         await asyncio.gather(
             _snapshot_writer(bridge),
             emitter.run(),
             emitter.snapshot_writer(),
+            agg_bridge.run(),
+            _agg_map_watcher(agg_bridge),
         )
     finally:
         transport.close()
+
+
+async def _agg_map_watcher(agg_bridge) -> None:
+    """Hot-reload the aggregator channel->track map when provisioning state changes."""
+    state = _ROOT / "sandbox_sessions" / "aggregator_state.json"
+    last = None
+    while True:
+        try:
+            mt = state.stat().st_mtime if state.exists() else None
+            if mt != last:
+                last = mt
+                agg_bridge.clear()
+                if mt:
+                    m = json.loads(state.read_text()).get("map", {})
+                    agg_bridge.set_map({int(k): v for k, v in m.items()})
+                    print(f"[EARS] aggregator map: {len(agg_bridge.map)} channels", flush=True)
+        except Exception:
+            pass
+        await asyncio.sleep(2.0)
 
 
 # --------------------------------------------------------------------------

@@ -52,22 +52,34 @@ def derive(raw_bands, gate_db=None):
     return fracs, rms_db, lin
 
 
-def build_track_messages(track_id, meta, raw_bands, scheme):
+def build_track_messages(track_id, meta, raw_values, scheme):
     """The /track/<id>/* OSC messages equivalent to a per-track device, as
     (address, args) tuples. Shapes match mix_analysis_bridge exactly:
       meta:  name kind group_id band_scheme
       levels: rms_l rms_r peak_l peak_r mid side
       spectrum: b0..bN
-      stereo: correlation mid side"""
-    fracs, rms_db, lin = derive(raw_bands)
+      stereo: correlation mid side
+
+    raw_values = N band RMS + 1 side RMS (the aggregator's per-channel payload). Real
+    stereo is derived from mid (bands) + side: assuming mid/side are ~uncorrelated,
+    correlation ~ (mid_pow - side_pow)/(mid_pow + side_pow)."""
+    import bands as _b
+    nb = _b.n_bands(scheme)
+    raw_bands = list(raw_values[:nb])
+    side_lin = float(raw_values[nb]) if len(raw_values) > nb else 0.0
+    fracs, _mid_db, mid_lin = derive(raw_bands)
+    mid_p, side_p = mid_lin * mid_lin, side_lin * side_lin
+    tot = mid_p + side_p
+    overall = math.sqrt(tot)
+    rms_db = 20.0 * math.log10(overall) if overall > 1e-9 else SILENCE_DB
+    corr = (mid_p - side_p) / tot if tot > 1e-18 else 1.0
     base = "/track/%s" % track_id
     return [
         (base + "/meta", [meta.get("name", ""), meta.get("kind", "audio"),
                           str(meta.get("group_id", "-1")), scheme]),
-        # mono-derived: L=R, no true peak (peak≈rms), mid=overall energy, side=0
-        (base + "/levels", [rms_db, rms_db, rms_db, rms_db, lin, 0.0]),
+        (base + "/levels", [rms_db, rms_db, rms_db, rms_db, mid_lin, side_lin]),
         (base + "/spectrum", list(fracs)),
-        (base + "/stereo", [1.0, lin, 0.0]),      # correlation=1, mono placeholder
+        (base + "/stereo", [corr, mid_lin, side_lin]),
     ]
 
 

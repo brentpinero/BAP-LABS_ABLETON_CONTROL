@@ -61,6 +61,19 @@ class TestMessages(unittest.TestCase):
         self.assertEqual(len(msgs["/track/42/stereo"]), 3)          # corr mid side
         self.assertAlmostEqual(sum(msgs["/track/42/spectrum"]), 1.0, places=5)
 
+    def test_stereo_from_side_rms(self):
+        meta = {"name": "x", "kind": "audio"}
+        # mono channel (side RMS = 0) -> correlation ~ 1, side 0
+        mono = dict(build_track_messages("1", meta, [0.0, 0.4, 0.0, 0.2, 0.0, 0.0, 0.0, 0.0], "v1_7band"))
+        st = mono["/track/1/stereo"]
+        self.assertAlmostEqual(st[0], 1.0, places=3)
+        self.assertEqual(st[2], 0.0)
+        # wide channel (side ~ mid) -> correlation ~ 0
+        wide = dict(build_track_messages("1", meta, [0.0, 0.3, 0.0, 0.0, 0.0, 0.0, 0.0, 0.3], "v1_7band"))
+        stw = wide["/track/1/stereo"]
+        self.assertLess(stw[0], 0.3)                    # correlation collapses with side energy
+        self.assertGreater(stw[2], 0.0)
+
 
 class TestBridge(unittest.TestCase):
     def _bridge(self):

@@ -32,7 +32,7 @@ from pathlib import Path
 
 from live_client import LiveClient
 from perception_select import gather_nodes, select_nodes, selection_summary
-from swap_ears_to_biquad import find_uri
+from swap_ears_to_biquad import BIQUAD, find_uri
 
 AGG_TRACK = "AGG_ANALYSIS"
 CAP_PREFIX = "CAPX_"
@@ -123,6 +123,37 @@ def apply(c, items):
     return bmap
 
 
+def commit(c):
+    """DESTRUCTIVE: remove the per-track biquad device from every non-master track so
+    the aggregator becomes the SOLE analysis source (master keeps its own device).
+    Idempotent + resumable (a re-run only touches tracks that still have the device).
+    Throttled so a mass device-delete doesn't stress Live."""
+    n = int(c.send("get_session_info").get("track_count", 0))
+    removed, failed, skipped = 0, [], 0
+    for i in range(n):
+        try:
+            ti = c.send("get_track_info", {"track_index": i})
+            guard = 0
+            while guard < 4:
+                idx = next((d["index"] for d in ti.get("devices", []) if d["name"] == BIQUAD), None)
+                if idx is None:
+                    break
+                c.send("delete_device", {"track_index": i, "device_index": idx})
+                time.sleep(0.4)
+                ti = c.send("get_track_info", {"track_index": i})
+                removed += 1
+                guard += 1
+            if guard == 0:
+                skipped += 1
+            if (i + 1) % 15 == 0:
+                print(f"  [commit] {i + 1}/{n} tracks scanned, {removed} devices removed", flush=True)
+        except Exception as e:
+            failed.append((i, str(e)[:30]))
+    print(f"[commit] removed {removed} per-track biquad devices "
+          f"({skipped} tracks had none); failures {len(failed)}: {failed[:5]}")
+    return removed, failed
+
+
 def teardown(c):
     if not STATE.exists():
         print("no state file; nothing to tear down"); return
@@ -139,10 +170,15 @@ def teardown(c):
 
 
 def main(argv):
-    mode = "--apply" if "--apply" in argv else "--teardown" if "--teardown" in argv else "--dry-run"
+    mode = ("--apply" if "--apply" in argv else "--teardown" if "--teardown" in argv
+            else "--commit" if "--commit" in argv else "--dry-run")
     with LiveClient(timeout=40) as c:
         if mode == "--teardown":
             teardown(c); return 0
+        if mode == "--commit":
+            print("[commit] removing per-track biquad devices on all non-master tracks "
+                  "(aggregator becomes the sole source)...")
+            commit(c); return 0
         items, sel, skipped = plan(c)
         print(f"selection: {len(sel)} nodes ({selection_summary(sel)}); "
               f"routing {len(items)} to the aggregator (master keeps its own device):\n")

@@ -9,28 +9,27 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from calibrate_latency import (calibrate, detect_onsets, energy_series, phase,
-                               residual_latency_s)
+from calibrate_latency import (calibrate, phase, residual_latency_s, transient_beats)
 
 
 def synth_steps(n_beats=8, bpm=120.0, offset_beats=0.0, sig=4, fps=25, playing=True):
-    """A synthetic 4-on-floor: a low-band kick spike at each integer beat + `offset_beats`
-    (simulating the frame clock running `offset` ahead of the audio)."""
+    """A synthetic beat-locked loop: a master-RMS transient at each integer beat +
+    `offset_beats` (simulating the frame clock running `offset` ahead of the audio).
+    Between hits the master RMS sits at a sustained floor (mimics sustained sub — the
+    flux detector must still fire on the attack)."""
     fpb = fps * 60.0 / bpm                       # frames per beat
     total = int(n_beats * fpb)
     kick_frames = {int(round((k + offset_beats) * fpb)) for k in range(n_beats)}
     steps = []
     for i in range(total):
         abs_beat = i / fpb
-        kick = i in kick_frames
-        rms = -6.0 if kick else -32.0
-        low = 0.85 if kick else 0.15
+        rms = -6.0 if i in kick_frames else -18.0    # +12 dB attack on each hit
         bar = int(abs_beat // sig)
         steps.append({"step": i, "t_wall": i / fps, "playing": playing, "frame": {
             "playing": playing, "bpm": bpm, "bar": bar, "beat": abs_beat - bar * sig,
             "beats_per_bar": sig,
-            "role_state": {"drums": {"bands": [low, low * 0.4, 0.0, 0.0, 0.0, 0.0, 0.0],
-                                     "rms_db": rms, "width": 0.0}}}})
+            "role_state": {"master": {"bands": [0.4, 0.3, 0.1, 0.1, 0.1, 0.0, 0.0],
+                                      "rms_db": rms, "width": 0.0}}}})
     return steps
 
 
@@ -50,14 +49,13 @@ class TestPhaseMath(unittest.TestCase):
 
 class TestOnsetDetection(unittest.TestCase):
     def test_finds_one_onset_per_beat(self):
-        onsets = detect_onsets(energy_series(synth_steps(n_beats=8, offset_beats=0.0)))
+        onsets = transient_beats(synth_steps(n_beats=8, offset_beats=0.0))
         self.assertGreaterEqual(len(onsets), 6)           # ~8, allow edge losses
         for b in onsets:                                  # each lands near an integer beat
             self.assertLess(abs(phase(b)), 0.15)
 
-    def test_energy_series_skips_stopped_frames(self):
-        series = energy_series(synth_steps(n_beats=4, playing=False))
-        self.assertEqual(series, [])
+    def test_skips_stopped_frames(self):
+        self.assertEqual(transient_beats(synth_steps(n_beats=4, playing=False)), [])
 
 
 class TestCalibrateEndToEnd(unittest.TestCase):

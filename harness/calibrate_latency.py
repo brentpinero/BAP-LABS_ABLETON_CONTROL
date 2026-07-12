@@ -34,7 +34,7 @@ from perception_recorder import load_trajectory
 
 _ROOT = Path(__file__).resolve().parent.parent
 CALIB = _ROOT / "sandbox_sessions" / "calibration" / "perception_latency.json"
-LOW_ROLES = ("drums", "master")                # where a kick's low-band energy shows up
+FLUX_ROLE = "master"                            # broadband transients live on the full mix
 
 
 def phase(abs_beat: float) -> float:
@@ -42,44 +42,24 @@ def phase(abs_beat: float) -> float:
     return abs_beat - round(abs_beat)
 
 
-def energy_series(steps, roles=LOW_ROLES):
-    """(t_wall, absolute_beat, low_band_linear_energy) per playing step."""
-    out = []
+def transient_beats(steps, role=FLUX_ROLE, flux_db: float = 3.0,
+                    refractory_beats: float = 0.25):
+    """Absolute-beat positions of broadband transient ONSETS — rising edges in the role's
+    RMS (kick/snare/click attacks). Uses RMS flux, NOT low-band level: sustained sub-bass
+    keeps the low band persistently high (no clean edges), but a transient still bumps the
+    master RMS. refractory suppresses multi-frame double-triggers of one hit."""
+    onsets, last, prev = [], -1e9, None
     for s in steps:
         f = s.get("frame", {})
         if not f.get("playing", s.get("playing", False)):
+            prev = None
             continue
-        rs = f.get("role_state", {})
-        e = 0.0
-        for r in roles:
-            st = rs.get(r)
-            if not st:
-                continue
-            bands = st.get("bands") or []
-            low = (bands[0] if len(bands) > 0 else 0.0) + (bands[1] if len(bands) > 1 else 0.0)
-            rms = st.get("rms_db", -120.0)
-            lin = 10.0 ** (rms / 20.0) if rms > -119.0 else 0.0
-            e += lin * low
+        rms = f.get("role_state", {}).get(role, {}).get("rms_db", -120.0)
         abs_beat = f.get("bar", 0) * f.get("beats_per_bar", 4) + f.get("beat", 0.0)
-        out.append((s.get("t_wall", 0.0), abs_beat, e))
-    return out
-
-
-def detect_onsets(series, k: float = 1.8, refractory_beats: float = 0.3):
-    """Absolute-beat positions of low-band energy rising edges (kick hits). A rising edge
-    = energy crosses above k * median(nonzero energy); refractory suppresses double-triggers."""
-    if len(series) < 2:
-        return []
-    nz = [e for _, _, e in series if e > 0]
-    if not nz:
-        return []
-    thr = k * statistics.median(nz)
-    onsets, last = [], -1e9
-    for i in range(1, len(series)):
-        _, b, e = series[i]
-        if e >= thr > series[i - 1][2] and (b - last) >= refractory_beats:
-            onsets.append(b)
-            last = b
+        if prev is not None and rms - prev >= flux_db and (abs_beat - last) >= refractory_beats:
+            onsets.append(abs_beat)
+            last = abs_beat
+        prev = rms
     return onsets
 
 
@@ -90,19 +70,19 @@ def residual_latency_s(onset_beats, bpm: float) -> float:
     return statistics.median(phase(b) for b in onset_beats) * 60.0 / bpm
 
 
-def calibrate(session, roles=LOW_ROLES, current_latency=None) -> dict:
+def calibrate(session, role=FLUX_ROLE, current_latency=None) -> dict:
     """Analyze a recorded session -> the corrected audio_latency_s (and diagnostics)."""
     traj = load_trajectory(session)
     steps = traj["steps"]
     bpm = next((s["frame"].get("bpm", 0.0) for s in steps if s.get("frame")), 0.0)
-    series = energy_series(steps, roles)
-    onsets = detect_onsets(series)
+    playing = sum(1 for s in steps if s.get("frame", {}).get("playing"))
+    onsets = transient_beats(steps, role)
     cur = float(cfg("audio_latency_s")) if current_latency is None else float(current_latency)
     residual = residual_latency_s(onsets, bpm)
     new_latency = max(0.0, cur + residual)
     return {
         "session": str(session), "bpm": bpm, "steps": len(steps),
-        "playing_steps": len(series), "onsets": len(onsets),
+        "playing_steps": playing, "onsets": len(onsets),
         "current_latency_s": round(cur, 4), "residual_s": round(residual, 4),
         "new_latency_s": round(new_latency, 4),
     }
@@ -129,9 +109,9 @@ def main(argv) -> int:
         return 2
     r = calibrate(session)
     print(f"session {Path(r['session']).name}: {r['playing_steps']} playing frames, "
-          f"{r['onsets']} kick onsets @ {r['bpm']:.1f} BPM")
-    if r["onsets"] < 4:
-        print("  too few onsets to trust — play a clearer 4-on-floor / kick loop and re-record.")
+          f"{r['onsets']} transient onsets @ {r['bpm']:.1f} BPM")
+    if r["onsets"] < 8:
+        print("  too few onsets to trust — play a clearer beat (audible kick/snare) and re-record.")
     print(f"  current latency {r['current_latency_s']*1000:.0f} ms  +  residual "
           f"{r['residual_s']*1000:+.0f} ms  ->  {r['new_latency_s']*1000:.0f} ms")
     if apply:

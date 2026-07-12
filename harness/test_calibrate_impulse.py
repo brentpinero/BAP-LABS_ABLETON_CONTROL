@@ -6,7 +6,8 @@ live orchestration (LiveClient click track) needs Ableton and isn't unit-tested.
 
 import unittest
 
-from calibrate_impulse import click_notes, latency_from_steps
+from calibrate_impulse import (click_notes, detect_env_onsets, interp_beats,
+                               latency_from_onsets, latency_from_steps)
 from test_calibrate_latency import synth_steps
 
 
@@ -36,6 +37,38 @@ class TestLatencyFromSteps(unittest.TestCase):
     def test_skips_stopped_frames(self):
         r = latency_from_steps(synth_steps(n_beats=8, playing=False))
         self.assertEqual(r["onsets"], 0)
+
+
+class TestOnsetStream(unittest.TestCase):
+    def _env(self, onset_ts, fps=200, dur=2.0):
+        # a 200 Hz envelope: ~0 between hits, a sharp spike at each onset time
+        n = int(dur * fps)
+        s = []
+        for i in range(n):
+            t = i / fps
+            v = 1.0 if any(0 <= t - ot < 0.01 for ot in onset_ts) else 0.02
+            s.append((t, v))
+        return s
+
+    def test_detect_env_onsets_subsample(self):
+        got = detect_env_onsets(self._env([0.10, 0.60, 1.10]))
+        self.assertEqual(len(got), 3)
+        for want, g in zip([0.10, 0.60, 1.10], got):
+            self.assertAlmostEqual(g, want, delta=0.006)      # ~5 ms resolution
+
+    def test_interp_beats_linear(self):
+        anchors = [(0.0, 0.0), (10.0, 20.0)]                  # 2 beats/s (120 BPM)
+        self.assertAlmostEqual(interp_beats(anchors, 0.5), 1.0, places=6)
+        self.assertAlmostEqual(interp_beats(anchors, 5.0), 10.0, places=6)
+
+    def test_latency_from_onsets_recovers(self):
+        # onsets 0.05 beat past each integer beat @120 BPM -> 25 ms latency
+        anchors = [(0.0, 0.0), (10.0, 20.0)]                  # beat = 2 * t_wall
+        onset_ts = [(k + 0.05) / 2.0 for k in range(1, 12)]   # wall time of beat k+0.05
+        r = latency_from_onsets(onset_ts, anchors, bpm=120.0)
+        self.assertEqual(r["usable"], 11)
+        self.assertAlmostEqual(r["latency_s"], 0.025, delta=0.004)
+        self.assertLess(r["spread_s"], 0.005)
 
 
 if __name__ == "__main__":

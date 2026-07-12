@@ -39,6 +39,7 @@ from pathlib import Path
 import bands
 # reuse the proven codegen + calibration so master/per-track banks never drift
 from build_pertrack_device import FS, _load_gains, bandpass_coeffs, box, line
+from perception_config import cfg
 
 HERE = Path(__file__).resolve().parent
 BASE = HERE / "Mix Analysis Hub.maxpat"
@@ -95,6 +96,20 @@ def main(gains=None):
         lines.append(line(sn, 0, "obj-spec-pak", i))
         y += 40
 
+    # 1b) SHARP-ONSET TAP: a SHORT-window (~6 ms) RMS envelope of the mono master, sampled
+    #     at 200 Hz to a DEDICATED port. The main /mix RMS uses average~ 2048 (smooth CONTENT
+    #     but ~46 ms-smeared, useless for onset timing); this fast tap gives ~5-6 ms onset
+    #     resolution for latency calibration. Only the calibrate probe listens on this port.
+    onset_port = int(cfg("onset_osc_port"))
+    boxes.append(box("obj-onset-env", "average~ 256 @mode rms", 620, 560, 170, 1, 1, ["signal"]))
+    boxes.append(box("obj-onset-snap", "snapshot~ 5", 620, 588, 110, 1, 1, [""]))
+    boxes.append(box("obj-onset-prep", "prepend /mix/onset", 620, 616, 150, 1, 1, [""]))
+    boxes.append(box("obj-onset-udp", "udpsend 127.0.0.1 %d" % onset_port, 620, 644, 170, 1, 0, []))
+    lines.append(line("obj-mid-scale", 0, "obj-onset-env", 0))    # mono master -> fast envelope
+    lines.append(line("obj-onset-env", 0, "obj-onset-snap", 0))
+    lines.append(line("obj-onset-snap", 0, "obj-onset-prep", 0))
+    lines.append(line("obj-onset-prep", 0, "obj-onset-udp", 0))
+
     # 2) AUTOSTART the device DSP when loaded (live.thisdevice -> the enable toggle). No js
     #    bang / meta-metro anymore — there is no js to identify.
     if toggle_id:
@@ -134,7 +149,8 @@ def main(gains=None):
     OUT.write_text(json.dumps(d, indent=1))
     json.loads(OUT.read_text())                      # validate round-trip
     print(f"wrote {OUT.name}: {len(boxes)} boxes, {len(lines)} lines  (FS={FS:g}Hz)")
-    print("emits: /mix/levels /mix/stereo /mix/spectrum only (no js, transport LOM-sourced)")
+    print("emits: /mix/levels /mix/stereo /mix/spectrum @ :9880  +  /mix/onset (fast env, "
+          "200Hz) @ :%d for latency calibration" % int(cfg("onset_osc_port")))
     print(f"biquad bandpass bands ({n}): " +
           ", ".join(f"{nm}[{lo:g}-{hi:g}] fc={math.sqrt(lo*hi):.0f} g={g:.2f}"
                     for (nm, (lo, hi), g) in zip(names, edges, gains)))

@@ -44,10 +44,61 @@ from pathlib import Path
 
 from perception_config import cfg
 from perception_recorder import iter_trajectory
-from calibrate_latency import residual_latency_s, transient_beats, write_calibration
+from calibrate_latency import phase, residual_latency_s, transient_beats, write_calibration
 
 _ROOT = Path(__file__).resolve().parent.parent
 CAL_NAME = "CAL_IMPULSE"
+
+
+# ---- precise path: the 200 Hz /mix/onset envelope stream (source-side sharp tap) --------
+def detect_env_onsets(samples, k: float = 0.2, refractory_s: float = 0.15):
+    """Sub-sample onset times from the fast envelope stream [(t_wall, value), ...]:
+    linear-interpolated rising-edge crossings of k*peak. ~5 ms resolution (200 Hz), far
+    below the 40 ms frame floor."""
+    vals = [v for _, v in samples]
+    if len(vals) < 3 or max(vals) <= 0:
+        return []
+    thr = k * max(vals)
+    onsets, last = [], -1e9
+    for i in range(1, len(samples)):
+        (t0, v0), (t1, v1) = samples[i - 1], samples[i]
+        if v0 < thr <= v1 and (t0 - last) >= refractory_s and v1 > v0:
+            f = (thr - v0) / (v1 - v0)                       # fractional crossing
+            tc = t0 + f * (t1 - t0)
+            onsets.append(tc)
+            last = tc
+    return onsets
+
+
+def interp_beats(anchors, t: float):
+    """Song position (beats) at wall time t, linearly interpolated between LOM anchors
+    [(t_wall, song_beats), ...] (sorted). Robust to clock/tempo drift over the window."""
+    if not anchors:
+        return None
+    if t <= anchors[0][0]:
+        a, b = anchors[0], anchors[1] if len(anchors) > 1 else anchors[0]
+    elif t >= anchors[-1][0]:
+        a, b = anchors[-2] if len(anchors) > 1 else anchors[-1], anchors[-1]
+    else:
+        a = max((x for x in anchors if x[0] <= t), key=lambda x: x[0])
+        b = min((x for x in anchors if x[0] >= t), key=lambda x: x[0])
+    if b[0] == a[0]:
+        return a[1]
+    return a[1] + (b[1] - a[1]) * (t - a[0]) / (b[0] - a[0])
+
+
+def latency_from_onsets(onset_ts, anchors, bpm: float) -> dict:
+    """Median onset phase (beats off the nearest integer beat) -> latency seconds."""
+    import statistics
+    beats = [interp_beats(anchors, t) for t in onset_ts]
+    beats = [b for b in beats if b is not None]
+    phases = [phase(b) for b in beats]
+    if not phases or bpm <= 0:
+        return {"onsets": len(onset_ts), "usable": 0, "latency_s": 0.0, "spread_s": 0.0}
+    med = statistics.median(phases)
+    spread = statistics.pstdev(phases) if len(phases) > 1 else 0.0
+    return {"onsets": len(onset_ts), "usable": len(phases),
+            "latency_s": max(0.0, med * 60.0 / bpm), "spread_s": spread * 60.0 / bpm}
 
 
 def click_notes(n_beats: int, pitch: int = 72, dur: float = 0.1, vel: int = 110):
@@ -170,8 +221,98 @@ def run(record_s: float = 16.0, n_beats: int = 8, apply: bool = False) -> int:
     return 0
 
 
+def run_precise(record_s: float = 14.0, n_beats: int = 8, apply: bool = False) -> int:
+    """Precise latency via the source-side 200 Hz /mix/onset stream. Fires a HARD-ON-GRID
+    click (stop -> position 0 -> fire -> play, so clip beat 0 = song beat 0), listens to the
+    fast envelope directly (bypassing the 25 Hz frame + average~ 2048 smear), and dead-reckons
+    each onset's beat from LOM anchors. Measures the audio->observation floor to ~5 ms."""
+    import threading
+    from live_client import LiveClient
+    from pythonosc.dispatcher import Dispatcher
+    from pythonosc.osc_server import ThreadingOSCUDPServer
+
+    port = int(cfg("onset_osc_port"))
+    samples: list = []
+    disp = Dispatcher()
+    disp.map("/mix/onset", lambda addr, *a: samples.append((time.time(), float(a[0]) if a else 0.0)))
+    try:
+        server = ThreadingOSCUDPServer(("127.0.0.1", port), disp)
+    except OSError as e:
+        print(f"can't bind onset port {port}: {e} (is another probe running?)")
+        return 2
+    threading.Thread(target=server.serve_forever, daemon=True).start()
+
+    anchors: list = []
+    bpm = 0.0
+    idx = None
+    try:
+        with LiveClient(timeout=45) as c:
+            c.send("create_midi_track", {"index": -1}); time.sleep(0.4)
+            idx = int(c.send("get_session_info").get("track_count", 0)) - 1
+            c.send("set_track_name", {"track_index": idx, "name": CAL_NAME})
+            uri, iname = _find_instrument(c)
+            if not uri:
+                print("Couldn't find a core instrument in the browser.")
+                return 3
+            c.send("load_browser_item", {"track_index": idx, "item_uri": uri}); time.sleep(1.0)
+            c.send("create_clip", {"track_index": idx, "clip_index": 0, "length": float(n_beats)})
+            time.sleep(0.3)
+            c.send("add_notes_to_clip", {"track_index": idx, "clip_index": 0,
+                                         "notes": click_notes(n_beats)})
+            c.send("set_track_solo", {"track_index": idx, "solo": True})
+            c.send("stop_playback"); time.sleep(0.2)          # ON-GRID launch from a stop
+            c.send("set_current_position", {"position": 0.0}); time.sleep(0.2)
+            c.send("fire_clip", {"track_index": idx, "clip_index": 0})
+            c.send("start_playback")
+            print(f"CAL_IMPULSE ({iname}) firing ON-GRID (soloed); listening :{port} @200Hz "
+                  f"for {record_s:.0f}s...")
+            samples.clear()
+            t_end = time.time() + record_s
+            si = {}
+            while time.time() < t_end:                        # LOM anchors while onsets fill
+                ts = time.time(); si = c.send("get_session_info") or {}; tr = time.time()
+                anchors.append(((ts + tr) / 2.0, float(si.get("current_song_time", 0.0))))
+                time.sleep(0.2)
+            bpm = float(si.get("tempo", 0.0))
+            c.send("stop_clip", {"track_index": idx, "clip_index": 0})
+            c.send("set_track_solo", {"track_index": idx, "solo": False})
+    finally:
+        server.shutdown()
+        try:
+            with LiveClient(timeout=20) as c:
+                if idx is not None:
+                    c.send("set_track_solo", {"track_index": idx, "solo": False})
+                    c.send("delete_track", {"track_index": idx})
+                    print(f"cleaned up: deleted CAL_IMPULSE (track {idx})")
+        except Exception as e:
+            print(f"  cleanup warning ({e}); remove CAL_IMPULSE manually if it remains")
+
+    if not samples:
+        print(f"  no /mix/onset packets on :{port}. Reload the Master device (it needs the "
+              f"onset-tap rebuild) and confirm it's enabled.")
+        return 4
+    t0 = (anchors[0][0] + 1.5) if anchors else 0.0            # skip launch settle
+    win = [(t, v) for (t, v) in samples if t >= t0]
+    onsets = detect_env_onsets(win)
+    r = latency_from_onsets(onsets, anchors, bpm)
+    print(f"  {len(win)} onset-stream samples, {r['usable']} on-grid onsets @ {bpm:.1f} BPM")
+    if r["usable"] < 8:
+        print("  too few onsets — is the Master onset tap live and the click audible?")
+        return 5
+    print(f"  MEASURED pipeline latency: {r['latency_s']*1000:.1f} ms "
+          f"(within-run spread ±{r['spread_s']*1000:.1f} ms, {r['usable']} onsets)")
+    if apply:
+        p = write_calibration(r["latency_s"])
+        print(f"  wrote {p} — restart the ears daemon to apply.")
+    else:
+        print("  dry-run. Re-run with --apply to write the calibration file.")
+    return 0
+
+
 def main(argv) -> int:
-    return run(apply="--apply" in argv)
+    if "--frame" in argv:                          # legacy frame-based diagnostic
+        return run(apply="--apply" in argv)
+    return run_precise(apply="--apply" in argv)    # default: precise 200 Hz onset stream
 
 
 if __name__ == "__main__":

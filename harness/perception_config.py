@@ -83,6 +83,11 @@ DEFAULTS: dict[str, Any] = {
     # the transport position aligns with the audio the frame carries. 0 until measured;
     # calibrate_latency.py writes the real value to the calibration file loaded below.
     "audio_latency_s": 0.0,
+    # sharp-onset tap: the master device emits a fast, short-window (~6 ms) RMS envelope
+    # at ~200 Hz to a DEDICATED port so latency can be measured with ~5 ms resolution
+    # (the main /mix RMS uses average~ 2048 for smooth CONTENT, too smeared for onsets).
+    # Only the calibration probe listens here; unread the rest of the time.
+    "onset_osc_port": 9887,
 
     # trajectory recording (SIM training-data capture): OPT-IN. Persists each perception
     # frame + the events that fired on it to a session-scoped JSONL via the FrameEmitter

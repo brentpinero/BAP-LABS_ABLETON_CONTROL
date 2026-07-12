@@ -1147,6 +1147,76 @@
      ],
      "text": "snapshot~ 50"
     }
+   },
+   {
+    "box": {
+     "id": "obj-onset-env",
+     "maxclass": "newobj",
+     "numinlets": 1,
+     "numoutlets": 1,
+     "outlettype": [
+      "signal"
+     ],
+     "patching_rect": [
+      620.0,
+      560.0,
+      170.0,
+      22.0
+     ],
+     "text": "average~ 256 @mode rms"
+    }
+   },
+   {
+    "box": {
+     "id": "obj-onset-snap",
+     "maxclass": "newobj",
+     "numinlets": 1,
+     "numoutlets": 1,
+     "outlettype": [
+      ""
+     ],
+     "patching_rect": [
+      620.0,
+      588.0,
+      110.0,
+      22.0
+     ],
+     "text": "snapshot~ 5"
+    }
+   },
+   {
+    "box": {
+     "id": "obj-onset-prep",
+     "maxclass": "newobj",
+     "numinlets": 1,
+     "numoutlets": 1,
+     "outlettype": [
+      ""
+     ],
+     "patching_rect": [
+      620.0,
+      616.0,
+      150.0,
+      22.0
+     ],
+     "text": "prepend /mix/onset"
+    }
+   },
+   {
+    "box": {
+     "id": "obj-onset-udp",
+     "maxclass": "newobj",
+     "numinlets": 1,
+     "numoutlets": 0,
+     "outlettype": [],
+     "patching_rect": [
+      620.0,
+      644.0,
+      170.0,
+      22.0
+     ],
+     "text": "udpsend 127.0.0.1 9887"
+    }
    }
   ],
   "lines": [
@@ -1999,6 +2069,54 @@
      "destination": [
       "obj-spec-pak",
       6
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "obj-mid-scale",
+      0
+     ],
+     "destination": [
+      "obj-onset-env",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "obj-onset-env",
+      0
+     ],
+     "destination": [
+      "obj-onset-snap",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "obj-onset-snap",
+      0
+     ],
+     "destination": [
+      "obj-onset-prep",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "obj-onset-prep",
+      0
+     ],
+     "destination": [
+      "obj-onset-udp",
+      0
      ]
     }
    },

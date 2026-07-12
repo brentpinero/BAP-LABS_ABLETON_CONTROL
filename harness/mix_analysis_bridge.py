@@ -186,6 +186,10 @@ class MixAnalysisBridge:
         # When True, ignore device /mix/transport OSC — the daemon's LOM poller owns
         # transport (the per-device plugsync~/live.observer is unreliable on fresh load).
         self.lom_transport = False
+        # Dead-reckon anchor: the last LOM poll's ABSOLUTE song position (in beats) + the
+        # wall time it was read, so transport_now() can interpolate a smooth beat between
+        # the 10 Hz polls instead of returning a 100 ms-stale frozen value.
+        self._tr_anchor = None
 
         # Stats
         self.messages_received = 0
@@ -252,9 +256,30 @@ class MixAnalysisBridge:
             return
         self._apply_transport(bool(args[0]), float(args[1]), int(args[2]), float(args[3]))
 
-    def set_transport(self, playing, bpm, bar, beat):
-        """Authoritative transport from the LOM poller (bypasses the OSC gate)."""
+    def set_transport(self, playing, bpm, bar, beat, song_beats=None, sig=4):
+        """Authoritative transport from the LOM poller (bypasses the OSC gate). When
+        `song_beats` (absolute position in beats) is given, store a dead-reckon anchor so
+        transport_now() can interpolate between polls."""
+        if song_beats is not None:
+            self._tr_anchor = {"t": time.time(), "song_beats": float(song_beats),
+                               "bpm": float(bpm), "sig": int(sig) or 4, "playing": bool(playing)}
         self._apply_transport(bool(playing), float(bpm), int(bar), float(beat))
+
+    def transport_now(self, at_wall=None) -> dict:
+        """Dead-reckoned transport at wall time `at_wall` (default now): advance the last
+        anchor's beat by bpm/60 * elapsed. Falls back to the last discrete values if no
+        anchor yet. Pass at_wall = now - audio_latency to align with the frame's audio."""
+        a = self._tr_anchor
+        if a is None:
+            return {"bpm": self.bpm, "bar": self.current_bar or 0, "beat": self.current_beat,
+                    "beats_per_bar": 4, "playing": self.is_playing}
+        at = time.time() if at_wall is None else at_wall
+        sig = a["sig"]
+        t = a["song_beats"] + (a["bpm"] / 60.0) * (at - a["t"]) if a["playing"] else a["song_beats"]
+        t = max(0.0, t)
+        bar = int(t // sig)
+        return {"bpm": a["bpm"], "bar": bar, "beat": t - bar * sig,
+                "beats_per_bar": sig, "playing": a["playing"]}
 
     def _apply_transport(self, playing: bool, bpm: float, new_bar: int, beat: float):
         self.is_playing = playing

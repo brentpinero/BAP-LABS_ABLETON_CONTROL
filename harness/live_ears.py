@@ -137,11 +137,12 @@ async def _transport_poller(bridge) -> None:
             si = await loop.run_in_executor(None, lambda: client.send("get_session_info"))
             if si:
                 sig = int(si.get("signature_numerator", 4)) or 4
-                t = float(si.get("current_song_time", 0.0))    # in beats
+                t = float(si.get("current_song_time", 0.0))    # absolute position, in beats
                 bar = int(t // sig)
                 beat = t - bar * sig
                 bridge.set_transport(1 if si.get("is_playing") else 0,
-                                     float(si.get("tempo", 120.0)), bar, beat)
+                                     float(si.get("tempo", 120.0)), bar, beat,
+                                     song_beats=t, sig=sig)   # song_beats -> dead-reckon anchor
         except Exception:
             if client is not None:
                 try:

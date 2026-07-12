@@ -124,6 +124,29 @@ class TestLomTransport(unittest.TestCase):
         b.set_transport(1, 126.0, 44, 2.0)
         self.assertEqual(b.current_bar, 44)
 
+    def test_dead_reckons_beat_between_polls(self):
+        # a frame reading transport between 10 Hz polls gets an interpolated beat, not the
+        # 100 ms-stale frozen value
+        b = MixAnalysisBridge(port=0)
+        b.set_transport(1, 120.0, 2, 0.0, song_beats=8.0, sig=4)   # bar 2 beat 0 = 8 beats
+        t0 = b._tr_anchor["t"]
+        tr = b.transport_now(at_wall=t0 + 0.5)                     # +0.5 s @120 BPM = +1 beat
+        self.assertEqual(tr["bar"], 2)
+        self.assertAlmostEqual(tr["beat"], 1.0, places=4)
+
+    def test_no_advance_when_stopped(self):
+        b = MixAnalysisBridge(port=0)
+        b.set_transport(0, 120.0, 2, 0.0, song_beats=8.0, sig=4)
+        tr = b.transport_now(at_wall=b._tr_anchor["t"] + 5.0)       # stopped -> frozen
+        self.assertEqual(tr["bar"], 2)
+        self.assertAlmostEqual(tr["beat"], 0.0, places=4)
+
+    def test_transport_now_falls_back_without_anchor(self):
+        b = MixAnalysisBridge(port=0)
+        b.bpm, b.current_bar, b.is_playing = 130.0, 3, True
+        tr = b.transport_now()
+        self.assertEqual((tr["bar"], tr["bpm"]), (3, 130.0))
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -172,7 +172,7 @@ def build_frame(tracks: dict, transport: dict, focus: dict | None = None,
     masking = compute_masking(nodes, scheme_id=scheme, participants=participants,
                               max_pairs=max_pairs, crowded_min=crowded_min)
     return Frame(
-        t_wall=time.time(),
+        t_wall=float(transport.get("t_wall", time.time())),   # audio-aligned instant (emitter sets it)
         bpm=float(transport.get("bpm", 120.0)),
         bar=int(transport.get("bar", 0)),
         beat=float(transport.get("beat", 0.0)),

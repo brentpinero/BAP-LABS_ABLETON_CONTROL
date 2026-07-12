@@ -128,9 +128,18 @@ class FrameEmitter:
 
     def _transport(self) -> dict:
         b = self.bridge
-        return {"bpm": getattr(b, "bpm", 120.0), "bar": getattr(b, "current_bar", 0) or 0,
-                "beat": getattr(b, "current_beat", 0.0), "beats_per_bar": 4,
-                "playing": getattr(b, "is_playing", False)}
+        # Align the frame to the audio instant it describes: the audio content lags real
+        # time by ~audio_latency_s (M4L window + OSC), so read the dead-reckoned transport
+        # at (now - latency) and stamp THAT as the frame's t_wall — one consistent instant.
+        at = time.time() - float(cfg("audio_latency_s", self.override))
+        if hasattr(b, "transport_now"):
+            tr = b.transport_now(at)
+        else:
+            tr = {"bpm": getattr(b, "bpm", 120.0), "bar": getattr(b, "current_bar", 0) or 0,
+                  "beat": getattr(b, "current_beat", 0.0), "beats_per_bar": 4,
+                  "playing": getattr(b, "is_playing", False)}
+        tr["t_wall"] = at
+        return tr
 
     def tick(self):
         frame = build_frame(self.bridge.tracks, self._transport(), self._focus, self.override)

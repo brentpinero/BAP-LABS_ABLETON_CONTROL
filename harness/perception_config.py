@@ -78,6 +78,12 @@ DEFAULTS: dict[str, Any] = {
     # per-device plugsync~/live.observer (which fails to bind on fresh M4L loads).
     "transport_poll_hz": 10.0,                  # LOM transport poll rate (bar-accurate)
 
+    # audio->frame pipeline latency (M4L averaging window + snapshot + OSC). The emitter
+    # reads dead-reckoned transport at (now - this) and stamps it as the frame's t_wall so
+    # the transport position aligns with the audio the frame carries. 0 until measured;
+    # calibrate_latency.py writes the real value to the calibration file loaded below.
+    "audio_latency_s": 0.0,
+
     # trajectory recording (SIM training-data capture): OPT-IN. Persists each perception
     # frame + the events that fired on it to a session-scoped JSONL via the FrameEmitter
     # on_frame hook, so the SIM can be trained on real sessions. Enable with
@@ -108,3 +114,18 @@ def cfg(key: str, override: dict | None = None) -> Any:
     if env is not None and key in DEFAULTS:
         return _coerce(DEFAULTS[key], env)
     return DEFAULTS[key]
+
+
+# Fold in a measured audio->frame latency if calibrate_latency.py has written one, so a
+# fresh checkout still works (0) but a calibrated rig aligns frames automatically.
+def _load_latency_calibration() -> None:
+    import json
+    p = (os.path.dirname(os.path.dirname(os.path.abspath(__file__))) +
+         "/sandbox_sessions/calibration/perception_latency.json")
+    try:
+        DEFAULTS["audio_latency_s"] = float(json.load(open(p))["audio_latency_s"])
+    except Exception:
+        pass
+
+
+_load_latency_calibration()

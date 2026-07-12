@@ -95,6 +95,7 @@ class TrajectoryRecorder:
             "vector_len": Frame.vector_len(roles, scheme),
             "stride": self.stride,
             "only_when_playing": self.only_when_playing,
+            "audio_latency_s": cfg("audio_latency_s", self.override),   # alignment in effect
             "schema": "step,t_wall,bar,beat,playing,frame(Frame.to_dict),events(Event)",
         }
 

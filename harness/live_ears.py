@@ -76,7 +76,14 @@ async def main() -> None:
 
     bridge = MixAnalysisBridge(port=9880)
     transport = await bridge.start()
-    emitter = FrameEmitter(bridge)
+
+    # OPT-IN SIM training-data capture: record each perception frame + its events to a
+    # session-scoped JSONL via the emitter's on_frame hook (PERCEPTION_RECORD_TRAJECTORIES=1).
+    recorder = None
+    if cfg("record_trajectories"):
+        from perception_recorder import TrajectoryRecorder
+        recorder = TrajectoryRecorder()
+    emitter = FrameEmitter(bridge, on_frame=recorder.on_frame if recorder else None)
     # expose for the focus lane (sets current focus) and future in-process consumers
     main.emitter = emitter  # type: ignore[attr-defined]
 
@@ -90,17 +97,24 @@ async def main() -> None:
     print(f"[EARS] perception push @ {cfg('frame_rate_hz')}Hz -> OSC "
           f"{cfg('push_host')}:{cfg('push_port')} + {emitter.snapshot_path}")
     print(f"[EARS] aggregator bridge on :{agg_bridge.recv_port} -> :9880 (Ctrl-C to stop)")
+    if recorder:
+        print(f"[EARS] recording SIM trajectories -> {recorder.path}")
+    coros = [
+        _snapshot_writer(bridge, agg_bridge),
+        emitter.run(),
+        emitter.snapshot_writer(),
+        agg_bridge.run(),
+        _agg_map_watcher(agg_bridge),
+        _transport_poller(bridge),
+    ]
+    if recorder:
+        coros.append(recorder.flush_loop())
     try:
-        await asyncio.gather(
-            _snapshot_writer(bridge, agg_bridge),
-            emitter.run(),
-            emitter.snapshot_writer(),
-            agg_bridge.run(),
-            _agg_map_watcher(agg_bridge),
-            _transport_poller(bridge),
-        )
+        await asyncio.gather(*coros)
     finally:
         transport.close()
+        if recorder:
+            recorder.close()
 
 
 async def _transport_poller(bridge) -> None:

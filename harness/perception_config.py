@@ -77,6 +77,16 @@ DEFAULTS: dict[str, Any] = {
     # is_playing/tempo/song-position and drives the bar cache, instead of trusting the
     # per-device plugsync~/live.observer (which fails to bind on fresh M4L loads).
     "transport_poll_hz": 10.0,                  # LOM transport poll rate (bar-accurate)
+
+    # trajectory recording (SIM training-data capture): OPT-IN. Persists each perception
+    # frame + the events that fired on it to a session-scoped JSONL via the FrameEmitter
+    # on_frame hook, so the SIM can be trained on real sessions. Enable with
+    # PERCEPTION_RECORD_TRAJECTORIES=1 on the `ears` daemon.
+    "record_trajectories": False,
+    "trajectory_dir": "sandbox_sessions/trajectories",
+    "trajectory_flush_s": 2.0,                  # append buffered frames to disk this often
+    "trajectory_stride": 1,                     # record every Nth frame (1 = all, lossless)
+    "trajectory_only_when_playing": True,       # skip silent/stopped frames (low training value)
 }
 
 

@@ -3,11 +3,15 @@ Tests for aggregator_bridge — the /agg/ch -> /track/<id>/* translator.
 Pure Python (mock OSC client). Run: python -m unittest test_aggregator_bridge
 """
 
+import json
 import math
+import tempfile
 import unittest
+from pathlib import Path
 
 import bands
-from aggregator_bridge import AggregatorBridge, build_track_messages, derive
+from aggregator_bridge import (AggregatorBridge, agg_status, build_track_messages,
+                               derive, load_agg_map)
 
 
 class _MockClient:
@@ -101,6 +105,88 @@ class TestBridge(unittest.TestCase):
         b.on_spectrum("/agg/ch/2/spectrum", *([0.2] * 7))
         meta = next(args for a, args in b.client.sent if a.endswith("/meta"))
         self.assertEqual(meta[:3], ["Kick", "audio", "5"])
+
+
+# the exact schema aggregator_provision.apply() writes: map keyed by global osc channel
+# (device*n_pairs + pair). At aggregator_channels=32, dev0 owns ch 1..31, dev1 owns 33..63.
+def _multi_device_state():
+    return {
+        "agg_tracks": [70, 71],
+        "cap_tracks": [72, 73, 74, 75],
+        "map": {
+            "1":  {"track_id": "agg-0",  "name": "Kick",  "kind": "audio", "group_id": "-1"},
+            "2":  {"track_id": "agg-1",  "name": "Snare", "kind": "audio", "group_id": "-1"},
+            "33": {"track_id": "agg-40", "name": "Vox",   "kind": "audio", "group_id": "5"},
+            "34": {"track_id": "agg-41", "name": "Lead",  "kind": "audio", "group_id": "5"},
+        },
+    }
+
+
+class TestLoadAggMap(unittest.TestCase):
+    def test_parses_multi_device_schema(self):
+        with tempfile.TemporaryDirectory() as d:
+            p = Path(d) / "aggregator_state.json"
+            p.write_text(json.dumps(_multi_device_state()))
+            m = load_agg_map(p)
+            self.assertEqual(set(m), {1, 2, 33, 34})       # int keys, spanning two devices
+            self.assertTrue(all(isinstance(k, int) for k in m))
+            self.assertEqual(m[33]["name"], "Vox")
+
+    def test_missing_file_returns_none(self):
+        # None (not {}) so the watcher keeps its prior map instead of wiping it
+        self.assertIsNone(load_agg_map(Path("/nonexistent/aggregator_state.json")))
+
+    def test_half_written_json_returns_none(self):
+        with tempfile.TemporaryDirectory() as d:
+            p = Path(d) / "aggregator_state.json"
+            p.write_text('{"agg_tracks": [70], "map": {"1": {"track')   # truncated mid-write
+            self.assertIsNone(load_agg_map(p))
+
+    def test_watcher_keeps_map_on_bad_read(self):
+        # simulate the watcher tick: a None load must NOT clear an already-loaded bridge map
+        b = AggregatorBridge(client=_MockClient(), recv_port=0)
+        b.set_map({int(k): v for k, v in _multi_device_state()["map"].items()})
+        before = dict(b.map)
+        with tempfile.TemporaryDirectory() as d:
+            p = Path(d) / "aggregator_state.json"
+            p.write_text("{ this is not json")
+            mapping = load_agg_map(p)
+            if mapping is not None:                          # watcher's guard
+                b.clear(); b.set_map(mapping)
+        self.assertEqual(b.map, before)                      # untouched
+
+
+class TestAggStatus(unittest.TestCase):
+    def test_device_count_and_span_from_global_channels(self):
+        mapping = {int(k): v for k, v in _multi_device_state()["map"].items()}
+        st = agg_status(mapping, {"recv": 100, "sent": 96, "unmapped": 4}, n_pairs=32)
+        self.assertEqual(st["devices"], 2)                   # ch //32 -> {0, 1}
+        self.assertEqual(st["channels"], 4)
+        self.assertEqual((st["gch_min"], st["gch_max"]), (1, 34))
+        self.assertEqual((st["recv"], st["sent"], st["unmapped"]), (100, 96, 4))
+
+    def test_empty_map_is_zero_devices(self):
+        st = agg_status({}, {}, n_pairs=32)
+        self.assertEqual(st["devices"], 0)
+        self.assertEqual(st["channels"], 0)
+        self.assertIsNone(st["gch_min"])
+
+
+class TestStateRoundTrip(unittest.TestCase):
+    def test_atomic_write_then_load(self):
+        # aggregator_provision._write_state (atomic) -> load_agg_map reads back identical channels
+        import aggregator_provision as ap
+        with tempfile.TemporaryDirectory() as d:
+            orig = ap.STATE
+            ap.STATE = Path(d) / "aggregator_state.json"
+            try:
+                ap._write_state(_multi_device_state())
+                m = load_agg_map(ap.STATE)
+                self.assertEqual(set(m), {1, 2, 33, 34})
+                # no .tmp left behind (os.replace consumed it)
+                self.assertFalse((Path(d) / "aggregator_state.tmp").exists())
+            finally:
+                ap.STATE = orig
 
 
 if __name__ == "__main__":

@@ -507,7 +507,8 @@ class AbletonMCPExtended(ControlSurface):
                             track_index = params.get("track_index", 0)
                             source_name = params.get("source_name", "")
                             channel = params.get("channel", None)
-                            result = self._set_track_input_routing(track_index, source_name, channel)
+                            source_index = params.get("source_index", None)
+                            result = self._set_track_input_routing(track_index, source_name, channel, source_index)
                         elif command_type == "set_track_output_routing":
                             track_index = params.get("track_index", 0)
                             dest_name = params.get("dest_name", "")
@@ -1942,33 +1943,63 @@ class AbletonMCPExtended(ControlSurface):
             self.log_message("Error getting track input routing: " + str(e))
             raise
 
-    def _set_track_input_routing(self, track_index, source_name, channel=None):
-        """Point a track's input at `source_name` (a source track's name, or
-        'Resampling'), optionally selecting the channel (e.g. 'Post FX'). Matches
-        by display_name (exact, then substring). Used to wire capture->source."""
+    def _set_track_input_routing(self, track_index, source_name, channel=None, source_index=None):
+        """Point a track's input at a source track, optionally selecting the channel
+        (e.g. 'Post FX'). Used to wire a capture track -> its source.
+
+        Two ways to name the source:
+          * source_index (PREFERRED): the song-index of the source track. Resolved by
+            (name, occurrence) so DUPLICATE track names route to the RIGHT track — the
+            k-th track named X in session order maps to the k-th 'X' routing option.
+            This is what makes provisioning safe on projects with many same-named
+            tracks (e.g. 26x 'Serum 2'), where a bare name match would misroute.
+          * source_name: display_name match (exact, then substring) — fine when names
+            are unique (groups, returns, 'Resampling')."""
         try:
             if track_index < 0 or track_index >= len(self._song.tracks):
                 raise IndexError("Track index out of range")
             track = self._song.tracks[track_index]
             if not hasattr(track, 'available_input_routing_types'):
                 raise ValueError("Track has no input routing (master/return?)")
+            options = list(track.available_input_routing_types)
 
-            def _pick(options, name):
-                for o in options:
+            def _pick(opts, name):
+                for o in opts:
                     if str(o.display_name) == name:
                         return o
-                for o in options:
+                for o in opts:
                     if name.lower() in str(o.display_name).lower():
                         return o
                 return None
 
-            chosen = _pick(track.available_input_routing_types, source_name)
+            chosen = None
+            ambiguous = False
+            if source_index is not None:
+                # resolve by (name, occurrence) to disambiguate duplicate names.
+                si = int(source_index)
+                if si < 0 or si >= len(self._song.tracks):
+                    raise IndexError("source_index out of range")
+                source_name = str(self._song.tracks[si].name)
+                # which occurrence of this name is the source, in session order
+                occ = sum(1 for t in self._song.tracks[:si + 1]
+                          if str(t.name) == source_name)
+                # the occ-th routing option whose display_name matches exactly
+                exact = [o for o in options if str(o.display_name) == source_name]
+                if len(exact) >= occ:
+                    chosen = exact[occ - 1]
+                elif exact:
+                    chosen = exact[0]           # fewer routable than tracks (non-audio?) -> best effort
+                    ambiguous = True
             if chosen is None:
-                avail = [str(rt.display_name) for rt in track.available_input_routing_types]
+                chosen = _pick(options, source_name)
+            if chosen is None:
+                avail = [str(rt.display_name) for rt in options]
                 raise ValueError("No input routing '%s'; available: %s" % (source_name, avail))
             track.input_routing_type = chosen
             result = {"track_index": track_index,
                       "input_routing_type": str(track.input_routing_type.display_name)}
+            if ambiguous:
+                result["ambiguous"] = True      # duplicate name, occurrence couldn't be pinned
             if channel is not None and hasattr(track, 'available_input_routing_channels'):
                 ch = _pick(track.available_input_routing_channels, channel)
                 if ch is not None:

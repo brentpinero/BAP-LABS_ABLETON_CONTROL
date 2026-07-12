@@ -24,7 +24,7 @@ from pythonosc.dispatcher import Dispatcher
 from pythonosc.osc_server import AsyncIOOSCUDPServer
 
 import bands as _bands
-from masking import Node, compute_masking
+from masking import Node, adaptive_config, compute_masking
 
 
 @dataclass
@@ -70,8 +70,9 @@ class BarAnalysis:
         return round(self.side_energy / total, 3)
 
 
-# Roles that participate in the group-vs-group masking view.
-_MASK_PARTICIPANTS = ("group", "master")
+# Masking participants are chosen adaptively per-project (masking.adaptive_config):
+# groups when the project uses them, else the tracks themselves — so flat/ungrouped
+# projects still get a clash view instead of an empty one.
 
 # Map Live track kinds -> masking node roles.
 _ROLE = {"group": "group", "master": "master", "return": "return",
@@ -182,13 +183,27 @@ class MixAnalysisBridge:
         # Real-time accumulator for current bar
         self.current_analysis = BarAnalysis(bar_number=0, timestamp=time.time())
         self.sample_count = 0
+        # When True, ignore device /mix/transport OSC — the daemon's LOM poller owns
+        # transport (the per-device plugsync~/live.observer is unreliable on fresh load).
+        self.lom_transport = False
 
         # Stats
         self.messages_received = 0
         self.last_message_time = 0.0
 
+    def _master_node(self) -> "TrackState":
+        """The master's perception node, synthesized from the /mix/* stream. The master
+        device is pure /mix metering (no js/LiveAPI — that threw on the master bus), so the
+        bridge builds the master node here instead. kind='master' -> role_of/canonical_aggs
+        and the perception frame see it exactly as they did the old /track/master emission."""
+        mt = self._track("master")
+        mt.kind = "master"
+        if not mt.name:
+            mt.name = "Master"
+        return mt
+
     def handle_levels(self, address: str, *args):
-        """Handle /mix/levels message."""
+        """Handle /mix/levels — master bar cache + the synthesized master perception node."""
         if len(args) >= 6:
             self.current_analysis.rms_l = args[0]
             self.current_analysis.rms_r = args[1]
@@ -197,8 +212,11 @@ class MixAnalysisBridge:
             self.current_analysis.mid_energy = args[4]
             self.current_analysis.side_energy = args[5]
             self.sample_count += 1  # each levels frame = one ~33ms sample of the bar
+            mt = self._master_node()
+            mt.rms_l, mt.rms_r, mt.peak_l, mt.peak_r, mt.mid_energy, mt.side_energy = args[:6]
+            mt.updated_at = time.time()
             self.messages_received += 1
-            self.last_message_time = time.time()
+            self.last_message_time = mt.updated_at
 
     def handle_stereo(self, address: str, *args):
         """Handle /mix/stereo message."""
@@ -206,37 +224,52 @@ class MixAnalysisBridge:
             self.current_analysis.correlation = args[0]
             self.current_analysis.mid_energy = args[1]
             self.current_analysis.side_energy = args[2]
+            mt = self._master_node()
+            mt.correlation = args[0]
+            mt.updated_at = time.time()
             self.messages_received += 1
-            self.last_message_time = time.time()
+            self.last_message_time = mt.updated_at
 
     def handle_spectrum(self, address: str, *args):
-        """Handle /mix/spectrum message (10 bands)."""
+        """Handle /mix/spectrum — bar-cache spectrum + the master node's normalized bands."""
         self.current_analysis.spectrum_10band = list(args[:10])
+        # master perception node: normalize raw per-band RMS -> energy fractions (sum ~1),
+        # matching how per-track/aggregator spectra are stored (aggregator_bridge.derive).
+        powers = [float(b) * float(b) for b in args]
+        total = sum(powers) or 1.0
+        mt = self._master_node()
+        mt.bands = [pw / total for pw in powers]
+        mt.updated_at = time.time()
         self.messages_received += 1
-        self.last_message_time = time.time()
+        self.last_message_time = mt.updated_at
 
     def handle_transport(self, address: str, *args):
-        """Handle /mix/transport message."""
-        if len(args) >= 4:
-            self.is_playing = bool(args[0])
-            self.bpm = float(args[1])
-            new_bar = int(args[2])
-            self.current_beat = float(args[3])
+        """OSC /mix/transport from a device. Ignored when the daemon's LOM poller owns
+        transport (lom_transport=True): the per-device plugsync~/live.observer path is
+        unreliable on fresh M4L loads, so authoritative transport comes from the Remote
+        Script instead (see live_ears._transport_poller)."""
+        if self.lom_transport or len(args) < 4:
+            return
+        self._apply_transport(bool(args[0]), float(args[1]), int(args[2]), float(args[3]))
 
-            # Bar changed - save current and start new (don't finalize the
-            # startup None-bar; only bars that actually collected samples)
-            if new_bar != self.current_bar:
-                if self.current_bar is not None and self.sample_count > 0:
-                    self.finalize_current_bar()
-                self.current_bar = new_bar
-                self.current_analysis = BarAnalysis(
-                    bar_number=new_bar,
-                    timestamp=time.time()
-                )
-                self.sample_count = 0
+    def set_transport(self, playing, bpm, bar, beat):
+        """Authoritative transport from the LOM poller (bypasses the OSC gate)."""
+        self._apply_transport(bool(playing), float(bpm), int(bar), float(beat))
 
-            self.messages_received += 1
-            self.last_message_time = time.time()
+    def _apply_transport(self, playing: bool, bpm: float, new_bar: int, beat: float):
+        self.is_playing = playing
+        self.bpm = bpm
+        self.current_beat = beat
+        # Bar changed - finalize the old bar (only if it collected samples) and start new
+        # (don't finalize the startup None-bar).
+        if new_bar != self.current_bar:
+            if self.current_bar is not None and self.sample_count > 0:
+                self.finalize_current_bar()
+            self.current_bar = new_bar
+            self.current_analysis = BarAnalysis(bar_number=new_bar, timestamp=time.time())
+            self.sample_count = 0
+        self.messages_received += 1
+        self.last_message_time = time.time()
 
     # ---- per-track handlers -------------------------------------------------
     # OSC contract (emitted by a Mix Analysis Hub device on every track/group/master):
@@ -300,8 +333,10 @@ class MixAnalysisBridge:
         if not nodes:
             return {"scheme": self.band_scheme, "pairs": [], "master_congestion": [],
                     "summary": "No live per-track spectra yet."}
+        participants, max_pairs, crowded_min = adaptive_config(nodes)
         return compute_masking(nodes, scheme_id=self.band_scheme,
-                               participants=_MASK_PARTICIPANTS)
+                               participants=participants, max_pairs=max_pairs,
+                               crowded_min=crowded_min)
 
     def build_tracks_snapshot(self, max_age_s: float = 5.0) -> dict:
         """Per-track live state + masking, for the live_ears snapshot file."""

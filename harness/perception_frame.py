@@ -18,7 +18,7 @@ import time
 from dataclasses import dataclass, field
 
 import bands as _bands
-from masking import Node, compute_masking
+from masking import Node, adaptive_config, compute_masking
 from perception_config import cfg
 from perception_roles import RoleAgg, canonical_aggs
 
@@ -167,8 +167,10 @@ def build_frame(tracks: dict, transport: dict, focus: dict | None = None,
     scheme = cfg("band_scheme", override)
     roles = cfg("roles", override)
     aggs, unmapped = canonical_aggs(tracks, override)
-    masking = compute_masking([a.node for a in aggs], scheme_id=scheme,
-                              participants=("group", "master"))
+    nodes = [a.node for a in aggs]
+    participants, max_pairs, crowded_min = adaptive_config(nodes)
+    masking = compute_masking(nodes, scheme_id=scheme, participants=participants,
+                              max_pairs=max_pairs, crowded_min=crowded_min)
     return Frame(
         t_wall=time.time(),
         bpm=float(transport.get("bpm", 120.0)),

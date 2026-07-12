@@ -17,7 +17,9 @@ mono placeholder (the aggregator sums L+R) until the device emits per-channel M/
 from __future__ import annotations
 
 import asyncio
+import json
 import math
+from pathlib import Path
 
 from pythonosc.dispatcher import Dispatcher
 from pythonosc.osc_server import AsyncIOOSCUDPServer
@@ -26,6 +28,42 @@ from pythonosc.udp_client import SimpleUDPClient
 from perception_config import cfg
 
 SILENCE_DB = -120.0
+
+
+def load_agg_map(path):
+    """Read the provisioning state file and return the channel->meta map as
+    {int(global_channel): meta_dict}, or None if it can't be read.
+
+    Returning None (not {}) is the whole point: it lets the hot-reload watcher tell
+    "the file vanished / is half-written / is garbage" apart from "the map is genuinely
+    empty". On None the watcher KEEPS the live map instead of wiping it — a mid-write
+    read (the provision writer and the 2s poll can overlap) must not deafen the daemon."""
+    try:
+        raw = json.loads(Path(path).read_text())
+        m = raw.get("map", {})
+        return {int(k): v for k, v in m.items()}
+    except Exception:
+        return None
+
+
+def agg_status(mapping, stats=None, n_pairs=None):
+    """Substrate snapshot for logs + the MCP surface: how many aggregator devices and
+    channels are live, the global-channel span, and OSC throughput. Pure — derives the
+    device count from the global channels (device = ch // n_pairs), which is exactly how
+    the provisioner allocated them, so it needs no per-device state."""
+    n_pairs = int(n_pairs) if n_pairs is not None else int(cfg("aggregator_channels"))
+    chans = sorted(int(c) for c in (mapping or {}))
+    devices = len({c // n_pairs for c in chans})
+    st = stats or {}
+    return {
+        "devices": devices,
+        "channels": len(chans),
+        "gch_min": chans[0] if chans else None,
+        "gch_max": chans[-1] if chans else None,
+        "recv": st.get("recv", 0),
+        "sent": st.get("sent", 0),
+        "unmapped": st.get("unmapped", 0),
+    }
 
 
 def derive(raw_bands, gate_db=None):

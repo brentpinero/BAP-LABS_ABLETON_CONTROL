@@ -26,11 +26,13 @@ so --teardown and the bridge can pick it up.
 from __future__ import annotations
 
 import json
+import os
 import sys
 import time
 from pathlib import Path
 
 from live_client import LiveClient
+from perception_config import cfg
 from perception_select import gather_nodes, select_nodes, selection_summary
 from swap_ears_to_biquad import BIQUAD, find_uri
 
@@ -46,80 +48,134 @@ def _snapshot():
         return None
 
 
-def plan(c, max_pairs=31):
-    """Assign selected non-master nodes to aggregator input pairs (1..max_pairs).
-    max_pairs default 31 = a 32-pair device with pair 0 reserved for its own input.
+def _write_state(state):
+    """Persist the provisioning state atomically (tmp + os.replace), so the ears
+    daemon's ~2s hot-reload poll can never read a half-written file — same pattern the
+    snapshot writer uses (live_ears._snapshot_writer)."""
+    STATE.parent.mkdir(parents=True, exist_ok=True)
+    tmp = STATE.with_suffix(".tmp")
+    tmp.write_text(json.dumps(state, indent=1))
+    os.replace(tmp, STATE)
 
-    Leaf tracks with a DUPLICATE name are skipped: input routing picks a source by
-    display_name, so duplicates (e.g. 26x 'Serum 2') would misroute — until index/id
-    routing lands, we skip them rather than feed the wrong audio to a node's id.
-    Groups/returns have unique names and route fine."""
+
+def plan(c, usable_pairs=None, max_instrument=None):
+    """Allocate selected non-master nodes across as many aggregator devices as
+    needed — coverage is capacity-driven, NOT name-gated, so ANY project structure
+    up to `max_instrument` nodes is fully instrumented regardless of naming/grouping.
+
+    Each device has `n_pairs` input pairs (cfg aggregator_channels, 32 = 64ch); pair 0
+    is reserved for the device track's own input, leaving `usable` = n_pairs-1 routable
+    pairs each. Node slot s -> device s//usable, local pair s%usable+1. The GLOBAL osc
+    channel is device*n_pairs + local_pair, matching the per-device channel base baked
+    into build_aggregator_device (so one OSC port serves all devices with no collision).
+
+    Duplicate names are NO LONGER skipped: a leaf routes by source_index (its song
+    index), which the Remote Script disambiguates by (name, occurrence). Nodes without
+    a song index (returns) fall back to name routing, where names are unique anyway.
+
+    Returns (items, sel, n_devices)."""
+    n_pairs = int(cfg("aggregator_channels"))
+    usable = int(usable_pairs) if usable_pairs is not None else n_pairs - 1
+    cap = int(max_instrument) if max_instrument is not None else int(cfg("max_instrument"))
+
     nodes = gather_nodes(c, _snapshot())
-    sel = select_nodes(nodes)
-    # count EXACT (case-sensitive) names — that's how input routing's exact-match
-    # disambiguates, so 'SUB' (leaf) and 'Sub' (group) are distinct, not duplicates.
-    name_counts = {}
-    for n in nodes:
-        nm = n.get("name") or ""
-        name_counts[nm] = name_counts.get(nm, 0) + 1
-
-    items, skipped = [], []
+    sel = select_nodes(nodes)                      # ranked; ties broken by energy then ref
+    items = []
     for node in sel:
         if node.get("kind") == "master":
-            continue                       # master keeps its own device
-        nm = node.get("name") or ""
-        if node.get("kind") not in ("group", "return") and name_counts.get(nm, 0) > 1:
-            skipped.append(node)
-            continue
-        if len(items) >= max_pairs:
+            continue                               # master keeps its own device
+        if len(items) >= cap:
             break
-        pair = len(items) + 1              # pair 0 reserved for the AGG track's own input
+        slot = len(items)
+        device = slot // usable
+        local_pair = slot % usable + 1             # 1..n_pairs-1 (0 reserved)
+        ref = node["ref"]
+        src_index = ref if isinstance(ref, int) and ref >= 0 else None
         items.append({
-            "ref": node["ref"], "name": node["name"], "kind": node["kind"],
+            "ref": ref, "name": node["name"], "kind": node["kind"],
             "group_id": str(node.get("group_id", "-1")),
-            "pair": pair, "channel": "%d/%d" % (2 * pair + 1, 2 * pair + 2),
-            "osc_channel": pair, "reasons": node["reasons"],
+            "device": device, "pair": local_pair,
+            "channel": "%d/%d" % (2 * local_pair + 1, 2 * local_pair + 2),
+            "osc_channel": device * n_pairs + local_pair,     # global (device base + pair)
+            "source_index": src_index, "reasons": node["reasons"],
         })
-    return items, sel, skipped
+    n_dev = (len(items) + usable - 1) // usable if items else 0
+    return items, sel, n_dev
 
 
-def _ensure_aggregator(c, uri):
+def _agg_device_uri(c, device, n_pairs):
+    """Browser URI for device `device`'s aggregator variant. Device 0 uses the base-0
+    device; device d>0 REQUIRES its own base-(d*n_pairs) variant (compiled from
+    build_aggregator_device.py n_pairs <base>) — we never fall back to base-0 for d>0,
+    which would make two devices emit the same channels and collide."""
+    base = device * n_pairs
+    if base == 0:
+        uri = find_uri(c, "bap labs mix analysis aggregator")
+    else:
+        uri = find_uri(c, "mix analysis aggregator base%d" % base)
+    if not uri:
+        raise RuntimeError(
+            "aggregator device for base %d not found in browser. Build+compile it: "
+            "`python build_aggregator_device.py %d %d` then convert to .amxd."
+            % (base, n_pairs, base))
+    return uri
+
+
+def _ensure_aggregators(c, n_dev, n_pairs):
+    """Ensure `n_dev` aggregator tracks exist (AGG_ANALYSIS_0.._{n_dev-1}), each loaded
+    with its base-matched device variant. Returns the list of track indices by device."""
+    existing = {}
     n = int(c.send("get_session_info").get("track_count", 0))
     for i in range(n):
         try:
             ti = c.send("get_track_info", {"track_index": i})
-            if ti.get("name") == AGG_TRACK and any("Aggregator" in d["name"] for d in ti.get("devices", [])):
-                return i
+            nm = ti.get("name", "")
+            if nm.startswith(AGG_TRACK) and any("Aggregator" in d["name"] for d in ti.get("devices", [])):
+                existing[nm] = i
         except Exception:
             pass
-    c.send("create_audio_track", {"index": -1}); time.sleep(0.4)
-    idx = int(c.send("get_session_info").get("track_count", 0)) - 1
-    c.send("set_track_name", {"track_index": idx, "name": AGG_TRACK})
-    c.send("load_browser_item", {"track_index": idx, "item_uri": uri}); time.sleep(1.3)
-    return idx
+    tracks = []
+    for d in range(n_dev):
+        name = "%s_%d" % (AGG_TRACK, d)
+        if name in existing:
+            tracks.append(existing[name]); continue
+        uri = _agg_device_uri(c, d, n_pairs)
+        c.send("create_audio_track", {"index": -1}); time.sleep(0.4)
+        idx = int(c.send("get_session_info").get("track_count", 0)) - 1
+        c.send("set_track_name", {"track_index": idx, "name": name})
+        c.send("load_browser_item", {"track_index": idx, "item_uri": uri}); time.sleep(1.3)
+        tracks.append(idx)
+    return tracks
 
 
-def apply(c, items):
-    uri = find_uri(c, "bap labs mix analysis aggregator")
-    if not uri:
-        raise RuntimeError("aggregator device not found in browser")
-    agg = _ensure_aggregator(c, uri)
+def apply(c, items, n_dev):
+    n_pairs = int(cfg("aggregator_channels"))
+    agg_tracks = _ensure_aggregators(c, n_dev, n_pairs)
     caps, bmap = [], {}
     for it in items:
         c.send("create_audio_track", {"index": -1}); time.sleep(0.35)
         ci = int(c.send("get_session_info").get("track_count", 0)) - 1
         c.send("set_track_name", {"track_index": ci, "name": CAP_PREFIX + str(it["ref"])})
-        c.send("set_track_input_routing", {"track_index": ci, "source_name": it["name"], "channel": "Post FX"})
+        # route by source_index (dup-name safe); returns/oddballs fall back to name.
+        if it.get("source_index") is not None:
+            ir = c.send("set_track_input_routing",
+                        {"track_index": ci, "source_index": it["source_index"], "channel": "Post FX"})
+        else:
+            ir = c.send("set_track_input_routing",
+                        {"track_index": ci, "source_name": it["name"], "channel": "Post FX"})
         c.send("set_track_monitor", {"track_index": ci, "state": 0})
-        r = c.send("set_track_output_routing", {"track_index": ci, "dest_name": AGG_TRACK, "channel": it["channel"]})
+        dest = "%s_%d" % (AGG_TRACK, it["device"])
+        r = c.send("set_track_output_routing", {"track_index": ci, "dest_name": dest, "channel": it["channel"]})
         ok = it["channel"].split("/")[0] in str(r.get("output_routing_channel", ""))
         caps.append(ci)
         bmap[it["osc_channel"]] = {"track_id": "agg-%s" % it["ref"], "name": it["name"],
                                    "kind": it["kind"], "group_id": it["group_id"]}
-        print(f"  routed {it['name'][:22]:22s} -> pair {it['pair']} (ch {it['channel']}) "
-              f"{'OK' if ok else 'CHANNEL?'}", flush=True)
-    STATE.write_text(json.dumps({"agg_track": agg, "cap_tracks": caps,
-                                 "map": {str(k): v for k, v in bmap.items()}}, indent=1))
+        flag = "" if not ir.get("ambiguous") else " (name-ambiguous!)"
+        print(f"  dev{it['device']} routed {str(it['name'])[:20]:20s} -> pair {it['pair']:2d} "
+              f"(ch {it['channel']}) gch {it['osc_channel']:3d} {'OK' if ok else 'CHANNEL?'}{flag}",
+              flush=True)
+    _write_state({"agg_tracks": agg_tracks, "cap_tracks": caps,
+                  "map": {str(k): v for k, v in bmap.items()}})
     return bmap
 
 
@@ -158,7 +214,9 @@ def teardown(c):
     if not STATE.exists():
         print("no state file; nothing to tear down"); return
     st = json.loads(STATE.read_text())
-    for ci in sorted(st.get("cap_tracks", []) + [st.get("agg_track")], reverse=True):
+    # agg_tracks (multi-device) or legacy single agg_track
+    agg = st.get("agg_tracks") or ([st.get("agg_track")] if st.get("agg_track") is not None else [])
+    for ci in sorted(st.get("cap_tracks", []) + list(agg), reverse=True):
         if ci is None:
             continue
         try:
@@ -179,20 +237,23 @@ def main(argv):
             print("[commit] removing per-track biquad devices on all non-master tracks "
                   "(aggregator becomes the sole source)...")
             commit(c); return 0
-        items, sel, skipped = plan(c)
+        items, sel, n_dev = plan(c)
         print(f"selection: {len(sel)} nodes ({selection_summary(sel)}); "
-              f"routing {len(items)} to the aggregator (master keeps its own device):\n")
+              f"instrumenting {len(items)} across {n_dev} aggregator device(s) "
+              f"(master keeps its own device):\n")
         for it in items:
-            print(f"  pair {it['pair']:2d}  ch {it['channel']:6s} {it['name'][:26]:26s} "
-                  f"{it['kind']:7s} {it['reasons']}")
-        if skipped:
-            print(f"\n  skipped {len(skipped)} duplicate-named leaves (would misroute): "
-                  + ", ".join(str(s['name'])[:14] for s in skipped[:10]))
+            print(f"  dev{it['device']} pair {it['pair']:2d}  gch {it['osc_channel']:3d}  "
+                  f"{str(it['name'])[:24]:24s} {it['kind']:7s} "
+                  f"{'idx%d' % it['source_index'] if it['source_index'] is not None else 'by-name':8s} "
+                  f"{it['reasons']}")
+        if n_dev > 1:
+            print(f"\n  NOTE: {n_dev} devices needed. Device 0 = base-0 aggregator; devices 1..{n_dev-1} "
+                  f"require compiled base variants (build_aggregator_device.py {cfg('aggregator_channels')} <base>).")
         if mode == "--dry-run":
             print("\ndry-run. Re-run with --apply to create capture tracks + route.")
             return 0
         print("\n[apply] creating capture tracks + routing...")
-        apply(c, items)
+        apply(c, items, n_dev)
         print(f"\napplied. Bridge map + state -> {STATE.name}. "
               f"Run the aggregator_bridge with this map to feed the perception layer.")
     return 0

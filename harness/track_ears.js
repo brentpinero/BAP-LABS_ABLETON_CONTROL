@@ -14,7 +14,11 @@
 //
 // Send this object:  levels …6 | stereo …3 | spectrum …N | bang (resolve+meta)
 
-autowatch = 1;
+// autowatch is a DEV-only convenience (hot-reload this script while editing it in a
+// saved Max patch). In a shipping/byte-wrapped .amxd it has no valid project context to
+// resolve the script path, which makes Max throw "a project without a name is like a day
+// without sunshine. fatal." Keep it 0 in production; flip to 1 only when live-editing.
+autowatch = 0;
 inlets = 1;
 outlets = 1;
 

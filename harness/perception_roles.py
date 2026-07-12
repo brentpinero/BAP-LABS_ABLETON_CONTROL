@@ -20,6 +20,7 @@ from dataclasses import dataclass
 from typing import Any
 
 import bands as _bands
+from content_roles import classify as classify_by_content
 from masking import Node
 from perception_config import cfg
 
@@ -32,8 +33,13 @@ class RoleAgg:
     peak_db: float = -120.0   # loudest member peak, for clip detection
 
 
-def role_of(ts: Any, tracks: dict, role_map: list, return_role: str) -> str:
-    """Canonical mix role for one track-like object (has .kind/.group_id/.name)."""
+def role_of(ts: Any, tracks: dict, role_map: list, return_role: str,
+            scheme: str = _bands.DEFAULT_SCHEME) -> str:
+    """Canonical mix role for one track-like object (has .kind/.group_id/.name).
+
+    Name maps first (precise); if the name says nothing, fall back to the node's
+    SPECTRAL SIGNATURE so ungrouped/generically-named projects still populate real
+    role slots instead of collapsing every unnamed track into 'other'."""
     if ts.kind == "master":
         return "master"
     if ts.kind == "return":
@@ -49,6 +55,14 @@ def role_of(ts: Any, tracks: dict, role_map: list, return_role: str) -> str:
     for role, needles in role_map:
         if any(n in name for n in needles):
             return role
+    # name told us nothing: infer from the audio itself (own spectrum first, then
+    # the walked-up group's), so coverage never depends on the naming convention.
+    for src in (ts, cur):
+        bands = getattr(src, "bands", None)
+        if bands:
+            role = classify_by_content(bands, getattr(src, "rms_db", -30.0), scheme)
+            if role != "other":
+                return role
     return "other"
 
 
@@ -97,7 +111,7 @@ def canonical_aggs(tracks: dict, override: dict | None = None):
     buckets: dict[str, list] = {r: [] for r in roles}
     unmapped: set[str] = set()
     for ts in tracks.values():
-        r = role_of(ts, tracks, role_map, return_role)
+        r = role_of(ts, tracks, role_map, return_role, scheme)
         if r == "other" and ts.kind not in ("master", "return"):
             unmapped.add(ts.name)
         buckets.setdefault(r, []).append(ts)

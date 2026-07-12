@@ -53,11 +53,21 @@ class TestCanonicalization(unittest.TestCase):
         self.assertGreater(synth.node.rms_db, -3.0)
         self.assertTrue(any(x > 0 for x in synth.node.bands))
 
-    def test_unmapped_to_other(self):
-        tracks = {"1": ts(1, "Zxqwq Thing")}
+    def test_silent_unknown_to_other(self):
+        # unknown name AND no audible signature -> genuinely unclassifiable -> "other"/unmapped
+        tracks = {"1": ts(1, "Zxqwq Thing", b=[], rms=-120.0)}
         aggs, unmapped = canonical_aggs(tracks)
         self.assertIn("Zxqwq Thing", unmapped)
-        self.assertTrue(any(a.role == "other" and any(x > 0 for x in a.node.bands) for a in aggs))
+
+    def test_content_fallback_when_name_unknown(self):
+        # a generically-named track with a clear low-heavy spectrum should land in a
+        # real role via the content classifier, NOT collapse to "other" (the fix that
+        # makes coverage independent of naming conventions).
+        tracks = {"1": ts(1, "Audio 7", b=[0.45, 0.4, 0.1, 0.03, 0.02, 0.0, 0.0], rms=-6.0)}
+        aggs, unmapped = canonical_aggs(tracks)
+        self.assertNotIn("Audio 7", unmapped)
+        roles_with_energy = [a.role for a in aggs if any(x > 0 for x in a.node.bands)]
+        self.assertIn(roles_with_energy[0], ("bass", "sub", "drums"))
 
     def test_return_to_fx(self):
         rmap, rr = DEFAULTS["role_map"], DEFAULTS["return_role"]

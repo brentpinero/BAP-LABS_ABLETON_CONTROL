@@ -60,19 +60,43 @@ def masking_between(a: Node, b: Node, scheme_id: str = _bands.DEFAULT_SCHEME,
     }
 
 
+def adaptive_config(nodes: List[Node], participants=None):
+    """Pick masking participants + count-aware thresholds from the live node set,
+    so masking works on ANY project structure — grouped or flat.
+
+    Grouped project -> compare GROUPS (the mixing-decision layer, least noise).
+    Flat/ungrouped project (no group nodes present) -> compare the TRACKS
+    themselves, otherwise the clash view would be empty. Master is always the
+    congestion reference. Thresholds scale with participant count: pairwise clashes
+    are O(N^2) so `max_pairs` grows with N, and the 'crowded' summary cutoff rises
+    so a busy flat project doesn't read as perpetually crowded.
+
+    Returns (participants, max_pairs, crowded_min)."""
+    roles_present = {n.role for n in nodes}
+    if participants is None:
+        participants = ("group", "master") if "group" in roles_present else ("track", "master")
+    npart = sum(1 for n in nodes if n.role in participants and n.role != "master")
+    max_pairs = max(20, min(80, npart * 2))
+    crowded_min = max(3, round(npart * 0.4))       # flat projects need a higher bar
+    return participants, max_pairs, crowded_min
+
+
 def compute_masking(nodes: List[Node], scheme_id: str = _bands.DEFAULT_SCHEME,
                     participants=("group", "master"), floor: float = 1e-3,
                     max_pairs: int = 20, congestion_frac: float = 0.10,
-                    audible_db: float = -50.0) -> dict:
+                    audible_db: float = -50.0, crowded_min: int = 3) -> dict:
     """Group-vs-group clash pairs + per-band master congestion.
 
     participants:     which node roles take part in the pairwise clash view
-                      (default groups + master; pass ('group','track') to include
-                      individual tracks for finer-grained queries).
+                      (default groups + master; pass ('track','master') for flat
+                      projects — see adaptive_config, which picks this from the
+                      live node set).
     congestion_frac:  a group counts toward a band's congestion only if that band
                       is >= this fraction of the group's OWN energy (relative, so
                       it doesn't saturate the way an absolute floor does).
     audible_db:       groups quieter than this don't count toward congestion.
+    crowded_min:      how many participants must crowd a band before the summary
+                      calls it out (scales with participant count for flat projects).
     """
     groups = [n for n in nodes if n.role in participants and n.role != "master"]
 
@@ -106,17 +130,17 @@ def compute_masking(nodes: List[Node], scheme_id: str = _bands.DEFAULT_SCHEME,
         "n_bands": nb,
         "pairs": pairs,                      # sorted worst-clash first
         "master_congestion": congestion,
-        "summary": _summarize(pairs, congestion),
+        "summary": _summarize(pairs, congestion, crowded_min),
     }
 
 
-def _summarize(pairs: list, congestion: list) -> str:
+def _summarize(pairs: list, congestion: list, crowded_min: int = 3) -> str:
     if not pairs:
-        return "No significant group clashes detected."
+        return "No significant clashes detected."
     worst = pairs[0]
     parts = [f"Worst clash: {worst['a']} vs {worst['b']} in the "
              f"{worst['top_band']} ({len(worst['bands'])} contested bands)."]
     crowded = max(congestion, key=lambda c: c["congestion"]) if congestion else None
-    if crowded and crowded["congestion"] >= 3:
-        parts.append(f"{crowded['band']} is crowded ({crowded['congestion']} groups).")
+    if crowded and crowded["congestion"] >= crowded_min:
+        parts.append(f"{crowded['band']} is crowded ({crowded['congestion']} sources).")
     return " ".join(parts)

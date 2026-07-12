@@ -32,7 +32,10 @@ WRITE_INTERVAL_S = 0.5
 # --------------------------------------------------------------------------
 # Daemon
 # --------------------------------------------------------------------------
-async def _snapshot_writer(bridge) -> None:
+async def _snapshot_writer(bridge, agg_bridge=None) -> None:
+    from aggregator_bridge import agg_status
+    from perception_config import cfg as _cfg
+    n_pairs = int(_cfg("aggregator_channels"))
     SNAPSHOT_PATH.parent.mkdir(parents=True, exist_ok=True)
     while True:
         recent = []
@@ -49,6 +52,9 @@ async def _snapshot_writer(bridge) -> None:
             "context_32bar": bridge.build_32bar_context() if recent else {},
             # per-track/group/master live state + group-vs-group masking (v2)
             "per_track": bridge.build_tracks_snapshot(),
+            # multichannel aggregator substrate: how many devices/channels are live
+            "aggregator": (agg_status(agg_bridge.map, agg_bridge.stats, n_pairs)
+                           if agg_bridge is not None else None),
         }
         tmp = SNAPSHOT_PATH.with_suffix(".tmp")
         tmp.write_text(json.dumps(snap))
@@ -86,30 +92,83 @@ async def main() -> None:
     print(f"[EARS] aggregator bridge on :{agg_bridge.recv_port} -> :9880 (Ctrl-C to stop)")
     try:
         await asyncio.gather(
-            _snapshot_writer(bridge),
+            _snapshot_writer(bridge, agg_bridge),
             emitter.run(),
             emitter.snapshot_writer(),
             agg_bridge.run(),
             _agg_map_watcher(agg_bridge),
+            _transport_poller(bridge),
         )
     finally:
         transport.close()
 
 
+async def _transport_poller(bridge) -> None:
+    """Authoritative transport from the Remote Script (LOM), NOT the per-device
+    plugsync~/live.observer path (which silently fails to bind on a fresh M4L load, so
+    the device streams stale playing=0/bpm=120/frozen-bar). Polls get_session_info and
+    drives the bar cache + perception frame. Bar/beat are derived from current_song_time
+    (Live reports it in beats) and the time signature. Sets bridge.lom_transport so the
+    device's /mix/transport OSC is ignored (LOM wins)."""
+    from live_client import LiveClient
+    from perception_config import cfg
+    interval = 1.0 / max(1.0, float(cfg("transport_poll_hz")))
+    loop = asyncio.get_event_loop()
+    bridge.lom_transport = True                       # device /mix/transport now ignored
+    client = None
+    while True:
+        try:
+            if client is None:
+                client = LiveClient(timeout=5).connect()
+            si = await loop.run_in_executor(None, lambda: client.send("get_session_info"))
+            if si:
+                sig = int(si.get("signature_numerator", 4)) or 4
+                t = float(si.get("current_song_time", 0.0))    # in beats
+                bar = int(t // sig)
+                beat = t - bar * sig
+                bridge.set_transport(1 if si.get("is_playing") else 0,
+                                     float(si.get("tempo", 120.0)), bar, beat)
+        except Exception:
+            if client is not None:
+                try:
+                    client.close()
+                except Exception:
+                    pass
+            client = None                              # reconnect on the next tick
+        await asyncio.sleep(interval)
+
+
 async def _agg_map_watcher(agg_bridge) -> None:
-    """Hot-reload the aggregator channel->track map when provisioning state changes."""
+    """Hot-reload the aggregator channel->track map when provisioning state changes.
+
+    Multi-device safe: the map is keyed by GLOBAL osc channel (device*n_pairs + pair),
+    so any number of aggregator devices fold into this one map with no per-device state.
+    Crash-proof: a mid-write / garbage read yields None from load_agg_map, and we then
+    leave the live map untouched (never wipe it) and retry on the next tick — so the
+    provision writer overlapping our poll can't deafen the daemon."""
+    from aggregator_bridge import load_agg_map, agg_status
+    from perception_config import cfg as _cfg
     state = _ROOT / "sandbox_sessions" / "aggregator_state.json"
+    n_pairs = int(_cfg("aggregator_channels"))
     last = None
     while True:
         try:
             mt = state.stat().st_mtime if state.exists() else None
             if mt != last:
-                last = mt
-                agg_bridge.clear()
-                if mt:
-                    m = json.loads(state.read_text()).get("map", {})
-                    agg_bridge.set_map({int(k): v for k, v in m.items()})
-                    print(f"[EARS] aggregator map: {len(agg_bridge.map)} channels", flush=True)
+                if mt is None:                      # file removed (teardown): clear cleanly
+                    agg_bridge.clear()
+                    last = mt
+                else:
+                    mapping = load_agg_map(state)
+                    if mapping is not None:         # only swap on a good, complete read
+                        last = mt
+                        agg_bridge.clear()
+                        agg_bridge.set_map(mapping)
+                        st = agg_status(agg_bridge.map, agg_bridge.stats, n_pairs)
+                        print(f"[EARS] aggregator map: {st['channels']} channels across "
+                              f"{st['devices']} device(s) (gch {st['gch_min']}..{st['gch_max']})",
+                              flush=True)
+                    # mapping is None -> keep prior map, don't advance last, retry next tick
         except Exception:
             pass
         await asyncio.sleep(2.0)
@@ -167,7 +226,9 @@ def register_live_ear_tools(mcp, deps: Dict[str, Any]) -> None:
             st = snap["status"]
             return _ok({"fresh": True, "playing": st.get("playing"), "bpm": st.get("bpm"),
                         "current_bar": st.get("current_bar"), "bars_cached": st.get("cached_bars"),
-                        "current_levels": st.get("current_levels")})
+                        "current_levels": st.get("current_levels"),
+                        # multichannel aggregator substrate state (devices/channels/unmapped)
+                        "aggregator": snap.get("aggregator")})
         except Exception as e:
             return _err("reading live ears status", e)
 

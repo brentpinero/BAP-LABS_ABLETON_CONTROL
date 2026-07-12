@@ -20,7 +20,14 @@ Raw per-band RMS per channel goes to :9886; a Python receiver maps channel->trac
 TrackState pipeline. Coeffs + per-band gains are IDENTICAL to build_pertrack_device
 (bandpass_coeffs + pink_gains.json), so a channel reads the same as a per-track device.
 
-Run:  python build_aggregator_device.py [n_pairs]   (default 8)
+MULTI-DEVICE: a single 64ch device = 32 pairs. Projects with more nodes than that
+need several aggregators. Each device is built with a channel-BASE offset so it emits
+/agg/ch/<base+k>/spectrum into ONE shared global channel space (still one OSC port),
+letting the bridge tell devices apart with no port juggling. Device d uses base
+= d * n_pairs, so device 0 owns global channels 0..n_pairs-1, device 1 the next
+block, and so on. The provisioner (aggregator_provision) allocates nodes across them.
+
+Run:  python build_aggregator_device.py [n_pairs] [base]   (default 8, base 0)
 """
 
 import json
@@ -45,7 +52,7 @@ def line(src, so, dst, di):
     return {"patchline": {"source": [src, so], "destination": [dst, di]}}
 
 
-def main(n_pairs=8):
+def main(n_pairs=8, base=0):
     d = json.loads(BASE.read_text())
     p = d["patcher"]
     boxes, lines = [], []
@@ -88,7 +95,8 @@ def main(n_pairs=8):
         boxes.append(box(pak, "pak " + " ".join(["0."] * (nb + 1)), x0 + 100, y0 + 200, nb + 1, 1, [""]))
         lines.append(line(ssn, 0, pak, nb))       # side RMS -> last pak inlet
         prep = "obj-prep%d" % k
-        boxes.append(box(prep, "prepend /agg/ch/%d/spectrum" % k, x0 + 100, y0 + 224, 1, 1, [""]))
+        gch = base + k                            # global channel = device base + local pair
+        boxes.append(box(prep, "prepend /agg/ch/%d/spectrum" % gch, x0 + 100, y0 + 224, 1, 1, [""]))
         lines.append(line(pak, 0, prep, 0))
         lines.append(line(prep, 0, "obj-udp", 0))
         for b in range(nb):
@@ -108,19 +116,23 @@ def main(n_pairs=8):
     lines.append(line("p2", 0, "obj-out", 1))
 
     boxes.append({"box": {"id": "obj-title", "maxclass": "comment",
-                          "patching_rect": [40.0, 16.0, 600.0, 20.0],
-                          "text": "MIX ANALYSIS AGGREGATOR - %d pairs x %d-band biquad -> /agg/ch/<k>/spectrum :%d"
-                                  % (n_pairs, nb, OSC_PORT)}})
+                          "patching_rect": [40.0, 16.0, 640.0, 20.0],
+                          "text": "MIX ANALYSIS AGGREGATOR - %d pairs x %d-band biquad -> /agg/ch/<%d..%d>/spectrum :%d"
+                                  % (n_pairs, nb, base, base + n_pairs - 1, OSC_PORT)}})
 
     p["boxes"], p["lines"] = boxes, lines
-    out = HERE / ("Mix Analysis Aggregator %dch.maxpat" % (n_pairs * 2))
+    # base in the filename so multi-device variants (base 0/32/64/...) are distinct files
+    suffix = "" if base == 0 else " base%d" % base
+    out = HERE / ("Mix Analysis Aggregator %dch%s.maxpat" % (n_pairs * 2, suffix))
     out.write_text(json.dumps(d, indent=1))
     json.loads(out.read_text())
-    print("wrote %s: %d boxes, %d lines (%d pairs, %d bands, FS=%g, OSC :%d)"
-          % (out.name, len(boxes), len(lines), n_pairs, nb, FS, OSC_PORT))
+    print("wrote %s: %d boxes, %d lines (%d pairs, %d bands, base %d, ch %d..%d, FS=%g, OSC :%d)"
+          % (out.name, len(boxes), len(lines), n_pairs, nb, base,
+             base, base + n_pairs - 1, FS, OSC_PORT))
     return out
 
 
 if __name__ == "__main__":
     n = int(sys.argv[1]) if len(sys.argv) > 1 else 8
-    main(n)
+    b = int(sys.argv[2]) if len(sys.argv) > 2 else 0
+    main(n, b)

@@ -61,11 +61,22 @@ DEFAULTS: dict[str, Any] = {
 
     # adaptive provisioning (Phase 3): which nodes get instrumented + fed to masking.
     "aggregator_channels": 32,                 # input pairs per aggregator device (64ch)
-    "select_capacity": 32,                     # total nodes to instrument (channel budget)
+    # coverage is capacity-driven, NOT name-gated: the aggregator is cheap (~1-2% CPU
+    # per device), so instrument every node up to this hard cap, spread across as many
+    # aggregator devices as needed (ceil(max_instrument / (aggregator_channels-1))).
+    # select_nodes only has to RANK when a project exceeds this; below it, everything
+    # is covered regardless of naming/grouping.
+    "max_instrument": 120,                     # hard cap on total instrumented nodes
+    "select_capacity": 120,                    # ranking budget (== max_instrument)
     "select_energy_db": -40.0,                 # a leaf track above this counts as "loud"
     "agg_osc_port": 9886,                       # aggregator per-channel spectrum OSC
     "agg_gate_db": -70.0,                        # below this a channel is silence; its
                                                 # normalized spectrum is noise -> zero it
+
+    # transport source: the daemon polls the Remote Script (LOM) for authoritative
+    # is_playing/tempo/song-position and drives the bar cache, instead of trusting the
+    # per-device plugsync~/live.observer (which fails to bind on fresh M4L loads).
+    "transport_poll_hz": 10.0,                  # LOM transport poll rate (bar-accurate)
 }
 
 

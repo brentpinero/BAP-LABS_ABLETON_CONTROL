@@ -6,6 +6,7 @@ no Max/Ableton. Run: python -m unittest test_build_master_device
 """
 
 import json
+import time
 import unittest
 
 import bands
@@ -146,6 +147,16 @@ class TestLomTransport(unittest.TestCase):
         b.bpm, b.current_bar, b.is_playing = 130.0, 3, True
         tr = b.transport_now()
         self.assertEqual((tr["bar"], tr["bpm"]), (3, 130.0))
+
+    def test_anchor_t_unbiases_round_trip(self):
+        # the poller passes the query midpoint as anchor_t; extrapolation must use it, not
+        # the wall clock at set_transport time, so the beat doesn't lag the round-trip
+        b = MixAnalysisBridge(port=0)
+        query_mid = time.time() - 0.5                      # song_beats was sampled 0.5 s ago
+        b.set_transport(1, 120.0, 2, 0.0, song_beats=8.0, sig=4, anchor_t=query_mid)
+        self.assertAlmostEqual(b._tr_anchor["t"], query_mid, places=4)
+        tr = b.transport_now(at_wall=query_mid + 0.5)       # +0.5 s @120 = +1 beat
+        self.assertAlmostEqual(tr["beat"], 1.0, places=4)
 
 
 if __name__ == "__main__":

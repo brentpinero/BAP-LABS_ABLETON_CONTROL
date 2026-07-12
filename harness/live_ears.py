@@ -134,7 +134,9 @@ async def _transport_poller(bridge) -> None:
         try:
             if client is None:
                 client = LiveClient(timeout=5).connect()
+            t_send = time.time()
             si = await loop.run_in_executor(None, lambda: client.send("get_session_info"))
+            anchor_t = (t_send + time.time()) / 2.0        # query midpoint: unbias the round-trip
             if si:
                 sig = int(si.get("signature_numerator", 4)) or 4
                 t = float(si.get("current_song_time", 0.0))    # absolute position, in beats
@@ -142,7 +144,7 @@ async def _transport_poller(bridge) -> None:
                 beat = t - bar * sig
                 bridge.set_transport(1 if si.get("is_playing") else 0,
                                      float(si.get("tempo", 120.0)), bar, beat,
-                                     song_beats=t, sig=sig)   # song_beats -> dead-reckon anchor
+                                     song_beats=t, sig=sig, anchor_t=anchor_t)
         except Exception:
             if client is not None:
                 try:

@@ -256,13 +256,17 @@ class MixAnalysisBridge:
             return
         self._apply_transport(bool(args[0]), float(args[1]), int(args[2]), float(args[3]))
 
-    def set_transport(self, playing, bpm, bar, beat, song_beats=None, sig=4):
+    def set_transport(self, playing, bpm, bar, beat, song_beats=None, sig=4, anchor_t=None):
         """Authoritative transport from the LOM poller (bypasses the OSC gate). When
         `song_beats` (absolute position in beats) is given, store a dead-reckon anchor so
-        transport_now() can interpolate between polls."""
+        transport_now() can interpolate between polls. `anchor_t` is the wall time that
+        `song_beats` was actually sampled — pass the query MIDPOINT so the extrapolation
+        baseline isn't biased late by the get_session_info round-trip (which would make the
+        beat lag and snap forward each poll)."""
         if song_beats is not None:
-            self._tr_anchor = {"t": time.time(), "song_beats": float(song_beats),
-                               "bpm": float(bpm), "sig": int(sig) or 4, "playing": bool(playing)}
+            self._tr_anchor = {"t": float(anchor_t) if anchor_t is not None else time.time(),
+                               "song_beats": float(song_beats), "bpm": float(bpm),
+                               "sig": int(sig) or 4, "playing": bool(playing)}
         self._apply_transport(bool(playing), float(bpm), int(bar), float(beat))
 
     def transport_now(self, at_wall=None) -> dict:

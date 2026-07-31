@@ -140,7 +140,9 @@ class Frame:
             "scheme": self.scheme, "roles": self.roles,
             "role_state": {a.role: {"bands": [round(b, 6) for b in a.node.bands],
                                     "rms_db": round(a.node.rms_db, 2),
-                                    "width": round(a.width, 4)} for a in self.aggs},
+                                    "width": round(a.width, 4),
+                                    "peak_db": round(a.peak_db, 2),
+                                    "correlation": round(a.correlation, 3)} for a in self.aggs},
             "masking": self.masking, "focus": self.focus, "unmapped": sorted(self.unmapped),
             "text": self.to_text(cfg("text_topk")),
         }
@@ -154,7 +156,8 @@ class Frame:
             st = rs.get(r, {"bands": [], "rms_db": -120.0, "width": 0.0})
             structural = "master" if r == "master" else "group"
             aggs.append(RoleAgg(r, Node(id=r, name=r, role=structural,
-                                        bands=st["bands"], rms_db=st["rms_db"]), st["width"]))
+                                        bands=st["bands"], rms_db=st["rms_db"]), st["width"],
+                                st.get("peak_db", -120.0), st.get("correlation", 0.0)))
         return cls(t_wall=d["t_wall"], bpm=d["bpm"], bar=d["bar"], beat=d["beat"],
                    beats_per_bar=d["beats_per_bar"], playing=d["playing"], scheme=d["scheme"],
                    roles=roles, aggs=aggs, masking=d["masking"],

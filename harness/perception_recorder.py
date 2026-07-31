@@ -41,8 +41,10 @@ _ROOT = Path(__file__).resolve().parent.parent
 class TrajectoryRecorder:
     """Buffers perception frames on the clock, flushes them to a session JSONL off it."""
 
-    def __init__(self, session_id: Optional[str] = None, override: dict | None = None):
+    def __init__(self, session_id: Optional[str] = None, override: dict | None = None,
+                 bridge=None):
         self.override = override
+        self.bridge = bridge                     # MixAnalysisBridge, for raw per-track capture
         self.session_id = session_id or ("sess_%d" % int(time.time()))
         self.dir = _ROOT / cfg("trajectory_dir", override) / self.session_id
         self.path = self.dir / "frames.jsonl"
@@ -63,7 +65,7 @@ class TrajectoryRecorder:
                 return                            # skip silent/stopped frames (low value)
             if (self._seen - 1) % self.stride:
                 return                            # decimation (stride > 1)
-            self._buf.append({
+            rec = {
                 "step": self._step,
                 "t_wall": frame.t_wall,
                 "bar": frame.bar,
@@ -71,7 +73,17 @@ class TrajectoryRecorder:
                 "playing": bool(getattr(frame, "playing", False)),
                 "frame": frame.to_dict(),
                 "events": [asdict(e) for e in events],
-            })
+            }
+            if self.bridge is not None:
+                # Raw per-track detail (per-track bands / L-R rms+peak / mid-side /
+                # correlation) for the SAME instant the frame was built from:
+                # perception_stream.tick calls build_frame(bridge.tracks, ...) then
+                # on_frame() synchronously with no await between, so bridge.tracks is
+                # unchanged. Roles in `frame` are the aggregate view; `tracks` is the
+                # un-abstracted per-track truth for data-science analysis.
+                rec["tracks"] = {tid: ts.to_dict()
+                                 for tid, ts in self.bridge.tracks.items()}
+            self._buf.append(rec)
             self._step += 1
         except Exception:  # noqa: BLE001 — a recorder hiccup must never stall the clock
             pass
@@ -85,19 +97,11 @@ class TrajectoryRecorder:
             self._fh = self.path.open("a", encoding="utf-8")
 
     def _manifest(self) -> dict:
-        roles, scheme = cfg("roles", self.override), cfg("band_scheme", self.override)
-        return {
-            "session_id": self.session_id,
-            "started_at": time.time(),
-            "frame_rate_hz": cfg("frame_rate_hz", self.override),
-            "band_scheme": scheme,
-            "roles": roles,
-            "vector_len": Frame.vector_len(roles, scheme),
-            "stride": self.stride,
-            "only_when_playing": self.only_when_playing,
-            "audio_latency_s": cfg("audio_latency_s", self.override),   # alignment in effect
-            "schema": "step,t_wall,bar,beat,playing,frame(Frame.to_dict),events(Event)",
-        }
+        # Full self-documenting data dictionary (band edges, vector layout, field units,
+        # masking math, role mapping, event thresholds, provenance) — built from the
+        # sources of truth in perception_schema so it can never drift from the code.
+        from perception_schema import build_manifest
+        return build_manifest(self.session_id, time.time(), self.override)
 
     def flush(self) -> int:
         """Drain the in-memory buffer to the JSONL (append). Returns rows written."""

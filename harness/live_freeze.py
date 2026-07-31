@@ -98,18 +98,26 @@ def capture_device_state(track_index: int, device_index: int = 0,
             c.close()
 
 
-def _delete_tagged_track(client: LiveClient, tag: str) -> None:
-    """Delete the temp track whose name == tag, re-scanning by name (robust to
-    index shifts). Only deletes an EXACT tag match — never a user track."""
+def find_track_index_by_name(client: LiveClient, name: str) -> Optional[int]:
+    """Index of the track whose name == `name` (reverse scan, robust to index
+    shifts; skips rows that raise, e.g. group/return), or None."""
     n = int(client.send("get_session_info").get("track_count", 0))
     for i in range(n - 1, -1, -1):
         try:
             ti = client.send("get_track_info", {"track_index": i})
         except LiveError:
             continue  # main/group/return
-        if ti.get("name") == tag:
-            client.send("delete_track", {"track_index": i})
-            return
+        if ti.get("name") == name:
+            return i
+    return None
+
+
+def _delete_tagged_track(client: LiveClient, tag: str) -> None:
+    """Delete the temp track whose name == tag, re-scanning by name (robust to
+    index shifts). Only deletes an EXACT tag match — never a user track."""
+    idx = find_track_index_by_name(client, tag)
+    if idx is not None:
+        client.send("delete_track", {"track_index": idx})
 
 
 def freeze_render(notes: List[Dict[str, Any]], bpm: float, bars: int,

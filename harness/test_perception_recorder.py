@@ -74,6 +74,57 @@ class TestRecordAndLoad(unittest.TestCase):
             self.assertEqual(len(load_trajectory(Path(tmp) / "test")["steps"]), 1)
 
 
+class _FakeBridge:
+    """Minimal stand-in: the recorder only reads bridge.tracks (id -> TrackState)."""
+    def __init__(self, tracks):
+        self.tracks = tracks
+
+
+class TestPerTrackCapture(unittest.TestCase):
+    """A1: raw per-track detail is recorded alongside the role aggregates."""
+
+    def test_tracks_recorded_when_bridge_present(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            tracks = {"1": ts(1, "Drums", "group"), "2": ts(2, "Bass", "group")}
+            r = TrajectoryRecorder(session_id="test", override={"trajectory_dir": str(tmp)},
+                                   bridge=_FakeBridge(tracks))
+            r.on_frame(pf.build_frame(tracks, TRANSPORT), [])
+            r.flush(); r.close()
+            step = load_trajectory(Path(tmp) / "test")["steps"][0]
+            self.assertIn("tracks", step)
+            self.assertEqual(set(step["tracks"]), {"1", "2"})
+            t = step["tracks"]["1"]
+            self.assertEqual(t["name"], "Drums")
+            for k in ("bands", "rms_l", "rms_r", "peak_l", "peak_r",
+                      "mid_energy", "side_energy", "correlation", "kind", "group_id"):
+                self.assertIn(k, t)
+
+    def test_no_tracks_key_without_bridge(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            r = _rec(tmp)                                  # no bridge
+            r.on_frame(make_frame(), []); r.flush(); r.close()
+            self.assertNotIn("tracks", load_trajectory(Path(tmp) / "test")["steps"][0])
+
+    def test_role_state_carries_peak_and_correlation(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            r = _rec(tmp)
+            r.on_frame(make_frame(), []); r.flush(); r.close()
+            rs = load_trajectory(Path(tmp) / "test")["steps"][0]["frame"]["role_state"]
+            for sub in rs.values():
+                self.assertIn("peak_db", sub)
+                self.assertIn("correlation", sub)
+
+    def test_manifest_is_v2_data_dictionary(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            r = _rec(tmp)
+            r.on_frame(make_frame(), []); r.flush(); r.close()
+            man = load_trajectory(Path(tmp) / "test")["manifest"]
+            self.assertEqual(man["schema_version"], "sim.frame-trajectory.v2")
+            for key in ("bands", "vector_layout", "fields", "masking_semantics",
+                        "role_taxonomy", "event_schema", "focus_enums", "provenance"):
+                self.assertIn(key, man)
+
+
 class TestFilteringAndAlignment(unittest.TestCase):
     def test_only_when_playing_skips_silent(self):
         with tempfile.TemporaryDirectory() as tmp:

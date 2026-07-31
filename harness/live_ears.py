@@ -82,8 +82,16 @@ async def main() -> None:
     recorder = None
     if cfg("record_trajectories"):
         from perception_recorder import TrajectoryRecorder
-        recorder = TrajectoryRecorder()
+        recorder = TrajectoryRecorder(bridge=bridge)   # bridge → raw per-track detail per frame
     emitter = FrameEmitter(bridge, on_frame=recorder.on_frame if recorder else None)
+
+    # OPT-IN continuous parameter-automation stream (PERCEPTION_RECORD_METADATA=1). Shares
+    # the trajectory session folder so params.jsonl joins frames.jsonl. Needs the Remote
+    # Script reloaded (the bulk get_all_device_parameters command is new).
+    metadata_recorder = None
+    if cfg("record_metadata"):
+        from perception_metadata import MetadataRecorder
+        metadata_recorder = MetadataRecorder(session_id=recorder.session_id if recorder else None)
     # expose for the focus lane (sets current focus) and future in-process consumers
     main.emitter = emitter  # type: ignore[attr-defined]
 
@@ -99,6 +107,9 @@ async def main() -> None:
     print(f"[EARS] aggregator bridge on :{agg_bridge.recv_port} -> :9880 (Ctrl-C to stop)")
     if recorder:
         print(f"[EARS] recording SIM trajectories -> {recorder.path}")
+    if metadata_recorder:
+        print(f"[EARS] recording param automation -> {metadata_recorder.path} "
+              f"@ {cfg('metadata_sample_hz')}Hz")
     coros = [
         _snapshot_writer(bridge, agg_bridge),
         emitter.run(),
@@ -109,12 +120,17 @@ async def main() -> None:
     ]
     if recorder:
         coros.append(recorder.flush_loop())
+    if metadata_recorder:
+        coros.append(metadata_recorder.flush_loop())
+        coros.append(_metadata_sampler(bridge, metadata_recorder))
     try:
         await asyncio.gather(*coros)
     finally:
         transport.close()
         if recorder:
             recorder.close()
+        if metadata_recorder:
+            metadata_recorder.close()
 
 
 async def _transport_poller(bridge) -> None:
@@ -152,6 +168,44 @@ async def _transport_poller(bridge) -> None:
                 except Exception:
                     pass
             client = None                              # reconnect on the next tick
+        await asyncio.sleep(interval)
+
+
+async def _metadata_sampler(bridge, recorder) -> None:
+    """Sample EVERY device parameter value at metadata_sample_hz via the bulk Remote
+    Script command, stamp the SAME audio-aligned coordinate the frames use
+    (transport_now(now - audio_latency_s)), and hand it to the delta recorder so
+    params.jsonl joins frames.jsonl losslessly. Own LiveClient (the Remote Script server
+    is per-connection threaded); the blocking send runs in an executor so the 25Hz frame
+    clock never stalls."""
+    from live_client import LiveClient
+    from perception_config import cfg
+    interval = 1.0 / max(0.5, float(cfg("metadata_sample_hz")))
+    keyframe_s = float(cfg("metadata_keyframe_s"))
+    latency = float(cfg("audio_latency_s"))
+    loop = asyncio.get_event_loop()
+    client = None
+    last_kf = None                                   # wall time of the last FULL snapshot
+    while True:
+        try:
+            if client is None:
+                client = LiveClient().connect()
+            now = time.time()
+            # FULL all-param snapshot on the first tick and every keyframe_s (catches
+            # non-automation motion on ANY project, ~0.7s); the fast ticks in between send
+            # only automated params (tiny, sustains the 4Hz rate). The delta recorder stores
+            # just what moved either way.
+            full = last_kf is None or (now - last_kf) >= keyframe_s
+            req = {"mode": "compact"} if full else {"mode": "compact", "automated_only": True}
+            snap = await loop.run_in_executor(None, lambda r=req: client.send("get_all_device_parameters", r))
+            if full:
+                last_kf = now
+            at = time.time() - latency
+            tr = bridge.transport_now(at)            # audio-aligned bar/beat (frames' clock)
+            tr["t_wall"] = at
+            recorder.on_sample(snap, tr)
+        except Exception:                            # noqa: BLE001 — reconnect next tick
+            client = None
         await asyncio.sleep(interval)
 
 

@@ -531,6 +531,19 @@ class AbletonAutomatorBridge:
             "error": self.last_error if not success else None
         }
 
+    def unfreeze_track(self) -> Dict[str, Any]:
+        """Unfreeze track - the Freeze menu item reads 'Unfreeze Track' while frozen.
+        Try that label first, fall back to the toggle label."""
+        success = self._with_retry(lambda: self.click_menu(["Edit", "Unfreeze Track"]))
+        if not success:
+            success = self._with_retry(lambda: self.click_menu(["Edit", "Freeze Track"]))
+        return {
+            "success": success,
+            "operation": "unfreeze_track",
+            "menu": "Edit > Unfreeze Track",
+            "error": self.last_error if not success else None
+        }
+
     def flatten_track(self) -> Dict[str, Any]:
         """Flatten track - requires menu click"""
         success = self._with_retry(lambda: self.click_menu(["Edit", "Flatten"]))
@@ -853,6 +866,8 @@ def handle_automator_command(command_type: str, params: dict = None) -> Dict[str
         return bridge.quantize()
     elif command_type == "automator_freeze":
         return bridge.freeze_track()
+    elif command_type == "automator_unfreeze":
+        return bridge.unfreeze_track()
     elif command_type == "automator_flatten":
         return bridge.flatten_track()
     elif command_type == "automator_reverse":

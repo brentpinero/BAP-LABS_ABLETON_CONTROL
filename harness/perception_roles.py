@@ -31,6 +31,7 @@ class RoleAgg:
     node: Node          # bands (fraction) + rms_db, for masking
     width: float        # aggregated stereo width side/(mid+side)
     peak_db: float = -120.0   # loudest member peak, for clip detection
+    correlation: float = 0.0  # loudness-weighted mean L/R correlation of members
 
 
 def role_of(ts: Any, tracks: dict, role_map: list, return_role: str,
@@ -75,16 +76,19 @@ def _aggregate(states: list, mix_role: str, scheme: str) -> RoleAgg:
     src = groups if groups else [s for s in states if s.bands]
     if not src:
         return RoleAgg(mix_role, Node(id=mix_role, name=mix_role, role=structural,
-                                      bands=[0.0] * B, rms_db=-120.0), 0.0, -120.0)
+                                      bands=[0.0] * B, rms_db=-120.0), 0.0, -120.0, 0.0)
 
     absum, linsum, mid, side, peak = [0.0] * B, 0.0, 0.0, 0.0, -120.0
+    corr_acc = 0.0                      # loudness-weighted correlation numerator
     for s in src:
         node = s.to_node()
         ba = node.band_abs()
         for i in range(min(B, len(ba))):
             absum[i] += ba[i]
         if node.rms_db > -120:
-            linsum += 10.0 ** (node.rms_db / 20.0)
+            w = 10.0 ** (node.rms_db / 20.0)
+            linsum += w
+            corr_acc += w * (getattr(s, "correlation", 0.0) or 0.0)
         mid += getattr(s, "mid_energy", 0.0) or 0.0
         side += getattr(s, "side_energy", 0.0) or 0.0
         peak = max(peak, getattr(s, "peak_l", -120.0), getattr(s, "peak_r", -120.0))
@@ -92,8 +96,9 @@ def _aggregate(states: list, mix_role: str, scheme: str) -> RoleAgg:
     fracs = [a / total for a in absum] if total > 0 else [0.0] * B
     rms_db = 20.0 * math.log10(linsum) if linsum > 0 else -120.0
     width = side / (mid + side) if (mid + side) > 0 else 0.0
+    corr = corr_acc / linsum if linsum > 0 else 0.0
     return RoleAgg(mix_role, Node(id=mix_role, name=mix_role, role=structural,
-                                  bands=fracs, rms_db=rms_db), width, peak)
+                                  bands=fracs, rms_db=rms_db), width, peak, corr)
 
 
 def canonical_aggs(tracks: dict, override: dict | None = None):

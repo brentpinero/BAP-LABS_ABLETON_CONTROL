@@ -98,6 +98,21 @@ DEFAULTS: dict[str, Any] = {
     "trajectory_flush_s": 2.0,                  # append buffered frames to disk this often
     "trajectory_stride": 1,                     # record every Nth frame (1 = all, lossless)
     "trajectory_only_when_playing": True,       # skip silent/stopped frames (low training value)
+
+    # continuous device/parameter metadata stream (automation capture): OPT-IN. Samples
+    # every device parameter value via the bulk get_all_device_parameters Remote Script
+    # command at metadata_sample_hz, delta-encoded (only moving params stored), joined to
+    # the perception trajectory by t_wall/bar/beat. Enable with PERCEPTION_RECORD_METADATA=1
+    # on the `ears` daemon (needs the Remote Script RELOADED so the bulk command exists).
+    "record_metadata": False,
+    "metadata_dir": "sandbox_sessions/trajectories",   # same <session> folder as frames.jsonl
+    "metadata_sample_hz": 4.0,                  # FAST tick rate: only automated params (small, ~4Hz)
+    "metadata_keyframe_s": 5.0,                  # every N s send a FULL all-param snapshot instead —
+                                                # catches non-automation motion (M4L modulators, manual
+                                                # tweaks) so capture is complete on ANY project.
+    "metadata_flush_s": 2.0,                    # append buffered param deltas to disk this often
+    "metadata_change_eps": 1e-6,                # min value delta to record (static params never move)
+    "metadata_only_when_playing": True,         # skip stopped ticks (still keyframes on tick 0)
 }
 
 

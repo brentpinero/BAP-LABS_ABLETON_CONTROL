@@ -118,6 +118,7 @@ class TrackState:
             "n_bands": len(self.bands), "bands": [round(b, 6) for b in self.bands],
             "rms_l": round(self.rms_l, 2), "rms_r": round(self.rms_r, 2),
             "peak_l": round(self.peak_l, 2), "peak_r": round(self.peak_r, 2),
+            "mid_energy": round(self.mid_energy, 6), "side_energy": round(self.side_energy, 6),
             "correlation": round(self.correlation, 3),
             "updated_at": self.updated_at,
         }

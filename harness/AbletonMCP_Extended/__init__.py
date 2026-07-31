@@ -259,6 +259,14 @@ class AbletonMCPExtended(ControlSurface):
             elif command_type == "get_current_position":
                 response["result"] = self._get_current_position()
 
+            # Whole-session device/parameter snapshot in ONE round-trip (read-only).
+            # Recurses racks; 'full' = names+bounds+flags (static dump), 'compact' =
+            # values only (continuous automation sampling). See harness metadata layer.
+            elif command_type == "get_all_device_parameters":
+                mode = params.get("mode", "full")
+                automated_only = params.get("automated_only", False)
+                response["result"] = self._get_all_device_parameters(mode, automated_only)
+
             # Commands that modify Live's state (scheduled on main thread)
             elif command_type in [
                 "create_midi_track", "set_track_name",
@@ -1551,6 +1559,98 @@ class AbletonMCPExtended(ControlSurface):
             }
         except Exception as e:
             self.log_message("Error getting device parameters: " + str(e))
+            raise
+
+    def _get_all_device_parameters(self, mode="full", automated_only=False):
+        """One round-trip snapshot of EVERY device parameter across ALL tracks.
+
+        Recurses racks (Instrument/Audio/Drum Group devices) — nested devices are
+        addressed by a path string "<devIdx>/<chainIdx>/<devIdx>...". Read-only, so it
+        runs on the socket thread like _get_device_parameters.
+
+        mode='full'    -> per param {index,name,value,min,max,is_enabled,is_quantized,
+                          automation_state} + device name/class (the static metadata dump).
+        mode='compact' -> per param [index, value, automation_state] only (the continuous
+                          automation stream; join names/bounds from the static dump).
+        automated_only -> keep ONLY params with automation_state != 0 (a device with none is
+                          dropped, but racks are still recursed). The fast path for the 4Hz
+                          automation stream — tiny payload — vs the periodic full keyframe.
+        """
+        compact = (mode == "compact")
+
+        def is_auto(p):
+            return (p[2] if compact else p.get("automation_state", 0)) != 0
+
+        def safe(getter, default=None):
+            try:
+                return getter()
+            except Exception:
+                return default
+
+        def ser_param(i, p):
+            auto = 0
+            try:
+                auto = int(p.automation_state)      # 0 none / 1 playing / 2 overridden
+            except Exception:
+                auto = 0
+            if compact:
+                return [i, p.value, auto]
+            info = {"index": i, "name": p.name, "value": p.value, "min": p.min,
+                    "max": p.max, "is_enabled": p.is_enabled,
+                    "is_quantized": p.is_quantized, "automation_state": auto}
+            try:
+                if hasattr(p, "default_value"):
+                    info["default_value"] = p.default_value
+            except Exception:
+                pass
+            return info
+
+        def walk_devices(devices, prefix):
+            out = []
+            for di, dev in enumerate(devices):
+                path = "{}{}".format(prefix, di)
+                params = [ser_param(i, p) for i, p in enumerate(dev.parameters)]
+                if automated_only:
+                    params = [p for p in params if is_auto(p)]
+                # in automated_only a device with no automated params is dropped (but still
+                # recursed below); otherwise every device is emitted.
+                if params or not automated_only:
+                    entry = {"path": path, "params": params}
+                    if not compact:
+                        entry["name"] = dev.name
+                        entry["class_name"] = dev.class_name if hasattr(dev, "class_name") else "Unknown"
+                    out.append(entry)
+                # descend racks: the current code never entered these, so nested plugins
+                # (e.g. a VST inside an Instrument Rack) would otherwise be invisible.
+                if getattr(dev, "can_have_chains", False):
+                    try:
+                        for ci, chain in enumerate(dev.chains):
+                            out.extend(walk_devices(chain.devices, "{}/{}/".format(path, ci)))
+                        for ci, chain in enumerate(getattr(dev, "return_chains", []) or []):
+                            out.extend(walk_devices(chain.devices, "{}/r{}/".format(path, ci)))
+                    except Exception:
+                        pass
+            return out
+
+        def track_entry(ref, track, kind):
+            e = {"track_index": ref, "track_name": track.name, "kind": kind,
+                 "devices": walk_devices(track.devices, "")}
+            if not compact:
+                e["is_audio_track"] = safe(lambda: track.has_audio_input, False)
+                e["is_midi_track"] = safe(lambda: track.has_midi_input, False)
+            return e
+
+        try:
+            tracks = []
+            for i, track in enumerate(self._song.tracks):
+                kind = "group" if getattr(track, "is_foldable", False) else "regular"
+                tracks.append(track_entry(i, track, kind))
+            for j, rt in enumerate(self._song.return_tracks):
+                tracks.append(track_entry("return:{}".format(j), rt, "return"))
+            tracks.append(track_entry(-1, self._song.master_track, "master"))
+            return {"mode": mode, "track_count": len(tracks), "tracks": tracks}
+        except Exception as e:
+            self.log_message("Error snapshotting all device parameters: " + str(e))
             raise
 
     def _set_device_parameter(self, track_index, device_index, parameter_index, value):

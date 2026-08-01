@@ -489,7 +489,10 @@ def build_capture_pool(client, size: int, out: list, settle_s: float = 1.0) -> l
     stamp = int(time.time()) % 100000
     for k in range(size):
         try:
-            cap = int(_retry(client, "create_audio_track", {"index": -1})["index"])
+            # NEVER retry create — it is NOT idempotent: a timed-out create may already have
+            # made the track, and a retry would make a DUPLICATE (desyncing indices). On a
+            # create timeout, stop with a partial pool instead.
+            cap = int(client.send("create_audio_track", {"index": -1})["index"])
         except LiveError as e:
             print(f"[{time.strftime('%H:%M:%S')}] pool build stopped at {len(out)}/{size} "
                   f"({e}); proceeding with partial pool", flush=True)
@@ -509,13 +512,10 @@ def build_capture_pool(client, size: int, out: list, settle_s: float = 1.0) -> l
 
 
 def teardown_capture_pool(client, pool: list) -> None:
-    for cap in sorted(pool, reverse=True):               # highest first so indices don't shift
-        for cmd, params in (("set_track_arm", {"track_index": cap, "arm": False}),
-                            ("delete_track", {"track_index": cap})):
-            try:
-                client.send(cmd, params)
-            except LiveError:
-                pass
+    """Delete the pool by NAME (via the ABLCAP sweep), NOT by the stored indices — if the
+    user shifts the track list mid-run, a stored index would point at a REAL track. Name
+    matching only ever deletes our own capture tracks."""
+    _sweep_capture_tracks(client)
 
 
 def capture_pooled(client, pool: list, specs, start_bar: int = 1, bars: int = 8,
@@ -552,13 +552,15 @@ def capture_pooled(client, pool: list, specs, start_bar: int = 1, bars: int = 8,
             except LiveError:
                 pass
         if used:
-            loop_prev = bool(client.send("set_song_loop", {"loop": False}).get("previous", True))
-            client.send("set_current_position", {"position": float(start_pos)})
-            client.send("set_record_mode", {"mode": 1})
-            client.send("start_playback")
+            # Transport commands via _retry — a transient main-thread stall on stop_playback
+            # etc. would otherwise crash the whole run (these ops ARE idempotent, safe to retry).
+            loop_prev = bool(_retry(client, "set_song_loop", {"loop": False}).get("previous", True))
+            _retry(client, "set_current_position", {"position": float(start_pos)})
+            _retry(client, "set_record_mode", {"mode": 1})
+            _retry(client, "start_playback")
             time.sleep(_record_seconds(bars, bpm, bpb) + settle_s)
-            client.send("stop_playback")
-            client.send("set_record_mode", {"mode": 0})
+            _retry(client, "stop_playback")
+            _retry(client, "set_record_mode", {"mode": 0})
             for i, cap, out_wav in used:                 # collect stems + clear clips for next pass
                 try:
                     fp = client.send("get_audio_clip_properties",
@@ -743,7 +745,12 @@ def _run_phase(client, nodes, out_dir, mode, bars, start_bar, batch_size, captur
     max_len = max(len(l) for l in ladders.values())
     written = 0
     for k in range(max_len):
-        active = [n for n in nodes if k < len(ladders[id(n)])]
+        # RESUME: skip nodes whose rung-k stem already exists on disk (from a prior run).
+        active = [n for n in nodes if k < len(ladders[id(n)])
+                  and not (out_dir / (f"{node_slug(n)}__rung{ladders[id(n)][k]['index']:02d}_"
+                                      f"{ladders[id(n)][k]['label']}.wav")).exists()]
+        if not active:
+            continue
         masks = {}
         for n in active:                                    # set all active to their rung k
             masks[id(n)] = expand_mask(n, ladders[id(n)][k]["enabled_mask"])

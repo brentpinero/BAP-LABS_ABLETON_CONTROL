@@ -7,6 +7,8 @@ changed when the next effect in the chain was enabled.
 
 Per stem (framewise at ~frame_rate_hz, matching the live perception vocabulary + brightness):
   - band_energy[B]  per-band spectral energy fraction (bands.py v1_7band, == live scheme)
+  - mel_db[64]      log-mel level per band, dB (high-res view for encoder training — 7 bands
+                    miss narrow EQ moves / harmonic structure)
   - rms_db          short-time loudness envelope (dBFS)
   - centroid_hz     spectral centroid (brightness)
   - flux            spectral flux (frame-to-frame movement)
@@ -15,7 +17,8 @@ plus a `summary` (mean/std/min/max/p10/p90 per feature, per-band means) and whol
 `loudness` (LUFS integrated/LRA/true-peak/crest — reuses harness/loudness.py).
 
 Per progressive rung the sidecar also gets `plugin_effect`: the delta vs the previous rung
-(the effect of `newly_enabled`) — per-band dB change, loudness/crest/centroid/width deltas.
+(the effect of `newly_enabled`) — per-band dB change, loudness/crest/centroid/width deltas,
+and (with --bpm) `per_bar`: the same deltas resolved per song bar = WHEN the plugin acts.
 All written INLINE into the stem sidecars. Reuses bands.py; librosa/soundfile for DSP.
 """
 
@@ -30,7 +33,11 @@ import numpy as np
 
 import bands as _bands
 
-ANALYSIS_SCHEMA = "sim.stem-analysis.v1"
+ANALYSIS_SCHEMA = "sim.stem-analysis.v3"      # v2: 64-band log-mel; v3: bar grid + per-bar deltas
+MEL_BANDS = 64
+MEL_FMIN, MEL_FMAX = 20.0, 20000.0
+MEL_FLOOR_DB = -120.0
+BAR_CONTENT_FLOOR_DB = -60.0                   # a bar is "content" if either rung is above this
 
 
 def _pct(a, p):
@@ -46,7 +53,8 @@ def _summary(arr) -> dict:
 
 
 def analyze_stem(path, scheme: str = None, hop: int = 2048, n_fft: int = 4096,
-                 round_series: bool = True) -> dict:
+                 round_series: bool = True, bpm: float = None, start_bar: int = None,
+                 beats_per_bar: int = 4) -> dict:
     """Framewise features + summary + loudness for one stem wav."""
     import librosa
     import soundfile as sf
@@ -65,6 +73,12 @@ def analyze_stem(path, scheme: str = None, hop: int = 2048, n_fft: int = 4096,
     total[total == 0] = 1.0
     band_frac = (band_pow / total).T                    # [T, B], sums to ~1 per frame
     T = band_frac.shape[0]
+
+    # 64-band log-mel on the same frame grid — the high-resolution view (7-band misses
+    # narrow EQ moves / harmonic structure); mel_db is ABSOLUTE level per band, in dB.
+    mel = librosa.feature.melspectrogram(S=powr, sr=sr, n_mels=MEL_BANDS,
+                                         fmin=MEL_FMIN, fmax=MEL_FMAX)      # [64, T]
+    mel_db = np.maximum(10.0 * np.log10(np.maximum(mel, 1e-12)), MEL_FLOOR_DB).T[:T]  # [T, 64]
 
     rms = librosa.feature.rms(S=mag, frame_length=n_fft, hop_length=hop)[0][:T]
     rms_db = 20.0 * np.log10(np.maximum(rms, 1e-9))
@@ -85,8 +99,10 @@ def analyze_stem(path, scheme: str = None, hop: int = 2048, n_fft: int = 4096,
 
     r5 = (lambda x: [round(float(v), 5) for v in x]) if round_series else (lambda x: [float(v) for v in x])
     r2 = (lambda x: [round(float(v), 2) for v in x]) if round_series else (lambda x: [float(v) for v in x])
+    r1 = (lambda x: [round(float(v), 1) for v in x]) if round_series else (lambda x: [float(v) for v in x])
     series = {
         "band_energy": [r5(row) for row in band_frac],  # [T][B]
+        "mel_db": [r1(row) for row in mel_db],          # [T][64] absolute dB
         "rms_db": r2(rms_db),
         "centroid_hz": [round(float(v), 1) for v in centroid],
         "flux": r5(flux / (flux.max() or 1.0)),          # normalized 0..1
@@ -94,6 +110,7 @@ def analyze_stem(path, scheme: str = None, hop: int = 2048, n_fft: int = 4096,
     }
     summary = {
         "band_energy": [_summary(band_frac[:, b]) for b in range(band_frac.shape[1])],
+        "mel_db_mean": [round(float(m), 2) for m in mel_db.mean(axis=0)],   # [64] mean level per mel band
         "rms_db": _summary(rms_db), "centroid_hz": _summary(centroid),
         "flux": _summary(series["flux"]), "width": _summary(width),
     }
@@ -119,9 +136,16 @@ def analyze_stem(path, scheme: str = None, hop: int = 2048, n_fft: int = 4096,
     except Exception as e:  # near-silent stem
         loud = {"error": str(e), "dynamic_range_db": dyn}
 
-    return {"schema_version": ANALYSIS_SCHEMA, "scheme": scheme,
-            "frame_rate_hz": round(sr / hop, 3), "n_frames": int(T), "hop": hop, "n_fft": n_fft,
-            "series": series, "summary": summary, "loudness": loud}
+    out = {"schema_version": ANALYSIS_SCHEMA, "scheme": scheme,
+           "frame_rate_hz": round(sr / hop, 3), "n_frames": int(T), "hop": hop, "n_fft": n_fft,
+           "mel_bands": MEL_BANDS, "mel_fmin_hz": MEL_FMIN, "mel_fmax_hz": MEL_FMAX,
+           "series": series, "summary": summary, "loudness": loud}
+    if bpm:                                              # musical grid: bar_of_frame(i) = start_bar + i/frames_per_bar
+        out["bpm"] = float(bpm)
+        out["beats_per_bar"] = int(beats_per_bar)
+        out["start_bar"] = start_bar
+        out["frames_per_bar"] = round((beats_per_bar * 60.0 / bpm) * (sr / hop), 3)
+    return out
 
 
 def _band_levels_db(summary: dict) -> list:
@@ -131,6 +155,47 @@ def _band_levels_db(summary: dict) -> list:
     out = []
     for b in summary["band_energy"]:
         out.append(20.0 * math.log10(max(b["mean"] * lin, 1e-9)))
+    return out
+
+
+def _bar_mean(series_2d: np.ndarray, lo: int, hi: int) -> np.ndarray:
+    return series_2d[lo:hi].mean(axis=0)
+
+
+def per_bar_effect(cur: dict, prev: dict) -> list | None:
+    """Time-resolved delta: one entry per song bar (rms/7-band/mel change over just that bar's
+    frames). This is WHEN the plugin acts — a sidechain duck or automated filter that the
+    whole-stem average smears out shows up here. Requires the bar grid (bpm) in the header."""
+    fpb, start_bar = cur.get("frames_per_bar"), cur.get("start_bar")
+    if not fpb or "series" not in cur or "series" not in prev:
+        return None
+    c_rms = np.asarray(cur["series"]["rms_db"], dtype=float)
+    p_rms = np.asarray(prev["series"]["rms_db"], dtype=float)
+    c_mel = np.asarray(cur["series"]["mel_db"], dtype=float)
+    p_mel = np.asarray(prev["series"]["mel_db"], dtype=float)
+    c_band = np.asarray(cur["series"]["band_energy"], dtype=float)
+    p_band = np.asarray(prev["series"]["band_energy"], dtype=float)
+    T = min(len(c_rms), len(p_rms))                      # rungs are the same playback; align defensively
+    out = []
+    for k in range(int(T / fpb)):
+        lo, hi = int(round(k * fpb)), min(int(round((k + 1) * fpb)), T)
+        if hi <= lo:
+            continue
+        cr, pr = float(c_rms[lo:hi].mean()), float(p_rms[lo:hi].mean())
+        # per-band absolute level (dB) for the bar: mean fraction weighted by mean linear rms
+        def lv(rms_mean, frac_mean):
+            lin = 10.0 ** (rms_mean / 20.0)
+            return [20.0 * math.log10(max(f * lin, 1e-9)) for f in frac_mean]
+        band_db = [round(c - p, 2) for c, p in zip(lv(cr, _bar_mean(c_band, lo, hi)),
+                                                   lv(pr, _bar_mean(p_band, lo, hi)))]
+        out.append({
+            "bar": (start_bar + k) if start_bar is not None else k,
+            "content": bool(cr > BAR_CONTENT_FLOOR_DB or pr > BAR_CONTENT_FLOOR_DB),
+            "rms_db_change": round(cr - pr, 2),
+            "band_db_change": band_db,
+            "mel_db_change": [round(float(v), 1) for v in
+                              _bar_mean(c_mel, lo, hi) - _bar_mean(p_mel, lo, hi)],
+        })
     return out
 
 
@@ -146,6 +211,11 @@ def plugin_effect(cur: dict, prev: dict, newly_enabled: str, vs_label: str) -> d
         "newly_enabled": newly_enabled, "vs_rung": vs_label,
         "band_names": _bands.band_names(cur.get("scheme")),
         "band_db_change": band_db,                        # per-band energy change (dB)
+        # high-res causal fingerprint: 64-band mean-level delta (mel_db is already absolute dB)
+        "mel_db_change": ([round(c - p, 2) for c, p in zip(cur["summary"]["mel_db_mean"],
+                                                           prev["summary"]["mel_db_mean"])]
+                          if cur["summary"].get("mel_db_mean") and prev["summary"].get("mel_db_mean")
+                          else None),
         "loudness_db": dl("lufs_integrated"),
         "true_peak_db": dl("true_peak_dbtp"),
         "crest_db": dl("crest_factor_db"),
@@ -155,6 +225,7 @@ def plugin_effect(cur: dict, prev: dict, newly_enabled: str, vs_label: str) -> d
         "width_change": round(cur["summary"]["width"]["mean"]
                               - prev["summary"]["width"]["mean"], 4),
         "flux_change": round(cur["summary"]["flux"]["mean"] - prev["summary"]["flux"]["mean"], 4),
+        "per_bar": per_bar_effect(cur, prev),             # WHEN the plugin acts (null pre-v3 / no bpm)
     }
 
 
@@ -162,10 +233,17 @@ def _node_key(wav_name: str) -> str:
     return wav_name.split("__", 1)[0]
 
 
-def analyze_session(session_dir, scheme=None, hop=2048, n_fft=4096, log=print) -> dict:
+def analyze_session(session_dir, scheme=None, hop=2048, n_fft=4096, log=print,
+                    bpm=None, start_bar=None) -> dict:
     """Two passes over a stem-ablation session: (1) analyze each wav → inject `audio_analysis`
-    into its sidecar; (2) per node, compute `plugin_effect` deltas into progressive rungs."""
+    into its sidecar; (2) per node, compute `plugin_effect` deltas into progressive rungs.
+    With `bpm`, every analysis gets the musical bar grid and deltas get per-bar resolution
+    (start_bar defaults from the session manifest)."""
     session_dir = Path(session_dir)
+    if start_bar is None:                                # capture start bar lives in the run manifest
+        mf = session_dir / "manifest.json"
+        if mf.exists():
+            start_bar = json.loads(mf.read_text()).get("start_bar")
     sidecars = {}                                        # wav_name -> (json_path, sidecar dict)
     analyses = {}                                        # wav_name -> analysis dict
     wavs = sorted(session_dir.glob("*.wav"))
@@ -175,7 +253,8 @@ def analyze_session(session_dir, scheme=None, hop=2048, n_fft=4096, log=print) -
             continue
         sc = json.loads(jf.read_text())
         try:
-            an = analyze_stem(wav, scheme=scheme, hop=hop, n_fft=n_fft)
+            an = analyze_stem(wav, scheme=scheme, hop=hop, n_fft=n_fft,
+                              bpm=bpm, start_bar=start_bar)
         except Exception as e:                           # a bad/short stem must not stop the run
             log(f"  analyze FAILED {wav.name}: {e}")
             continue
@@ -220,10 +299,15 @@ def main(argv=None) -> int:
     ap.add_argument("session_dir", help="ablation session dir with stem .wav + .json sidecars")
     ap.add_argument("--hop", type=int, default=2048, help="STFT hop (default 2048 ~= 23Hz @48k)")
     ap.add_argument("--n-fft", type=int, default=4096)
+    ap.add_argument("--bpm", type=float, default=None,
+                    help="song tempo — enables the bar grid + per-bar plugin_effect deltas")
+    ap.add_argument("--start-bar", type=int, default=None,
+                    help="song bar the stems start at (default: session manifest's start_bar)")
     args = ap.parse_args(argv)
     import time
     t0 = time.time()
-    res = analyze_session(args.session_dir, hop=args.hop, n_fft=args.n_fft)
+    res = analyze_session(args.session_dir, hop=args.hop, n_fft=args.n_fft,
+                          bpm=args.bpm, start_bar=args.start_bar)
     print(f"[ANALYZE] {res['analyzed']} stems analyzed | {res['plugin_effects']} plugin-effect deltas "
           f"| {res['sidecars']} sidecars updated in {(time.time()-t0)/60:.1f} min")
     return 0

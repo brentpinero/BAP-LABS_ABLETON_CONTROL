@@ -701,6 +701,25 @@ class AbletonMCPExtended(ControlSurface):
             pass
         return "group" if getattr(track, "is_foldable", False) else "regular"
 
+    def _group_track_index(self, track):
+        """Index of `track`'s parent GROUP track in song.tracks, or -1 if top-level.
+
+        Lets callers build the routing parent/child graph (a group's audio includes its
+        children). LOM returns fresh wrappers so match by ==, scanning song.tracks."""
+        try:
+            g = track.group_track
+        except Exception:
+            return -1
+        if g is None:
+            return -1
+        for gi, tr in enumerate(self._song.tracks):
+            try:
+                if tr == g:
+                    return gi
+            except Exception:
+                continue
+        return -1
+
     def _get_track_info(self, track_index):
         """Info about ANY track (regular/group/return/master), always incl. devices.
 
@@ -768,6 +787,7 @@ class AbletonMCPExtended(ControlSurface):
                 "index": track_index,
                 "name": track.name,
                 "kind": kind,
+                "group_id": self._group_track_index(track),   # parent group index, or -1
                 "is_audio_track": _safe(lambda: track.has_audio_input, False),
                 "is_midi_track": _safe(lambda: track.has_midi_input, False),
                 "mute": _safe(lambda: track.mute),
@@ -1638,6 +1658,7 @@ class AbletonMCPExtended(ControlSurface):
             if not compact:
                 e["is_audio_track"] = safe(lambda: track.has_audio_input, False)
                 e["is_midi_track"] = safe(lambda: track.has_midi_input, False)
+                e["group_id"] = self._group_track_index(track)   # parent group index, or -1
             return e
 
         try:

@@ -113,6 +113,11 @@ DEFAULTS: dict[str, Any] = {
     "metadata_flush_s": 2.0,                    # append buffered param deltas to disk this often
     "metadata_change_eps": 1e-6,                # min value delta to record (static params never move)
     "metadata_only_when_playing": True,         # skip stopped ticks (still keyframes on tick 0)
+
+    # stem-ablation parallel capture: max capture tracks armed+recorded in ONE pass. Ableton
+    # records all armed tracks at once, so N stems cost one real-time pass, not N. Bounds
+    # simultaneous track churn / CPU / disk; a phase with more independent nodes splits across passes.
+    "ablation_batch_size": 16,
 }
 
 

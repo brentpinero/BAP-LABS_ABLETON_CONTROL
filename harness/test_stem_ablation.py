@@ -76,6 +76,34 @@ class TestLadder(unittest.TestCase):
         self.assertEqual([r["newly_enabled"] for r in lad[2:]], ["a", "b", "c"])
 
 
+class TestEffectsOnlyAblation(unittest.TestCase):
+    def _mixed_node(self):
+        # instrument (Serum), effect (EQ Eight), meter (SPAN), effect (Saturator)
+        return NodeChain(ref=0, name="Lead", kind="regular", devices=[
+            {"index": 0, "name": "Serum 2", "class_name": "PluginDevice"},
+            {"index": 1, "name": "EQ Eight", "class_name": "Eq8"},
+            {"index": 2, "name": "SPAN", "class_name": "AuPluginDevice"},
+            {"index": 3, "name": "Saturator", "class_name": "Saturator"},
+        ])
+
+    def test_ablatable_indices_excludes_instrument_and_meter(self):
+        node = self._mixed_node()
+        self.assertEqual(sa.ablatable_indices(node), [1, 3])          # EQ + Saturator only
+
+    def test_ladder_spans_effects_only(self):
+        node = self._mixed_node()
+        lad = sa.node_ladder(node)
+        self.assertEqual(len(lad), 4)                                 # 2 effects -> N+2 = 4 rungs
+        self.assertEqual([r["newly_enabled"] for r in lad[2:]], ["EQ Eight", "Saturator"])
+
+    def test_expand_mask_keeps_instrument_meter_on(self):
+        node = self._mixed_node()
+        lad = sa.node_ladder(node)
+        # all_off rung: effects OFF, but instrument (0) + meter (2) stay ON
+        full = sa.expand_mask(node, lad[1]["enabled_mask"])
+        self.assertEqual(full, [True, False, True, False])
+
+
 class TestNodeParsing(unittest.TestCase):
     def test_node_from_info_defaults_device_index(self):
         info = {"name": "Rev", "kind": "return",
@@ -230,6 +258,122 @@ class TestRunAblationRestores(unittest.TestCase):
         bad = json.loads((Path(tmp) / "regular_0_Drums__rung02_through_0_D0.json").read_text())
         self.assertFalse(bad["rendered"])
         self.assertIn("render blew up", bad["error"])
+
+
+class ParallelFakeClient:
+    """Models device on/off + solo state for the parallel scheduler tests."""
+    def __init__(self, enabled=None, solos=(), track_count=0):
+        self.enabled = dict(enabled or {})            # (ref, dev_index) -> bool
+        self.solo = {i: (i in solos) for i in range(track_count)}
+        self.track_count = track_count
+
+    def send(self, cmd, params=None):
+        params = params or {}
+        if cmd == "get_session_info":
+            return {"track_count": self.track_count}
+        if cmd == "get_track_info":
+            return {"index": params["track_index"], "solo": self.solo.get(params["track_index"], False)}
+        if cmd == "get_device_parameters":
+            ref, di = params["track_index"], params["device_index"]
+            return {"parameters": [{"name": "Device On",
+                                    "value": 1.0 if self.enabled.get((ref, di), True) else 0.0}]}
+        if cmd == "set_device_enabled":
+            self.enabled[(params["track_index"], params["device_index"])] = bool(params["enabled"])
+            return {}
+        if cmd == "set_track_solo":
+            self.solo[params["track_index"]] = bool(params["solo"])
+            return {}
+        return {}
+
+
+def _pnode(ref, name, kind, ndev, group_id=-1):
+    return NodeChain(ref=ref, name=name, kind=kind, group_id=group_id,
+                     devices=[{"index": i, "name": f"D{i}", "class_name": "Eq8"} for i in range(ndev)])
+
+
+def _recording_capture_fn(order):
+    """Fake capture_fn: writes a dummy wav per spec, records (node_slug, rung#) order."""
+    def capture_fn(client, specs, start_bar=1, bars=8):
+        results = []
+        for node, out_wav in specs:
+            Path(out_wav).write_bytes(b"RIFFfake")
+            order.append(Path(out_wav).name)
+            results.append({"ok": True, "error": None})
+        return results
+    return capture_fn
+
+
+class TestGroupDepth(unittest.TestCase):
+    def test_depth_from_group_chain(self):
+        outer = _pnode(10, "Outer", "group", 1)
+        inner = _pnode(11, "Inner", "group", 1, group_id=10)
+        leaf = _pnode(12, "Leaf", "regular", 2, group_id=11)
+        by_ref = {n.ref: n for n in (outer, inner, leaf)}
+        self.assertEqual(sa._group_depth(outer, by_ref), 0)
+        self.assertEqual(sa._group_depth(inner, by_ref), 1)
+
+
+class TestRunPhaseLockstep(unittest.TestCase):
+    def test_lockstep_passes_and_total_stems(self):
+        # leaf A: 3 devices -> 5 rungs; leaf B: 1 device -> 3 rungs. max_len=5.
+        a, b = _pnode(0, "A", "regular", 3), _pnode(1, "B", "regular", 1)
+        client = ParallelFakeClient(track_count=2)
+        order = []
+        with tempfile.TemporaryDirectory() as tmp:
+            written = sa._run_phase(client, [a, b], Path(tmp), "resample", 8, 5, 16,
+                                    _recording_capture_fn(order))
+            self.assertEqual(written, 8)                      # 5 + 3 stems
+            # B (3 rungs) only appears in passes 0,1,2; A appears in all 5
+            b_rungs = sorted(int(f.split("rung")[1][:2]) for f in order if "regular_1_B" in f)
+            a_rungs = sorted(int(f.split("rung")[1][:2]) for f in order if "regular_0_A" in f)
+            self.assertEqual(b_rungs, [0, 1, 2])
+            self.assertEqual(a_rungs, [0, 1, 2, 3, 4])
+
+
+class TestRunAblationParallel(unittest.TestCase):
+    def _nodes(self):
+        return [
+            _pnode(0, "Kick", "regular", 2),
+            _pnode(1, "Lead", "regular", 1),
+            _pnode("return:0", "Rev", "return", 1),
+            _pnode(10, "Drums", "group", 2),
+            _pnode(-1, "Main", "master", 3),
+        ]
+
+    def test_phase_order_leaves_returns_groups_master(self):
+        nodes = self._nodes()
+        client = ParallelFakeClient(track_count=20)
+        order = []
+        with tempfile.TemporaryDirectory() as tmp:
+            man = sa.run_ablation_parallel(client, nodes, "resample", tmp, bars=8, start_bar=5,
+                                           capture_fn=_recording_capture_fn(order), started_at=1.0)
+        def first(slug):
+            return next(i for i, f in enumerate(order) if f.startswith(slug))
+        # leaves before returns before groups before master
+        self.assertLess(max(first("regular_0_Kick"), first("regular_1_Lead")), first("return_return-0_Rev"))
+        self.assertLess(first("return_return-0_Rev"), first("group_10_Drums"))
+        self.assertLess(first("group_10_Drums"), first("master_-1_Main"))
+        self.assertEqual(man["stems_written"], sum(m["n_rungs"] for m in man["nodes"]))
+        self.assertTrue(man["parallel"])
+
+    def test_solo_cleared_not_restored(self):
+        nodes = [_pnode(0, "Kick", "regular", 1)]
+        client = ParallelFakeClient(track_count=5, solos=[3])       # track 3 soloed
+        with tempfile.TemporaryDirectory() as tmp:
+            man = sa.run_ablation_parallel(client, nodes, "resample", tmp,
+                                           capture_fn=_recording_capture_fn([]), started_at=1.0)
+        self.assertEqual(man["cleared_solos"], [3])
+        self.assertFalse(client.solo[3])                            # cleared and NOT restored
+
+    def test_original_device_states_restored(self):
+        # Kick device 0 originally OFF -> must be restored OFF after the run.
+        node = _pnode(0, "Kick", "regular", 2)
+        client = ParallelFakeClient(enabled={(0, 0): False, (0, 1): True}, track_count=5)
+        with tempfile.TemporaryDirectory() as tmp:
+            sa.run_ablation_parallel(client, [node], "resample", tmp,
+                                     capture_fn=_recording_capture_fn([]), started_at=1.0)
+        self.assertEqual(client.enabled[(0, 0)], False)
+        self.assertEqual(client.enabled[(0, 1)], True)
 
 
 if __name__ == "__main__":

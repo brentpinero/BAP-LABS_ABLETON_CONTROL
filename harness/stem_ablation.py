@@ -46,7 +46,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Callable, Optional
 
-from causal_dataset import SCHEMA_VERSION, sha256_file
+from causal_dataset import NON_AUDIO_FAMILIES, SCHEMA_VERSION, classify_families, sha256_file
 from live_client import LiveClient, LiveError, automator
 from live_freeze import _wait_for_new_wav, find_freeze_dir
 
@@ -67,6 +67,7 @@ class NodeChain:
     name: str
     kind: str                    # regular | group | return | master
     devices: list = field(default_factory=list)   # [{index, name, class_name}]
+    group_id: int = -1           # parent group track index, or -1 if top-level
 
 
 def _slug(text: str) -> str:
@@ -109,6 +110,38 @@ def ablation_ladder(device_names: list) -> list[dict]:
     return rungs
 
 
+# Devices that must stay ALWAYS-ON (never ablated): instruments (a synth toggled off
+# mid-playback won't retrigger its held notes → silent stems) + non-audio (meters/MIDI,
+# which don't change the sound anyway). Everything else is an ablatable effect.
+_ALWAYS_ON_FAMILIES = frozenset({"instrument", "instrument_excluded"}) | NON_AUDIO_FAMILIES
+
+
+def _device_ablatable(device: dict) -> bool:
+    fams = classify_families(device.get("name", ""), device.get("class_name", ""))
+    return not any(f in _ALWAYS_ON_FAMILIES for f in fams)
+
+
+def ablatable_indices(node: NodeChain) -> list:
+    """Positions in node.devices that are ablatable EFFECTS (instruments/meters/MIDI kept on)."""
+    return [i for i, d in enumerate(node.devices) if _device_ablatable(d)]
+
+
+def node_ladder(node: NodeChain) -> list:
+    """Ablation ladder over the node's EFFECT devices only. Rung labels/masks are indexed
+    over the ablatable effects; expand_mask() maps them back onto the full device chain."""
+    names = [node.devices[i]["name"] for i in ablatable_indices(node)]
+    return ablation_ladder(names)
+
+
+def expand_mask(node: NodeChain, effect_mask: list) -> list:
+    """Full-chain enabled mask: always-on devices True; ablatable effects take the ladder's
+    per-effect values (in chain order)."""
+    full = [True] * len(node.devices)
+    for pos, on in zip(ablatable_indices(node), effect_mask):
+        full[pos] = on
+    return full
+
+
 def node_from_info(ref: Any, info: dict) -> NodeChain:
     """Build a NodeChain from a get_track_info result (device index defaults to
     positional slot for surfaces that omit it, e.g. return tracks)."""
@@ -116,19 +149,23 @@ def node_from_info(ref: Any, info: dict) -> NodeChain:
                 "class_name": d.get("class_name", "")}
                for i, d in enumerate(info.get("devices", []))]
     return NodeChain(ref=ref, name=info.get("name", str(ref)),
-                     kind=info.get("kind", "regular"), devices=devices)
+                     kind=info.get("kind", "regular"), devices=devices,
+                     group_id=int(info.get("group_id", -1)))
 
 
 def sidecar(node: NodeChain, rung: dict, mode: str, wav_name: str,
-            ok: bool, error: Optional[str]) -> dict:
-    """Per-rung metadata written next to each stem wav."""
+            ok: bool, error: Optional[str], enabled_mask: Optional[list] = None) -> dict:
+    """Per-rung metadata written next to each stem wav. `enabled_mask` is the FULL-chain
+    on/off state (instruments/meters forced on); defaults to the rung's effect mask when
+    the ladder spans every device (e.g. tests)."""
+    mask = enabled_mask if enabled_mask is not None else rung["enabled_mask"]
     return {
         "schema_version": SCHEMA_VERSION,
         "node": {"ref": node.ref, "name": node.name, "kind": node.kind},
         "rung": {k: rung[k] for k in ("index", "kind", "enabled_through", "label",
                                       "newly_enabled")},
-        "devices": [dict(d, enabled=bool(en))
-                    for d, en in zip(node.devices, rung["enabled_mask"])],
+        "devices": [dict(d, enabled=bool(en), ablatable=_device_ablatable(d))
+                    for d, en in zip(node.devices, mask)],
         "render_mode": mode,
         "wav": wav_name,
         "rendered": ok,
@@ -331,6 +368,194 @@ def render_resample(client, node: NodeChain, out_wav: Path, bars: int = 8,
             pass
 
 
+def _route_spec(node: NodeChain):
+    """(wanted_input_type, set_track_input_routing params-without-track) for a node."""
+    if node.kind == "master":
+        return "Resampling", {"source_name": "Resampling"}   # master out; no sub-channel
+    return node.name, {"source_name": node.name, "channel": "Post FX"}
+
+
+def capture_batch(client, specs, start_bar: int = 1, bars: int = 8, settle_s: float = 0.5) -> list:
+    """Arm ONE capture track per spec and record them ALL in a single real-time pass.
+
+    `specs` = list of (node, out_wav). Returns a per-spec list of {"ok", "error"} aligned
+    with `specs`. Ableton records every armed track at once, so N stems cost one pass, not N.
+
+    Every capture track uses monitor OFF: recording still captures the armed input, but the
+    track doesn't pass it back to master — so no feedback and no doubling even with the
+    master 'Resampling' tap armed alongside track/group Post-FX taps. Routing is read-back
+    verified per track; a track that fails to route is skipped (recorded as an error) without
+    aborting the batch. Transport/record/loop reset + capture-track sweep in a finally.
+    """
+    info = client.send("get_session_info")
+    bpm = float(info.get("tempo", 120.0))
+    bpb = int(info.get("signature_numerator", 4) or 4)
+    start_pos = max(0, start_bar - 1) * bpb
+    results = [{"ok": False, "error": "not recorded"} for _ in specs]
+    armed = []                                          # (spec_index, cap_index, out_wav)
+    created = []                                         # ALL cap indices we made (for teardown)
+    loop_prev = True
+    stamp = int(time.time()) % 100000
+    try:
+        for i, (node, out_wav) in enumerate(specs):
+            try:
+                cap = int(client.send("create_audio_track", {"index": -1})["index"])
+                created.append(cap)                     # appended at end → indices stay stable
+                client.send("set_track_name",
+                            {"track_index": cap, "name": "%s%d_%d" % (CAPTURE_PREFIX, stamp, i)})
+                want, req = _route_spec(node)
+                client.send("set_track_input_routing", dict(req, track_index=cap))
+                got = client.send("get_track_input_routing",
+                                  {"track_index": cap}).get("input_routing_type")
+                if got != want:
+                    results[i] = {"ok": False, "error": f"routing {want!r} did not take (got {got!r})"}
+                    continue
+                client.send("set_track_arm", {"track_index": cap, "arm": True})
+                client.send("set_track_monitor", {"track_index": cap, "state": 2})   # Off
+                armed.append((i, cap, out_wav))
+            except LiveError as e:
+                results[i] = {"ok": False, "error": str(e)}
+        if armed:
+            loop_prev = bool(client.send("set_song_loop", {"loop": False}).get("previous", True))
+            client.send("set_current_position", {"position": float(start_pos)})
+            client.send("set_record_mode", {"mode": 1})
+            client.send("start_playback")
+            time.sleep(_record_seconds(bars, bpm, bpb) + settle_s)
+            client.send("stop_playback")
+            client.send("set_record_mode", {"mode": 0})
+            for i, cap, out_wav in armed:               # collect each capture's stem
+                try:
+                    fp = client.send("get_audio_clip_properties",
+                                     {"track_index": cap, "clip_index": 0}).get("file_path")
+                    if not fp:
+                        raise RenderError("captured clip has no file_path")
+                    _copy_stem(fp, out_wav)
+                    results[i] = {"ok": True, "error": None}
+                except Exception as e:
+                    results[i] = {"ok": False, "error": str(e)}
+    finally:
+        for cmd, params in (("stop_playback", {}), ("set_record_mode", {"mode": 0})):
+            try:
+                client.send(cmd, params)
+            except LiveError:
+                pass
+        if loop_prev:
+            try:
+                client.send("set_song_loop", {"loop": True})
+            except LiveError:
+                pass
+        # Delete the capture tracks WE created by their known indices (highest first, so
+        # lower indices don't shift) — avoids the O(all-tracks) name-scan that _sweep does
+        # every pass. A run-level sweep backstops any straggler from an interrupt.
+        for cap in sorted(created, reverse=True):
+            for cmd, params in (("set_track_arm", {"track_index": cap, "arm": False}),
+                                ("delete_track", {"track_index": cap})):
+                try:
+                    client.send(cmd, params)
+                except LiveError:
+                    pass
+    return results
+
+
+# --- persistent capture-track POOL --------------------------------------------
+# Creating an audio track in a heavy project costs ~15-30s (Ableton session recompute),
+# but RE-ROUTING an existing track's input is ~0.5s (measured). So instead of creating a
+# fresh capture track per node per pass, we build a small POOL of capture tracks ONCE and
+# re-route them to each pass's sources. Pool build/teardown pay the create/delete cost
+# once for the whole run; every pass is just re-route + record.
+def build_capture_pool(client, size: int) -> list:
+    """Create `size` armed, monitor-Off capture tracks once. Returns their indices."""
+    pool = []
+    stamp = int(time.time()) % 100000
+    for k in range(size):
+        cap = int(client.send("create_audio_track", {"index": -1})["index"])
+        client.send("set_track_name", {"track_index": cap, "name": "%spool%d_%d" % (CAPTURE_PREFIX, stamp, k)})
+        client.send("set_track_arm", {"track_index": cap, "arm": False})
+        client.send("set_track_monitor", {"track_index": cap, "state": 2})   # Off (records; no feedback)
+        pool.append(cap)
+        print(f"[{time.strftime('%H:%M:%S')}] capture pool: built {k + 1}/{size}", flush=True)
+    return pool
+
+
+def teardown_capture_pool(client, pool: list) -> None:
+    for cap in sorted(pool, reverse=True):               # highest first so indices don't shift
+        for cmd, params in (("set_track_arm", {"track_index": cap, "arm": False}),
+                            ("delete_track", {"track_index": cap})):
+            try:
+                client.send(cmd, params)
+            except LiveError:
+                pass
+
+
+def capture_pooled(client, pool: list, specs, start_bar: int = 1, bars: int = 8,
+                   settle_s: float = 0.5) -> list:
+    """Record `specs` (<= len(pool)) in ONE pass using the PERSISTENT pool: re-route each
+    pool track to a spec's source (fast), arm the used ones + disarm the rest, record, then
+    copy each stem and delete its arrangement clip so the next pass starts clean."""
+    info = client.send("get_session_info")
+    bpm = float(info.get("tempo", 120.0))
+    bpb = int(info.get("signature_numerator", 4) or 4)
+    start_pos = max(0, start_bar - 1) * bpb
+    results = [{"ok": False, "error": "not recorded"} for _ in specs]
+    used = []                                            # (spec_index, cap_index, out_wav)
+    loop_prev = True
+    try:
+        for i, (node, out_wav) in enumerate(specs):
+            cap = pool[i]
+            try:
+                want, req = _route_spec(node)
+                client.send("set_track_input_routing", dict(req, track_index=cap))
+                got = client.send("get_track_input_routing",
+                                  {"track_index": cap}).get("input_routing_type")
+                if got != want:
+                    client.send("set_track_arm", {"track_index": cap, "arm": False})
+                    results[i] = {"ok": False, "error": f"routing {want!r} did not take (got {got!r})"}
+                    continue
+                client.send("set_track_arm", {"track_index": cap, "arm": True})
+                used.append((i, cap, out_wav))
+            except LiveError as e:
+                results[i] = {"ok": False, "error": str(e)}
+        for cap in pool[len(specs):]:                    # disarm any pool track not used this pass
+            try:
+                client.send("set_track_arm", {"track_index": cap, "arm": False})
+            except LiveError:
+                pass
+        if used:
+            loop_prev = bool(client.send("set_song_loop", {"loop": False}).get("previous", True))
+            client.send("set_current_position", {"position": float(start_pos)})
+            client.send("set_record_mode", {"mode": 1})
+            client.send("start_playback")
+            time.sleep(_record_seconds(bars, bpm, bpb) + settle_s)
+            client.send("stop_playback")
+            client.send("set_record_mode", {"mode": 0})
+            for i, cap, out_wav in used:                 # collect stems + clear clips for next pass
+                try:
+                    fp = client.send("get_audio_clip_properties",
+                                     {"track_index": cap, "clip_index": 0}).get("file_path")
+                    if not fp:
+                        raise RenderError("captured clip has no file_path")
+                    _copy_stem(fp, out_wav)
+                    results[i] = {"ok": True, "error": None}
+                except Exception as e:
+                    results[i] = {"ok": False, "error": str(e)}
+                try:
+                    client.send("delete_arrangement_clip", {"track_index": cap, "clip_index": 0})
+                except LiveError:
+                    pass
+    finally:
+        for cmd, params in (("stop_playback", {}), ("set_record_mode", {"mode": 0})):
+            try:
+                client.send(cmd, params)
+            except LiveError:
+                pass
+        if loop_prev:
+            try:
+                client.send("set_song_loop", {"loop": True})
+            except LiveError:
+                pass
+    return results
+
+
 def render_freeze(client, node: NodeChain, out_wav: Path, project_dir: str | Path,
                   timeout_s: float = 120.0) -> None:
     """Offline Freeze render of a regular/group track's current (ablated) chain, then
@@ -398,7 +623,7 @@ def run_ablation(client, nodes: list, mode: str, out_dir: str | Path, *,
         if project_file else None,
         "ladder": "per node, N+2 rungs: baseline_all_on, all_off, through_0..through_{N-1}",
         "nodes": [{"ref": n.ref, "name": n.name, "kind": n.kind,
-                   "devices": n.devices, "n_rungs": len(ablation_ladder([d["name"] for d in n.devices]))}
+                   "devices": n.devices, "n_rungs": len(node_ladder(n))}
                   for n in nodes],
     }
     manifest["cleared_solos"] = []
@@ -411,18 +636,18 @@ def run_ablation(client, nodes: list, mode: str, out_dir: str | Path, *,
     solos = _soloed_tracks(client) if live else []
     if solos:
         print(f"[{time.strftime('%H:%M:%S')}] clearing {len(solos)} soloed track(s) for capture "
-              f"(restored after): {solos}", flush=True)
+              f"(left cleared — a solo starves the mix): {solos}", flush=True)
         manifest["cleared_solos"] = solos
         (out_dir / "manifest.json").write_text(json.dumps(manifest, indent=1))
-        _set_solos(client, solos, False)
+        _set_solos(client, solos, False)                    # cleared and LEFT cleared (not restored)
     try:
         for node in nodes:
             original = read_enabled_mask(client, node)     # capture BEFORE toggling
             try:
-                device_names = [d["name"] for d in node.devices]
-                ladder = ablation_ladder(device_names)
+                ladder = node_ladder(node)                 # over EFFECT devices only
                 for rung in ladder:
-                    apply_enabled_mask(client, node, rung["enabled_mask"])
+                    full = expand_mask(node, rung["enabled_mask"])   # instruments/meters kept on
+                    apply_enabled_mask(client, node, full)
                     wav_name = f"{node_slug(node)}__rung{rung['index']:02d}_{rung['label']}.wav"
                     out_wav = out_dir / wav_name
                     ok, err = True, None
@@ -435,11 +660,174 @@ def run_ablation(client, nodes: list, mode: str, out_dir: str | Path, *,
                     if not ok:
                         print(f"    -> FAILED: {err}", flush=True)
                     (out_dir / (wav_name[:-4] + ".json")).write_text(
-                        json.dumps(sidecar(node, rung, mode, wav_name, ok, err), indent=1))
+                        json.dumps(sidecar(node, rung, mode, wav_name, ok, err, enabled_mask=full),
+                                   indent=1))
             finally:
                 apply_enabled_mask(client, node, original)  # ALWAYS restore the user's chain
     finally:
-        _set_solos(client, solos, True)                     # restore the user's solo(s)
+        pass                                                # solos left cleared (not restored)
+    return manifest
+
+
+# ---------------------------------------------------------------------------
+# Parallel scheduler — record many nodes per pass (batch by routing independence)
+# ---------------------------------------------------------------------------
+def _baseline_mask(node: NodeChain) -> list:
+    return [True] * len(node.devices)
+
+
+def _set_baseline(client, nodes) -> None:
+    """Force every device of every given node ON (the fixed background for capturing
+    another node — a group/return/master stem is only clean if its inputs don't move)."""
+    for n in nodes:
+        apply_enabled_mask(client, n, _baseline_mask(n))
+
+
+def _group_depth(node: NodeChain, by_ref: dict) -> int:
+    """Hops up the group_id chain to the top (a top-level group = 0, nested = 1, ...).
+    Same-depth groups are a valid antichain: none contains another, so they can share a
+    capture pass."""
+    depth, seen, cur = 0, set(), node
+    while getattr(cur, "group_id", -1) != -1 and cur.group_id not in seen:
+        seen.add(cur.group_id)
+        parent = by_ref.get(cur.group_id)
+        if parent is None:
+            break
+        cur, depth = parent, depth + 1
+    return depth
+
+
+def _chunks(seq, n):
+    for i in range(0, len(seq), max(1, n)):
+        yield seq[i:i + n]
+
+
+def _run_phase(client, nodes, out_dir, mode, bars, start_bar, batch_size, capture_fn) -> int:
+    """Lock-step a set of MUTUALLY INDEPENDENT nodes: at pass k, set every node that still
+    has a rung k to that rung's config, then capture them all in one pass (batched to
+    batch_size). Total stems = Σ ladder lengths, but passes = max ladder length."""
+    if not nodes:
+        return 0
+    ladders = {id(n): node_ladder(n) for n in nodes}       # over EFFECT devices only
+    max_len = max(len(l) for l in ladders.values())
+    written = 0
+    for k in range(max_len):
+        active = [n for n in nodes if k < len(ladders[id(n)])]
+        masks = {}
+        for n in active:                                    # set all active to their rung k
+            masks[id(n)] = expand_mask(n, ladders[id(n)][k]["enabled_mask"])
+            apply_enabled_mask(client, n, masks[id(n)])
+        for batch in _chunks(active, batch_size):
+            specs, meta = [], []
+            for n in batch:
+                rung = ladders[id(n)][k]
+                wav_name = f"{node_slug(n)}__rung{rung['index']:02d}_{rung['label']}.wav"
+                specs.append((n, out_dir / wav_name))
+                meta.append((n, rung, wav_name, masks[id(n)]))
+            names = ", ".join(node_slug(n) for n in batch)
+            print(f"[{time.strftime('%H:%M:%S')}] pass rung#{k} x{len(batch)}: {names[:90]}", flush=True)
+            results = capture_fn(client, specs, start_bar=start_bar, bars=bars)
+            for (n, rung, wav_name, full), res in zip(meta, results):
+                ok, err = res.get("ok", False), res.get("error")
+                if not ok:
+                    print(f"    -> FAILED {node_slug(n)} r{rung['index']}: {err}", flush=True)
+                (out_dir / (wav_name[:-4] + ".json")).write_text(
+                    json.dumps(sidecar(n, rung, mode, wav_name, ok, err, enabled_mask=full), indent=1))
+                written += 1
+    return written
+
+
+def run_ablation_parallel(client, nodes: list, mode: str, out_dir: str | Path, *,
+                          bars: int = 8, start_bar: int = 1, batch_size: int = 16,
+                          project_file: str | Path | None = None,
+                          capture_fn: Optional[Callable] = None,
+                          started_at: Optional[float] = None) -> dict:
+    """Multi-track ablation: record many nodes per pass, batched by routing independence.
+
+    Phases (a group's Post-FX includes its children, so parents/children can't share a
+    pass; returns need their send inputs fixed; the master needs everything fixed):
+      A leaves (regular tracks)  — mutually independent, one lock-step sweep
+      B returns, then groups by depth (children forced to baseline first)
+      C master (everything forced to baseline first)
+    Original device-enabled states are restored in a finally. Solos are cleared and LEFT
+    cleared. capture_fn defaults to capture_batch (tests inject a fake).
+    """
+    out_dir = Path(out_dir)
+    out_dir.mkdir(parents=True, exist_ok=True)
+    by_ref = {n.ref: n for n in nodes}
+    leaves = [n for n in nodes if n.kind == "regular"]
+    returns = [n for n in nodes if n.kind == "return"]
+    groups = [n for n in nodes if n.kind == "group"]
+    masters = [n for n in nodes if n.kind == "master"]
+    # Persistent capture pool: sized to the largest phase (capped at batch_size). Creating
+    # tracks is ~15-30s each here, but re-routing is ~0.5s, so we build the pool ONCE and
+    # re-route it every pass. Tests inject capture_fn directly and skip the live pool.
+    live = capture_fn is None
+    pool = []
+    if live:
+        pool_size = min(batch_size, max(len(leaves), len(returns), len(groups), len(masters), 1))
+
+    solos = _soloed_tracks(client)
+    manifest = {
+        "schema_version": SCHEMA_VERSION, "session_dir": str(out_dir),
+        "started_at": started_at if started_at is not None else time.time(),
+        "render_mode": mode, "parallel": True, "bars": bars, "start_bar": start_bar,
+        "batch_size": batch_size, "cleared_solos": solos,
+        "project_file": {"path": str(project_file), "sha256": sha256_file(project_file)}
+        if project_file else None,
+        "ladder": "per node, N+2 rungs: baseline_all_on, all_off, through_0..through_{N-1}",
+        "phases": "A leaves | B returns+groups(by depth) | C master",
+        "nodes": [{"ref": n.ref, "name": n.name, "kind": n.kind, "group_id": n.group_id,
+                   "devices": n.devices,
+                   "n_rungs": len(node_ladder(n))} for n in nodes],
+    }
+    if solos:
+        print(f"[{time.strftime('%H:%M:%S')}] clearing {len(solos)} soloed track(s) "
+              f"(left cleared): {solos}", flush=True)
+    (out_dir / "manifest.json").write_text(json.dumps(manifest, indent=1))
+
+    _sweep_capture_tracks(client)                                     # clean slate (once per run)
+    originals = {id(n): read_enabled_mask(client, n) for n in nodes}   # capture BEFORE toggling
+    _set_solos(client, solos, False)
+    if live:
+        print(f"[{time.strftime('%H:%M:%S')}] building capture pool of {pool_size} "
+              f"(one-time; re-routed each pass) ...", flush=True)
+        pool = build_capture_pool(client, pool_size)
+        def capture_fn(client, specs, start_bar=1, bars=8):           # bind the pool
+            return capture_pooled(client, pool, specs, start_bar=start_bar, bars=bars)
+    total = 0
+    try:
+        # Phase A: leaves are mutually independent — one lock-step sweep.
+        total += _run_phase(client, leaves, out_dir, mode, bars, start_bar, batch_size, capture_fn)
+        # Phase B: returns (inputs = sends from leaves; hold leaves at baseline).
+        if returns:
+            _set_baseline(client, leaves)
+            total += _run_phase(client, returns, out_dir, mode, bars, start_bar, batch_size, capture_fn)
+        # Phase B: groups by depth (each captured group needs its subtree at baseline).
+        if groups:
+            depths = {}
+            for g in groups:
+                depths.setdefault(_group_depth(g, by_ref), []).append(g)
+            for depth in sorted(depths):
+                _set_baseline(client, leaves + groups)      # fixed background for this depth
+                total += _run_phase(client, depths[depth], out_dir, mode, bars, start_bar,
+                                    batch_size, capture_fn)
+        # Phase C: master — hold everything else at baseline.
+        if masters:
+            _set_baseline(client, leaves + returns + groups)
+            total += _run_phase(client, masters, out_dir, mode, bars, start_bar, batch_size, capture_fn)
+    finally:
+        for n in nodes:                                     # ALWAYS restore the user's chains
+            apply_enabled_mask(client, n, originals[id(n)])
+        if pool:
+            teardown_capture_pool(client, pool)             # delete the pool tracks (once)
+        try:
+            _sweep_capture_tracks(client)                   # backstop: no capture track left behind
+        except LiveError:
+            pass
+    print(f"[{time.strftime('%H:%M:%S')}] parallel ablation done: {total} stems -> {out_dir}", flush=True)
+    manifest["stems_written"] = total
+    (out_dir / "manifest.json").write_text(json.dumps(manifest, indent=1))
     return manifest
 
 
@@ -475,6 +863,10 @@ def main(argv=None) -> int:
     ap.add_argument("--start-bar", type=int, default=1,
                     help="bar to start the resample capture at (1-indexed; set past a silent intro)")
     ap.add_argument("--out", default=None, help="output dir (default sandbox_sessions/ablation/<session>)")
+    ap.add_argument("--sequential", action="store_true",
+                    help="record one node per pass (the old path); default is parallel multi-track")
+    ap.add_argument("--batch-size", type=int, default=None,
+                    help="max capture tracks armed per pass (parallel; default from config)")
     ap.add_argument("--host", default="localhost")
     ap.add_argument("--port", type=int, default=9877)
     args = ap.parse_args(argv)
@@ -487,12 +879,22 @@ def main(argv=None) -> int:
             return 1
         session = args.session or ("abl_%d" % int(time.time()))
         out_dir = Path(args.out) if args.out else _ROOT / "sandbox_sessions" / "ablation" / session
-        print(f"[ABLATION] {len(nodes)} node(s), mode={args.mode} -> {out_dir}")
+        # freeze is offline/one-track-at-a-time; parallel only applies to resample.
+        parallel = not args.sequential and args.mode == "resample"
+        print(f"[ABLATION] {len(nodes)} node(s), mode={args.mode}, "
+              f"{'parallel' if parallel else 'sequential'} -> {out_dir}")
         for n in nodes:
             print(f"  - {n.kind} {n.ref} '{n.name}' ({len(n.devices)} devices, "
-                  f"{len(ablation_ladder([d['name'] for d in n.devices]))} rungs)")
-        run_ablation(client, nodes, args.mode, out_dir, project_dir=args.project_dir,
-                     bars=args.bars, start_bar=args.start_bar, project_file=args.project_file)
+                  f"{len(node_ladder(n))} rungs)")
+        if parallel:
+            from perception_config import cfg
+            bs = args.batch_size or int(cfg("ablation_batch_size"))
+            run_ablation_parallel(client, nodes, args.mode, out_dir, bars=args.bars,
+                                  start_bar=args.start_bar, batch_size=bs,
+                                  project_file=args.project_file)
+        else:
+            run_ablation(client, nodes, args.mode, out_dir, project_dir=args.project_dir,
+                         bars=args.bars, start_bar=args.start_bar, project_file=args.project_file)
         print(f"[ABLATION] done -> {out_dir}/manifest.json")
         return 0
     finally:

@@ -260,6 +260,51 @@ class TestRunAblationRestores(unittest.TestCase):
         self.assertIn("render blew up", bad["error"])
 
 
+class PooledFakeClient:
+    """Exercises the capture_pooled path: routing, transport (incl. bare no-arg commands
+    via _retry), clip retrieval (returns a real temp file), and clip cleanup."""
+    def __init__(self, src_wav):
+        self.src_wav = str(src_wav)
+        self.routed = {}                                  # cap_index -> routed input type
+        self.calls = []
+
+    def send(self, cmd, params=None):
+        params = params or {}
+        self.calls.append(cmd)
+        if cmd == "get_session_info":
+            return {"tempo": 126.0, "signature_numerator": 4, "track_count": 50}
+        if cmd == "set_track_input_routing":
+            self.routed[params["track_index"]] = params["source_name"]
+            return {}
+        if cmd == "get_track_input_routing":
+            return {"input_routing_type": self.routed.get(params["track_index"])}
+        if cmd == "set_song_loop":
+            return {"previous": True}
+        if cmd == "get_audio_clip_properties":
+            return {"file_path": self.src_wav}            # a real file so _copy_stem works
+        return {}                                         # arm/monitor/transport/delete/etc.
+
+
+class TestCapturePooled(unittest.TestCase):
+    def test_pooled_capture_routes_records_and_copies(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            src = Path(tmp) / "src.wav"
+            src.write_bytes(b"RIFFfakewav")               # stand-in recorded take
+            client = PooledFakeClient(src)
+            pool = [40, 41]                               # two pre-built capture tracks
+            nodes = [_pnode(0, "Kick", "regular", 1), _pnode(-1, "Main", "master", 2)]
+            specs = [(nodes[0], Path(tmp) / "kick.wav"), (nodes[1], Path(tmp) / "master.wav")]
+            results = sa.capture_pooled(client, pool, specs, start_bar=5, bars=4)
+            self.assertTrue(all(r["ok"] for r in results))         # both captured
+            self.assertTrue((Path(tmp) / "kick.wav").exists())
+            self.assertTrue((Path(tmp) / "master.wav").exists())
+            # bare no-arg transport commands must have been issued (regression: _retry params)
+            self.assertIn("start_playback", client.calls)
+            self.assertIn("stop_playback", client.calls)
+            self.assertEqual(client.routed[40], "Kick")            # track -> Post FX by name
+            self.assertEqual(client.routed[41], "Resampling")      # master -> Resampling
+
+
 class ParallelFakeClient:
     """Models device on/off + solo state for the parallel scheduler tests."""
     def __init__(self, enabled=None, solos=(), track_count=0):

@@ -463,14 +463,14 @@ def capture_batch(client, specs, start_bar: int = 1, bars: int = 8, settle_s: fl
 # fresh capture track per node per pass, we build a small POOL of capture tracks ONCE and
 # re-route them to each pass's sources. Pool build/teardown pay the create/delete cost
 # once for the whole run; every pass is just re-route + record.
-def _retry(client, cmd, params, tries: int = 3, pause: float = 2.5):
+def _retry(client, cmd, params=None, tries: int = 3, pause: float = 2.5):
     """Send a command, retrying on Ableton main-thread TIMEOUTS (heavy projects stall the
     main thread >10s under rapid mutation; a pause lets it recover). Non-timeout errors
-    propagate immediately."""
+    propagate immediately. `params` defaults to {} for no-arg commands (start/stop_playback)."""
     last = None
     for _ in range(tries):
         try:
-            return client.send(cmd, params)
+            return client.send(cmd, params or {})
         except LiveError as e:
             last = e
             if "timeout" not in str(e).lower():

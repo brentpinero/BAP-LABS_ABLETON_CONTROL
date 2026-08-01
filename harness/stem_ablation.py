@@ -463,18 +463,49 @@ def capture_batch(client, specs, start_bar: int = 1, bars: int = 8, settle_s: fl
 # fresh capture track per node per pass, we build a small POOL of capture tracks ONCE and
 # re-route them to each pass's sources. Pool build/teardown pay the create/delete cost
 # once for the whole run; every pass is just re-route + record.
-def build_capture_pool(client, size: int) -> list:
-    """Create `size` armed, monitor-Off capture tracks once. Returns their indices."""
-    pool = []
+def _retry(client, cmd, params, tries: int = 3, pause: float = 2.5):
+    """Send a command, retrying on Ableton main-thread TIMEOUTS (heavy projects stall the
+    main thread >10s under rapid mutation; a pause lets it recover). Non-timeout errors
+    propagate immediately."""
+    last = None
+    for _ in range(tries):
+        try:
+            return client.send(cmd, params)
+        except LiveError as e:
+            last = e
+            if "timeout" not in str(e).lower():
+                raise
+            time.sleep(pause)
+    raise last
+
+
+def build_capture_pool(client, size: int, out: list, settle_s: float = 1.0) -> list:
+    """Create up to `size` capture tracks, appending each index to `out` IMMEDIATELY (right
+    after create, before the also-slow name/arm ops) so a caller's finally can delete a
+    partial pool even if this raises. Resilient to main-thread stalls: retries each op and
+    STOPS EARLY with a partial pool (rather than failing the whole run) if creation becomes
+    unreliable — a smaller pool just means more record passes. A short pause between tracks
+    lets Ableton's main thread breathe (rapid creation is what triggers the timeouts)."""
     stamp = int(time.time()) % 100000
     for k in range(size):
-        cap = int(client.send("create_audio_track", {"index": -1})["index"])
-        client.send("set_track_name", {"track_index": cap, "name": "%spool%d_%d" % (CAPTURE_PREFIX, stamp, k)})
-        client.send("set_track_arm", {"track_index": cap, "arm": False})
-        client.send("set_track_monitor", {"track_index": cap, "state": 2})   # Off (records; no feedback)
-        pool.append(cap)
-        print(f"[{time.strftime('%H:%M:%S')}] capture pool: built {k + 1}/{size}", flush=True)
-    return pool
+        try:
+            cap = int(_retry(client, "create_audio_track", {"index": -1})["index"])
+        except LiveError as e:
+            print(f"[{time.strftime('%H:%M:%S')}] pool build stopped at {len(out)}/{size} "
+                  f"({e}); proceeding with partial pool", flush=True)
+            break
+        out.append(cap)
+        for cmd, params in (("set_track_name",
+                             {"track_index": cap, "name": "%spool%d_%d" % (CAPTURE_PREFIX, stamp, k)}),
+                            ("set_track_arm", {"track_index": cap, "arm": False}),
+                            ("set_track_monitor", {"track_index": cap, "state": 2})):
+            try:
+                _retry(client, cmd, params)
+            except LiveError:
+                pass
+        print(f"[{time.strftime('%H:%M:%S')}] capture pool: built {len(out)}/{size}", flush=True)
+        time.sleep(settle_s)
+    return out
 
 
 def teardown_capture_pool(client, pool: list) -> None:
@@ -504,14 +535,14 @@ def capture_pooled(client, pool: list, specs, start_bar: int = 1, bars: int = 8,
             cap = pool[i]
             try:
                 want, req = _route_spec(node)
-                client.send("set_track_input_routing", dict(req, track_index=cap))
+                _retry(client, "set_track_input_routing", dict(req, track_index=cap))
                 got = client.send("get_track_input_routing",
                                   {"track_index": cap}).get("input_routing_type")
                 if got != want:
                     client.send("set_track_arm", {"track_index": cap, "arm": False})
                     results[i] = {"ok": False, "error": f"routing {want!r} did not take (got {got!r})"}
                     continue
-                client.send("set_track_arm", {"track_index": cap, "arm": True})
+                _retry(client, "set_track_arm", {"track_index": cap, "arm": True})
                 used.append((i, cap, out_wav))
             except LiveError as e:
                 results[i] = {"ok": False, "error": str(e)}
@@ -789,14 +820,18 @@ def run_ablation_parallel(client, nodes: list, mode: str, out_dir: str | Path, *
     _sweep_capture_tracks(client)                                     # clean slate (once per run)
     originals = {id(n): read_enabled_mask(client, n) for n in nodes}   # capture BEFORE toggling
     _set_solos(client, solos, False)
-    if live:
-        print(f"[{time.strftime('%H:%M:%S')}] building capture pool of {pool_size} "
-              f"(one-time; re-routed each pass) ...", flush=True)
-        pool = build_capture_pool(client, pool_size)
-        def capture_fn(client, specs, start_bar=1, bars=8):           # bind the pool
-            return capture_pooled(client, pool, specs, start_bar=start_bar, bars=bars)
     total = 0
     try:
+        if live:
+            # Build the pool INSIDE the try so a partial pool (if creation stalls) is still
+            # torn down by the finally. build_capture_pool appends into `pool` as it goes.
+            print(f"[{time.strftime('%H:%M:%S')}] building capture pool of {pool_size} "
+                  f"(one-time; re-routed each pass) ...", flush=True)
+            build_capture_pool(client, pool_size, pool)
+            if not pool:
+                raise RenderError("could not create any capture tracks (Ableton main-thread stalls)")
+            def capture_fn(client, specs, start_bar=1, bars=8):       # bind the pool
+                return capture_pooled(client, pool, specs, start_bar=start_bar, bars=bars)
         # Phase A: leaves are mutually independent — one lock-step sweep.
         total += _run_phase(client, leaves, out_dir, mode, bars, start_bar, batch_size, capture_fn)
         # Phase B: returns (inputs = sends from leaves; hold leaves at baseline).

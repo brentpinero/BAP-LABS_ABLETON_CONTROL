@@ -115,6 +115,8 @@ def build_song_metadata(client, project_file=None) -> dict:
             "name": t.get("track_name"),
             "kind": t.get("kind"),
             "track_type": track_type(t),
+            "group_id": t.get("group_id", -1),      # parent group track index, or -1
+
             "n_devices": len(t.get("devices", [])),
             # the snapshot returns devices in chain order (depth-first); that list index
             # IS the global left→right signal order within the track.

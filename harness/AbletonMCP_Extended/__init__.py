@@ -247,6 +247,11 @@ class AbletonMCPExtended(ControlSurface):
             elif command_type == "get_track_output_routing":
                 track_index = params.get("track_index", 0)
                 response["result"] = self._get_track_output_routing(track_index)
+            elif command_type == "get_device_audio_inputs":
+                track_index = params.get("track_index", 0)
+                device_index = params.get("device_index", 0)
+                io_index = params.get("io_index", None)
+                response["result"] = self._get_device_audio_inputs(track_index, device_index, io_index)
 
             # Master track (read-only)
             elif command_type == "get_master_track":
@@ -300,6 +305,7 @@ class AbletonMCPExtended(ControlSurface):
                 # Real-time resampling render path (Priority 8): arm + input routing
                 # + record mode let the render node capture stems over the LOM, no GUI.
                 "set_track_arm", "set_track_input_routing", "set_track_output_routing",
+                "set_device_audio_input",
                 "set_record_mode",
                 "set_track_monitor", "set_song_loop", "delete_arrangement_clip"
             ]:
@@ -522,6 +528,15 @@ class AbletonMCPExtended(ControlSurface):
                             dest_name = params.get("dest_name", "")
                             channel = params.get("channel", None)
                             result = self._set_track_output_routing(track_index, dest_name, channel)
+                        elif command_type == "set_device_audio_input":
+                            track_index = params.get("track_index", 0)
+                            device_index = params.get("device_index", 0)
+                            io_index = params.get("io_index", 0)
+                            source_name = params.get("source_name", "")
+                            channel = params.get("channel", None)
+                            source_index = params.get("source_index", None)
+                            result = self._set_device_audio_input(track_index, device_index, io_index,
+                                                                  source_name, channel, source_index)
                         elif command_type == "set_record_mode":
                             mode = params.get("mode", 0)
                             result = self._set_record_mode(mode)
@@ -2190,6 +2205,121 @@ class AbletonMCPExtended(ControlSurface):
             return result
         except Exception as e:
             self.log_message("Error setting track output routing: " + str(e))
+            raise
+
+    def _get_device_audio_inputs(self, track_index, device_index, io_index=None):
+        """Enumerate a device's audio-input IOs (Live 10+ DeviceIO): current routing +
+        available source types/channels. This is the DEVICE-SIDE mirror of track output
+        routing — setting an IO's routing PULLS any track's signal into a multichannel
+        plugin~ pair with NO capture track and NO change to the source track's routing
+        (the Audio Routes / Multi Analyser mechanism). io_index=None returns a summary
+        of every IO with full available lists only for IO 0 (payload sanity);
+        io_index=k returns the full lists for that IO."""
+        try:
+            track = self._resolve_track(track_index)
+            if device_index < 0 or device_index >= len(track.devices):
+                raise IndexError("Device index out of range")
+            device = track.devices[device_index]
+            if not hasattr(device, "audio_inputs"):
+                # diagnostic: what the python API actually exposes on this device
+                return {"device_name": str(device.name), "has_audio_inputs": False,
+                        "io_like_attrs": [a for a in dir(device)
+                                          if "input" in a.lower() or "routing" in a.lower()]}
+            ios = list(device.audio_inputs)
+            result = {"device_name": str(device.name), "has_audio_inputs": True,
+                      "io_count": len(ios), "ios": []}
+            for i, io in enumerate(ios):
+                if io_index is not None and i != int(io_index):
+                    continue
+                entry = {"io_index": i}
+                if getattr(io, "routing_type", None) is not None:
+                    entry["routing_type"] = str(io.routing_type.display_name)
+                if getattr(io, "routing_channel", None) is not None:
+                    entry["routing_channel"] = str(io.routing_channel.display_name)
+                full = (io_index is not None) or i == 0
+                if hasattr(io, "available_routing_types"):
+                    types = [str(rt.display_name) for rt in io.available_routing_types]
+                    if full:
+                        entry["available_routing_types"] = types
+                    entry["available_routing_type_count"] = len(types)
+                if hasattr(io, "available_routing_channels"):
+                    chans = [str(c.display_name) for c in io.available_routing_channels]
+                    if full:
+                        entry["available_routing_channels"] = chans
+                    entry["available_routing_channel_count"] = len(chans)
+                result["ios"].append(entry)
+            return result
+        except Exception as e:
+            self.log_message("Error getting device audio inputs: " + str(e))
+            raise
+
+    def _set_device_audio_input(self, track_index, device_index, io_index,
+                                source_name="", channel=None, source_index=None):
+        """Point one audio-input IO of a device at a source track (device pulls the
+        signal; the source track's own routing is untouched). Source resolution
+        mirrors _set_track_input_routing: source_index resolves duplicates by
+        (name, occurrence) in session order; source_name matches display_name
+        (exact, then substring) — use it for returns/master, which have no
+        song.tracks index. `channel` picks the tap point (e.g. 'Post FX',
+        'Post Mixer')."""
+        try:
+            track = self._resolve_track(track_index)
+            if device_index < 0 or device_index >= len(track.devices):
+                raise IndexError("Device index out of range")
+            device = track.devices[device_index]
+            if not hasattr(device, "audio_inputs"):
+                raise ValueError("Device has no audio_inputs (needs Live 10+ DeviceIO)")
+            ios = list(device.audio_inputs)
+            if io_index < 0 or io_index >= len(ios):
+                raise IndexError("io_index out of range (device has %d IOs)" % len(ios))
+            io = ios[io_index]
+            options = list(io.available_routing_types)
+
+            def _pick(opts, name):
+                for o in opts:
+                    if str(o.display_name) == name:
+                        return o
+                for o in opts:
+                    if name.lower() in str(o.display_name).lower():
+                        return o
+                return None
+
+            chosen = None
+            ambiguous = False
+            if source_index is not None:
+                si = int(source_index)
+                if si < 0 or si >= len(self._song.tracks):
+                    raise IndexError("source_index out of range")
+                source_name = str(self._song.tracks[si].name)
+                occ = sum(1 for t in self._song.tracks[:si + 1]
+                          if str(t.name) == source_name)
+                exact = [o for o in options if str(o.display_name) == source_name]
+                if len(exact) >= occ:
+                    chosen = exact[occ - 1]
+                elif exact:
+                    chosen = exact[0]
+                    ambiguous = True
+            if chosen is None:
+                chosen = _pick(options, source_name)
+            if chosen is None:
+                avail = [str(rt.display_name) for rt in options]
+                raise ValueError("No routing source '%s'; available: %s" % (source_name, avail))
+            io.routing_type = chosen
+            result = {"device_name": str(device.name), "io_index": io_index,
+                      "routing_type": str(io.routing_type.display_name)}
+            if ambiguous:
+                result["ambiguous"] = True
+            if channel is not None and hasattr(io, "available_routing_channels"):
+                ch = _pick(io.available_routing_channels, str(channel))
+                if ch is not None:
+                    io.routing_channel = ch
+                    result["routing_channel"] = str(io.routing_channel.display_name)
+                else:
+                    result["available_routing_channels"] = [
+                        str(c.display_name) for c in io.available_routing_channels]
+            return result
+        except Exception as e:
+            self.log_message("Error setting device audio input: " + str(e))
             raise
 
     def _set_track_arm(self, track_index, arm):

@@ -1,26 +1,29 @@
 """
-aggregator_provision.py — the Phase 3 reconcile controller: turn a select_nodes
-decision into live routing (capture tracks -> aggregator channels) + the bridge map.
+aggregator_provision.py — the reconcile controller: turn a select_nodes decision
+into live routing + the bridge map.
 
 Ties the pipeline together:
     select_nodes (which nodes)  ->  THIS (route them in)  ->  aggregator_bridge (OSC)
 
-For each selected non-master node it creates a thin CAPTURE track (input = the node,
-Post-FX + monitor In, NON-destructive: the node still reaches Master) whose OUTPUT is
-routed to a specific input pair of the aggregator device. The bridge then maps that
-channel -> a synthetic track-id so the perception layer sees the node.
+DEVICE-PULL MODE (v2): each selected non-master node is wired by pointing one of the
+aggregator device's own audio-input IOs at it (Live 10+ DeviceIO routing —
+set_device_audio_input; gate probe: probe_device_inputs.py, PASSED live 2026-08-04).
+The device PULLS the node's signal: NO capture tracks, the node's own routing is
+untouched, and io_index k feeds OSC channel base+k directly. The v1 capture-track
+scheme (79 extra routed tracks) is obsolete; teardown still cleans up any legacy
+CAPX_ tracks recorded in state.
 
-v1 is NON-destructive validation: it does NOT remove the nodes' existing per-track
-devices, so you can compare 'agg-<node>' against the real node before committing.
-Pair 0 (Track In) is reserved (the aggregator track's own input); routable pairs are 1..N-1.
+Non-destructive: nodes keep any existing per-track devices, so 'agg-<node>' can be
+compared against the real node before committing.
+IO 0 is reserved (the aggregator track's own input); routable IOs are 1..N-1.
 
 Modes:
     python aggregator_provision.py                 # DRY-RUN: print the plan
-    python aggregator_provision.py --apply         # create capture tracks + route
-    python aggregator_provision.py --teardown      # delete the capture tracks + AGG track
+    python aggregator_provision.py --apply         # set device input routings
+    python aggregator_provision.py --teardown      # clear routings + delete AGG tracks
 
-State (created tracks + bridge map) is persisted to sandbox_sessions/aggregator_state.json
-so --teardown and the bridge can pick it up.
+State (agg tracks + routed IOs + bridge map) persists to
+sandbox_sessions/aggregator_state.json for --teardown and the bridge.
 """
 
 from __future__ import annotations
@@ -84,6 +87,8 @@ def plan(c, usable_pairs=None, max_instrument=None):
     for node in sel:
         if node.get("kind") == "master":
             continue                               # master keeps its own device
+        if str(node.get("name", "")).startswith(AGG_TRACK):
+            continue                               # never tap an aggregator's own track
         if len(items) >= cap:
             break
         slot = len(items)
@@ -112,7 +117,7 @@ def _agg_device_uri(c, device, n_pairs):
     if base == 0:
         uri = find_uri(c, "bap labs mix analysis aggregator")
     else:
-        uri = find_uri(c, "mix analysis aggregator base%d" % base)
+        uri = find_uri(c, "bap labs mix analysis aggregator base%d" % base)
     if not uri:
         raise RuntimeError(
             "aggregator device for base %d not found in browser. Build+compile it: "
@@ -148,33 +153,56 @@ def _ensure_aggregators(c, n_dev, n_pairs):
     return tracks
 
 
+def _agg_device_index(c, track_index):
+    """Index of the Aggregator device on an AGG track (normally 0, but don't assume)."""
+    ti = c.send("get_track_info", {"track_index": track_index})
+    for di, d in enumerate(ti.get("devices", [])):
+        name = d.get("name") if isinstance(d, dict) else d
+        if "Aggregator" in (name or ""):
+            return d.get("index", di) if isinstance(d, dict) else di
+    raise RuntimeError("no Aggregator device on track %d" % track_index)
+
+
 def apply(c, items, n_dev):
+    """DEVICE-PULL: point aggregator input IO `pair` at each node (io_index == local
+    pair; io 0 reserved as the device's own track input). No capture tracks; source
+    tracks' routing untouched. Unused IOs are cleared to 'No Input' so a re-provision
+    never leaves stale pulls from a previous selection."""
     n_pairs = int(cfg("aggregator_channels"))
     agg_tracks = _ensure_aggregators(c, n_dev, n_pairs)
-    caps, bmap = [], {}
+    dev_idx = {d: _agg_device_index(c, t) for d, t in enumerate(agg_tracks)}
+    bmap, routed = {}, {}
     for it in items:
-        c.send("create_audio_track", {"index": -1}); time.sleep(0.35)
-        ci = int(c.send("get_session_info").get("track_count", 0)) - 1
-        c.send("set_track_name", {"track_index": ci, "name": CAP_PREFIX + str(it["ref"])})
+        req = {"track_index": agg_tracks[it["device"]],
+               "device_index": dev_idx[it["device"]], "io_index": it["pair"]}
         # route by source_index (dup-name safe); returns/oddballs fall back to name.
         if it.get("source_index") is not None:
-            ir = c.send("set_track_input_routing",
-                        {"track_index": ci, "source_index": it["source_index"], "channel": "Post FX"})
+            req["source_index"] = it["source_index"]
         else:
-            ir = c.send("set_track_input_routing",
-                        {"track_index": ci, "source_name": it["name"], "channel": "Post FX"})
-        c.send("set_track_monitor", {"track_index": ci, "state": 0})
-        dest = "%s_%d" % (AGG_TRACK, it["device"])
-        r = c.send("set_track_output_routing", {"track_index": ci, "dest_name": dest, "channel": it["channel"]})
-        ok = it["channel"].split("/")[0] in str(r.get("output_routing_channel", ""))
-        caps.append(ci)
+            req["source_name"] = it["name"]
+        r = c.send("set_device_audio_input", req)
+        time.sleep(0.1)                      # light throttle; no track churn anymore
+        ok = str(r.get("routing_type", "")) == str(it["name"])
+        routed.setdefault(it["device"], []).append(it["pair"])
         bmap[it["osc_channel"]] = {"track_id": "agg-%s" % it["ref"], "name": it["name"],
                                    "kind": it["kind"], "group_id": it["group_id"]}
-        flag = "" if not ir.get("ambiguous") else " (name-ambiguous!)"
-        print(f"  dev{it['device']} routed {str(it['name'])[:20]:20s} -> pair {it['pair']:2d} "
-              f"(ch {it['channel']}) gch {it['osc_channel']:3d} {'OK' if ok else 'CHANNEL?'}{flag}",
-              flush=True)
-    _write_state({"agg_tracks": agg_tracks, "cap_tracks": caps,
+        flag = "" if not r.get("ambiguous") else " (name-ambiguous!)"
+        print(f"  dev{it['device']} io {it['pair']:2d} <- {str(it['name'])[:22]:22s} "
+              f"gch {it['osc_channel']:3d} {'OK' if ok else 'TYPE?'}{flag}", flush=True)
+    # hygiene: clear every unused routable IO (stale pulls from an earlier provision)
+    for d, t in enumerate(agg_tracks):
+        used = set(routed.get(d, []))
+        for io_i in range(1, n_pairs):
+            if io_i in used:
+                continue
+            try:
+                c.send("set_device_audio_input",
+                       {"track_index": t, "device_index": dev_idx[d],
+                        "io_index": io_i, "source_name": "No Input"})
+            except Exception:
+                pass                          # variant devices may expose fewer IOs
+    _write_state({"mode": "device-pull", "agg_tracks": agg_tracks, "cap_tracks": [],
+                  "routed": {str(d): sorted(v) for d, v in routed.items()},
                   "map": {str(k): v for k, v in bmap.items()}})
     return bmap
 
@@ -214,7 +242,7 @@ def teardown(c):
     if not STATE.exists():
         print("no state file; nothing to tear down"); return
     st = json.loads(STATE.read_text())
-    # agg_tracks (multi-device) or legacy single agg_track
+    # agg_tracks (multi-device) or legacy single agg_track; legacy cap_tracks too
     agg = st.get("agg_tracks") or ([st.get("agg_track")] if st.get("agg_track") is not None else [])
     for ci in sorted(st.get("cap_tracks", []) + list(agg), reverse=True):
         if ci is None:
@@ -224,7 +252,8 @@ def teardown(c):
         except Exception as e:
             print(f"  delete {ci} failed: {e}")
     STATE.unlink()
-    print("torn down capture tracks + AGG track")
+    print("torn down AGG track(s) (+ any legacy capture tracks); "
+          "device-pull routings die with the devices")
 
 
 def main(argv):
@@ -250,9 +279,9 @@ def main(argv):
             print(f"\n  NOTE: {n_dev} devices needed. Device 0 = base-0 aggregator; devices 1..{n_dev-1} "
                   f"require compiled base variants (build_aggregator_device.py {cfg('aggregator_channels')} <base>).")
         if mode == "--dry-run":
-            print("\ndry-run. Re-run with --apply to create capture tracks + route.")
+            print("\ndry-run. Re-run with --apply to set the device input routings.")
             return 0
-        print("\n[apply] creating capture tracks + routing...")
+        print("\n[apply] pointing aggregator input IOs at the selected nodes (device-pull)...")
         apply(c, items, n_dev)
         print(f"\napplied. Bridge map + state -> {STATE.name}. "
               f"Run the aggregator_bridge with this map to feed the perception layer.")

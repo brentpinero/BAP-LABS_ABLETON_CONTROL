@@ -32,7 +32,7 @@
       500.0,
       28.0
      ],
-     "text": "MIX ANALYSIS HUB (PER-TRACK) v21 BIQUAD - self-IDs via LOM, biquad~ bandpass bank, OSC /track/<id>/* @ 9880",
+     "text": "MIX ANALYSIS HUB (PER-TRACK) v22 BIQUAD+METERS - self-IDs via LOM, biquad~ bandpass bank, OSC /track/<id>/* @ 9880",
      "fontsize": 18.0,
      "fontface": 1
     }
@@ -1448,6 +1448,545 @@
      ],
      "text": "metro 2000"
     }
+   },
+   {
+    "box": {
+     "id": "obj-ui-header",
+     "maxclass": "comment",
+     "fontsize": 9.0,
+     "text": "MIX ANALYSIS \u2014 PER-TRACK",
+     "patching_rect": [
+      40.0,
+      740.0,
+      278.0,
+      14.0
+     ],
+     "presentation": 1,
+     "presentation_rect": [
+      6.0,
+      2.0,
+      278.0,
+      14.0
+     ]
+    }
+   },
+   {
+    "box": {
+     "id": "obj-ui-meter-0",
+     "maxclass": "live.meter~",
+     "numinlets": 1,
+     "numoutlets": 1,
+     "outlettype": [
+      ""
+     ],
+     "interval": 50,
+     "parameter_enable": 0,
+     "patching_rect": [
+      40.0,
+      770.0,
+      14.0,
+      122.0
+     ],
+     "presentation": 1,
+     "presentation_rect": [
+      6.0,
+      18.0,
+      14.0,
+      122.0
+     ]
+    }
+   },
+   {
+    "box": {
+     "id": "obj-ui-mlabel-0",
+     "maxclass": "comment",
+     "fontsize": 8.0,
+     "text": "L",
+     "patching_rect": [
+      40.0,
+      800.0,
+      28.0,
+      16.0
+     ],
+     "presentation": 1,
+     "presentation_rect": [
+      3.0,
+      144.0,
+      28.0,
+      16.0
+     ]
+    }
+   },
+   {
+    "box": {
+     "id": "obj-ui-meter-1",
+     "maxclass": "live.meter~",
+     "numinlets": 1,
+     "numoutlets": 1,
+     "outlettype": [
+      ""
+     ],
+     "interval": 50,
+     "parameter_enable": 0,
+     "patching_rect": [
+      70.0,
+      770.0,
+      14.0,
+      122.0
+     ],
+     "presentation": 1,
+     "presentation_rect": [
+      28.0,
+      18.0,
+      14.0,
+      122.0
+     ]
+    }
+   },
+   {
+    "box": {
+     "id": "obj-ui-mlabel-1",
+     "maxclass": "comment",
+     "fontsize": 8.0,
+     "text": "R",
+     "patching_rect": [
+      70.0,
+      800.0,
+      28.0,
+      16.0
+     ],
+     "presentation": 1,
+     "presentation_rect": [
+      25.0,
+      144.0,
+      28.0,
+      16.0
+     ]
+    }
+   },
+   {
+    "box": {
+     "id": "obj-ui-meter-2",
+     "maxclass": "live.meter~",
+     "numinlets": 1,
+     "numoutlets": 1,
+     "outlettype": [
+      ""
+     ],
+     "interval": 50,
+     "parameter_enable": 0,
+     "patching_rect": [
+      100.0,
+      770.0,
+      14.0,
+      122.0
+     ],
+     "presentation": 1,
+     "presentation_rect": [
+      50.0,
+      18.0,
+      14.0,
+      122.0
+     ]
+    }
+   },
+   {
+    "box": {
+     "id": "obj-ui-mlabel-2",
+     "maxclass": "comment",
+     "fontsize": 8.0,
+     "text": "S",
+     "patching_rect": [
+      100.0,
+      800.0,
+      28.0,
+      16.0
+     ],
+     "presentation": 1,
+     "presentation_rect": [
+      47.0,
+      144.0,
+      28.0,
+      16.0
+     ]
+    }
+   },
+   {
+    "box": {
+     "id": "obj-ui-meter-3",
+     "maxclass": "live.meter~",
+     "numinlets": 1,
+     "numoutlets": 1,
+     "outlettype": [
+      ""
+     ],
+     "interval": 50,
+     "parameter_enable": 0,
+     "patching_rect": [
+      130.0,
+      770.0,
+      14.0,
+      122.0
+     ],
+     "presentation": 1,
+     "presentation_rect": [
+      72.0,
+      18.0,
+      14.0,
+      122.0
+     ]
+    }
+   },
+   {
+    "box": {
+     "id": "obj-ui-mlabel-3",
+     "maxclass": "comment",
+     "fontsize": 8.0,
+     "text": "sub",
+     "patching_rect": [
+      130.0,
+      800.0,
+      28.0,
+      16.0
+     ],
+     "presentation": 1,
+     "presentation_rect": [
+      69.0,
+      144.0,
+      28.0,
+      16.0
+     ]
+    }
+   },
+   {
+    "box": {
+     "id": "obj-ui-meter-4",
+     "maxclass": "live.meter~",
+     "numinlets": 1,
+     "numoutlets": 1,
+     "outlettype": [
+      ""
+     ],
+     "interval": 50,
+     "parameter_enable": 0,
+     "patching_rect": [
+      160.0,
+      770.0,
+      14.0,
+      122.0
+     ],
+     "presentation": 1,
+     "presentation_rect": [
+      94.0,
+      18.0,
+      14.0,
+      122.0
+     ]
+    }
+   },
+   {
+    "box": {
+     "id": "obj-ui-mlabel-4",
+     "maxclass": "comment",
+     "fontsize": 8.0,
+     "text": "low",
+     "patching_rect": [
+      160.0,
+      800.0,
+      28.0,
+      16.0
+     ],
+     "presentation": 1,
+     "presentation_rect": [
+      91.0,
+      144.0,
+      28.0,
+      16.0
+     ]
+    }
+   },
+   {
+    "box": {
+     "id": "obj-ui-meter-5",
+     "maxclass": "live.meter~",
+     "numinlets": 1,
+     "numoutlets": 1,
+     "outlettype": [
+      ""
+     ],
+     "interval": 50,
+     "parameter_enable": 0,
+     "patching_rect": [
+      190.0,
+      770.0,
+      14.0,
+      122.0
+     ],
+     "presentation": 1,
+     "presentation_rect": [
+      116.0,
+      18.0,
+      14.0,
+      122.0
+     ]
+    }
+   },
+   {
+    "box": {
+     "id": "obj-ui-mlabel-5",
+     "maxclass": "comment",
+     "fontsize": 8.0,
+     "text": "low_mid",
+     "patching_rect": [
+      190.0,
+      800.0,
+      28.0,
+      16.0
+     ],
+     "presentation": 1,
+     "presentation_rect": [
+      113.0,
+      144.0,
+      28.0,
+      16.0
+     ]
+    }
+   },
+   {
+    "box": {
+     "id": "obj-ui-meter-6",
+     "maxclass": "live.meter~",
+     "numinlets": 1,
+     "numoutlets": 1,
+     "outlettype": [
+      ""
+     ],
+     "interval": 50,
+     "parameter_enable": 0,
+     "patching_rect": [
+      220.0,
+      770.0,
+      14.0,
+      122.0
+     ],
+     "presentation": 1,
+     "presentation_rect": [
+      138.0,
+      18.0,
+      14.0,
+      122.0
+     ]
+    }
+   },
+   {
+    "box": {
+     "id": "obj-ui-mlabel-6",
+     "maxclass": "comment",
+     "fontsize": 8.0,
+     "text": "mid",
+     "patching_rect": [
+      220.0,
+      800.0,
+      28.0,
+      16.0
+     ],
+     "presentation": 1,
+     "presentation_rect": [
+      135.0,
+      144.0,
+      28.0,
+      16.0
+     ]
+    }
+   },
+   {
+    "box": {
+     "id": "obj-ui-meter-7",
+     "maxclass": "live.meter~",
+     "numinlets": 1,
+     "numoutlets": 1,
+     "outlettype": [
+      ""
+     ],
+     "interval": 50,
+     "parameter_enable": 0,
+     "patching_rect": [
+      250.0,
+      770.0,
+      14.0,
+      122.0
+     ],
+     "presentation": 1,
+     "presentation_rect": [
+      160.0,
+      18.0,
+      14.0,
+      122.0
+     ]
+    }
+   },
+   {
+    "box": {
+     "id": "obj-ui-mlabel-7",
+     "maxclass": "comment",
+     "fontsize": 8.0,
+     "text": "hi_mid",
+     "patching_rect": [
+      250.0,
+      800.0,
+      28.0,
+      16.0
+     ],
+     "presentation": 1,
+     "presentation_rect": [
+      157.0,
+      144.0,
+      28.0,
+      16.0
+     ]
+    }
+   },
+   {
+    "box": {
+     "id": "obj-ui-meter-8",
+     "maxclass": "live.meter~",
+     "numinlets": 1,
+     "numoutlets": 1,
+     "outlettype": [
+      ""
+     ],
+     "interval": 50,
+     "parameter_enable": 0,
+     "patching_rect": [
+      280.0,
+      770.0,
+      14.0,
+      122.0
+     ],
+     "presentation": 1,
+     "presentation_rect": [
+      182.0,
+      18.0,
+      14.0,
+      122.0
+     ]
+    }
+   },
+   {
+    "box": {
+     "id": "obj-ui-mlabel-8",
+     "maxclass": "comment",
+     "fontsize": 8.0,
+     "text": "presence",
+     "patching_rect": [
+      280.0,
+      800.0,
+      28.0,
+      16.0
+     ],
+     "presentation": 1,
+     "presentation_rect": [
+      179.0,
+      144.0,
+      28.0,
+      16.0
+     ]
+    }
+   },
+   {
+    "box": {
+     "id": "obj-ui-meter-9",
+     "maxclass": "live.meter~",
+     "numinlets": 1,
+     "numoutlets": 1,
+     "outlettype": [
+      ""
+     ],
+     "interval": 50,
+     "parameter_enable": 0,
+     "patching_rect": [
+      310.0,
+      770.0,
+      14.0,
+      122.0
+     ],
+     "presentation": 1,
+     "presentation_rect": [
+      204.0,
+      18.0,
+      14.0,
+      122.0
+     ]
+    }
+   },
+   {
+    "box": {
+     "id": "obj-ui-mlabel-9",
+     "maxclass": "comment",
+     "fontsize": 8.0,
+     "text": "air",
+     "patching_rect": [
+      310.0,
+      800.0,
+      28.0,
+      16.0
+     ],
+     "presentation": 1,
+     "presentation_rect": [
+      201.0,
+      144.0,
+      28.0,
+      16.0
+     ]
+    }
+   },
+   {
+    "box": {
+     "id": "obj-ui-corr",
+     "maxclass": "flonum",
+     "numinlets": 1,
+     "numoutlets": 2,
+     "outlettype": [
+      "",
+      "bang"
+     ],
+     "parameter_enable": 0,
+     "cantchange": 1,
+     "patching_rect": [
+      40.0,
+      830.0,
+      48.0,
+      18.0
+     ],
+     "presentation": 1,
+     "presentation_rect": [
+      236.0,
+      18.0,
+      48.0,
+      18.0
+     ]
+    }
+   },
+   {
+    "box": {
+     "id": "obj-ui-corr-label",
+     "maxclass": "comment",
+     "fontsize": 8.0,
+     "text": "corr",
+     "patching_rect": [
+      100.0,
+      830.0,
+      48.0,
+      16.0
+     ],
+     "presentation": 1,
+     "presentation_rect": [
+      236.0,
+      38.0,
+      48.0,
+      16.0
+     ]
+    }
    }
   ],
   "lines": [
@@ -2602,7 +3141,140 @@
       0
      ]
     }
+   },
+   {
+    "patchline": {
+     "source": [
+      "obj-plugin-in-L",
+      0
+     ],
+     "destination": [
+      "obj-ui-meter-0",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "obj-plugin-in-R",
+      0
+     ],
+     "destination": [
+      "obj-ui-meter-1",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "obj-side-scale",
+      0
+     ],
+     "destination": [
+      "obj-ui-meter-2",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "obj-avg-0",
+      0
+     ],
+     "destination": [
+      "obj-ui-meter-3",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "obj-avg-1",
+      0
+     ],
+     "destination": [
+      "obj-ui-meter-4",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "obj-avg-2",
+      0
+     ],
+     "destination": [
+      "obj-ui-meter-5",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "obj-avg-3",
+      0
+     ],
+     "destination": [
+      "obj-ui-meter-6",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "obj-avg-4",
+      0
+     ],
+     "destination": [
+      "obj-ui-meter-7",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "obj-avg-5",
+      0
+     ],
+     "destination": [
+      "obj-ui-meter-8",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "obj-avg-6",
+      0
+     ],
+     "destination": [
+      "obj-ui-meter-9",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "obj-snapshot-corr",
+      0
+     ],
+     "destination": [
+      "obj-ui-corr",
+      0
+     ]
+    }
    }
-  ]
+  ],
+  "openinpresentation": 1
  }
 }

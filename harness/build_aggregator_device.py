@@ -35,6 +35,7 @@ import sys
 from pathlib import Path
 
 import bands
+import device_ui
 from build_pertrack_device import FS, bandpass_coeffs, _load_gains
 
 HERE = Path(__file__).resolve().parent
@@ -99,6 +100,15 @@ def main(n_pairs=8, base=0):
         boxes.append(box(prep, "prepend /agg/ch/%d/spectrum" % gch, x0 + 100, y0 + 224, 1, 1, [""]))
         lines.append(line(pak, 0, prep, 0))
         lines.append(line(prep, 0, "obj-udp", 0))
+        # presentation meter: one multislider per pair showing everything this
+        # channel tracks (nb band RMS + side RMS), fed from the SAME pak list
+        # that goes out over OSC — display can never drift from emission.
+        px = 4.0 + k * 44.0
+        boxes.append(device_ui.plabel("ui-lbl%d" % k, "c%d" % gch, px, 2.0, 40.0,
+                                      12.0, x=x0, y=y0 + 250))
+        boxes.append(device_ui.mslider("ui-ms%d" % k, nb + 1, px, 16.0, 40.0,
+                                       144.0, x=x0 + 40, y=y0 + 250))
+        lines.append(line(pak, 0, "ui-ms%d" % k, 0))
         for b in range(nb):
             bp, av, sn = "bp%d_%d" % (k, b), "av%d_%d" % (k, b), "sn%d_%d" % (k, b)
             yy = y0 + 40 + b * 22
@@ -121,6 +131,7 @@ def main(n_pairs=8, base=0):
                                   % (n_pairs, nb, base, base + n_pairs - 1, OSC_PORT)}})
 
     p["boxes"], p["lines"] = boxes, lines
+    device_ui.enable_presentation(p)
     # base in the filename so multi-device variants (base 0/32/64/...) are distinct files
     suffix = "" if base == 0 else " base%d" % base
     out = HERE / ("Mix Analysis Aggregator %dch%s.maxpat" % (n_pairs * 2, suffix))

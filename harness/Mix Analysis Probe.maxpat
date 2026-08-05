@@ -460,6 +460,58 @@
      ],
      "text": "MIX ANALYSIS PROBE - 4 input pairs -> per-pair RMS OSC :9885"
     }
+   },
+   {
+    "box": {
+     "id": "ui-lbl",
+     "maxclass": "comment",
+     "fontsize": 8.0,
+     "text": "PROBE pairs 1-4",
+     "patching_rect": [
+      500.0,
+      400.0,
+      120.0,
+      12.0
+     ],
+     "presentation": 1,
+     "presentation_rect": [
+      4.0,
+      2.0,
+      120.0,
+      12.0
+     ]
+    }
+   },
+   {
+    "box": {
+     "id": "ui-ms",
+     "maxclass": "multislider",
+     "numinlets": 1,
+     "numoutlets": 2,
+     "outlettype": [
+      "",
+      ""
+     ],
+     "parameter_enable": 0,
+     "setminmax": [
+      0.0,
+      0.3
+     ],
+     "size": 4,
+     "patching_rect": [
+      500.0,
+      420.0,
+      120.0,
+      144.0
+     ],
+     "presentation": 1,
+     "presentation_rect": [
+      4.0,
+      16.0,
+      120.0,
+      144.0
+     ]
+    }
    }
   ],
   "lines": [
@@ -750,7 +802,20 @@
       1
      ]
     }
+   },
+   {
+    "patchline": {
+     "source": [
+      "obj-pak",
+      0
+     ],
+     "destination": [
+      "ui-ms",
+      0
+     ]
+    }
    }
-  ]
+  ],
+  "openinpresentation": 1
  }
 }

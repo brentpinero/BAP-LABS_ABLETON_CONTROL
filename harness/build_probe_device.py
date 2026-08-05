@@ -17,6 +17,8 @@ probe graph. Run: python build_probe_device.py
 import json
 from pathlib import Path
 
+import device_ui
+
 HERE = Path(__file__).resolve().parent
 BASE = HERE / "Mix Analysis Hub.maxpat"
 OUT = HERE / "Mix Analysis Probe.maxpat"
@@ -72,6 +74,14 @@ def main():
     boxes.append({"box": {"id": "obj-title", "maxclass": "comment",
                           "patching_rect": [40.0, 20.0, 400.0, 20.0],
                           "text": "MIX ANALYSIS PROBE - 4 input pairs -> per-pair RMS OSC :%d" % OSC_PORT}})
+
+    # presentation meter: the 4 pair RMS values, from the same pak the OSC uses
+    boxes.append(device_ui.plabel("ui-lbl", "PROBE pairs 1-4", 4.0, 2.0, 120.0,
+                                  12.0, x=500, y=400))
+    boxes.append(device_ui.mslider("ui-ms", NPAIRS, 4.0, 16.0, 120.0, 144.0,
+                                   x=500, y=420))
+    lines.append(line("obj-pak", 0, "ui-ms", 0))
+    device_ui.enable_presentation(p)
 
     p["boxes"], p["lines"] = boxes, lines
     OUT.write_text(json.dumps(d, indent=1))

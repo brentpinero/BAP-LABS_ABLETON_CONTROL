@@ -34,6 +34,7 @@ import math
 from pathlib import Path
 
 import bands
+import device_ui
 
 HERE = Path(__file__).resolve().parent
 BASE = HERE / "Mix Analysis Hub.maxpat"
@@ -150,11 +151,17 @@ def main(gains=None):
         lines.append(line(toggle_id, 0, "obj-meta-metro", 0))
         lines.append(line("obj-meta-metro", 0, "obj-track-js", 0))
 
-    # 5) retitle
+    # 5) presentation meters: everything this device tracks (L/R level, side,
+    #    every spectrum band, correlation), no buttons — fed from the SAME
+    #    signals the OSC path uses, so display and emission can never drift.
+    device_ui.add_hub_meters(boxes, lines, names, "MIX ANALYSIS — PER-TRACK")
+    device_ui.enable_presentation(p)
+
+    # 6) retitle
     for b in boxes:
         if b["box"]["id"] == "obj-title":
-            b["box"]["text"] = ("MIX ANALYSIS HUB (PER-TRACK) v21 BIQUAD - self-IDs via "
-                                "LOM, biquad~ bandpass bank, OSC /track/<id>/* @ 9880")
+            b["box"]["text"] = ("MIX ANALYSIS HUB (PER-TRACK) v22 BIQUAD+METERS - self-IDs "
+                                "via LOM, biquad~ bandpass bank, OSC /track/<id>/* @ 9880")
 
     OUT.write_text(json.dumps(d, indent=1))
     # validate round-trips and report

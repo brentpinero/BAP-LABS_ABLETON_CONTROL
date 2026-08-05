@@ -37,6 +37,7 @@ import math
 from pathlib import Path
 
 import bands
+import device_ui
 # reuse the proven codegen + calibration so master/per-track banks never drift
 from build_pertrack_device import FS, _load_gains, bandpass_coeffs, box, line
 from perception_config import cfg
@@ -139,10 +140,17 @@ def main(gains=None):
     assert not any(b["box"].get("text", "").startswith("js ") for b in boxes), \
         "master device must carry NO js (LiveAPI throws on the master bus)"
 
-    # 4) retitle
+    # 4) presentation meters: everything tracked (L/R, side, every band,
+    #    correlation) + the fast onset envelope, no buttons. Added AFTER the
+    #    strip so the no-dangling-line assertions above stay meaningful.
+    device_ui.add_hub_meters(boxes, lines, names, "MIX ANALYSIS — MASTER",
+                             extra_meters=[("obj-onset-env", "fast")])
+    device_ui.enable_presentation(p)
+
+    # 5) retitle
     for b in boxes:
         if b["box"]["id"] == "obj-title":
-            b["box"]["text"] = ("MIX ANALYSIS HUB (MASTER) v2 - pure /mix/levels+stereo+"
+            b["box"]["text"] = ("MIX ANALYSIS HUB (MASTER) v3 METERS - pure /mix/levels+stereo+"
                                 "spectrum metering, biquad bank, OSC @ 9880. NO js/LiveAPI "
                                 "(master node synthesized in the daemon); transport LOM-sourced")
 

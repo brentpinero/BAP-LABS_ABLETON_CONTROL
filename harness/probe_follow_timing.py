@@ -21,12 +21,13 @@ Remote Script commands. Run:  python probe_follow_timing.py
 """
 
 import math
-import socket
 import sys
 import time
 
+import probe_device_midi_io
 from live_client import LiveClient
-from probe_device_midi_io import log, parse_osc
+from probe_device_inputs import log
+from sub_follower_core import note_hz
 from swap_ears_to_biquad import find_uri
 
 OSC_PORT = 9889
@@ -52,10 +53,6 @@ def delay_ms(ratio, hz):
     """Lag implied by a null residual between two equal sines: |a - b| / |a| =
     2 sin(pi f d). Only meaningful when both levels match."""
     return math.asin(min(ratio, 2.0) / 2.0) / (math.pi * hz) * 1000.0
-
-
-def note_hz(pitch):
-    return 440.0 * 2 ** ((pitch - 69) / 12.0)
 
 
 def count(c):
@@ -103,18 +100,9 @@ def teardown(c):
 
 
 def sniff(seconds):
-    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    s.bind(("127.0.0.1", OSC_PORT)); s.settimeout(1.0)
-    out, t0 = [], time.time()
-    while time.time() - t0 < seconds:
-        try:
-            addr, v = parse_osc(s.recvfrom(4096)[0])
-        except socket.timeout:
-            continue
-        if addr == "/nullprobe" and len(v) >= 3:
-            out.append((v[0], v[1], v[2]))
-    s.close()
-    return out
+    """[(a, b, diff)] RMS samples the Null Probe emitted during the window."""
+    return [tuple(v[:3]) for addr, v in probe_device_midi_io.sniff(seconds, OSC_PORT)
+            if addr == "/nullprobe" and len(v) >= 3]
 
 
 def measure(c, idx, label, a, b):

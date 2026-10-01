@@ -251,14 +251,14 @@ class AbletonMCPExtended(ControlSurface):
                 track_index = params.get("track_index", 0)
                 device_index = params.get("device_index", 0)
                 io_index = params.get("io_index", None)
-                response["result"] = self._get_device_audio_inputs(track_index, device_index, io_index)
+                response["result"] = self._get_device_io(track_index, device_index, io_index)
             elif command_type == "get_device_midi_io":
                 # direction "in" -> device.midi_inputs, "out" -> device.midi_outputs
                 track_index = params.get("track_index", 0)
                 device_index = params.get("device_index", 0)
                 io_index = params.get("io_index", None)
-                attr = "midi_outputs" if params.get("direction", "in") == "out" else "midi_inputs"
-                response["result"] = self._get_device_audio_inputs(track_index, device_index,
+                attr = self._midi_io_attr(params)
+                response["result"] = self._get_device_io(track_index, device_index,
                                                                    io_index, attr)
 
             # Master track (read-only)
@@ -549,7 +549,7 @@ class AbletonMCPExtended(ControlSurface):
                             source_name = params.get("source_name", "")
                             channel = params.get("channel", None)
                             source_index = params.get("source_index", None)
-                            result = self._set_device_audio_input(track_index, device_index, io_index,
+                            result = self._set_device_io(track_index, device_index, io_index,
                                                                   source_name, channel, source_index)
                         elif command_type == "set_device_midi_io":
                             track_index = params.get("track_index", 0)
@@ -558,8 +558,8 @@ class AbletonMCPExtended(ControlSurface):
                             source_name = params.get("source_name", "")
                             channel = params.get("channel", None)
                             source_index = params.get("source_index", None)
-                            attr = "midi_outputs" if params.get("direction", "in") == "out" else "midi_inputs"
-                            result = self._set_device_audio_input(track_index, device_index, io_index,
+                            attr = self._midi_io_attr(params)
+                            result = self._set_device_io(track_index, device_index, io_index,
                                                                   source_name, channel, source_index, attr)
                         elif command_type == "set_record_mode":
                             mode = params.get("mode", 0)
@@ -2231,7 +2231,12 @@ class AbletonMCPExtended(ControlSurface):
             self.log_message("Error setting track output routing: " + str(e))
             raise
 
-    def _get_device_audio_inputs(self, track_index, device_index, io_index=None,
+    @staticmethod
+    def _midi_io_attr(params):
+        """DeviceIO list for a MIDI IO command: direction "in" (default) or "out"."""
+        return "midi_outputs" if params.get("direction", "in") == "out" else "midi_inputs"
+
+    def _get_device_io(self, track_index, device_index, io_index=None,
                                  attr="audio_inputs"):
         """Enumerate a device's audio-input IOs (Live 10+ DeviceIO): current routing +
         available source types/channels. This is the DEVICE-SIDE mirror of track output
@@ -2241,7 +2246,8 @@ class AbletonMCPExtended(ControlSurface):
         of every IO with full available lists only for IO 0 (payload sanity);
         io_index=k returns the full lists for that IO.
         `attr` selects the DeviceIO list: audio_inputs (default), midi_inputs or
-        midi_outputs (Live 11+, via get_device_midi_io)."""
+        midi_outputs (Live 11+, via get_device_midi_io); the result's presence flag
+        is named after it ("has_" + attr, e.g. has_audio_inputs)."""
         try:
             track = self._resolve_track(track_index)
             if device_index < 0 or device_index >= len(track.devices):
@@ -2281,7 +2287,7 @@ class AbletonMCPExtended(ControlSurface):
             self.log_message("Error getting device %s: %s" % (attr, e))
             raise
 
-    def _set_device_audio_input(self, track_index, device_index, io_index,
+    def _set_device_io(self, track_index, device_index, io_index,
                                 source_name="", channel=None, source_index=None,
                                 attr="audio_inputs"):
         """Point one audio-input IO of a device at a source track (device pulls the

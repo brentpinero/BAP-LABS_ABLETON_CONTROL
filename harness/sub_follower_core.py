@@ -15,6 +15,8 @@ notes in real time. This module is the offline side, used by sub_follower_provis
 Pure Python, no Ableton: tests in test_sub_follower.py.
 """
 
+import heapq
+
 # Sub sweet spot in MIDI numbers (Ableton names 60 "C3", so 28 = E0 = 41.2 Hz and
 # 38 = D1 = 73.4 Hz). Mixing guidance puts sub fundamentals around 40-60 Hz and warns
 # below ~40 Hz; these are tunable defaults, not hard rules.
@@ -48,17 +50,21 @@ def mono_line(notes):
     at every moment the LOWEST sounding pitch wins.
     notes: [{"pitch", "start", "duration"}] in absolute beats. Returns the same shape,
     adjacent same-pitch segments merged."""
-    notes = [n for n in notes if n["duration"] > EPS]
+    notes = sorted((n for n in notes if n["duration"] > EPS), key=lambda n: n["start"])
     times = sorted({t for n in notes for t in (n["start"], n["start"] + n["duration"])})
-    line = []
+    line, held, nxt = [], [], 0          # held: min-heap of (pitch, end) for started notes
     for t0, t1 in zip(times, times[1:]):
         if t1 - t0 <= EPS:
             continue
-        held = [n["pitch"] for n in notes
-                if n["start"] <= t0 + EPS and n["start"] + n["duration"] >= t1 - EPS]
+        while nxt < len(notes) and notes[nxt]["start"] <= t0 + EPS:
+            n = notes[nxt]
+            heapq.heappush(held, (n["pitch"], n["start"] + n["duration"]))
+            nxt += 1
+        while held and held[0][1] < t1 - EPS:         # ended: time only moves forward
+            heapq.heappop(held)
         if not held:
             continue                                  # silence between notes
-        low = min(held)
+        low = held[0][0]
         last = line[-1] if line else None
         if last and last["pitch"] == low and abs(last["start"] + last["duration"] - t0) <= EPS:
             last["duration"] = t1 - last["start"]

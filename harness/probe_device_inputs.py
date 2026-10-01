@@ -38,14 +38,15 @@ def log(msg):
 
 
 def parse_osc(data):
+    """(address, [float|int args]) from one OSC packet as udpsend emits it."""
     i = data.index(b"\x00"); addr = data[:i].decode()
     j = (i + 4) & ~3
     k = data.index(b"\x00", j); tags = data[j:k].decode()
     p = (k + 4) & ~3
     vals = []
     for t in tags[1:]:
-        if t == "f":
-            vals.append(struct.unpack(">f", data[p:p+4])[0]); p += 4
+        if t in "fi":
+            vals.append(struct.unpack(">" + t, data[p:p+4])[0]); p += 4
     return addr, vals
 
 

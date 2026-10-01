@@ -24,34 +24,15 @@ Routing changes are restored and playback is stopped on exit.
 
 import argparse
 import socket
-import struct
 import sys
 import time
 
 from live_client import LiveClient
+from probe_device_inputs import log, parse_osc
 
 PROBE_NAME = "MIDI IO Probe"
 OSC_PORT = 9888
 PROBE_SECONDS = 8.0
-
-
-def log(msg):
-    print("[%s] %s" % (time.strftime("%H:%M:%S"), msg), flush=True)
-
-
-def parse_osc(data):
-    """(address, [int|float args]) from one OSC packet (udpsend int/float args)."""
-    i = data.index(b"\x00"); addr = data[:i].decode()
-    j = (i + 4) & ~3
-    k = data.index(b"\x00", j); tags = data[j:k].decode()
-    p = (k + 4) & ~3
-    vals = []
-    for t in tags[1:]:
-        if t == "i":
-            vals.append(struct.unpack(">i", data[p:p+4])[0]); p += 4
-        elif t == "f":
-            vals.append(struct.unpack(">f", data[p:p+4])[0]); p += 4
-    return addr, vals
 
 
 def summarize_hits(messages):
@@ -127,10 +108,10 @@ def midi_sources(c, exclude, limit):
     return out
 
 
-def sniff(seconds):
-    """Every OSC message on the probe port during the window."""
+def sniff(seconds, port=OSC_PORT):
+    """Every OSC message (address, args) on a local UDP port during the window."""
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    s.bind(("127.0.0.1", OSC_PORT)); s.settimeout(1.0)
+    s.bind(("127.0.0.1", port)); s.settimeout(1.0)
     msgs = []
     t0 = time.time()
     while time.time() - t0 < seconds:
@@ -174,9 +155,11 @@ def main():
         outs = describe(c, ti_idx, dev_idx, "out")
         n_inputs = int(ins.get("io_count", 0)) if ins.get("has_midi_inputs") else 0
 
-        if args.enumerate_only or n_inputs == 0:
-            log("VERDICT: %s" % (verdict(n_inputs, 0) if n_inputs == 0 else
-                                 "enumerate-only: %d MIDI input(s), no signal test" % n_inputs))
+        if n_inputs == 0:
+            log("VERDICT: %s" % verdict(0, 0))
+            return 0
+        if args.enumerate_only:
+            log("enumerate-only: %d MIDI input(s), no signal test" % n_inputs)
             return 0
 
         # P3: one distinct source per input, roll playback, see which [midiin] hears what

@@ -1,7 +1,7 @@
 """
 device_io_routing.py — the canonical source-resolution logic for device audio-input
 routing (Live 10+ DeviceIO), mirrored INLINE by the AbletonMCP Remote Script's
-_set_device_audio_input (the Remote Script cannot import repo modules from the app
+_set_device_io (the Remote Script cannot import repo modules from the app
 bundle). Pure Python so it is testable without Ableton; if this and the Remote
 Script drift, fix the Remote Script to match THIS.
 

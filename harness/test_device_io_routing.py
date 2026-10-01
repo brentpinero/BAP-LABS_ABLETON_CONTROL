@@ -1,6 +1,6 @@
 """
 Tests for device_io_routing — the canonical DeviceIO source-resolution logic
-mirrored inline by the Remote Script's _set_device_audio_input. Pure Python,
+mirrored inline by the Remote Script's _set_device_io. Pure Python,
 mock options/tracks, no Ableton. Run: python -m unittest test_device_io_routing
 
 Covers the case this substrate exists for: 70+ track bass-music projects with
@@ -84,11 +84,11 @@ class TestMirrorsRemoteScript(unittest.TestCase):
         import io as _io
         from pathlib import Path
         src = (Path(__file__).parent / "AbletonMCP_Extended" / "__init__.py").read_text()
-        self.assertIn("_set_device_audio_input", src)
+        self.assertIn("def _set_device_io(", src)
         # the occurrence-resolution idiom, verbatim in both implementations
         self.assertIn("occ = sum(1 for t in self._song.tracks[:si + 1]", src)
         self.assertIn("chosen = exact[occ - 1]", src)
-        self.assertIn("_get_device_audio_inputs", src)
+        self.assertIn("def _get_device_io(", src)
         self.assertIn("available_routing_types", src)
 
 

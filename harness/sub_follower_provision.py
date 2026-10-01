@@ -96,7 +96,7 @@ def analyze(c, sub, sources, floor=None):
         notes = read_notes(c, sources)
         if not notes:
             log("no arrangement notes in the bass group; Floor left unchanged")
-            return None
+            return
         floor, scores = sf.choose_floor(notes)
         for s in scores:
             log("  floor %-3s (%.1f Hz): out-of-band %.2f  jumps %.2f  cost %.2f%s"
@@ -108,11 +108,9 @@ def analyze(c, sub, sources, floor=None):
     log("Floor = %s (MIDI %d, %.1f Hz); sub plays %s..%s"
         % (sf.note_name(floor), floor, sf.note_hz(floor), sf.note_name(floor),
            sf.note_name(floor + 11)))
-    return floor
 
 
-def apply(c, tracks, sub, sources, floor=None):
-    hub = next((t["index"] for t in tracks if t["name"] == HUB_TRACK), None)
+def apply(c, tracks, sub, hub, sources, floor=None):
     if hub is None:
         c.send("create_audio_track", {"index": -1}); time.sleep(0.4)
         hub = int(c.send("get_session_info").get("track_count", 0)) - 1
@@ -163,12 +161,11 @@ def apply(c, tracks, sub, sources, floor=None):
     log("done: %d tap(s) on %s, %d new, %d stale" % (len(keep), HUB_TRACK, len(add), len(stale)))
 
 
-def teardown(c, tracks, sub):
+def teardown(c, sub, hub):
     fol = follower_index(c, sub)
     if fol is not None:
         c.send("delete_device", {"track_index": sub, "device_index": fol})
         log("removed Sub Follower from sub track %d" % sub)
-    hub = next((t["index"] for t in tracks if t["name"] == HUB_TRACK), None)
     if hub is not None:
         c.send("delete_track", {"track_index": hub})
         log("deleted hub track %d (%s)" % (hub, HUB_TRACK))
@@ -201,11 +198,11 @@ def main():
             raise SystemExit("no MIDI tracks in the bass group to follow")
 
         if args.apply:
-            apply(c, tracks, sub, sources, args.floor)
+            apply(c, tracks, sub, hub, sources, args.floor)
         elif args.analyze:
             analyze(c, sub, sources, args.floor)
         elif args.teardown:
-            teardown(c, tracks, sub)
+            teardown(c, sub, hub)
         else:
             log("dry run: nothing changed")
     return 0

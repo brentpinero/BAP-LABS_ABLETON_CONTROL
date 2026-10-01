@@ -242,6 +242,35 @@ Our solution: **AppleScript GUI automation** via `harness/AbletonMCP_Extended/au
 | `harness/universal_vst_controller.js` | JavaScript controller for Max patches |
 | `harness/BAP Labs Serum Control.amxd` | Max for Live Serum device |
 
+### Sub Follower
+
+Makes one sub track (e.g. Serum) play a mono line that follows every MIDI track in the
+bass group, folded into one sub-friendly octave. The lowest sounding bass note wins.
+
+```
+hub track:  one Sub Follow Tap per bass track  ->  sub track: Sub Follower -> Serum
+```
+
+| File | Description |
+|------|-------------|
+| `harness/build_sub_follower_device.py` | Generates both devices (`Sub Follow Tap.maxpat`, `Sub Follower.maxpat`) |
+| `harness/sub_follower_provision.py` | Sets it up on the open set: hub track, a tap per bass track, routing, fold floor |
+| `harness/sub_follower_core.py` | Auto-octave scoring, source discovery, tap planning (pure Python) |
+| `harness/probe_device_midi_io.py`, `harness/probe_follow_timing.py` | Gate probes: MIDI inputs per device, and follow timing by null test |
+
+```bash
+cd harness
+python build_sub_follower_device.py        # then wrap each .maxpat with maxpat_to_amxd.py
+python sub_follower_provision.py --sub "Sub" --dry-run
+python sub_follower_provision.py --sub "Sub" --apply
+```
+
+Each tap has an automatable **Follow** switch (automate it off to drop that bass track
+for a section). The follower's **Floor** is the lowest note the sub will play; `--apply`
+and `--analyze` pick it from the bass group's arrangement notes. Keep the taps on the hub
+track: on the sub track itself they run one audio buffer late. The sub track should not
+play its own clips while following.
+
 ## Tests
 
 | File | Description |

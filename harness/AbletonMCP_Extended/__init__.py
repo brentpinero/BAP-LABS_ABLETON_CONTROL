@@ -304,6 +304,7 @@ class AbletonMCPExtended(ControlSurface):
                 "set_track_color", "fold_track",
                 # Device chain (Priority 4)
                 "delete_device", "set_device_enabled", "set_device_parameter_by_name",
+                "set_device_name",
                 # Arrangement editing (Priority 5)
                 "set_clip_mute", "set_clip_start_end", "set_clip_color",
                 # Master track (Priority 6)
@@ -473,6 +474,11 @@ class AbletonMCPExtended(ControlSurface):
                             device_index = params.get("device_index", 0)
                             enabled = params.get("enabled", True)
                             result = self._set_device_enabled(track_index, device_index, enabled)
+                        elif command_type == "set_device_name":
+                            track_index = params.get("track_index", 0)
+                            device_index = params.get("device_index", 0)
+                            name = params.get("name", "")
+                            result = self._set_device_name(track_index, device_index, name)
                         elif command_type == "set_device_parameter_by_name":
                             track_index = params.get("track_index", 0)
                             device_index = params.get("device_index", 0)
@@ -2468,6 +2474,20 @@ class AbletonMCPExtended(ControlSurface):
             raise ValueError("Device does not have on/off control")
         except Exception as e:
             self.log_message("Error setting device enabled: " + str(e))
+            raise
+
+    def _set_device_name(self, track_index, device_index, name):
+        """Rename a device instance (the title shown in the device chain and in
+        automation choosers), e.g. one Sub Follow Tap per source track."""
+        try:
+            track = self._resolve_track(track_index)
+            if device_index < 0 or device_index >= len(track.devices):
+                raise IndexError("Device index out of range")
+            device = track.devices[device_index]
+            device.name = str(name)
+            return {"device_index": device_index, "device_name": str(device.name)}
+        except Exception as e:
+            self.log_message("Error setting device name: " + str(e))
             raise
 
     def _set_device_parameter_by_name(self, track_index, device_index, param_name, value):

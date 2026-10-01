@@ -193,6 +193,10 @@ def main():
                                               "io_index": io_i, "source_index": src_idx})
             routed[io_i + 1] = pitches            # [midiin] k is 1-based in the OSC address
             log("set midi input %d -> %s: %s" % (io_i, name, r))
+            after = c.send("get_device_midi_io", {"track_index": ti_idx, "device_index": dev_idx,
+                                                   "io_index": io_i})
+            log("  tap points on %s: %s" %
+                (name, after["ios"][0].get("available_routing_channels")))
 
         if args.dest and outs.get("has_midi_outputs") and outs.get("io_count"):
             r = c.send("set_device_midi_io", {"track_index": ti_idx, "device_index": dev_idx,

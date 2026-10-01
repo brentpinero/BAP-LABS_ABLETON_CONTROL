@@ -67,6 +67,48 @@ def pnum(id_, px, py, pw=48.0, ph=18.0, x=0.0, y=0.0):
     return _pres(b, px, py, pw, ph)
 
 
+def _param(b, longname, **valueof):
+    """Turn a live.* box into a Live parameter (automatable unless invisible)."""
+    b["box"]["parameter_enable"] = 1
+    b["box"]["varname"] = longname
+    b["box"]["saved_attribute_attributes"] = {"valueof": dict(
+        valueof, parameter_longname=longname, parameter_shortname=longname)}
+    return b
+
+
+def ptoggle(id_, longname, px, py, pw=18.0, ph=18.0, initial=1, x=0.0, y=0.0):
+    """An automatable on/off live.toggle shown in presentation."""
+    b = {"box": {"id": id_, "maxclass": "live.toggle", "numinlets": 1,
+                 "numoutlets": 1, "outlettype": [""],
+                 "patching_rect": [float(x), float(y), float(pw), float(ph)]}}
+    _param(b, longname, parameter_type=2, parameter_mmax=1,
+           parameter_enum=["off", "on"], parameter_initial=[initial],
+           parameter_initial_enable=1)
+    return _pres(b, px, py, pw, ph)
+
+
+def pintbox(id_, longname, lo, hi, initial, px, py, pw=44.0, ph=16.0, x=0.0, y=0.0,
+            note=False):
+    """An automatable integer live.numbox; note=True displays MIDI note names."""
+    b = {"box": {"id": id_, "maxclass": "live.numbox", "numinlets": 1,
+                 "numoutlets": 2, "outlettype": ["", "float"],
+                 "patching_rect": [float(x), float(y), float(pw), float(ph)]}}
+    _param(b, longname, parameter_type=1, parameter_unitstyle=8 if note else 0,
+           parameter_mmin=float(lo), parameter_mmax=float(hi),
+           parameter_initial=[initial], parameter_initial_enable=1)
+    return _pres(b, px, py, pw, ph)
+
+
+def pbutton(id_, longname, text, px, py, pw=44.0, ph=16.0, x=0.0, y=0.0):
+    """A momentary live.text button (bang on click); hidden from automation."""
+    b = {"box": {"id": id_, "maxclass": "live.text", "mode": 0, "text": text,
+                 "numinlets": 1, "numoutlets": 2, "outlettype": ["", ""],
+                 "patching_rect": [float(x), float(y), float(pw), float(ph)]}}
+    _param(b, longname, parameter_type=2, parameter_mmax=1,
+           parameter_enum=["val1", "val2"], parameter_invisible=2)
+    return _pres(b, px, py, pw, ph)
+
+
 def enable_presentation(patcher):
     """Open the device in presentation view (Live shows presentation for .amxd)."""
     patcher["openinpresentation"] = 1

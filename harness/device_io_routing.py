@@ -5,6 +5,9 @@ _set_device_audio_input (the Remote Script cannot import repo modules from the a
 bundle). Pure Python so it is testable without Ableton; if this and the Remote
 Script drift, fix the Remote Script to match THIS.
 
+The same handler (and so the same contract) serves set_device_midi_io, which points a
+device's midi_inputs / midi_outputs IO at a track; only the DeviceIO list differs.
+
 Resolution contract (identical to _set_track_input_routing):
   * source_index (PREFERRED): song-index of the source track, resolved by
     (name, occurrence) so DUPLICATE track names pick the RIGHT routing option —

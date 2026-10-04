@@ -244,32 +244,42 @@ Our solution: **AppleScript GUI automation** via `harness/AbletonMCP_Extended/au
 
 ### Sub Follower
 
-Makes one sub track (e.g. Serum) play a mono line that follows every MIDI track in the
-bass group, folded into one sub-friendly octave. The lowest sounding bass note wins.
+Makes one sub track (e.g. Serum) play a mono line that follows every bass track in real
+time, folded into one sub-friendly octave. The lowest sounding bass note wins. Nothing to
+run: the devices route themselves when dropped in, and the sub track stays an ordinary track
+that keeps playing its own clips.
 
 ```
-hub track:  one Sub Follow Tap per bass track  ->  sub track: Sub Follower -> Serum
+bass track:  instrument -> Sub Send (Follow switch)  --CC-->  Sub Follow track: Sub Follower
+                                                             (MIDI To = the sub track's instrument)
 ```
+
+1. Drag **BAP Labs Sub Send** (audio effect) onto each bass track, after its instrument.
+   Each Send's **Follow** switch is automatable; off = that track drops out of the sub.
+   The first Send dropped creates an empty "Sub Follow" track.
+2. Drag **BAP Labs Sub Follower** (MIDI effect) onto that "Sub Follow" track, once per set.
+   (Live's API cannot load a Max for Live device from another device, so this drag cannot
+   be automated; keep the Sub Follow track in your default set to skip it entirely.)
+   It routes the track's output to the first MIDI track whose name contains "sub"; change
+   the track's **MIDI To** chooser if you want a different sub track.
+3. **Analyze** on the Follower picks the fold **Floor** from the bass tracks' arrangement
+   notes; **Rescan** re-routes after moving tracks.
 
 | File | Description |
 |------|-------------|
-| `harness/build_sub_follower_device.py` | Generates both devices (`Sub Follow Tap.maxpat`, `Sub Follower.maxpat`) |
-| `harness/sub_follower_provision.py` | Sets it up on the open set: hub track, a tap per bass track, routing, fold floor |
-| `harness/sub_follower_core.py` | Auto-octave scoring, source discovery, tap planning (pure Python) |
-| `harness/probe_device_midi_io.py`, `harness/probe_follow_timing.py` | Gate probes: MIDI inputs per device, and follow timing by null test |
+| `harness/build_sub_follower_device.py` | Generates both devices (`Sub Send.maxpat`, `Sub Follower.maxpat`), embedded v8 self-routing |
+| `harness/sub_follower_core.py` | Python reference for the auto-octave scoring and source discovery |
+| `harness/sub_follower_demo.py` | Read-only report of the wiring, plus an optional null test |
+| `harness/probe_device_midi_io.py`, `harness/probe_follow_timing.py` | Gate probes: MIDI inputs per device, follow timing by null test |
 
 ```bash
 cd harness
 python build_sub_follower_device.py        # then wrap each .maxpat with maxpat_to_amxd.py
-python sub_follower_provision.py --sub "Sub" --dry-run
-python sub_follower_provision.py --sub "Sub" --apply
+python sub_follower_demo.py                # what is wired to what
 ```
 
-Each tap has an automatable **Follow** switch (automate it off to drop that bass track
-for a section). The follower's **Floor** is the lowest note the sub will play; `--apply`
-and `--analyze` pick it from the bass group's arrangement notes. Keep the taps on the hub
-track: on the sub track itself they run one audio buffer late. The sub track should not
-play its own clips while following.
+Measured in Live 12.4.6: sample-accurate (null test, -120 dB). Sends read a track's notes
+**before** its MIDI effects. The sub's velocity is fixed at 100.
 
 ## Tests
 

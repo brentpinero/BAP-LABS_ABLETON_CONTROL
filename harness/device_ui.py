@@ -109,6 +109,26 @@ def pbutton(id_, longname, text, px, py, pw=44.0, ph=16.0, x=0.0, y=0.0):
     return _pres(b, px, py, pw, ph)
 
 
+def pstatus(id_, text, px, py, pw, ph=16.0, x=0.0, y=0.0):
+    """A read-only text line shown in presentation; a message box updated with 'set …'."""
+    b = {"box": {"id": id_, "maxclass": "message", "text": text, "numinlets": 2,
+                 "numoutlets": 1, "outlettype": [""],
+                 "patching_rect": [float(x), float(y), float(pw), float(ph)]}}
+    return _pres(b, px, py, pw, ph)
+
+
+def codebox(id_, code, x, y, inlets=1, outlets=1, w=420.0, h=240.0):
+    """A v8.codebox with the JavaScript embedded in the patcher (no external .js file to
+    ship). Runs on Max's low-priority thread: configuration only, never the note path."""
+    return {"box": {"id": id_, "maxclass": "v8.codebox", "filename": "none",
+                    "code": code.strip().replace("\n", "\r\n"),
+                    "fontface": 0, "fontname": "Menlo", "fontsize": 11.0,
+                    "numinlets": int(inlets), "numoutlets": int(outlets),
+                    "outlettype": [""] * int(outlets),
+                    "patching_rect": [float(x), float(y), float(w), float(h)],
+                    "saved_object_attributes": {"parameter_enable": 0}}}
+
+
 def enable_presentation(patcher):
     """Open the device in presentation view (Live shows presentation for .amxd)."""
     patcher["openinpresentation"] = 1

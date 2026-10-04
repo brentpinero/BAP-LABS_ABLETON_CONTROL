@@ -143,10 +143,6 @@ class TestPlanTaps(unittest.TestCase):
                          ([(0, 3, "Reese")], [], [1]))
 
 
-def _boxes(path):
-    return json.loads(path.read_text())["patcher"]["boxes"]
-
-
 def _params(boxes):
     return {b["box"]["saved_attribute_attributes"]["valueof"]["parameter_longname"]: b["box"]
             for b in boxes if b["box"].get("parameter_enable")}
@@ -156,52 +152,74 @@ class TestDevicePatches(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         bsf.main()
-        cls.tap = _boxes(bsf.TAP_OUT)
-        cls.fol = _boxes(bsf.FOLLOWER_OUT)
+        cls.send = json.loads(bsf.SEND_OUT.read_text())["patcher"]
+        cls.fol = json.loads(bsf.FOLLOWER_OUT.read_text())["patcher"]
 
-    def _texts(self, boxes):
-        return [b["box"].get("text", "") for b in boxes]
+    @staticmethod
+    def _texts(patcher):
+        return [b["box"].get("text", "") for b in patcher["boxes"]]
 
-    def test_no_script_objects_in_either_note_path(self):
-        for boxes in (self.tap, self.fol):
-            self.assertFalse(any(t.split(" ")[0] in ("js", "v8", "node.script", "jsui")
-                                 for t in self._texts(boxes)))
+    @staticmethod
+    def _feeds(patcher, dst_text):
+        ids = {b["box"]["id"]: b["box"].get("text", "") for b in patcher["boxes"]}
+        return {ids[ln["patchline"]["source"][0]] for ln in patcher["lines"]
+                if ids[ln["patchline"]["destination"][0]] == dst_text}
 
-    def test_tap_is_a_gated_audio_effect_with_its_own_held_table(self):
-        texts = self._texts(self.tap)
-        for obj in ("midiin", "gate 1 1", "midiformat", "midiout", "plugin~", "plugout~"):
+    def test_no_script_object_in_either_note_path(self):
+        for patcher in (self.send, self.fol):
+            self.assertFalse(any(t.split(" ")[0] in ("js", "v8", "node.script")
+                                 for t in self._texts(patcher)))
+            # the embedded script only drives parameters and the status line
+            ids = {b["box"]["id"]: b["box"] for b in patcher["boxes"]}
+            for ln in patcher["lines"]:
+                if ln["patchline"]["source"][0] == "obj-js":
+                    dst = ids[ln["patchline"]["destination"][0]]
+                    self.assertTrue(dst.get("parameter_enable") or dst["id"] == "obj-setstat")
+
+    def test_send_sends_control_change_not_notes(self):
+        texts = self._texts(self.send)
+        for obj in ("midiin", "gate 1 1", "ctlout", "plugin~", "plugout~", "live.thisdevice"):
             self.assertIn(obj, texts)
-        self.assertEqual(texts.count("table ---tapheld"), 2)     # writer + scan reader
-        self.assertNotIn("table ---sfheld", texts)               # never shares the sub's
+        self.assertNotIn("midiout", texts)
+        self.assertEqual(texts.count("table ---sendheld"), 2)       # writer + scan reader
 
-    def test_tap_slot_parameter_spans_every_midi_note(self):
-        v = _params(self.tap)["Slot"]["saved_attribute_attributes"]["valueof"]
-        self.assertEqual((v["parameter_mmin"], v["parameter_mmax"]), (0.0, 127.0))
+    def test_send_creates_the_follow_track_only_on_first_setup(self):
+        code = next(b["box"]["code"] for b in self.send["boxes"]
+                    if b["box"]["maxclass"] == "v8.codebox")
+        self.assertIn("if (!setupDone) { ensureFollowTrack(); outlet(2, 1); }", code)
+        v = _params(self.send["boxes"])["Setup Done"]["saved_attribute_attributes"]["valueof"]
+        self.assertEqual(v["parameter_initial"], [0])
+        self.assertEqual(v["parameter_invisible"], 1)        # stored, not automatable
 
-    def test_tap_follow_switch_is_automatable_and_on_by_default(self):
-        v = _params(self.tap)["Follow"]["saved_attribute_attributes"]["valueof"]
-        self.assertEqual(v["parameter_initial"], [1])
-        self.assertEqual(v["parameter_initial_enable"], 1)
-        self.assertNotIn("parameter_invisible", v)       # visible = automatable
+    def test_send_parameters(self):
+        p = _params(self.send["boxes"])
+        self.assertEqual(p["Follow"]["saved_attribute_attributes"]["valueof"]["parameter_initial"], [1])
+        v = p["Slot"]["saved_attribute_attributes"]["valueof"]
+        self.assertEqual((v["parameter_mmin"], v["parameter_mmax"]), (0.0, float(bsf.MAX_SLOT - 1)))
 
-    def test_follower_floor_parameter_covers_the_candidate_floors(self):
-        v = _params(self.fol)["Floor"]["saved_attribute_attributes"]["valueof"]
+    def test_follower_turns_cc_into_notes_only(self):
+        texts = self._texts(self.fol)
+        for obj in ("ctlin", "midiformat", "midiout", "live.thisdevice"):
+            self.assertIn(obj, texts)
+        self.assertEqual(self._feeds(self.fol, "midiout"), {"midiformat"})
+        self.assertEqual(self._feeds(self.fol, "midiparse"), set())    # own notes not forwarded
+        v = _params(self.fol["boxes"])["Floor"]["saved_attribute_attributes"]["valueof"]
         self.assertLessEqual(v["parameter_mmin"], sf.FLOOR_MIN)
         self.assertGreaterEqual(v["parameter_mmax"], sf.FLOOR_MAX)
         self.assertEqual(v["parameter_initial"], [sf.BAND_LO])
 
-    def test_neither_device_passes_midi_straight_through(self):
-        # slot notes must never reach the synth; real notes must never skip the gate
-        for path in (bsf.TAP_OUT, bsf.FOLLOWER_OUT):
-            patcher = json.loads(path.read_text())["patcher"]
-            ids = {b["box"]["id"]: b["box"].get("text", "") for b in patcher["boxes"]}
-            feeds_out = {ids[ln["patchline"]["source"][0]] for ln in patcher["lines"]
-                         if ids[ln["patchline"]["destination"][0]] == "midiout"}
-            self.assertEqual(feeds_out, {"midiformat"})
+    def test_embedded_scripts_carry_the_routing_logic(self):
+        for patcher, needles in ((self.send, ("midi_inputs 0", "Pre FX", "midi_outputs 0")),
+                                 (self.fol, ("current_monitoring_state", "output_routing_channel",
+                                             "get_notes_extended", "chooseFloor"))):
+            code = next(b["box"]["code"] for b in patcher["boxes"]
+                        if b["box"]["maxclass"] == "v8.codebox")
+            for needle in needles:
+                self.assertIn(needle, code)
+            self.assertNotIn("%(", code)                                 # formatting applied
 
     def test_patchlines_reference_existing_boxes(self):
-        for path in (bsf.TAP_OUT, bsf.FOLLOWER_OUT):
-            patcher = json.loads(path.read_text())["patcher"]
+        for patcher in (self.send, self.fol):
             ids = {b["box"]["id"] for b in patcher["boxes"]}
             for ln in patcher["lines"]:
                 self.assertIn(ln["patchline"]["source"][0], ids)

@@ -154,7 +154,7 @@
       130.0,
       22.0
      ],
-     "text": "table ---tapheld"
+     "text": "table ---sendheld"
     }
    },
    {
@@ -232,7 +232,7 @@
       130.0,
       22.0
      ],
-     "text": "table ---tapheld"
+     "text": "table ---sendheld"
     }
    },
    {
@@ -303,7 +303,7 @@
      "patching_rect": [
       240.0,
       500.0,
-      50.0,
+      60.0,
       22.0
      ]
     }
@@ -348,80 +348,6 @@
    },
    {
     "box": {
-     "id": "obj-emit",
-     "maxclass": "newobj",
-     "numinlets": 1,
-     "numoutlets": 2,
-     "outlettype": [
-      "int",
-      "bang"
-     ],
-     "patching_rect": [
-      40.0,
-      620.0,
-      130.0,
-      22.0
-     ],
-     "text": "t i b"
-    }
-   },
-   {
-    "box": {
-     "id": "obj-slotoff",
-     "maxclass": "newobj",
-     "numinlets": 2,
-     "numoutlets": 1,
-     "outlettype": [
-      "int"
-     ],
-     "patching_rect": [
-      240.0,
-      660.0,
-      130.0,
-      22.0
-     ],
-     "text": "int 0"
-    }
-   },
-   {
-    "box": {
-     "id": "obj-packoff",
-     "maxclass": "newobj",
-     "numinlets": 2,
-     "numoutlets": 1,
-     "outlettype": [
-      ""
-     ],
-     "patching_rect": [
-      240.0,
-      700.0,
-      130.0,
-      22.0
-     ],
-     "text": "pack 0 0"
-    }
-   },
-   {
-    "box": {
-     "id": "obj-ison",
-     "maxclass": "newobj",
-     "numinlets": 2,
-     "numoutlets": 2,
-     "outlettype": [
-      "bang",
-      ""
-     ],
-     "patching_rect": [
-      40.0,
-      660.0,
-      130.0,
-      22.0
-     ],
-     "text": "sel -1"
-    }
-   },
-   {
-    "box": {
      "id": "obj-plus1",
      "maxclass": "newobj",
      "numinlets": 2,
@@ -431,7 +357,7 @@
      ],
      "patching_rect": [
       40.0,
-      700.0,
+      620.0,
       130.0,
       22.0
      ],
@@ -450,7 +376,7 @@
      ],
      "patching_rect": [
       40.0,
-      740.0,
+      660.0,
       130.0,
       22.0
      ],
@@ -459,44 +385,7 @@
    },
    {
     "box": {
-     "id": "obj-ontrig",
-     "maxclass": "newobj",
-     "numinlets": 1,
-     "numoutlets": 2,
-     "outlettype": [
-      "bang",
-      "int"
-     ],
-     "patching_rect": [
-      40.0,
-      780.0,
-      130.0,
-      22.0
-     ],
-     "text": "t b i"
-    }
-   },
-   {
-    "box": {
-     "id": "obj-sloton",
-     "maxclass": "newobj",
-     "numinlets": 2,
-     "numoutlets": 1,
-     "outlettype": [
-      "int"
-     ],
-     "patching_rect": [
-      40.0,
-      820.0,
-      130.0,
-      22.0
-     ],
-     "text": "int 0"
-    }
-   },
-   {
-    "box": {
-     "id": "obj-packon",
+     "id": "obj-floor0",
      "maxclass": "newobj",
      "numinlets": 2,
      "numoutlets": 1,
@@ -505,45 +394,27 @@
      ],
      "patching_rect": [
       40.0,
-      860.0,
+      700.0,
       130.0,
       22.0
      ],
-     "text": "pack 0 0"
+     "text": "maximum 0"
     }
    },
    {
     "box": {
-     "id": "obj-format",
+     "id": "obj-ctlout",
      "maxclass": "newobj",
-     "numinlets": 7,
-     "numoutlets": 1,
-     "outlettype": [
-      "int"
-     ],
-     "patching_rect": [
-      40.0,
-      900.0,
-      130.0,
-      22.0
-     ],
-     "text": "midiformat"
-    }
-   },
-   {
-    "box": {
-     "id": "obj-midiout",
-     "maxclass": "newobj",
-     "numinlets": 1,
+     "numinlets": 3,
      "numoutlets": 0,
      "outlettype": [],
      "patching_rect": [
       40.0,
-      940.0,
+      740.0,
       130.0,
       22.0
      ],
-     "text": "midiout"
+     "text": "ctlout"
     }
    },
    {
@@ -658,7 +529,7 @@
      "patching_rect": [
       500.0,
       180.0,
-      50.0,
+      60.0,
       22.0
      ]
     }
@@ -686,7 +557,7 @@
        "parameter_type": 1,
        "parameter_unitstyle": 0,
        "parameter_mmin": 0.0,
-       "parameter_mmax": 127.0,
+       "parameter_mmax": 119.0,
        "parameter_initial": [
         0
        ],
@@ -706,13 +577,235 @@
    },
    {
     "box": {
-     "id": "ui-title",
-     "maxclass": "comment",
-     "fontsize": 9.0,
-     "text": "SUB FOLLOW TAP",
+     "id": "obj-thisdev",
+     "maxclass": "newobj",
+     "numinlets": 1,
+     "numoutlets": 3,
+     "outlettype": [
+      "bang",
+      "int",
+      "int"
+     ],
      "patching_rect": [
       700.0,
       300.0,
+      130.0,
+      22.0
+     ],
+     "text": "live.thisdevice"
+    }
+   },
+   {
+    "box": {
+     "id": "obj-defer",
+     "maxclass": "newobj",
+     "numinlets": 1,
+     "numoutlets": 1,
+     "outlettype": [
+      ""
+     ],
+     "patching_rect": [
+      700.0,
+      340.0,
+      130.0,
+      22.0
+     ],
+     "text": "deferlow"
+    }
+   },
+   {
+    "box": {
+     "id": "obj-js",
+     "maxclass": "v8.codebox",
+     "filename": "none",
+     "code": "inlets = 1;\r\noutlets = 2;                      // 0: value for a parameter, 1: status text\r\nvar tracksObserver = null, pending = null;\r\n\r\nfunction status(s) { outlet(1, s); post(\"[Sub Send] \" + s + \"\\n\"); }\r\nfunction jsonProp(api, prop) { return JSON.parse(String(api.get(prop)))[prop]; }\r\nfunction ownTrack() {\r\n    var m = String(new LiveAPI(null, \"this_device\").unquotedpath)\r\n        .match(/^(live_set tracks (\\d+))/);\r\n    return m ? { path: m[1], index: parseInt(m[2], 10) } : null;\r\n}\r\n// The routing entry (from a device's available list) that IS the track at trackPath: a\r\n// track is never offered to itself, so among same-named entries it is the one whose\r\n// identifier the track's own chooser (availProp) does not list.\r\nfunction trackEntry(trackPath, candidates, availProp) {\r\n    var track = new LiveAPI(null, trackPath);\r\n    var name = String(track.get(\"name\")), theirs = {};\r\n    jsonProp(track, availProp).forEach(function (t) { theirs[t.identifier] = 1; });\r\n    var named = candidates.filter(function (c) { return c.display_name === name; });\r\n    for (var i = 0; i < named.length; i++) if (!theirs[named[i].identifier]) return named[i];\r\n    return named[0] || null;\r\n}\r\nfunction setChannel(api, availProp, prop, wanted) {\r\n    var chans = jsonProp(api, availProp);\r\n    for (var i = 0; i < chans.length; i++) {\r\n        if (chans[i].display_name === wanted) { api.set(prop, chans[i]); return true; }\r\n    }\r\n    return false;\r\n}\r\nfunction eachDevice(fn) {          // fn(trackIndex, devicePath, deviceName)\r\n    var n = new LiveAPI(null, \"live_set\").getcount(\"tracks\");\r\n    for (var i = 0; i < n; i++) {\r\n        var tp = \"live_set tracks \" + i, nd = new LiveAPI(null, tp).getcount(\"devices\");\r\n        for (var d = 0; d < nd; d++) {\r\n            var dp = tp + \" devices \" + d;\r\n            fn(i, dp, String(new LiveAPI(null, dp).get(\"name\")));\r\n        }\r\n    }\r\n}\r\nfunction watch() {                 // re-run configure() when tracks are added/removed/moved\r\n    if (tracksObserver) return;\r\n    tracksObserver = new LiveAPI(function () {\r\n        if (pending) pending.cancel();\r\n        pending = new Task(function () { pending = null; configure(); });\r\n        pending.schedule(600);     // never change the set from inside a notification\r\n    }, \"live_set\");\r\n    tracksObserver.property = \"tracks\";\r\n}\r\nfunction bang() { configure(); watch(); }\r\nfunction rescan() { configure(); }\r\n\r\noutlets = 3;                      // 2: \"first setup done\" flag (stored with the device)\r\nvar setupDone = 0;\r\nfunction setupdone(v) { setupDone = v; }\r\n\r\n// A Max for Live device cannot load another Max for Live device (Live's API inserts native\r\n// devices only), so the Send cannot add the Sub Follower itself. On a FRESH drop it makes\r\n// the empty \"Sub Follow\" track ready; the user drops Sub Follower on it once.\r\nfunction ensureFollowTrack() {\r\n    var song = new LiveAPI(null, \"live_set\"), n = song.getcount(\"tracks\");\r\n    for (var i = 0; i < n; i++) {\r\n        if (String(new LiveAPI(null, \"live_set tracks \" + i).get(\"name\")) === \"Sub Follow\") return;\r\n    }\r\n    song.call(\"create_midi_track\", -1);\r\n    var t = new LiveAPI(null, \"live_set tracks \" + n);\r\n    t.set(\"name\", \"Sub Follow\");\r\n    t.set(\"arm\", 0);\r\n}\r\n\r\nfunction configure() {\r\n    try {\r\n        var me = ownTrack();\r\n        if (!me) { status(\"put Sub Send on a bass track\"); return; }\r\n        var inp = new LiveAPI(null, \"this_device midi_inputs 0\");\r\n        var own = trackEntry(me.path, jsonProp(inp, \"available_routing_types\"),\r\n                             \"available_input_routing_types\");\r\n        if (!own) { status(\"this track is not routable\"); return; }\r\n        inp.set(\"routing_type\", own);\r\n        setChannel(inp, \"available_routing_channels\", \"routing_channel\", \"Pre FX\");\r\n        outlet(0, me.index % 120);                 // Slot = CC number\r\n        var fol = null;\r\n        eachDevice(function (i, dp, name) {\r\n            if (!fol && name.indexOf(\"Sub Follower\") !== -1) fol = \"live_set tracks \" + i;\r\n        });\r\n        if (!fol) {\r\n            if (!setupDone) { ensureFollowTrack(); outlet(2, 1); }\r\n            status(\"drop Sub Follower on the 'Sub Follow' track\");\r\n            return;\r\n        }\r\n        outlet(2, 1);\r\n        var out = new LiveAPI(null, \"this_device midi_outputs 0\");\r\n        var dest = trackEntry(fol, jsonProp(out, \"available_routing_types\"),\r\n                              \"available_output_routing_types\");\r\n        if (!dest) { status(\"Sub Follower track not routable\"); return; }\r\n        out.set(\"routing_type\", dest);\r\n        setChannel(out, \"available_routing_channels\", \"routing_channel\", \"Track In\");\r\n        status(\"-> \" + dest.display_name + \"  (slot \" + (me.index % 120) + \")\");\r\n    } catch (e) { status(\"error: \" + e); }\r\n}",
+     "fontface": 0,
+     "fontname": "Menlo",
+     "fontsize": 11.0,
+     "numinlets": 1,
+     "numoutlets": 3,
+     "outlettype": [
+      "",
+      "",
+      ""
+     ],
+     "patching_rect": [
+      700.0,
+      380.0,
+      420.0,
+      240.0
+     ],
+     "saved_object_attributes": {
+      "parameter_enable": 0
+     }
+    }
+   },
+   {
+    "box": {
+     "id": "obj-setstat",
+     "maxclass": "newobj",
+     "numinlets": 1,
+     "numoutlets": 1,
+     "outlettype": [
+      ""
+     ],
+     "patching_rect": [
+      1140.0,
+      380.0,
+      130.0,
+      22.0
+     ],
+     "text": "prepend set"
+    }
+   },
+   {
+    "box": {
+     "id": "ui-status",
+     "maxclass": "message",
+     "text": "...",
+     "numinlets": 2,
+     "numoutlets": 1,
+     "outlettype": [
+      ""
+     ],
+     "patching_rect": [
+      1140.0,
+      420.0,
+      230.0,
+      16.0
+     ],
+     "presentation": 1,
+     "presentation_rect": [
+      4.0,
+      148.0,
+      230.0,
+      16.0
+     ]
+    }
+   },
+   {
+    "box": {
+     "id": "msg-obj-rescan",
+     "maxclass": "message",
+     "text": "rescan",
+     "numinlets": 2,
+     "numoutlets": 1,
+     "outlettype": [
+      ""
+     ],
+     "patching_rect": [
+      1140.0,
+      460.0,
+      60.0,
+      22.0
+     ]
+    }
+   },
+   {
+    "box": {
+     "id": "obj-rescan",
+     "maxclass": "live.text",
+     "mode": 0,
+     "text": "Rescan",
+     "numinlets": 1,
+     "numoutlets": 2,
+     "outlettype": [
+      "",
+      ""
+     ],
+     "patching_rect": [
+      500.0,
+      700.0,
+      44.0,
+      16.0
+     ],
+     "parameter_enable": 1,
+     "varname": "Rescan",
+     "saved_attribute_attributes": {
+      "valueof": {
+       "parameter_type": 2,
+       "parameter_mmax": 1,
+       "parameter_enum": [
+        "val1",
+        "val2"
+       ],
+       "parameter_invisible": 2,
+       "parameter_longname": "Rescan",
+       "parameter_shortname": "Rescan"
+      }
+     },
+     "presentation": 1,
+     "presentation_rect": [
+      60.0,
+      64.0,
+      44.0,
+      16.0
+     ]
+    }
+   },
+   {
+    "box": {
+     "id": "obj-setup",
+     "maxclass": "live.toggle",
+     "numinlets": 1,
+     "numoutlets": 1,
+     "outlettype": [
+      ""
+     ],
+     "patching_rect": [
+      1140.0,
+      520.0,
+      18.0,
+      18.0
+     ],
+     "parameter_enable": 1,
+     "varname": "Setup Done",
+     "saved_attribute_attributes": {
+      "valueof": {
+       "parameter_type": 2,
+       "parameter_mmax": 1,
+       "parameter_enum": [
+        "off",
+        "on"
+       ],
+       "parameter_initial": [
+        0
+       ],
+       "parameter_initial_enable": 1,
+       "parameter_longname": "Setup Done",
+       "parameter_shortname": "Setup Done",
+       "parameter_invisible": 1
+      }
+     }
+    }
+   },
+   {
+    "box": {
+     "id": "obj-setupmsg",
+     "maxclass": "newobj",
+     "numinlets": 1,
+     "numoutlets": 1,
+     "outlettype": [
+      ""
+     ],
+     "patching_rect": [
+      1140.0,
+      560.0,
+      130.0,
+      22.0
+     ],
+     "text": "prepend setupdone"
+    }
+   },
+   {
+    "box": {
+     "id": "ui-title",
+     "maxclass": "comment",
+     "fontsize": 9.0,
+     "text": "SUB SEND",
+     "patching_rect": [
+      700.0,
+      200.0,
       96.0,
       14.0
      ],
@@ -730,18 +823,18 @@
      "id": "ui-follow",
      "maxclass": "comment",
      "fontsize": 8.0,
-     "text": "Follow",
+     "text": "Follow this track",
      "patching_rect": [
       700.0,
-      330.0,
-      60.0,
+      230.0,
+      120.0,
       16.0
      ],
      "presentation": 1,
      "presentation_rect": [
       30.0,
       26.0,
-      60.0,
+      120.0,
       16.0
      ]
     }
@@ -754,14 +847,14 @@
      "text": "Slot",
      "patching_rect": [
       700.0,
-      360.0,
+      260.0,
       40.0,
       16.0
      ],
      "presentation": 1,
      "presentation_rect": [
       56.0,
-      64.0,
+      48.0,
       40.0,
       16.0
      ]
@@ -844,6 +937,150 @@
    {
     "patchline": {
      "source": [
+      "obj-scan",
+      2
+     ],
+     "destination": [
+      "obj-lowest",
+      1
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "obj-scan",
+      1
+     ],
+     "destination": [
+      "obj-uzi",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "obj-scan",
+      0
+     ],
+     "destination": [
+      "obj-lowest",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "obj-uzi",
+      2
+     ],
+     "destination": [
+      "obj-itrig",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "obj-itrig",
+      1
+     ],
+     "destination": [
+      "obj-heldread",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "obj-heldread",
+      0
+     ],
+     "destination": [
+      "obj-isheld",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "obj-isheld",
+      0
+     ],
+     "destination": [
+      "obj-hitgate",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "obj-itrig",
+      0
+     ],
+     "destination": [
+      "obj-hitgate",
+      1
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "obj-hitgate",
+      0
+     ],
+     "destination": [
+      "obj-hit",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "obj-hit",
+      1
+     ],
+     "destination": [
+      "obj-lowest",
+      1
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "obj-hit",
+      0
+     ],
+     "destination": [
+      "obj-break",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "obj-break",
+      0
+     ],
+     "destination": [
+      "obj-uzi",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
       "obj-ntrig",
       0
      ],
@@ -856,150 +1093,6 @@
    {
     "patchline": {
      "source": [
-      "obj-scan",
-      2
-     ],
-     "destination": [
-      "obj-lowest",
-      1
-     ]
-    }
-   },
-   {
-    "patchline": {
-     "source": [
-      "obj-scan",
-      1
-     ],
-     "destination": [
-      "obj-uzi",
-      0
-     ]
-    }
-   },
-   {
-    "patchline": {
-     "source": [
-      "obj-scan",
-      0
-     ],
-     "destination": [
-      "obj-lowest",
-      0
-     ]
-    }
-   },
-   {
-    "patchline": {
-     "source": [
-      "obj-uzi",
-      2
-     ],
-     "destination": [
-      "obj-itrig",
-      0
-     ]
-    }
-   },
-   {
-    "patchline": {
-     "source": [
-      "obj-itrig",
-      1
-     ],
-     "destination": [
-      "obj-heldread",
-      0
-     ]
-    }
-   },
-   {
-    "patchline": {
-     "source": [
-      "obj-heldread",
-      0
-     ],
-     "destination": [
-      "obj-isheld",
-      0
-     ]
-    }
-   },
-   {
-    "patchline": {
-     "source": [
-      "obj-isheld",
-      0
-     ],
-     "destination": [
-      "obj-hitgate",
-      0
-     ]
-    }
-   },
-   {
-    "patchline": {
-     "source": [
-      "obj-itrig",
-      0
-     ],
-     "destination": [
-      "obj-hitgate",
-      1
-     ]
-    }
-   },
-   {
-    "patchline": {
-     "source": [
-      "obj-hitgate",
-      0
-     ],
-     "destination": [
-      "obj-hit",
-      0
-     ]
-    }
-   },
-   {
-    "patchline": {
-     "source": [
-      "obj-hit",
-      1
-     ],
-     "destination": [
-      "obj-lowest",
-      1
-     ]
-    }
-   },
-   {
-    "patchline": {
-     "source": [
-      "obj-hit",
-      0
-     ],
-     "destination": [
-      "obj-break",
-      0
-     ]
-    }
-   },
-   {
-    "patchline": {
-     "source": [
-      "obj-break",
-      0
-     ],
-     "destination": [
-      "obj-uzi",
-      0
-     ]
-    }
-   },
-   {
-    "patchline": {
-     "source": [
       "obj-lowest",
       0
      ],
@@ -1014,66 +1107,6 @@
      "source": [
       "obj-change",
       0
-     ],
-     "destination": [
-      "obj-emit",
-      0
-     ]
-    }
-   },
-   {
-    "patchline": {
-     "source": [
-      "obj-emit",
-      1
-     ],
-     "destination": [
-      "obj-slotoff",
-      0
-     ]
-    }
-   },
-   {
-    "patchline": {
-     "source": [
-      "obj-slotoff",
-      0
-     ],
-     "destination": [
-      "obj-packoff",
-      0
-     ]
-    }
-   },
-   {
-    "patchline": {
-     "source": [
-      "obj-packoff",
-      0
-     ],
-     "destination": [
-      "obj-format",
-      0
-     ]
-    }
-   },
-   {
-    "patchline": {
-     "source": [
-      "obj-emit",
-      0
-     ],
-     "destination": [
-      "obj-ison",
-      0
-     ]
-    }
-   },
-   {
-    "patchline": {
-     "source": [
-      "obj-ison",
-      1
      ],
      "destination": [
       "obj-plus1",
@@ -1100,7 +1133,7 @@
       0
      ],
      "destination": [
-      "obj-ontrig",
+      "obj-floor0",
       0
      ]
     }
@@ -1108,59 +1141,11 @@
    {
     "patchline": {
      "source": [
-      "obj-ontrig",
-      1
-     ],
-     "destination": [
-      "obj-packon",
-      1
-     ]
-    }
-   },
-   {
-    "patchline": {
-     "source": [
-      "obj-ontrig",
+      "obj-floor0",
       0
      ],
      "destination": [
-      "obj-sloton",
-      0
-     ]
-    }
-   },
-   {
-    "patchline": {
-     "source": [
-      "obj-sloton",
-      0
-     ],
-     "destination": [
-      "obj-packon",
-      0
-     ]
-    }
-   },
-   {
-    "patchline": {
-     "source": [
-      "obj-packon",
-      0
-     ],
-     "destination": [
-      "obj-format",
-      0
-     ]
-    }
-   },
-   {
-    "patchline": {
-     "source": [
-      "obj-format",
-      0
-     ],
-     "destination": [
-      "obj-midiout",
+      "obj-ctlout",
       0
      ]
     }
@@ -1256,7 +1241,7 @@
       0
      ],
      "destination": [
-      "obj-slotoff",
+      "obj-ctlout",
       1
      ]
     }
@@ -1264,12 +1249,120 @@
    {
     "patchline": {
      "source": [
-      "obj-slot",
+      "obj-thisdev",
       0
      ],
      "destination": [
-      "obj-sloton",
+      "obj-defer",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "obj-defer",
+      0
+     ],
+     "destination": [
+      "obj-js",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "obj-js",
       1
+     ],
+     "destination": [
+      "obj-setstat",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "obj-setstat",
+      0
+     ],
+     "destination": [
+      "ui-status",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "obj-rescan",
+      0
+     ],
+     "destination": [
+      "msg-obj-rescan",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "msg-obj-rescan",
+      0
+     ],
+     "destination": [
+      "obj-js",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "obj-js",
+      0
+     ],
+     "destination": [
+      "obj-slot",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "obj-js",
+      2
+     ],
+     "destination": [
+      "obj-setup",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "obj-setup",
+      0
+     ],
+     "destination": [
+      "obj-setupmsg",
+      0
+     ]
+    }
+   },
+   {
+    "patchline": {
+     "source": [
+      "obj-setupmsg",
+      0
+     ],
+     "destination": [
+      "obj-js",
+      0
      ]
     }
    }

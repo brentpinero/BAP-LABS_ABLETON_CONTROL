@@ -92,13 +92,14 @@ function eachDevice(fn) {          // fn(trackIndex, devicePath, deviceName)
         }
     }
 }
+function schedule() {              // never change the set from inside a notification
+    if (pending) pending.cancel();
+    pending = new Task(function () { pending = null; configure(); });
+    pending.schedule(600);
+}
 function watch() {                 // re-run configure() when tracks are added/removed/moved
     if (tracksObserver) return;
-    tracksObserver = new LiveAPI(function () {
-        if (pending) pending.cancel();
-        pending = new Task(function () { pending = null; configure(); });
-        pending.schedule(600);     // never change the set from inside a notification
-    }, "live_set");
+    tracksObserver = new LiveAPI(schedule, "live_set");
     tracksObserver.property = "tracks";
 }
 function bang() { configure(); watch(); }
@@ -160,6 +161,7 @@ FOLLOWER_JS = COMMON_JS % {"tag": FOLLOWER_NAME} + r"""
 var BAND_LO = %(band_lo)d, BAND_HI = %(band_hi)d, FLOOR_MIN = %(floor_min)d, FLOOR_MAX = %(floor_max)d;
 var W_RANGE = %(w_range)s, W_JUMP = %(w_jump)s, EPS = 1e-6;
 var NAMES = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
+var outObserver = null;
 
 function noteName(p) { return NAMES[((p %% 12) + 12) %% 12] + (Math.floor(p / 12) - 2); }
 function noteHz(p) { return 440 * Math.pow(2, (p - 69) / 12); }
@@ -181,6 +183,23 @@ function configure() {
         track.set("arm", 0);
         track.set("current_monitoring_state", 0);           // In: hear the Sends
         if (/^\d+-MIDI$/.test(String(track.get("name")))) track.set("name", "Sub Follow");
+        if (!outObserver) {                 // finish setup when the user picks MIDI To
+            outObserver = new LiveAPI(schedule, me.path);
+            outObserver.property = "output_routing_type";
+        }
+
+        // Point every Sub Send at this track (independent of which sub is chosen).
+        var count = 0;
+        eachDevice(function (i, dp, name) {
+            if (name.indexOf("%(send)s") === -1) return;
+            var out = new LiveAPI(null, dp + " midi_outputs 0");
+            var dest = trackEntry(me.path, jsonProp(out, "available_routing_types"),
+                                  "available_output_routing_types");
+            if (!dest) return;
+            out.set("routing_type", dest);
+            setChannel(out, "available_routing_channels", "routing_channel", "Track In");
+            count++;
+        });
 
         // Sub track = this track's own MIDI To chooser. Default: first MIDI track with
         // an instrument whose name contains "sub"; the user can change it in Live's I/O.
@@ -200,28 +219,27 @@ function configure() {
             for (var i = 0; i < types.length && !pick; i++) {
                 if (/sub/i.test(types[i].display_name) && isTrack(types[i])) pick = types[i];
             }
-            if (!pick) { status("set this track's MIDI To = your sub track"); return; }
+            if (!pick) {
+                status(count + " Send(s) ready: set this track's MIDI To = your sub track");
+                return;
+            }
             track.set("output_routing_type", pick);
             cur = pick;
         }
-        var chans = jsonProp(track, "available_output_routing_channels"), inst = null;
-        for (var c = 0; c < chans.length; c++) if (chans[c].display_name !== "Track In") inst = chans[c];
-        if (!inst) { status(cur.display_name + " has no instrument to receive notes"); return; }
-        track.set("output_routing_channel", inst);           // bypasses monitoring
-
-        // Point every Sub Send at this track.
-        var count = 0;
-        eachDevice(function (i, dp, name) {
-            if (name.indexOf("%(send)s") === -1) return;
-            var out = new LiveAPI(null, dp + " midi_outputs 0");
-            var dest = trackEntry(me.path, jsonProp(out, "available_routing_types"),
-                                  "available_output_routing_types");
-            if (!dest) return;
-            out.set("routing_type", dest);
-            setChannel(out, "available_routing_channels", "routing_channel", "Track In");
-            count++;
-        });
-        status("following " + count + " track(s) -> " + cur.display_name + " / " + inst.display_name);
+        // Deliver to the INSTRUMENT (bypasses monitoring, so the sub keeps its own clips).
+        // Multi-channel plug-ins list one entry per MIDI channel ("1-Serum 2" .. "16-..."):
+        // take the first, and leave it alone if the user already chose an instrument entry.
+        var chan = jsonProp(track, "output_routing_channel");
+        if (chan.display_name === "Track In") {
+            var chans = jsonProp(track, "available_output_routing_channels"), inst = null;
+            for (var c = 0; c < chans.length && !inst; c++) {
+                if (chans[c].display_name !== "Track In") inst = chans[c];
+            }
+            if (!inst) { status(cur.display_name + " has no instrument to receive notes"); return; }
+            track.set("output_routing_channel", inst);
+            chan = inst;
+        }
+        status("following " + count + " track(s) -> " + cur.display_name + " / " + chan.display_name);
     } catch (e) { status("error: " + e); }
 }
 

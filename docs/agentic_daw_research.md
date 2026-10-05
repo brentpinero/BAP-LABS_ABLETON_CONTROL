@@ -108,7 +108,20 @@ The honest headline: of ten suspected causes, only a few have verified evidence.
 
 ### 3.2 Measuring the incumbents ourselves [I]
 
-Because public data is thin, Phase 0 includes a black-box characterisation of Live (which Brent owns) using the same harness: pan curve, SRC sweep, 1:1 warp null, fade shape, delay-compensation alignment, limiter overshoot. This is legal black-box observation and produces the "Live-compatible" profile. Other DAWs can be added as trials permit.
+Because public data is thin, Phase 0 includes a black-box characterisation of Live (which Brent owns) using the same harness: pan curve, SRC sweep, 1:1 warp null, fade shape, delay-compensation alignment, limiter overshoot. This is legal black-box observation and produces the "Live-compatible" profile.
+
+### 3.3 What has to be owned [I]
+
+Only Live is required. Most targets in this plan are absolute (analytic pan curves, ITU and AES standards, a double-precision summing reference, an exact automation ramp) and need no other DAW.
+
+| Item | Needed for | Status |
+|---|---|---|
+| Ableton Live | "Live-compatible" profile so imported `.als` sets sound right; stock-device parity baseline | Owned; **required** |
+| REAPER | External render check during development | Free evaluation, low-cost licence; **recommended** |
+| FabFilter Pro-L 2, Pro-Q | Limiter and EQ parity references; run inside any host, including ours | Trial, then buy the ones kept as permanent references; **recommended** |
+| Logic, Cubase, Studio One, Bitwig, FL Studio, Pro Tools | Extra comparison points only | Optional; trial or free tiers where their terms allow rendering (terms not verified this session) |
+
+Hard parity gates in this plan reference Live's stock devices plus the reference plugins above. No gate depends on a DAW other than Live.
 
 ---
 
@@ -413,6 +426,7 @@ Effort figures are estimates for one developer on an M4 Max with AI coding agent
 | Test and benchmark harness (section 12) with BS.1770-5 meter at 16x | Meter matches EBU reference signals within ±0.1 LU and ±0.1 dBTP |
 | Black-box profile of Live: pan curve, SRC sweep, 1:1 warp null, fade shape, delay-compensation alignment, limiter overshoot | Profile stored with signals and scripts in the repo |
 | Tracktion Engine bake-off: the twelve benchmarks in 12.1 | Written go/no-go on the engine with numbers |
+| Acquire references per section 3.3: REAPER, Pro-L 2 and Pro-Q trials | Installed and rendering through the harness |
 | Counsel review of section 2; product name search | No blocking issue |
 | Go-to-market decision (section 14) | Decided: GPL open source or closed commercial |
 
@@ -492,7 +506,7 @@ Gate: 10 external producers complete a track; crash-free session rate ≥ 99%; p
 | 11 | Headless | No GUI interaction, AU + VST3 instruments | Completes unattended |
 | 12 | Clip launch | 64 clips quantised to the bar | All within 1 sample |
 
-Thresholds are proposals [I]; Phase 0 replaces them with measured baselines from Live and REAPER on the same machine.
+Thresholds are proposals [I]; Phase 0 replaces them with measured baselines from Live (and REAPER if installed) on the same machine.
 
 ### 12.2 Device parity harness
 

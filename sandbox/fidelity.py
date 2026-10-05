@@ -70,7 +70,7 @@ def align(a: np.ndarray, b: np.ndarray, sr: int,
     """Find b's lag relative to a via FFT cross-correlation; return (lag, b shifted
     onto a's timeline). Positive lag = b arrives later (e.g. plugin latency)."""
     n = min(len(a), len(b), int(ALIGN_WINDOW_S * sr))
-    max_lag = int(max_lag_s * sr)
+    max_lag = min(int(max_lag_s * sr), n - 1)  # a window wider than the signal would wrap the slice
     corr = correlate(a[:n], b[:n], mode="full", method="fft")
     center = n - 1
     lo, hi = center - max_lag, center + max_lag + 1

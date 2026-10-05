@@ -291,6 +291,7 @@ class AbletonMCPExtended(ControlSurface):
                 "set_track_mute", "set_track_solo", "set_return_track_volume",
                 # Audio clip properties (Priority 2)
                 "set_clip_gain", "set_clip_pitch", "set_clip_loop", "set_clip_warp_mode",
+                "create_arrangement_audio_clip", "set_clip_warping",
                 # Track organization (Priority 3)
                 "create_audio_track", "delete_track", "create_return_track",
                 "set_track_color", "fold_track",
@@ -436,6 +437,16 @@ class AbletonMCPExtended(ControlSurface):
                             clip_index = params.get("clip_index", 0)
                             warp_mode = params.get("warp_mode", 0)
                             result = self._set_clip_warp_mode(track_index, clip_index, warp_mode)
+                        elif command_type == "create_arrangement_audio_clip":
+                            track_index = params.get("track_index", 0)
+                            file_path = params.get("file_path", "")
+                            position = params.get("position", 0.0)
+                            result = self._create_arrangement_audio_clip(track_index, file_path, position)
+                        elif command_type == "set_clip_warping":
+                            track_index = params.get("track_index", 0)
+                            clip_index = params.get("clip_index", 0)
+                            warping = params.get("warping", False)
+                            result = self._set_clip_warping(track_index, clip_index, warping)
 
                         # Track organization (Priority 3)
                         elif command_type == "create_audio_track":
@@ -1968,6 +1979,39 @@ class AbletonMCPExtended(ControlSurface):
             return {"warp_mode": clip.warp_mode}
         except Exception as e:
             self.log_message("Error setting clip warp mode: " + str(e))
+            raise
+
+    def _create_arrangement_audio_clip(self, track_index, file_path, position):
+        """Place an audio file as an arrangement clip (Track.create_audio_clip, Live 12+)."""
+        try:
+            if track_index < 0 or track_index >= len(self._song.tracks):
+                raise IndexError("Track index out of range")
+            track = self._song.tracks[track_index]
+            if not track.has_audio_input:
+                raise ValueError("Track is not an audio track")
+            if not hasattr(track, 'create_audio_clip'):
+                raise Exception("create_audio_clip not available - requires Live 12+")
+            track.create_audio_clip(file_path, position)
+            clips = list(track.arrangement_clips)
+            for i, clip in enumerate(clips):
+                if abs(clip.start_time - position) < 0.01:
+                    return {"clip_index": i, "start_time": clip.start_time,
+                            "end_time": clip.end_time, "warping": clip.warping}
+            raise Exception("audio clip was not created")
+        except Exception as e:
+            self.log_message("Error creating arrangement audio clip: " + str(e))
+            raise
+
+    def _set_clip_warping(self, track_index, clip_index, warping):
+        """Switch warp on or off for an arrangement audio clip"""
+        try:
+            clip = self._get_arrangement_clip_by_index(track_index, clip_index)
+            if not clip.is_audio_clip:
+                raise ValueError("Not an audio clip")
+            clip.warping = bool(warping)
+            return {"warping": clip.warping}
+        except Exception as e:
+            self.log_message("Error setting clip warping: " + str(e))
             raise
 
     def _get_clip_warp_markers(self, track_index, clip_index):

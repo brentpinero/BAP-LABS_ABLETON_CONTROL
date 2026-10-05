@@ -1,0 +1,187 @@
+"""
+test_live_profile.py — the Live profile driver against a FAKE Live with known
+behaviour (a pan law, a record latency, a 4 ms clip-edge fade, a clean or an
+aliasing resampler). The probes must recover exactly what the fake was built
+with. No Ableton. Run: python daw_bench/test_live_profile.py (or pytest).
+"""
+from __future__ import annotations
+
+import sys
+import tempfile
+import time
+import types
+from pathlib import Path
+
+import numpy as np
+import soundfile as sf
+from scipy.signal import firwin, resample_poly
+
+sys.path.insert(0, str(Path(__file__).parent))
+
+import live_profile as lp  # noqa: E402
+import measure  # noqa: E402
+from live_client import LiveError  # noqa: E402
+
+# the fake renders instantly: stub sleep on stem_ablation's own `time` reference
+# only, leaving the real time module untouched for the rest of the process
+lp.sa.time = types.SimpleNamespace(sleep=lambda s: None, time=time.time)
+
+
+class FakeLive:
+    """Renders the source track's clip to a stereo 'master recording' on
+    start_playback, applying the modelled engine behaviour."""
+
+    def __init__(self, tmp: Path, sr: int = 48000, pan_law: str = "sin_0_+3",
+                 latency: int = 64, fade_ms: float = 4.0, clean_src: bool = True,
+                 has_audio_clip_cmd: bool = True, track_count: int = 2):
+        self.tmp, self.sr, self.pan_law = tmp, sr, pan_law
+        self.latency, self.fade_ms, self.clean_src = latency, fade_ms, clean_src
+        self.has_audio_clip_cmd = has_audio_clip_cmd
+        self.tracks = [{"name": f"T{i}", "pan": 0.0, "clips": []} for i in range(track_count)]
+        self.tempo, self.routing, self.takes, self.calls = 97.0, {}, 0, []
+
+    def _render(self) -> str:
+        src = next((t for t in self.tracks if t["name"] == lp.SRC_TRACK), None)
+        seconds = 12.0
+        out = np.zeros((int(seconds * self.sr), 2))
+        for path, beats in (src["clips"] if src else []):
+            audio, file_sr = sf.read(path, dtype="float64")
+            if file_sr != self.sr:                       # realtime sample-rate conversion
+                down = file_sr // self.sr
+                audio = (resample_poly(audio, 1, down, window=firwin(
+                    401, 0.47 * self.sr, fs=file_sr, window=("kaiser", 12.0)))
+                    if self.clean_src else audio[::down])
+            n = int(self.fade_ms * self.sr / 1000.0)     # clip-edge fade
+            if n:
+                audio = audio.copy()
+                audio[:n] *= np.linspace(0.0, 1.0, n)
+            gl, gr = measure.pan_gains(self.pan_law, src["pan"])
+            at = int(beats * 60.0 / self.tempo * self.sr) + self.latency
+            end = min(len(out), at + len(audio))
+            out[at:end, 0] += gl * audio[:end - at]
+            out[at:end, 1] += gr * audio[:end - at]
+        self.takes += 1
+        path = self.tmp / f"take_{self.takes}.wav"
+        sf.write(str(path), out.astype("float32"), self.sr, subtype="FLOAT")
+        return str(path)
+
+    def send(self, cmd, params=None):
+        p = params or {}
+        self.calls.append((cmd, p))
+        t = self.tracks[p["track_index"]] if isinstance(p.get("track_index"), int) \
+            and 0 <= p["track_index"] < len(self.tracks) else None
+        if cmd == "get_session_info":
+            return {"tempo": self.tempo, "track_count": len(self.tracks), "signature_numerator": 4}
+        if cmd == "set_tempo":
+            self.tempo = p["tempo"]
+        elif cmd == "create_audio_track":
+            self.tracks.append({"name": "Audio", "pan": 0.0, "clips": []})
+            return {"index": len(self.tracks) - 1}
+        elif cmd == "set_track_name":
+            t["name"] = p["name"]
+        elif cmd == "get_track_info":
+            if t is None:
+                raise LiveError("no such track")
+            return {"name": t["name"], "solo": False}
+        elif cmd == "delete_track":
+            self.tracks.pop(p["track_index"])
+        elif cmd == "set_track_pan":
+            t["pan"] = p["pan"]
+        elif cmd == "create_arrangement_audio_clip":
+            if not self.has_audio_clip_cmd:
+                raise LiveError("Unknown command: create_arrangement_audio_clip")
+            t["clips"].append((p["file_path"], p["position"]))
+            return {"clip_index": len(t["clips"]) - 1}
+        elif cmd == "get_arrangement_clips":
+            return {"clip_count": len(t["clips"])}
+        elif cmd == "delete_arrangement_clip":
+            t["clips"].pop(p["clip_index"])
+        elif cmd == "set_track_input_routing":
+            self.routing[p["track_index"]] = p["source_name"]
+        elif cmd == "get_track_input_routing":
+            return {"input_routing_type": self.routing.get(p["track_index"])}
+        elif cmd == "set_song_loop":
+            return {"previous": False}
+        elif cmd == "start_playback":
+            self.last_take = self._render()
+        elif cmd == "get_audio_clip_properties":
+            return {"file_path": self.last_take}
+        return {}
+
+
+def _run(**model):
+    with tempfile.TemporaryDirectory() as d:
+        live = FakeLive(Path(d), **model)
+        profile = lp.run_profile(live, Path(d) / "out")
+        return live, profile
+
+
+def test_profile_recovers_live_like_behaviour():
+    live, prof = _run(pan_law="sin_0_+3", latency=64, fade_ms=4.0, clean_src=True)
+    assert prof["project_sr"] == 48000
+    assert prof["pan"]["fit"]["law"] == "sin_0_+3", prof["pan"]
+    assert prof["pan"]["fit"]["max_error_db"] < 0.05
+    assert abs(prof["pan"]["left_db"][4]) < 0.05          # centre position: 0 dB
+    assert prof["unity"]["latency_samples"] == 64
+    assert abs(prof["unity"]["gain_db"]) < 0.01
+    assert 3.0 < prof["edge_fade"]["fade_in_ms"] < 4.3, prof["edge_fade"]
+    assert prof["src"]["alias_db"] < -80.0, prof["src"]
+    assert prof["src"]["passband_ripple_db"] < 0.1, prof["src"]
+
+
+def test_profile_tells_engines_apart():
+    _, prof = _run(pan_law="sin_-3_0", latency=0, fade_ms=0.0, clean_src=False)
+    assert prof["pan"]["fit"]["law"] == "sin_-3_0"
+    assert abs(prof["pan"]["left_db"][4] + 3.01) < 0.05    # centre cut by 3 dB
+    assert prof["unity"]["latency_samples"] == 0
+    assert prof["unity"]["residual_dbfs"] < -140.0         # pure passthrough nulls
+    assert prof["edge_fade"]["fade_in_ms"] < 0.5
+    assert prof["src"]["alias_db"] > -6.0                  # unfiltered decimation aliases
+                                                           # (full level, less the 3 dB centre cut)
+
+
+def test_cleans_up_and_restores_tempo():
+    live, _ = _run()
+    assert [t["name"] for t in live.tracks] == ["T0", "T1"]   # source + capture tracks gone
+    assert live.tempo == 97.0
+
+
+def test_refuses_a_real_looking_set():
+    with tempfile.TemporaryDirectory() as d:
+        live = FakeLive(Path(d), track_count=12)
+        try:
+            lp.run_profile(live, Path(d) / "out")
+            raise AssertionError("should have refused")
+        except lp.ProfileError as e:
+            assert "scratch set" in str(e)
+        assert len(live.tracks) == 12 and live.tempo == 97.0   # untouched
+
+
+def test_refuses_a_small_set_that_has_clips():
+    with tempfile.TemporaryDirectory() as d:
+        live = FakeLive(Path(d))
+        live.tracks[0]["clips"].append(("song.wav", 0.0))
+        try:
+            lp.run_profile(live, Path(d) / "out")
+            raise AssertionError("should have refused")
+        except lp.ProfileError as e:
+            assert "arrangement clips" in str(e)
+        assert len(live.tracks) == 2 and live.tracks[0]["clips"]   # untouched
+
+
+def test_stale_remote_script_gives_actionable_error():
+    with tempfile.TemporaryDirectory() as d:
+        live = FakeLive(Path(d), has_audio_clip_cmd=False)
+        try:
+            lp.run_profile(live, Path(d) / "out")
+            raise AssertionError("should have failed")
+        except lp.ProfileError as e:
+            assert "Remote Script" in str(e)
+        assert [t["name"] for t in live.tracks] == ["T0", "T1"]  # still cleaned up
+
+
+if __name__ == "__main__":
+    for name, fn in sorted(globals().items()):
+        if name.startswith("test_") and callable(fn):
+            fn()
+            print(f"ok  {name}")

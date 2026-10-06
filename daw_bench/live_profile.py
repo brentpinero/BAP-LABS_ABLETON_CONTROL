@@ -7,8 +7,9 @@ sample-rate-conversion quality. Pure observation of a licensed copy's output —
 no Live code is read. The result is the "Live-compatible" reference profile in
 docs/agentic_daw_research.md section 3.
 
-Reuses stem_ablation.render_resample for capture (armed audio track recording
-the master "Resampling" bus over one real-time pass) and measure.py for analysis.
+The probes live in profile.py and are engine-agnostic; this file is the Live
+target (one source track, master captured via stem_ablation.render_resample,
+which records the "Resampling" bus through an armed audio track) plus the CLI.
 
 RUN ON AN EMPTY SCRATCH SET ONLY. It records the master, so anything else
 playing contaminates the measurement, and it creates/deletes tracks and moves
@@ -34,25 +35,19 @@ for _p in (str(Path(__file__).resolve().parent), str(_ROOT / "harness"), str(_RO
     if _p not in sys.path:
         sys.path.insert(0, _p)
 
-import fidelity  # noqa: E402
-import measure  # noqa: E402
-import signals  # noqa: E402
+import profile  # noqa: E402
+from profile import ProfileError  # noqa: E402
 import stem_ablation as sa  # noqa: E402
 from live_client import LiveClient, LiveError  # noqa: E402
 
 SRC_TRACK = "DAWBENCH_SRC"
-TEMPO = 120.0                 # 4/4 at 120 BPM: one bar = 2 s, one beat = 0.5 s
 MAX_SCRATCH_TRACKS = 4        # Live's default template
 MASTER = sa.NodeChain(ref=-1, name="Master", kind="master")
 
 
-class ProfileError(Exception):
-    pass
-
-
 def _capture_master(client, out_wav: Path, seconds: float) -> Tuple[np.ndarray, int]:
     """Record `seconds` of master output from position 0. Returns (stereo, sr)."""
-    bars = int(np.ceil(seconds / 2.0))             # one bar = 2 s at TEMPO
+    bars = int(np.ceil(seconds / 2.0))             # one bar = 2 s at profile.TEMPO
     sa.render_resample(client, MASTER, out_wav, bars=bars, start_bar=1)
     return sf.read(str(out_wav), dtype="float64", always_2d=True)
 
@@ -80,77 +75,29 @@ def _place(client, track_index: int, wav: str, position_beats: float = 0.0) -> N
         raise
 
 
-# --- probes -----------------------------------------------------------------
-def project_sample_rate(client, work: Path) -> int:
-    """Live's API does not expose the project rate; a recording's header does."""
-    _, sr = _capture_master(client, work / "sr_probe.wav", 1.0)
-    return int(sr)
+class LiveTarget:
+    """profile.py target backed by a running Live: one source track, master capture."""
 
+    def __init__(self, client, work: Path):
+        self.client, self.work, self.takes = client, Path(work), 0
+        self.track_index = int(client.send("create_audio_track", {"index": -1})["index"])
+        client.send("set_track_name", {"track_index": self.track_index, "name": SRC_TRACK})
+        # Live's API does not expose the project rate; a recording's header does
+        _, sr = _capture_master(client, self.work / "sr_probe.wav", 1.0)
+        self.sr = int(sr)
 
-def probe_pan(client, track_index: int, work: Path, sr: int, n_positions: int = 9,
-              freq: float = 1000.0, level_db: float = -12.0) -> Dict[str, Any]:
-    wav = signals.write_wav(work / "pan_src.wav",
-                            signals.fade(signals.sine(freq, 3.0, sr, level_db), sr), sr)
-    _place(client, track_index, wav)
-    positions = [round(float(p), 4) for p in np.linspace(-1.0, 1.0, n_positions)]
-    left, right = [], []
-    try:
-        for i, p in enumerate(positions):
-            client.send("set_track_pan", {"track_index": track_index, "pan": p})
-            cap, cap_sr = _capture_master(client, work / f"pan_{i:02d}.wav", 3.0)
-            steady = cap[int(0.25 * cap_sr): int(2.75 * cap_sr)]   # inside the 3 s tone
-            l_db, r_db = measure.stereo_tone_gains_db(steady, cap_sr, freq, level_db)
-            left.append(l_db)
-            right.append(r_db)
-    finally:
-        client.send("set_track_pan", {"track_index": track_index, "pan": 0.0})
-    return {"positions": positions, "left_db": left, "right_db": right,
-            "fit": measure.fit_pan_law(positions, left, right)}
+    def play(self, wav: str, position_beats: float, pan: float, seconds: float) -> np.ndarray:
+        _place(self.client, self.track_index, wav, position_beats)
+        self.client.send("set_track_pan", {"track_index": self.track_index, "pan": float(pan)})
+        self.takes += 1
+        cap, _ = _capture_master(self.client, self.work / f"take_{self.takes:03d}.wav", seconds)
+        return cap
 
-
-def probe_unity(client, track_index: int, work: Path, sr: int) -> Dict[str, Any]:
-    """Unwarped clip at the project rate, pan centre, faders untouched: is
-    playback a pure delay? Reports gain, latency and how deeply it nulls."""
-    src = signals.fade(signals.noise(3.0, sr, level_db=-20.0, seed=7), sr)
-    _place(client, track_index, signals.write_wav(work / "unity_src.wav", src, sr))
-    cap, cap_sr = _capture_master(client, work / "unity.wav", 3.0)
-    out = cap[:, 0]
-    lag = measure.latency_samples(src, out, cap_sr, max_lag_s=1.0)
-    aligned = out[lag:] if lag >= 0 else np.concatenate([np.zeros(-lag), out])
-    gain_db, matched = fidelity.gain_match(src, aligned[:len(src)])
-    return {"latency_samples": int(lag), "gain_db": round(gain_db, 4),
-            "residual_dbfs": round(measure.residual_dbfs(src, matched), 2),
-            "source_rms_dbfs": -20.0}
-
-
-def probe_edge_fade(client, track_index: int, work: Path, sr: int) -> Dict[str, Any]:
-    """Hard-edged tone placed mid-capture: how long is the fade Live adds? (Depends
-    on the user's 'Create Fades on Clip Edges' preference, which the API can't read.)"""
-    wav = signals.write_wav(work / "fade_src.wav", signals.sine(5000.0, 1.0, sr, -6.0), sr)
-    _place(client, track_index, wav, position_beats=2.0)            # starts at 1.0 s
-    cap, cap_sr = _capture_master(client, work / "fade.wav", 3.0)
-    start = int(0.5 * cap_sr)
-    return {"fade_in_ms": round(measure.edge_fade_ms(cap[start: int(1.9 * cap_sr), 0], cap_sr, 5000.0), 3)}
-
-
-def probe_src(client, track_index: int, work: Path, sr: int) -> Dict[str, Any]:
-    """Sweep stored at twice the project rate, so Live must downsample it in real
-    time: passband flatness and how much above-Nyquist content folds back."""
-    file_sr = 2 * sr
-    sweep = dict(f_start=20.0, f_end=float(sr), seconds=8.0, level_db=-6.0)
-    src = signals.linear_sweep(sweep["f_start"], sweep["f_end"], sweep["seconds"],
-                               file_sr, sweep["level_db"])
-    _place(client, track_index, signals.write_wav(work / "src_sweep.wav", src, file_sr))
-    cap, cap_sr = _capture_master(client, work / "src.wav", 9.0)
-    out = cap[:, 0]
-    # align on the part of the sweep that survives conversion (below 0.45 * sr)
-    ref = signals.linear_sweep(sweep["f_start"], sweep["f_end"], sweep["seconds"],
-                               cap_sr, sweep["level_db"])
-    ref[int(0.45 * sweep["seconds"] * cap_sr):] = 0.0
-    lag = measure.latency_samples(ref, out, cap_sr, max_lag_s=1.0)
-    result = measure.analyse_src_sweep(out[max(lag, 0):], cap_sr, **sweep)
-    result.update({"file_sr": file_sr, "project_sr": cap_sr})
-    return result
+    def close(self) -> None:
+        try:
+            self.client.send("delete_track", {"track_index": self.track_index})
+        except LiveError:
+            pass
 
 
 # --- orchestration -----------------------------------------------------------
@@ -177,35 +124,19 @@ def run_profile(client, out_dir: Path, force: bool = False) -> Dict[str, Any]:
     out_dir = Path(out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
     orig_tempo = info.get("tempo")
-    track_index = None
-    profile: Dict[str, Any] = {}
+    target = None
     try:
-        client.send("set_tempo", {"tempo": TEMPO})
-        track_index = int(client.send("create_audio_track", {"index": -1})["index"])
-        client.send("set_track_name", {"track_index": track_index, "name": SRC_TRACK})
-        sr = project_sample_rate(client, out_dir)
-        profile["project_sr"] = sr
-        for name, probe in (("pan", probe_pan), ("unity", probe_unity),
-                            ("edge_fade", probe_edge_fade), ("src", probe_src)):
-            try:
-                profile[name] = probe(client, track_index, out_dir, sr)
-            except ProfileError:
-                raise
-            except Exception as e:  # noqa: BLE001 — one probe failing never loses the others
-                profile[name] = {"error": f"{type(e).__name__}: {e}"}
+        client.send("set_tempo", {"tempo": profile.TEMPO})
+        target = LiveTarget(client, out_dir)
+        return profile.run_probes(target, out_dir, "live_profile")
     finally:
-        if track_index is not None:
-            try:
-                client.send("delete_track", {"track_index": track_index})
-            except LiveError:
-                pass
+        if target is not None:
+            target.close()
         if orig_tempo is not None:
             try:
                 client.send("set_tempo", {"tempo": orig_tempo})
             except LiveError:
                 pass
-    (out_dir / "live_profile.json").write_text(json.dumps(profile, indent=1))
-    return profile
 
 
 def main(argv=None) -> int:

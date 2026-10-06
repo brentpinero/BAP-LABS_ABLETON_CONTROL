@@ -20,6 +20,8 @@ sys.path.insert(0, str(Path(__file__).parent))
 
 import live_profile as lp  # noqa: E402
 import measure  # noqa: E402
+import profile  # noqa: E402
+import ref_engine  # noqa: E402
 from live_client import LiveError  # noqa: E402
 
 # the fake renders instantly: stub sleep on stem_ablation's own `time` reference
@@ -56,7 +58,7 @@ class FakeLive:
                 audio = audio.copy()
                 audio[:n] *= np.linspace(0.0, 1.0, n)
             gl, gr = measure.pan_gains(self.pan_law, src["pan"])
-            at = int(beats * 60.0 / self.tempo * self.sr) + self.latency
+            at = int(round(beats * 60.0 / self.tempo * self.sr)) + self.latency
             end = min(len(out), at + len(audio))
             out[at:end, 0] += gl * audio[:end - at]
             out[at:end, 1] += gr * audio[:end - at]
@@ -152,7 +154,7 @@ def test_refuses_a_real_looking_set():
         try:
             lp.run_profile(live, Path(d) / "out")
             raise AssertionError("should have refused")
-        except lp.ProfileError as e:
+        except profile.ProfileError as e:
             assert "scratch set" in str(e)
         assert len(live.tracks) == 12 and live.tempo == 97.0   # untouched
 
@@ -164,7 +166,7 @@ def test_refuses_a_small_set_that_has_clips():
         try:
             lp.run_profile(live, Path(d) / "out")
             raise AssertionError("should have refused")
-        except lp.ProfileError as e:
+        except profile.ProfileError as e:
             assert "arrangement clips" in str(e)
         assert len(live.tracks) == 2 and live.tracks[0]["clips"]   # untouched
 
@@ -175,7 +177,7 @@ def test_stale_remote_script_gives_actionable_error():
         try:
             lp.run_profile(live, Path(d) / "out")
             raise AssertionError("should have failed")
-        except lp.ProfileError as e:
+        except profile.ProfileError as e:
             assert "Remote Script" in str(e)
         assert [t["name"] for t in live.tracks] == ["T0", "T1"]  # still cleaned up
 
@@ -185,3 +187,26 @@ if __name__ == "__main__":
         if name.startswith("test_") and callable(fn):
             fn()
             print(f"ok  {name}")
+
+
+# --- the executable spec must pass its own spec --------------------------------
+def test_reference_engine_meets_section_3_spec():
+    with tempfile.TemporaryDirectory() as d:
+        prof = profile.run_probes(ref_engine.RefEngine(48000), Path(d), "ref")
+    assert prof["pan"]["fit"]["law"] == "sin_-3_0", prof["pan"]["fit"]
+    assert prof["pan"]["fit"]["max_error_db"] < 0.01
+    assert prof["unity"]["latency_samples"] == 0
+    assert prof["unity"]["residual_dbfs"] < -100.0           # only the 4 ms edge fades differ
+    assert 3.0 < prof["edge_fade"]["fade_in_ms"] < 4.3, prof["edge_fade"]  # raised-cosine 4 ms reads ~3.3
+    assert prof["src"]["passband_ripple_db"] < 0.01, prof["src"]
+    assert prof["src"]["alias_db"] < -120.0, prof["src"]
+
+
+def test_reference_engine_live_compatible_mode():
+    with tempfile.TemporaryDirectory() as d:
+        prof = profile.run_probes(ref_engine.RefEngine(44100, pan_law="sin_0_+3", edge_fade_ms=0.0),
+                                  Path(d), "ref")
+    assert prof["project_sr"] == 44100
+    assert prof["pan"]["fit"]["law"] == "sin_0_+3"
+    assert prof["edge_fade"]["fade_in_ms"] < 0.5
+    assert prof["unity"]["residual_dbfs"] < -140.0           # fades off: pure passthrough

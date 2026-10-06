@@ -27,6 +27,8 @@ Research volume: three deep-research runs (325 agents, 74 claims verified, 0 ref
 5. **Competitive stock devices are buildable from published DSP**, but most high-quality open implementations are GPL [V3]. For a closed product, devices must be implemented from the papers, with a parity harness measuring them against commercial references.
 6. **Agent-authored devices are a differentiator nobody ships.** A proof of concept exists (natural language → Faust → JIT → hot-swap into a live plugin) [V1]. Building this into the DAW gives agents the ability to write new effects and MIDI tools, not only turn knobs.
 
+**Decisions taken 2026-10-05:** the project is **open source under GPLv3**, and the UI follows Live's general shape at the idea level only (session grid, arrangement, racks, device chain), never its pixels. The method is a **measured feedback loop**: the same probes run against the reference (Live, plus reference plugins for devices) and against the candidate, and the gap is the work list. GPLv3 makes Tracktion Engine, JUCE, chowdsp, Surge's DSP, Rubber Band and the FDN toolbox directly usable, which shortens Phase 4 by months [I].
+
 Estimated effort for a solo developer with AI coding agents: roughly 18 to 24 months to a credible beta [I]. Section 11 breaks this down with acceptance criteria per phase.
 
 ---
@@ -207,8 +209,8 @@ Hard parity gates in this plan reference Live's stock devices plus the reference
 
 Do not commit before Phase 0. The quality spec in section 3 needs control over summing, pan law, SRC, fades and automation timing. Tracktion Engine supplies the most features soonest, but those exact properties are its unknowns. So:
 
-1. **Fixed regardless of engine:** the project document model, the agent API, the out-of-process plugin host (C++ on the MIT VST3 SDK, CLAP, and AudioToolbox), and the test harness are ours.
-2. **Phase 0 bake-off:** run the twelve benchmarks in section 12.1 against Tracktion Engine. If it passes the hard gates (delay compensation null, automation timing, determinism, headless), build on it. If it fails any hard gate that cannot be fixed without forking, build a custom C++ graph and use Tracktion only as a behavioural reference (not as reading material for closed code).
+1. **Fixed regardless of engine:** the project document model, the agent API, the out-of-process plugin host (C++ on the MIT VST3 SDK, CLAP, and AudioToolbox), the test harness, and a small **Python reference engine** (`daw_bench/ref_engine.py`) that is the audio-quality spec made executable: selectable pan law, flat SRC, 64-bit summing, defeatable edge fades. The real engine must null against it.
+2. **Phase 0 loop:** run the same probes against Live and against Tracktion Engine, and the twelve benchmarks in section 12.1 against Tracktion Engine. GPLv3 removes the licence cost, so the question is only whether its measured gaps (delay compensation null, automation timing, determinism, headless) can be closed in a fork we maintain. If they can, build on it; if not, build a custom C++ graph on JUCE and keep Tracktion as a measured reference.
 3. **REAPER** serves as an external render oracle during development, not as a foundation.
 4. **Rust** is deferred: the plugin-hosting gap is the dominant risk.
 
@@ -231,7 +233,7 @@ Do not commit before Phase 0. The quality spec in section 3 needs control over s
 | Cmajor | Licence page fetched; terms not verified | Unverified | — |
 | Airwindows, DaisySP, HIIR, STK, Cycfi Q, KFR, Vital, Dragonfly, Calf, LSP, x42, ZL plugins | **Unverified this session** | Check each before use | — |
 
-Consequence [I]: for a closed product, stock devices are written in-house from papers, on top of MIT/BSD building blocks. For an open-source (GPLv3) product, chowdsp and Surge code become directly usable, which shortens Phase 3 substantially. This is the largest single cost input to the go-to-market decision in section 14.
+Consequence: the project is GPLv3 (section 14), so chowdsp, Surge's DSP, the FDN toolbox and Rubber Band are directly usable; the "closed-source OK" column above is kept only so a later relicensing decision can see what it would cost. The loop in section 12.2 measures each adopted component against the reference device and decides whether to tune, swap or rewrite it [I].
 
 ### 6.2 Algorithm plan per device class
 
@@ -425,10 +427,11 @@ Effort figures are estimates for one developer on an M4 Max with AI coding agent
 |---|---|
 | Test and benchmark harness (section 12) with BS.1770-5 meter at 16x | Meter matches EBU reference signals within ±0.1 LU and ±0.1 dBTP |
 | Black-box profile of Live: pan curve, SRC sweep, 1:1 warp null, fade shape, delay-compensation alignment, limiter overshoot | Profile stored with signals and scripts in the repo |
-| Tracktion Engine bake-off: the twelve benchmarks in 12.1 | Written go/no-go on the engine with numbers |
+| Python reference engine passes the section 3 probes (executable spec) | Pan law fit exact, SRC alias ≤ −120 dB, fade 4 ms ± 0.3, unity residual ≤ −140 dBFS |
+| Tracktion Engine through the same probes plus the twelve benchmarks in 12.1 | Written go/no-go with numbers: gap to the reference engine per probe |
 | Acquire references per section 3.3: REAPER, Pro-L 2 and Pro-Q trials | Installed and rendering through the harness |
 | Counsel review of section 2; product name search | No blocking issue |
-| Go-to-market decision (section 14) | Decided: GPL open source or closed commercial |
+| Go-to-market decision (section 14) | **Decided 2026-10-05: open source, GPLv3** |
 
 ### Phase 1: Engine core and plugin host (3–4 months)
 
@@ -510,7 +513,7 @@ Thresholds are proposals [I]; Phase 0 replaces them with measured baselines from
 
 ### 12.2 Device parity harness
 
-One runner drives any plugin or internal device through: swept-sine linear and harmonic analysis, THD+N vs. level and frequency, two-tone IMD, aliasing sweep, impulse and step response, latency, null against a reference, CPU per instance. References (Live stock devices via black-box render, FabFilter and others as plugins) run through the identical signals. Built on `sandbox/fidelity.py` and `sandbox/audio_metrics.py`.
+This is the feedback loop the project runs on: reference and candidate go through identical signals, and the difference per metric is the work list. One runner drives any plugin or internal device through: swept-sine linear and harmonic analysis, THD+N vs. level and frequency, two-tone IMD, aliasing sweep, impulse and step response, latency, null against a reference, CPU per instance. References (Live stock devices via black-box render, FabFilter and others as plugins) run through the identical signals. Built on `sandbox/fidelity.py` and `sandbox/audio_metrics.py`.
 
 ### 12.3 Listening tests
 
@@ -540,13 +543,17 @@ Every commit: document round-trip, determinism, summing, pan, delay-compensation
 
 ## 14. Go-to-market and licensing
 
-| Option | Consequences |
-|---|---|
-| **Open source (GPLv3/AGPL)** | Tracktion Engine, JUCE, chowdsp, Surge code, Rubber Band and FDN Toolbox all usable at no cost. Phase 4 shortens by months [I]. Revenue from hosted rendering, support, content or a dual licence. Link is usable under GPL |
-| **Closed commercial** | Needs JUCE and (if used) Tracktion licences; stock devices written from papers; élastique and Link by negotiation. Higher cost and longer Phase 4; conventional product revenue |
-| **Open core** | Engine and document format open; agent layer, devices or cloud render proprietary. Requires owning copyright on the core and avoiding GPL dependencies in the closed parts |
+**Decided 2026-10-05: open source under GPLv3.**
 
-Recommendation [I]: decide in Phase 0, because it changes which code may be read and linked from day one. Whichever is chosen, keep the document format and API specification open: that is what makes the product agent-native for third parties.
+| Consequence | Detail |
+|---|---|
+| Usable at no cost | Tracktion Engine, JUCE, chowdsp_utils, Surge XT DSP, Rubber Band, FDN Toolbox, Ableton Link (GPLv2+), Pedalboard and DawDreamer as in-process tools |
+| Still to license or negotiate | zplane élastique (optional stretch upgrade); none required |
+| Revenue options | Hosted or cloud rendering, support, content, a later dual licence if the project owns its copyright (requires a contributor licence agreement from day one) |
+| Keep open regardless | The project document format and the agent API specification: they are what makes the product agent-native for third parties |
+| Trademark | Still needs a product-name search; GPL does not change section 2 |
+
+Alternatives considered and set aside: closed commercial (needs JUCE and Tracktion licences and in-house devices from papers; longer Phase 4) and open core (needs a CLA and GPL-free closed parts).
 
 ---
 

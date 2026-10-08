@@ -251,7 +251,15 @@ class AbletonMCPExtended(ControlSurface):
                 track_index = params.get("track_index", 0)
                 device_index = params.get("device_index", 0)
                 io_index = params.get("io_index", None)
-                response["result"] = self._get_device_audio_inputs(track_index, device_index, io_index)
+                response["result"] = self._get_device_io(track_index, device_index, io_index)
+            elif command_type == "get_device_midi_io":
+                # direction "in" -> device.midi_inputs, "out" -> device.midi_outputs
+                track_index = params.get("track_index", 0)
+                device_index = params.get("device_index", 0)
+                io_index = params.get("io_index", None)
+                attr = self._midi_io_attr(params)
+                response["result"] = self._get_device_io(track_index, device_index,
+                                                                   io_index, attr)
 
             # Master track (read-only)
             elif command_type == "get_master_track":
@@ -297,6 +305,7 @@ class AbletonMCPExtended(ControlSurface):
                 "set_track_color", "fold_track",
                 # Device chain (Priority 4)
                 "delete_device", "set_device_enabled", "set_device_parameter_by_name",
+                "set_device_name",
                 # Arrangement editing (Priority 5)
                 "set_clip_mute", "set_clip_start_end", "set_clip_color",
                 # Master track (Priority 6)
@@ -306,7 +315,7 @@ class AbletonMCPExtended(ControlSurface):
                 # Real-time resampling render path (Priority 8): arm + input routing
                 # + record mode let the render node capture stems over the LOM, no GUI.
                 "set_track_arm", "set_track_input_routing", "set_track_output_routing",
-                "set_device_audio_input",
+                "set_device_audio_input", "set_device_midi_io",
                 "set_record_mode",
                 "set_track_monitor", "set_song_loop", "delete_arrangement_clip"
             ]:
@@ -476,6 +485,11 @@ class AbletonMCPExtended(ControlSurface):
                             device_index = params.get("device_index", 0)
                             enabled = params.get("enabled", True)
                             result = self._set_device_enabled(track_index, device_index, enabled)
+                        elif command_type == "set_device_name":
+                            track_index = params.get("track_index", 0)
+                            device_index = params.get("device_index", 0)
+                            name = params.get("name", "")
+                            result = self._set_device_name(track_index, device_index, name)
                         elif command_type == "set_device_parameter_by_name":
                             track_index = params.get("track_index", 0)
                             device_index = params.get("device_index", 0)
@@ -546,8 +560,18 @@ class AbletonMCPExtended(ControlSurface):
                             source_name = params.get("source_name", "")
                             channel = params.get("channel", None)
                             source_index = params.get("source_index", None)
-                            result = self._set_device_audio_input(track_index, device_index, io_index,
+                            result = self._set_device_io(track_index, device_index, io_index,
                                                                   source_name, channel, source_index)
+                        elif command_type == "set_device_midi_io":
+                            track_index = params.get("track_index", 0)
+                            device_index = params.get("device_index", 0)
+                            io_index = params.get("io_index", 0)
+                            source_name = params.get("source_name", "")
+                            channel = params.get("channel", None)
+                            source_index = params.get("source_index", None)
+                            attr = self._midi_io_attr(params)
+                            result = self._set_device_io(track_index, device_index, io_index,
+                                                                  source_name, channel, source_index, attr)
                         elif command_type == "set_record_mode":
                             mode = params.get("mode", 0)
                             result = self._set_record_mode(mode)
@@ -2251,26 +2275,36 @@ class AbletonMCPExtended(ControlSurface):
             self.log_message("Error setting track output routing: " + str(e))
             raise
 
-    def _get_device_audio_inputs(self, track_index, device_index, io_index=None):
+    @staticmethod
+    def _midi_io_attr(params):
+        """DeviceIO list for a MIDI IO command: direction "in" (default) or "out"."""
+        return "midi_outputs" if params.get("direction", "in") == "out" else "midi_inputs"
+
+    def _get_device_io(self, track_index, device_index, io_index=None,
+                                 attr="audio_inputs"):
         """Enumerate a device's audio-input IOs (Live 10+ DeviceIO): current routing +
         available source types/channels. This is the DEVICE-SIDE mirror of track output
         routing — setting an IO's routing PULLS any track's signal into a multichannel
         plugin~ pair with NO capture track and NO change to the source track's routing
         (the Audio Routes / Multi Analyser mechanism). io_index=None returns a summary
         of every IO with full available lists only for IO 0 (payload sanity);
-        io_index=k returns the full lists for that IO."""
+        io_index=k returns the full lists for that IO.
+        `attr` selects the DeviceIO list: audio_inputs (default), midi_inputs or
+        midi_outputs (Live 11+, via get_device_midi_io); the result's presence flag
+        is named after it ("has_" + attr, e.g. has_audio_inputs)."""
         try:
             track = self._resolve_track(track_index)
             if device_index < 0 or device_index >= len(track.devices):
                 raise IndexError("Device index out of range")
             device = track.devices[device_index]
-            if not hasattr(device, "audio_inputs"):
+            if not hasattr(device, attr):
                 # diagnostic: what the python API actually exposes on this device
-                return {"device_name": str(device.name), "has_audio_inputs": False,
+                return {"device_name": str(device.name), "has_" + attr: False,
                         "io_like_attrs": [a for a in dir(device)
-                                          if "input" in a.lower() or "routing" in a.lower()]}
-            ios = list(device.audio_inputs)
-            result = {"device_name": str(device.name), "has_audio_inputs": True,
+                                          if "input" in a.lower() or "output" in a.lower()
+                                          or "routing" in a.lower()]}
+            ios = list(getattr(device, attr))
+            result = {"device_name": str(device.name), "has_" + attr: True,
                       "io_count": len(ios), "ios": []}
             for i, io in enumerate(ios):
                 if io_index is not None and i != int(io_index):
@@ -2294,26 +2328,30 @@ class AbletonMCPExtended(ControlSurface):
                 result["ios"].append(entry)
             return result
         except Exception as e:
-            self.log_message("Error getting device audio inputs: " + str(e))
+            self.log_message("Error getting device %s: %s" % (attr, e))
             raise
 
-    def _set_device_audio_input(self, track_index, device_index, io_index,
-                                source_name="", channel=None, source_index=None):
+    def _set_device_io(self, track_index, device_index, io_index,
+                                source_name="", channel=None, source_index=None,
+                                attr="audio_inputs"):
         """Point one audio-input IO of a device at a source track (device pulls the
         signal; the source track's own routing is untouched). Source resolution
         mirrors _set_track_input_routing: source_index resolves duplicates by
         (name, occurrence) in session order; source_name matches display_name
         (exact, then substring) — use it for returns/master, which have no
         song.tracks index. `channel` picks the tap point (e.g. 'Post FX',
-        'Post Mixer')."""
+        'Post Mixer').
+        `attr` selects the DeviceIO list: audio_inputs (default), midi_inputs or
+        midi_outputs (via set_device_midi_io; for midi_outputs the "source" is the
+        DESTINATION track and `channel` its input, e.g. 'Track In' or an instrument)."""
         try:
             track = self._resolve_track(track_index)
             if device_index < 0 or device_index >= len(track.devices):
                 raise IndexError("Device index out of range")
             device = track.devices[device_index]
-            if not hasattr(device, "audio_inputs"):
-                raise ValueError("Device has no audio_inputs (needs Live 10+ DeviceIO)")
-            ios = list(device.audio_inputs)
+            if not hasattr(device, attr):
+                raise ValueError("Device has no %s (needs Live DeviceIO)" % attr)
+            ios = list(getattr(device, attr))
             if io_index < 0 or io_index >= len(ios):
                 raise IndexError("io_index out of range (device has %d IOs)" % len(ios))
             io = ios[io_index]
@@ -2363,7 +2401,7 @@ class AbletonMCPExtended(ControlSurface):
                         str(c.display_name) for c in io.available_routing_channels]
             return result
         except Exception as e:
-            self.log_message("Error setting device audio input: " + str(e))
+            self.log_message("Error setting device %s: %s" % (attr, e))
             raise
 
     def _set_track_arm(self, track_index, arm):
@@ -2486,6 +2524,20 @@ class AbletonMCPExtended(ControlSurface):
             raise ValueError("Device does not have on/off control")
         except Exception as e:
             self.log_message("Error setting device enabled: " + str(e))
+            raise
+
+    def _set_device_name(self, track_index, device_index, name):
+        """Rename a device instance (the title shown in the device chain and in
+        automation choosers), e.g. one Sub Follow Tap per source track."""
+        try:
+            track = self._resolve_track(track_index)
+            if device_index < 0 or device_index >= len(track.devices):
+                raise IndexError("Device index out of range")
+            device = track.devices[device_index]
+            device.name = str(name)
+            return {"device_index": device_index, "device_name": str(device.name)}
+        except Exception as e:
+            self.log_message("Error setting device name: " + str(e))
             raise
 
     def _set_device_parameter_by_name(self, track_index, device_index, param_name, value):

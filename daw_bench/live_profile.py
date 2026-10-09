@@ -125,28 +125,93 @@ class LiveTarget:
         return cap
 
     @contextmanager
-    def device(self, spec: dict):
-        """Insert one device on the source track for the duration of the block."""
-        self.client.send("load_browser_item", {"track_index": self.track_index, "item_uri": spec["uri"]})
-        devices = self.client.send("get_track_info", {"track_index": self.track_index}).get("devices", [])
+    def device(self, spec: dict, track_index: int | None = None):
+        """Insert one device on a track (default: the source) for the block's duration."""
+        track_index = self.track_index if track_index is None else track_index
+        self.client.send("load_browser_item", {"track_index": track_index, "item_uri": spec["uri"]})
+        devices = self.client.send("get_track_info", {"track_index": track_index}).get("devices", [])
         index = devices[-1]["index"]
         try:
             for name, value in spec.get("params", {}).items():
                 self.client.send("set_device_parameter_by_name",
-                                 {"track_index": self.track_index, "device_index": index,
+                                 {"track_index": track_index, "device_index": index,
                                   "param_name": name, "value": value})
             yield index
         finally:
             try:
-                self.client.send("delete_device", {"track_index": self.track_index, "device_index": index})
+                self.client.send("delete_device", {"track_index": track_index, "device_index": index})
             except LiveError:
                 pass
 
-    def close(self) -> None:
+    # Devices that report latency to Live and pass a quiet signal unchanged
+    latency_specs = [
+        {"name": "Live Limiter, lookahead setting 2", "uri": "query:AudioFx#Limiter", "params": {"Lookahead": 2}},
+        {"name": "FabFilter Pro-L 2 (defaults)", "uri": "query:Plugins#VST3:FabFilter:Pro-L%202", "params": {}},
+    ]
+
+    def _ensure_sum_bus(self) -> None:
+        """Second source track B plus a fresh return track that sums A and B. The
+        return is routed 'Sends Only' too, so the sum never reaches the speakers;
+        it is captured Post Mixer like everything else."""
+        if getattr(self, "track_b", None) is not None:
+            return
+        c = self.client
+        self.track_b = int(c.send("create_audio_track", {"index": -1})["index"])
+        c.send("set_track_name", {"track_index": self.track_b, "name": SRC_TRACK + "_B"})
+        c.send("set_track_volume", {"track_index": self.track_b, "volume": 0.85})
+        c.send("set_track_output_routing", {"track_index": self.track_b, "dest_name": "Sends Only"})
+        ret = c.send("create_return_track")
+        self.return_index = int(ret["index"])
+        ref = f"return:{self.return_index}"
+        c.send("set_track_output_routing", {"track_index": ref, "dest_name": "Sends Only"})
+        got = c.send("get_track_output_routing", {"track_index": ref}).get("output_routing_type")
+        if got != "Sends Only":
+            raise ProfileError(f"could not silence the sum return: output routing is {got!r}")
+        for t in (self.track_index, self.track_b):
+            c.send("set_send_level", {"track_index": t, "send_index": self.return_index, "level": 1.0})
+        self.return_node = sa.NodeChain(ref=ref, name=str(ret.get("name", "")), kind="return")
+
+    def play_sum(self, wav: str, seconds: float, spec: dict | None,
+                 mute_a: bool = False, mute_b: bool = False) -> np.ndarray:
+        """Sum of tracks A and B (same clip) through the silent return; B carries
+        `spec`'s device if given."""
+        self._ensure_sum_bus()
+        c = self.client
+        for t in (self.track_index, self.track_b):
+            _place(c, t, wav, 0.0)
+            c.send("set_track_pan", {"track_index": t, "pan": 0.0})
+        c.send("set_track_mute", {"track_index": self.track_index, "mute": bool(mute_a)})
+        c.send("set_track_mute", {"track_index": self.track_b, "mute": bool(mute_b)})
         try:
-            self.client.send("delete_track", {"track_index": self.track_index})
-        except LiveError:
-            pass
+            self.takes += 1
+            out_wav = self.work / f"take_{self.takes:03d}.wav"
+            bars = int(np.ceil(seconds / 2.0))
+            if spec is None:
+                sa.render_resample(c, self.return_node, out_wav, bars=bars, start_bar=1,
+                                   channel="Post Mixer", silent=True)
+            else:
+                with self.device(spec, self.track_b):
+                    sa.render_resample(c, self.return_node, out_wav, bars=bars, start_bar=1,
+                                       channel="Post Mixer", silent=True)
+            cap, _ = sf.read(str(out_wav), dtype="float64", always_2d=True)
+            return cap
+        finally:
+            for t in (self.track_index, self.track_b):
+                c.send("set_track_mute", {"track_index": t, "mute": False})
+
+    def close(self) -> None:
+        # highest index first so the remaining index stays valid
+        owned = [x for x in (self.track_index, getattr(self, "track_b", None)) if x is not None]
+        for t in sorted(owned, reverse=True):
+            try:
+                self.client.send("delete_track", {"track_index": t})
+            except LiveError:
+                pass
+        if getattr(self, "return_index", None) is not None:
+            try:
+                self.client.send("delete_return_track", {"index": self.return_index})
+            except LiveError:
+                pass
 
 
 # --- orchestration -----------------------------------------------------------

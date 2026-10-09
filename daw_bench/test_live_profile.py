@@ -35,20 +35,35 @@ class FakeLive:
 
     def __init__(self, tmp: Path, sr: int = 48000, pan_law: str = "sin_0_+3",
                  latency: int = 64, fade_ms: float = 4.0, clean_src: bool = True,
-                 has_audio_clip_cmd: bool = True, track_count: int = 2):
+                 has_audio_clip_cmd: bool = True, track_count: int = 2, pdc: bool = True):
         self.tmp, self.sr, self.pan_law = tmp, sr, pan_law
         self.latency, self.fade_ms, self.clean_src = latency, fade_ms, clean_src
         self.has_audio_clip_cmd = has_audio_clip_cmd
         self.tracks = [{"name": f"T{i}", "pan": 0.0, "clips": [], "devices": []} for i in range(track_count)]
         self.warp_calls = []
         self.tempo, self.routing, self.takes, self.calls = 97.0, {}, 0, []
+        self.returns, self.capture_source, self.pdc = [], None, pdc      # pdc=True: engine compensates
         self.master_on = {0: True, 1: False}      # Pro-L style limiter ON, a meter OFF
 
     def _render(self) -> str:
-        src = next((t for t in self.tracks if t["name"] == lp.SRC_TRACK), None)
         seconds = 12.0
         out = np.zeros((int(seconds * self.sr), 2))
-        for path, beats in (src["clips"] if src else []):
+        if self.capture_source in [r["name"] for r in self.returns]:        # the sum return
+            for t in self.tracks:
+                if t.get("send") and not t.get("mute"):
+                    out += self._render_track(t, seconds)
+        else:
+            src = next((t for t in self.tracks if t["name"] == lp.SRC_TRACK), None)
+            if src:
+                out += self._render_track(src, seconds)
+        self.takes += 1
+        path = self.tmp / f"take_{self.takes}.wav"
+        sf.write(str(path), out.astype("float32"), self.sr, subtype="FLOAT")
+        return str(path)
+
+    def _render_track(self, src, seconds: float) -> np.ndarray:
+        out = np.zeros((int(seconds * self.sr), 2))
+        for path, beats in src["clips"]:
             audio, file_sr = sf.read(path, dtype="float64")
             if file_sr != self.sr:                       # realtime sample-rate conversion
                 down = file_sr // self.sr
@@ -61,15 +76,14 @@ class FakeLive:
                 audio[:n] *= np.linspace(0.0, 1.0, n)
             if src.get("devices"):                       # a loaded limiter: hard clip at -1 dBFS
                 audio = np.clip(audio, -10 ** (-1 / 20), 10 ** (-1 / 20))
+                if not self.pdc:                         # ...with 480 samples of uncompensated latency
+                    audio = np.concatenate([np.zeros(480), audio])
             gl, gr = measure.pan_gains(self.pan_law, src["pan"])
             at = int(round(beats * 60.0 / self.tempo * self.sr)) + self.latency
             end = min(len(out), at + len(audio))
             out[at:end, 0] += gl * audio[:end - at]
             out[at:end, 1] += gr * audio[:end - at]
-        self.takes += 1
-        path = self.tmp / f"take_{self.takes}.wav"
-        sf.write(str(path), out.astype("float32"), self.sr, subtype="FLOAT")
-        return str(path)
+        return out
 
     def send(self, cmd, params=None):
         p = params or {}
@@ -118,13 +132,25 @@ class FakeLive:
             t["clips"].pop(p["clip_index"])
         elif cmd == "set_track_input_routing":
             self.routing[p["track_index"]] = p["source_name"]
+            self.capture_source = p["source_name"]
             self.tap_channel = p.get("channel")
+        elif cmd == "create_return_track":
+            self.returns.append({"name": f"Return{len(self.returns)}", "out": "Master"})
+            return {"index": len(self.returns) - 1, "name": self.returns[-1]["name"]}
+        elif cmd == "delete_return_track":
+            self.returns.pop(p["index"])
+        elif cmd == "set_send_level":
+            t["send"] = p["level"] > 0
+        elif cmd == "set_track_mute":
+            t["mute"] = bool(p["mute"])
         elif cmd == "get_track_input_routing":
             return {"input_routing_type": self.routing.get(p["track_index"])}
         elif cmd == "set_track_output_routing":
-            t["out"] = p["dest_name"]
+            target = self.returns[int(str(p["track_index"]).split(":")[1])] if str(p["track_index"]).startswith("return:") else t
+            target["out"] = p["dest_name"]
         elif cmd == "get_track_output_routing":
-            return {"output_routing_type": t.get("out", "Master")}
+            target = self.returns[int(str(p["track_index"]).split(":")[1])] if str(p["track_index"]).startswith("return:") else t
+            return {"output_routing_type": target.get("out", "Master")}
         elif cmd == "set_song_loop":
             return {"previous": False}
         elif cmd == "start_playback":
@@ -162,6 +188,10 @@ def test_profile_recovers_live_like_behaviour():
         assert abs(r["ceiling_dbfs"] + 1.0) < 0.05, (name, r)
         assert 2.8 < r["isp_overshoot_db"] < 3.2, (name, r)
     assert not live.tracks[2]["devices"] if len(live.tracks) > 2 else True   # devices removed
+    # pdc (fake compensates): the device-laden sum equals the clean sum
+    for name, r in prof["pdc"].items():
+        assert r["compensated"] and r["sum_offset_samples"] == 0, (name, r)
+    assert live.returns == []                                   # sum return deleted
 
 
 def test_profile_tells_engines_apart():
@@ -179,8 +209,16 @@ def test_cleans_up_and_restores_tempo():
     live, _ = _run()
     assert [t["name"] for t in live.tracks] == ["T0", "T1"]   # source + capture tracks gone
     assert live.tempo == 97.0
+    assert live.returns == []                                  # sum return cleaned up
     assert live.master_on == {0: True, 1: False}              # master chain untouched
     assert not any(c == "set_device_enabled" for c, _ in live.calls)
+
+
+def test_pdc_probe_detects_uncompensated_engine():
+    _, prof = _run(pdc=False)
+    for name, r in prof["pdc"].items():
+        assert not r["compensated"], (name, r)
+        assert r["sum_residual_dbfs"] > -40.0, (name, r)       # comb filtering between A and B
 
 
 def test_capture_is_silent():

@@ -301,7 +301,7 @@ class AbletonMCPExtended(ControlSurface):
                 "set_clip_gain", "set_clip_pitch", "set_clip_loop", "set_clip_warp_mode",
                 "create_arrangement_audio_clip", "set_clip_warping",
                 # Track organization (Priority 3)
-                "create_audio_track", "delete_track", "create_return_track",
+                "create_audio_track", "delete_track", "create_return_track", "delete_return_track",
                 "set_track_color", "fold_track",
                 # Device chain (Priority 4)
                 "delete_device", "set_device_enabled", "set_device_parameter_by_name",
@@ -464,6 +464,8 @@ class AbletonMCPExtended(ControlSurface):
                         elif command_type == "delete_track":
                             track_index = params.get("track_index", 0)
                             result = self._delete_track(track_index)
+                        elif command_type == "delete_return_track":
+                            result = self._delete_return_track(params.get("index", -1))
                         elif command_type == "create_return_track":
                             result = self._create_return_track()
                         elif command_type == "set_track_color":
@@ -2090,6 +2092,20 @@ class AbletonMCPExtended(ControlSurface):
             }
         except Exception as e:
             self.log_message("Error deleting track: " + str(e))
+            raise
+
+    def _delete_return_track(self, index):
+        """Delete a return track by its index in song.return_tracks (DESTRUCTIVE)"""
+        try:
+            n = len(self._song.return_tracks)
+            if index < 0:
+                index = n + index
+            if index < 0 or index >= n:
+                raise IndexError("Return track index out of range")
+            self._song.delete_return_track(index)
+            return {"deleted": True, "index": index}
+        except Exception as e:
+            self.log_message("Error deleting return track: " + str(e))
             raise
 
     def _create_return_track(self):

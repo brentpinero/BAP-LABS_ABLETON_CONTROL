@@ -295,9 +295,14 @@ def _copy_stem(file_path: str, out_wav: Path) -> None:
 
 
 def render_resample(client, node: NodeChain, out_wav: Path, bars: int = 8,
-                    start_bar: int = 1, settle_s: float = 0.4) -> None:
-    """Capture the node's post-FX output (or the master 'Resampling' bus) via a
+                    start_bar: int = 1, settle_s: float = 0.4,
+                    channel: str = "Post FX", silent: bool = False) -> None:
+    """Capture the node's output (or the master 'Resampling' bus) via a
     temporary armed audio track over one real-time record pass. GUI-free; universal.
+
+    `channel` picks the tap on a regular track: 'Post FX' (after devices, before the
+    mixer) or 'Post Mixer' (after fader and pan). `silent` routes the capture track to
+    'Sends Only' so the monitored signal never reaches the speakers.
 
     Records `bars` bars starting at `start_bar` (1-indexed, Ableton's bar numbering) —
     set this past any silent intro so the stem captures actual musical content.
@@ -321,8 +326,13 @@ def render_resample(client, node: NodeChain, out_wav: Path, bars: int = 8,
             want_src, req = "Resampling", {"track_index": cap, "source_name": "Resampling"}
         else:
             want_src, req = node.name, {"track_index": cap, "source_name": node.name,
-                                        "channel": "Post FX"}
+                                        "channel": channel}
         client.send("set_track_input_routing", req)
+        if silent:
+            client.send("set_track_output_routing", {"track_index": cap, "dest_name": "Sends Only"})
+            got_out = client.send("get_track_output_routing", {"track_index": cap}).get("output_routing_type")
+            if got_out != "Sends Only":
+                raise RenderError(f"capture track output routing did not take: wanted 'Sends Only', got {got_out!r}")
         # VERIFY the routing actually took — a silent mismatch would record the WRONG source
         # (e.g. the capture defaulting to Ext. In or a stale track). Fail loudly instead.
         got = client.send("get_track_input_routing", {"track_index": cap}).get("input_routing_type")

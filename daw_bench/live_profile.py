@@ -11,9 +11,9 @@ The probes live in profile.py and are engine-agnostic; this file is the Live
 target (one source track, master captured via stem_ablation.render_resample,
 which records the "Resampling" bus through an armed audio track) plus the CLI.
 
-RUN ON AN EMPTY SCRATCH SET ONLY. It records the master, so anything else
-playing contaminates the measurement, and it creates/deletes tracks and moves
-the transport. It refuses to run on a set with more than a template's worth of
+RUN ON A SCRATCH SET. It creates/deletes one track and moves the transport.
+Capture is silent (source and capture tracks routed to 'Sends Only', source
+tapped 'Post Mixer'), so nothing reaches the master or the speakers. It refuses to run on a set with more than a template's worth of
 tracks unless --force is given. Needs the Remote Script commands
 create_arrangement_audio_clip and set_clip_warping (added alongside this file).
 
@@ -42,14 +42,6 @@ from live_client import LiveClient, LiveError  # noqa: E402
 
 SRC_TRACK = "DAWBENCH_SRC"
 MAX_SCRATCH_TRACKS = 4        # Live's default template
-MASTER = sa.NodeChain(ref=-1, name="Master", kind="master")
-
-
-def _capture_master(client, out_wav: Path, seconds: float) -> Tuple[np.ndarray, int]:
-    """Record `seconds` of master output from position 0. Returns (stereo, sr)."""
-    bars = int(np.ceil(seconds / 2.0))             # one bar = 2 s at profile.TEMPO
-    sa.render_resample(client, MASTER, out_wav, bars=bars, start_bar=1)
-    return sf.read(str(out_wav), dtype="float64", always_2d=True)
 
 
 def _clear_clips(client, track_index: int) -> None:
@@ -76,34 +68,37 @@ def _place(client, track_index: int, wav: str, position_beats: float = 0.0) -> N
 
 
 class LiveTarget:
-    """profile.py target backed by a running Live: one source track, master capture."""
+    """profile.py target backed by a running Live: one source track, captured
+    silently. The source is tapped 'Post Mixer' (after its fader and pan) and
+    both it and the capture track are routed to 'Sends Only', so the test tones
+    never reach the master or the speakers, and the master chain is irrelevant."""
 
     def __init__(self, client, work: Path):
         self.client, self.work, self.takes = client, Path(work), 0
-        # The master chain (limiters, meters, utilities in a template) would colour
-        # every capture: bypass whatever is ON there, and remember it to restore.
-        self.bypassed = []
-        for dev in client.send("get_master_track").get("devices", []):
-            params = client.send("get_device_parameters",
-                                 {"track_index": -1, "device_index": dev["index"]}).get("parameters", [])
-            on = next((p for p in params if p.get("name") == "Device On"), None)
-            if on is not None and float(on.get("value", 1.0)) >= 0.5:
-                client.send("set_device_enabled", {"track_index": -1, "device_index": dev["index"],
-                                                   "enabled": False})
-                self.bypassed.append(dev["index"])
         self.track_index = int(client.send("create_audio_track", {"index": -1})["index"])
         client.send("set_track_name", {"track_index": self.track_index, "name": SRC_TRACK})
         # a template can give new tracks a non-unity fader (measured: -12 dB); 0.85 is 0 dB
         client.send("set_track_volume", {"track_index": self.track_index, "volume": 0.85})
+        client.send("set_track_output_routing", {"track_index": self.track_index, "dest_name": "Sends Only"})
+        got = client.send("get_track_output_routing", {"track_index": self.track_index}).get("output_routing_type")
+        if got != "Sends Only":
+            raise ProfileError(f"could not silence the source track: output routing is {got!r}")
+        self.node = sa.NodeChain(ref=self.track_index, name=SRC_TRACK, kind="regular")
         # Live's API does not expose the project rate; a recording's header does
-        _, sr = _capture_master(client, self.work / "sr_probe.wav", 1.0)
+        _, sr = self._capture(self.work / "sr_probe.wav", 1.0)
         self.sr = int(sr)
+
+    def _capture(self, out_wav: Path, seconds: float) -> Tuple[np.ndarray, int]:
+        bars = int(np.ceil(seconds / 2.0))             # one bar = 2 s at profile.TEMPO
+        sa.render_resample(self.client, self.node, out_wav, bars=bars, start_bar=1,
+                           channel="Post Mixer", silent=True)
+        return sf.read(str(out_wav), dtype="float64", always_2d=True)
 
     def play(self, wav: str, position_beats: float, pan: float, seconds: float) -> np.ndarray:
         _place(self.client, self.track_index, wav, position_beats)
         self.client.send("set_track_pan", {"track_index": self.track_index, "pan": float(pan)})
         self.takes += 1
-        cap, _ = _capture_master(self.client, self.work / f"take_{self.takes:03d}.wav", seconds)
+        cap, _ = self._capture(self.work / f"take_{self.takes:03d}.wav", seconds)
         return cap
 
     def close(self) -> None:
@@ -111,12 +106,6 @@ class LiveTarget:
             self.client.send("delete_track", {"track_index": self.track_index})
         except LiveError:
             pass
-        for index in self.bypassed:                                 # restore the master chain
-            try:
-                self.client.send("set_device_enabled", {"track_index": -1, "device_index": index,
-                                                        "enabled": True})
-            except LiveError:
-                pass
 
 
 # --- orchestration -----------------------------------------------------------

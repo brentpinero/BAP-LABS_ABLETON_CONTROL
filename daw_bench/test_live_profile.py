@@ -108,8 +108,13 @@ class FakeLive:
             t["clips"].pop(p["clip_index"])
         elif cmd == "set_track_input_routing":
             self.routing[p["track_index"]] = p["source_name"]
+            self.tap_channel = p.get("channel")
         elif cmd == "get_track_input_routing":
             return {"input_routing_type": self.routing.get(p["track_index"])}
+        elif cmd == "set_track_output_routing":
+            t["out"] = p["dest_name"]
+        elif cmd == "get_track_output_routing":
+            return {"output_routing_type": t.get("out", "Master")}
         elif cmd == "set_song_loop":
             return {"previous": False}
         elif cmd == "start_playback":
@@ -154,12 +159,16 @@ def test_cleans_up_and_restores_tempo():
     live, _ = _run()
     assert [t["name"] for t in live.tracks] == ["T0", "T1"]   # source + capture tracks gone
     assert live.tempo == 97.0
-    assert live.master_on == {0: True, 1: False}              # master chain restored as found
-    # the limiter was OFF for every capture
-    first_capture = next(i for i, (c, _) in enumerate(live.calls) if c == "start_playback")
-    disabled = next(i for i, (c, p) in enumerate(live.calls)
-                    if c == "set_device_enabled" and p == {"track_index": -1, "device_index": 0, "enabled": False})
-    assert disabled < first_capture
+    assert live.master_on == {0: True, 1: False}              # master chain untouched
+    assert not any(c == "set_device_enabled" for c, _ in live.calls)
+
+
+def test_capture_is_silent():
+    live, _ = _run()
+    routed = [(p["track_index"], p["dest_name"]) for c, p in live.calls if c == "set_track_output_routing"]
+    assert routed and all(d == "Sends Only" for _, d in routed)      # source and every capture track
+    assert len({t for t, _ in routed}) >= 2
+    assert live.tap_channel == "Post Mixer"                          # pan and fader included
 
 
 def test_refuses_a_real_looking_set():

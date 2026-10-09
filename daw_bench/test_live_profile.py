@@ -41,6 +41,7 @@ class FakeLive:
         self.has_audio_clip_cmd = has_audio_clip_cmd
         self.tracks = [{"name": f"T{i}", "pan": 0.0, "clips": []} for i in range(track_count)]
         self.tempo, self.routing, self.takes, self.calls = 97.0, {}, 0, []
+        self.master_on = {0: True, 1: False}      # Pro-L style limiter ON, a meter OFF
 
     def _render(self) -> str:
         src = next((t for t in self.tracks if t["name"] == lp.SRC_TRACK), None)
@@ -72,6 +73,13 @@ class FakeLive:
         self.calls.append((cmd, p))
         t = self.tracks[p["track_index"]] if isinstance(p.get("track_index"), int) \
             and 0 <= p["track_index"] < len(self.tracks) else None
+        if cmd == "get_master_track":
+            return {"devices": [{"index": i, "name": f"Dev{i}"} for i in self.master_on]}
+        if cmd == "get_device_parameters" and p.get("track_index") == -1:
+            return {"parameters": [{"name": "Device On", "value": 1.0 if self.master_on[p["device_index"]] else 0.0}]}
+        if cmd == "set_device_enabled" and p.get("track_index") == -1:
+            self.master_on[p["device_index"]] = bool(p["enabled"])
+            return {}
         if cmd == "get_session_info":
             return {"tempo": self.tempo, "track_count": len(self.tracks), "signature_numerator": 4}
         if cmd == "set_tempo":
@@ -146,6 +154,12 @@ def test_cleans_up_and_restores_tempo():
     live, _ = _run()
     assert [t["name"] for t in live.tracks] == ["T0", "T1"]   # source + capture tracks gone
     assert live.tempo == 97.0
+    assert live.master_on == {0: True, 1: False}              # master chain restored as found
+    # the limiter was OFF for every capture
+    first_capture = next(i for i, (c, _) in enumerate(live.calls) if c == "start_playback")
+    disabled = next(i for i, (c, p) in enumerate(live.calls)
+                    if c == "set_device_enabled" and p == {"track_index": -1, "device_index": 0, "enabled": False})
+    assert disabled < first_capture
 
 
 def test_refuses_a_real_looking_set():

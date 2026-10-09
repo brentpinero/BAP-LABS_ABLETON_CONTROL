@@ -80,6 +80,17 @@ class LiveTarget:
 
     def __init__(self, client, work: Path):
         self.client, self.work, self.takes = client, Path(work), 0
+        # The master chain (limiters, meters, utilities in a template) would colour
+        # every capture: bypass whatever is ON there, and remember it to restore.
+        self.bypassed = []
+        for dev in client.send("get_master_track").get("devices", []):
+            params = client.send("get_device_parameters",
+                                 {"track_index": -1, "device_index": dev["index"]}).get("parameters", [])
+            on = next((p for p in params if p.get("name") == "Device On"), None)
+            if on is not None and float(on.get("value", 1.0)) >= 0.5:
+                client.send("set_device_enabled", {"track_index": -1, "device_index": dev["index"],
+                                                   "enabled": False})
+                self.bypassed.append(dev["index"])
         self.track_index = int(client.send("create_audio_track", {"index": -1})["index"])
         client.send("set_track_name", {"track_index": self.track_index, "name": SRC_TRACK})
         # Live's API does not expose the project rate; a recording's header does
@@ -98,6 +109,12 @@ class LiveTarget:
             self.client.send("delete_track", {"track_index": self.track_index})
         except LiveError:
             pass
+        for index in self.bypassed:                                 # restore the master chain
+            try:
+                self.client.send("set_device_enabled", {"track_index": -1, "device_index": index,
+                                                        "enabled": True})
+            except LiveError:
+                pass
 
 
 # --- orchestration -----------------------------------------------------------

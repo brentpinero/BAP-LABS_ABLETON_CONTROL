@@ -69,6 +69,14 @@ int main (int argc, char** argv)
     const juce::String panLawName = job.getProperty ("pan_law", "").toString();      // linear|-2.5|-3|-4.5|-6
     const bool useProxy           = job.getProperty ("use_proxy", false);
     const double edgeFadeMs       = job.getProperty ("edge_fade_ms", 0.0);
+    const juce::String warpMode   = job.getProperty ("warp_mode", "").toString();     // signalsmithDefault|signalsmithCheaper
+
+    const auto stretchMode = [&]() -> std::optional<te::TimeStretcher::Mode>
+    {
+        if (warpMode == "signalsmithDefault") return te::TimeStretcher::signalsmithDefault;
+        if (warpMode == "signalsmithCheaper") return te::TimeStretcher::signalsmithCheaper;
+        return std::nullopt;
+    }();
 
     const auto panLaw = [&]() -> te::PanLaw
     {
@@ -118,10 +126,21 @@ int main (int argc, char** argv)
         if (clip == nullptr)
             return fail ("could not insert clip " + src.getFullPathName());
 
-        clip->setAutoTempo (false);                        // unwarped: play at file speed
         clip->setAutoPitch (false);
         clip->setUsesProxy (useProxy);                     // proxy = pre-rendered copy at project rate
-        clip->setTimeStretchMode (te::TimeStretcher::disabled);
+
+        if (stretchMode)
+        {
+            // warped at ratio 1:1: tell the clip its file is at the edit tempo
+            clip->getLoopInfo().setBpm (tempo, af.getInfo());
+            clip->setAutoTempo (true);
+            clip->setTimeStretchMode (*stretchMode);
+        }
+        else
+        {
+            clip->setAutoTempo (false);                    // unwarped: play at file speed
+            clip->setTimeStretchMode (te::TimeStretcher::disabled);
+        }
 
         if (quality)
             clip->setResamplingQuality (*quality);

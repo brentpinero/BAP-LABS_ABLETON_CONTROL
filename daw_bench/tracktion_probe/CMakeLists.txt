@@ -20,7 +20,16 @@ juce_generate_juce_header(tracktion_probe)
 target_compile_features(tracktion_probe PRIVATE cxx_std_20)
 target_sources(tracktion_probe PRIVATE tracktion_probe.cpp)
 
+# Signalsmith Stretch (MIT, header-only) sits next to the engine checkout; Tracktion
+# includes it as <signalsmith-stretch/signalsmith-stretch.h>. SoundTouch/RubberBand
+# sources are not bundled, so this is the one stretcher the probe can exercise.
+get_filename_component(THIRD_PARTY_DIR "${TRACKTION_ENGINE_DIR}" DIRECTORY)
+target_include_directories(tracktion_probe PRIVATE
+    "${THIRD_PARTY_DIR}"
+    "${THIRD_PARTY_DIR}/signalsmith-stretch/include")   # its signalsmith-linear dependency
+
 target_compile_definitions(tracktion_probe PRIVATE
+    TRACKTION_ENABLE_TIMESTRETCH_SIGNALSMITH=1
     JUCE_PLUGINHOST_AU=1
     JUCE_PLUGINHOST_VST3=1
     JUCE_STRICT_REFCOUNTEDPOINTER=1

@@ -58,12 +58,17 @@ class TracktionTarget:
         self.work.mkdir(parents=True, exist_ok=True)
         self.takes = 0
 
-    def play(self, wav: str, position_beats: float, pan: float, seconds: float) -> np.ndarray:
+    # stretchers compiled into tracktion_probe (Signalsmith Stretch, MIT; see CMakeLists)
+    warp_modes = ["signalsmithDefault", "signalsmithCheaper"]
+
+    def play(self, wav: str, position_beats: float, pan: float, seconds: float,
+             warp_mode: str | None = None) -> np.ndarray:
         self.takes += 1
         out = self.work / f"take_{self.takes:03d}.wav"
         out.unlink(missing_ok=True)                        # Tracktion's writer appends to an existing file
         job = {"sample_rate": self.sr, "tempo": profile.TEMPO, "seconds": float(seconds),
                "output": str(out), **self.options,
+               **({"warp_mode": warp_mode} if warp_mode else {}),
                "clips": [{"file": str(wav), "position_beats": float(position_beats),
                           "pan": float(pan)}]}
         job_path = self.work / f"job_{self.takes:03d}.json"

@@ -242,7 +242,25 @@ Our solution: **AppleScript GUI automation** via `harness/AbletonMCP_Extended/au
 | `harness/universal_vst_controller.js` | JavaScript controller for Max patches |
 | `harness/BAP Labs Serum Control.amxd` | Max for Live Serum device |
 
-### Sub Follower
+### Sub Print
+
+The simple one: a MIDI effect on your sub track with a **Print** button (map a key to it
+with Cmd+K). Press it and every MIDI note from the tracks in the Bass group is copied into
+editable clips on the sub track, named `Sub <- Bass`. Printing again replaces only those
+clips; your own clips on the track stay. Optional **Mono + fold** keeps the lowest sounding
+note and folds it into the octave above **Floor**. Arrangement view only; looped clips are
+unrolled; muted clips and notes are skipped.
+
+| File | Description |
+|------|-------------|
+| `harness/build_sub_print_device.py` | Generates `Sub Print.maxpat` (embedded v8 script does the copy via Live's API) |
+| `harness/test_sub_print.py` | Patch tests |
+
+```bash
+cd harness && python build_sub_print_device.py     # then wrap with maxpat_to_amxd.py
+```
+
+### Sub Follower (real-time, parked)
 
 Makes one sub track (e.g. Serum) play a mono line that follows every bass track in real
 time, folded into one sub-friendly octave. The lowest sounding bass note wins. Nothing to

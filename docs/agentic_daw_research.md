@@ -117,7 +117,7 @@ Same probes (`daw_bench/profile.py`), three targets, all measured. Live 12 at 44
 | Pan law | `sin_-3_0`, fit error 0.000 dB | **`linear_0_+6`**: linear, 0 dB centre, +6 dB hard-panned, fit error 0.000 dB | `sin_-3_0`, fit error 0.000 dB | **`sin_0_+3`, fit error 0.000 dB** (matches the fact sheet exactly) |
 | Unity playback (same-rate file) | latency 0, gain 0.000 dB, residual −104 dBFS (edge fades on) / < −140 off | latency 0, gain 0.000 dB, **residual −172 dBFS** (bit-transparent) | latency 0, **residual −35 dBFS**: the sinc resampler stays in the path at ratio 1:1 | gain 0.000 dB, **residual −149 dBFS** (bit-transparent); capture offset 8704–9216 samples varies by one 512 buffer between runs (record path, not playback) |
 | Clip-edge fade | 4 ms raised-cosine (reads 3.3 ms) | **0.02 ms: none** | 3.7 ms (linear) | **0.02 ms: none** on an API-created clip in this template (the fade preference is off, or does not apply to API-created clips) |
-| SRC, 96 kHz file in 48 kHz project | ripple 0.001 dB, alias −122 dB | ripple 0.001 dB, **alias 0 dB**: no anti-alias filtering on the direct-read path (Lagrange); enabling proxies changed nothing for an unwarped clip | ripple 0.001 dB, **alias −142 to −145 dB** (libsamplerate best) | 88.2→44.1 kHz: ripple 0.004 dB, **alias −69 dB** (an earlier run at 12 dB lower level read −81 dB; repeat before relying on the figure) |
+| SRC, 96 kHz file in 48 kHz project | ripple 0.001 dB, alias −122 dB | ripple 0.001 dB, **alias 0 dB**: no anti-alias filtering on the direct-read path (Lagrange); enabling proxies changed nothing for an unwarped clip | ripple 0.001 dB, **alias −142 to −145 dB** (libsamplerate best) | 88.2→44.1 kHz: ripple 0.004 dB, **alias −69.2 dB**, level-independent, deterministic (5 levels × repeats) |
 
 What this says, measured rather than assumed [I from the numbers above]:
 
@@ -125,7 +125,7 @@ What this says, measured rather than assumed [I from the numbers above]:
 1. Tracktion's playback path is bit-transparent at 1:1 with its defaults, which is the property that matters most for a render oracle.
 2. Its defaults fail three spec items (pan law, edge fades, SRC aliasing), and all three are fixable with existing per-clip/per-track settings, so these are configuration gaps, not engine gaps.
 3. One engine gap: with sinc resampling selected, the resampler is not bypassed at 1:1 (residual −35 dBFS, +0.05 dB gain). The spec requires bypass at ratio 1.0; this is the first item for a Tracktion fork or a fix upstream.
-4. Live's real-time SRC sits at roughly −70 to −80 dB aliasing: audibly fine, but 50–70 dB short of the reference engine and of Tracktion's sinc option. The spec's −120 dB target is therefore an improvement over Live, not parity.
+4. Live's real-time SRC sits at −69 dB aliasing: audibly fine, but 50–70 dB short of the reference engine and of Tracktion's sinc option. The spec's −120 dB target is therefore an improvement over Live, not parity.
 5. The gate for Phase 1 therefore becomes: Tracktion configured to the spec must null against `ref_engine.py` at ≤ −120 dBFS on the unity probe. Today it does not, by 85 dB.
 
 ### 3.1b Warp at ratio 1:1, measured 2026-10-08
@@ -158,7 +158,7 @@ Reading [I]: both engines compensate correctly in the body of the timeline. The 
 
 **Automation resolution (Tracktion, `engine_bench.py::bench_automation`):** a 1 s linear pan ramp on an fs/4 tone under the −3 dB law changes gain on **every sample** (19,199 changes in 19,200 samples); the worst deviation from the analytic curve is 1.4 dB, which comes from the two-point curve being interpolated per sample in pan-position units while the law is non-linear at the extremes and the fs/4 peak envelope carries up to one sample of jitter. Automation is sample-accurate, not block-based: the [BENCH] in section 5.1 is resolved.
 
-**Live SRC, repeated 3×:** 88.2→44.1 kHz, sweep at −6 dBFS: aliasing −69.2 dB on all three runs (deterministic). The earlier −81 dB reading was taken with the sweep 12 dB lower, so the aliasing level is not simply proportional to signal level; treat Live's real-time SRC as "−70 to −80 dB, level-dependent" until characterised at several levels.
+**Live SRC, repeated and swept in level:** 88.2→44.1 kHz, sweep at −1, −6, −12, −24 and −40 dBFS: aliasing **−69.2 dB relative to the sweep at every level**, ripple 0.004 dB, identical across repeats. The conversion is linear and deterministic. (The earlier −81 dB reading was an artefact of the first run's −12 dB track fader, which the analysis did not know about.)
 
 ### 3.2 Measuring the incumbents ourselves [I]
 
@@ -513,7 +513,7 @@ Effort figures are estimates for one developer on an M4 Max with AI coding agent
 
 **Engine decision, recommended: build on Tracktion Engine, in a fork.** Measured against the hard gates: delay compensation exact (with pre-roll), renders byte-identical, automation per-sample, headless offline render at 21x realtime, 1:1 playback bit-transparent, Signalsmith stretch bypassed at 1:1. Measured gaps, all engine-level and all small: (1) the sinc resampler is not bypassed at ratio 1.0; (2) the mix bus is 32-bit float (−126 dB re sum vs the −140 dB gate); (3) compensation by advancing has no pre-roll at t = 0. Configuration gaps (pan law, edge fades, SRC quality) are per-clip settings. Nothing measured points to a custom C++ graph being worth its 12+ months. Phase 1 therefore starts from a Tracktion fork; the realtime benchmarks (track ramp, sandbox overhead, crash isolation, clip-launch timing) run in Phase 1 once an audio device path and the out-of-process host exist, and remain exit criteria for it.
 
-What Phase 0 changed in the spec, from measurement rather than assumption: the delay-compensation strategy is now explicit (advance with pre-roll; Live uses delay-all); the SRC target (−120 dB aliasing) is an improvement over Live (−70 to −80 dB, level-dependent), not parity; the limiter target (true-peak default, ≤ 0.1 dB overshoot) is Pro-L 2's measured level and 0.5 dB better than Live's True Peak mode on noise; warp bypass at 1:1 is a measured advantage over Live's Complex modes.
+What Phase 0 changed in the spec, from measurement rather than assumption: the delay-compensation strategy is now explicit (advance with pre-roll; Live uses delay-all); the SRC target (−120 dB aliasing) is a 50 dB improvement over Live (−69 dB), not parity; the limiter target (true-peak default, ≤ 0.1 dB overshoot) is Pro-L 2's measured level and 0.5 dB better than Live's True Peak mode on noise; warp bypass at 1:1 is a measured advantage over Live's Complex modes.
 
 ### Phase 1: Engine core and plugin host (3–4 months)
 

@@ -39,7 +39,8 @@ class FakeLive:
         self.tmp, self.sr, self.pan_law = tmp, sr, pan_law
         self.latency, self.fade_ms, self.clean_src = latency, fade_ms, clean_src
         self.has_audio_clip_cmd = has_audio_clip_cmd
-        self.tracks = [{"name": f"T{i}", "pan": 0.0, "clips": []} for i in range(track_count)]
+        self.tracks = [{"name": f"T{i}", "pan": 0.0, "clips": [], "devices": []} for i in range(track_count)]
+        self.warp_calls = []
         self.tempo, self.routing, self.takes, self.calls = 97.0, {}, 0, []
         self.master_on = {0: True, 1: False}      # Pro-L style limiter ON, a meter OFF
 
@@ -58,6 +59,8 @@ class FakeLive:
             if n:
                 audio = audio.copy()
                 audio[:n] *= np.linspace(0.0, 1.0, n)
+            if src.get("devices"):                       # a loaded limiter: hard clip at -1 dBFS
+                audio = np.clip(audio, -10 ** (-1 / 20), 10 ** (-1 / 20))
             gl, gr = measure.pan_gains(self.pan_law, src["pan"])
             at = int(round(beats * 60.0 / self.tempo * self.sr)) + self.latency
             end = min(len(out), at + len(audio))
@@ -85,14 +88,21 @@ class FakeLive:
         if cmd == "set_tempo":
             self.tempo = p["tempo"]
         elif cmd == "create_audio_track":
-            self.tracks.append({"name": "Audio", "pan": 0.0, "clips": []})
+            self.tracks.append({"name": "Audio", "pan": 0.0, "clips": [], "devices": []})
             return {"index": len(self.tracks) - 1}
         elif cmd == "set_track_name":
             t["name"] = p["name"]
         elif cmd == "get_track_info":
             if t is None:
                 raise LiveError("no such track")
-            return {"name": t["name"], "solo": False}
+            return {"name": t["name"], "solo": False,
+                    "devices": [{"index": i, "name": d} for i, d in enumerate(t["devices"])]}
+        elif cmd == "load_browser_item":
+            t["devices"].append(p["item_uri"])
+        elif cmd == "delete_device":
+            t["devices"].pop(p["device_index"])
+        elif cmd in ("set_clip_warping", "set_clip_warp_mode", "set_device_parameter_by_name"):
+            self.warp_calls.append((cmd, p))
         elif cmd == "delete_track":
             self.tracks.pop(p["track_index"])
         elif cmd == "set_track_pan":
@@ -142,6 +152,16 @@ def test_profile_recovers_live_like_behaviour():
     assert 3.0 < prof["edge_fade"]["fade_in_ms"] < 4.3, prof["edge_fade"]
     assert prof["src"]["alias_db"] < -80.0, prof["src"]
     assert prof["src"]["passband_ripple_db"] < 0.1, prof["src"]
+    # warp (identity in the fake): every Live mode probed, 1:1, transparent
+    assert set(prof["warp"]) == set(lp.LiveTarget.warp_modes)
+    for mode, r in prof["warp"].items():                      # the fake's 4 ms fades bound both
+        assert abs(r["length_error_ms"]) < 3.0 and r["null_depth_db"] > 60.0, (mode, r)
+    assert ("set_clip_warp_mode", {"track_index": 2, "clip_index": 0, "warp_mode": 5}) in live.warp_calls
+    # limiter (hard clip at -1 dBFS in the fake): ceiling read back, ISP overshoot = 3 dB
+    for name, r in prof["limiter"].items():
+        assert abs(r["ceiling_dbfs"] + 1.0) < 0.05, (name, r)
+        assert 2.8 < r["isp_overshoot_db"] < 3.2, (name, r)
+    assert not live.tracks[2]["devices"] if len(live.tracks) > 2 else True   # devices removed
 
 
 def test_profile_tells_engines_apart():
@@ -233,3 +253,5 @@ def test_reference_engine_live_compatible_mode():
     assert prof["pan"]["fit"]["law"] == "sin_0_+3"
     assert prof["edge_fade"]["fade_in_ms"] < 0.5
     assert prof["unity"]["residual_dbfs"] < -140.0           # fades off: pure passthrough
+    assert prof["warp"]["bypass"]["residual_dbfs"] < -140.0  # spec: stretcher bypassed at 1:1
+    assert prof["limiter"] == {"skipped": "target cannot insert limiters"}

@@ -2046,9 +2046,11 @@ class AbletonMCPExtended(ControlSurface):
                 raise ValueError("Not an audio clip")
 
             try:
-                markers = clip.warp_markers
+                # WarpMarkerVector is not JSON-serialisable; flatten to plain dicts
+                markers = [{"beat_time": float(m.beat_time), "sample_time": float(m.sample_time)}
+                           for m in clip.warp_markers]
                 return {"warp_markers": markers}
-            except:
+            except Exception:
                 return {"warp_markers": [], "note": "Requires Live 11+"}
         except Exception as e:
             self.log_message("Error getting clip warp markers: " + str(e))

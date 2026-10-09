@@ -44,11 +44,14 @@ def convert_rate(audio: np.ndarray, sr_in: int, sr_out: int) -> np.ndarray:
 class RefEngine:
     """profile.py target. `sr` is the project rate."""
 
+    warp_modes = ["bypass"]          # the spec: a stretcher at ratio 1:1 is bypassed
+
     def __init__(self, sr: int = 48000, pan_law: str = "sin_-3_0",
                  edge_fade_ms: float = 4.0):
         self.sr, self.pan_law, self.edge_fade_ms = sr, pan_law, edge_fade_ms
 
-    def play(self, wav: str, position_beats: float, pan: float, seconds: float) -> np.ndarray:
+    def play(self, wav: str, position_beats: float, pan: float, seconds: float,
+             warp_mode: str | None = None) -> np.ndarray:
         audio, file_sr = sf.read(wav, dtype="float64", always_2d=True)
         audio = convert_rate(audio, file_sr, self.sr)
         n = int(self.edge_fade_ms * self.sr / 1000.0)

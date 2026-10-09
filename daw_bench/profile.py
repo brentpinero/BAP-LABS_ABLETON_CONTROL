@@ -9,10 +9,15 @@ gap between the two profiles is the work list.
 
 Target protocol:
     target.sr                                   project sample rate
-    target.play(wav, position_beats, pan, seconds) -> stereo float array (N, 2)
-        master output from position 0 for `seconds`, with the clip (unwarped)
-        placed at `position_beats` on a track panned to `pan` in [-1, 1].
+    target.play(wav, position_beats, pan, seconds, warp_mode=None) -> (N, 2) floats
+        the track's output from position 0 for `seconds`, with the clip placed at
+        `position_beats` on a track panned to `pan` in [-1, 1]. Unwarped unless
+        `warp_mode` names one of `target.warp_modes`, in which case the clip is
+        warped at ratio 1:1 (clip tempo == set tempo) with that stretch mode.
         Tempo is TEMPO (120 BPM, 4/4), so one beat is 0.5 s.
+    target.warp_modes        optional list of stretch-mode names
+    target.limiter_specs     optional list of {"name", "uri", "params"}; with
+    target.device(spec)      a context manager that inserts/removes the device
 """
 from __future__ import annotations
 
@@ -99,8 +104,66 @@ def probe_src(target, work: Path) -> Dict[str, Any]:
     return result
 
 
+def probe_warp(target, work: Path) -> Dict[str, Any]:
+    """Warped clip whose tempo equals the set tempo (stretch ratio exactly 1:1),
+    once per stretch mode the target offers (`target.warp_modes`): does the
+    stretcher pass the audio through, or colour it even when it has nothing to
+    do? Live documents that its Complex modes are never neutral; the spec says
+    bypass at 1:1. Reports per mode: latency, gain, residual, null depth, and
+    how much the clip's length changed (a non-zero value means the ratio was
+    not 1:1 and the residual figure should be read with that in mind)."""
+    modes = list(getattr(target, "warp_modes", []))
+    if not modes:
+        return {"skipped": "target offers no warp modes"}
+    sr = target.sr
+    src = signals.fade(signals.noise(3.0, sr, level_db=-20.0, seed=11), sr)
+    wav = signals.write_wav(work / "warp_src.wav", src, sr)
+    out: Dict[str, Any] = {}
+    for mode in modes:
+        cap = target.play(wav, 0.0, 0.0, 4.0, warp_mode=mode)[:, 0]
+        lag = measure.latency_samples(src, cap, sr, max_lag_s=1.0)
+        aligned = cap[lag:] if lag >= 0 else np.concatenate([np.zeros(-lag), cap])
+        gain_db, matched = fidelity.gain_match(src, aligned[:len(src)])
+        env = np.abs(aligned)
+        above = np.nonzero(env > 10 ** (-60 / 20) * env.max())[0] if env.max() > 0 else np.array([0])
+        out[str(mode)] = {"latency_samples": int(lag), "gain_db": round(gain_db, 3),
+                          "residual_dbfs": round(measure.residual_dbfs(src, matched), 2),
+                          "null_depth_db": round(fidelity.null_depth_db(src, matched), 2),
+                          "length_error_ms": round((above[-1] + 1 - len(src)) * 1000.0 / sr, 2)}
+    return out
+
+
+def probe_limiter(target, work: Path) -> Dict[str, Any]:
+    """True-peak behaviour of each limiter the target can insert
+    (`target.limiter_specs`: [{"name", "uri", "params"}]). Self-calibrating: a
+    0 dBFS steady sine far above the ceiling reads back AS the ceiling, so no
+    parameter-to-dB mapping is needed. Then the fs/4 inter-sample stress tone
+    (true peak 3 dB above its samples) and a noise burst report how far the
+    16x-oversampled true peak exceeds that ceiling (section 4.3)."""
+    specs = list(getattr(target, "limiter_specs", []))
+    if not specs:
+        return {"skipped": "target cannot insert limiters"}
+    sr = target.sr
+    sine = signals.write_wav(work / "lim_sine.wav", signals.fade(signals.sine(1000.0, 2.0, sr, 0.0), sr), sr)
+    stress = signals.write_wav(work / "lim_isp.wav",
+                               signals.fade(signals.isp_stress(2.0, sr, sample_peak_db=-0.5), sr), sr)
+    burst = signals.write_wav(work / "lim_noise.wav", signals.fade(signals.noise(2.0, sr, -6.0, seed=5), sr), sr)
+    out: Dict[str, Any] = {}
+    for spec in specs:
+        with target.device(spec):
+            steady = target.play(sine, 0.0, 0.0, 2.5)[int(0.5 * sr): int(1.8 * sr), 0]
+            ceiling_db = measure.loudness.sample_peak_dbfs(steady)
+            tp_isp = measure.true_peak_dbtp(target.play(stress, 0.0, 0.0, 2.5)[:, 0], sr)
+            tp_noise = measure.true_peak_dbtp(target.play(burst, 0.0, 0.0, 2.5)[:, 0], sr)
+        out[spec["name"]] = {"ceiling_dbfs": round(ceiling_db, 3),
+                             "isp_overshoot_db": round(tp_isp - ceiling_db, 3),
+                             "noise_overshoot_db": round(tp_noise - ceiling_db, 3)}
+    return out
+
+
 PROBES: Dict[str, Callable] = {"pan": probe_pan, "unity": probe_unity,
-                               "edge_fade": probe_edge_fade, "src": probe_src}
+                               "edge_fade": probe_edge_fade, "src": probe_src,
+                               "warp": probe_warp, "limiter": probe_limiter}
 
 
 def run_probes(target, out_dir: Path, name: str = "profile") -> Dict[str, Any]:

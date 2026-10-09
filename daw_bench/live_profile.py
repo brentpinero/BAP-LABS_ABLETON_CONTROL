@@ -24,6 +24,7 @@ from __future__ import annotations
 import argparse
 import json
 import sys
+from contextlib import contextmanager
 from pathlib import Path
 from typing import Any, Dict, Tuple
 
@@ -94,12 +95,50 @@ class LiveTarget:
                            channel="Post Mixer", silent=True)
         return sf.read(str(out_wav), dtype="float64", always_2d=True)
 
-    def play(self, wav: str, position_beats: float, pan: float, seconds: float) -> np.ndarray:
+    # Live 12 warp modes by index; the clip is warped at the set tempo (an
+    # API-imported clip gets exactly set-tempo beats, measured), so ratio 1:1
+    warp_modes = ["Beats", "Tones", "Texture", "Re-Pitch", "Complex", "Complex Pro"]
+
+    # Limiters reachable from the browser; params are raw 0..1 values. The probe
+    # self-calibrates the ceiling, so only the mode switches matter here.
+    limiter_specs = [
+        {"name": "Live Limiter mode 0 (Standard)", "uri": "query:AudioFx#Limiter", "params": {"Mode": 0}},
+        {"name": "Live Limiter mode 1 (Soft Clip)", "uri": "query:AudioFx#Limiter", "params": {"Mode": 1}},
+        {"name": "Live Limiter mode 2 (True Peak)", "uri": "query:AudioFx#Limiter", "params": {"Mode": 2}},
+        {"name": "Live Limiter mode 2, lookahead 6 ms", "uri": "query:AudioFx#Limiter", "params": {"Mode": 2, "Lookahead": 2}},
+        {"name": "FabFilter Pro-L 2 (defaults)", "uri": "query:Plugins#VST3:FabFilter:Pro-L%202", "params": {}},
+    ]
+
+    def play(self, wav: str, position_beats: float, pan: float, seconds: float,
+             warp_mode: str | None = None) -> np.ndarray:
         _place(self.client, self.track_index, wav, position_beats)
+        if warp_mode is not None:
+            self.client.send("set_clip_warping", {"track_index": self.track_index, "clip_index": 0,
+                                                  "warping": True})
+            self.client.send("set_clip_warp_mode", {"track_index": self.track_index, "clip_index": 0,
+                                                    "warp_mode": self.warp_modes.index(warp_mode)})
         self.client.send("set_track_pan", {"track_index": self.track_index, "pan": float(pan)})
         self.takes += 1
         cap, _ = self._capture(self.work / f"take_{self.takes:03d}.wav", seconds)
         return cap
+
+    @contextmanager
+    def device(self, spec: dict):
+        """Insert one device on the source track for the duration of the block."""
+        self.client.send("load_browser_item", {"track_index": self.track_index, "item_uri": spec["uri"]})
+        devices = self.client.send("get_track_info", {"track_index": self.track_index}).get("devices", [])
+        index = devices[-1]["index"]
+        try:
+            for name, value in spec.get("params", {}).items():
+                self.client.send("set_device_parameter_by_name",
+                                 {"track_index": self.track_index, "device_index": index,
+                                  "param_name": name, "value": value})
+            yield index
+        finally:
+            try:
+                self.client.send("delete_device", {"track_index": self.track_index, "device_index": index})
+            except LiveError:
+                pass
 
     def close(self) -> None:
         try:

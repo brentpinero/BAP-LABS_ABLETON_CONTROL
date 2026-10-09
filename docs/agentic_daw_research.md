@@ -108,6 +108,24 @@ The honest headline: of ten suspected causes, only a few have verified evidence.
 | 9 | **Render vs. realtime** | Not verified for any DAW. Repo's own measurement: headless plugin host vs. Live differs 5–15 dB in the bass | Large in our own data | One engine for both; offline is the same graph run faster | Realtime capture vs. offline render of the same project: null ≤ −120 dBFS with deterministic plugins |
 | 10 | **Dither, headroom, denormals, oversampling of stock devices** | Nothing verified | Unknown | Explicit: no clipping inside the float bus; TPDF dither only at fixed-point export, default on for 16-bit; flush-to-zero set identically in realtime and offline | Covered by tests 2, 9 and the device tests in section 6 |
 
+### 3.1a Phase 0 measurements to date (2026-10-08)
+
+Same probes (`daw_bench/profile.py`), three targets. Live's column is pending the Remote Script install; its expected values come from its documentation [V3].
+
+| Probe | Reference engine (`ref_engine.py`, the spec) | Tracktion Engine as shipped | Tracktion with options (`sincBest`, −3 dB law, 4 ms fades) | Live (documented, not yet measured) |
+|---|---|---|---|---|
+| Pan law | `sin_-3_0`, fit error 0.000 dB | **`linear_0_+6`**: linear, 0 dB centre, +6 dB hard-panned, fit error 0.000 dB | `sin_-3_0`, fit error 0.000 dB | `sin_0_+3` |
+| Unity playback (same-rate file) | latency 0, gain 0.000 dB, residual −104 dBFS (edge fades on) / < −140 off | latency 0, gain 0.000 dB, **residual −172 dBFS** (bit-transparent) | latency 0, **residual −35 dBFS**: the sinc resampler stays in the path at ratio 1:1 | neutral per fact sheet |
+| Clip-edge fade | 4 ms raised-cosine (reads 3.3 ms) | **0.02 ms: none** | 3.7 ms (linear) | up to 4 ms, preference |
+| SRC, 96 kHz file in 48 kHz project | ripple 0.001 dB, alias −122 dB | ripple 0.001 dB, **alias 0 dB**: no anti-alias filtering on the direct-read path (Lagrange); enabling proxies changed nothing for an unwarped clip | ripple 0.001 dB, **alias −142 to −145 dB** (libsamplerate best) | "non-neutral", unquantified |
+
+What this says, measured rather than assumed [I from the numbers above]:
+
+1. Tracktion's playback path is bit-transparent at 1:1 with its defaults, which is the property that matters most for a render oracle.
+2. Its defaults fail three spec items (pan law, edge fades, SRC aliasing), and all three are fixable with existing per-clip/per-track settings, so these are configuration gaps, not engine gaps.
+3. One engine gap: with sinc resampling selected, the resampler is not bypassed at 1:1 (residual −35 dBFS, +0.05 dB gain). The spec requires bypass at ratio 1.0; this is the first item for a Tracktion fork or a fix upstream.
+4. The gate for Phase 1 therefore becomes: Tracktion configured to the spec must null against `ref_engine.py` at ≤ −120 dBFS on the unity probe. Today it does not, by 85 dB.
+
 ### 3.2 Measuring the incumbents ourselves [I]
 
 Because public data is thin, Phase 0 includes a black-box characterisation of Live (which Brent owns) using the same harness: pan curve, SRC sweep, 1:1 warp null, fade shape, delay-compensation alignment, limiter overshoot. This is legal black-box observation and produces the "Live-compatible" profile.
@@ -428,7 +446,7 @@ Effort figures are estimates for one developer on an M4 Max with AI coding agent
 | Test and benchmark harness (section 12) with BS.1770-5 meter at 16x | Meter matches EBU reference signals within ±0.1 LU and ±0.1 dBTP |
 | Black-box profile of Live: pan curve, SRC sweep, 1:1 warp null, fade shape, delay-compensation alignment, limiter overshoot | Profile stored with signals and scripts in the repo |
 | Python reference engine passes the section 3 probes (executable spec) | Pan law fit exact, SRC alias ≤ −120 dB, fade 4 ms ± 0.3, unity residual ≤ −140 dBFS |
-| Tracktion Engine through the same probes plus the twelve benchmarks in 12.1 | Written go/no-go with numbers: gap to the reference engine per probe |
+| Tracktion Engine through the same probes plus the twelve benchmarks in 12.1 | **Probes done 2026-10-08 (section 3.1a)**; benchmarks pending. Go/no-go with numbers: gap to the reference engine per probe |
 | Acquire references per section 3.3: REAPER, Pro-L 2 and Pro-Q trials | Installed and rendering through the harness |
 | Counsel review of section 2; product name search | No blocking issue |
 | Go-to-market decision (section 14) | **Decided 2026-10-05: open source, GPLv3** |

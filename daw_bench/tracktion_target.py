@@ -44,8 +44,13 @@ def find_binary() -> Path | None:
 class TracktionTarget:
     """profile.py target: one render of `tracktion_probe` per play()."""
 
-    def __init__(self, sr: int = 48000, binary: Path | None = None, keep_dir: Path | None = None):
+    def __init__(self, sr: int = 48000, binary: Path | None = None, keep_dir: Path | None = None,
+                 options: dict | None = None):
+        """`options` are passed through to every job: resampling (lagrange|sincFast|
+        sincMedium|sincBest), pan_law (linear|-2.5|-3|-4.5|-6), use_proxy (bool),
+        edge_fade_ms (float). Empty = Tracktion's shipped defaults."""
         self.sr = int(sr)
+        self.options = dict(options or {})
         self.binary = Path(binary) if binary else find_binary()
         if self.binary is None:
             raise FileNotFoundError("tracktion_probe binary not built; see tracktion_target.py docstring")
@@ -58,7 +63,7 @@ class TracktionTarget:
         out = self.work / f"take_{self.takes:03d}.wav"
         out.unlink(missing_ok=True)                        # Tracktion's writer appends to an existing file
         job = {"sample_rate": self.sr, "tempo": profile.TEMPO, "seconds": float(seconds),
-               "output": str(out),
+               "output": str(out), **self.options,
                "clips": [{"file": str(wav), "position_beats": float(position_beats),
                           "pan": float(pan)}]}
         job_path = self.work / f"job_{self.takes:03d}.json"
@@ -78,9 +83,16 @@ def main(argv=None) -> int:
     ap.add_argument("--out", default=str(_ROOT / "sandbox_sessions" / "tracktion_profile"))
     ap.add_argument("--sr", type=int, default=48000)
     ap.add_argument("--binary", default=None)
+    ap.add_argument("--resampling", choices=["lagrange", "sincFast", "sincMedium", "sincBest"])
+    ap.add_argument("--pan-law", choices=["linear", "-2.5", "-3", "-4.5", "-6"])
+    ap.add_argument("--proxy", action="store_true", help="let clips use pre-rendered proxies")
+    ap.add_argument("--edge-fade-ms", type=float, default=None)
     args = ap.parse_args(argv)
+    options = {k: v for k, v in (("resampling", args.resampling), ("pan_law", args.pan_law),
+                                 ("use_proxy", args.proxy or None), ("edge_fade_ms", args.edge_fade_ms))
+               if v is not None}
     try:
-        target = TracktionTarget(args.sr, args.binary, keep_dir=Path(args.out) / "takes")
+        target = TracktionTarget(args.sr, args.binary, keep_dir=Path(args.out) / "takes", options=options)
     except FileNotFoundError as e:
         print(e)
         return 2

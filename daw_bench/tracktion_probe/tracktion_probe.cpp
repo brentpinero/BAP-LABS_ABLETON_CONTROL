@@ -62,6 +62,33 @@ int main (int argc, char** argv)
     const juce::File outFile (job.getProperty ("output", juce::var()).toString());
     const auto* clips = job.getProperty ("clips", juce::var()).getArray();
 
+    // Optional engine settings. Absent = Tracktion's own defaults, so a plain job
+    // measures the engine as shipped; the probes then re-run with each option to
+    // see what the engine CAN do (section 3 of the plan asks for selectable laws).
+    const juce::String resampling = job.getProperty ("resampling", "").toString();   // lagrange|sincFast|sincMedium|sincBest
+    const juce::String panLawName = job.getProperty ("pan_law", "").toString();      // linear|-2.5|-3|-4.5|-6
+    const bool useProxy           = job.getProperty ("use_proxy", false);
+    const double edgeFadeMs       = job.getProperty ("edge_fade_ms", 0.0);
+
+    const auto panLaw = [&]() -> te::PanLaw
+    {
+        if (panLawName == "linear") return te::PanLawLinear;
+        if (panLawName == "-2.5")   return te::PanLaw2point5dBCenter;
+        if (panLawName == "-3")     return te::PanLaw3dBCenter;
+        if (panLawName == "-4.5")   return te::PanLaw4point5dBCenter;
+        if (panLawName == "-6")     return te::PanLaw6dBCenter;
+        return te::PanLawDefault;
+    }();
+
+    const auto quality = [&]() -> std::optional<te::ResamplingQuality>
+    {
+        if (resampling == "lagrange")   return te::ResamplingQuality::lagrange;
+        if (resampling == "sincFast")   return te::ResamplingQuality::sincFast;
+        if (resampling == "sincMedium") return te::ResamplingQuality::sincMedium;
+        if (resampling == "sincBest")   return te::ResamplingQuality::sincBest;
+        return std::nullopt;
+    }();
+
     if (clips == nullptr || outFile.getFullPathName().isEmpty())
         return fail ("job needs clips[] and output");
 
@@ -93,10 +120,21 @@ int main (int argc, char** argv)
 
         clip->setAutoTempo (false);                        // unwarped: play at file speed
         clip->setAutoPitch (false);
-        clip->setUsesProxy (false);                        // read the file itself, no cached proxy
+        clip->setUsesProxy (useProxy);                     // proxy = pre-rendered copy at project rate
         clip->setTimeStretchMode (te::TimeStretcher::disabled);
 
-        tracks[i]->getVolumePlugin()->setPan ((float) (double) c.getProperty ("pan", 0.0));
+        if (quality)
+            clip->setResamplingQuality (*quality);
+
+        if (edgeFadeMs > 0.0)
+        {
+            clip->setFadeIn (te::TimeDuration::fromSeconds (edgeFadeMs / 1000.0));
+            clip->setFadeOut (te::TimeDuration::fromSeconds (edgeFadeMs / 1000.0));
+        }
+
+        auto* volPan = tracks[i]->getVolumePlugin();
+        volPan->setPanLaw (panLaw);
+        volPan->setPan ((float) (double) c.getProperty ("pan", 0.0));
     }
 
     outFile.deleteFile();                                  // the writer appends to an existing file

@@ -30,7 +30,7 @@ JS = r"""
 inlets = 1;
 outlets = 2;                      // 0: unused, 1: status text
 var CLIP_NAME = "%(clip)s", EPS = 1e-6;
-var foldMode = 0, floor = %(band_lo)d;
+var foldMode = 1, floor = %(band_lo)d;
 var NAMES = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
 
 function status(s) { outlet(1, s); post("[Sub Print] " + s + "\n"); }
@@ -217,7 +217,7 @@ def build():
     L(line("obj-print", 0, "msg-print", 0))
     L(line("msg-print", 0, "obj-js", 0))
 
-    B(device_ui.ptoggle("obj-fold", "Mono + fold", 100.0, 24.0, initial=0, x=900, y=200))
+    B(device_ui.ptoggle("obj-fold", "Mono + fold", 100.0, 24.0, initial=1, x=900, y=200))
     B(box("obj-foldmsg", "prepend foldmode", 900, 240, 1, 1, [""]))
     L(line("obj-fold", 0, "obj-foldmsg", 0))
     L(line("obj-foldmsg", 0, "obj-js", 0))

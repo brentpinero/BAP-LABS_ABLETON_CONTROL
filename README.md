@@ -244,21 +244,31 @@ Our solution: **AppleScript GUI automation** via `harness/AbletonMCP_Extended/au
 
 ### Sub Print
 
-The simple one: a MIDI effect on your sub track with a **Print** button (map a key to it
-with Cmd+K). Press it and every MIDI note from the tracks in the Bass group is copied into
-editable clips on the sub track, named `Sub <- Bass`. Printing again replaces only those
-clips; your own clips on the track stay. Optional **Mono + fold** keeps the lowest sounding
-note and folds it into the octave above **Floor**. Arrangement view only; looped clips are
-unrolled; muted clips and notes are skipped.
+One command: collect the MIDI of every track in the Bass group, normalize it (lowest sounding
+note, folded into the octave above an auto-chosen floor) and paste it as clips named
+`Sub <- Bass` on the sub track inside the Sub group. Printing again replaces only those clips;
+your own clips on the track stay. Arrangement view only; looped clips are unrolled; muted
+clips and notes are skipped.
+
+```bash
+cd harness
+python sub_print.py                  # print now (Remote Script command print_sub)
+python sub_print.py --raw            # plain copy instead of mono + fold
+python sub_print.py --make-shortcut  # signed macOS Shortcut on the Desktop: double-click,
+                                     # then set a key combo in its info panel ("Run with")
+python sub_print.py --install-hotkey "<cmd>+<shift>+b"   # or: a listener at login (pynput;
+                                     # grant python3 Input Monitoring once when macOS asks)
+```
+
+The same command is an MCP tool (`print_sub`) and a device: **BAP Labs Sub Print** (MIDI
+effect) on the sub track has a Print button plus Mono + fold / Floor controls, for mouse use.
 
 | File | Description |
 |------|-------------|
-| `harness/build_sub_print_device.py` | Generates `Sub Print.maxpat` (embedded v8 script does the copy via Live's API) |
-| `harness/test_sub_print.py` | Patch tests |
-
-```bash
-cd harness && python build_sub_print_device.py     # then wrap with maxpat_to_amxd.py
-```
+| `harness/sub_print.py` | The command, the Shortcut writer and the hotkey listener |
+| `harness/AbletonMCP_Extended/__init__.py` | `print_sub` (mirrors `sub_follower_core` unroll/merge/mono/fold) |
+| `harness/build_sub_print_device.py` | Generates `Sub Print.maxpat` (embedded v8 script, same logic) |
+| `harness/test_sub_print.py`, `harness/test_sub_follower.py` | Tests |
 
 ### Sub Follower (real-time, parked)
 

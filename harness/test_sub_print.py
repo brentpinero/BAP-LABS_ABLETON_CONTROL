@@ -33,9 +33,9 @@ class TestSubPrintPatch(unittest.TestCase):
         self.assertEqual(self.boxes["obj-print"]["maxclass"], "live.text")
         self.assertEqual(self.boxes["obj-print"]["mode"], 0)
 
-    def test_fold_is_off_by_default_and_floor_covers_candidates(self):
+    def test_fold_is_on_by_default_and_floor_covers_candidates(self):
         p = self._params()
-        self.assertEqual(p["Mono + fold"]["saved_attribute_attributes"]["valueof"]["parameter_initial"], [0])
+        self.assertEqual(p["Mono + fold"]["saved_attribute_attributes"]["valueof"]["parameter_initial"], [1])
         v = p["Floor"]["saved_attribute_attributes"]["valueof"]
         self.assertEqual(v["parameter_initial"], [sf.BAND_LO])
         self.assertLessEqual(v["parameter_mmin"], sf.FLOOR_MIN)

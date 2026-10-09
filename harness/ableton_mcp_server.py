@@ -991,6 +991,23 @@ def set_device_parameter(track_index: Union[int, str], device_index: int, parame
 
 
 @mcp.tool()
+def print_sub(sub_track: Union[int, str, None] = None, bass_group: str = "bass",
+              sub_group: str = "sub", normalize: bool = True, floor: Optional[int] = None) -> str:
+    """Sub Print: copy every ARRANGEMENT MIDI note from the tracks inside the Bass group onto the
+    sub track as clips named 'Sub <- Bass' (only those clips are replaced). normalize=True keeps
+    the lowest sounding note and folds it into the octave above `floor` (MIDI note; auto when
+    None). sub_track defaults to the first MIDI track with an instrument inside the Sub group."""
+    try:
+        params = {"bass_group": bass_group, "sub_group": sub_group, "normalize": normalize,
+                  "floor": floor}
+        if sub_track is not None:
+            params["sub_track"] = _resolve_track(sub_track)
+        return _ok(_cmd("print_sub", params))
+    except Exception as e:
+        return _err("printing the sub", e)
+
+
+@mcp.tool()
 def set_device_parameter_by_name(track_index: Union[int, str], device_index: int, param_name: str, value: float) -> str:
     """Set a device parameter by name (exact match, then case-insensitive partial). Accepts track index or name."""
     try:

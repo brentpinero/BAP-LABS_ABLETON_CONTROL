@@ -304,7 +304,7 @@ class AbletonMCPExtended(ControlSurface):
                 "set_track_color", "fold_track",
                 # Device chain (Priority 4)
                 "delete_device", "set_device_enabled", "set_device_parameter_by_name",
-                "set_device_name",
+                "set_device_name", "print_sub",
                 # Arrangement editing (Priority 5)
                 "set_clip_mute", "set_clip_start_end", "set_clip_color",
                 # Master track (Priority 6)
@@ -474,6 +474,12 @@ class AbletonMCPExtended(ControlSurface):
                             device_index = params.get("device_index", 0)
                             enabled = params.get("enabled", True)
                             result = self._set_device_enabled(track_index, device_index, enabled)
+                        elif command_type == "print_sub":
+                            result = self._print_sub(params.get("bass_group", "bass"),
+                                                     params.get("sub_track", None),
+                                                     params.get("sub_group", "sub"),
+                                                     params.get("normalize", True),
+                                                     params.get("floor", None))
                         elif command_type == "set_device_name":
                             track_index = params.get("track_index", 0)
                             device_index = params.get("device_index", 0)
@@ -2480,6 +2486,188 @@ class AbletonMCPExtended(ControlSurface):
             raise ValueError("Device does not have on/off control")
         except Exception as e:
             self.log_message("Error setting device enabled: " + str(e))
+            raise
+
+    # ---- Sub Print: Bass group MIDI -> normalized clips on the sub track ----------------
+    # Pure helpers below MIRROR harness/sub_follower_core.py (unroll_clip, merge_regions,
+    # mono_line, fold, choose_floor); keep them in sync with that module and its tests.
+    _SP_EPS = 1e-6
+    _SP_BAND_LO, _SP_BAND_HI, _SP_FLOOR_MIN, _SP_FLOOR_MAX = 28, 38, 24, 31
+    _SP_CLIP_NAME = "Sub <- Bass"
+
+    @staticmethod
+    def _sp_unroll_clip(start, end, start_marker, looping, loop_start, loop_end, notes):
+        EPS = 1e-6
+        segs, at = [], start
+        if looping and loop_end - loop_start > EPS:
+            frm = start_marker
+            while at < end - EPS:
+                to = min(loop_end, frm + (end - at))
+                if to <= frm + EPS:
+                    frm = loop_start
+                    continue
+                segs.append((frm, to, at))
+                at += to - frm
+                frm = loop_start
+        else:
+            segs.append((start_marker, start_marker + (end - start), start))
+        out = []
+        for n in notes:
+            if n.get("mute"):
+                continue
+            for frm, to, at in segs:
+                if frm - EPS <= n["start_time"] < to - EPS:
+                    abs_start = at + (n["start_time"] - frm)
+                    out.append({"pitch": int(n["pitch"]), "start": abs_start,
+                                "duration": min(n["duration"], to - n["start_time"], end - abs_start),
+                                "velocity": int(n.get("velocity", 100))})
+        return out
+
+    @staticmethod
+    def _sp_merge_regions(regions):
+        EPS = 1e-6
+        out = []
+        for s_, e_ in sorted(regions):
+            if out and s_ <= out[-1][1] + EPS:
+                out[-1] = (out[-1][0], max(out[-1][1], e_))
+            else:
+                out.append((s_, e_))
+        return out
+
+    @staticmethod
+    def _sp_mono_line(notes):
+        import heapq
+        EPS = 1e-6
+        notes = sorted((n for n in notes if n["duration"] > EPS), key=lambda n: n["start"])
+        times = sorted({t for n in notes for t in (n["start"], n["start"] + n["duration"])})
+        line, held, nxt = [], [], 0
+        for t0, t1 in zip(times, times[1:]):
+            if t1 - t0 <= EPS:
+                continue
+            while nxt < len(notes) and notes[nxt]["start"] <= t0 + EPS:
+                n = notes[nxt]
+                heapq.heappush(held, (n["pitch"], n["start"] + n["duration"]))
+                nxt += 1
+            while held and held[0][1] < t1 - EPS:
+                heapq.heappop(held)
+            if not held:
+                continue
+            low = held[0][0]
+            last = line[-1] if line else None
+            if last and last["pitch"] == low and abs(last["start"] + last["duration"] - t0) <= EPS:
+                last["duration"] = t1 - last["start"]
+            else:
+                line.append({"pitch": low, "start": t0, "duration": t1 - t0})
+        return line
+
+    @classmethod
+    def _sp_choose_floor(cls, line):
+        best = None
+        for f in range(cls._SP_FLOOR_MIN, cls._SP_FLOOR_MAX + 1):
+            total = outside = 0.0
+            moves = jumps = 0
+            prev = None
+            for seg in line:
+                p = f + (seg["pitch"] - f) % 12
+                total += seg["duration"]
+                outside += max(cls._SP_BAND_LO - p, p - cls._SP_BAND_HI, 0) * seg["duration"]
+                if prev is not None and p != prev:
+                    moves += 1
+                    jumps += abs(p - prev) > 6
+                prev = p
+            cost = (outside / total if total else 0.0) + 0.5 * (jumps / moves if moves else 0.0)
+            key = (round(cost, 6), abs(f - cls._SP_BAND_LO))
+            if best is None or key < best[0]:
+                best = (key, f)
+        return best[1]
+
+    def _sp_inside_group(self, track, group):
+        t = track
+        for _ in range(16):
+            gi = self._group_track_index(t)
+            if gi < 0:
+                return False
+            if gi == group:
+                return True
+            t = self._song.tracks[gi]
+        return False
+
+    def _print_sub(self, bass_group="bass", sub_track=None, sub_group="sub",
+                   normalize=True, floor=None):
+        """Copy every arrangement MIDI note of the tracks inside the Bass group onto the
+        sub track as clips named 'Sub <- Bass' (replacing only those), normalized by
+        default: lowest sounding note, folded into the octave above `floor` (auto)."""
+        try:
+            tracks = list(self._song.tracks)
+
+            def find_group(needle):
+                for i, t in enumerate(tracks):
+                    if getattr(t, "is_foldable", False) and needle.lower() in str(t.name).lower():
+                        return i
+                raise ValueError("no group track with %r in its name" % needle)
+
+            bass = find_group(bass_group)
+            if sub_track is not None:
+                sub = self._resolve_track(sub_track)
+                sub_i = next(i for i, t in enumerate(tracks) if t == sub)
+            else:
+                sg = find_group(sub_group)
+                sub_i = next((i for i, t in enumerate(tracks)
+                              if t.has_midi_input and not getattr(t, "is_foldable", False)
+                              and self._sp_inside_group(t, sg) and len(list(t.devices)) > 0), None)
+                if sub_i is None:
+                    raise ValueError("no MIDI track with an instrument inside the %r group" % sub_group)
+                sub = tracks[sub_i]
+
+            notes, regions, sources = [], [], []
+            for i, t in enumerate(tracks):
+                if i == sub_i or not t.has_midi_input or getattr(t, "is_foldable", False):
+                    continue
+                if not self._sp_inside_group(t, bass):
+                    continue
+                sources.append(str(t.name))
+                for clip in t.arrangement_clips:
+                    if not clip.is_midi_clip or getattr(clip, "muted", False):
+                        continue
+                    raw = [{"pitch": n.pitch, "start_time": n.start_time, "duration": n.duration,
+                            "velocity": n.velocity, "mute": n.mute}
+                           for n in clip.get_all_notes_extended()]
+                    regions.append((clip.start_time, clip.end_time))
+                    notes += self._sp_unroll_clip(clip.start_time, clip.end_time, clip.start_marker,
+                                                  clip.looping, clip.loop_start, clip.loop_end, raw)
+            if not notes:
+                return {"printed": 0, "sources": sources, "message": "no arrangement notes in the Bass group"}
+
+            if normalize:
+                line = self._sp_mono_line(notes)
+                floor = int(floor) if floor is not None else self._sp_choose_floor(line)
+                notes = [{"pitch": floor + (n["pitch"] - floor) % 12, "start": n["start"],
+                          "duration": n["duration"], "velocity": 100} for n in line]
+
+            for clip in [c for c in sub.arrangement_clips if str(c.name) == self._SP_CLIP_NAME]:
+                sub.delete_clip(clip)
+
+            from Live import Clip as LiveClip
+            made = 0
+            for start, end in self._sp_merge_regions(regions):
+                sub.create_midi_clip(start, end - start)
+                clip = next((c for c in sub.arrangement_clips
+                             if abs(c.start_time - start) < 1e-3 and str(c.name) != self._SP_CLIP_NAME), None)
+                if clip is None:
+                    continue
+                clip.name = self._SP_CLIP_NAME
+                specs = [LiveClip.MidiNoteSpecification(
+                            pitch=n["pitch"], start_time=max(0.0, n["start"] - start),
+                            duration=min(n["duration"], end - n["start"]), velocity=n["velocity"], mute=False)
+                         for n in notes if start - 1e-6 <= n["start"] < end - 1e-6]
+                if specs:
+                    clip.add_new_notes(tuple(specs))
+                made += 1
+            return {"printed": len(notes), "clips": made, "sub_track": str(sub.name),
+                    "sources": sources, "normalized": bool(normalize),
+                    "floor": floor if normalize else None}
+        except Exception as e:
+            self.log_message("Error in print_sub: " + str(e))
             raise
 
     def _set_device_name(self, track_index, device_index, name):

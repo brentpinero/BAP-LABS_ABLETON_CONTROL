@@ -120,6 +120,47 @@ class TestFindSources(unittest.TestCase):
             sf.find_track(self.tracks, "Pad")
 
 
+class TestUnrollAndNormalize(unittest.TestCase):
+    def _c(self, **kw):
+        base = dict(start=8.0, end=16.0, start_marker=0.0, looping=False, loop_start=0.0,
+                    loop_end=4.0, notes=[])
+        base.update(kw)
+        return sf.unroll_clip(**base)
+
+    def test_plain_clip_offsets_notes_by_clip_start(self):
+        out = self._c(notes=[{"pitch": 36, "start_time": 1.0, "duration": 0.5, "velocity": 90},
+                             {"pitch": 40, "start_time": 9.0, "duration": 0.5, "velocity": 90}])
+        self.assertEqual(out, [{"pitch": 36, "start": 9.0, "duration": 0.5, "velocity": 90}])
+
+    def test_start_marker_shifts_and_muted_notes_are_skipped(self):
+        out = self._c(start_marker=2.0,
+                      notes=[{"pitch": 36, "start_time": 1.0, "duration": 1.0, "velocity": 90},
+                             {"pitch": 38, "start_time": 3.0, "duration": 1.0, "velocity": 90},
+                             {"pitch": 40, "start_time": 4.0, "duration": 1.0, "velocity": 90,
+                              "mute": True}])
+        self.assertEqual([(n["pitch"], n["start"]) for n in out], [(38, 9.0)])
+
+    def test_looped_clip_repeats_until_the_clip_ends(self):
+        out = self._c(looping=True, loop_start=0.0, loop_end=4.0,
+                      notes=[{"pitch": 36, "start_time": 0.0, "duration": 1.0, "velocity": 90}])
+        self.assertEqual([n["start"] for n in out], [8.0, 12.0])
+
+    def test_note_crossing_the_loop_end_is_cut(self):
+        out = self._c(looping=True, loop_start=0.0, loop_end=4.0,
+                      notes=[{"pitch": 36, "start_time": 3.0, "duration": 3.0, "velocity": 90}])
+        self.assertEqual([(n["start"], n["duration"]) for n in out], [(11.0, 1.0), (15.0, 1.0)])
+
+    def test_merge_regions(self):
+        self.assertEqual(sf.merge_regions([(4, 12), (0, 8), (20, 24)]), [(0, 12), (20, 24)])
+
+    def test_normalize_is_mono_and_folded_with_auto_floor(self):
+        line, floor = sf.normalize([_n(55, 0, 2) | {"velocity": 90}, _n(36, 1, 1) | {"velocity": 90}])
+        self.assertEqual(floor, 28)
+        self.assertEqual([(n["pitch"], n["start"], n["duration"]) for n in line],
+                         [(31, 0, 1), (36, 1, 1)])
+        self.assertTrue(all(n["velocity"] == 100 for n in line))
+
+
 class TestPlanTaps(unittest.TestCase):
     def test_first_run_adds_every_source(self):
         self.assertEqual(sf.plan_taps([], [(3, "Reese"), (4, "Growl")]),

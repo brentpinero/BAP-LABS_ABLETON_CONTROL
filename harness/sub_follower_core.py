@@ -104,6 +104,58 @@ def choose_floor(notes):
     return best["floor"], scores
 
 
+def unroll_clip(start, end, start_marker, looping, loop_start, loop_end, notes):
+    """Notes of one ARRANGEMENT clip in absolute song beats, loops unrolled the way Live
+    plays them: from start_marker, then repeating [loop_start, loop_end) until end.
+    notes: clip-relative [{"pitch", "start_time", "duration", "velocity", "mute"}].
+    Returns [{"pitch", "start", "duration", "velocity"}]; muted notes are skipped."""
+    segs, at = [], start                      # (from, to) in clip time, placed at song `at`
+    if looping and loop_end - loop_start > EPS:
+        frm = start_marker
+        while at < end - EPS:
+            to = min(loop_end, frm + (end - at))
+            if to <= frm + EPS:
+                frm = loop_start
+                continue
+            segs.append((frm, to, at))
+            at += to - frm
+            frm = loop_start
+    else:
+        segs.append((start_marker, start_marker + (end - start), start))
+    out = []
+    for n in notes:
+        if n.get("mute"):
+            continue
+        for frm, to, at in segs:
+            if frm - EPS <= n["start_time"] < to - EPS:
+                abs_start = at + (n["start_time"] - frm)
+                out.append({"pitch": int(n["pitch"]), "start": abs_start,
+                            "duration": min(n["duration"], to - n["start_time"], end - abs_start),
+                            "velocity": int(n.get("velocity", 100))})
+    return out
+
+
+def merge_regions(regions):
+    """[(start, end)] of source clips -> non-overlapping [(start, end)] covering them."""
+    out = []
+    for s, e in sorted(regions):
+        if out and s <= out[-1][1] + EPS:
+            out[-1] = (out[-1][0], max(out[-1][1], e))
+        else:
+            out.append((s, e))
+    return out
+
+
+def normalize(notes, floor=None):
+    """The sub line: lowest sounding note, folded into the octave above `floor`
+    (auto-chosen with choose_floor when None). Returns (notes, floor)."""
+    if floor is None:
+        floor = choose_floor(notes)[0]
+    line = [{"pitch": fold(n["pitch"], floor), "start": n["start"], "duration": n["duration"],
+             "velocity": 100} for n in mono_line(notes)]
+    return line, floor
+
+
 def find_sources(tracks, group_needle="bass", exclude=()):
     """The MIDI tracks the sub should follow: every regular MIDI track inside the bass
     group, at any nesting depth.

@@ -23,7 +23,7 @@ Research volume: three deep-research runs (325 agents, 74 claims verified, 0 ref
 1. **The lane is open.** No shipped DAW has an agent API as its primary interface [V1]. Mozart AI, Suno Studio and FL Studio 2026's Gopher are chat layered on a GUI. Ableton's Extensions SDK (beta, June 2026) only runs from a right-click and has no headless mode [V1].
 2. **Reverse engineering is mostly unnecessary, and the risky kind should be avoided.** Functionality, workflows and file formats are not copyrightable (SAS v. WPL [V1]). Ableton's EULA §5(1) bans decompiling [V1] and *Bowers v. Baystate* makes such clauses enforceable in the US [V1]. The clean path is black-box measurement of Live's behaviour, which section 3 turns into a spec.
 3. **"DAWs sound different" is mostly defaults, not summing magic.** The one cross-DAW difference verified by measurement is pan law: up to 3 dB at centre between DAWs at identical settings [V3]. Live's own fact sheet documents the rest of its non-neutral operations (sample-rate conversion, Complex warp, clip-edge fades, delay-compensation gaps) [V3]. Each becomes a selectable, tested behaviour in our engine.
-4. **The engine choice cannot be made from published data.** Public performance numbers for Tracktion Engine, and its automation resolution, summing width and headless behaviour, were not findable [V1]. The decision is therefore a 4-week benchmark bake-off (Phase 0) with twelve pass/fail gates, not a pick from a feature list.
+4. **The engine choice was made from measurement, not published data.** Public numbers for Tracktion Engine did not exist [V1], so Phase 0 measured it with the same probes as Live: byte-identical renders, per-sample automation, exact delay compensation, 21x offline render, bit-transparent 1:1 playback; two small engine gaps (sinc resampler not bypassed at 1:1, 32-bit mix bus). Recommendation: build on a Tracktion Engine fork (section 11, Phase 0 outcome).
 5. **Competitive stock devices are buildable from published DSP**, but most high-quality open implementations are GPL [V3]. For a closed product, devices must be implemented from the papers, with a parity harness measuring them against commercial references.
 6. **Agent-authored devices are a differentiator nobody ships.** A proof of concept exists (natural language → Faust → JIT → hot-swap into a live plugin) [V1]. Building this into the DAW gives agents the ability to write new effects and MIDI tools, not only turn knobs.
 
@@ -498,6 +498,22 @@ Effort figures are estimates for one developer on an M4 Max with AI coding agent
 | Acquire references per section 3.3: REAPER, Pro-L 2 and Pro-Q trials | Installed and rendering through the harness |
 | Counsel review of section 2; product name search | No blocking issue |
 | Go-to-market decision (section 14) | **Decided 2026-10-05: open source, GPLv3** |
+
+### Phase 0 outcome (2026-10-08)
+
+| Deliverable | Status |
+|---|---|
+| Measurement harness with 16x true-peak meter | **Done**: `daw_bench/`, 30 tests; meter within 0.04 dB on reference tones |
+| Black-box profile of Live | **Done**: pan law, 1:1 transparency, edge fades, SRC, six warp modes, limiter modes, delay compensation; all match Live's documentation where it documents them (sections 3.1a–c, 4.2a) |
+| Python reference engine (executable spec) | **Done**: `ref_engine.py` passes every probe |
+| Tracktion Engine through the probes and benchmarks | **Done** for the offline set; realtime set deferred to Phase 1 |
+| References acquired | Live (owned), Pro-L 2 (owned, on the master chain); REAPER and Pro-Q not yet needed |
+| Counsel review, product name | Not started |
+| Go-to-market | Decided: GPLv3 |
+
+**Engine decision, recommended: build on Tracktion Engine, in a fork.** Measured against the hard gates: delay compensation exact (with pre-roll), renders byte-identical, automation per-sample, headless offline render at 21x realtime, 1:1 playback bit-transparent, Signalsmith stretch bypassed at 1:1. Measured gaps, all engine-level and all small: (1) the sinc resampler is not bypassed at ratio 1.0; (2) the mix bus is 32-bit float (−126 dB re sum vs the −140 dB gate); (3) compensation by advancing has no pre-roll at t = 0. Configuration gaps (pan law, edge fades, SRC quality) are per-clip settings. Nothing measured points to a custom C++ graph being worth its 12+ months. Phase 1 therefore starts from a Tracktion fork; the realtime benchmarks (track ramp, sandbox overhead, crash isolation, clip-launch timing) run in Phase 1 once an audio device path and the out-of-process host exist, and remain exit criteria for it.
+
+What Phase 0 changed in the spec, from measurement rather than assumption: the delay-compensation strategy is now explicit (advance with pre-roll; Live uses delay-all); the SRC target (−120 dB aliasing) is an improvement over Live (−70 to −80 dB, level-dependent), not parity; the limiter target (true-peak default, ≤ 0.1 dB overshoot) is Pro-L 2's measured level and 0.5 dB better than Live's True Peak mode on noise; warp bypass at 1:1 is a measured advantage over Live's Complex modes.
 
 ### Phase 1: Engine core and plugin host (3–4 months)
 

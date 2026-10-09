@@ -85,12 +85,12 @@ def probe_edge_fade(target, work: Path) -> Dict[str, Any]:
         cap[int(0.5 * sr): int(1.9 * sr), 0], sr, 5000.0), 3)}
 
 
-def probe_src(target, work: Path) -> Dict[str, Any]:
+def probe_src(target, work: Path, level_db: float = -6.0) -> Dict[str, Any]:
     """Sweep stored at twice the project rate, so the engine must downsample it:
     passband flatness and how much above-Nyquist content folds back."""
     sr = target.sr
     file_sr = 2 * sr
-    sweep = dict(f_start=20.0, f_end=float(sr), seconds=8.0, level_db=-6.0)
+    sweep = dict(f_start=20.0, f_end=float(sr), seconds=8.0, level_db=level_db)
     src = signals.linear_sweep(sweep["f_start"], sweep["f_end"], sweep["seconds"],
                                file_sr, sweep["level_db"])
     out = target.play(signals.write_wav(work / "src_sweep.wav", src, file_sr), 0.0, 0.0, 9.0)[:, 0]

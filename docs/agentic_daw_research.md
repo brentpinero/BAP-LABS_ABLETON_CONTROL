@@ -559,6 +559,18 @@ Gate: 10 external producers complete a track; crash-free session rate ≥ 99%; p
 
 Thresholds are proposals [I]; Phase 0 replaces them with measured baselines from Live (and REAPER if installed) on the same machine.
 
+### 12.1a Measured on Tracktion Engine, 2026-10-08 (`daw_bench/engine_bench.py`, M4 Max, 48 kHz, plain clips, no plugins)
+
+| # | Benchmark | Result | Gate |
+|---|---|---|---|
+| 5 | Offline speed | 64 tracks × 30 s in 1.40 s wall = **21x realtime** including ~0.8 s fixed engine start-up per job; 16 tracks × 60 s = 48x; the render itself runs at roughly 3,000 track-seconds per second | ≥ 20x: **pass** (with no plugins) |
+| 6 | Determinism | 16 tracks × 10 s rendered 5 times: **byte-identical** (one SHA-256) | pass |
+| 7 | Summing precision | 100 identical tracks at −0.1 dBFS: residual **−126 dB relative to the sum**, exactly where 100 single-precision additions land; a 64-bit bus would sit near −150 dB | ≤ −140: **fail**; Tracktion mixes in 32-bit float |
+| 3 | Delay compensation | Latency Tester 20 ms: null −121 dBFS; 250 ms: null **−86 dBFS** | sample-exact: pass at 20 ms, degraded at 250 ms (cause not yet found) |
+| 1, 2, 4, 8–12 | track ramp, topology, automation, sandbox, crash, stretch load, headless, clip launch | not yet run (headless rendering itself is proven by every probe above) | — |
+
+Reading [I]: Tracktion is deterministic and fast enough offline. Its mix bus is 32-bit float, which is inaudible at −126 dB but below the spec, so the spec's 64-bit summing is a fork item alongside the sinc-at-1:1 bypass (section 3.1a). The 250 ms compensation residual needs a cause before Phase 1.
+
 ### 12.2 Device parity harness
 
 This is the feedback loop the project runs on: reference and candidate go through identical signals, and the difference per metric is the work list. One runner drives any plugin or internal device through: swept-sine linear and harmonic analysis, THD+N vs. level and frequency, two-tone IMD, aliasing sweep, impulse and step response, latency, null against a reference, CPU per instance. References (Live stock devices via black-box render, FabFilter and others as plugins) run through the identical signals. Built on `sandbox/fidelity.py` and `sandbox/audio_metrics.py`.

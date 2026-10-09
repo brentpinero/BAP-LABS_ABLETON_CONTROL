@@ -93,6 +93,8 @@ class LiveTarget:
                 self.bypassed.append(dev["index"])
         self.track_index = int(client.send("create_audio_track", {"index": -1})["index"])
         client.send("set_track_name", {"track_index": self.track_index, "name": SRC_TRACK})
+        # a template can give new tracks a non-unity fader (measured: -12 dB); 0.85 is 0 dB
+        client.send("set_track_volume", {"track_index": self.track_index, "volume": 0.85})
         # Live's API does not expose the project rate; a recording's header does
         _, sr = _capture_master(client, self.work / "sr_probe.wav", 1.0)
         self.sr = int(sr)

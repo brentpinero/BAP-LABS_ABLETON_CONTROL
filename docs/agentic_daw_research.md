@@ -110,21 +110,23 @@ The honest headline: of ten suspected causes, only a few have verified evidence.
 
 ### 3.1a Phase 0 measurements to date (2026-10-08)
 
-Same probes (`daw_bench/profile.py`), three targets. Live's column is pending the Remote Script install; its expected values come from its documentation [V3].
+Same probes (`daw_bench/profile.py`), three targets, all measured. Live 12 at 44.1 kHz on Brent's default template (master chain bypassed for the run, source fader at 0 dB).
 
-| Probe | Reference engine (`ref_engine.py`, the spec) | Tracktion Engine as shipped | Tracktion with options (`sincBest`, −3 dB law, 4 ms fades) | Live (documented, not yet measured) |
+| Probe | Reference engine (`ref_engine.py`, the spec) | Tracktion Engine as shipped | Tracktion with options (`sincBest`, −3 dB law, 4 ms fades) | Live 12 (measured 2026-10-08) |
 |---|---|---|---|---|
-| Pan law | `sin_-3_0`, fit error 0.000 dB | **`linear_0_+6`**: linear, 0 dB centre, +6 dB hard-panned, fit error 0.000 dB | `sin_-3_0`, fit error 0.000 dB | `sin_0_+3` |
-| Unity playback (same-rate file) | latency 0, gain 0.000 dB, residual −104 dBFS (edge fades on) / < −140 off | latency 0, gain 0.000 dB, **residual −172 dBFS** (bit-transparent) | latency 0, **residual −35 dBFS**: the sinc resampler stays in the path at ratio 1:1 | neutral per fact sheet |
-| Clip-edge fade | 4 ms raised-cosine (reads 3.3 ms) | **0.02 ms: none** | 3.7 ms (linear) | up to 4 ms, preference |
-| SRC, 96 kHz file in 48 kHz project | ripple 0.001 dB, alias −122 dB | ripple 0.001 dB, **alias 0 dB**: no anti-alias filtering on the direct-read path (Lagrange); enabling proxies changed nothing for an unwarped clip | ripple 0.001 dB, **alias −142 to −145 dB** (libsamplerate best) | "non-neutral", unquantified |
+| Pan law | `sin_-3_0`, fit error 0.000 dB | **`linear_0_+6`**: linear, 0 dB centre, +6 dB hard-panned, fit error 0.000 dB | `sin_-3_0`, fit error 0.000 dB | **`sin_0_+3`, fit error 0.000 dB** (matches the fact sheet exactly) |
+| Unity playback (same-rate file) | latency 0, gain 0.000 dB, residual −104 dBFS (edge fades on) / < −140 off | latency 0, gain 0.000 dB, **residual −172 dBFS** (bit-transparent) | latency 0, **residual −35 dBFS**: the sinc resampler stays in the path at ratio 1:1 | gain 0.000 dB, **residual −149 dBFS** (bit-transparent); capture offset 8704–9216 samples varies by one 512 buffer between runs (record path, not playback) |
+| Clip-edge fade | 4 ms raised-cosine (reads 3.3 ms) | **0.02 ms: none** | 3.7 ms (linear) | **0.02 ms: none** on an API-created clip in this template (the fade preference is off, or does not apply to API-created clips) |
+| SRC, 96 kHz file in 48 kHz project | ripple 0.001 dB, alias −122 dB | ripple 0.001 dB, **alias 0 dB**: no anti-alias filtering on the direct-read path (Lagrange); enabling proxies changed nothing for an unwarped clip | ripple 0.001 dB, **alias −142 to −145 dB** (libsamplerate best) | 88.2→44.1 kHz: ripple 0.004 dB, **alias −69 dB** (an earlier run at 12 dB lower level read −81 dB; repeat before relying on the figure) |
 
 What this says, measured rather than assumed [I from the numbers above]:
 
+0. Live's pan law and 1:1 playback transparency match its documentation exactly; the first black-box measurements agree with the fact sheet, which validates the harness against a known reference.
 1. Tracktion's playback path is bit-transparent at 1:1 with its defaults, which is the property that matters most for a render oracle.
 2. Its defaults fail three spec items (pan law, edge fades, SRC aliasing), and all three are fixable with existing per-clip/per-track settings, so these are configuration gaps, not engine gaps.
 3. One engine gap: with sinc resampling selected, the resampler is not bypassed at 1:1 (residual −35 dBFS, +0.05 dB gain). The spec requires bypass at ratio 1.0; this is the first item for a Tracktion fork or a fix upstream.
-4. The gate for Phase 1 therefore becomes: Tracktion configured to the spec must null against `ref_engine.py` at ≤ −120 dBFS on the unity probe. Today it does not, by 85 dB.
+4. Live's real-time SRC sits at roughly −70 to −80 dB aliasing: audibly fine, but 50–70 dB short of the reference engine and of Tracktion's sinc option. The spec's −120 dB target is therefore an improvement over Live, not parity.
+5. The gate for Phase 1 therefore becomes: Tracktion configured to the spec must null against `ref_engine.py` at ≤ −120 dBFS on the unity probe. Today it does not, by 85 dB.
 
 ### 3.2 Measuring the incumbents ourselves [I]
 

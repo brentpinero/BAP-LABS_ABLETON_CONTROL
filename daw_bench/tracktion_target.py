@@ -50,11 +50,13 @@ class TracktionTarget:
         if self.binary is None:
             raise FileNotFoundError("tracktion_probe binary not built; see tracktion_target.py docstring")
         self.work = Path(keep_dir) if keep_dir else Path(tempfile.mkdtemp(prefix="tracktion_probe_"))
+        self.work.mkdir(parents=True, exist_ok=True)
         self.takes = 0
 
     def play(self, wav: str, position_beats: float, pan: float, seconds: float) -> np.ndarray:
         self.takes += 1
         out = self.work / f"take_{self.takes:03d}.wav"
+        out.unlink(missing_ok=True)                        # Tracktion's writer appends to an existing file
         job = {"sample_rate": self.sr, "tempo": profile.TEMPO, "seconds": float(seconds),
                "output": str(out),
                "clips": [{"file": str(wav), "position_beats": float(position_beats),

@@ -24,6 +24,26 @@ static int fail (const juce::String& why)
     return 1;
 }
 
+/* Headless UI: the engine's default runTaskWithProgressBar is a no-op that
+   expects a GUI, so renders would silently produce nothing. Run the job on a
+   thread and pump the message loop until it finishes; surface warnings. */
+struct HeadlessUI : public te::UIBehaviour
+{
+    void runTaskWithProgressBar (te::ThreadPoolJobWithProgress& task) override
+    {
+        // Same synchronous path as Renderer::renderToFile (useThread = false) and the
+        // engine's own tests: the job is incremental, one chunk per call. Running it on
+        // the message thread keeps the graph teardown (which hops to that thread) simple.
+        while (task.runJob() == juce::ThreadPoolJob::jobNeedsRunningAgain)
+        {}
+    }
+
+    void showWarningMessage (const juce::String& message) override
+    {
+        std::cerr << "tracktion_probe warning: " << message << "\n";
+    }
+};
+
 int main (int argc, char** argv)
 {
     juce::ScopedJuceInitialiser_GUI init;
@@ -45,10 +65,11 @@ int main (int argc, char** argv)
     if (clips == nullptr || outFile.getFullPathName().isEmpty())
         return fail ("job needs clips[] and output");
 
-    te::Engine engine { "tracktion_probe" };
+    te::Engine engine { "tracktion_probe", std::make_unique<HeadlessUI>(), std::make_unique<te::EngineBehaviour>() };
     auto edit = te::Edit::createSingleTrackEdit (engine, te::Edit::EditRole::forRendering);
     edit->ensureNumberOfAudioTracks (clips->size());
     edit->tempoSequence.getTempo (0)->setBpm (tempo);
+    edit->getMasterVolumePlugin()->setVolumeDb (0.0f);   // unity master, as a fresh Live set
 
     auto tracks = te::getAudioTracks (*edit);
 
@@ -77,6 +98,8 @@ int main (int argc, char** argv)
 
         tracks[i]->getVolumePlugin()->setPan ((float) (double) c.getProperty ("pan", 0.0));
     }
+
+    outFile.deleteFile();                                  // the writer appends to an existing file
 
     te::Renderer::Parameters params (*edit);
     params.destFile = outFile;

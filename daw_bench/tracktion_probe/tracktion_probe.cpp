@@ -156,6 +156,16 @@ int main (int argc, char** argv)
         volPan->setPanLaw (panLaw);
         volPan->setPan ((float) (double) c.getProperty ("pan", 0.0));
 
+        // automation-resolution benchmark: a linear pan ramp from pan_from to pan_to
+        // over pan_ramp_s seconds, written as two automation points (linear curve)
+        if (c.hasProperty ("pan_ramp_s"))
+        {
+            auto& curve = volPan->panParam->getCurve();
+            curve.addPoint (te::TimePosition(), (float) (double) c.getProperty ("pan_from", -1.0), 0.0f, nullptr);
+            curve.addPoint (te::TimePosition::fromSeconds ((double) c.getProperty ("pan_ramp_s", 1.0)),
+                            (float) (double) c.getProperty ("pan_to", 1.0), 0.0f, nullptr);
+        }
+
         // per-clip extras for the PDC probe: a muted copy, or a pure-delay plugin
         // that reports its latency to the engine
         if ((bool) c.getProperty ("mute", false))

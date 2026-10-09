@@ -142,6 +142,24 @@ Probe: `daw_bench/profile.py::probe_warp`. A 3 s noise clip warped with clip tem
 
 Reading [I]: Live's two highest-quality modes alter audio even when they have nothing to do; the spec's "bypass the stretcher at ratio 1.0 in every mode" is already met by Tracktion with Signalsmith and is a measurable improvement over Live. Signalsmith Stretch is MIT and header-only, so it is the default stretcher for the engine; élastique stays an optional upgrade.
 
+### 3.1c Delay compensation and automation, measured 2026-10-08
+
+Probe: `probe_pdc` plays one clip on two tracks, the second through a latency-reporting device, and compares the sum with the device-free sum.
+
+| Target | Device | Device latency | Sum vs device-free sum | Strategy |
+|---|---|---|---|---|
+| Live 12 | FabFilter Pro-L 2 | 1,851 samples (42 ms at 44.1 kHz) | identical after a 1,851-sample shift (residual −400 dBFS) | **delay-all**: every other track is delayed to the slowest, as the FAQ states |
+| Live 12 | Live Limiter, lookahead setting 2 | 0 samples | identical | the stock Limiter reports no latency (or the lookahead write did not apply; same ambiguity as section 4.2a) |
+| Tracktion | Latency Tester 10–400 ms, clips starting at 1.0 s | as set | **byte-identical at every latency** | **advance**: the latent track is rendered early, the sum is not shifted |
+| Tracktion | same, clips starting at 0.0 s | as set | residual −72 to −134 dBFS, not monotonic in latency | the advance strategy has no room before the timeline start, so the first `latency` samples of the latent track are lost |
+| Reference engine | 20 ms | | exact | spec |
+
+Reading [I]: both engines compensate correctly in the body of the timeline. The strategies differ in a way an agent-native engine must choose deliberately: delay-all keeps the timeline origin exact at the cost of global latency; advance keeps zero added latency but needs pre-roll before clip starts (or must fall back at t = 0). The spec adopts advance with an explicit pre-roll, and the acceptance test now places clips at ≥ 1 s or asserts the fallback.
+
+**Automation resolution (Tracktion, `engine_bench.py::bench_automation`):** a 1 s linear pan ramp on an fs/4 tone under the −3 dB law changes gain on **every sample** (19,199 changes in 19,200 samples); the worst deviation from the analytic curve is 1.4 dB, which comes from the two-point curve being interpolated per sample in pan-position units while the law is non-linear at the extremes and the fs/4 peak envelope carries up to one sample of jitter. Automation is sample-accurate, not block-based: the [BENCH] in section 5.1 is resolved.
+
+**Live SRC, repeated 3×:** 88.2→44.1 kHz, sweep at −6 dBFS: aliasing −69.2 dB on all three runs (deterministic). The earlier −81 dB reading was taken with the sweep 12 dB lower, so the aliasing level is not simply proportional to signal level; treat Live's real-time SRC as "−70 to −80 dB, level-dependent" until characterised at several levels.
+
 ### 3.2 Measuring the incumbents ourselves [I]
 
 Because public data is thin, Phase 0 includes a black-box characterisation of Live (which Brent owns) using the same harness: pan curve, SRC sweep, 1:1 warp null, fade shape, delay-compensation alignment, limiter overshoot. This is legal black-box observation and produces the "Live-compatible" profile.
@@ -243,7 +261,7 @@ Reading [I]: Live's default mode is a sample-peak limiter and lets the full 3 dB
 |---|---|---|---|---|---|
 | Delay compensation on all paths | 3 | Present, recent fixes [V1] | Build | Build | Mature [I] |
 | Multicore scheduling | 3 | Present, unmeasured [BENCH] | Build | Build | Mature [V1] |
-| Sample-accurate automation | 3 | Unknown [BENCH] | By design | By design | Unverified |
+| Sample-accurate automation | 3 | **Yes, per-sample (measured, section 3.1c)** | By design | By design | Unverified |
 | 64-bit summing | 2 | Unknown [BENCH] | By design | By design | Unverified |
 | Deterministic offline render | 3 | Unknown [BENCH] | By design | By design | [BENCH] |
 | Headless | 3 | No evidence [BENCH] | By design | By design | CLI only |
@@ -566,10 +584,11 @@ Thresholds are proposals [I]; Phase 0 replaces them with measured baselines from
 | 5 | Offline speed | 64 tracks × 30 s in 1.40 s wall = **21x realtime** including ~0.8 s fixed engine start-up per job; 16 tracks × 60 s = 48x; the render itself runs at roughly 3,000 track-seconds per second | ≥ 20x: **pass** (with no plugins) |
 | 6 | Determinism | 16 tracks × 10 s rendered 5 times: **byte-identical** (one SHA-256) | pass |
 | 7 | Summing precision | 100 identical tracks at −0.1 dBFS: residual **−126 dB relative to the sum**, exactly where 100 single-precision additions land; a 64-bit bus would sit near −150 dB | ≤ −140: **fail**; Tracktion mixes in 32-bit float |
-| 3 | Delay compensation | Latency Tester 20 ms: null −121 dBFS; 250 ms: null **−86 dBFS** | sample-exact: pass at 20 ms, degraded at 250 ms (cause not yet found) |
-| 1, 2, 4, 8–12 | track ramp, topology, automation, sandbox, crash, stretch load, headless, clip launch | not yet run (headless rendering itself is proven by every probe above) | — |
+| 3 | Delay compensation | byte-identical at 10–400 ms when clips start ≥ 1 s; degraded only for clips at t = 0 (no pre-roll room) | pass; see 3.1c |
+| 4 | Automation resolution | gain changes every sample on a pan ramp | pass (section 3.1c) |
+| 1, 2, 8–12 | track ramp, topology, sandbox, crash, stretch load, headless, clip launch | not yet run (headless rendering itself is proven by every probe above) | — |
 
-Reading [I]: Tracktion is deterministic and fast enough offline. Its mix bus is 32-bit float, which is inaudible at −126 dB but below the spec, so the spec's 64-bit summing is a fork item alongside the sinc-at-1:1 bypass (section 3.1a). The 250 ms compensation residual needs a cause before Phase 1.
+Reading [I]: Tracktion is deterministic and fast enough offline. Its mix bus is 32-bit float, which is inaudible at −126 dB but below the spec, so the spec's 64-bit summing is a fork item alongside the sinc-at-1:1 bypass (section 3.1a). The 250 ms compensation residual turned out to be a start-of-timeline effect (section 3.1c).
 
 ### 12.2 Device parity harness
 

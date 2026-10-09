@@ -80,7 +80,41 @@ def bench_summing(target, work: Path, tracks: int = 100, seconds: float = 2.0) -
             "residual_db_re_sum": round(resid - 20 * np.log10(tracks), 2), "lag_samples": int(lag)}
 
 
-BENCHES = {"offline_speed": bench_offline_speed, "determinism": bench_determinism, "summing": bench_summing}
+def bench_automation(target, work: Path, ramp_s: float = 1.0) -> Dict[str, Any]:
+    """Automation resolution: a linear pan ramp over `ramp_s` on a steady fs/4
+    tone (period 4 samples, so its peak envelope follows gain changes to within
+    2 samples), rendered with the engine's -3 dB constant-power law and compared
+    with that law's analytic curve. A block-based engine holds the pan for a whole
+    buffer: the staircase shows up as the gain-update step length in samples and
+    as the worst deviation from the smooth curve."""
+    sr = target.sr
+    f0 = sr / 4.0
+    tone = signals.sine(f0, ramp_s + 0.5, sr, -12.0)
+    wav = signals.write_wav(work / "auto_src.wav", tone, sr)
+    out = target._render([{"file": str(wav), "position_beats": 0.0, "pan": -1.0,
+                           "pan_from": -1.0, "pan_to": 1.0, "pan_ramp_s": ramp_s}],
+                         ramp_s + 0.5, extra={"pan_law": "-3"})
+    n = int(ramp_s * sr)
+    env = [measure.maximum_filter1d(np.abs(out[:n, ch]), size=4) for ch in (0, 1)]
+    p = -1.0 + 2.0 * np.arange(n) / n
+    want = np.array([measure.pan_gains("sin_-3_0", float(x)) for x in p]) * 10 ** (-12.0 / 20)
+    mid = slice(int(0.1 * n), int(0.9 * n))                 # away from the law's -inf ends
+    err_db = [20 * np.log10(np.maximum(env[ch][mid], 1e-12) / np.maximum(want[mid, ch], 1e-12))
+              for ch in (0, 1)]
+    # gain-update step: distance between successive changes of the LEFT envelope,
+    # ignoring the 2-sample jitter of the tone's own peaks
+    e = env[0][mid]
+    changes = np.nonzero(np.abs(np.diff(e)) > 1e-7 * float(np.max(e)))[0]
+    gaps = np.diff(changes)
+    gaps = gaps[gaps > 2]
+    step = int(np.median(gaps)) if len(gaps) else 1
+    return {"ramp_s": ramp_s, "law": "sin_-3_0", "tone_hz": f0,
+            "worst_err_db": round(float(max(np.max(np.abs(err_db[0])), np.max(np.abs(err_db[1])))), 3),
+            "gain_update_step_samples": step, "num_gain_changes": int(len(changes))}
+
+
+BENCHES = {"offline_speed": bench_offline_speed, "determinism": bench_determinism,
+           "summing": bench_summing, "automation": bench_automation}
 
 
 def main(argv=None) -> int:

@@ -77,12 +77,13 @@ class TracktionTarget:
         return self._render([{"file": str(wav), "position_beats": float(position_beats),
                               "pan": float(pan)}], seconds, warp_mode)
 
-    def _render(self, clips: list, seconds: float, warp_mode: str | None = None) -> np.ndarray:
+    def _render(self, clips: list, seconds: float, warp_mode: str | None = None,
+                extra: dict | None = None) -> np.ndarray:
         self.takes += 1
         out = self.work / f"take_{self.takes:03d}.wav"
         out.unlink(missing_ok=True)                        # Tracktion's writer appends to an existing file
         job = {"sample_rate": self.sr, "tempo": profile.TEMPO, "seconds": float(seconds),
-               "output": str(out), **self.options,
+               "output": str(out), **self.options, **(extra or {}),
                **({"warp_mode": warp_mode} if warp_mode else {}),
                "clips": clips}
         job_path = self.work / f"job_{self.takes:03d}.json"

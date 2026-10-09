@@ -185,11 +185,17 @@ def probe_pdc(target, work: Path) -> Dict[str, Any]:
         sum_lag = measure.latency_samples(base, both, sr, max_lag_s=1.0)
         aligned = both[sum_lag:] if sum_lag >= 0 else np.concatenate([np.zeros(-sum_lag), both])
         gain_db, matched = fidelity.gain_match(base, aligned[:len(base)])
+        resid = measure.residual_dbfs(base, matched)
+        # Two valid strategies: render the latent track early (sum unshifted) or
+        # delay every other track to match it (whole sum shifted by the latency).
+        # Either way the two copies must still line up, which the residual shows.
+        method = ("advance" if sum_lag == 0 else "delay-all" if abs(sum_lag - dev_lag) <= 1 else "mixed")
         out[spec["name"]] = {"device_latency_samples": int(dev_lag),
                              "sum_offset_samples": int(sum_lag),
                              "sum_gain_db": round(gain_db, 3),
-                             "sum_residual_dbfs": round(measure.residual_dbfs(base, matched), 2),
-                             "compensated": bool(sum_lag == 0 and measure.residual_dbfs(base, matched) < -60.0)}
+                             "sum_residual_dbfs": round(resid, 2),
+                             "method": method,
+                             "compensated": bool(resid < -60.0 and method != "mixed")}
     return out
 
 

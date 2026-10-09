@@ -161,9 +161,42 @@ def probe_limiter(target, work: Path) -> Dict[str, Any]:
     return out
 
 
+def probe_pdc(target, work: Path) -> Dict[str, Any]:
+    """Plugin delay compensation. Two tracks play the same clip; track B also
+    carries a transparent device that reports latency (`target.latency_specs`).
+    The target returns their SUM (`target.play_sum(wav, seconds, spec, mute_a)`).
+    With compensation working, the sum with the device equals the sum without
+    it; without compensation the two copies comb-filter. Reports per device: the
+    device's own latency (B alone vs A alone), the sum's offset against the
+    device-free sum, and the residual between them after gain matching."""
+    specs = list(getattr(target, "latency_specs", []))
+    if not specs or not hasattr(target, "play_sum"):
+        return {"skipped": "target cannot sum two tracks with a latent device"}
+    sr = target.sr
+    wav = signals.write_wav(work / "pdc_src.wav",
+                            signals.fade(signals.noise(2.0, sr, level_db=-30.0, seed=13), sr), sr)
+    base = target.play_sum(wav, 2.5, None, mute_a=False)[:, 0]        # A + B, no device
+    a_alone = target.play_sum(wav, 2.5, None, mute_a=False, mute_b=True)[:, 0]
+    out: Dict[str, Any] = {}
+    for spec in specs:
+        b_alone = target.play_sum(wav, 2.5, spec, mute_a=True)[:, 0]
+        both = target.play_sum(wav, 2.5, spec, mute_a=False)[:, 0]
+        dev_lag = measure.latency_samples(a_alone, b_alone, sr, max_lag_s=1.0)
+        sum_lag = measure.latency_samples(base, both, sr, max_lag_s=1.0)
+        aligned = both[sum_lag:] if sum_lag >= 0 else np.concatenate([np.zeros(-sum_lag), both])
+        gain_db, matched = fidelity.gain_match(base, aligned[:len(base)])
+        out[spec["name"]] = {"device_latency_samples": int(dev_lag),
+                             "sum_offset_samples": int(sum_lag),
+                             "sum_gain_db": round(gain_db, 3),
+                             "sum_residual_dbfs": round(measure.residual_dbfs(base, matched), 2),
+                             "compensated": bool(sum_lag == 0 and measure.residual_dbfs(base, matched) < -60.0)}
+    return out
+
+
 PROBES: Dict[str, Callable] = {"pan": probe_pan, "unity": probe_unity,
                                "edge_fade": probe_edge_fade, "src": probe_src,
-                               "warp": probe_warp, "limiter": probe_limiter}
+                               "warp": probe_warp, "limiter": probe_limiter,
+                               "pdc": probe_pdc}
 
 
 def run_probes(target, out_dir: Path, name: str = "profile") -> Dict[str, Any]:

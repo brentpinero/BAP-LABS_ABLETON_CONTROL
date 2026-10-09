@@ -101,6 +101,7 @@ int main (int argc, char** argv)
         return fail ("job needs clips[] and output");
 
     te::Engine engine { "tracktion_probe", std::make_unique<HeadlessUI>(), std::make_unique<te::EngineBehaviour>() };
+    engine.getPluginManager().createBuiltInType<te::LatencyPlugin>();   // for the PDC probe
     auto edit = te::Edit::createSingleTrackEdit (engine, te::Edit::EditRole::forRendering);
     edit->ensureNumberOfAudioTracks (clips->size());
     edit->tempoSequence.getTempo (0)->setBpm (tempo);
@@ -154,6 +155,23 @@ int main (int argc, char** argv)
         auto* volPan = tracks[i]->getVolumePlugin();
         volPan->setPanLaw (panLaw);
         volPan->setPan ((float) (double) c.getProperty ("pan", 0.0));
+
+        // per-clip extras for the PDC probe: a muted copy, or a pure-delay plugin
+        // that reports its latency to the engine
+        if ((bool) c.getProperty ("mute", false))
+            tracks[i]->setMute (true);
+
+        const double latencyMs = c.getProperty ("latency_ms", 0.0);
+
+        if (latencyMs > 0.0)
+        {
+            auto latency = te::insertNewPlugin<te::LatencyPlugin> (*tracks[i]);
+
+            if (latency == nullptr)
+                return fail ("could not insert LatencyPlugin");
+
+            latency->latencyTimeSeconds = (float) (latencyMs / 1000.0);
+        }
     }
 
     outFile.deleteFile();                                  // the writer appends to an existing file

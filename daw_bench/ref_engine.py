@@ -45,6 +45,14 @@ class RefEngine:
     """profile.py target. `sr` is the project rate."""
 
     warp_modes = ["bypass"]          # the spec: a stretcher at ratio 1:1 is bypassed
+    latency_specs = [{"name": "transparent device, 20 ms latency", "latency_ms": 20.0}]
+
+    def play_sum(self, wav: str, seconds: float, spec: dict | None,
+                 mute_a: bool = False, mute_b: bool = False) -> np.ndarray:
+        """Sum of two identical tracks; the spec's device is a pure delay that the
+        engine compensates exactly, so the sum is unaffected by it."""
+        a = self.play(wav, 0.0, 0.0, seconds)
+        return (0 if mute_a else 1) * a + (0 if mute_b else 1) * a
 
     def __init__(self, sr: int = 48000, pan_law: str = "sin_-3_0",
                  edge_fade_ms: float = 4.0):

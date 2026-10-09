@@ -60,17 +60,31 @@ class TracktionTarget:
 
     # stretchers compiled into tracktion_probe (Signalsmith Stretch, MIT; see CMakeLists)
     warp_modes = ["signalsmithDefault", "signalsmithCheaper"]
+    # Tracktion's built-in Latency Tester plugin: a pure delay that reports its latency
+    latency_specs = [{"name": "Latency Tester 20 ms", "latency_ms": 20.0},
+                     {"name": "Latency Tester 250 ms", "latency_ms": 250.0}]
+
+    def play_sum(self, wav: str, seconds: float, spec: dict | None,
+                 mute_a: bool = False, mute_b: bool = False) -> np.ndarray:
+        """Two tracks with the same clip, B carrying the latency plugin; master sum."""
+        clip = {"file": str(wav), "position_beats": 0.0, "pan": 0.0}
+        clips = [dict(clip, mute=mute_a),
+                 dict(clip, mute=mute_b, **({"latency_ms": spec["latency_ms"]} if spec else {}))]
+        return self._render(clips, seconds)
 
     def play(self, wav: str, position_beats: float, pan: float, seconds: float,
              warp_mode: str | None = None) -> np.ndarray:
+        return self._render([{"file": str(wav), "position_beats": float(position_beats),
+                              "pan": float(pan)}], seconds, warp_mode)
+
+    def _render(self, clips: list, seconds: float, warp_mode: str | None = None) -> np.ndarray:
         self.takes += 1
         out = self.work / f"take_{self.takes:03d}.wav"
         out.unlink(missing_ok=True)                        # Tracktion's writer appends to an existing file
         job = {"sample_rate": self.sr, "tempo": profile.TEMPO, "seconds": float(seconds),
                "output": str(out), **self.options,
                **({"warp_mode": warp_mode} if warp_mode else {}),
-               "clips": [{"file": str(wav), "position_beats": float(position_beats),
-                          "pan": float(pan)}]}
+               "clips": clips}
         job_path = self.work / f"job_{self.takes:03d}.json"
         job_path.write_text(json.dumps(job))
         run = subprocess.run([str(self.binary), str(job_path)], capture_output=True, text=True,

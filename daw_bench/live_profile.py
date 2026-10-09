@@ -95,9 +95,11 @@ class LiveTarget:
                            channel="Post Mixer", silent=True)
         return sf.read(str(out_wav), dtype="float64", always_2d=True)
 
-    # Live 12 warp modes by index; the clip is warped at the set tempo (an
-    # API-imported clip gets exactly set-tempo beats, measured), so ratio 1:1
+    # Live 12 warp modes; the clip is warped at the set tempo (an API-imported
+    # clip gets exactly set-tempo beats, measured), so ratio 1:1. LOM values:
+    # 5 is the retired REX mode and is rejected, so Complex Pro is 6.
     warp_modes = ["Beats", "Tones", "Texture", "Re-Pitch", "Complex", "Complex Pro"]
+    _warp_values = {"Beats": 0, "Tones": 1, "Texture": 2, "Re-Pitch": 3, "Complex": 4, "Complex Pro": 6}
 
     # Limiters reachable from the browser; params are raw 0..1 values. The probe
     # self-calibrates the ceiling, so only the mode switches matter here.
@@ -116,7 +118,7 @@ class LiveTarget:
             self.client.send("set_clip_warping", {"track_index": self.track_index, "clip_index": 0,
                                                   "warping": True})
             self.client.send("set_clip_warp_mode", {"track_index": self.track_index, "clip_index": 0,
-                                                    "warp_mode": self.warp_modes.index(warp_mode)})
+                                                    "warp_mode": self._warp_values[warp_mode]})
         self.client.send("set_track_pan", {"track_index": self.track_index, "pan": float(pan)})
         self.takes += 1
         cap, _ = self._capture(self.work / f"take_{self.takes:03d}.wav", seconds)

@@ -128,6 +128,20 @@ What this says, measured rather than assumed [I from the numbers above]:
 4. Live's real-time SRC sits at roughly −70 to −80 dB aliasing: audibly fine, but 50–70 dB short of the reference engine and of Tracktion's sinc option. The spec's −120 dB target is therefore an improvement over Live, not parity.
 5. The gate for Phase 1 therefore becomes: Tracktion configured to the spec must null against `ref_engine.py` at ≤ −120 dBFS on the unity probe. Today it does not, by 85 dB.
 
+### 3.1b Warp at ratio 1:1, measured 2026-10-08
+
+Probe: `daw_bench/profile.py::probe_warp`. A 3 s noise clip warped with clip tempo equal to the set tempo (stretch ratio exactly 1.0), one capture per stretch mode; residual after alignment and gain match against the source.
+
+| Target | Mode | Residual (dBFS) | Null depth (dB) | Note |
+|---|---|---|---|---|
+| Live 12 | Beats, Tones, Texture, Re-Pitch | −149 | 120 (bit-transparent) | matches the fact sheet: neutral at original tempo |
+| Live 12 | Complex | **−68** | 48 | never neutral, as documented; output also lands 1,025 samples earlier than the other modes |
+| Live 12 | Complex Pro | **−70** | 50 | never neutral, as documented |
+| Tracktion Engine + Signalsmith Stretch (MIT) | signalsmithDefault, signalsmithCheaper | −150 | 120 (bit-transparent) | stretcher is bypassed or exact at ratio 1.0 |
+| Reference engine | bypass | −104 (edge fades) / < −140 with fades off | — | the spec |
+
+Reading [I]: Live's two highest-quality modes alter audio even when they have nothing to do; the spec's "bypass the stretcher at ratio 1.0 in every mode" is already met by Tracktion with Signalsmith and is a measurable improvement over Live. Signalsmith Stretch is MIT and header-only, so it is the default stretcher for the engine; élastique stays an optional upgrade.
+
 ### 3.2 Measuring the incumbents ourselves [I]
 
 Because public data is thin, Phase 0 includes a black-box characterisation of Live (which Brent owns) using the same harness: pan curve, SRC sweep, 1:1 warp null, fade shape, delay-compensation alignment, limiter overshoot. This is legal black-box observation and produces the "Live-compatible" profile.
@@ -172,6 +186,20 @@ Hard parity gates in this plan reference Live's stock devices plus the reference
 | Lookahead | Continuous 0.1–10 ms plus presets | Live offers three fixed values |
 | Modes | Transparent, punchy, soft-clip, clip-then-limit | Parity with Live's three, plus a clipper stage |
 | Built-in metering | Integrated, short-term, momentary LUFS; true peak; loudness range | Returned as data to the agent on every render |
+
+### 4.2a Measured 2026-10-08: Live 12 Limiter vs FabFilter Pro-L 2
+
+Probe: `daw_bench/profile.py::probe_limiter`, 16x true-peak meter, self-calibrated ceiling (a 0 dBFS steady sine reads back as the ceiling). Signals: fs/4 inter-sample stress tone (true peak 3.01 dB above its samples) and a −6 dB RMS noise burst. Live 12 at 44.1 kHz, device defaults except the mode switch.
+
+| Device | Ceiling read back | Stress-tone overshoot (dBTP above ceiling) | Noise-burst overshoot |
+|---|---|---|---|
+| Live Limiter, mode 0 (Standard) | −0.30 dBFS | **+2.93 dB** | +1.82 dB |
+| Live Limiter, mode 1 (Soft Clip) | −1.32 dBFS | +2.85 dB | +3.15 dB |
+| Live Limiter, mode 2 (True Peak) | −0.30 dBFS | +0.02 dB | **+0.66 dB** |
+| Live Limiter, mode 2, lookahead setting 2 | −0.30 dBFS | +0.02 dB | +0.66 dB (no change; the lookahead parameter write may not have applied) |
+| FabFilter Pro-L 2, defaults | −0.02 dBFS | +0.01 dB | **+0.13 dB** |
+
+Reading [I]: Live's default mode is a sample-peak limiter and lets the full 3 dB inter-sample overshoot through, as the manual implies. Its True Peak mode holds the synthetic stress tone but still overshoots a noise burst by 0.66 dB; Pro-L 2 holds both to within its stated ~0.1 dB. The spec target (≤ 0.1 dBTP overshoot, true-peak mode on by default) therefore sits at Pro-L 2's level and is an improvement over Live's stock device on both counts (default mode and worst-case overshoot). The Soft Clip mode's lower read-back ceiling is the clipper shaving the steady sine, not a different ceiling setting.
 
 ### 4.3 Limiter acceptance tests
 
@@ -448,7 +476,7 @@ Effort figures are estimates for one developer on an M4 Max with AI coding agent
 | Test and benchmark harness (section 12) with BS.1770-5 meter at 16x | Meter matches EBU reference signals within ±0.1 LU and ±0.1 dBTP |
 | Black-box profile of Live: pan curve, SRC sweep, 1:1 warp null, fade shape, delay-compensation alignment, limiter overshoot | Profile stored with signals and scripts in the repo |
 | Python reference engine passes the section 3 probes (executable spec) | Pan law fit exact, SRC alias ≤ −120 dB, fade 4 ms ± 0.3, unity residual ≤ −140 dBFS |
-| Tracktion Engine through the same probes plus the twelve benchmarks in 12.1 | **Probes done 2026-10-08 (section 3.1a)**; benchmarks pending. Go/no-go with numbers: gap to the reference engine per probe |
+| Tracktion Engine through the same probes plus the twelve benchmarks in 12.1 | **Probes done 2026-10-08 (sections 3.1a, 3.1b, 4.2a)**; benchmarks pending. Go/no-go with numbers: gap to the reference engine per probe |
 | Acquire references per section 3.3: REAPER, Pro-L 2 and Pro-Q trials | Installed and rendering through the harness |
 | Counsel review of section 2; product name search | No blocking issue |
 | Go-to-market decision (section 14) | **Decided 2026-10-05: open source, GPLv3** |

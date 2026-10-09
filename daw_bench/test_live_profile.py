@@ -156,7 +156,7 @@ def test_profile_recovers_live_like_behaviour():
     assert set(prof["warp"]) == set(lp.LiveTarget.warp_modes)
     for mode, r in prof["warp"].items():                      # the fake's 4 ms fades bound both
         assert abs(r["length_error_ms"]) < 3.0 and r["null_depth_db"] > 60.0, (mode, r)
-    assert ("set_clip_warp_mode", {"track_index": 2, "clip_index": 0, "warp_mode": 5}) in live.warp_calls
+    assert ("set_clip_warp_mode", {"track_index": 2, "clip_index": 0, "warp_mode": 6}) in live.warp_calls
     # limiter (hard clip at -1 dBFS in the fake): ceiling read back, ISP overshoot = 3 dB
     for name, r in prof["limiter"].items():
         assert abs(r["ceiling_dbfs"] + 1.0) < 0.05, (name, r)

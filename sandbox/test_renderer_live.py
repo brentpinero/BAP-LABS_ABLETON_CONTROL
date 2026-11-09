@@ -134,11 +134,16 @@ def test_sum_stems_to_master_regression():
 def test_dispatch_routes_by_backend():
     calls = {}
     orig = sandbox_renderer.render_iteration
-    sandbox_renderer.render_iteration = lambda s, r: calls.setdefault("pedalboard", True) or {"audio": {}}
+    sandbox_renderer.render_iteration = (
+        lambda s, r, backend="pedalboard": calls.setdefault(backend, True) or {"audio": {}})
     try:
         session = _FakeSession(Path("/tmp"), {}, {"render.backend": "pedalboard"})
         sandbox_renderer.render_iteration_dispatch(session, SimpleNamespace(index=0, grooved={}))
         assert calls.get("pedalboard")
+        # plughost is the same fast tier, with the backend passed through to the render jobs
+        session_ph = _FakeSession(Path("/tmp"), {}, {"render.backend": "plughost"})
+        sandbox_renderer.render_iteration_dispatch(session_ph, SimpleNamespace(index=0, grooved={}))
+        assert calls.get("plughost")
         # unimplemented backend surfaces clearly rather than silently mis-rendering
         session2 = _FakeSession(Path("/tmp"), {}, {"render.backend": "dawdreamer"})
         try:

@@ -50,7 +50,7 @@ def _job_key(job: dict) -> str:
             h.update(str(job["midi"]).encode())
         h.update(f"|{job.get('bpm', 120)}|{job.get('instrument', 'fallback:keys')}"
                  f"|{job.get('bars', '')}|{job.get('tail_seconds', '')}"
-                 f"|{job.get('sr', 44100)}".encode())
+                 f"|{job.get('sr', 44100)}|{job.get('backend', 'pedalboard')}".encode())
         h.update(json.dumps(job.get("params") or {}, sort_keys=True).encode())
     else:
         inp = job["input"]
@@ -76,6 +76,8 @@ def _build_cmd(job: dict) -> list[str]:
             cmd += ["--tail-seconds", str(job["tail_seconds"])]
         if job.get("params"):
             cmd += ["--params", json.dumps(job["params"])]
+        if job.get("backend"):
+            cmd += ["--backend", job["backend"]]
     else:
         cmd += ["--in", job["input"]]
     if "sr" in job:

@@ -116,10 +116,12 @@ def render_job_warm(job: Dict[str, Any],
     params = job.get("params")
     chain = job.get("chain", [])
 
-    if instrument.startswith("fallback:") or job.get("raw_state"):
-        # numpy proxy synth (no load cost) or exact-state transplant (not warmable)
+    if (instrument.startswith("fallback:") or job.get("raw_state")
+            or job.get("backend") == "plughost"):
+        # proxy synth / exact-state transplant (nothing to warm) or plughost (cold path, ~0.8 s)
         audio = render_worker.render_midi(
-            notes, bpm, instrument, sr, bars=bars, tail_seconds=tail, params=params)
+            notes, bpm, instrument, sr, bars=bars, tail_seconds=tail, params=params,
+            backend=job.get("backend", "pedalboard"))
     else:
         plug, baseline = _load_plug_cached(instrument, cache)
         if baseline is not None:

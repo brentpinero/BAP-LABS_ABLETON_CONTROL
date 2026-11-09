@@ -50,6 +50,13 @@ def test_exact_copy_with_known_delay():
     assert abs(res["gain_delta_db"]) < 0.1
 
 
+def test_align_with_lag_window_longer_than_signal():
+    a = _signal(seconds=0.25)
+    delayed = np.concatenate([np.zeros(173), a])
+    lag, _ = fidelity.align(a, delayed, SR, max_lag_s=2.0)  # window > signal length
+    assert lag == 173, lag
+
+
 def test_known_filter_and_gain():
     from scipy.signal import lfilter
     a = _signal()

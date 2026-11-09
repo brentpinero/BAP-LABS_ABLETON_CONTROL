@@ -251,7 +251,15 @@ class AbletonMCPExtended(ControlSurface):
                 track_index = params.get("track_index", 0)
                 device_index = params.get("device_index", 0)
                 io_index = params.get("io_index", None)
-                response["result"] = self._get_device_audio_inputs(track_index, device_index, io_index)
+                response["result"] = self._get_device_io(track_index, device_index, io_index)
+            elif command_type == "get_device_midi_io":
+                # direction "in" -> device.midi_inputs, "out" -> device.midi_outputs
+                track_index = params.get("track_index", 0)
+                device_index = params.get("device_index", 0)
+                io_index = params.get("io_index", None)
+                attr = self._midi_io_attr(params)
+                response["result"] = self._get_device_io(track_index, device_index,
+                                                                   io_index, attr)
 
             # Master track (read-only)
             elif command_type == "get_master_track":
@@ -291,11 +299,13 @@ class AbletonMCPExtended(ControlSurface):
                 "set_track_mute", "set_track_solo", "set_return_track_volume",
                 # Audio clip properties (Priority 2)
                 "set_clip_gain", "set_clip_pitch", "set_clip_loop", "set_clip_warp_mode",
+                "create_arrangement_audio_clip", "set_clip_warping",
                 # Track organization (Priority 3)
-                "create_audio_track", "delete_track", "create_return_track",
+                "create_audio_track", "delete_track", "create_return_track", "delete_return_track",
                 "set_track_color", "fold_track",
                 # Device chain (Priority 4)
                 "delete_device", "set_device_enabled", "set_device_parameter_by_name",
+                "set_device_name", "print_sub",
                 # Arrangement editing (Priority 5)
                 "set_clip_mute", "set_clip_start_end", "set_clip_color",
                 # Master track (Priority 6)
@@ -305,7 +315,7 @@ class AbletonMCPExtended(ControlSurface):
                 # Real-time resampling render path (Priority 8): arm + input routing
                 # + record mode let the render node capture stems over the LOM, no GUI.
                 "set_track_arm", "set_track_input_routing", "set_track_output_routing",
-                "set_device_audio_input",
+                "set_device_audio_input", "set_device_midi_io",
                 "set_record_mode",
                 "set_track_monitor", "set_song_loop", "delete_arrangement_clip"
             ]:
@@ -436,6 +446,16 @@ class AbletonMCPExtended(ControlSurface):
                             clip_index = params.get("clip_index", 0)
                             warp_mode = params.get("warp_mode", 0)
                             result = self._set_clip_warp_mode(track_index, clip_index, warp_mode)
+                        elif command_type == "create_arrangement_audio_clip":
+                            track_index = params.get("track_index", 0)
+                            file_path = params.get("file_path", "")
+                            position = params.get("position", 0.0)
+                            result = self._create_arrangement_audio_clip(track_index, file_path, position)
+                        elif command_type == "set_clip_warping":
+                            track_index = params.get("track_index", 0)
+                            clip_index = params.get("clip_index", 0)
+                            warping = params.get("warping", False)
+                            result = self._set_clip_warping(track_index, clip_index, warping)
 
                         # Track organization (Priority 3)
                         elif command_type == "create_audio_track":
@@ -444,6 +464,8 @@ class AbletonMCPExtended(ControlSurface):
                         elif command_type == "delete_track":
                             track_index = params.get("track_index", 0)
                             result = self._delete_track(track_index)
+                        elif command_type == "delete_return_track":
+                            result = self._delete_return_track(params.get("index", -1))
                         elif command_type == "create_return_track":
                             result = self._create_return_track()
                         elif command_type == "set_track_color":
@@ -465,6 +487,17 @@ class AbletonMCPExtended(ControlSurface):
                             device_index = params.get("device_index", 0)
                             enabled = params.get("enabled", True)
                             result = self._set_device_enabled(track_index, device_index, enabled)
+                        elif command_type == "print_sub":
+                            result = self._print_sub(params.get("bass_group", "bass"),
+                                                     params.get("sub_track", None),
+                                                     params.get("sub_group", "sub"),
+                                                     params.get("normalize", True),
+                                                     params.get("floor", None))
+                        elif command_type == "set_device_name":
+                            track_index = params.get("track_index", 0)
+                            device_index = params.get("device_index", 0)
+                            name = params.get("name", "")
+                            result = self._set_device_name(track_index, device_index, name)
                         elif command_type == "set_device_parameter_by_name":
                             track_index = params.get("track_index", 0)
                             device_index = params.get("device_index", 0)
@@ -535,8 +568,18 @@ class AbletonMCPExtended(ControlSurface):
                             source_name = params.get("source_name", "")
                             channel = params.get("channel", None)
                             source_index = params.get("source_index", None)
-                            result = self._set_device_audio_input(track_index, device_index, io_index,
+                            result = self._set_device_io(track_index, device_index, io_index,
                                                                   source_name, channel, source_index)
+                        elif command_type == "set_device_midi_io":
+                            track_index = params.get("track_index", 0)
+                            device_index = params.get("device_index", 0)
+                            io_index = params.get("io_index", 0)
+                            source_name = params.get("source_name", "")
+                            channel = params.get("channel", None)
+                            source_index = params.get("source_index", None)
+                            attr = self._midi_io_attr(params)
+                            result = self._set_device_io(track_index, device_index, io_index,
+                                                                  source_name, channel, source_index, attr)
                         elif command_type == "set_record_mode":
                             mode = params.get("mode", 0)
                             result = self._set_record_mode(mode)
@@ -1970,6 +2013,39 @@ class AbletonMCPExtended(ControlSurface):
             self.log_message("Error setting clip warp mode: " + str(e))
             raise
 
+    def _create_arrangement_audio_clip(self, track_index, file_path, position):
+        """Place an audio file as an arrangement clip (Track.create_audio_clip, Live 12+)."""
+        try:
+            if track_index < 0 or track_index >= len(self._song.tracks):
+                raise IndexError("Track index out of range")
+            track = self._song.tracks[track_index]
+            if not track.has_audio_input:
+                raise ValueError("Track is not an audio track")
+            if not hasattr(track, 'create_audio_clip'):
+                raise Exception("create_audio_clip not available - requires Live 12+")
+            track.create_audio_clip(file_path, position)
+            clips = list(track.arrangement_clips)
+            for i, clip in enumerate(clips):
+                if abs(clip.start_time - position) < 0.01:
+                    return {"clip_index": i, "start_time": clip.start_time,
+                            "end_time": clip.end_time, "warping": clip.warping}
+            raise Exception("audio clip was not created")
+        except Exception as e:
+            self.log_message("Error creating arrangement audio clip: " + str(e))
+            raise
+
+    def _set_clip_warping(self, track_index, clip_index, warping):
+        """Switch warp on or off for an arrangement audio clip"""
+        try:
+            clip = self._get_arrangement_clip_by_index(track_index, clip_index)
+            if not clip.is_audio_clip:
+                raise ValueError("Not an audio clip")
+            clip.warping = bool(warping)
+            return {"warping": clip.warping}
+        except Exception as e:
+            self.log_message("Error setting clip warping: " + str(e))
+            raise
+
     def _get_clip_warp_markers(self, track_index, clip_index):
         """Get warp markers for audio clip (Live 11+)"""
         try:
@@ -1978,10 +2054,13 @@ class AbletonMCPExtended(ControlSurface):
                 raise ValueError("Not an audio clip")
 
             try:
-                markers = clip.warp_markers
+                # WarpMarkerVector is not JSON-serialisable; flatten to plain dicts
+                markers = [{"beat_time": float(m.beat_time), "sample_time": float(m.sample_time)}
+                           for m in clip.warp_markers]
                 return {"warp_markers": markers}
-            except:
+            except Exception:
                 return {"warp_markers": [], "note": "Requires Live 11+"}
+
         except Exception as e:
             self.log_message("Error getting clip warp markers: " + str(e))
             raise
@@ -2013,6 +2092,20 @@ class AbletonMCPExtended(ControlSurface):
             }
         except Exception as e:
             self.log_message("Error deleting track: " + str(e))
+            raise
+
+    def _delete_return_track(self, index):
+        """Delete a return track by its index in song.return_tracks (DESTRUCTIVE)"""
+        try:
+            n = len(self._song.return_tracks)
+            if index < 0:
+                index = n + index
+            if index < 0 or index >= n:
+                raise IndexError("Return track index out of range")
+            self._song.delete_return_track(index)
+            return {"deleted": True, "index": index}
+        except Exception as e:
+            self.log_message("Error deleting return track: " + str(e))
             raise
 
     def _create_return_track(self):
@@ -2207,26 +2300,36 @@ class AbletonMCPExtended(ControlSurface):
             self.log_message("Error setting track output routing: " + str(e))
             raise
 
-    def _get_device_audio_inputs(self, track_index, device_index, io_index=None):
+    @staticmethod
+    def _midi_io_attr(params):
+        """DeviceIO list for a MIDI IO command: direction "in" (default) or "out"."""
+        return "midi_outputs" if params.get("direction", "in") == "out" else "midi_inputs"
+
+    def _get_device_io(self, track_index, device_index, io_index=None,
+                                 attr="audio_inputs"):
         """Enumerate a device's audio-input IOs (Live 10+ DeviceIO): current routing +
         available source types/channels. This is the DEVICE-SIDE mirror of track output
         routing — setting an IO's routing PULLS any track's signal into a multichannel
         plugin~ pair with NO capture track and NO change to the source track's routing
         (the Audio Routes / Multi Analyser mechanism). io_index=None returns a summary
         of every IO with full available lists only for IO 0 (payload sanity);
-        io_index=k returns the full lists for that IO."""
+        io_index=k returns the full lists for that IO.
+        `attr` selects the DeviceIO list: audio_inputs (default), midi_inputs or
+        midi_outputs (Live 11+, via get_device_midi_io); the result's presence flag
+        is named after it ("has_" + attr, e.g. has_audio_inputs)."""
         try:
             track = self._resolve_track(track_index)
             if device_index < 0 or device_index >= len(track.devices):
                 raise IndexError("Device index out of range")
             device = track.devices[device_index]
-            if not hasattr(device, "audio_inputs"):
+            if not hasattr(device, attr):
                 # diagnostic: what the python API actually exposes on this device
-                return {"device_name": str(device.name), "has_audio_inputs": False,
+                return {"device_name": str(device.name), "has_" + attr: False,
                         "io_like_attrs": [a for a in dir(device)
-                                          if "input" in a.lower() or "routing" in a.lower()]}
-            ios = list(device.audio_inputs)
-            result = {"device_name": str(device.name), "has_audio_inputs": True,
+                                          if "input" in a.lower() or "output" in a.lower()
+                                          or "routing" in a.lower()]}
+            ios = list(getattr(device, attr))
+            result = {"device_name": str(device.name), "has_" + attr: True,
                       "io_count": len(ios), "ios": []}
             for i, io in enumerate(ios):
                 if io_index is not None and i != int(io_index):
@@ -2250,26 +2353,30 @@ class AbletonMCPExtended(ControlSurface):
                 result["ios"].append(entry)
             return result
         except Exception as e:
-            self.log_message("Error getting device audio inputs: " + str(e))
+            self.log_message("Error getting device %s: %s" % (attr, e))
             raise
 
-    def _set_device_audio_input(self, track_index, device_index, io_index,
-                                source_name="", channel=None, source_index=None):
+    def _set_device_io(self, track_index, device_index, io_index,
+                                source_name="", channel=None, source_index=None,
+                                attr="audio_inputs"):
         """Point one audio-input IO of a device at a source track (device pulls the
         signal; the source track's own routing is untouched). Source resolution
         mirrors _set_track_input_routing: source_index resolves duplicates by
         (name, occurrence) in session order; source_name matches display_name
         (exact, then substring) — use it for returns/master, which have no
         song.tracks index. `channel` picks the tap point (e.g. 'Post FX',
-        'Post Mixer')."""
+        'Post Mixer').
+        `attr` selects the DeviceIO list: audio_inputs (default), midi_inputs or
+        midi_outputs (via set_device_midi_io; for midi_outputs the "source" is the
+        DESTINATION track and `channel` its input, e.g. 'Track In' or an instrument)."""
         try:
             track = self._resolve_track(track_index)
             if device_index < 0 or device_index >= len(track.devices):
                 raise IndexError("Device index out of range")
             device = track.devices[device_index]
-            if not hasattr(device, "audio_inputs"):
-                raise ValueError("Device has no audio_inputs (needs Live 10+ DeviceIO)")
-            ios = list(device.audio_inputs)
+            if not hasattr(device, attr):
+                raise ValueError("Device has no %s (needs Live DeviceIO)" % attr)
+            ios = list(getattr(device, attr))
             if io_index < 0 or io_index >= len(ios):
                 raise IndexError("io_index out of range (device has %d IOs)" % len(ios))
             io = ios[io_index]
@@ -2319,7 +2426,7 @@ class AbletonMCPExtended(ControlSurface):
                         str(c.display_name) for c in io.available_routing_channels]
             return result
         except Exception as e:
-            self.log_message("Error setting device audio input: " + str(e))
+            self.log_message("Error setting device %s: %s" % (attr, e))
             raise
 
     def _set_track_arm(self, track_index, arm):
@@ -2442,6 +2549,202 @@ class AbletonMCPExtended(ControlSurface):
             raise ValueError("Device does not have on/off control")
         except Exception as e:
             self.log_message("Error setting device enabled: " + str(e))
+            raise
+
+    # ---- Sub Print: Bass group MIDI -> normalized clips on the sub track ----------------
+    # Pure helpers below MIRROR harness/sub_follower_core.py (unroll_clip, merge_regions,
+    # mono_line, fold, choose_floor); keep them in sync with that module and its tests.
+    _SP_EPS = 1e-6
+    _SP_BAND_LO, _SP_BAND_HI, _SP_FLOOR_MIN, _SP_FLOOR_MAX = 28, 38, 24, 31
+    _SP_CLIP_NAME = "Sub <- Bass"
+
+    @staticmethod
+    def _sp_unroll_clip(start, end, start_marker, looping, loop_start, loop_end, notes):
+        EPS = 1e-6
+        segs, at = [], start
+        if looping and loop_end - loop_start > EPS:
+            frm = start_marker
+            while at < end - EPS:
+                to = min(loop_end, frm + (end - at))
+                if to <= frm + EPS:
+                    frm = loop_start
+                    continue
+                segs.append((frm, to, at))
+                at += to - frm
+                frm = loop_start
+        else:
+            segs.append((start_marker, start_marker + (end - start), start))
+        out = []
+        for n in notes:
+            if n.get("mute"):
+                continue
+            for frm, to, at in segs:
+                if frm - EPS <= n["start_time"] < to - EPS:
+                    abs_start = at + (n["start_time"] - frm)
+                    out.append({"pitch": int(n["pitch"]), "start": abs_start,
+                                "duration": min(n["duration"], to - n["start_time"], end - abs_start),
+                                "velocity": int(n.get("velocity", 100))})
+        return out
+
+    @staticmethod
+    def _sp_merge_regions(regions):
+        EPS = 1e-6
+        out = []
+        for s_, e_ in sorted(regions):
+            if out and s_ <= out[-1][1] + EPS:
+                out[-1] = (out[-1][0], max(out[-1][1], e_))
+            else:
+                out.append((s_, e_))
+        return out
+
+    @staticmethod
+    def _sp_mono_line(notes):
+        import heapq
+        EPS = 1e-6
+        notes = sorted((n for n in notes if n["duration"] > EPS), key=lambda n: n["start"])
+        times = sorted({t for n in notes for t in (n["start"], n["start"] + n["duration"])})
+        line, held, nxt = [], [], 0
+        for t0, t1 in zip(times, times[1:]):
+            if t1 - t0 <= EPS:
+                continue
+            while nxt < len(notes) and notes[nxt]["start"] <= t0 + EPS:
+                n = notes[nxt]
+                heapq.heappush(held, (n["pitch"], n["start"] + n["duration"]))
+                nxt += 1
+            while held and held[0][1] < t1 - EPS:
+                heapq.heappop(held)
+            if not held:
+                continue
+            low = held[0][0]
+            last = line[-1] if line else None
+            if last and last["pitch"] == low and abs(last["start"] + last["duration"] - t0) <= EPS:
+                last["duration"] = t1 - last["start"]
+            else:
+                line.append({"pitch": low, "start": t0, "duration": t1 - t0})
+        return line
+
+    @classmethod
+    def _sp_choose_floor(cls, line):
+        best = None
+        for f in range(cls._SP_FLOOR_MIN, cls._SP_FLOOR_MAX + 1):
+            total = outside = 0.0
+            moves = jumps = 0
+            prev = None
+            for seg in line:
+                p = f + (seg["pitch"] - f) % 12
+                total += seg["duration"]
+                outside += max(cls._SP_BAND_LO - p, p - cls._SP_BAND_HI, 0) * seg["duration"]
+                if prev is not None and p != prev:
+                    moves += 1
+                    jumps += abs(p - prev) > 6
+                prev = p
+            cost = (outside / total if total else 0.0) + 0.5 * (jumps / moves if moves else 0.0)
+            key = (round(cost, 6), abs(f - cls._SP_BAND_LO))
+            if best is None or key < best[0]:
+                best = (key, f)
+        return best[1]
+
+    def _sp_inside_group(self, track, group):
+        t = track
+        for _ in range(16):
+            gi = self._group_track_index(t)
+            if gi < 0:
+                return False
+            if gi == group:
+                return True
+            t = self._song.tracks[gi]
+        return False
+
+    def _print_sub(self, bass_group="bass", sub_track=None, sub_group="sub",
+                   normalize=True, floor=None):
+        """Copy every arrangement MIDI note of the tracks inside the Bass group onto the
+        sub track as clips named 'Sub <- Bass' (replacing only those), normalized by
+        default: lowest sounding note, folded into the octave above `floor` (auto)."""
+        try:
+            tracks = list(self._song.tracks)
+
+            def find_group(needle):
+                for i, t in enumerate(tracks):
+                    if getattr(t, "is_foldable", False) and needle.lower() in str(t.name).lower():
+                        return i
+                raise ValueError("no group track with %r in its name" % needle)
+
+            bass = find_group(bass_group)
+            if sub_track is not None:
+                sub = self._resolve_track(sub_track)
+                sub_i = next(i for i, t in enumerate(tracks) if t == sub)
+            else:
+                sg = find_group(sub_group)
+                sub_i = next((i for i, t in enumerate(tracks)
+                              if t.has_midi_input and not getattr(t, "is_foldable", False)
+                              and self._sp_inside_group(t, sg) and len(list(t.devices)) > 0), None)
+                if sub_i is None:
+                    raise ValueError("no MIDI track with an instrument inside the %r group" % sub_group)
+                sub = tracks[sub_i]
+
+            notes, regions, sources = [], [], []
+            for i, t in enumerate(tracks):
+                if i == sub_i or not t.has_midi_input or getattr(t, "is_foldable", False):
+                    continue
+                if not self._sp_inside_group(t, bass):
+                    continue
+                sources.append(str(t.name))
+                for clip in t.arrangement_clips:
+                    if not clip.is_midi_clip or getattr(clip, "muted", False):
+                        continue
+                    raw = [{"pitch": n.pitch, "start_time": n.start_time, "duration": n.duration,
+                            "velocity": n.velocity, "mute": n.mute}
+                           for n in clip.get_all_notes_extended()]
+                    regions.append((clip.start_time, clip.end_time))
+                    notes += self._sp_unroll_clip(clip.start_time, clip.end_time, clip.start_marker,
+                                                  clip.looping, clip.loop_start, clip.loop_end, raw)
+            if not notes:
+                return {"printed": 0, "sources": sources, "message": "no arrangement notes in the Bass group"}
+
+            if normalize:
+                line = self._sp_mono_line(notes)
+                floor = int(floor) if floor is not None else self._sp_choose_floor(line)
+                notes = [{"pitch": floor + (n["pitch"] - floor) % 12, "start": n["start"],
+                          "duration": n["duration"], "velocity": 100} for n in line]
+
+            for clip in [c for c in sub.arrangement_clips if str(c.name) == self._SP_CLIP_NAME]:
+                sub.delete_clip(clip)
+
+            from Live import Clip as LiveClip
+            made = 0
+            for start, end in self._sp_merge_regions(regions):
+                sub.create_midi_clip(start, end - start)
+                clip = next((c for c in sub.arrangement_clips
+                             if abs(c.start_time - start) < 1e-3 and str(c.name) != self._SP_CLIP_NAME), None)
+                if clip is None:
+                    continue
+                clip.name = self._SP_CLIP_NAME
+                specs = [LiveClip.MidiNoteSpecification(
+                            pitch=n["pitch"], start_time=max(0.0, n["start"] - start),
+                            duration=min(n["duration"], end - n["start"]), velocity=n["velocity"], mute=False)
+                         for n in notes if start - 1e-6 <= n["start"] < end - 1e-6]
+                if specs:
+                    clip.add_new_notes(tuple(specs))
+                made += 1
+            return {"printed": len(notes), "clips": made, "sub_track": str(sub.name),
+                    "sources": sources, "normalized": bool(normalize),
+                    "floor": floor if normalize else None}
+        except Exception as e:
+            self.log_message("Error in print_sub: " + str(e))
+            raise
+
+    def _set_device_name(self, track_index, device_index, name):
+        """Rename a device instance (the title shown in the device chain and in
+        automation choosers), e.g. one Sub Follow Tap per source track."""
+        try:
+            track = self._resolve_track(track_index)
+            if device_index < 0 or device_index >= len(track.devices):
+                raise IndexError("Device index out of range")
+            device = track.devices[device_index]
+            device.name = str(name)
+            return {"device_index": device_index, "device_name": str(device.name)}
+        except Exception as e:
+            self.log_message("Error setting device name: " + str(e))
             raise
 
     def _set_device_parameter_by_name(self, track_index, device_index, param_name, value):

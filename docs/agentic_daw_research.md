@@ -536,7 +536,12 @@ What Phase 0 changed in the spec, from measurement rather than assumption: the d
 - **Added time per block:** median 0.013 ms (gate 0.3 ms).
 - **Decision: the plugin host is Rust (plughost) behind the Tracktion C++ engine.**
 - **Serum fidelity gate PASSED (2026-11-08):** the "headless Serum is bassier" gap was missing tempo. With a playing transport at the set's tempo, both hosts land **+0.27 dB flat across all bands** against a fresh Live freeze (+0.6 dB against the July freeze), down from 6–14 dB. Every engine and render path must therefore send a transport. pedalboard (the sandbox renderer) cannot.
-- **Still open:** the realtime gates, and determinism over 10 renders.
+- **Bridge spike (2026-11-08, `daw_bench/plughost_bridge/RESULTS.md`):** Tracktion hosts plugins through plughost via a custom JUCE plugin format and a Rust C ABI.
+  - Offline renders through the bridge are **bit-identical** to in-process, with delay compensation exact.
+  - At 128 samples: **0 dropouts after warm-up up to 64 Serum tracks** (2 quanta of latency, +5.8 ms). In-process Tracktion drops out from 1 track (97 overruns at 32).
+  - Killing every helper mid-playback costs **0 engine overruns**; tracks are back in 0.71 s.
+  - Memory: Serum is ~3.2 GB per instance either way; the bridge adds ~0.25 GB per track.
+- **Still open:** a real CoreAudio device or workgroup run; multi-plugin chains (the 300-track × 6-plugin gate); state persistence through Tracktion; determinism over 10 renders.
 
 ### Phase 2: Document model and agent API (2–3 months, overlaps Phase 1)
 

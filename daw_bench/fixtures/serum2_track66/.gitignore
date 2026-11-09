@@ -1,0 +1,5 @@
+# Local only: an excerpt of a remix freeze and the patch state from a personal project.
+# The repo is public; see README.md for how these were extracted.
+*.wav
+*.bin
+*.vstpreset

@@ -1,0 +1,25 @@
+[package]
+name = "bakeoff_rust_host"
+version = "0.1.0"
+edition = "2024"
+publish = false
+description = "Plugin-hosting bake-off probe on plughost (out-of-process VST3/AU/CLAP host)"
+
+# Probe and helper are pinned to the same plughost release: the helper protocol must match.
+[dependencies]
+plughost = "=0.2.1"
+plughost-helper = "=0.2.1"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+hound = "3.5"
+
+[[bin]]
+name = "host_rs"
+path = "src/main.rs"
+
+[[bin]]
+name = "plughost-helper"
+path = "src/bin/helper.rs"
+
+[profile.release]
+debug = false

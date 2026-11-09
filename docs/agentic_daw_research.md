@@ -529,6 +529,15 @@ What Phase 0 changed in the spec, from measurement rather than assumption: the d
 | Headless | Full render with AU and VST3 instruments, unattended |
 | Serum fidelity | Gap vs. in-Live render ≤ 1 dB in 20–250 Hz (repo baseline: 5–15 dB) |
 
+**Phase 1 spike, plugin-host bake-off (2026-11-08), `daw_bench/host_bakeoff/RESULTS.md`.** The same probe ran on 50 plugins through a JUCE in-process host (C++) and through plughost 0.2.1 (Rust, out-of-process).
+- **Probe completion (load, process, save, restore):** plughost 48/48, JUCE 47/48 (Pro-Q 3 AU segfaults).
+- **Restore nulls for deterministic plugins:** plughost 26/27, JUCE 22/22.
+- **Kill test:** plughost recovered from a SIGKILL'd helper in 123 ms and finished the render.
+- **Added time per block:** median 0.013 ms (gate 0.3 ms).
+- **Decision: the plugin host is Rust (plughost) behind the Tracktion C++ engine.**
+- **Serum gap:** identical across all three hosts (+6 / +14 / +7 dB) and unchanged by offline/realtime mode. It is not a hosting problem; Serum version and Live's freeze path are next.
+- **Still open:** the realtime gates, and determinism over 10 renders.
+
 ### Phase 2: Document model and agent API (2–3 months, overlaps Phase 1)
 
 | Deliverable | Gate |

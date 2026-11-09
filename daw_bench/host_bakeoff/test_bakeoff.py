@@ -111,6 +111,27 @@ def test_stimulus_and_notes(tmp_path):
     assert all(n["start"] + n["dur"] < bakeoff.SR * bakeoff.SECONDS for n in notes)
 
 
+def test_watch_freeze_ignores_old_wavs_and_cuts_at_clip(tmp_path):
+    import os
+    import threading
+    freeze = tmp_path / "Freeze"
+    freeze.mkdir()
+    sf.write(freeze / "old.wav", np.zeros((48000, 2), "float32"), 48000)   # present before: ignored
+    x = np.zeros((48000 * 20, 2), "float32")
+    start = int(32 * 60 / 126 * 48000)                                     # beat 32 at 126 BPM
+    x[start] = 1.0                                                          # marker at the clip start
+
+    def freeze_track():
+        sf.write(freeze / "new.wav", x, 48000, subtype="FLOAT")
+        old = time.time() - 5
+        os.utime(freeze / "new.wav", (old, old))                           # looks finished writing
+    import time
+    threading.Timer(0.3, freeze_track).start()
+    cut = bakeoff.watch_freeze(freeze, 32, 126, tmp_path, window_s=2.0)
+    y, sr = sf.read(cut)
+    assert sr == 48000 and y.shape == (96000, 2) and y[0, 0] == 1.0
+
+
 def test_plugin_list_shape():
     plugins = json.loads((bakeoff.HERE / "plugin_list.json").read_text())["plugins"]
     assert len(plugins) == 50

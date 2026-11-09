@@ -230,28 +230,69 @@ def compat(out: Path, limit: int | None) -> list[dict]:
     return rows
 
 
-def serum(out: Path) -> dict:
-    """Track-66 patch through each host vs the Ableton freeze (and the old pedalboard render)."""
+def watch_freeze(freeze_dir: Path, clip_start_beats: float, bpm: float, out: Path,
+                 window_s: float = 12.0) -> Path:
+    """Waits for a NEW wav in a Live project's Freeze folder (written when a track is frozen),
+    then cuts the window. clip_start_beats counts from the start of the freeze file, which in
+    Live 12 is the track's FIRST arrangement clip, not bar 1 (measured 2026-11-08)."""
+    before = set(freeze_dir.glob("*.wav")) if freeze_dir.exists() else set()
+    log(f"freeze: watching {freeze_dir} — freeze the track in Live now")
+    while True:
+        new = [f for f in (set(freeze_dir.glob("*.wav")) if freeze_dir.exists() else set()) - before
+               if f.stat().st_size > 1000 and time.time() - f.stat().st_mtime > 2.0]  # finished writing
+        if new:
+            wav = max(new, key=lambda f: f.stat().st_mtime)
+            break
+        time.sleep(1.0)
+    return cut_window(wav, clip_start_beats, bpm, out, window_s)
+
+
+def cut_window(wav: Path, clip_start_beats: float, bpm: float, out: Path, window_s: float = 12.0) -> Path:
+    """The window_s seconds of a freeze file that start clip_start_beats into it."""
+    x, sr = sf.read(wav, dtype="float32", always_2d=True)
+    t0 = int(clip_start_beats * 60.0 / bpm * sr)
+    cut = out / "live_freeze_window.wav"
+    signals.write_wav(cut, x[t0:t0 + int(window_s * sr)], sr)
+    log(f"freeze: {wav.name} ({sr} Hz, {len(x) / sr:.1f} s) -> {window_s:.0f} s window from "
+        f"beat {clip_start_beats} at {bpm} BPM = {t0 / sr:.3f} s")
+    return cut
+
+
+def serum(out: Path, live: Path | None = None, bpm: float | None = None) -> dict:
+    # Render at the reference's sample rate (Serum's oversampling/filters may depend on it).
+
+    """Track-66 patch through each host vs an Ableton freeze (and the old pedalboard render).
+    Default: the July freeze at 100 BPM. With `live` and `bpm`: a fresh freeze at that tempo —
+    the fixture's note keeps its length in beats, so both sides play the same musical note."""
     import fidelity
     notes = json.loads((FIXTURE / "notes.json").read_text())
+    if bpm:
+        scale = notes["bpm"] / bpm
+        for n in notes["notes"]:
+            n["start_s"], n["dur_s"] = n["start_s"] * scale, n["dur_s"] * scale
     comp = (FIXTURE / "component_state.bin").read_bytes()
     cont_path = FIXTURE / "controller_state.bin"
     preset = out / "serum2_track66.vstpreset"
     preset.write_bytes(vstpreset(SERUM2_CLASS, comp, cont_path.read_bytes() if cont_path.exists() else None))
-    frames = int(notes["window_seconds"] * SR)
-    job = {"sr": SR, "block": BLOCK, "frames": frames, "format": "vst3", "bundle": SERUM2_VST3,
+    live = live or FIXTURE / "live.wav"
+    sr = sf.info(str(live)).samplerate
+    frames = int(notes["window_seconds"] * sr)
+    job = {"sr": sr, "block": BLOCK, "frames": frames, "format": "vst3", "bundle": SERUM2_VST3,
            "preset": str(preset),
-           "notes": [{"pitch": n["pitch"], "start": round(n["start_s"] * SR),
-                      "dur": round(n["dur_s"] * SR), "vel": n["velocity"]} for n in notes["notes"]]}
-    live = FIXTURE / "live.wav"
-    result = {}
+           "notes": [{"pitch": n["pitch"], "start": round(n["start_s"] * sr),
+                      "dur": round(n["dur_s"] * sr), "vel": n["velocity"]} for n in notes["notes"]]}
+    result = {"reference": str(live), "bpm": bpm or notes["bpm"], "sr": sr}
     # Offline vs realtime process mode: Serum has "Use Ultra on Render", which only an offline
     # host can trigger — the leading suspect for the low-end gap (sandbox-fidelity notes).
-    for mode in ("offline", "realtime"):
+    # offline_tempo: also send a playing transport at the set's tempo — tempo-synced modulation
+    # in the patch otherwise runs at the plugin's default tempo.
+    variants = {"offline": {}, "realtime": {"realtime": True},
+                "offline_tempo": {"bpm": bpm or notes["bpm"]}}
+    for mode, extra in variants.items():
         for host in ("cpp", "rust"):
             d = out / "serum" / f"{host}_{mode}"
             log(f"serum {host} {mode}: start")
-            res = run_host(host, {**job, "realtime": mode == "realtime"}, d)
+            res = run_host(host, {**job, **extra}, d)
             entry = {"ok": res.get("ok"), "error": res.get("error"), "load_ms": res.get("load_ms")}
             if (d / "a.wav").exists():
                 cmpr = fidelity.compare(d / "a.wav", live)
@@ -265,7 +306,7 @@ def serum(out: Path) -> dict:
             x, y = (sf.read(p, dtype="float64")[0] for p in a)
             result[f"cpp_vs_rust_{mode}_dbfs"] = round(peak_dbfs(x - y), 1)
     old = FIXTURE / "pedalboard_headless.wav"     # the July render through pedalboard (VST3)
-    if old.exists():
+    if old.exists() and not bpm:                  # rendered at July's 100 BPM: only vs that freeze
         cmpr = fidelity.compare(old, live)
         result["pedalboard_baseline"] = {"band_diff_db": cmpr["band_diff_db"],
                                          "low_band_max_abs_db": low_band_max(cmpr["band_diff_db"])}
@@ -375,6 +416,12 @@ def main() -> int:
     ap.add_argument("--only", choices=["compat", "serum", "kill"])
     ap.add_argument("--limit", type=int)
     ap.add_argument("--summarize", metavar="RUN_DIR", help="re-score an existing run's compat.json")
+    ap.add_argument("--freeze-dir", help="serum vs a fresh freeze: the Live project's "
+                                         "Samples/Processed/Freeze folder to watch")
+    ap.add_argument("--freeze-wav", help="serum vs an existing freeze file instead of watching")
+    ap.add_argument("--clip-start-beats", type=float, default=0.0,
+                    help="window start, in beats from the start of the freeze file (= first clip)")
+    ap.add_argument("--bpm", type=float, help="the set's tempo when frozen")
     args = ap.parse_args()
     if args.summarize:                      # re-score from the saved wavs with the current rules
         run = Path(args.summarize)
@@ -399,7 +446,12 @@ def main() -> int:
         rows = compat(out, args.limit)
         report["compat"] = summarize(rows)
     if args.only in (None, "serum"):
-        report["serum"] = serum(out)
+        if args.freeze_dir or args.freeze_wav:
+            cut = (cut_window(Path(args.freeze_wav), args.clip_start_beats, args.bpm, out) if args.freeze_wav
+                   else watch_freeze(Path(args.freeze_dir), args.clip_start_beats, args.bpm, out))
+            report["serum"] = serum(out, cut, args.bpm)
+        else:
+            report["serum"] = serum(out)
     if args.only in (None, "kill"):
         report["kill"] = kill(out)
     (out / "report.json").write_text(json.dumps(report, indent=1))

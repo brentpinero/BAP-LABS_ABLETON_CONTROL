@@ -4,3 +4,11 @@ Window start: clip 1 on the track starts at beat 32 (CurrentStart; loop 0-16, no
 Onset check: live.wav first sample >1e-3 at 0.33 ms (>0.01 at 0.44 ms) vs note at 0 ms; headless.wav shows 0.35 / 0.50 ms. Per-second RMS of live vs headless within ~10% (tail decays after note-off at 9.6 s, consistent with 100 BPM).
 Caveats: the .als master tempo is 126, but the freeze/notes timing (and headless 12.6 s = 9.6+3) is 100 BPM; notes.json uses 100 as specified. Clip start in the ORIGINAL freeze file is not recoverable (Jul 3 .als gone; clips then likely at 0/96 beats, now 32/128); only the window-relative audio matters here.
 Track is FX-free: one PluginDevice, no track or clip automation envelopes (0 ClipEnvelope, 0 AutomationEnvelope). Plugin refs factory content by relative path (see docs/fidelity_findings.md).
+
+## Fresh freeze, 2026-11-08
+`live_2026-11-08_126bpm.wav` (local only): the first 12 s of `Freeze 68-Serum 2 [2026-11-08 170310]-1.wav`.
+That freeze was made with Serum 2.1.5 from "suicide boys v5.als" at 126 BPM, 44.1 kHz. Live's
+freeze file starts at the track's FIRST clip (beat 32), not bar 1, so the window starts at 0 s.
+The fixture's note keeps its length in beats (16), so at 126 BPM it lasts 7.62 s.
+Result: with transport tempo sent, both hosts match this freeze within +0.27 dB in every band
+(daw_bench/host_bakeoff/RESULTS.md, finding 2).

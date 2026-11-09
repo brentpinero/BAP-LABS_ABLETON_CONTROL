@@ -1,7 +1,10 @@
 # Plugin-hosting bake-off: results (2026-11-08)
 
 M4 Max, macOS 26, 48 kHz, 512-sample blocks. Run data: `sandbox_sessions/host_bakeoff/`
-(`compat_run3/`, `serum_run2/`, `kill_run2/`; not in git). How to reproduce: `README.md`.
+(`compat_run3/`, `serum_refreeze3/`, `serum_july_tempo/`, `kill_run3/`; not in git). How to
+reproduce: `README.md`. Serum vs a fresh freeze:
+`python daw_bench/host_bakeoff/bakeoff.py --only serum --freeze-wav "<Freeze/....wav>" --clip-start-beats 0 --bpm 126`
+(or `--freeze-dir <project>/Samples/Processed/Freeze` to watch for one).
 
 ## Verdict
 
@@ -19,7 +22,7 @@ layout negotiation.
 | Restore nulls, deterministic plugins | — | 22/22 | 26/27 (Disperser AU loses the edit) |
 | Kill the plugin process, engine keeps running | yes | n/a: the plugin is in the host process | **yes: recovered in 123 ms, render finished** |
 | Added time per block, out-of-process | ≤ 0.3 ms | baseline | **median 0.013 ms, p90 0.024, max 0.089** (47 plugins) |
-| Serum 2 vs Ableton freeze, 20–250 Hz | ≤ 1 dB | +6.1 / +14.3 / +6.9 dB | +6.1 / +14.3 / +6.9 dB (bit-identical to C++) |
+| Serum 2 vs Ableton freeze, 20–250 Hz | ≤ 1 dB | **+0.27 dB, flat across bands** (with transport tempo; +14.3 dB without) | **+0.27 dB** (bit-identical to C++) |
 | Realtime: CPU ≤ 10%, 300 tracks at 128 samples | | not measured | not measured |
 
 The list has 50 plugins (25 VST3, 25 AU, `plugin_list.json`). Two are excluded from every
@@ -36,13 +39,27 @@ are the reliable comparison.
 1. **The two hosts produce the same audio.** Serum 2 rendered by JUCE and by plughost nulls
    to zero, offline and in realtime mode, and so do the passing plugins in the integration
    test. Neither host adds a sound of its own.
-2. **The Serum low-end gap is not a hosting problem.** JUCE, plughost and the July pedalboard
-   render all land within 0.1 dB of each other: +6 / +14 / +7 dB in 20–60 / 60–120 /
-   120–250 Hz against the freeze. Offline and realtime mode are bit-identical, so Serum's
-   "Ultra on render" setting, switched by the host's offline flag, is ruled out. Still open:
-   Serum 2.1.2 made the freeze but 2.1.5 is installed now; how Live's freeze path runs the
-   plugin; the factory content the patch references. Next step: a fresh freeze of track 66
-   with today's Serum, then a null against these renders.
+2. **The Serum low-end gap was missing tempo, not the host.** All three headless renderers
+   (JUCE, plughost, and the July pedalboard render) agreed with each other, but none sent the
+   plugin a transport. The patch has tempo-synced modulation, so Serum ran it at its own
+   default tempo.
+
+   Sending a playing transport at the set's tempo (job field `bpm`) closes the gap, against
+   both freezes:
+
+   | Freeze | No transport (20–60 / 60–120 / 120–250 Hz) | With tempo | Null |
+   |---|---|---|---|
+   | Fresh, 2026-11-08 (Serum 2.1.5, 126 BPM, 44.1 kHz) | −1.4 / −5.4 / −0.8 dB | **+0.27 dB flat in all 8 bands** | 19 dB |
+   | July (Serum 2.1.2, 100 BPM, 48 kHz) | +6.1 / +14.3 / +6.9 dB | **+0.6 dB flat** | 11 dB |
+
+   A flat offset is a level difference, not timbre. Ruled out on the way: offline vs realtime
+   mode (bit-identical), the hosting library, and the Serum version.
+
+   **Consequence for the sandbox:** pedalboard 0.9.17's `VST3Plugin` has no tempo or playhead
+   API, and `daw_translation/render_worker.py` uses `--bpm` only to time the MIDI notes. So
+   every headless render of a tempo-synced patch in the sandbox has been off-tempo.
+
+   Live gotcha: a freeze file starts at the track's **first clip**, not bar 1.
 3. **The C++ host needed four fixes that plughost already handles:**
    - module and instance calls belong on the main thread (Kontakt starts Qt, which deadlocked
      until moved there);

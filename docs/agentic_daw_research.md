@@ -535,7 +535,7 @@ What Phase 0 changed in the spec, from measurement rather than assumption: the d
 - **Kill test:** plughost recovered from a SIGKILL'd helper in 123 ms and finished the render.
 - **Added time per block:** median 0.013 ms (gate 0.3 ms).
 - **Decision: the plugin host is Rust (plughost) behind the Tracktion C++ engine.**
-- **Serum gap:** identical across all three hosts (+6 / +14 / +7 dB) and unchanged by offline/realtime mode. It is not a hosting problem; Serum version and Live's freeze path are next.
+- **Serum fidelity gate PASSED (2026-11-08):** the "headless Serum is bassier" gap was missing tempo. With a playing transport at the set's tempo, both hosts land **+0.27 dB flat across all bands** against a fresh Live freeze (+0.6 dB against the July freeze), down from 6–14 dB. Every engine and render path must therefore send a transport. pedalboard (the sandbox renderer) cannot.
 - **Still open:** the realtime gates, and determinism over 10 renders.
 
 ### Phase 2: Document model and agent API (2–3 months, overlaps Phase 1)

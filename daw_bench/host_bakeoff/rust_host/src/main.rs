@@ -14,7 +14,7 @@ use std::time::Instant;
 
 use plughost::{
     BlockContext, Chain, ChainSlot, Event, Events, Layout, PluginKind, PluginRef, ProcessMode,
-    Scanner, SpawnOptions, StatePurpose,
+    Scanner, SpawnOptions, StatePurpose, Transport,
 };
 use serde::Deserialize;
 use serde_json::{Value, json};
@@ -42,7 +42,8 @@ struct Job {
     preset: Option<String>,             // .vstpreset to import before rendering
     #[serde(default)]
     realtime: bool,
-    stop_after: Option<String>,         // "a": return after render a (the kill test)                     // tell the plugin it runs in real time (default: offline)
+    stop_after: Option<String>,
+    bpm: Option<f64>,                   // send a playing transport at this tempo (default: none)         // "a": return after render a (the kill test)                     // tell the plugin it runs in real time (default: offline)
     out_dir: String,
 }
 
@@ -137,9 +138,18 @@ fn render(chain: &mut Chain, job: &Job, input: &Option<[Vec<f32>; 2]>, outs: usi
         };
         let mut block_out: Vec<Vec<f32>> = vec![vec![0.0; n]; outs];
         let mut outs_ref: Vec<&mut [f32]> = block_out.iter_mut().map(|c| c.as_mut_slice()).collect();
+        // Optional transport: tempo-synced plugins (LFOs, delays) otherwise fall back to their
+        // own default tempo. Built before the timed call.
+        let mut context = BlockContext::new(n);
+        if let Some(bpm) = job.bpm {
+            let mut transport = Transport::new(pos as i64, true);
+            transport.tempo = Some(bpm);
+            transport.beat_position = Some(pos as f64 / job.sr * bpm / 60.0);
+            context = context.with_transport(transport);
+        }
         let t = Instant::now();
         chain
-            .process_audio_f32(&BlockContext::new(n), &ins, &mut outs_ref, &[], &events, &mut produced)
+            .process_audio_f32(&context, &ins, &mut outs_ref, &[], &events, &mut produced)
             .map_err(|e| describe(&e))?;
         times.push(ms(t));
         for (c, buf) in block_out.iter().enumerate() {

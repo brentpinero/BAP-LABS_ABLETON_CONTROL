@@ -43,6 +43,7 @@ struct Job
     int classIndex = 0, block = 512, frames = 0;
     double sr = 48000.0;
     bool realtime = false;    // tell the plugin it runs in real time (default: offline)
+    double bpm = 0.0;         // > 0: send a playing transport at this tempo
     std::vector<Note> notes;
 };
 
@@ -61,14 +62,34 @@ static Job parseJob (const var& v)
     j.preset = v["preset"].toString();
     j.outDir = v["out_dir"].toString();
     j.realtime = (bool) v.getProperty ("realtime", false);
+    j.bpm = (double) v.getProperty ("bpm", 0.0);
     if (auto* ns = v["notes"].getArray())
         for (auto& n : *ns)
             j.notes.push_back ({ (int) n["pitch"], (int) n["start"], (int) n["dur"], (int) n["vel"] });
     return j;
 }
 
+// A playing transport at a fixed tempo, as the Rust host sends it (tempo, sample and beat position).
+struct FixedPlayHead : AudioPlayHead
+{
+    double bpm = 120.0, sr = 48000.0;
+    int64 pos = 0;
+
+    Optional<PositionInfo> getPosition() const override
+    {
+        PositionInfo info;
+        info.setBpm (bpm);
+        info.setTimeInSamples (pos);
+        info.setTimeInSeconds ((double) pos / sr);
+        info.setPpqPosition ((double) pos / sr * bpm / 60.0);
+        info.setIsPlaying (true);
+        return info;
+    }
+};
+
 struct Probe
 {
+    FixedPlayHead playHead;
     Job job;
     DynamicObject::Ptr rep = new DynamicObject();
     AudioPluginFormatManager formats;
@@ -156,6 +177,12 @@ struct Probe
     AudioBuffer<float> render (AudioPluginInstance& p, std::vector<double>* times)
     {
         p.reset();
+        if (job.bpm > 0.0)
+        {
+            playHead.bpm = job.bpm;
+            playHead.sr = job.sr;
+            p.setPlayHead (&playHead);
+        }
         AudioBuffer<float> out (2, job.frames);
         out.clear();
         const int chans = jmax (p.getTotalNumInputChannels(), p.getTotalNumOutputChannels(), 2);
@@ -178,6 +205,7 @@ struct Probe
             for (auto& note : job.notes)
                 if (note.start >= pos && note.start < pos + n)
                     midi.addEvent (MidiMessage::noteOn (1, note.pitch, (uint8) note.vel), note.start - pos);
+            playHead.pos = pos;
             auto t = Clock::now();
             p.processBlock (buf, midi);
             if (times) times->push_back (msSince (t));

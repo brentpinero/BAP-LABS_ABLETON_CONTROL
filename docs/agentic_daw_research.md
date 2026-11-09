@@ -529,6 +529,20 @@ What Phase 0 changed in the spec, from measurement rather than assumption: the d
 | Headless | Full render with AU and VST3 instruments, unattended |
 | Serum fidelity | Gap vs. in-Live render ≤ 1 dB in 20–250 Hz (repo baseline: 5–15 dB) |
 
+**Phase 1 spike, plugin-host bake-off (2026-11-08), `daw_bench/host_bakeoff/RESULTS.md`.** The same probe ran on 50 plugins through a JUCE in-process host (C++) and through plughost 0.2.1 (Rust, out-of-process).
+- **Probe completion (load, process, save, restore):** plughost 48/48, JUCE 47/48 (Pro-Q 3 AU segfaults).
+- **Restore nulls for deterministic plugins:** plughost 26/27, JUCE 22/22.
+- **Kill test:** plughost recovered from a SIGKILL'd helper in 123 ms and finished the render.
+- **Added time per block:** median 0.013 ms (gate 0.3 ms).
+- **Decision: the plugin host is Rust (plughost) behind the Tracktion C++ engine.**
+- **Serum fidelity gate PASSED (2026-11-08):** the "headless Serum is bassier" gap was missing tempo. With a playing transport at the set's tempo, both hosts land **+0.27 dB flat across all bands** against a fresh Live freeze (+0.6 dB against the July freeze), down from 6–14 dB. Every engine and render path must therefore send a transport. pedalboard (the sandbox renderer) cannot.
+- **Bridge spike (2026-11-08, `daw_bench/plughost_bridge/RESULTS.md`):** Tracktion hosts plugins through plughost via a custom JUCE plugin format and a Rust C ABI.
+  - Offline renders through the bridge are **bit-identical** to in-process, with delay compensation exact.
+  - At 128 samples: **0 dropouts after warm-up up to 64 Serum tracks** (2 quanta of latency, +5.8 ms). In-process Tracktion drops out from 1 track (97 overruns at 32).
+  - Killing every helper mid-playback costs **0 engine overruns**; tracks are back in 0.71 s.
+  - Memory: Serum is ~3.2 GB per instance either way; the bridge adds ~0.25 GB per track.
+- **Still open:** a real CoreAudio device or workgroup run; multi-plugin chains (the 300-track × 6-plugin gate); state persistence through Tracktion; determinism over 10 renders.
+
 ### Phase 2: Document model and agent API (2–3 months, overlaps Phase 1)
 
 | Deliverable | Gate |

@@ -1,0 +1,381 @@
+{
+ "note": "Phase 1 compatibility list: 25 VST3 + 25 AU across vendors and copy-protection schemes (iLok/PACE, UAD, Waves shell, NI, iZotope). Shell bundles use class 0. Vital AU and Sonnox Inflator AU are left out: auval cannot open them on this machine. An optional \"excluded\" field records plugins left out of the gate rate and why.",
+ "plugins": [
+  {
+   "name": "Serum2",
+   "format": "vst3",
+   "bundle": "/Library/Audio/Plug-Ins/VST3/Serum2.vst3",
+   "class_index": 0
+  },
+  {
+   "name": "Serum",
+   "format": "vst3",
+   "bundle": "/Library/Audio/Plug-Ins/VST3/Serum.vst3",
+   "class_index": 0
+  },
+  {
+   "name": "Vital",
+   "format": "vst3",
+   "bundle": "/Library/Audio/Plug-Ins/VST3/Vital.vst3",
+   "class_index": 0
+  },
+  {
+   "name": "Kontakt 7",
+   "format": "vst3",
+   "bundle": "/Library/Audio/Plug-Ins/VST3/Kontakt 7.vst3",
+   "class_index": 0
+  },
+  {
+   "name": "Massive",
+   "format": "vst3",
+   "bundle": "/Library/Audio/Plug-Ins/VST3/Massive.vst3",
+   "class_index": 0
+  },
+  {
+   "name": "Analog Lab V",
+   "format": "vst3",
+   "bundle": "/Library/Audio/Plug-Ins/VST3/Analog Lab V.vst3",
+   "class_index": 0
+  },
+  {
+   "name": "FabFilter Pro-L 2",
+   "format": "vst3",
+   "bundle": "/Library/Audio/Plug-Ins/VST3/FabFilter Pro-L 2.vst3",
+   "class_index": 0
+  },
+  {
+   "name": "FabFilter Saturn 2",
+   "format": "vst3",
+   "bundle": "/Library/Audio/Plug-Ins/VST3/FabFilter Saturn 2.vst3",
+   "class_index": 0
+  },
+  {
+   "name": "ValhallaRoom",
+   "format": "vst3",
+   "bundle": "/Library/Audio/Plug-Ins/VST3/ValhallaRoom.vst3",
+   "class_index": 0
+  },
+  {
+   "name": "soothe2",
+   "format": "vst3",
+   "bundle": "/Library/Audio/Plug-Ins/VST3/soothe2.vst3",
+   "class_index": 0
+  },
+  {
+   "name": "Ozone 9 Maximizer",
+   "format": "vst3",
+   "bundle": "/Library/Audio/Plug-Ins/VST3/Ozone 9 Maximizer.vst3",
+   "class_index": 0
+  },
+  {
+   "name": "Neutron 3 Equalizer",
+   "format": "vst3",
+   "bundle": "/Library/Audio/Plug-Ins/VST3/Neutron 3 Equalizer.vst3",
+   "class_index": 0
+  },
+  {
+   "name": "Faturator",
+   "format": "vst3",
+   "bundle": "/Library/Audio/Plug-Ins/VST3/Kilohearts/Faturator.vst3",
+   "class_index": 0
+  },
+  {
+   "name": "SSL Native Bus Compressor 2",
+   "format": "vst3",
+   "bundle": "/Library/Audio/Plug-Ins/VST3/SSL Native Bus Compressor 2.vst3",
+   "class_index": 0
+  },
+  {
+   "name": "bx_console SSL 4000 E",
+   "format": "vst3",
+   "bundle": "/Library/Audio/Plug-Ins/VST3/bx_console SSL 4000 E.vst3",
+   "class_index": 0
+  },
+  {
+   "name": "Lindell 80 Bus",
+   "format": "vst3",
+   "bundle": "/Library/Audio/Plug-Ins/VST3/Lindell 80 Bus.vst3",
+   "class_index": 0
+  },
+  {
+   "name": "EffectRack",
+   "format": "vst3",
+   "bundle": "/Library/Audio/Plug-Ins/VST3/Soundtoys/EffectRack.vst3",
+   "class_index": 0
+  },
+  {
+   "name": "Unfiltered Audio BYOME",
+   "format": "vst3",
+   "bundle": "/Library/Audio/Plug-Ins/VST3/Unfiltered Audio BYOME.vst3",
+   "class_index": 0
+  },
+  {
+   "name": "Auto-Tune Pro",
+   "format": "vst3",
+   "bundle": "/Library/Audio/Plug-Ins/VST3/Auto-Tune Pro.vst3",
+   "class_index": 0
+  },
+  {
+   "name": "SPAN",
+   "format": "vst3",
+   "bundle": "/Library/Audio/Plug-Ins/VST3/SPAN.vst3",
+   "class_index": 0
+  },
+  {
+   "name": "Cradle The God Particle",
+   "format": "vst3",
+   "bundle": "/Library/Audio/Plug-Ins/VST3/Cradle The God Particle.vst3",
+   "class_index": 0
+  },
+  {
+   "name": "WaveShell1-VST3 14.12",
+   "format": "vst3",
+   "bundle": "/Library/Audio/Plug-Ins/VST3/WaveShell1-VST3 14.12.vst3",
+   "class_index": 0
+  },
+  {
+   "name": "Oxford Inflator",
+   "format": "vst3",
+   "bundle": "/Library/Audio/Plug-Ins/VST3/Sonnox/Oxford Inflator.vst3",
+   "class_index": 0,
+   "excluded": "unlicensed on this machine"
+  },
+  {
+   "name": "Virtual Mix Rack",
+   "format": "vst3",
+   "bundle": "/Library/Audio/Plug-Ins/VST3/Slate Digital/Virtual Mix Rack.vst3",
+   "class_index": 0
+  },
+  {
+   "name": "MCompressor",
+   "format": "vst3",
+   "bundle": "/Library/Audio/Plug-Ins/VST3/MeldaProduction/Dynamics/MCompressor.vst3",
+   "class_index": 0
+  },
+  {
+   "name": "FabFilter Pro-Q 3",
+   "format": "au",
+   "au": [
+    "aumf",
+    "FQ3p",
+    "FabF"
+   ]
+  },
+  {
+   "name": "Serum 2",
+   "format": "au",
+   "au": [
+    "aumu",
+    "Xf2X",
+    "XFER"
+   ]
+  },
+  {
+   "name": "SPAN",
+   "format": "au",
+   "au": [
+    "aufx",
+    "4vo6",
+    "Vxng"
+   ]
+  },
+  {
+   "name": "MSED",
+   "format": "au",
+   "au": [
+    "aufx",
+    "567h",
+    "Vxng"
+   ]
+  },
+  {
+   "name": "UAD Teletronix LA-2A Gray",
+   "format": "au",
+   "au": [
+    "aufx",
+    "7AAU",
+    "!UAD"
+   ]
+  },
+  {
+   "name": "UAD Pultec EQP-1A Legacy",
+   "format": "au",
+   "au": [
+    "aufx",
+    "41AU",
+    "!UAD"
+   ]
+  },
+  {
+   "name": "SSL 4K E",
+   "format": "au",
+   "au": [
+    "aufx",
+    "S4KE",
+    "SSLN"
+   ]
+  },
+  {
+   "name": "ValhallaRoom",
+   "format": "au",
+   "au": [
+    "aufx",
+    "Ruum",
+    "oDin"
+   ]
+  },
+  {
+   "name": "Ozone 9 Maximizer",
+   "format": "au",
+   "au": [
+    "aufx",
+    "ZO9M",
+    "iZtp"
+   ]
+  },
+  {
+   "name": "iZotope Trash 2",
+   "format": "au",
+   "au": [
+    "aufx",
+    "ZnT2",
+    "iZtp"
+   ]
+  },
+  {
+   "name": "kHs Delay",
+   "format": "au",
+   "au": [
+    "aufx",
+    "ksdl",
+    " kHs"
+   ]
+  },
+  {
+   "name": "kHs Reverb",
+   "format": "au",
+   "au": [
+    "aufx",
+    "ksrv",
+    " kHs"
+   ]
+  },
+  {
+   "name": "Disperser",
+   "format": "au",
+   "au": [
+    "aufx",
+    "kdsp",
+    " kHs"
+   ]
+  },
+  {
+   "name": "Snap Heap",
+   "format": "au",
+   "au": [
+    "aumf",
+    "kmic",
+    " kHs"
+   ]
+  },
+  {
+   "name": "Auto-Tune Pro",
+   "format": "au",
+   "au": [
+    "aumf",
+    "AT81",
+    "VST "
+   ]
+  },
+  {
+   "name": "LFOTool",
+   "format": "au",
+   "au": [
+    "aumf",
+    "XffO",
+    "XFER"
+   ]
+  },
+  {
+   "name": "Kontakt 7",
+   "format": "au",
+   "au": [
+    "aumu",
+    "NiK7",
+    "-NI-"
+   ]
+  },
+  {
+   "name": "Massive",
+   "format": "au",
+   "au": [
+    "aumu",
+    "NiMa",
+    "-NI-"
+   ]
+  },
+  {
+   "name": "Analog Lab V",
+   "format": "au",
+   "au": [
+    "aumu",
+    "Alav",
+    "Artu"
+   ]
+  },
+  {
+   "name": "Lounge Lizard EP-4",
+   "format": "au",
+   "au": [
+    "aumu",
+    "LLZ4",
+    "AAS "
+   ]
+  },
+  {
+   "name": "Arcade",
+   "format": "au",
+   "au": [
+    "aumu",
+    "ARCD",
+    "Outp"
+   ]
+  },
+  {
+   "name": "Raum",
+   "format": "au",
+   "au": [
+    "aufx",
+    "Ni$Q",
+    "-NI-"
+   ]
+  },
+  {
+   "name": "Supercharger",
+   "format": "au",
+   "au": [
+    "aufx",
+    "Ni$@",
+    "-NI-"
+   ]
+  },
+  {
+   "name": "The God Particle",
+   "format": "au",
+   "au": [
+    "aufx",
+    "Tgpj",
+    "Crdl"
+   ]
+  },
+  {
+   "name": "Rift",
+   "format": "au",
+   "au": [
+    "aumf",
+    "RIFT",
+    "Mini"
+   ]
+  }
+ ]
+}

@@ -39,10 +39,11 @@ def render_iteration_dispatch(session, record) -> Dict[str, Any]:
         return render_iteration_live(session, record)
     if backend == "dawdreamer":
         raise NotImplementedError("render.backend='dawdreamer' lands in Phase 4")
-    return render_iteration(session, record)  # pedalboard (default fast tier)
+    # pedalboard or plughost: the same fast tier; plughost sends the song's tempo to the plugin
+    return render_iteration(session, record, backend=backend)
 
 
-def render_iteration(session, record) -> Dict[str, Any]:
+def render_iteration(session, record, backend: str = "pedalboard") -> Dict[str, Any]:
     """Render every role's grooved notes to stems + a summed master.
     Returns {"audio": {role: wav_path, ..., "master": wav_path}, "pool": results}."""
     sr = cfg(session, "audio.sr")
@@ -62,7 +63,7 @@ def render_iteration(session, record) -> Dict[str, Any]:
             "instrument": session.tracks[role].instrument_spec,
             "params": session.tracks[role].params or None,
             "output": str(it_dir / f"{role}.wav"), "sr": sr,
-            "bars": session.config.bars, "tail_seconds": tail,
+            "bars": session.config.bars, "tail_seconds": tail, "backend": backend,
         })
         roles.append(role)
 

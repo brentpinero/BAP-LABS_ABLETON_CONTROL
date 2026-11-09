@@ -55,10 +55,12 @@ DEFAULTS: Dict[str, Any] = {
     "fidelity.freeze_timeout_s": 120,
 
     # --- render backend (fast tier vs isolated Ableton render node) ---
-    # backend: pedalboard (fast, headless — composition only) | dawdreamer (fast,
-    # offline+automation-aware) | ableton (TRUTH — an ISOLATED render-node Ableton
-    # the user never touches, driven over the socket + node automator daemon).
-    "render.backend": "pedalboard",
+    # backend: plughost (fast, headless, sends the song's tempo to the plugin: Serum within
+    # 0.27 dB of a Live freeze; falls back to pedalboard if not built) | pedalboard (fast,
+    # no tempo: tempo-synced patches render off) | dawdreamer (fast, offline+automation-aware)
+    # | ableton (TRUTH — an ISOLATED render-node Ableton the user never touches, driven over
+    # the socket + node automator daemon).
+    "render.backend": "plughost",
     "render.node_host": "127.0.0.1",      # render-node address (VM/2nd machine/cloud); localhost = same-Mac stand-in
     "render.node_port": 9877,             # node Remote Script control socket
     "render.node_agent_port": 9878,       # node automator daemon (freeze/export GUI automation runs ON the node)
@@ -77,7 +79,7 @@ DEFAULTS: Dict[str, Any] = {
 # a wrong branch (e.g. a node_render_mode typo → the fragile freeze path), so they
 # get an explicit membership check in validate_overrides.
 _ENUMS: Dict[str, set] = {
-    "render.backend": {"pedalboard", "dawdreamer", "ableton"},
+    "render.backend": {"plughost", "pedalboard", "dawdreamer", "ableton"},
     "render.node_render_mode": {"resample", "freeze"},
     "clap.schedule": {"first_and_final", "every", "never"},
 }

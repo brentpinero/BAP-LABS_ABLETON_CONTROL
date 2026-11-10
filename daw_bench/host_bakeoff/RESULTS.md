@@ -93,8 +93,12 @@ are the reliable comparison.
 
 ## Not covered yet
 
-- **Realtime gates:** plughost's `RealtimeEndpoint` driven by an audio device at 128 samples,
-  missed-quantum rate, track ramp, CPU.
+- **Silent plugins pass the restore check.** Found 2026-11-09: two silent renders null
+  trivially, so a plugin that outputs nothing "passes". bx_console SSL 4000 E and Lindell 80
+  Bus (Plugin Alliance) render digital silence here and counted as passes. The probe must also
+  require a non-silent render.
+- **Realtime gates:** now measured in `../plughost_bridge/RESULTS.md` (track ramp on a real
+  CoreAudio device).
 - **Determinism over 10 renders, and a larger list** (gate for beta: 200 plugins).
 - **CLAP**, through plughost (3 FabFilter CLAPs installed).
 - **Licence and authorisation dialogs while unattended.** Oxford Inflator failed fast in

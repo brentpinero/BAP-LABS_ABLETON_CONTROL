@@ -541,7 +541,14 @@ What Phase 0 changed in the spec, from measurement rather than assumption: the d
   - At 128 samples: **0 dropouts after warm-up up to 64 Serum tracks** (2 quanta of latency, +5.8 ms). In-process Tracktion drops out from 1 track (97 overruns at 32).
   - Killing every helper mid-playback costs **0 engine overruns**; tracks are back in 0.71 s.
   - Memory: Serum is ~3.2 GB per instance either way; the bridge adds ~0.25 GB per track.
-- **Still open:** a real CoreAudio device or workgroup run; multi-plugin chains (the 300-track × 6-plugin gate); state persistence through Tracktion; determinism over 10 renders.
+- **Track-ramp gate on a real CoreAudio device (2026-11-09): NOT MET** (`daw_bench/plughost_bridge/RESULTS.md`, second part).
+  - **Bridged vs in process:** Tracktion with bridged chains runs 64 tracks of a heavy 6-plugin mix chain (in process: 16) and 128 tracks of a light chain (in process: 16; beyond that, Kilohearts goes silent in process).
+  - **Two fixable blockers before 300:**
+    - every plughost helper creates its own CoreAudio workgroup interval, so startup grows past an hour at 256 tracks; removing it breaks helper deadlines;
+    - the engine pays ~4–8 µs per bridged track per callback, which overruns the 2.9 ms period at 300.
+  - **Fixes:** one shared device workgroup joined by all helpers, and batched helper wake-ups.
+  - **The heavy chain itself caps any host near 255 tracks on this machine** (0.137 ms per block), so the gate needs the chain fixed, plus a Live baseline on that chain.
+- **Still open:** shared-workgroup and wake-up fixes, then re-running 300 tracks at 128 and 64 samples; a Live baseline on the same chain; state persistence through Tracktion; determinism over 10 renders.
 
 ### Phase 2: Document model and agent API (2–3 months, overlaps Phase 1)
 

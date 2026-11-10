@@ -69,12 +69,115 @@ The price is 2.9–5.8 ms of added latency (one or two blocks) and about 0.25 GB
    should restart a helper that dies at startup, not recover it.
 
 ## Not covered / caveats
-- **No CoreAudio audio workgroup.** The paced engine thread uses the macOS time-constraint
-  policy, like a CoreAudio IO thread, but does not join a device's workgroup. That may
-  handicap in-process Tracktion's worker threads. Re-run on a real device before taking the
-  in-process numbers as final.
-- **Only one plugin.** One Serum per track. The 300-track gate assumes 6-plugin chains. One
-  helper per track's chain (plughost supports multi-slot chains) is the next measurement.
 - **State persistence through Tracktion** (`getStateInformation`) is not wired in this spike.
 - **Block sizes must equal the quantum.** A block of another size is counted and silenced;
   none occurred, since Tracktion kept the device block size.
+
+---
+
+# Track-ramp gate on a real CoreAudio device (2026-11-09)
+
+Gate (plan §12.1 #1): **≥ 300 tracks of a fixed 6-plugin chain at 64 and 128 samples, zero
+dropouts.** Run data: `sandbox_sessions/bridge_bench/gate_b128/` (not in git).
+
+## Verdict
+
+**Not met at 128 samples, and so not at 64.** Two causes, both measured, both in the bridge's
+realtime path and both fixable:
+1. **Each helper creates its own CoreAudio workgroup interval** (`AudioWorkIntervalCreate`
+   in plughost-helper's realtime schedule). This goes through coreaudiod, and each new one
+   costs more the more helpers already run. Startup goes from ~5 s at 64 tracks to 15–45 s
+   at 128 and over an hour at 256. Once, at 128 tracks, coreaudiod (126% CPU) stopped
+   delivering device callbacks at all. Without the interval (a patched helper), startup is
+   0.5–0.8 s at 128–300 tracks, but helpers miss quanta at light load (8–11k misses per 20 s
+   at 128 tracks). The scheduler no longer knows their deadlines. **Fix: one shared
+   workgroup, the device's, joined by every helper** (os_workgroup ports cross processes),
+   instead of one interval per helper.
+2. **The engine pays ~4–8 µs per bridged track per callback** on top of Tracktion's own
+   track cost. At 300 tracks that overruns the 2.9 ms period: engine callback median 2.9 ms,
+   p99 3.8–4.1 ms, with zero missed quanta, so it isn't the plugins. Tracktion alone plays
+   300 audio tracks in 0.52 ms. **Fix: fewer cross-process wake-ups per callback**: batch the
+   endpoints, or host several tracks' chains per helper.
+
+The in-process alternative is worse on every workload measured. Through the bridge,
+Tracktion runs **4× the heavy chain** and **8× the light chain** before dropping out.
+
+## Setup
+- **Device:** MacBook Pro Speakers via CoreAudio, 44.1 kHz, 128-sample buffer.
+- **Engine path:** Tracktion's own device path (`DeviceManager` is the IO callback). Its
+  graph threads join the device's audio workgroup (`EditPlaybackContext::enableAudioWorkgroup`).
+- **CPU guard off:** Tracktion's CPU-mute guard (silence above 98% load) is disabled, since
+  it would hide overloads.
+- **Callback wrapper:** times each callback, records the output, then zeroes it before the
+  speakers.
+- **Dropouts:** CoreAudio processor-overload notifications, plus engine callbacks longer than
+  the period, plus bridge quanta missed, all counted after a 2 s warm-up. A silent recording
+  counts as a failed run.
+- **Workload:** each track plays a stereo audio clip through the chain. Bridged = one helper
+  per track running the whole 6-plugin chain (`slots`, one latency quantum).
+- **Shared machine:** Live, Brave and other jobs were running; a Blender render ruined one
+  attempt and was waited out. So each point is 3 runs, native and bridge interleaved.
+  "Best" is the fewest dropouts of the 3 (what the engine can do), "median" the typical
+  result.
+
+## Chains
+
+| Chain | Plugins (VST3, defaults) | Cost per 128-sample block, 1 track, offline |
+|---|---|---|
+| heavy | SSL 4K E → SSL Native Bus Compressor 2 → FabFilter Saturn 2 → kHs Delay → ValhallaRoom → FabFilter Pro-L 2 | **0.137 ms (4.7% of a core)** |
+| light | kHs 3-Band EQ → Compressor → Distortion → Delay → Reverb → Limiter | ~0.004 ms |
+
+- **The heavy chain caps any host on this machine near 255 tracks.** That's 12 performance
+  cores at 100%, so "300 tracks" depends on the chain. The plan never fixed one, and the
+  ~405-track Logic figure presumably used light stock plugins. Live on the same chain is the
+  baseline the plan calls for, and is not yet measured.
+- **The light chain** isolates host and engine overhead per plugin and per track.
+
+## Results (dropouts after warm-up, 10 s runs; best / median of 3)
+
+| Tracks | Heavy, in process | Heavy, bridge | Light, in process | Light, bridge | No plugins |
+|---|---|---|---|---|---|
+| 8 | 0 / 0 | 0 / 0 | | | |
+| 16 | 0 / 6 | 0 / 0 | 0 / 2 | 0 / 0 | |
+| 32 | **1 / 2** | 0 / 0 | **silent (1 of 3)**, 4 / 8 | 0 / 2 | 0 / 0 |
+| 64 | | 0 / 0 | | 0 / 2 | |
+| 96 | | **3584 / 5045** | | | 0 / 2 |
+| 128 | | | | 0 / 0 | 0 / 0 |
+| 256 | | | | startup > 1 h (stock); 1675 / 2274 (patched helper) | |
+| 300 | | | | startup > 1 h (stock); 8191 / 8503 (patched helper) | 0 / 4 |
+
+**Engine callback median (p99), ms:**
+- Heavy bridged: 0.12 at 8 tracks, 0.52 at 32, 1.31 (2.16) at 64, 2.55 (3.84) at 96.
+- Light bridged: 0.82 (1.01) at 128.
+- No plugins: 0.52 (0.67) at 300.
+
+**Memory:** heavy chain bridged ≈ 0.24 GB per track (21.9 GB at 96); light bridged 0.11 GB per
+track (33 GB at 300); in process 0.07 GB per track (heavy).
+
+## Findings
+- **Heavy chain, bridged, cliff at 96.** The engine callback goes past the period while most
+  helpers keep up (68 of 96 missed no quanta). Below 96, 64 tracks of a real mix chain play
+  with no dropouts. In process stops at 16.
+- **In process, Kilohearts goes silent beyond ~96–144 instances per process.** Every
+  instance, so the whole mix, outputs digital silence with no error. 16 tracks of the light
+  chain (96 instances) play; 24 (144) and 32 × six copies of one EQ (192) are silent. Bridged,
+  each helper holds 6 and plays. Out-of-process hosting avoids a whole class of per-process
+  plugin limits.
+- **Two Plugin Alliance plugins output silence on this machine:** bx_console SSL 4000 E and
+  Lindell 80 Bus, probably licence muting. They "passed" the host bake-off only because two
+  silent renders null against each other. **That bake-off check must also require non-silent
+  output.**
+- **`ph_rt_start` has no timeout.** It runs from Tracktion's `prepareToPlay` on the message
+  thread, so one slow helper blocks the engine from starting. The real engine needs helper
+  start as asynchronous, bounded work.
+- **A 600-track edit** pegged one core for over 15 minutes in edit or playback-graph setup,
+  before playback, with no plugins. Not investigated (above the gate).
+
+## Next (in order)
+1. **Shared workgroup.** Pass the device's `os_workgroup` port to each helper and join it
+   instead of `AudioWorkIntervalCreate` (a plughost-helper change; propose upstream). Expect
+   startup in about a second and deadline-aware helpers.
+2. **Cut the engine's per-track bridge cost.** Profile `ph_rt_process` at 300 tracks, then
+   batch the helper wake-ups or move several tracks into one helper.
+3. **Re-run 300 × light at 128 and 64,** and the heavy chain against Live on the same chain
+   (the baseline the plan requires).

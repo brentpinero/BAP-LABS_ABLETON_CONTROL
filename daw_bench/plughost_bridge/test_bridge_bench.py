@@ -55,6 +55,14 @@ def test_source_clip_has_signal_for_the_chain(tmp_path):
     assert -12 < peak < -1                      # loud enough to drive every effect, never clipping
 
 
+def test_workgroup_joins_counts_shared_and_own_helpers(tmp_path):
+    log = tmp_path / "wg.log"
+    log.write_text("101 shared\n102 shared\n103 own (shared failed: bootstrap_look_up(x) = 1102)\n")
+    assert bb.workgroup_joins(log) == {"wg_shared": 2, "wg_own": 1,
+                                       "wg_failure": "own (shared failed: bootstrap_look_up(x) = 1102)"}
+    assert bb.workgroup_joins(tmp_path / "missing.log") == {"wg_shared": 0, "wg_own": 0, "wg_failure": None}
+
+
 def test_chain_is_six_installed_vst3s():
     assert len(bb.CHAIN) == 6
     assert all(c["bundle"].endswith(".vst3") for c in bb.CHAIN)

@@ -254,8 +254,18 @@ def kill(out: Path, tracks: int, seconds: float) -> dict:
     return s
 
 
+def workgroup_joins(log_path: Path) -> dict:
+    """Counts helper realtime starts by how they scheduled: joined the device's workgroup
+    ("shared") or created their own interval (with the reason the shared join failed)."""
+    lines = log_path.read_text().splitlines() if log_path.exists() else []
+    shared = sum(1 for line in lines if line.split(" ", 1)[-1] == "shared")
+    failures = [line.split(" ", 1)[-1] for line in lines if "shared failed" in line]
+    return {"wg_shared": shared, "wg_own": len(lines) - shared, "wg_failure": failures[0] if failures else None}
+
+
 def chain_ramp(out: Path, block: int, tracks: list[int], seconds: float, kinds=("native", "bridge_lq1"),
-               stop: bool = True, repeats: int = 3, chain: str = "heavy", probe_timeout: float = 900) -> dict:
+               stop: bool = True, repeats: int = 3, chain: str = "heavy", probe_timeout: float = 900,
+               share_workgroup: bool = False) -> dict:
     """The track-ramp gate on the real device: N tracks x CHAIN at `block` samples.
 
     The machine is shared (a DAW, browsers, other jobs), so each track count runs every variant
@@ -275,10 +285,17 @@ def chain_ramp(out: Path, block: int, tracks: list[int], seconds: float, kinds=(
                 name = f"chain_{chain}_{label}_b{block}_{n}_r{rep}"
                 log(f"chain: {chain} {label}, {n} track(s) x {len(CHAINS[chain])} plugins, run {rep + 1}/{repeats}, {seconds} s at "
                     f"{block} samples on {DEVICE['device_name']} (load avg {os.getloadavg()[0]:.1f})")
+                # Each helper logs whether it joined the device's workgroup ("shared") or its own.
+                wg_log = out / f"{name}.workgroup.log"
+                wg_log.unlink(missing_ok=True)
+                os.environ["PLUGHOST_WORKGROUP_LOG"] = str(wg_log.resolve())
                 r = run_probe({"mode": "realtime", "plugin": kind, "block": block, "latency_quanta": lq,
                                "seconds": seconds, "tracks": n, "chain": CHAINS[chain], "audio_file": str(source),
-                               "prespawn_parallel": 8, "warmup_s": 2.0, **DEVICE}, out, name, timeout=probe_timeout)
+                               "prespawn_parallel": 8, "warmup_s": 2.0, "share_workgroup": share_workgroup,
+                               **DEVICE}, out, name, timeout=probe_timeout)
                 s = summarize_rt(r)
+                s.update(workgroup_joins(wg_log))
+                s["workgroup_shared"] = r.get("workgroup_shared")
                 s["mem_gb"] = mem_gb_peak.get(name)
                 s["load_avg"] = os.getloadavg()[0]
                 runs[label].append(s)
@@ -298,7 +315,9 @@ def chain_ramp(out: Path, block: int, tracks: list[int], seconds: float, kinds=(
                     f"{s['cb_ms_median']:.3f} p99 {s['cb_ms_p99']:.3f} max {s['cb_ms_max']:.3f} ms (period "
                     f"{s['period_ms']:.2f}); load {s['cpu_load_median']:.2f}; warm-up xruns {s['device_xruns_warmup']}; "
                     f"workgroup {s['workgroup_valid']}; build {s['build_s']:.1f} s; mem {s['mem_gb'] or 0:.1f} GB; "
-                    f"out peak {s.get('out_peak_dbfs')} dBFS")
+                    f"out peak {s.get('out_peak_dbfs')} dBFS; start {s.get('playback_start_s') or 0:.1f} s; "
+                    f"helpers in device workgroup {s['wg_shared']}, own {s['wg_own']}"
+                    + (f" ({s['wg_failure']})" if s["wg_failure"] else ""))
         for label, rs in runs.items():
             drops = sorted(s["dropouts"] for s in rs if s.get("ok") and "dropouts" in s and not s.get("silent"))
             res[label][n] = {"runs": rs, "best": drops[0] if drops else None,
@@ -321,6 +340,8 @@ def main() -> int:
     ap.add_argument("--tracks", default="1,8,32,64,128,256,300", help="chain: track counts, comma-separated")
     ap.add_argument("--repeats", type=int, default=3, help="chain: interleaved runs per variant and track count")
     ap.add_argument("--probe-timeout", type=float, default=900, help="chain: seconds before a run counts as hung")
+    ap.add_argument("--share-workgroup", action="store_true",
+                    help="chain: bridged helpers join the audio device's workgroup (one, shared)")
     ap.add_argument("--chain", choices=list(CHAINS), default="heavy", help="chain: which 6-plugin chain")
     ap.add_argument("--max-tracks", type=int, default=64)
     ap.add_argument("--seconds", type=float, default=8.0)
@@ -344,7 +365,8 @@ def main() -> int:
     if args.only == "chain":
         kinds = args.kinds.split(",") if args.kinds != "native,bridge_lq1,bridge_lq2" else ["native", "bridge_lq1"]
         report["chain"] = chain_ramp(out, args.block, [int(x) for x in args.tracks.split(",")], args.seconds,
-                                     kinds, not args.no_stop, args.repeats, args.chain, args.probe_timeout)
+                                     kinds, not args.no_stop, args.repeats, args.chain, args.probe_timeout,
+                                     args.share_workgroup)
     (out / "report.json").write_text(json.dumps(report, indent=1))
     log("done: " + str(out / "report.json"))
     return 0

@@ -173,10 +173,38 @@ track (33 GB at 300); in process 0.07 GB per track (heavy).
 - **A 600-track edit** pegged one core for over 15 minutes in edit or playback-graph setup,
   before playback, with no plugins. Not investigated (above the gate).
 
+## Shared device workgroup: blocker 1 fixed (2026-11-09, later the same day)
+
+The engine now serves its audio device's IO workgroup (`kAudioDevicePropertyIOThreadOSWorkgroup`
+→ `os_workgroup_copy_port`) from a Mach bootstrap service with a per-process name
+(`WorkgroupBroker` in `bridge_probe.cpp`). Each helper inherits the name in
+`PLUGHOST_WORKGROUP_SERVICE`, asks for the port once, and joins it with
+`os_workgroup_create_with_port` + `os_workgroup_join`. It does not start or finish intervals;
+the device's IO thread does that. The helper is a vendored plughost-helper 0.2.1
+(`vendor/plughost-helper`, wired in with `[patch.crates-io]` in `host_bakeoff/rust_host`)
+with this one extension. Without the variable it behaves exactly as upstream, so this is a
+change to propose upstream. Run: `bridge_bench.py --only chain --share-workgroup`.
+
+Light chain, bridged, one quantum, 128 samples, 20 s runs; 3 runs each:
+
+| Tracks | Start-up | Dropouts | Missed quanta | Engine callback median / p99 |
+|---|---|---|---|---|
+| 128 | 0.4 s | 2, 0, 0 | 0 | 0.70 / 0.85 ms |
+| **256** | 0.7 s | **0**, 2, 7 | 0 | 1.41 / 1.77 ms |
+| 300 | 0.8 s | 393, 521, 3851 | 0 | 1.9–2.6 / **3.0–3.5 ms** (period 2.90) |
+
+- **Start-up is solved:** under a second at every size, against more than an hour with an
+  interval per helper. Every helper joined the device workgroup.
+- **Helper deadlines hold:** zero missed quanta everywhere, against 8–11k per 20 s at 128
+  tracks with no workgroup.
+- **256 tracks × 6 plugins (1,536 instances) play clean** (best of 3).
+- **300 fails only on blocker 2.** The engine callback grows ~4.7 µs per bridged track
+  (Tracktion alone: 0.52 ms for 300 tracks), and its p99 crosses the period.
+- **One oddity:** one 256-track run logged 270 realtime starts (262 shared, 8 own), probably
+  helpers recovered or restarted mid-run. Not investigated.
+
 ## Next (in order)
-1. **Shared workgroup.** Pass the device's `os_workgroup` port to each helper and join it
-   instead of `AudioWorkIntervalCreate` (a plughost-helper change; propose upstream). Expect
-   startup in about a second and deadline-aware helpers.
+1. ~~Shared workgroup~~ done (above).
 2. **Cut the engine's per-track bridge cost.** Profile `ph_rt_process` at 300 tracks, then
    batch the helper wake-ups or move several tracks into one helper.
 3. **Re-run 300 × light at 128 and 64,** and the heavy chain against Live on the same chain

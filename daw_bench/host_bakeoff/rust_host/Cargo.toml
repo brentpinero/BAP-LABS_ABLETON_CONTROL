@@ -23,3 +23,9 @@ path = "src/bin/helper.rs"
 
 [profile.release]
 debug = false
+
+# The helper is built from a vendored plughost-helper 0.2.1 with one env-gated extension
+# (PLUGHOST_WORKGROUP_SERVICE: join the engine's audio device workgroup instead of an interval per
+# helper). Without that variable it behaves exactly as upstream.
+[patch.crates-io]
+plughost-helper = { path = "../../plughost_bridge/vendor/plughost-helper" }

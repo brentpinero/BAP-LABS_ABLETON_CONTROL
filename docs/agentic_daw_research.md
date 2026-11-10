@@ -548,7 +548,8 @@ What Phase 0 changed in the spec, from measurement rather than assumption: the d
     - the engine pays ~4–8 µs per bridged track per callback, which overruns the 2.9 ms period at 300.
   - **Fixes:** one shared device workgroup joined by all helpers, and batched helper wake-ups.
   - **The heavy chain itself caps any host near 255 tracks on this machine** (0.137 ms per block), so the gate needs the chain fixed, plus a Live baseline on that chain.
-- **Still open:** shared-workgroup and wake-up fixes, then re-running 300 tracks at 128 and 64 samples; a Live baseline on the same chain; state persistence through Tracktion; determinism over 10 renders.
+- **Shared device workgroup BUILT (2026-11-09):** helpers join the engine's CoreAudio device workgroup over a Mach rendezvous. Startup now takes under a second at 300 tracks, with zero missed quanta at any size. **256 tracks × 6 plugins now play clean at 128 samples**; 300 fails only on the engine's ~4.7 µs per bridged track.
+- **Still open:** batch the per-track wake-ups (engine-side cost), then re-run 300 tracks at 128 and 64 samples; a Live baseline on the same chain; state persistence through Tracktion; determinism over 10 renders.
 
 ### Phase 2: Document model and agent API (2–3 months, overlaps Phase 1)
 

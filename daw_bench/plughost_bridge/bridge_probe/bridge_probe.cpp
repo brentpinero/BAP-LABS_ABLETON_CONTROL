@@ -29,6 +29,10 @@
                                                        many at once, before playback }
 */
 
+// System headers first: JuceHeader brings in `using namespace juce` (Point, AudioBuffer clash).
+#include <CoreAudio/CoreAudio.h>
+#include <os/workgroup.h>
+#include <servers/bootstrap.h>
 #include <JuceHeader.h>
 #include "../plughost_bridge.h"
 #include <atomic>
@@ -463,6 +467,100 @@ struct DeviceTimer : public juce::AudioIODeviceCallback
 };
 
 //==============================================================================
+// The audio device's IO workgroup (retained), looked up by device name; nullptr if none.
+static os_workgroup_t deviceWorkgroup (const juce::String& name)
+{
+    AudioObjectPropertyAddress pa { kAudioHardwarePropertyDevices, kAudioObjectPropertyScopeGlobal,
+                                    kAudioObjectPropertyElementMain };
+    UInt32 size = 0;
+    if (AudioObjectGetPropertyDataSize (kAudioObjectSystemObject, &pa, 0, nullptr, &size) != noErr) return nullptr;
+    std::vector<AudioDeviceID> ids (size / sizeof (AudioDeviceID));
+    if (AudioObjectGetPropertyData (kAudioObjectSystemObject, &pa, 0, nullptr, &size, ids.data()) != noErr) return nullptr;
+    for (auto id : ids)
+    {
+        CFStringRef cf = nullptr;
+        pa.mSelector = kAudioObjectPropertyName;
+        size = sizeof (cf);
+        if (AudioObjectGetPropertyData (id, &pa, 0, nullptr, &size, &cf) != noErr || cf == nullptr) continue;
+        const auto found = juce::String::fromCFString (cf);
+        CFRelease (cf);
+        if (found != name) continue;
+        os_workgroup_t wg = nullptr;
+        pa.mSelector = kAudioDevicePropertyIOThreadOSWorkgroup;
+        size = sizeof (wg);
+        if (AudioObjectGetPropertyData (id, &pa, 0, nullptr, &size, &wg) == noErr) return wg;
+    }
+    return nullptr;
+}
+
+// Serves the device workgroup's Mach port to helper processes, so their realtime workers join
+// the device's workgroup (one, shared) instead of each creating an interval of its own through
+// coreaudiod. Helpers find the service by the name in PLUGHOST_WORKGROUP_SERVICE (inherited) and
+// send one request; each reply carries a send right to the port. The same rendezvous Chromium
+// uses to hand Mach ports to its child processes (bootstrap_check_in on a per-process name).
+struct WorkgroupBroker
+{
+    static constexpr mach_msg_id_t requestId = 0x50485747;   // "PHWG", as in the helper
+
+    bool start (os_workgroup_t wg)
+    {
+        if (wg == nullptr || os_workgroup_copy_port (wg, &workgroupPort) != 0) return false;
+        name = "com.serumllm.bridge.workgroup." + std::to_string (getpid());
+        if (bootstrap_check_in (bootstrap_port, name.c_str(), &service) != KERN_SUCCESS) return false;
+        setenv ("PLUGHOST_WORKGROUP_SERVICE", name.c_str(), 1);
+        thread = std::thread ([this] { serve(); });
+        return true;
+    }
+
+    ~WorkgroupBroker()
+    {
+        stop = true;
+        if (thread.joinable()) thread.join();
+        if (service != MACH_PORT_NULL) mach_port_mod_refs (mach_task_self(), service, MACH_PORT_RIGHT_RECEIVE, -1);
+        if (workgroupPort != MACH_PORT_NULL) mach_port_deallocate (mach_task_self(), workgroupPort);
+        unsetenv ("PLUGHOST_WORKGROUP_SERVICE");
+    }
+
+    std::atomic<int> served { 0 };
+    std::string name;
+
+private:
+    void serve()
+    {
+        struct { mach_msg_header_t header; char room[256]; } request;
+        struct Reply { mach_msg_header_t header; mach_msg_body_t body; mach_msg_port_descriptor_t port; };
+        while (! stop)
+        {
+            request.header = {};
+            const auto kr = mach_msg (&request.header, MACH_RCV_MSG | MACH_RCV_TIMEOUT, 0, sizeof (request),
+                                      service, 100, MACH_PORT_NULL);
+            if (kr != KERN_SUCCESS) continue;   // timed out: check `stop`
+            if (request.header.msgh_id != requestId || request.header.msgh_remote_port == MACH_PORT_NULL)
+            {
+                mach_msg_destroy (&request.header);
+                continue;
+            }
+            Reply reply {};
+            reply.header.msgh_bits = MACH_MSGH_BITS (MACH_MSG_TYPE_MOVE_SEND_ONCE, 0) | MACH_MSGH_BITS_COMPLEX;
+            reply.header.msgh_size = sizeof (reply);
+            reply.header.msgh_remote_port = request.header.msgh_remote_port;
+            reply.header.msgh_id = requestId + 100;
+            reply.body.msgh_descriptor_count = 1;
+            reply.port.name = workgroupPort;
+            reply.port.disposition = MACH_MSG_TYPE_COPY_SEND;
+            reply.port.type = MACH_MSG_PORT_DESCRIPTOR;
+            if (mach_msg (&reply.header, MACH_SEND_MSG | MACH_SEND_TIMEOUT, sizeof (reply), 0, MACH_PORT_NULL,
+                          100, MACH_PORT_NULL) == KERN_SUCCESS)
+                served.fetch_add (1);
+        }
+    }
+
+    mach_port_t service = MACH_PORT_NULL, workgroupPort = MACH_PORT_NULL;
+    std::atomic<bool> stop { false };
+    std::thread thread;
+};
+
+//==============================================================================
 struct HeadlessUI : public te::UIBehaviour
 {
     void runTaskWithProgressBar (te::ThreadPoolJobWithProgress& task) override
@@ -495,6 +593,7 @@ int run (const juce::var& job)
     const juce::String helper = job["helper"].toString();
     PlughostInstance::latencyQuanta = job.getProperty ("latency_quanta", 1);
 
+    WorkgroupBroker broker;   // before the engine: it outlives every helper
     te::Engine engine { "bridge_probe", std::make_unique<HeadlessUI>(), std::make_unique<te::EngineBehaviour>() };
     auto& pm = engine.getPluginManager();
     auto* plughostFormat = new PlughostFormat (helper);
@@ -541,6 +640,13 @@ int run (const juce::var& job)
         report->setProperty ("workgroup_valid", (bool) wg);
         report->setProperty ("workgroup_max_threads", (int) (wg ? wg.getMaxParallelThreadCount() : 0));
         report->setProperty ("engine_cpus", engine.getEngineBehaviour().getNumberOfCPUsToUseForAudio());
+        // Bridged helpers join this device's workgroup instead of creating their own intervals.
+        if ((bool) job.getProperty ("share_workgroup", false))
+        {
+            auto* wgDevice = deviceWorkgroup (setup.outputDeviceName);
+            report->setProperty ("workgroup_shared", broker.start (wgDevice));
+            if (wgDevice != nullptr) os_release (wgDevice);
+        }
         // Put the timing wrapper between the device and Tracktion. DeviceManager inherits the
         // callback privately; a C-style cast is the one cast allowed to reach a private base.
         auto* engineCallback = (juce::AudioIODeviceCallback*) &tdm;
@@ -712,6 +818,7 @@ int run (const juce::var& job)
     if (! edit->getTransport().isPlaying())
         return std::cerr << "transport did not start\n", 1;
     report->setProperty ("playback_start_s", std::chrono::duration<double> (Clock::now() - tStart).count());
+    report->setProperty ("workgroup_ports_served", broker.served.load());
     // Lets an external test (the kill test) act only once playback is running.
     if (job.hasProperty ("playing_marker"))
         juce::File (job["playing_marker"].toString()).replaceWithText ("playing");

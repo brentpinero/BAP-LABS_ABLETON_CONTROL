@@ -16,7 +16,17 @@
            "bundle": "/Library/.../Serum2.vst3", "class_name": "Serum 2", "class_id": "<32 hex>",
            "component_state": path?,  "tracks": N, "sample_rate": 44100, "block": 128,
            "tempo": 126, "seconds": 8, "output": "out.wav",
-           "helper": "<plughost-helper executable>", "latency_quanta": 1 }
+           "helper": "<plughost-helper executable>", "latency_quanta": 1,
+           "chain": [{"bundle", "class_name"}, ...]?   per-track plugin chain instead of bundle/
+                                                       class_name (bridge: ONE helper per track)
+           "audio_file": path?                         tracks play this clip instead of MIDI notes
+           "device": "coreaudio"?, "device_name": "MacBook Pro Speakers", "workgroup": true
+                 realtime on a real CoreAudio device: Tracktion's own DeviceManager drives the
+                 edit (and joins the device's audio workgroup); output is recorded, then zeroed
+                 so nothing reaches the speakers. Without "device", a paced thread drives
+                 Tracktion's HostedAudioDeviceInterface.
+           "prespawn_parallel": 8                      bridges: start every helper up front, this
+                                                       many at once, before playback }
 */
 
 #include <JuceHeader.h>
@@ -28,6 +38,8 @@
 #include <mach/thread_policy.h>
 #include <pthread.h>
 #include <iostream>
+#include <map>
+#include <mutex>
 #include <thread>
 
 namespace te = tracktion;
@@ -349,14 +361,51 @@ public:
     juce::FileSearchPath getDefaultLocationsToSearch() override         { return {}; }
     bool requiresUnblockedMessageThreadDuringCreation (const juce::PluginDescription&) const override { return false; }
 
+    static std::string openJob (const juce::String& id, double sr, int block)
+    {
+        auto job = juce::JSON::parse (id.fromFirstOccurrenceOf ("plughost:", false, false));
+        job.getDynamicObject()->setProperty ("sr", sr);
+        job.getDynamicObject()->setProperty ("block", juce::jmax (block, 4096));   // room for any block size
+        return juce::JSON::toString (job, true).toStdString();
+    }
+
+    // Starts `count` helpers for plugin `id` up front, `parallel` at a time, as an engine would
+    // when it loads a set: createPluginInstance then takes a running one from the pool.
+    void prespawn (const juce::String& id, double sr, int block, int count, int parallel)
+    {
+        const auto job = openJob (id, sr, block);
+        const auto helperPath = helper.toStdString();
+        std::atomic<int> next { 0 };
+        std::vector<std::thread> threads;
+        for (int t = 0; t < juce::jmax (1, parallel); ++t)
+            threads.emplace_back ([&]
+            {
+                while (next.fetch_add (1) < count)
+                {
+                    char err[1024] = {};
+                    auto* b = ph_open (helperPath.c_str(), job.c_str(), err, sizeof (err));
+                    const std::lock_guard<std::mutex> lock (poolLock);
+                    if (b != nullptr) pool[job].push_back (b);
+                    else prespawnErrors.add (juce::String (juce::CharPointer_UTF8 (err)));
+                }
+            });
+        for (auto& t : threads) t.join();
+    }
+
+    juce::StringArray prespawnErrors;
+
     void createPluginInstance (const juce::PluginDescription& d, double sr, int block,
                                PluginCreationCallback callback) override
     {
-        auto job = juce::JSON::parse (d.fileOrIdentifier.fromFirstOccurrenceOf ("plughost:", false, false));
-        job.getDynamicObject()->setProperty ("sr", sr);
-        job.getDynamicObject()->setProperty ("block", juce::jmax (block, 4096));   // room for any block size
+        const auto job = openJob (d.fileOrIdentifier, sr, block);
+        ph_bridge* b = nullptr;
+        {
+            const std::lock_guard<std::mutex> lock (poolLock);
+            if (auto& ready = pool[job]; ! ready.empty()) { b = ready.back(); ready.pop_back(); }
+        }
         char err[1024] = {};
-        auto* b = ph_open (helper.toRawUTF8(), juce::JSON::toString (job, true).toRawUTF8(), err, sizeof (err));
+        if (b == nullptr)
+            b = ph_open (helper.toRawUTF8(), job.c_str(), err, sizeof (err));
         if (b == nullptr) { callback (nullptr, "plughost: " + juce::String (juce::CharPointer_UTF8 (err))); return; }
         char buf[1024];
         ph_info_json (b, buf, sizeof (buf));
@@ -367,6 +416,50 @@ public:
 
 private:
     juce::String helper;
+    std::mutex poolLock;
+    std::map<std::string, std::vector<ph_bridge*>> pool;
+};
+
+//==============================================================================
+// Sits between the CoreAudio device and Tracktion's DeviceManager: times each engine callback,
+// records the output once armed, then zeroes it so nothing plays through the speakers.
+struct DeviceTimer : public juce::AudioIODeviceCallback
+{
+    DeviceTimer (juce::AudioIODeviceCallback& e, int maxCallbacks, int block)
+        : engineCallback (e), ms ((size_t) maxCallbacks), sizes ((size_t) maxCallbacks),
+          rec ((size_t) maxCallbacks * (size_t) block * 2), maxBlock (block) {}
+
+    void audioDeviceIOCallbackWithContext (const float* const* in, int numIns, float* const* out, int numOuts,
+                                           int n, const juce::AudioIODeviceCallbackContext& ctx) override
+    {
+        const auto t = Clock::now();
+        engineCallback.audioDeviceIOCallbackWithContext (in, numIns, out, numOuts, n, ctx);
+        const double took = std::chrono::duration<double, std::milli> (Clock::now() - t).count();
+        const int i = count.load (std::memory_order_relaxed);
+        if (armed.load (std::memory_order_relaxed) && i < (int) ms.size())
+        {
+            ms[(size_t) i] = took;
+            sizes[(size_t) i] = n;
+            for (int s = 0; s < juce::jmin (n, maxBlock); ++s)
+                for (int c = 0; c < 2; ++c)
+                    rec[((size_t) i * (size_t) maxBlock + (size_t) s) * 2 + (size_t) c]
+                        = c < numOuts && out[c] != nullptr ? out[c][s] : 0.0f;
+            count.store (i + 1, std::memory_order_release);
+        }
+        for (int c = 0; c < numOuts; ++c)
+            if (out[c] != nullptr) juce::FloatVectorOperations::clear (out[c], n);
+    }
+    void audioDeviceAboutToStart (juce::AudioIODevice* d) override { engineCallback.audioDeviceAboutToStart (d); }
+    void audioDeviceStopped() override                             { engineCallback.audioDeviceStopped(); }
+    void audioDeviceError (const juce::String& e) override         { engineCallback.audioDeviceError (e); }
+
+    juce::AudioIODeviceCallback& engineCallback;
+    std::vector<double> ms;
+    std::vector<int> sizes;
+    std::vector<float> rec;
+    const int maxBlock;
+    std::atomic<int> count { 0 };
+    std::atomic<bool> armed { false };
 };
 
 //==============================================================================
@@ -394,7 +487,8 @@ static void printJson (const juce::var& v) { std::cout << juce::JSON::toString (
 
 int run (const juce::var& job)
 {
-    const juce::String mode = job["mode"], kind = job["plugin"];
+    const juce::String mode = job["mode"], kind = job["plugin"], device = job["device"].toString();
+    const bool onDevice = mode == "realtime" && device == "coreaudio";
     const double sr = job.getProperty ("sample_rate", 44100.0), tempo = job.getProperty ("tempo", 120.0),
                  seconds = job.getProperty ("seconds", 8.0);
     const int block = job.getProperty ("block", 128), numTracks = job.getProperty ("tracks", 1);
@@ -403,40 +497,124 @@ int run (const juce::var& job)
 
     te::Engine engine { "bridge_probe", std::make_unique<HeadlessUI>(), std::make_unique<te::EngineBehaviour>() };
     auto& pm = engine.getPluginManager();
-    pm.pluginFormatManager.addFormat (std::make_unique<PlughostFormat> (helper));
+    auto* plughostFormat = new PlughostFormat (helper);
+    pm.pluginFormatManager.addFormat (std::unique_ptr<juce::AudioPluginFormat> (plughostFormat));
+    auto* report = new juce::DynamicObject();
+    const juce::var reportVar (report);
 
-    auto& hosted = engine.getDeviceManager().getHostedAudioDeviceInterface();
-    if (mode == "realtime")
+    auto& tdm = engine.getDeviceManager();
+    auto& jdm = tdm.deviceManager;
+    auto& hosted = tdm.getHostedAudioDeviceInterface();
+    std::unique_ptr<DeviceTimer> timed;
+    const double period = block / sr;
+    const int callbacks = (int) (seconds / period);
+    if (onDevice)
+    {
+        // Tracktion's own device path, as the real engine will run: its DeviceManager is the
+        // CoreAudio callback, and its graph threads join the device's audio workgroup. Its CPU
+        // guard (silence output above 98% load) would hide overloads, so it is off.
+        tdm.setCpuLimitBeforeMuting (1.0e9);
+        te::EditPlaybackContext::enableAudioWorkgroup ((bool) job.getProperty ("workgroup", true));
+        tdm.initialise (0, 2);
+        jdm.setCurrentAudioDeviceType ("CoreAudio", true);
+        auto setup = jdm.getAudioDeviceSetup();
+        setup.outputDeviceName = job.getProperty ("device_name", "MacBook Pro Speakers").toString();
+        setup.inputDeviceName = {};
+        setup.useDefaultInputChannels = false;
+        setup.inputChannels.clear();
+        setup.useDefaultOutputChannels = true;
+        setup.sampleRate = sr;
+        setup.bufferSize = block;
+        if (auto err = jdm.setAudioDeviceSetup (setup, true); err.isNotEmpty())
+            return std::cerr << "device: " << err << "\n", 1;
+        auto* dev = jdm.getCurrentAudioDevice();
+        if (dev == nullptr) return std::cerr << "no audio device\n", 1;
+        report->setProperty ("audio_device", dev->getTypeName() + "/" + dev->getName());
+        report->setProperty ("device_rate", dev->getCurrentSampleRate());
+        report->setProperty ("device_block", dev->getCurrentBufferSizeSamples());
+        report->setProperty ("device_latency_out", dev->getOutputLatencyInSamples());
+        if (dev->getCurrentSampleRate() != sr || dev->getCurrentBufferSizeSamples() != block)
+            return std::cerr << "device runs at " << dev->getCurrentSampleRate() << " Hz / "
+                             << dev->getCurrentBufferSizeSamples() << " samples, asked "
+                             << sr << " / " << block << "\n", 1;
+        const auto wg = jdm.getDeviceAudioWorkgroup();
+        report->setProperty ("workgroup_valid", (bool) wg);
+        report->setProperty ("workgroup_max_threads", (int) (wg ? wg.getMaxParallelThreadCount() : 0));
+        report->setProperty ("engine_cpus", engine.getEngineBehaviour().getNumberOfCPUsToUseForAudio());
+        // Put the timing wrapper between the device and Tracktion. DeviceManager inherits the
+        // callback privately; a C-style cast is the one cast allowed to reach a private base.
+        auto* engineCallback = (juce::AudioIODeviceCallback*) &tdm;
+        timed = std::make_unique<DeviceTimer> (*engineCallback, callbacks, block);
+        jdm.removeAudioCallback (engineCallback);
+        jdm.addAudioCallback (timed.get());
+    }
+    else if (mode == "realtime")
     {
         te::HostedAudioDeviceInterface::Parameters p;
         p.sampleRate = sr; p.blockSize = block; p.inputChannels = 0; p.outputChannels = 2;
         hosted.initialise (p);
     }
 
-    // The plugin description: bridged (Plughost format) or native in-process VST3 (control).
-    juce::PluginDescription desc;
+    // The chain each track gets: `chain` entries, or the single bundle/class_name.
+    juce::Array<juce::var> chain;
+    if (auto* c = job["chain"].getArray()) chain = *c;
+    else
+    {
+        auto* one = new juce::DynamicObject();
+        one->setProperty ("bundle", job["bundle"]);
+        one->setProperty ("class_name", job["class_name"]);
+        chain.add (juce::var (one));
+    }
+
+    // Plugin descriptions per track: ONE bridged plugin running the whole chain in one helper,
+    // or one in-process VST3 per chain entry (the control).
+    juce::Array<juce::PluginDescription> descs;
     if (kind == "bridge")
     {
         auto* spec = new juce::DynamicObject();
-        spec->setProperty ("format", "vst3");
-        spec->setProperty ("bundle", job["bundle"]);
-        spec->setProperty ("class_name", job["class_name"]);
+        const juce::var specVar (spec);
         spec->setProperty ("realtime", mode == "realtime");
-        if (job.hasProperty ("component_state")) spec->setProperty ("component_state", job["component_state"]);
+        if (job["chain"].isArray())
+        {
+            spec->setProperty ("slots", job["chain"]);
+            spec->setProperty ("class_name", "chain");
+        }
+        else
+        {
+            spec->setProperty ("format", "vst3");
+            spec->setProperty ("bundle", job["bundle"]);
+            spec->setProperty ("class_name", job["class_name"]);
+            if (job.hasProperty ("component_state")) spec->setProperty ("component_state", job["component_state"]);
+        }
         juce::OwnedArray<juce::PluginDescription> found;
-        pm.pluginFormatManager.getFormat (pm.pluginFormatManager.getNumFormats() - 1)
-            ->findAllTypesForFile (found, "plughost:" + juce::JSON::toString (juce::var (spec), true));
-        desc = *found[0];
+        plughostFormat->findAllTypesForFile (found, "plughost:" + juce::JSON::toString (specVar, true));
+        descs.add (*found[0]);
+        if (int par = job.getProperty ("prespawn_parallel", 0); par > 0)
+        {
+            const auto t0 = Clock::now();
+            plughostFormat->prespawn (descs[0].fileOrIdentifier, sr, block, numTracks, par);
+            report->setProperty ("prespawn_s", std::chrono::duration<double> (Clock::now() - t0).count());
+            report->setProperty ("prespawn_errors", plughostFormat->prespawnErrors.size());
+            if (! plughostFormat->prespawnErrors.isEmpty())
+                std::cerr << "prespawn: " << plughostFormat->prespawnErrors[0] << "\n";
+        }
     }
     else
     {
-        juce::OwnedArray<juce::PluginDescription> found;
-        for (auto* f : pm.pluginFormatManager.getFormats())
-            if (f->getName() == "VST3") f->findAllTypesForFile (found, job["bundle"].toString());
-        for (auto* d : found)
-            if (d->name == job["class_name"].toString()) desc = *d;
+        for (auto& entry : chain)
+        {
+            juce::OwnedArray<juce::PluginDescription> found;
+            for (auto* f : pm.pluginFormatManager.getFormats())
+                if (f->getName() == "VST3") f->findAllTypesForFile (found, entry["bundle"].toString());
+            const juce::PluginDescription* match = nullptr;
+            for (auto* d : found)
+                if (entry["class_name"].isVoid() || d->name == entry["class_name"].toString()) { match = d; break; }
+            if (match == nullptr)
+                return std::cerr << "no VST3 class in " << entry["bundle"].toString() << "\n", 1;
+            descs.add (*match);
+        }
     }
-    pm.knownPluginList.addType (desc);
+    for (auto& d : descs) pm.knownPluginList.addType (d);
 
     auto edit = te::Edit::createSingleTrackEdit (engine, mode == "realtime" ? te::Edit::EditRole::forEditing
                                                                             : te::Edit::EditRole::forRendering);
@@ -446,34 +624,51 @@ int run (const juce::var& job)
 
     juce::MemoryBlock comp;
     if (job.hasProperty ("component_state")) juce::File (job["component_state"].toString()).loadFileAsData (comp);
+    const juce::File audioFile (job["audio_file"].toString());
+    const bool audioSource = job.hasProperty ("audio_file");
 
+    const auto tBuild = Clock::now();
     auto tracks = te::getAudioTracks (*edit);
     for (auto* track : tracks)
     {
-        // One MIDI clip: a note on every beat (alternating pitch) for the whole length.
-        auto clip = track->insertMIDIClip ({ te::TimePosition(), te::TimeDuration::fromSeconds (seconds) }, nullptr);
-        const int beats = (int) (seconds * tempo / 60.0);
-        for (int b = 0; b < beats; ++b)
-            clip->getSequence().addNote (b % 2 ? 41 : 36, te::BeatPosition::fromBeats (b),
-                                         te::BeatDuration::fromBeats (0.75), 100, 0, nullptr);
-        auto plugin = edit->getPluginCache().createNewPlugin (te::ExternalPlugin::xmlTypeName, desc);
-        track->pluginList.insertPlugin (plugin, 0, nullptr);
-        if (auto* ext = dynamic_cast<te::ExternalPlugin*> (plugin.get()))
+        if (audioSource)
         {
-            if (ext->getAudioPluginInstance() == nullptr)
-                return std::cerr << "plugin failed to load: " << ext->getLoadError() << "\n", 1;
-            if (kind == "native" && comp.getSize() > 0)
-                if (auto* v3 = ext->getAudioPluginInstance()->getVST3Client())
-                    v3->setPreset (vstpreset (job["class_id"].toString(), comp));
+            // One audio clip for the whole length, feeding the chain.
+            track->insertWaveClip ("source", audioFile, { { te::TimePosition(), te::TimeDuration::fromSeconds (seconds) },
+                                                          te::TimeDuration() }, false);
+        }
+        else
+        {
+            // One MIDI clip: a note on every beat (alternating pitch) for the whole length.
+            auto clip = track->insertMIDIClip ({ te::TimePosition(), te::TimeDuration::fromSeconds (seconds) }, nullptr);
+            const int beats = (int) (seconds * tempo / 60.0);
+            for (int b = 0; b < beats; ++b)
+                clip->getSequence().addNote (b % 2 ? 41 : 36, te::BeatPosition::fromBeats (b),
+                                             te::BeatDuration::fromBeats (0.75), 100, 0, nullptr);
+        }
+        int index = 0;
+        for (auto& desc : descs)
+        {
+            auto plugin = edit->getPluginCache().createNewPlugin (te::ExternalPlugin::xmlTypeName, desc);
+            track->pluginList.insertPlugin (plugin, index++, nullptr);
+            if (auto* ext = dynamic_cast<te::ExternalPlugin*> (plugin.get()))
+            {
+                if (ext->getAudioPluginInstance() == nullptr)
+                    return std::cerr << "plugin failed to load: " << ext->getLoadError() << "\n", 1;
+                if (kind == "native" && comp.getSize() > 0 && descs.size() == 1)
+                    if (auto* v3 = ext->getAudioPluginInstance()->getVST3Client())
+                        v3->setPreset (vstpreset (job["class_id"].toString(), comp));
+            }
         }
     }
+    report->setProperty ("build_s", std::chrono::duration<double> (Clock::now() - tBuild).count());
 
     const juce::File outFile (job["output"].toString());
     outFile.deleteFile();
-    auto* report = new juce::DynamicObject();
     report->setProperty ("mode", mode);
     report->setProperty ("plugin", kind);
     report->setProperty ("tracks", numTracks);
+    report->setProperty ("plugins_per_track", descs.size());
 
     if (mode == "offline")
     {
@@ -492,20 +687,23 @@ int run (const juce::var& job)
         juce::Array<juce::var> per;
         for (auto* inst : PlughostInstance::instances()) per.add (inst->report());
         report->setProperty ("bridged", per);
-        printJson (report);
+        printJson (reportVar);
         return rendered.existsAsFile() ? 0 : 1;
     }
 
-    // Realtime: drive the hosted device from a thread paced to wall-clock time, one block per
-    // period, as an audio device would; a control thread recovers bridged plugins that crash.
-    // As Tracktion's EngineInPluginDemo: allocate the playback context on the hosted device
-    // (forced, after the edit is built) and restart playback before playing.
-    hosted.prepareToPlay (sr, block);
+    // Realtime. Paced: as Tracktion's EngineInPluginDemo, allocate the playback context on the
+    // hosted device (forced, after the edit is built) and restart playback before playing.
+    // Start-up: preparing every plugin (for bridges: starting each helper's realtime endpoint,
+    // one after another on this thread) until the transport plays.
+    const auto tStart = Clock::now();
+    if (! onDevice)
+        hosted.prepareToPlay (sr, block);
     edit->playInStopEnabled = true;
     edit->getTransport().ensureContextAllocated (true);
-    edit->restartPlayback();
+    if (! onDevice)
+        edit->restartPlayback();
     edit->getTransport().setPosition (te::TimePosition());
-    // restartPlayback rebuilds the context asynchronously: pump messages until play() sticks.
+    // The context is (re)built asynchronously: pump messages until play() sticks.
     for (int i = 0; i < 300 && ! edit->getTransport().isPlaying(); ++i)
     {
         juce::MessageManager::getInstance()->runDispatchLoopUntil (10);
@@ -513,86 +711,138 @@ int run (const juce::var& job)
     }
     if (! edit->getTransport().isPlaying())
         return std::cerr << "transport did not start\n", 1;
+    report->setProperty ("playback_start_s", std::chrono::duration<double> (Clock::now() - tStart).count());
     // Lets an external test (the kill test) act only once playback is running.
     if (job.hasProperty ("playing_marker"))
         juce::File (job["playing_marker"].toString()).replaceWithText ("playing");
 
-    const double period = block / sr;
-    const int callbacks = (int) (seconds / period);
-    std::vector<float> rec ((size_t) callbacks * block * 2);
-    std::vector<double> cbMs ((size_t) callbacks);
+    std::vector<float> rec;
+    std::vector<double> cbMs;
     std::atomic<bool> done { false }, warmMarked { false };
     int overruns = 0, overrunsWarmup = 0;
     const double warmupS = job.getProperty ("warmup_s", 1.0);
     const int warmCallbacks = (int) (warmupS / period);
+    int xrunsAtWarm = 0;
+    std::vector<double> cpu;   // JUCE's device load (callback time / period, smoothed), per 50 ms
 
-    std::thread control ([&]
+    // Control thread: marks the end of warm-up, polls/recovers bridged chains, samples load.
+    auto startControl = [&]
     {
-        const auto start = Clock::now();
-        while (! done)
+        return std::thread ([&]
         {
-            if (! warmMarked && std::chrono::duration<double> (Clock::now() - start).count() >= warmupS)
+            const auto start = Clock::now();
+            while (! done)
             {
-                for (auto* inst : PlughostInstance::instances()) inst->markWarm();
-                warmMarked = true;
+                if (! warmMarked && std::chrono::duration<double> (Clock::now() - start).count() >= warmupS)
+                {
+                    for (auto* inst : PlughostInstance::instances()) inst->markWarm();
+                    if (onDevice && jdm.getCurrentAudioDevice() != nullptr)
+                        xrunsAtWarm = jdm.getCurrentAudioDevice()->getXRunCount();
+                    warmMarked = true;
+                }
+                for (auto* inst : PlughostInstance::instances()) inst->pollAndRecover (300.0);
+                if (onDevice && warmMarked) cpu.push_back (jdm.getCpuUsage());
+                std::this_thread::sleep_for (std::chrono::milliseconds (50));
             }
-            for (auto* inst : PlughostInstance::instances()) inst->pollAndRecover (300.0);
-            std::this_thread::sleep_for (std::chrono::milliseconds (50));
-        }
-    });
+        });
+    };
 
-    std::thread audio ([&]
+    if (onDevice)
     {
-        // Real-time scheduling like a CoreAudio IO thread (and plughost's helper worker): the
-        // time-constraint policy with period = one block and a computation budget of half of it.
-        {
-            mach_timebase_info_data_t tb;
-            mach_timebase_info (&tb);
-            const auto toAbs = [&] (double s) { return (uint32_t) (s * 1e9 * tb.denom / tb.numer); };
-            thread_time_constraint_policy_data_t policy { toAbs (period), toAbs (period * 0.5),
-                                                          toAbs (period), 1 };
-            const auto kr = thread_policy_set (pthread_mach_thread_np (pthread_self()), THREAD_TIME_CONSTRAINT_POLICY,
-                                               (thread_policy_t) &policy, THREAD_TIME_CONSTRAINT_POLICY_COUNT);
-            report->setProperty ("rt_policy", kr == KERN_SUCCESS);
-        }
-        juce::AudioBuffer<float> buf (2, block);
-        juce::MidiBuffer midi;
-        auto next = Clock::now();
-        for (int i = 0; i < callbacks; ++i)
-        {
-            std::this_thread::sleep_until (next);
-            const auto t = Clock::now();
-            buf.clear();
-            midi.clear();
-            hosted.processBlock (buf, midi);
-            const double ms = std::chrono::duration<double, std::milli> (Clock::now() - t).count();
-            cbMs[(size_t) i] = ms;
-            if (ms > period * 1e3) (i < warmCallbacks ? overrunsWarmup : overruns)++;
-            for (int s = 0; s < block; ++s)
-                for (int c = 0; c < 2; ++c)
-                    rec[((size_t) i * block + s) * 2 + c] = buf.getSample (c, s);
-            next += std::chrono::duration_cast<Clock::duration> (std::chrono::duration<double> (period));
-        }
+        // The device calls back on its own IO thread; record `callbacks` of them from now on.
+        timed->armed = true;
+        auto control = startControl();
+        const auto deadline = Clock::now() + std::chrono::duration<double> (seconds * 3 + 30);
+        while (timed->count.load() < callbacks && Clock::now() < deadline)
+            juce::MessageManager::getInstance()->runDispatchLoopUntil (10);
+        timed->armed = false;
         done = true;
-    });
-
-    while (! done) juce::MessageManager::getInstance()->runDispatchLoopUntil (10);
-    audio.join();
-    control.join();
-    // Diagnostics: did the edit actually play on the hosted device?
+        control.join();
+        auto* dev = jdm.getCurrentAudioDevice();
+        const int xruns = dev != nullptr ? dev->getXRunCount() : -1;
+        report->setProperty ("device_xruns", xruns - xrunsAtWarm);       // after warm-up
+        report->setProperty ("device_xruns_warmup", xrunsAtWarm);
+        const int got = timed->count.load();
+        cbMs.assign (timed->ms.begin(), timed->ms.begin() + got);
+        rec.assign (timed->rec.begin(), timed->rec.begin() + (size_t) got * (size_t) block * 2);
+        int odd = 0;
+        for (int i = 0; i < got; ++i) odd += timed->sizes[(size_t) i] != block;
+        report->setProperty ("odd_block_sizes", odd);
+        for (int i = 0; i < got; ++i)
+            if (cbMs[(size_t) i] > period * 1e3) (i < warmCallbacks ? overrunsWarmup : overruns)++;
+        if (! cpu.empty())
+        {
+            std::sort (cpu.begin(), cpu.end());
+            report->setProperty ("cpu_load_median", cpu[cpu.size() / 2]);
+            report->setProperty ("cpu_load_max", cpu.back());
+        }
+    }
+    else
+    {
+        // Paced: drive the hosted device from a thread paced to wall-clock time, one block per
+        // period, as an audio device would.
+        rec.resize ((size_t) callbacks * block * 2);
+        cbMs.resize ((size_t) callbacks);
+        auto control = startControl();
+        std::thread audio ([&]
+        {
+            // Real-time scheduling like a CoreAudio IO thread (and plughost's helper worker): the
+            // time-constraint policy with period = one block and a computation budget of half of it.
+            {
+                mach_timebase_info_data_t tb;
+                mach_timebase_info (&tb);
+                const auto toAbs = [&] (double s) { return (uint32_t) (s * 1e9 * tb.denom / tb.numer); };
+                thread_time_constraint_policy_data_t policy { toAbs (period), toAbs (period * 0.5),
+                                                              toAbs (period), 1 };
+                const auto kr = thread_policy_set (pthread_mach_thread_np (pthread_self()), THREAD_TIME_CONSTRAINT_POLICY,
+                                                   (thread_policy_t) &policy, THREAD_TIME_CONSTRAINT_POLICY_COUNT);
+                report->setProperty ("rt_policy", kr == KERN_SUCCESS);
+            }
+            juce::AudioBuffer<float> buf (2, block);
+            juce::MidiBuffer midi;
+            auto next = Clock::now();
+            for (int i = 0; i < callbacks; ++i)
+            {
+                std::this_thread::sleep_until (next);
+                const auto t = Clock::now();
+                buf.clear();
+                midi.clear();
+                hosted.processBlock (buf, midi);
+                const double ms = std::chrono::duration<double, std::milli> (Clock::now() - t).count();
+                cbMs[(size_t) i] = ms;
+                if (ms > period * 1e3) (i < warmCallbacks ? overrunsWarmup : overruns)++;
+                for (int s = 0; s < block; ++s)
+                    for (int c = 0; c < 2; ++c)
+                        rec[((size_t) i * block + s) * 2 + c] = buf.getSample (c, s);
+                next += std::chrono::duration_cast<Clock::duration> (std::chrono::duration<double> (period));
+            }
+            done = true;
+        });
+        while (! done) juce::MessageManager::getInstance()->runDispatchLoopUntil (10);
+        audio.join();
+        control.join();
+        if (auto* dev = jdm.getCurrentAudioDevice())
+            report->setProperty ("audio_device", dev->getTypeName() + "/" + dev->getName());
+    }
+    // Diagnostics: did the edit actually play?
     report->setProperty ("transport_playing", edit->getTransport().isPlaying());
     report->setProperty ("transport_position_s", edit->getTransport().getPosition().inSeconds());
-    if (auto* dev = engine.getDeviceManager().deviceManager.getCurrentAudioDevice())
-        report->setProperty ("audio_device", dev->getTypeName() + "/" + dev->getName());
-    if (auto* out = engine.getDeviceManager().getDefaultWaveOutDevice())
+    if (auto* out = tdm.getDefaultWaveOutDevice())
         report->setProperty ("default_wave_out", out->getName() + (out->isEnabled() ? " (enabled)" : " (disabled)"));
     edit->getTransport().stop (false, false);
+    if (onDevice)
+    {
+        jdm.removeAudioCallback (timed.get());
+        jdm.closeAudioDevice();
+    }
+    if (cbMs.empty())
+        return std::cerr << "no callbacks recorded\n", 1;
 
     std::vector<double> sorted (cbMs);
     std::sort (sorted.begin(), sorted.end());
     report->setProperty ("block", block);
     report->setProperty ("period_ms", period * 1e3);
-    report->setProperty ("callbacks", callbacks);
+    report->setProperty ("callbacks", (int) cbMs.size());
     report->setProperty ("overruns", overruns);                 // after warm-up
     report->setProperty ("overruns_warmup", overrunsWarmup);
     report->setProperty ("warmup_s", warmupS);
@@ -615,7 +865,7 @@ int run (const juce::var& job)
             w->writeFromAudioSampleBuffer (b, 0, b.getNumSamples());
         }
     report->setProperty ("ok", true);
-    printJson (report);
+    printJson (reportVar);
     return 0;
 }
 

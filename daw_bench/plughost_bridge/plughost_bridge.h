@@ -25,7 +25,9 @@ typedef struct { double tempo; int64_t sample_position; int32_t playing; } ph_tr
 
 // Opens a plugin in a new helper. job_json: {"format":"vst3"|"au", "bundle":..., "class_name":...,
 // "class_index":..., "au":[type,subtype,manufacturer], "sr":..., "block":..., "realtime":bool,
-// "component_state":path?, "preset":path?}. Returns NULL on failure, with the message in err.
+// "component_state":path?, "preset":path?}, or {"slots":[{those plugin fields}, ...], "sr", "block",
+// "realtime"} for a serial chain in one helper. Thread-safe: bridges may open in parallel.
+// Returns NULL on failure, with the message in err.
 ph_bridge* ph_open (const char* helper_path, const char* job_json, char* err, size_t err_len);
 void ph_close (ph_bridge*);
 const char* ph_last_error (const ph_bridge*);

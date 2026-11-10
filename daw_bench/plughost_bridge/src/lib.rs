@@ -2,34 +2,48 @@
 //! plugins out of process. A `Bridge` lives on the control thread; an `Rt` (plughost's
 //! RealtimeEndpoint) lives on the audio thread and is never blocked, locked or allocated in.
 
+use std::collections::HashMap;
 use std::ffi::{CStr, c_char};
 use std::path::Path;
+use std::sync::Mutex;
 use std::time::Instant;
 
 use plughost::{
     BlockContext, Chain, ChainSlot, Event, Events, Layout, PluginKind, PluginRef, ProcessMode,
-    RealtimeConfig, RealtimeEndpoint, RealtimeOutput, Scanner, SpawnOptions, StatePurpose, Transport,
+    RealtimeConfig, RealtimeEndpoint, RealtimeOutput, Scanner, SpawnOptions, Transport,
 };
 use serde::Deserialize;
 
-#[derive(Deserialize)]
-struct Job {
+/// One plugin of a chain.
+#[derive(Deserialize, Clone)]
+struct SlotJob {
+    #[serde(default = "vst3")]
     format: String,
     bundle: Option<String>,
     class_name: Option<String>,
     class_index: Option<usize>,
     au: Option<[String; 3]>,
-    sr: f64,
-    block: usize,
-    #[serde(default)]
-    realtime: bool,
     component_state: Option<String>,
     preset: Option<String>,
 }
 
+fn vst3() -> String { "vst3".into() }
+
+/// One plugin (the fields of a slot), or a serial chain of `slots` in ONE helper process.
+#[derive(Deserialize)]
+struct Job {
+    #[serde(flatten)]
+    single: SlotJob,
+    slots: Option<Vec<SlotJob>>,
+    sr: f64,
+    block: usize,
+    #[serde(default)]
+    realtime: bool,
+}
+
 pub struct Bridge {
     chain: Chain,
-    plugin: PluginRef,
+    plugins: Vec<PluginRef>,
     name: String,
     vendor: String,
     instrument: bool,
@@ -128,32 +142,48 @@ unsafe fn slices_mut<'a>(ptrs: *const *mut f32, n: usize, frames: usize) -> Vec<
     (0..n).map(|i| unsafe { std::slice::from_raw_parts_mut(*ptrs.add(i), frames) }).collect()
 }
 
-fn open(helper: &Path, job: &Job) -> Result<Bridge, String> {
-    let plugin = match job.format.as_str() {
-        "au" => PluginRef::audio_unit(au_class_id(job.au.as_ref().ok_or("au job without codes")?)),
-        _ => {
-            let bundle = job.bundle.as_ref().ok_or("vst3 job without bundle")?;
-            let cache = std::env::temp_dir().join(format!("ph-bridge-scan-{}.json", std::process::id()));
-            let scanned = Scanner::new(helper, &cache).retry(Path::new(bundle)).map_err(|e| describe(&e))?;
-            let _ = std::fs::remove_file(&cache);
-            let classes = scanned.plugins();
-            let found = match &job.class_name {
-                Some(name) => classes.into_iter().find(|(_, i)| &i.name == name),
-                None => classes.into_iter().nth(job.class_index.unwrap_or(0)),
-            };
-            found.map(|(p, _)| p).ok_or(format!("no class in bundle: {:?}", scanned.outcome))?
+/// VST3 bundle scans, once per bundle per process: bridges open on several threads at once
+/// (one helper per track), and each scan spawns a helper of its own.
+static SCANS: Mutex<Option<HashMap<String, Vec<(PluginRef, String)>>>> = Mutex::new(None);
+
+fn resolve(helper: &Path, slot: &SlotJob) -> Result<PluginRef, String> {
+    if slot.format == "au" {
+        return Ok(PluginRef::audio_unit(au_class_id(slot.au.as_ref().ok_or("au job without codes")?)));
+    }
+    let bundle = slot.bundle.as_ref().ok_or("vst3 job without bundle")?;
+    let mut scans = SCANS.lock().unwrap_or_else(|e| e.into_inner());
+    let scans = scans.get_or_insert_with(HashMap::new);
+    if !scans.contains_key(bundle) {
+        let cache = std::env::temp_dir().join(format!("ph-bridge-scan-{}.json", std::process::id()));
+        let scanned = Scanner::new(helper, &cache).retry(Path::new(bundle)).map_err(|e| describe(&e))?;
+        let _ = std::fs::remove_file(&cache);
+        let classes: Vec<_> = scanned.plugins().into_iter().map(|(p, i)| (p, i.name.clone())).collect();
+        if classes.is_empty() {
+            return Err(format!("no class in {bundle}: {:?}", scanned.outcome));
         }
+        scans.insert(bundle.clone(), classes);
+    }
+    let classes = &scans[bundle];
+    let found = match &slot.class_name {
+        Some(name) => classes.iter().find(|(_, n)| n == name),
+        None => classes.get(slot.class_index.unwrap_or(0)),
     };
-    let mut chain = Chain::spawn(helper, &[ChainSlot::new(plugin.clone())], &SpawnOptions::default())
-        .map_err(|e| describe(&e))?;
-    let info = chain.plugins()[0].clone();
-    let instrument = info.kind == PluginKind::Instrument;
+    found.map(|(p, _)| p.clone()).ok_or(format!("no class {:?} in {bundle}", slot.class_name))
+}
+
+fn open(helper: &Path, job: &Job) -> Result<Bridge, String> {
+    let specs = job.slots.clone().unwrap_or_else(|| vec![job.single.clone()]);
+    let plugins = specs.iter().map(|s| resolve(helper, s)).collect::<Result<Vec<_>, _>>()?;
+    let slots: Vec<ChainSlot> = plugins.iter().cloned().map(ChainSlot::new).collect();
+    let mut chain = Chain::spawn(helper, &slots, &SpawnOptions::default()).map_err(|e| describe(&e))?;
+    let infos = chain.plugins().to_vec();
+    let instrument = infos[0].kind == PluginKind::Instrument;   // an instrument can only lead
     let mode = if job.realtime { ProcessMode::Realtime } else { ProcessMode::Offline };
     let mut prepared = None;
     let mut last = String::new();
     for layout in [Layout::Stereo, Layout::Mono] {
         let input = if instrument { Layout::None } else { layout };
-        match chain.main_bus_config(job.sr, job.block, input, &[layout])
+        match chain.main_bus_config(job.sr, job.block, input, &vec![layout; infos.len()])
             .and_then(|c| chain.prepare_audio(&c.with_mode(mode)))
         {
             Ok(_) => { prepared = Some(layout.channels()); break; }
@@ -161,16 +191,19 @@ fn open(helper: &Path, job: &Job) -> Result<Bridge, String> {
         }
     }
     let outputs = prepared.ok_or(last)?;
-    if let Some(p) = &job.preset {
-        let bytes = std::fs::read(p).map_err(|e| e.to_string())?;
-        chain.import_preset(0, &bytes).map_err(|e| describe(&e))?;
+    for (i, (spec, plugin)) in specs.iter().zip(&plugins).enumerate() {
+        if let Some(p) = &spec.preset {
+            let bytes = std::fs::read(p).map_err(|e| e.to_string())?;
+            chain.import_preset(i, &bytes).map_err(|e| describe(&e))?;
+        }
+        if let Some(p) = &spec.component_state {
+            let state = std::fs::read(p).map_err(|e| e.to_string())?;
+            chain.import_preset(i, &vstpreset(plugin.id().class_id().as_str(), &state)).map_err(|e| describe(&e))?;
+        }
     }
-    if let Some(p) = &job.component_state {
-        let state = std::fs::read(p).map_err(|e| e.to_string())?;
-        chain.import_preset(0, &vstpreset(plugin.id().class_id().as_str(), &state)).map_err(|e| describe(&e))?;
-    }
+    let name = infos.iter().map(|i| i.name.as_str()).collect::<Vec<_>>().join(" > ");
     Ok(Bridge {
-        chain, plugin, name: info.name, vendor: info.vendor, instrument,
+        chain, plugins, name, vendor: infos[0].vendor.clone(), instrument,
         inputs: if instrument { 0 } else { outputs }, outputs, sr: job.sr,
         snapshot: None, produced: Events::for_block(), error: Default::default(),
     })
@@ -318,8 +351,8 @@ pub extern "C" fn ph_rt_status_json(b: *mut Bridge, out: *mut c_char, len: usize
 #[unsafe(no_mangle)]
 pub extern "C" fn ph_snapshot(b: *mut Bridge) -> i32 {
     let b = unsafe { &mut *b };
-    match b.chain.save_state(0, StatePurpose::Project) {
-        Ok(state) => { b.snapshot = Some(vec![ChainSlot::new(b.plugin.clone()).with_state(state)]); 0 }
+    match b.chain.snapshot() {
+        Ok(snap) => { b.snapshot = Some(snap.slots); 0 }
         Err(e) => b.fail(describe(&e)),
     }
 }
@@ -327,7 +360,7 @@ pub extern "C" fn ph_snapshot(b: *mut Bridge) -> i32 {
 #[unsafe(no_mangle)]
 pub extern "C" fn ph_recover_rt(b: *mut Bridge, recover_ms: *mut f64) -> i32 {
     let b = unsafe { &mut *b };
-    let slots = b.snapshot.clone().unwrap_or_else(|| vec![ChainSlot::new(b.plugin.clone())]);
+    let slots = b.snapshot.clone().unwrap_or_else(|| b.plugins.iter().cloned().map(ChainSlot::new).collect());
     let t = Instant::now();
     match b.chain.recover_realtime(&slots) {
         Ok(chain) => {
@@ -343,4 +376,30 @@ pub extern "C" fn ph_recover_rt(b: *mut Bridge, recover_ms: *mut f64) -> i32 {
 pub extern "C" fn ph_resync_rt(b: *mut Bridge) -> i32 {
     let b = unsafe { &mut *b };
     match b.chain.resync_realtime() { Ok(_) => 0, Err(e) => b.fail(describe(&e)) }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn single_plugin_job_keeps_its_fields() {
+        let job: Job = serde_json::from_str(
+            r#"{"format":"vst3","bundle":"/x/Serum2.vst3","class_name":"Serum 2","sr":44100,"block":512,"realtime":true}"#,
+        ).unwrap();
+        assert!(job.slots.is_none() && job.realtime);
+        assert_eq!(job.single.class_name.as_deref(), Some("Serum 2"));
+    }
+
+    #[test]
+    fn chain_job_has_its_slots_in_order_with_vst3_default() {
+        let job: Job = serde_json::from_str(
+            r#"{"slots":[{"bundle":"/a.vst3"},{"bundle":"/b.vst3","class_name":"B"}],"class_name":"chain","sr":48000,"block":4096}"#,
+        ).unwrap();
+        let slots = job.slots.unwrap();
+        assert_eq!(slots.len(), 2);
+        assert_eq!(slots[0].format, "vst3");
+        assert_eq!(slots[1].class_name.as_deref(), Some("B"));
+        assert!(!job.realtime);
+    }
 }
